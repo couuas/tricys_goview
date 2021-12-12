@@ -3,15 +3,21 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'a3d1fe287c1abf12047dbcbf0dced7e8952eebed'
-    oldFile: !uuid 'a65106a7c9cac9f4d18ea4a3b94492e8b1167128'
-  /src/router:
-    newFile: !uuid '008363ec6ebca982685d5b6da0860a1b29f93ae6'
-    oldFile: !uuid '62dee4b741e291b732ef5123d8bfcfdd9cd4929a'
-  /src/router/index.ts:
-    newFile: !uuid '69fd39c385ef356488a1f43a976cb48e0f415e99'
-    oldFile: !uuid 'ed1818637bdcfc2376d77321be0e075a345c613a'
-gitCommitId: !uuid '00d205e0004ddcaf2963da5cfd7893ad66c75e5a'
+    newFile: !uuid '6ef9bb35663c31795d84e68e926465c2bafe23ed'
+    oldFile: !uuid 'a3d1fe287c1abf12047dbcbf0dced7e8952eebed'
+  /src/styles:
+    newFile: !uuid '7fd3469998d799f3701f533bf3e45f6849866ab1'
+    oldFile: !uuid 'ab0634cf0b284dbfabdbcba289952fe520d740cb'
+  /src/styles/global:
+    newFile: !uuid '5d88ae0cfa62fd2f0a258856c43bd46908f7bf0e'
+    oldFile: !uuid '5a9739251f98169faf375ef7fe6fabb197ec1451'
+  /src/styles/global/style.scss:
+    newFile: !uuid 'b2f9c24ae23bdbc84912cd789451f62d8b15e769'
+    oldFile: !uuid '54027f317de46b9215ef6453e015e05e83771973'
+  /src/styles/global/var.scss:
+    newFile: !uuid '671e69f0a1ef8daa983a26f250795185aa7afeac'
+    oldFile: !uuid '4ca11f90f8fb8c9028ce59aba0ecea6ef5316f3d'
+gitCommitId: !uuid 'e09ad35a4a9d2b87a45e7c5e260e11ca788562d5'
 renames: {
   }
-revisionId: 2
+revisionId: 3
