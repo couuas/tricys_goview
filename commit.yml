@@ -3,48 +3,18 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'e5786a3e33d166757081519bd7c3ad92dc781e3f'
-    oldFile: !uuid '4393e759dcfdf80a6ce73befb1a0b3cba92a85fb'
-  /src/assets:
-    newFile: !uuid '4041436a01b2269d0ad9f184547d84525d423ef2'
-    oldFile: !uuid 'dbcc23f2901b09953ec0f5ef480332240a68ace6'
-  /src/assets/images:
-    newFile: !uuid 'ddd3c3eac9665e15c5f26bdc22f04684f8e128d0'
-    oldFile: !uuid 'f1b3b96641673890bc67a4522de82050822d35cc'
-  /src/assets/images/login:
-    newFile: !uuid 'f3901bdf99b47fe200fe7d3c6f15d912453cfc48'
-    oldFile: !uuid 'c6e9e30a9ad9b53519a509f4225c5cd6d6f14557'
-  /src/assets/images/login/login-bg.png:
-    newFile: !uuid '01bd08c53d36f4b9ae8a022ee66be79c5b795d2f'
-    oldFile: null
-  /src/styles:
-    newFile: !uuid '9fcc6ed6d3dcdb6fe63556621867545308f7af21'
-    oldFile: !uuid '5314153a5a3c341ee31642d51c3e5d68e03fad7e'
-  /src/styles/common:
-    newFile: !uuid '949a68d949278c027870ab85f0bd877b05eecfd5'
-    oldFile: !uuid 'd6b3db246cf7674fb85dad20cb218081b94e52e4'
-  /src/styles/common/mixins:
-    newFile: !uuid '72aa54592d0d7131a3f709a3083e2125c29dfd4d'
-    oldFile: !uuid 'fddbb1c33d1cb610eee2a70731c072c5a2c1d96f'
-  /src/styles/common/mixins/function.scss:
-    newFile: !uuid 'e69de29bb2d1d6434b8b29ae775ad8c2e48c5391'
-    oldFile: null
-  /src/styles/common/style.scss:
-    newFile: !uuid '0569d2f60a69a20f64d09e2bd4846c8154cc5570'
-    oldFile: !uuid 'a2419cf7d1b73329fb8b14118bd1043219d2352c'
-  /src/styles/common/var.scss:
-    newFile: !uuid '632ef047699235b90a847bc1c99a6e6828eb57c7'
-    oldFile: !uuid '1083cae4df9374065b08eacd881d87ba4b3899f2'
+    newFile: !uuid 'eba1fbbde2a032a7b6a5f39adb5906d07988dec2'
+    oldFile: !uuid 'e5786a3e33d166757081519bd7c3ad92dc781e3f'
   /src/views:
-    newFile: !uuid '9741f2034963a6f394f9d9146a393a4d4ab608ad'
-    oldFile: !uuid '59cb5d0948a19261ebad400567272c9ad1eeea0a'
+    newFile: !uuid '9cfc875cc16031fe56cdfa51344285c601c69797'
+    oldFile: !uuid '9741f2034963a6f394f9d9146a393a4d4ab608ad'
   /src/views/login:
-    newFile: !uuid 'e0b63677c4fe656b72b627e04bc25b0dcf488c8f'
-    oldFile: !uuid 'ff79586861412f2ee2322b3a780fca8c3ab94a1f'
+    newFile: !uuid 'fdeb619e925ad8a3734ae27b44b6189d21a7e7b3'
+    oldFile: !uuid 'e0b63677c4fe656b72b627e04bc25b0dcf488c8f'
   /src/views/login/index.vue:
-    newFile: !uuid '7721ee5349d260a3c98b872644df27718a7ea5e2'
-    oldFile: !uuid 'c7861d27b26888f9ad7ed6fa21d76c38585278a1'
-gitCommitId: !uuid '50a8249ac8ac9298c87febe88f17b1d603c2d7fb'
+    newFile: !uuid 'be0cb126770e36add66911ceccc385c16deafa3e'
+    oldFile: !uuid '7721ee5349d260a3c98b872644df27718a7ea5e2'
+gitCommitId: !uuid 'c4caff75e43d673674d3362c8778e6338f5664e7'
 renames: {
   }
-revisionId: 8
+revisionId: 9
