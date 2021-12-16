@@ -3,75 +3,18 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'cacb554a26817c232c296f527de7b55141d58620'
-    oldFile: !uuid 'f29e0f53fb173c2b9191f2c0aee922fda93ff46f'
-  /src/components:
-    newFile: !uuid 'e7e0e777aebce1cab7fa2a3d2338ba4d5d4d3c33'
-    oldFile: !uuid 'b5ab822283610fba6d05cce4c9ea8af646c30602'
-  /src/components/ThemeSelect:
-    newFile: !uuid 'f77fc30ba3c5c63db5d3e45691ddc6698ec92096'
-    oldFile: null
-  /src/components/ThemeSelect/index.ts:
-    newFile: !uuid '2e11f666dc792f4a394df36914cd394ab5a8c38b'
-    oldFile: null
-  /src/components/ThemeSelect/index.vue:
-    newFile: !uuid '43f49ae752b38d69cc01001cbd2fb3237239d096'
-    oldFile: null
-  /src/enums:
-    newFile: !uuid '31c01f44fcb7b7db068c1971a0ee6096d0d00613'
-    oldFile: !uuid 'f3a37c28f467454a33a0d900dc69b271fa0a3adb'
-  /src/enums/styleEnum.ts:
-    newFile: !uuid 'eaa4771e3e283896bd2e84da2dd18538f7363d10'
-    oldFile: null
-  /src/layout:
-    newFile: !uuid 'a28b5f79ca48bb0ef56dffeb04f8de52d218bcf1'
-    oldFile: !uuid '6a0cc3cd6f179dcd0103a3579c07cb1e7dc2fec6'
-  /src/layout/components:
-    newFile: !uuid 'bb4d5cd897ade9cc521cf7241adf1f7d4860ac6a'
-    oldFile: !uuid 'b8b9d9a3d0c3e78ab359cbd9f08ece36bddd620b'
-  /src/layout/components/Main:
-    newFile: !uuid 'bd455d391cd35fed009a309bde5bd80c9610bf07'
-    oldFile: !uuid '86dfa1fa9b3e987f5fbffcc6f208b4b38e5c8229'
-  /src/layout/components/Main/index.vue:
-    newFile: !uuid 'c2b57373e1181b67bc79105ce0d78e1e2992a609'
-    oldFile: !uuid '30ece487b6bad31d1966970e53467e5faa63f600'
-  /src/styles:
-    newFile: !uuid 'fa7ecf8f1e7d45e610ee3d94d942579ae19e4267'
-    oldFile: !uuid '216511164e60c7adbbbe8b7e574b73ee8b1d0f21'
-  /src/styles/common:
-    newFile: !uuid '241749cea0f310288c508fc2b0934ac56198f206'
-    oldFile: !uuid '2f92dae343586c0fcd259c51bef057aa7022f504'
-  /src/styles/common/_dark.scss:
-    newFile: !uuid '546431d693f947cc30cc6a3b508791e0022ce166'
-    oldFile: null
-  /src/styles/common/_light.scss:
-    newFile: !uuid '0c51772a67f31d1ede7f9d5984e7fc53aea29c74'
-    oldFile: null
-  /src/styles/common/mixins:
-    newFile: !uuid 'd13a93eaf2da8a50ff45ae5a6d72171c74609dd7'
-    oldFile: !uuid 'd38ac4f7ae1bff277d1840d88071ecd8f8cc8697'
-  /src/styles/common/mixins/mixins.scss:
-    newFile: !uuid 'fdaba1336f30ac41e66dec2a7a2716f2c6041197'
-    oldFile: !uuid '46aced6d713037e5c565eb0c858144e5069a100e'
-  /src/styles/common/mixins/theme.scss:
-    newFile: null
-    oldFile: !uuid 'a509dcdd5fcf781c3be450127e00b467a6070eaa'
-  /src/styles/common/theme.scss:
-    newFile: !uuid '74cd3336a37d78eb2aaad156c4fd719110b6c8b1'
-    oldFile: null
-  /src/styles/common/var.scss:
-    newFile: !uuid 'e5a37c318538940f674f964799b1601dfd780b1d'
-    oldFile: !uuid 'af7b6ee36866111a5cbe8579806bd2877cfdcb86'
+    newFile: !uuid '54d3a8a38cf0ff7ac2090a5557c6b6db40468919'
+    oldFile: !uuid 'cacb554a26817c232c296f527de7b55141d58620'
   /src/views:
-    newFile: !uuid 'ebf0f28b4554ade096c5d1906548e138be4dbe8f'
-    oldFile: !uuid 'f4857979af7a4f79be7a12c40b0d64dda7e09cd6'
+    newFile: !uuid '3c96f3287e651d34f9154dd813eef1cb6cdfb9df'
+    oldFile: !uuid 'ebf0f28b4554ade096c5d1906548e138be4dbe8f'
   /src/views/login:
-    newFile: !uuid '1c4c4214a60749ab94b478d07c2c46feb76ee60a'
-    oldFile: !uuid 'e19114f03b5d999c0697a108aaad59c2221b9fb2'
+    newFile: !uuid 'c039e2f3ae2efecae0d1021b77feb9264fdfb2b6'
+    oldFile: !uuid '1c4c4214a60749ab94b478d07c2c46feb76ee60a'
   /src/views/login/index.vue:
-    newFile: !uuid '4afcd8749e27e40d15d22ae8bb17f124616fd3c4'
-    oldFile: !uuid 'bf4b4cca34d5e71eec6e911a17d19562bcb50efa'
-gitCommitId: !uuid '52e2fc2f4a55592a52f98e60d5fe3f035961ee3e'
+    newFile: !uuid '5ce1553e2e3cd22ccfe8451e385a4f16c47b6ac1'
+    oldFile: !uuid '4afcd8749e27e40d15d22ae8bb17f124616fd3c4'
+gitCommitId: !uuid '884dc57ee4a8e984fccd9fa052bd44bb3b743d84'
 renames: {
   }
-revisionId: 12
+revisionId: 13
