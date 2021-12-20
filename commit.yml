@@ -3,39 +3,63 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'cf46775cfe8c639b4a185a513a6ba3c23c46a042'
-    oldFile: !uuid 'f6e6f9489a0c090ef4ba2846085bfc727dce0da7'
-  /src/enums:
-    newFile: !uuid '17d02b002230dce045a24d325787e3808ab7a7f5'
-    oldFile: !uuid 'c41e1d70e3f5e6d74da8c0597da06f7eddd5bb4f'
-  /src/enums/pluginEnum.ts:
-    newFile: !uuid '67f5141ab96b3185d42d9ce481c2eb09494b5e97'
+    newFile: !uuid '461552be0496e6ba10a0901092f5167d67411df9'
+    oldFile: !uuid 'cf46775cfe8c639b4a185a513a6ba3c23c46a042'
+  /src/assets:
+    newFile: !uuid '10d6d80f1b6ecf365c0d7a64adf7e199e853fc96'
+    oldFile: !uuid '8dcd3f2fb74fa8cff8954631166b03a0bf438578'
+  /src/assets/images:
+    newFile: !uuid 'b07749b08a1b9aa267d8c598f116b4852664050b'
+    oldFile: !uuid 'a9a851dc2d4a0913b6b79780e66e4623adb0c41d'
+  /src/assets/images/exception:
+    newFile: !uuid 'b75b450866dde4e1f75763d950d0cef5bd7a75ef'
+    oldFile: !uuid '9fca0f9f40081eb1333cdc15f7979b50ca2c9945'
+  /src/assets/images/exception/image-404.png:
+    newFile: !uuid '443045b9c5945d9ab85237e8e801ba99dd06f821'
+    oldFile: null
+  /src/assets/images/project:
+    newFile: !uuid 'cbe4b561a33a4ef324a53cd69f8c8cca33a36568'
+    oldFile: !uuid '4724eb20c2630ff92a93ca233abab534ef4bac3b'
+  /src/assets/images/project/moke-20211219181327.png:
+    newFile: !uuid '7be19aa31540c4255c818bbcc62eaaca881b9c51'
     oldFile: null
   /src/utils:
-    newFile: !uuid '7c661e96944243e82dd42133879195de656be507'
-    oldFile: !uuid 'ab79176f008dcab307beb48b7a0f5927cee9d4c1'
-  /src/utils/plugin.ts:
-    newFile: !uuid '503f2815ebf0f33cc7cb1a8b0004cb2142a5ab30'
-    oldFile: !uuid '9cd12611bbc748d6adaf537e3d389979c002a507'
+    newFile: !uuid 'aaac20579add80cf333641218a84dde1ce460324'
+    oldFile: !uuid '7c661e96944243e82dd42133879195de656be507'
+  /src/utils/utils.ts:
+    newFile: !uuid '12b2298057ecdc1c6e4dcff75cfe6ebc7d68a69b'
+    oldFile: !uuid '17b948850332ecec7fec7d06496e56182fcfd0a6'
   /src/views:
-    newFile: !uuid 'b69565d87cb0b97083d15ea902b272425a816d48'
-    oldFile: !uuid '4f03c7465d5cdeb4ab4f073154087eb6abc9379e'
+    newFile: !uuid '90f3236cca0964df3960df55c9aa22ae2b483bbc'
+    oldFile: !uuid 'b69565d87cb0b97083d15ea902b272425a816d48'
+  /src/views/login:
+    newFile: !uuid '32ef205013568e2ffede890ff3d09ba3015006a8'
+    oldFile: !uuid 'ddf799921d36546767cf2298a5c7e613a0ffe7be'
+  /src/views/login/index.vue:
+    newFile: !uuid 'c1436f670465d535127929bb2db43cb1b5c8b7d6'
+    oldFile: !uuid '4a74b54f104ec000ce357928a098fbc82ac01a28'
   /src/views/project:
-    newFile: !uuid 'ead2825dcfa420351bde8b75dc725b71d1ede295'
-    oldFile: !uuid '4a0691ed8c964ae65ae727b54184f2bffd5b2a7b'
+    newFile: !uuid '1cea4f38a2d89dcb87510b93c89aa82da9e5d7d9'
+    oldFile: !uuid 'ead2825dcfa420351bde8b75dc725b71d1ede295'
   /src/views/project/items:
-    newFile: !uuid '5bb9b430640dee8726319ae3a0aff8befc8e35af'
-    oldFile: !uuid 'c08dcc023c28bfdf7c6af2a3be0470de8d2ea87d'
+    newFile: !uuid '08019185d83aba5fefdb04f467b6c13aacdf54fa'
+    oldFile: !uuid '5bb9b430640dee8726319ae3a0aff8befc8e35af'
   /src/views/project/items/components:
-    newFile: !uuid 'ce2146724424546bf11bb044407917900f699c5e'
-    oldFile: !uuid '354875d01d38a43d7b9724cb4ece0e170379667c'
+    newFile: !uuid 'aa8ac1873b09fed4f05b4907843632e317754437'
+    oldFile: !uuid 'ce2146724424546bf11bb044407917900f699c5e'
   /src/views/project/items/components/Card:
-    newFile: !uuid '6be16ee20cd9e454dc441354a9a8119d802372d5'
-    oldFile: !uuid '1999613936132353629acdf6ec321e465e4d364f'
+    newFile: !uuid '044aefb93948effa429941b5f98967a38c790e6b'
+    oldFile: !uuid '6be16ee20cd9e454dc441354a9a8119d802372d5'
   /src/views/project/items/components/Card/index.vue:
-    newFile: !uuid 'a2712e571959f9cd5ce37ac288c703db388b6a6a'
-    oldFile: !uuid 'ae7ca0d2efb41f82032f83d215575455203fdd48'
-gitCommitId: !uuid '2120e26220bec674cd38bfd7536e2f4fab9bd8f8'
+    newFile: !uuid '2260227cf15098337808cfd1de943d64de573bc3'
+    oldFile: !uuid 'a2712e571959f9cd5ce37ac288c703db388b6a6a'
+  /src/views/project/items/components/ModalCard:
+    newFile: !uuid '382b3b06de7899baf9291835f7676a0887375626'
+    oldFile: !uuid '7addd8f6c694d766bd4b8f009b5518ff9e17880c'
+  /src/views/project/items/components/ModalCard/index.vue:
+    newFile: !uuid '0f787f66fbe71d1adaa4f9b28d093dfc2feb591e'
+    oldFile: !uuid '5855624f5e3b54efc9b0b76a900ec9b3c596a81d'
+gitCommitId: !uuid 'a8de985e88349b10fdc6e11e3bbd93cfed7a1148'
 renames: {
   }
-revisionId: 26
+revisionId: 27
