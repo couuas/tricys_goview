@@ -2,58 +2,16 @@
 branches: {
   }
 fileChange:
-  /package.json:
-    newFile: !uuid 'ac30175749c6ec8eef23a5aa02c90f0d64b372fc'
-    oldFile: !uuid 'c52a3870e3ea914d9263245edb7ed6543ccc3876'
   /src:
-    newFile: !uuid '997f86b4337f67bb46ff491850276e179238f51c'
-    oldFile: !uuid 'f439ee7cf8effe72898f9b07b466321f6061caec'
-  /src/views:
-    newFile: !uuid 'edb18f74a95284c8bdaa29219d5a3f23c6651b80'
-    oldFile: !uuid '494f371bd84ca4eac748feb2b82c925ce184f0d3'
-  /src/views/project:
-    newFile: !uuid '0792a9941bc0306452deb11fb485b5a8ab6f77e7'
-    oldFile: !uuid 'a23c20bc1e1ff6635e043ce991bb7ab4519450ec'
-  /src/views/project/items:
-    newFile: !uuid '71a85ba7d2a685284264926b6999df052f9cdbbf'
-    oldFile: !uuid '1881e544ec6db030213e5d99d4a91f925e117bbf'
-  /src/views/project/items/components:
-    newFile: !uuid 'd120c8871dfe31cd5f8f38a93a5c29d356b77538'
-    oldFile: !uuid '7952aca16967e49c795e54516e5695ca2130c280'
-  /src/views/project/items/components/Card:
-    newFile: !uuid 'bb10bcfa75959b03c9c32827da6970b18b226d03'
-    oldFile: !uuid 'a61feeb88614f1cd8ff4e5dd7fac4400cf31d76d'
-  /src/views/project/items/components/Card/index.vue:
-    newFile: !uuid '4adb6fec3e14c7a77a5e746a51bf0da694d603a8'
-    oldFile: !uuid 'fd2accf4219461e9e08b68efda16482b92eded4b'
-  /src/views/project/items/components/List:
-    newFile: !uuid '95cf2242542ef8db5362214fa02181a12ff6aa66'
-    oldFile: !uuid 'ef030dc4580e86256479e80b8831bac2836e0923'
-  /src/views/project/items/components/List/index.vue:
-    newFile: !uuid 'c2425bd4c80a699cfbafc669d4a606c4b58bbb8a'
-    oldFile: !uuid '3086c940e3210c4b38c09da00051a84295bdff00'
-  /src/views/project/items/components/ModalCard:
-    newFile: !uuid 'a9bff677b95e5ad9d3cb3d4d8d782c70b2c64743'
-    oldFile: !uuid '06f708b38b6222e5e73040d37a5ef1b5c0d4bc4d'
-  /src/views/project/items/components/ModalCard/index.vue:
-    newFile: !uuid '95634dd250f624ffee52098cdb9f4218baf77cda'
-    oldFile: !uuid '4492b4bd2bb1020909b3fbef0c27e08d3bc60d13'
-  /src/views/project/items/index.d.ts:
-    newFile: !uuid 'abd887ed45a8cc2fb5d24c476e737420acbce814'
-    oldFile: !uuid 'd54bd15b5c20183754db1b560871ce8ec4f24904'
-  /src/views/project/layout:
-    newFile: !uuid '5acb83037ffd14e06ca7d8cf85bba883bb1587b2'
-    oldFile: !uuid 'a5ef8a27a16062d161b90542058f2f494f991413'
-  /src/views/project/layout/components:
-    newFile: !uuid 'b7f0ef734dd5efa05eb47ef4d427f23f88f81f9a'
-    oldFile: !uuid '4fab461d5c84051cb27fa6408b58303b4c9f99d2'
-  /src/views/project/layout/components/Create:
-    newFile: !uuid '9a37c1c232be7f6f2e4f0ce243c4d077936ae589'
-    oldFile: !uuid 'f672daeb9639b94d778227b101231beff5e3bd13'
-  /src/views/project/layout/components/Create/index.vue:
-    newFile: !uuid '67257546ca35d9ef8ad8124493c1ea2141d7c976'
-    oldFile: !uuid '4504cfc309f0a60c061e82606acddab391bdcad7'
-gitCommitId: !uuid '60183b6a60517db634400a1407af37aebd8a5800'
+    newFile: !uuid '912794cc5941438024484435308e1a1f36c2052c'
+    oldFile: !uuid '997f86b4337f67bb46ff491850276e179238f51c'
+  /src/settings:
+    newFile: !uuid '98eea2edcd22a670e6da03182e8551547383181b'
+    oldFile: !uuid 'd9785720c53bded7032e517d7f885d4074b40fc1'
+  /src/settings/designSetting.ts:
+    newFile: !uuid 'fcdf388061d2dd2c7e7ff048582df65e04df09ae'
+    oldFile: !uuid '178ba76baf39de7c995fe0b8477495630b0b09f0'
+gitCommitId: !uuid 'cc5d6ae5d7f1ba23442815cd45024070ab128483'
 renames: {
   }
-revisionId: 721
+revisionId: 722
