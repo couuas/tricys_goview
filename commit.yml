@@ -2,34 +2,327 @@
 branches: {
   }
 fileChange:
+  /package.json:
+    newFile: !uuid '030ba855531bb36f914d8f04d1e977f197e085d4'
+    oldFile: !uuid '85ccad512c255235b3baee0a338e3679dd90f3af'
+  /pnpm-lock.yaml:
+    newFile: !uuid '1098a480a8de564dbd25213c8f6152a792964d6c'
+    oldFile: !uuid '669d9e21e99d96a188325efe0f468370ffffb7c3'
   /src:
-    newFile: !uuid '9b91318d00a76d84ba351083a3f45274124959b8'
-    oldFile: !uuid '1f74854bc3b06473c3b8d1826158a8f17f959956'
+    newFile: !uuid 'c5d3e43ef95b989cb843a87c3888c4315f43a184'
+    oldFile: !uuid '9b91318d00a76d84ba351083a3f45274124959b8'
+  /src/assets:
+    newFile: !uuid 'bf8328bad173aca659b8364038c479fe7f18801d'
+    oldFile: !uuid '33a533eabe6425318d4b2e90d5e822ff9b9041a9'
+  /src/assets/images:
+    newFile: !uuid 'a197f472472657a2d03299e0aac9d5c5b17077eb'
+    oldFile: !uuid '49e8ce0e45cb27daf20f59bae1024245d6fa41de'
+  /src/assets/images/chart:
+    newFile: !uuid '4443de59308fd9d979b48a900d006b34cc46ce87'
+    oldFile: !uuid '5973bafb4ae853e696c060f36e2ee05a6eded090'
+  /src/assets/images/chart/bar_x.png:
+    newFile: null
+    oldFile: !uuid '6d3872e5fcc4accd591eeb60c5fb5ff0d925b143'
+  /src/assets/images/chart/bar_y.png:
+    newFile: null
+    oldFile: !uuid 'bd26b1eeb9506c9fbe2d1ccff90515533ef857f9'
+  /src/assets/images/chart/charts:
+    newFile: !uuid '3ccfc1b70ba90f951ce7dc28254e8639fcd2d942'
+    oldFile: null
+  /src/assets/images/chart/charts/bar_x.png:
+    newFile: !uuid '01eae8ab8f8a943dadfd1de64cd67a6546025225'
+    oldFile: null
+  /src/assets/images/chart/charts/bar_y.png:
+    newFile: !uuid '6a1c738d6a0482c5665b1e42576ddb157863d667'
+    oldFile: null
+  /src/assets/images/chart/charts/bar_y2.png:
+    newFile: !uuid 'c5c0199501f0edc92028d993460995659dd0ccb0'
+    oldFile: null
+  /src/assets/images/chart/charts/funnel.png:
+    newFile: !uuid '6743a927113066ed7aa224c9be8261f8188cbb6e'
+    oldFile: null
+  /src/assets/images/chart/charts/heatmap.png:
+    newFile: !uuid '0f28711a9eafae50153afbebd12254c8138c529b'
+    oldFile: null
+  /src/assets/images/chart/charts/line.png:
+    newFile: !uuid '4834a0412dc801e442913b80e6e7589f1f0cfb85'
+    oldFile: null
+  /src/assets/images/chart/charts/line_gradient.png:
+    newFile: !uuid 'dfe6b163aa231a085d3ada4956e7700a04df1711'
+    oldFile: null
+  /src/assets/images/chart/charts/line_gradient2.png:
+    newFile: !uuid '58ad3c37b0e6abdcf5edfcde5d38c531ffb38133'
+    oldFile: null
+  /src/assets/images/chart/charts/line_gradient_single.png:
+    newFile: !uuid 'f5d66e05354dd188b894ec61bc4e1dbfb68ae762'
+    oldFile: null
+  /src/assets/images/chart/charts/map.png:
+    newFile: !uuid 'a672c83a5bbef45387a76b0d6da4470892e71dc1'
+    oldFile: null
+  /src/assets/images/chart/charts/map_logo.png:
+    newFile: !uuid '7310938a41e4e0bc8c83a9e99ceb099178fe41ec'
+    oldFile: null
+  /src/assets/images/chart/charts/photo.png:
+    newFile: !uuid '4bcbb97fb795acaa9ad9174232bcabbfbf17e961'
+    oldFile: null
+  /src/assets/images/chart/charts/pie.png:
+    newFile: !uuid '6ac019bd7d9e71923c2e4875fa8e180311b1db7e'
+    oldFile: null
+  /src/assets/images/chart/charts/point.png:
+    newFile: !uuid 'edbb793b951bb9931513eceacda4e2b845c2f06e'
+    oldFile: null
+  /src/assets/images/chart/charts/radar.png:
+    newFile: !uuid 'db5c0200af983a84fb6d65c7294707d8a1a8773c'
+    oldFile: null
+  /src/assets/images/chart/charts/static.png:
+    newFile: !uuid '3bbe3f1d1d39ce4d823d9a11e61727a4750fb5ab'
+    oldFile: null
+  /src/assets/images/chart/charts/tree_map.png:
+    newFile: !uuid 'a990ca615ea0e2b1def7817b1d6dd89daff181c4'
+    oldFile: null
+  /src/assets/images/chart/charts/variable.png:
+    newFile: !uuid '21b46e598cffd0ac31f97ec256b179a187907bdf'
+    oldFile: null
+  /src/assets/images/chart/decorates:
+    newFile: !uuid '366508e24d14479576b79675cd85f49c02470afc'
+    oldFile: null
+  /src/assets/images/chart/decorates/border.png:
+    newFile: !uuid '5defb81f671d5ddcc19cb1685bbad84558197c0e'
+    oldFile: null
+  /src/assets/images/chart/decorates/material_dynamic.png:
+    newFile: !uuid '945d7c755f2346cadbbb6f3af3983201e8776996'
+    oldFile: null
+  /src/assets/images/chart/decorates/material_static.png:
+    newFile: !uuid 'f8ef02219f52dafabb31590ebb5a2a3a7e3de437'
+    oldFile: null
+  /src/assets/images/chart/decorates/number.png:
+    newFile: !uuid '1952ed4ce8d82ade25bd72596801c628451bf701'
+    oldFile: null
+  /src/assets/images/chart/decorates/time.png:
+    newFile: !uuid '14f90e49e02092073f0e7bea6cabcb0cfe8becf5'
+    oldFile: null
+  /src/assets/images/chart/decorates/title_diamond2.png:
+    newFile: !uuid 'f6ee6611c236d8beb83e846ff1f6dfa1b5e8aa8a'
+    oldFile: null
+  /src/assets/images/chart/decorates/title_main.png:
+    newFile: !uuid '3e7e34af715a071d289466fb374e9ba00168cd03'
+    oldFile: null
+  /src/assets/images/chart/decorates/weather.png:
+    newFile: !uuid '18467fe410e5aa13b35fd59866f74596c71fcc0f'
+    oldFile: null
+  /src/assets/images/chart/decorates/weather_time.png:
+    newFile: !uuid '0aded27f82436bf3c1c1b746b8d5337ae19638cd'
+    oldFile: null
+  /src/assets/images/chart/funnel.png:
+    newFile: null
+    oldFile: !uuid '6bb7a7a9280a06f00814b752d993d4d38c105cba'
+  /src/assets/images/chart/heatmap.png:
+    newFile: null
+    oldFile: !uuid '509e6098b5c5caf15092eec81a4a4d68e6a02fbe'
+  /src/assets/images/chart/informations:
+    newFile: !uuid '2b03144899cf83633d2b8808e4e3eec19086f2f2'
+    oldFile: null
+  /src/assets/images/chart/informations/text_carousel.png:
+    newFile: !uuid 'e98859e8621f4c7302871e680aac73710294e1a9'
+    oldFile: null
+  /src/assets/images/chart/informations/text_static.png:
+    newFile: !uuid 'f4273970f437fcb5bbd0722b25f8a13b1b6c5d50'
+    oldFile: null
+  /src/assets/images/chart/informations/title_diamond.png:
+    newFile: !uuid '41a508b2ef7a3bc3bb54fc248b85baee42fe0751'
+    oldFile: null
+  /src/assets/images/chart/informations/words_cloud.png:
+    newFile: !uuid 'e2c02816880e2773ce434e3f71c44248b94636ac'
+    oldFile: null
+  /src/assets/images/chart/line.png:
+    newFile: null
+    oldFile: !uuid 'a1c1a97470bd4adcd2de84c8ca1eaee788b74b48'
+  /src/assets/images/chart/line_gradient.png:
+    newFile: null
+    oldFile: !uuid 'ceccbdda89782594fa3d3531eecc5d68b9746533'
+  /src/assets/images/chart/map.png:
+    newFile: null
+    oldFile: !uuid '991491a84dbd27b215b37a987c6e4812f42fedc1'
+  /src/assets/images/chart/photo.png:
+    newFile: null
+    oldFile: !uuid '216be95f6106d22cf78863027eaa1f6f60faa732'
+  /src/assets/images/chart/pie.png:
+    newFile: null
+    oldFile: !uuid 'f7caf1d874fc84e1a4eb5ae14f20a76ca67b6d35'
+  /src/assets/images/chart/point.png:
+    newFile: null
+    oldFile: !uuid '363f01d233b09c0189f79aa0f50eb398bc0633e3'
+  /src/assets/images/chart/radar.png:
+    newFile: null
+    oldFile: !uuid '4602a4ae4969f016b3cb65f6d2a99bbb7d4fa6f0'
+  /src/assets/images/chart/static.png:
+    newFile: null
+    oldFile: !uuid '189de23d88208a62b1babac4d06b5e8a49aa8aa6'
+  /src/assets/images/chart/tables:
+    newFile: !uuid 'a45d592eb4913e3e0377be90160fefb09b4b7e5f'
+    oldFile: null
+  /src/assets/images/chart/tables/tables.png:
+    newFile: !uuid '1c1a6a4d224235aa309a65feeca08cf2c656a953'
+    oldFile: null
+  /src/assets/images/chart/tables/tables_categary.png:
+    newFile: !uuid '1ebf838c9c704f105f1c4f5d79d841513dd2518a'
+    oldFile: null
+  /src/assets/images/chart/tree_map.png:
+    newFile: null
+    oldFile: !uuid 'b1af8871de719f988ec18618e03d469097b39647'
+  /src/assets/images/chart/variable.png:
+    newFile: null
+    oldFile: !uuid 'd33cd48684e0e033661ab0a6ab5f0632a2054bde'
+  /src/packages:
+    newFile: !uuid '5df2a36e1c0db7673ac01d452a26afaca8c1d4aa'
+    oldFile: !uuid '366ff3ff587c7d8368bfdedb3454c46bfc9dec2d'
+  /src/packages/components:
+    newFile: !uuid 'cf10ae2d5f27ebd7b8954482ae41761ececff101'
+    oldFile: !uuid 'ce495018e70d6a098ad35c1eb172469319315eb5'
+  /src/packages/components/Chart:
+    newFile: !uuid '33605e5f97c71372c905f633868a59b0983c9d01'
+    oldFile: !uuid '71b8fa07b79cef7228af055debb2cdfd367746e6'
+  /src/packages/components/Chart/Pie:
+    newFile: !uuid '3b521d32d1aceb6cc97a23af44038bed01e7e686'
+    oldFile: !uuid '2fbdc2041d878e4bc0a6e4a630d4e6da991f5e08'
+  /src/packages/components/Chart/Pie/PieCommon:
+    newFile: !uuid 'b8fcbf433cce02305fe5f2e3d5b71f1ab8d15773'
+    oldFile: !uuid '6925d8969781569e8c1124cfecabe009964df899'
+  /src/packages/components/Chart/Pie/PieCommon/index.ts:
+    newFile: !uuid 'bbb19251db6f750d4366eddccd3018871d173add'
+    oldFile: !uuid 'd90fe0f3a77cc0b978d81c843140eb204794dd4c'
+  /src/packages/components/Chart/bar:
+    newFile: !uuid 'd3249de9b677c03b82c300815d502bf68a506a9c'
+    oldFile: !uuid 'ee3b957f9d3d7f8988606b7646cb9cc56a2a2499'
+  /src/packages/components/Chart/bar/barCommon:
+    newFile: !uuid '03da4a97adb502181028a5bbc5f3029b4fbe3630'
+    oldFile: !uuid '8393007fb2befc4856a29bdf8cc6892f7bfc0a1d'
+  /src/packages/components/Chart/bar/barCommon/index.ts:
+    newFile: !uuid 'b3668a384624aa8cb29d243db7d10540e360bfe0'
+    oldFile: !uuid '71f35a4f127913c0de8a875d2f82848e62e21b6e'
+  /src/packages/components/Decorate:
+    newFile: !uuid 'c777f028298c85c651ccc8a3078e4178d0fd2b44'
+    oldFile: !uuid '75aef514484dcf9937cd5532fb6c30c80cc5e310'
+  /src/packages/components/Decorate/border:
+    newFile: null
+    oldFile: !uuid 'b76dd07fc50a58c95199b467e2e832c79244be6a'
+  /src/packages/components/Decorate/border/borderCommon:
+    newFile: null
+    oldFile: !uuid 'dd3f65ed5b10e15499385f63a4fbfcf37c181c70'
+  /src/packages/components/Decorate/border/borderCommon/index.ts:
+    newFile: null
+    oldFile: !uuid 'c4e2fa6410bfa488fec585521d8d0ccbe71216a9'
+  /src/packages/components/Decorate/border/borderCommon/index.vue:
+    newFile: null
+    oldFile: !uuid '2e34ca4b53404cc0189c6ad796ee4424c4972acf'
+  /src/packages/components/Decorate/border/index.ts:
+    newFile: null
+    oldFile: !uuid '1ca71c3f0caee7fc6bb7b0eb8e309a5850fb1d20'
+  /src/packages/components/Decorate/borders:
+    newFile: !uuid 'c060048018c2b944feaedab945f810f2b915c16a'
+    oldFile: null
+  /src/packages/components/Decorate/borders/borderCommon:
+    newFile: !uuid '9a7125daf94259bf7c2a3d739910c34b34fc1bb1'
+    oldFile: null
+  /src/packages/components/Decorate/borders/borderCommon/index.ts:
+    newFile: !uuid 'd5945afbe12d3e172cb5ee324491d18efdaf6b97'
+    oldFile: null
+  /src/packages/components/Decorate/borders/borderCommon/index.vue:
+    newFile: !uuid '2e34ca4b53404cc0189c6ad796ee4424c4972acf'
+    oldFile: null
+  /src/packages/components/Decorate/borders/index.ts:
+    newFile: !uuid '1ca71c3f0caee7fc6bb7b0eb8e309a5850fb1d20'
+    oldFile: null
+  /src/packages/components/Decorate/index.d.ts:
+    newFile: !uuid 'a8c4eae1f74a634a35c3af7c69acd024682a42d2'
+    oldFile: !uuid 'cfddaa2893fcd2d0719caf969929ed6cff32beae'
+  /src/packages/components/Decorate/index.ts:
+    newFile: !uuid '6127cdacf3243f5883973ba9e6c0a27aa84fadcc'
+    oldFile: !uuid '0b2cb3d48f3ecb1116796df5358f178188aac217'
+  /src/packages/components/Information:
+    newFile: !uuid '7d00d3440e3fc3e9ef0a4d307af7c00f814ff653'
+    oldFile: null
+  /src/packages/components/Information/index.d.ts:
+    newFile: !uuid 'b956a06b25d9b29b0f331fab8e580737ecdba11f'
+    oldFile: null
+  /src/packages/components/Information/index.ts:
+    newFile: !uuid '405ae291ff4dfe03827afd806c6d681197677d0b'
+    oldFile: null
+  /src/packages/components/Information/textCommon:
+    newFile: !uuid 'e9ab48dc96552f277eb41141f144379e9ee15813'
+    oldFile: null
+  /src/packages/components/Information/textCommon/index.ts:
+    newFile: !uuid '8eca8a4892fb1de5856aa88cfaa41e756604a4f4'
+    oldFile: null
+  /src/packages/components/Information/textCommon/index.vue:
+    newFile: !uuid 'd98869effb30164d45e6d0b01a352779c01d8b17'
+    oldFile: null
+  /src/packages/components/Tables:
+    newFile: !uuid '372aff10b32610b4ef70427ce323e3e008c198f8'
+    oldFile: null
+  /src/packages/components/Tables/index.d.ts:
+    newFile: !uuid '27470ddc40aced355f15a68fa7a6b81be083c44f'
+    oldFile: null
+  /src/packages/components/Tables/index.ts:
+    newFile: !uuid 'de7abe60f95122858803d83fe0985c8343ded330'
+    oldFile: null
+  /src/packages/components/Tables/tableCommon:
+    newFile: !uuid 'c50d4343bdd472289de305981594b83e10a5cf0d'
+    oldFile: null
+  /src/packages/components/Tables/tableCommon/index.ts:
+    newFile: !uuid 'f03a60610a472ca949851205ee58af4ad41ace94'
+    oldFile: null
+  /src/packages/components/Tables/tableCommon/index.vue:
+    newFile: !uuid 'ebda1e9cb126cfd0f55e90d4751830461e5c7dd0'
+    oldFile: null
+  /src/packages/index.d.ts:
+    newFile: !uuid 'bce4eee0956d92496541968f529a0339ef345296'
+    oldFile: !uuid '023a8ca20cac971df6134b7ab9cb3b89dc93afe1'
+  /src/packages/index.ts:
+    newFile: !uuid '57f233dd30cb48550b524c704de0418d86214220'
+    oldFile: !uuid 'aa6dd705068823343b66bd38f1886970b9b1adae'
   /src/views:
-    newFile: !uuid 'f48fcd8b7e14d7df13c333cb90151e56e7368e26'
-    oldFile: !uuid '98ad1193e1a8c7550ae67425aef2c70ea8b58cd9'
+    newFile: !uuid '321657730b88117d403c54b7e76819640ffc33c0'
+    oldFile: !uuid 'f48fcd8b7e14d7df13c333cb90151e56e7368e26'
   /src/views/chart:
-    newFile: !uuid '4b47452e0c6ab3202a230308675471e680d34fff'
-    oldFile: !uuid '1516de272c979c86377e1ce4e296fd671af693ab'
+    newFile: !uuid '02666498f2a085b2d549239b74b57f7042f06257'
+    oldFile: !uuid '4b47452e0c6ab3202a230308675471e680d34fff'
   /src/views/chart/components:
-    newFile: !uuid 'b1ea7266733053ff4b44eca61de21423c4877c5d'
-    oldFile: !uuid '2e92076dbe4f845dcd4692a083575e964efa5f1a'
+    newFile: !uuid '7215cfcc46ebb9520d25c9f0951c16143b9cc37a'
+    oldFile: !uuid 'b1ea7266733053ff4b44eca61de21423c4877c5d'
   /src/views/chart/components/ContentCharts:
-    newFile: !uuid '89ce2d9f293dfc420888853b4aaf7443adb48e56'
-    oldFile: !uuid '2c56f22a3437792c4803af0e287e8bc4030c52e5'
+    newFile: !uuid '86a9dfbfad10996d42fe4e2b9334c62fd45c5606'
+    oldFile: !uuid '89ce2d9f293dfc420888853b4aaf7443adb48e56'
   /src/views/chart/components/ContentCharts/components:
-    newFile: !uuid 'a419cbeddc9aba4ea840a503cc09b9ba75bb910c'
-    oldFile: !uuid '9275943863c97bf850d3a74286634800ba08a2ab'
+    newFile: !uuid 'da296b328a558316fadbf7f927fd0e5033e91efb'
+    oldFile: !uuid 'a419cbeddc9aba4ea840a503cc09b9ba75bb910c'
+  /src/views/chart/components/ContentCharts/components/ItemBox:
+    newFile: !uuid '2c19210f4e3358587e3f0d32f1d894d6d37f1edc'
+    oldFile: !uuid '9679d2213c02a2bf1bdbc30154f0ce4be6cf993d'
+  /src/views/chart/components/ContentCharts/components/ItemBox/index.vue:
+    newFile: !uuid '6547c4b9280d58abd9d95f444b40d15a4d179d86'
+    oldFile: !uuid 'c34ab54667031a1adf2a293ad16f2491f41d57d7'
   /src/views/chart/components/ContentCharts/components/OptionContent:
-    newFile: !uuid '4a57a7cfed40e2e0baa3f6a5d75a38c3f741feef'
-    oldFile: !uuid '48e17db557a600eab683f152847f7ac3d8a78942'
+    newFile: !uuid '1ece9a054de7b80540f418469b34bfbb84cc3a9d'
+    oldFile: !uuid '4a57a7cfed40e2e0baa3f6a5d75a38c3f741feef'
   /src/views/chart/components/ContentCharts/components/OptionContent/index.vue:
-    newFile: !uuid 'f46ed9ce1bbd8a89bb9c446efb660c6b1ff70de3'
-    oldFile: !uuid '22d30ccf85dd925a60dc21fee841ee2965f33668'
-  /src/views/chart/components/ContentCharts/index.vue:
-    newFile: !uuid '1d63e6db670b8eaf918ff7eea9d5c7eeecc817bb'
-    oldFile: !uuid '126ff81327171496d38bbee7a3aad081cf617402'
-gitCommitId: !uuid 'ae71e13c6d5595595d5dccae7dc31802de00b564'
-renames: {
-  }
-revisionId: 751
+    newFile: !uuid 'ba58d3a58e2addbdc1587aaa60f3e848aadc5662'
+    oldFile: !uuid 'f46ed9ce1bbd8a89bb9c446efb660c6b1ff70de3'
+  /src/views/chart/components/ContentCharts/hooks:
+    newFile: !uuid 'cd77756c14cf0055fbde0396b7ced082f4df6e12'
+    oldFile: !uuid '3b08e719d9e9dcd0de1242ab610c47d50bc23456'
+  /src/views/chart/components/ContentCharts/hooks/asideHook.ts:
+    newFile: !uuid 'e222dbb699ab9c29d94531372c69b98193249535'
+    oldFile: !uuid 'dabd1ed7f33d75986702edbd8f4e16bd4125ac07'
+  /src/views/login:
+    newFile: !uuid '754c993b2eb9ad92642eca1a93f9190686e7edce'
+    oldFile: !uuid '2028cd99feb02d5161c9a09f6ddb901588d7fab3'
+  /src/views/login/index.vue:
+    newFile: !uuid 'cecabdfb06c4a3517830fd92eaa046a685782559'
+    oldFile: !uuid '82c43f69c403d30766df90c5c46329793a029dfd'
+gitCommitId: !uuid 'f6860c3fa611f0804d06c64daabc2c10d116ce39'
+renames:
+  /src/packages/components/Decorate/borders/borderCommon/index.ts: /src/packages/components/Decorate/border/borderCommon/index.ts
+  /src/packages/components/Decorate/borders/borderCommon/index.vue: /src/packages/components/Decorate/border/borderCommon/index.vue
+  /src/packages/components/Decorate/borders/index.ts: /src/packages/components/Decorate/border/index.ts
+revisionId: 752
