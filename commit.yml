@@ -3,51 +3,42 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '43f1d660a455ba06dd7cd838a2bf877a63fb78e5'
-    oldFile: !uuid '1a3054de6915a2084575cb5c43e5c2967823b3b4'
+    newFile: !uuid 'dbd260eba43dc2ad182f01ab699e85779086c975'
+    oldFile: !uuid '43f1d660a455ba06dd7cd838a2bf877a63fb78e5'
   /src/packages:
-    newFile: !uuid '5e2716a8f7c8b1b953fb4f54149d63cd1ab4793f'
-    oldFile: !uuid '853760ebacfdac00b7ce62eed812a8407cde6db6'
+    newFile: !uuid '73edd6610870209764e41755b73c6921a6a0fbba'
+    oldFile: !uuid '5e2716a8f7c8b1b953fb4f54149d63cd1ab4793f'
   /src/packages/components:
-    newFile: !uuid 'a1d54150d6d8862fa17df708cdff5004f81d696d'
-    oldFile: !uuid 'b6d693b0b7a344697a2528f90b3427a1b0d445d0'
+    newFile: !uuid 'f47ca46d57fa053a2240147ef3c1ccdc6bc1071d'
+    oldFile: !uuid 'a1d54150d6d8862fa17df708cdff5004f81d696d'
   /src/packages/components/Charts:
-    newFile: !uuid '4829ff49e80d7d3f33d53966a05aac55ad771348'
-    oldFile: !uuid '80448a586eb0d9c6a0e880259c1462e49275b2c2'
+    newFile: !uuid '79173a7d7b1c4c4d9d880adf120d8f49795ebd56'
+    oldFile: !uuid '4829ff49e80d7d3f33d53966a05aac55ad771348'
   /src/packages/components/Charts/Bars:
-    newFile: !uuid 'c5241da231cde4a27e73e8b773c92fa1587c58db'
-    oldFile: !uuid 'e7394fb4d4774112fbc7ef240eba80c1429f1284'
+    newFile: !uuid '1def86c78881ad01214ee416892d342d7788f1a7'
+    oldFile: !uuid 'c5241da231cde4a27e73e8b773c92fa1587c58db'
   /src/packages/components/Charts/Bars/BarCommon:
-    newFile: !uuid '1f850074982a7070cbc454a506ee139e800a4d70'
-    oldFile: !uuid '45d33de00ab09d22bd5978a0c9c23db5105802bf'
-  /src/packages/components/Charts/Bars/BarCommon/config.ts:
-    newFile: !uuid '72be61bf7a18f68fb668d265abc26598efd7d730'
-    oldFile: !uuid '52b4c4700928ff46aab9b0cddff7d49b8383c9e1'
+    newFile: !uuid '2eca50f9c6dd8d042cbd2ac13e1157410fb3a40b'
+    oldFile: !uuid '1f850074982a7070cbc454a506ee139e800a4d70'
   /src/packages/components/Charts/Bars/BarCommon/index.vue:
-    newFile: !uuid 'd47a6ef8ed350b3227f3e33e1ba968a33adc2cd9'
-    oldFile: !uuid 'fbd1331d70bebdbc889c11c0ca4bd18f30056f11'
-  /src/utils:
-    newFile: !uuid '933625c54324bab0602e38f03645a214736dff8e'
-    oldFile: !uuid 'd41660f7614f0d315d2cb89b18e68b4c02e64b51'
-  /src/utils/utils.ts:
-    newFile: !uuid '014b155b1dc9405326a6760bd4ffc921df335db9'
-    oldFile: !uuid '6f5316f9ff6757f6303d84996381d76156a6a602'
+    newFile: !uuid '1b29609eb4d431f2fef57979bd57614bbf30b4ca'
+    oldFile: !uuid 'd47a6ef8ed350b3227f3e33e1ba968a33adc2cd9'
   /src/views:
-    newFile: !uuid 'e7c95db8e4a2e875a368d8e452ee42873a42f161'
-    oldFile: !uuid 'a9957f71687fa62b83304eaa9045f5d43ba33d2f'
+    newFile: !uuid 'ddcc9c9eda1f330c8e74c8f4722f8acb72b6f885'
+    oldFile: !uuid 'e7c95db8e4a2e875a368d8e452ee42873a42f161'
   /src/views/chart:
-    newFile: !uuid 'a0ea0c9ecaf41447a78c3b0ba9228784a0fbed16'
-    oldFile: !uuid '5a2cd0792e4f44e1022421ad2c0869eb7d4b41ca'
+    newFile: !uuid 'b5e243abc26a7a8f5e3d9d9aa8c94d3e41268dde'
+    oldFile: !uuid 'a0ea0c9ecaf41447a78c3b0ba9228784a0fbed16'
   /src/views/chart/components:
-    newFile: !uuid 'a55f72250192f41de03b9dfd4f3a89453c7c2031'
-    oldFile: !uuid 'fd6540fecbd4140241ff90cfda118fdaa9b1a62e'
+    newFile: !uuid '57816e92bbe00fb04eeb30a14cc11535c2dea741'
+    oldFile: !uuid 'a55f72250192f41de03b9dfd4f3a89453c7c2031'
   /src/views/chart/components/ContentEdit:
-    newFile: !uuid '47adc107aadb66cadacd068a2f589c2d6d47fc93'
-    oldFile: !uuid 'cf50e149c61e145abf134e6dd56352f57b0e1dce'
+    newFile: !uuid '106f7e214ce599a01985a25c6d0e5247fad71f0f'
+    oldFile: !uuid '47adc107aadb66cadacd068a2f589c2d6d47fc93'
   /src/views/chart/components/ContentEdit/index.vue:
-    newFile: !uuid 'f8be08d0d27e4f32150868719a96811b5e191bd6'
-    oldFile: !uuid '8be920d0bba46311e420a2c082c1f3ba39c1a7cf'
-gitCommitId: !uuid '62f012f2e9896717dfca7760bd270c28efcdf32c'
+    newFile: !uuid '0defbf565a552cbfa441571fa8bbe466966e187b'
+    oldFile: !uuid 'f8be08d0d27e4f32150868719a96811b5e191bd6'
+gitCommitId: !uuid '01e2ba6db91676a412fe06c3e56cc9f8f8e279fb'
 renames: {
   }
-revisionId: 775
+revisionId: 776
