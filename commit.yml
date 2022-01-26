@@ -3,391 +3,45 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '941467c12d2df43a448b62535cb0969141802973'
-    oldFile: !uuid 'dbd260eba43dc2ad182f01ab699e85779086c975'
+    newFile: !uuid '1275e59811efd5938ad924b4c98f870740a1f781'
+    oldFile: !uuid '941467c12d2df43a448b62535cb0969141802973'
+  /src/packages:
+    newFile: !uuid '5e260ef73e8600630298327ab4ac63e67e6c3dc8'
+    oldFile: !uuid '73edd6610870209764e41755b73c6921a6a0fbba'
+  /src/packages/components:
+    newFile: !uuid '2e7e627caf21d2a289cae48bb2b2da6c28e1e0ac'
+    oldFile: !uuid 'f47ca46d57fa053a2240147ef3c1ccdc6bc1071d'
+  /src/packages/components/Charts:
+    newFile: !uuid '3c93956b95b9a193c14155b2913cb74f5cf48fd8'
+    oldFile: !uuid '79173a7d7b1c4c4d9d880adf120d8f49795ebd56'
+  /src/packages/components/Charts/Bars:
+    newFile: !uuid '33609954eb428950f5a3171486a1cdf60b5ca23e'
+    oldFile: !uuid '1def86c78881ad01214ee416892d342d7788f1a7'
+  /src/packages/components/Charts/Bars/BarCommon:
+    newFile: !uuid '581c67ffb33250b97cebadb3629b570748f78d81'
+    oldFile: !uuid '2eca50f9c6dd8d042cbd2ac13e1157410fb3a40b'
+  /src/packages/components/Charts/Bars/BarCommon/index.vue:
+    newFile: !uuid 'e3773fb92c092261c25e5884073828064e4fca3e'
+    oldFile: !uuid '1b29609eb4d431f2fef57979bd57614bbf30b4ca'
   /src/views:
-    newFile: !uuid '003209a628aa38d0e1fae198346df7fb51febf24'
-    oldFile: !uuid 'ddcc9c9eda1f330c8e74c8f4722f8acb72b6f885'
+    newFile: !uuid 'ee13642e1ba616a90d5d6437aca4581ef5651bc5'
+    oldFile: !uuid '003209a628aa38d0e1fae198346df7fb51febf24'
   /src/views/chart:
-    newFile: !uuid 'be2bb8f26576b75d6306ffde4afb4a0ba4a5b6bf'
-    oldFile: !uuid 'b5e243abc26a7a8f5e3d9d9aa8c94d3e41268dde'
-  /src/views/chart/ContentBox:
-    newFile: !uuid '434fecf536ae9e25dcc1823df7c47027b3a8ee29'
-    oldFile: null
-  /src/views/chart/ContentBox/index.ts:
-    newFile: !uuid '97fd8f78fe896cbb57036bb34d41c4199645b35e'
-    oldFile: null
-  /src/views/chart/ContentBox/index.vue:
-    newFile: !uuid 'd50b13fa46fcd6904b3610ad72bfdaa45edc5146'
-    oldFile: null
-  /src/views/chart/ContentCharts:
-    newFile: !uuid '217d1b07b64ab29faa87ca74dc68b3e1f839e849'
-    oldFile: null
-  /src/views/chart/ContentCharts/components:
-    newFile: !uuid '2f95a316961a4bc9038d931c1454b606cde9a8b9'
-    oldFile: null
-  /src/views/chart/ContentCharts/components/ItemBox:
-    newFile: !uuid '2f047e70478b21581c89e9781943b5130958dfda'
-    oldFile: null
-  /src/views/chart/ContentCharts/components/ItemBox/index.ts:
-    newFile: !uuid '8ec7f82e6dd8acb89b608567908404719657e6f1'
-    oldFile: null
-  /src/views/chart/ContentCharts/components/ItemBox/index.vue:
-    newFile: !uuid '70028701ba44d13f5881c4433dacf6b065857f11'
-    oldFile: null
-  /src/views/chart/ContentCharts/components/OptionContent:
-    newFile: !uuid '221a854769fea8b3914712774537fd505a39011d'
-    oldFile: null
-  /src/views/chart/ContentCharts/components/OptionContent/index.ts:
-    newFile: !uuid '5bfd99ec1f14e6331f71ddc53bb0f04b47f48dca'
-    oldFile: null
-  /src/views/chart/ContentCharts/components/OptionContent/index.vue:
-    newFile: !uuid '693df2761eded73758167a9ad1daa084b8d8a542'
-    oldFile: null
-  /src/views/chart/ContentCharts/hooks:
-    newFile: !uuid 'd694a636bf185e20952581b8496e8a5435d42e89'
-    oldFile: null
-  /src/views/chart/ContentCharts/hooks/useAside.hook.ts:
-    newFile: !uuid 'eef2fd6d6dbcff382ceff055e496c867103f91c9'
-    oldFile: null
-  /src/views/chart/ContentCharts/hooks/useLayout.hook.ts:
-    newFile: !uuid '1e35533814f78b49f90a1055c344545a95dad428'
-    oldFile: null
-  /src/views/chart/ContentCharts/index.ts:
-    newFile: !uuid 'f77cc1257d2a3024647384c8a2d6d14a2670a9a7'
-    oldFile: null
-  /src/views/chart/ContentCharts/index.vue:
-    newFile: !uuid '117ee7d1353569090834df776e0746ca6ba323ce'
-    oldFile: null
-  /src/views/chart/ContentDetails:
-    newFile: !uuid '8001fb03c84d102a668a078d1d0370e2a96999d9'
-    oldFile: null
-  /src/views/chart/ContentDetails/components:
-    newFile: !uuid '54880b3e25fa17b2d7e5ba92d6276398453e434d'
-    oldFile: null
-  /src/views/chart/ContentDetails/components/Behind:
-    newFile: !uuid '2b51715895a8c289ef61ff0d2707ec4488e22886'
-    oldFile: null
-  /src/views/chart/ContentDetails/components/Behind/index.ts:
-    newFile: !uuid '45dcf4d8b851362959752467eddb4c29491a9aba'
-    oldFile: null
-  /src/views/chart/ContentDetails/components/Behind/index.vue:
-    newFile: !uuid '294e88100c35fa529568d49fa59dbf3439012e40'
-    oldFile: null
-  /src/views/chart/ContentDetails/components/Page:
-    newFile: !uuid 'b8c18d322efd26b2ff2564c18366f95c98789d22'
-    oldFile: null
-  /src/views/chart/ContentDetails/components/Page/index.ts:
-    newFile: !uuid '3544af76b1b544883c1d4cf649cba6b75ee1f737'
-    oldFile: null
-  /src/views/chart/ContentDetails/components/Page/index.vue:
-    newFile: !uuid 'cee3864d8a7a30409523785799d0b3a3944e5711'
-    oldFile: null
-  /src/views/chart/ContentDetails/components/Setting:
-    newFile: !uuid '0569c2620d8f67e61260f0bddb228ec12155416d'
-    oldFile: null
-  /src/views/chart/ContentDetails/components/Setting/index.ts:
-    newFile: !uuid 'b4667c582ae982b25b295319e1aab36b30442741'
-    oldFile: null
-  /src/views/chart/ContentDetails/components/Setting/index.vue:
-    newFile: !uuid '93348d95f72fe7eb3c90ef3e9c498325282ec7ce'
-    oldFile: null
-  /src/views/chart/ContentDetails/index.ts:
-    newFile: !uuid '93fff8d1a24a942a39628e79cc386db657af443f'
-    oldFile: null
-  /src/views/chart/ContentDetails/index.vue:
-    newFile: !uuid 'a74654c2c39cf13c6833cdb8cead6caedda574db'
-    oldFile: null
+    newFile: !uuid '00268b31752d620a6321b16f2bdd38b6d6f780b2'
+    oldFile: !uuid 'be2bb8f26576b75d6306ffde4afb4a0ba4a5b6bf'
   /src/views/chart/ContentEdit:
-    newFile: !uuid '106f7e214ce599a01985a25c6d0e5247fad71f0f'
-    oldFile: null
-  /src/views/chart/ContentEdit/components:
-    newFile: !uuid '6ec26b5b33905e9521ce1ee3d576ac0106849382'
-    oldFile: null
-  /src/views/chart/ContentEdit/components/EditBottom:
-    newFile: !uuid '99f17d0fe5ac48da26e15de357223eed5995da19'
-    oldFile: null
-  /src/views/chart/ContentEdit/components/EditBottom/index.ts:
-    newFile: !uuid 'd9872989f3f022a740227e22540b8a7720979bc3'
-    oldFile: null
-  /src/views/chart/ContentEdit/components/EditBottom/index.vue:
-    newFile: !uuid 'd86da7c75118de53068748f5a6e1966092c283af'
-    oldFile: null
-  /src/views/chart/ContentEdit/components/EditRange:
-    newFile: !uuid '41dfa17e38e83db2297c6bf33ee97f33e89c2256'
-    oldFile: null
-  /src/views/chart/ContentEdit/components/EditRange/index.ts:
-    newFile: !uuid 'eadec58ad537c478f7989fd484aa58600428bf52'
-    oldFile: null
-  /src/views/chart/ContentEdit/components/EditRange/index.vue:
-    newFile: !uuid 'e42d0aad20c5b0afd9421fa86eed5310cd6cb46e'
-    oldFile: null
+    newFile: !uuid '91625fe47b554076363a1c867e87778b1f22bd7e'
+    oldFile: !uuid '106f7e214ce599a01985a25c6d0e5247fad71f0f'
   /src/views/chart/ContentEdit/hooks:
-    newFile: !uuid 'e2098ce1f21d8e57c5187909aaa137efcebfe3fa'
-    oldFile: null
-  /src/views/chart/ContentEdit/hooks/useDrop.hook.ts:
-    newFile: !uuid '0eed2b4a14a800851802e35f88954bf99bdfc49c'
-    oldFile: null
-  /src/views/chart/ContentEdit/hooks/useLayout.hook.ts:
-    newFile: !uuid 'e4fea09bc14d228febdb5ac8a2ea07a30691712a'
-    oldFile: null
-  /src/views/chart/ContentEdit/hooks/useStore.hook.ts:
-    newFile: !uuid 'f96fa1ac55ff08c1d5309e7497a8053d5cd66327'
-    oldFile: null
-  /src/views/chart/ContentEdit/index.ts:
-    newFile: !uuid '4a4766a181b406a126f8cbd2f10da48f71e0082f'
+    newFile: !uuid '8aa4f733165e50a3fe32cbc2bbaed4aca9334986'
+    oldFile: !uuid 'e2098ce1f21d8e57c5187909aaa137efcebfe3fa'
+  /src/views/chart/ContentEdit/hooks/useStyle.hook.ts:
+    newFile: !uuid 'a16c9630474264ecc1fed85f604b66c8698739e4'
     oldFile: null
   /src/views/chart/ContentEdit/index.vue:
-    newFile: !uuid '0defbf565a552cbfa441571fa8bbe466966e187b'
-    oldFile: null
-  /src/views/chart/ContentLayers:
-    newFile: !uuid '661c1c17927ea617fe6e38b2acee36a71eea1509'
-    oldFile: null
-  /src/views/chart/ContentLayers/index.ts:
-    newFile: !uuid 'e2e64f5ffff62e884c6e983c103c90572d74228f'
-    oldFile: null
-  /src/views/chart/ContentLayers/index.vue:
-    newFile: !uuid '248f84877d76e88e4a3e7eb7c22f421a135dbadb'
-    oldFile: null
-  /src/views/chart/HeaderLeftBtn:
-    newFile: !uuid 'c5c1f5f21eb9cd9a5e4fd4a877750f3040c7a4e8'
-    oldFile: null
-  /src/views/chart/HeaderLeftBtn/index.ts:
-    newFile: !uuid '1a76146a8e053323b769cd454a327b0547d72095'
-    oldFile: null
-  /src/views/chart/HeaderLeftBtn/index.vue:
-    newFile: !uuid '1d922645836ce551f009c5936c0e1d08161fd2eb'
-    oldFile: null
-  /src/views/chart/HeaderRightBtn:
-    newFile: !uuid 'ef6c6baede113152812084dc6a01d20206d25ad3'
-    oldFile: null
-  /src/views/chart/HeaderRightBtn/index.ts:
-    newFile: !uuid 'd6b6debed0a4786f6eec009f16e95f69ffba33c0'
-    oldFile: null
-  /src/views/chart/HeaderRightBtn/index.vue:
-    newFile: !uuid 'c5d2e656f45367e76c4a2fc2bfda853c96d439b7'
-    oldFile: null
-  /src/views/chart/HeaderTitle:
-    newFile: !uuid 'b8b774c28b1f1b4072cb297bf835b1590c6a5ded'
-    oldFile: null
-  /src/views/chart/HeaderTitle/index.ts:
-    newFile: !uuid '19b5dbcbfb98d2c8109dc37d6d117ef211d891db'
-    oldFile: null
-  /src/views/chart/HeaderTitle/index.vue:
-    newFile: !uuid '6e0ed6c5565df8deef309b8a6eb2bf808179c168'
-    oldFile: null
-  /src/views/chart/components:
-    newFile: null
-    oldFile: !uuid '57816e92bbe00fb04eeb30a14cc11535c2dea741'
-  /src/views/chart/components/ContentBox:
-    newFile: null
-    oldFile: !uuid '434fecf536ae9e25dcc1823df7c47027b3a8ee29'
-  /src/views/chart/components/ContentBox/index.ts:
-    newFile: null
-    oldFile: !uuid '97fd8f78fe896cbb57036bb34d41c4199645b35e'
-  /src/views/chart/components/ContentBox/index.vue:
-    newFile: null
-    oldFile: !uuid 'd50b13fa46fcd6904b3610ad72bfdaa45edc5146'
-  /src/views/chart/components/ContentCharts:
-    newFile: null
-    oldFile: !uuid '217d1b07b64ab29faa87ca74dc68b3e1f839e849'
-  /src/views/chart/components/ContentCharts/components:
-    newFile: null
-    oldFile: !uuid '2f95a316961a4bc9038d931c1454b606cde9a8b9'
-  /src/views/chart/components/ContentCharts/components/ItemBox:
-    newFile: null
-    oldFile: !uuid '2f047e70478b21581c89e9781943b5130958dfda'
-  /src/views/chart/components/ContentCharts/components/ItemBox/index.ts:
-    newFile: null
-    oldFile: !uuid '8ec7f82e6dd8acb89b608567908404719657e6f1'
-  /src/views/chart/components/ContentCharts/components/ItemBox/index.vue:
-    newFile: null
-    oldFile: !uuid '70028701ba44d13f5881c4433dacf6b065857f11'
-  /src/views/chart/components/ContentCharts/components/OptionContent:
-    newFile: null
-    oldFile: !uuid '221a854769fea8b3914712774537fd505a39011d'
-  /src/views/chart/components/ContentCharts/components/OptionContent/index.ts:
-    newFile: null
-    oldFile: !uuid '5bfd99ec1f14e6331f71ddc53bb0f04b47f48dca'
-  /src/views/chart/components/ContentCharts/components/OptionContent/index.vue:
-    newFile: null
-    oldFile: !uuid '693df2761eded73758167a9ad1daa084b8d8a542'
-  /src/views/chart/components/ContentCharts/hooks:
-    newFile: null
-    oldFile: !uuid 'd694a636bf185e20952581b8496e8a5435d42e89'
-  /src/views/chart/components/ContentCharts/hooks/useAside.hook.ts:
-    newFile: null
-    oldFile: !uuid 'eef2fd6d6dbcff382ceff055e496c867103f91c9'
-  /src/views/chart/components/ContentCharts/hooks/useLayout.hook.ts:
-    newFile: null
-    oldFile: !uuid '1e35533814f78b49f90a1055c344545a95dad428'
-  /src/views/chart/components/ContentCharts/index.ts:
-    newFile: null
-    oldFile: !uuid 'f77cc1257d2a3024647384c8a2d6d14a2670a9a7'
-  /src/views/chart/components/ContentCharts/index.vue:
-    newFile: null
-    oldFile: !uuid '117ee7d1353569090834df776e0746ca6ba323ce'
-  /src/views/chart/components/ContentDetails:
-    newFile: null
-    oldFile: !uuid '8001fb03c84d102a668a078d1d0370e2a96999d9'
-  /src/views/chart/components/ContentDetails/components:
-    newFile: null
-    oldFile: !uuid '54880b3e25fa17b2d7e5ba92d6276398453e434d'
-  /src/views/chart/components/ContentDetails/components/Behind:
-    newFile: null
-    oldFile: !uuid '2b51715895a8c289ef61ff0d2707ec4488e22886'
-  /src/views/chart/components/ContentDetails/components/Behind/index.ts:
-    newFile: null
-    oldFile: !uuid '45dcf4d8b851362959752467eddb4c29491a9aba'
-  /src/views/chart/components/ContentDetails/components/Behind/index.vue:
-    newFile: null
-    oldFile: !uuid '294e88100c35fa529568d49fa59dbf3439012e40'
-  /src/views/chart/components/ContentDetails/components/Page:
-    newFile: null
-    oldFile: !uuid 'b8c18d322efd26b2ff2564c18366f95c98789d22'
-  /src/views/chart/components/ContentDetails/components/Page/index.ts:
-    newFile: null
-    oldFile: !uuid '3544af76b1b544883c1d4cf649cba6b75ee1f737'
-  /src/views/chart/components/ContentDetails/components/Page/index.vue:
-    newFile: null
-    oldFile: !uuid 'cee3864d8a7a30409523785799d0b3a3944e5711'
-  /src/views/chart/components/ContentDetails/components/Setting:
-    newFile: null
-    oldFile: !uuid '0569c2620d8f67e61260f0bddb228ec12155416d'
-  /src/views/chart/components/ContentDetails/components/Setting/index.ts:
-    newFile: null
-    oldFile: !uuid 'b4667c582ae982b25b295319e1aab36b30442741'
-  /src/views/chart/components/ContentDetails/components/Setting/index.vue:
-    newFile: null
-    oldFile: !uuid '93348d95f72fe7eb3c90ef3e9c498325282ec7ce'
-  /src/views/chart/components/ContentDetails/index.ts:
-    newFile: null
-    oldFile: !uuid '93fff8d1a24a942a39628e79cc386db657af443f'
-  /src/views/chart/components/ContentDetails/index.vue:
-    newFile: null
-    oldFile: !uuid 'a74654c2c39cf13c6833cdb8cead6caedda574db'
-  /src/views/chart/components/ContentEdit:
-    newFile: null
-    oldFile: !uuid '106f7e214ce599a01985a25c6d0e5247fad71f0f'
-  /src/views/chart/components/ContentEdit/components:
-    newFile: null
-    oldFile: !uuid '6ec26b5b33905e9521ce1ee3d576ac0106849382'
-  /src/views/chart/components/ContentEdit/components/EditBottom:
-    newFile: null
-    oldFile: !uuid '99f17d0fe5ac48da26e15de357223eed5995da19'
-  /src/views/chart/components/ContentEdit/components/EditBottom/index.ts:
-    newFile: null
-    oldFile: !uuid 'd9872989f3f022a740227e22540b8a7720979bc3'
-  /src/views/chart/components/ContentEdit/components/EditBottom/index.vue:
-    newFile: null
-    oldFile: !uuid 'd86da7c75118de53068748f5a6e1966092c283af'
-  /src/views/chart/components/ContentEdit/components/EditRange:
-    newFile: null
-    oldFile: !uuid '41dfa17e38e83db2297c6bf33ee97f33e89c2256'
-  /src/views/chart/components/ContentEdit/components/EditRange/index.ts:
-    newFile: null
-    oldFile: !uuid 'eadec58ad537c478f7989fd484aa58600428bf52'
-  /src/views/chart/components/ContentEdit/components/EditRange/index.vue:
-    newFile: null
-    oldFile: !uuid 'e42d0aad20c5b0afd9421fa86eed5310cd6cb46e'
-  /src/views/chart/components/ContentEdit/hooks:
-    newFile: null
-    oldFile: !uuid 'e2098ce1f21d8e57c5187909aaa137efcebfe3fa'
-  /src/views/chart/components/ContentEdit/hooks/useDrop.hook.ts:
-    newFile: null
-    oldFile: !uuid '0eed2b4a14a800851802e35f88954bf99bdfc49c'
-  /src/views/chart/components/ContentEdit/hooks/useLayout.hook.ts:
-    newFile: null
-    oldFile: !uuid 'e4fea09bc14d228febdb5ac8a2ea07a30691712a'
-  /src/views/chart/components/ContentEdit/hooks/useStore.hook.ts:
-    newFile: null
-    oldFile: !uuid 'f96fa1ac55ff08c1d5309e7497a8053d5cd66327'
-  /src/views/chart/components/ContentEdit/index.ts:
-    newFile: null
-    oldFile: !uuid '4a4766a181b406a126f8cbd2f10da48f71e0082f'
-  /src/views/chart/components/ContentEdit/index.vue:
-    newFile: null
+    newFile: !uuid '66b110bf89975e5415d04551fe4d0f04b679245c'
     oldFile: !uuid '0defbf565a552cbfa441571fa8bbe466966e187b'
-  /src/views/chart/components/ContentLayers:
-    newFile: null
-    oldFile: !uuid '661c1c17927ea617fe6e38b2acee36a71eea1509'
-  /src/views/chart/components/ContentLayers/index.ts:
-    newFile: null
-    oldFile: !uuid 'e2e64f5ffff62e884c6e983c103c90572d74228f'
-  /src/views/chart/components/ContentLayers/index.vue:
-    newFile: null
-    oldFile: !uuid '248f84877d76e88e4a3e7eb7c22f421a135dbadb'
-  /src/views/chart/components/HeaderLeftBtn:
-    newFile: null
-    oldFile: !uuid 'c5c1f5f21eb9cd9a5e4fd4a877750f3040c7a4e8'
-  /src/views/chart/components/HeaderLeftBtn/index.ts:
-    newFile: null
-    oldFile: !uuid '1a76146a8e053323b769cd454a327b0547d72095'
-  /src/views/chart/components/HeaderLeftBtn/index.vue:
-    newFile: null
-    oldFile: !uuid '1d922645836ce551f009c5936c0e1d08161fd2eb'
-  /src/views/chart/components/HeaderRightBtn:
-    newFile: null
-    oldFile: !uuid 'ef6c6baede113152812084dc6a01d20206d25ad3'
-  /src/views/chart/components/HeaderRightBtn/index.ts:
-    newFile: null
-    oldFile: !uuid 'd6b6debed0a4786f6eec009f16e95f69ffba33c0'
-  /src/views/chart/components/HeaderRightBtn/index.vue:
-    newFile: null
-    oldFile: !uuid 'c5d2e656f45367e76c4a2fc2bfda853c96d439b7'
-  /src/views/chart/components/HeaderTitle:
-    newFile: null
-    oldFile: !uuid 'b8b774c28b1f1b4072cb297bf835b1590c6a5ded'
-  /src/views/chart/components/HeaderTitle/index.ts:
-    newFile: null
-    oldFile: !uuid '19b5dbcbfb98d2c8109dc37d6d117ef211d891db'
-  /src/views/chart/components/HeaderTitle/index.vue:
-    newFile: null
-    oldFile: !uuid '6e0ed6c5565df8deef309b8a6eb2bf808179c168'
-  /src/views/chart/index.vue:
-    newFile: !uuid '0ade2b7ac06e41ff1ef52d3ea7aa331610b79dce'
-    oldFile: !uuid '83a851e1a84a09bf00d62c4d99e3d67fd47ef775'
-  /src/views/login:
-    newFile: !uuid '9c5e0dba3a7b881c2fd998a36cb3e3c83d9a05f8'
-    oldFile: !uuid '306e6fb28fe0eb5fa9d59f7f44ec351f400b9194'
-  /src/views/login/index.vue:
-    newFile: !uuid '7a2178c62f7d7dc8e09ed8bd78c4acd225648a56'
-    oldFile: !uuid 'b2553bf25c54cdcb6a4e694f5725d8dabca71444'
-gitCommitId: !uuid '2f2a395406757bf297e474e9124c56ee35ea3a8a'
-renames:
-  /src/views/chart/ContentBox/index.ts: /src/views/chart/components/ContentBox/index.ts
-  /src/views/chart/ContentBox/index.vue: /src/views/chart/components/ContentBox/index.vue
-  /src/views/chart/ContentCharts/components/ItemBox/index.ts: /src/views/chart/components/ContentCharts/components/ItemBox/index.ts
-  /src/views/chart/ContentCharts/components/ItemBox/index.vue: /src/views/chart/components/ContentCharts/components/ItemBox/index.vue
-  /src/views/chart/ContentCharts/components/OptionContent/index.ts: /src/views/chart/components/ContentCharts/components/OptionContent/index.ts
-  /src/views/chart/ContentCharts/components/OptionContent/index.vue: /src/views/chart/components/ContentCharts/components/OptionContent/index.vue
-  /src/views/chart/ContentCharts/hooks/useAside.hook.ts: /src/views/chart/components/ContentCharts/hooks/useAside.hook.ts
-  /src/views/chart/ContentCharts/hooks/useLayout.hook.ts: /src/views/chart/components/ContentCharts/hooks/useLayout.hook.ts
-  /src/views/chart/ContentCharts/index.ts: /src/views/chart/components/ContentCharts/index.ts
-  /src/views/chart/ContentCharts/index.vue: /src/views/chart/components/ContentCharts/index.vue
-  /src/views/chart/ContentDetails/components/Behind/index.ts: /src/views/chart/components/ContentDetails/components/Behind/index.ts
-  /src/views/chart/ContentDetails/components/Behind/index.vue: /src/views/chart/components/ContentDetails/components/Behind/index.vue
-  /src/views/chart/ContentDetails/components/Page/index.ts: /src/views/chart/components/ContentDetails/components/Page/index.ts
-  /src/views/chart/ContentDetails/components/Page/index.vue: /src/views/chart/components/ContentDetails/components/Page/index.vue
-  /src/views/chart/ContentDetails/components/Setting/index.ts: /src/views/chart/components/ContentDetails/components/Setting/index.ts
-  /src/views/chart/ContentDetails/components/Setting/index.vue: /src/views/chart/components/ContentDetails/components/Setting/index.vue
-  /src/views/chart/ContentDetails/index.ts: /src/views/chart/components/ContentDetails/index.ts
-  /src/views/chart/ContentDetails/index.vue: /src/views/chart/components/ContentDetails/index.vue
-  /src/views/chart/ContentEdit/components/EditBottom/index.ts: /src/views/chart/components/ContentEdit/components/EditBottom/index.ts
-  /src/views/chart/ContentEdit/components/EditBottom/index.vue: /src/views/chart/components/ContentEdit/components/EditBottom/index.vue
-  /src/views/chart/ContentEdit/components/EditRange/index.ts: /src/views/chart/components/ContentEdit/components/EditRange/index.ts
-  /src/views/chart/ContentEdit/components/EditRange/index.vue: /src/views/chart/components/ContentEdit/components/EditRange/index.vue
-  /src/views/chart/ContentEdit/hooks/useDrop.hook.ts: /src/views/chart/components/ContentEdit/hooks/useDrop.hook.ts
-  /src/views/chart/ContentEdit/hooks/useLayout.hook.ts: /src/views/chart/components/ContentEdit/hooks/useLayout.hook.ts
-  /src/views/chart/ContentEdit/hooks/useStore.hook.ts: /src/views/chart/components/ContentEdit/hooks/useStore.hook.ts
-  /src/views/chart/ContentEdit/index.ts: /src/views/chart/components/ContentEdit/index.ts
-  /src/views/chart/ContentEdit/index.vue: /src/views/chart/components/ContentEdit/index.vue
-  /src/views/chart/ContentLayers/index.ts: /src/views/chart/components/ContentLayers/index.ts
-  /src/views/chart/ContentLayers/index.vue: /src/views/chart/components/ContentLayers/index.vue
-  /src/views/chart/HeaderLeftBtn/index.ts: /src/views/chart/components/HeaderLeftBtn/index.ts
-  /src/views/chart/HeaderLeftBtn/index.vue: /src/views/chart/components/HeaderLeftBtn/index.vue
-  /src/views/chart/HeaderRightBtn/index.ts: /src/views/chart/components/HeaderRightBtn/index.ts
-  /src/views/chart/HeaderRightBtn/index.vue: /src/views/chart/components/HeaderRightBtn/index.vue
-  /src/views/chart/HeaderTitle/index.ts: /src/views/chart/components/HeaderTitle/index.ts
-  /src/views/chart/HeaderTitle/index.vue: /src/views/chart/components/HeaderTitle/index.vue
-revisionId: 777
+gitCommitId: !uuid '37ee9de02b55ff01754c2ad427167212ed6f6e7f'
+renames: {
+  }
+revisionId: 778
