@@ -2,19 +2,73 @@
 branches: {
   }
 fileChange:
-  /plop:
-    newFile: !uuid '72834de8df68099ec614cee1365b27cd42b408b0'
-    oldFile: !uuid '856970638b2298ba35af96209dd443c83d4c56c5'
-  /plop/store-template:
-    newFile: !uuid 'a0bd8f112c872d1c9c93d7614bbf309795858048'
-    oldFile: !uuid 'c5dfb5f22e59569a9d228fe3ad60a63b713655c1'
-  /plop/store-template/index.d.hbs:
-    newFile: !uuid 'f916f3d1cec863bec4a29a3c0a33a16db6333eeb'
-    oldFile: !uuid '87713c5d243d61e155bcc12e90ac0931830a7e27'
-  /plop/store-template/index.hbs:
-    newFile: !uuid 'bd184a4907e953583330be4a515c4dd64f956e70'
-    oldFile: !uuid 'f5e248678fcba3d3b161da067e3c83a0dcd2bc8a'
-gitCommitId: !uuid '50e62dbed78d74161bc0e84765d181506047bfc2'
-renames: {
-  }
-revisionId: 793
+  /src:
+    newFile: !uuid '2a305f7d3d8821736390b85b53bc030302799155'
+    oldFile: !uuid '5746d95d4538f427f47bdb97b235d217a2cb33f5'
+  /src/store:
+    newFile: !uuid '53806daa9e8354f4cbde768597e7296ca926fd45'
+    oldFile: !uuid 'b7a550bc8a7320c4275c6cf050f92c8ef4adebf5'
+  /src/store/modules:
+    newFile: !uuid '8f1feec5badcaf533f71e3199bd9a8cfce5d64cd'
+    oldFile: !uuid 'd38552bbdbe18a61198cf006294cdce6ed5d8429'
+  /src/store/modules/chartEditStore:
+    newFile: !uuid '3f1db31e44b63c778a95db5905f6acc426917f04'
+    oldFile: !uuid 'bea8957d517027514b0a5b9696e0032d3ab2461c'
+  /src/store/modules/chartEditStore/chartEditStore.d.ts:
+    newFile: !uuid '22e3d60cb0e8e8c71b630fca89689799f3279d14'
+    oldFile: !uuid '551bde638852f2b23214295682cbdb26951927af'
+  /src/store/modules/chartEditStore/chartEditStore.ts:
+    newFile: !uuid 'b127bd4a5737b13cc6356210b953917a98a73021'
+    oldFile: !uuid '6c67dd451812707982974548eaa24520fe0b9104'
+  /src/store/modules/chartHistoryStore:
+    newFile: !uuid '66db5e90ae3549bdcab4f8b616e8abffb8d05771'
+    oldFile: !uuid '238ffac54c1299cd9437e71855062a3e213c6580'
+  /src/store/modules/chartHistoryStore/chartHistoryStore.d.ts:
+    newFile: !uuid '6bef1a122fb4ea541912744b02133a68cbb955be'
+    oldFile: !uuid '83268af6f005b996023c8921afd5026bb74ed332'
+  /src/store/modules/chartHistoryStore/chartHistoryStore}.ts:
+    newFile: !uuid 'af8ac839f3d80af55a58e74f7a8e37fa5dbca3aa'
+    oldFile: !uuid '37c374907b5b13aad6f4718c03494b3fb2c6c91e'
+  /src/views:
+    newFile: !uuid '9681e6051798e358cf06454b3caf807b58f4b880'
+    oldFile: !uuid 'c25771fb58f91a472a7452082951a35250aa6c71'
+  /src/views/chart:
+    newFile: !uuid '24e828f26f70c19cd62b6d21f05b4cba81fd46f4'
+    oldFile: !uuid '3f5a046a4c47314630425c1ff93be667b1222f25'
+  /src/views/chart/ContentEdit:
+    newFile: !uuid 'ece514d6c319e6ab2404ff80978c8946e5a33524'
+    oldFile: !uuid 'cdb4cac1c5dd7aea9030209ecccee54eaee10c9c'
+  /src/views/chart/ContentEdit/components:
+    newFile: !uuid '66ed0f510d8bd9dac0dc773ac2d34ce6b53b7e3e'
+    oldFile: !uuid '0dbe0141007ac48b59fd9a784326223b41bce3aa'
+  /src/views/chart/ContentEdit/components/ShapeBox:
+    newFile: !uuid 'bc65c7072432bae72a00ea712c0980793b353c2d'
+    oldFile: !uuid '912ca9a407658bbdfab2adfe4b00461a5d8a491e'
+  /src/views/chart/ContentEdit/components/ShapeBox/index.vue:
+    newFile: !uuid '51a0c262ba9e72baf1b894722b85e93ca1044328'
+    oldFile: !uuid '33c190ee7329c6542c5d185119e9352ef4f42fc2'
+  /src/views/chart/ContentEdit/hooks:
+    newFile: !uuid '6f4239dbfb491006f6a5977d9dc5371ab61251b6'
+    oldFile: !uuid '00a9fccb59ab21dfbea94d50a804dec7abd06e91'
+  /src/views/chart/ContentEdit/hooks/useContextMenu.hook.ts:
+    newFile: null
+    oldFile: !uuid '76ddf9702e76dc49a1546722b49f9d95967b8a34'
+  /src/views/chart/ContentEdit/hooks/useStyle.hook.ts:
+    newFile: !uuid 'c48cea0bfd160f44a96ac601b89dbe96bf2c5265'
+    oldFile: !uuid 'fcfb765a2767d80f7357f978734ca17c5f2a4f5d'
+  /src/views/chart/ContentEdit/index.vue:
+    newFile: !uuid 'f05912c947d63528cb74e2ef673a987fd09e598a'
+    oldFile: !uuid 'b446869e9106f05690dd69174f2523c5108e1b1f'
+  /src/views/chart/hooks:
+    newFile: !uuid '368c8decfeb9b60dc8bb4f4639bc0c15b4ff4d45'
+    oldFile: null
+  /src/views/chart/hooks/useContextMenu.hook.ts:
+    newFile: !uuid '36baa1797f064ab9bf432423f47fd78812896e74'
+    oldFile: null
+  /src/views/chart/index.vue:
+    newFile: !uuid '636c603822663b07c2b841b5b36bb0dbe8014979'
+    oldFile: !uuid '0ade2b7ac06e41ff1ef52d3ea7aa331610b79dce'
+gitCommitId: !uuid '31d1983958cc8fb387c62312c5d603f83efb1111'
+renames:
+  /src/views/chart/hooks/useContextMenu.hook.ts: /src/views/chart/ContentEdit/hooks/useContextMenu.hook.ts
+revisionId: 794
