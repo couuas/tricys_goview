@@ -2,25 +2,19 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid '3a645af05b47e7a3edcdc28bc84d5f67556b5062'
-    oldFile: !uuid 'b52f4f441ca1344dce91c581617472dcdf036c37'
-  /src/views:
-    newFile: !uuid 'c25771fb58f91a472a7452082951a35250aa6c71'
-    oldFile: !uuid '6a45cfec417f9eec99399e6196539fe813ba4d77'
-  /src/views/chart:
-    newFile: !uuid '3f5a046a4c47314630425c1ff93be667b1222f25'
-    oldFile: !uuid 'fc5b9f5c9f66d5c24d02ac143f24bb3a054c002e'
-  /src/views/chart/ContentEdit:
-    newFile: !uuid 'cdb4cac1c5dd7aea9030209ecccee54eaee10c9c'
-    oldFile: !uuid 'bae758f44f3c8dc01067b3507397d6657607acd9'
-  /src/views/chart/ContentEdit/hooks:
-    newFile: !uuid '00a9fccb59ab21dfbea94d50a804dec7abd06e91'
-    oldFile: !uuid '8c07976cf311652fa38b2793de404ed1be47deda'
-  /src/views/chart/ContentEdit/hooks/useDrop.hook.ts:
-    newFile: !uuid 'bd97707bc80b71d741327f17c31dc1e7851c0adb'
-    oldFile: !uuid 'f6f8099c42ac305700f1b0c943a5c3cdf4df82b6'
-gitCommitId: !uuid '9f4e893290e4d8e3d23c4394f4cb7a7a6b74f021'
+  /plop:
+    newFile: !uuid '72834de8df68099ec614cee1365b27cd42b408b0'
+    oldFile: !uuid '856970638b2298ba35af96209dd443c83d4c56c5'
+  /plop/store-template:
+    newFile: !uuid 'a0bd8f112c872d1c9c93d7614bbf309795858048'
+    oldFile: !uuid 'c5dfb5f22e59569a9d228fe3ad60a63b713655c1'
+  /plop/store-template/index.d.hbs:
+    newFile: !uuid 'f916f3d1cec863bec4a29a3c0a33a16db6333eeb'
+    oldFile: !uuid '87713c5d243d61e155bcc12e90ac0931830a7e27'
+  /plop/store-template/index.hbs:
+    newFile: !uuid 'bd184a4907e953583330be4a515c4dd64f956e70'
+    oldFile: !uuid 'f5e248678fcba3d3b161da067e3c83a0dcd2bc8a'
+gitCommitId: !uuid '0a223afab2827983b001f2a7e2433256ed1d1e32'
 renames: {
   }
-revisionId: 109
+revisionId: 110
