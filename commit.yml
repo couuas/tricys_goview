@@ -3,36 +3,33 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'f8b8c5826f2abd84b27b897927578007048c393d'
-    oldFile: !uuid '789efd84dc02ccbe6e75a5ee39ddeffdf094cef3'
-  /src/store:
-    newFile: !uuid 'f7c2321b59b7ff19550aac2993f74d73a52c6799'
-    oldFile: !uuid 'be612f88f842ea60fc0719436cdd09333a1497db'
-  /src/store/modules:
-    newFile: !uuid 'b0d46d020f7cadafd9bdfda13637c9129c4e31c1'
-    oldFile: !uuid '746e350ba7eb6c69eb849aa475c57adc55eff1a1'
-  /src/store/modules/chartEditStore:
-    newFile: !uuid '1b4de035027f90c907bccbf1e9fb439b10843763'
-    oldFile: !uuid '02cbd6effc5e9fdc9f0ee0877e72d23a5f398538'
-  /src/store/modules/chartEditStore/chartEditStore.d.ts:
-    newFile: !uuid '02b263bef42e090558ec711ff73ef00a5f22f3db'
-    oldFile: !uuid 'b49774f4f9bdc19890295d260e7897008ea431a9'
-  /src/store/modules/chartEditStore/chartEditStore.ts:
-    newFile: !uuid 'e4030c91a6e15f76e7e7b2c7c03b2204cde34980'
-    oldFile: !uuid '898f0cdbeb9377aaa8276e7c6257d3a8f5d9465f'
-  /src/views:
-    newFile: !uuid '100f0de5ac089dacb52afe948de213cf0e722f64'
-    oldFile: !uuid 'b7294e76cfd1ed9fd7c8f4560e4e2a1339f2ceca'
-  /src/views/chart:
-    newFile: !uuid '6464bde225ee3bb25042e1b3088a229f54dccc79'
-    oldFile: !uuid 'bb91fee72184c84594c0731a507492dd75cd75b6'
-  /src/views/chart/hooks:
-    newFile: !uuid '54b2f3656847788c9bcaeca061648b0628c8cdee'
-    oldFile: !uuid '127a75495b526d8498272a3545ca10a4ec05eca7'
-  /src/views/chart/hooks/useContextMenu.hook.ts:
-    newFile: !uuid 'c4bd2aa2f13d717721e293c4715c4e023973595e'
-    oldFile: !uuid '1dfd71e5853413bb38cc7af8fd69ff4b602ebdbd'
-gitCommitId: !uuid 'c5b13802995eb20176449f43055ca97924c8d8d2'
+    newFile: !uuid 'f7caca6f08c4a7f436a2f5ead922d7b3176b18ed'
+    oldFile: !uuid 'f8b8c5826f2abd84b27b897927578007048c393d'
+  /src/packages:
+    newFile: !uuid 'cfd0a0f21d99c7804faff68bc325c6b8022e26b9'
+    oldFile: !uuid '46831513f739046b704ca0b08bc24d8db15475e7'
+  /src/packages/components:
+    newFile: !uuid 'ab574962e7608da363eaa34c35af63e9457315fc'
+    oldFile: !uuid '321b9b762bc171fdb1e301a7f4ed5839c32f5581'
+  /src/packages/components/Charts:
+    newFile: !uuid '8dd9cbe080972ce7bfb0fd5ce9d0db33b21557c7'
+    oldFile: !uuid 'd70db652165e8e5a6620e0de55f3af477a82cf25'
+  /src/packages/components/Charts/Bars:
+    newFile: !uuid 'c28c2592a2c0b2f314352f93e76e6e72c00e9584'
+    oldFile: !uuid '0665fab940b5e27066143f9ecca46ddd74c6b07a'
+  /src/packages/components/Charts/Bars/BarCrossrange:
+    newFile: !uuid 'a36c7849fe3f795bf6bcd729eb1ee8d970e171ec'
+    oldFile: !uuid 'e1c76ad0441132815ceea7637b3e0eaaa5179cad'
+  /src/packages/components/Charts/Bars/BarCrossrange/config.ts:
+    newFile: !uuid 'f1333095c81165ffb01f112cfc7b1db6229ed3d9'
+    oldFile: null
+  /src/packages/components/Charts/Bars/BarCrossrange/config.vue:
+    newFile: !uuid '3e3b929c5da3fb9b900db948a37b38fa8c12f908'
+    oldFile: null
+  /src/packages/components/Charts/Bars/BarCrossrange/index.vue:
+    newFile: !uuid 'e3773fb92c092261c25e5884073828064e4fca3e'
+    oldFile: !uuid 'f3abbb36e7180b2a2ced443e466776c111c896d7'
+gitCommitId: !uuid 'cd91047b6e6c82e00066cd5199eed22a783e0b53'
 renames: {
   }
-revisionId: 116
+revisionId: 117
