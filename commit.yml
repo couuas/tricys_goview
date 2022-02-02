@@ -3,33 +3,24 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '5e7019b6e7207880753acdb417ce82d1a4df72b0'
-    oldFile: !uuid '66d41aabb2e38d684a7b08f18987601093bc640e'
-  /src/packages:
-    newFile: !uuid 'cfd0a0f21d99c7804faff68bc325c6b8022e26b9'
-    oldFile: !uuid '46831513f739046b704ca0b08bc24d8db15475e7'
-  /src/packages/components:
-    newFile: !uuid 'ab574962e7608da363eaa34c35af63e9457315fc'
-    oldFile: !uuid '321b9b762bc171fdb1e301a7f4ed5839c32f5581'
-  /src/packages/components/Charts:
-    newFile: !uuid '8dd9cbe080972ce7bfb0fd5ce9d0db33b21557c7'
-    oldFile: !uuid 'd70db652165e8e5a6620e0de55f3af477a82cf25'
-  /src/packages/components/Charts/Bars:
-    newFile: !uuid 'c28c2592a2c0b2f314352f93e76e6e72c00e9584'
-    oldFile: !uuid '0665fab940b5e27066143f9ecca46ddd74c6b07a'
-  /src/packages/components/Charts/Bars/BarCrossrange:
-    newFile: !uuid 'a36c7849fe3f795bf6bcd729eb1ee8d970e171ec'
-    oldFile: !uuid 'e1c76ad0441132815ceea7637b3e0eaaa5179cad'
-  /src/packages/components/Charts/Bars/BarCrossrange/config.ts:
-    newFile: !uuid 'f1333095c81165ffb01f112cfc7b1db6229ed3d9'
-    oldFile: null
-  /src/packages/components/Charts/Bars/BarCrossrange/config.vue:
-    newFile: !uuid '3e3b929c5da3fb9b900db948a37b38fa8c12f908'
-    oldFile: null
-  /src/packages/components/Charts/Bars/BarCrossrange/index.vue:
-    newFile: !uuid 'e3773fb92c092261c25e5884073828064e4fca3e'
-    oldFile: !uuid 'f3abbb36e7180b2a2ced443e466776c111c896d7'
-gitCommitId: !uuid 'ccf78c6dd24f93de7e06767ff04b6148092365c6'
+    newFile: !uuid 'e6755c37397461104e17f40a72a4621134233631'
+    oldFile: !uuid '5e7019b6e7207880753acdb417ce82d1a4df72b0'
+  /src/views:
+    newFile: !uuid '449dabfb8f8ad5acbaf83521e99a2eea94ed6fd9'
+    oldFile: !uuid '100f0de5ac089dacb52afe948de213cf0e722f64'
+  /src/views/chart:
+    newFile: !uuid '1f851addb4175844fcce82107249d0058841fec8'
+    oldFile: !uuid '6464bde225ee3bb25042e1b3088a229f54dccc79'
+  /src/views/chart/ContentEdit:
+    newFile: !uuid 'd7768b835e56cc977397190f7bef31e025506cab'
+    oldFile: !uuid '429b865095376dba0a13e1ea84f84c34fd4f6bf4'
+  /src/views/chart/ContentEdit/hooks:
+    newFile: !uuid '2f0ce059cfb3be781e01aad6103b73cb75c2ea3f'
+    oldFile: !uuid '5448977b0bca513ae5f7e2b8d1a02817f2937125'
+  /src/views/chart/ContentEdit/hooks/useDrop.hook.ts:
+    newFile: !uuid 'f09f2fc2c547be2b020115c69a0f10cf61cd63ee'
+    oldFile: !uuid 'efcea8797338c44a1b14a0f2b86aa04475847bc0'
+gitCommitId: !uuid '8ef13b6325664bf1e766187102fcafd430605f78'
 renames: {
   }
-revisionId: 800
+revisionId: 801
