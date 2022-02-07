@@ -3,74 +3,21 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'aab4938f864e63760f40dbaece510191f4e6b53a'
-    oldFile: !uuid '6ca68dd8645384d73871fd00ddcfa12fd3100b43'
+    newFile: !uuid '3d16e0d3e8de47193378d47215c460b3b12f212a'
+    oldFile: !uuid 'aab4938f864e63760f40dbaece510191f4e6b53a'
   /src/views:
-    newFile: !uuid '654e283703f41a79e9656b1782b6405bed1793af'
-    oldFile: !uuid '2185385c4d812aff3d72ce88d28bde5c01393d3b'
+    newFile: !uuid 'f69e812f0616d2c27e1a1d2fbc3a205d00ed4712'
+    oldFile: !uuid '654e283703f41a79e9656b1782b6405bed1793af'
   /src/views/chart:
-    newFile: !uuid '91e3911bbfb508fdf7a1a306aa6033d98c3557f8'
-    oldFile: !uuid 'fd740a9a9323f695a22d4d588b081a30e3f5a58d'
-  /src/views/chart/ContentDetails:
-    newFile: !uuid '7c17b0595f17c3519a9cae460085aa899fb6beb3'
-    oldFile: !uuid 'fb9bce60a5d9c9cdca4612bf5ca3716596bb297e'
-  /src/views/chart/ContentDetails/components:
-    newFile: !uuid 'c6abde10cebcf5108a2cb33bb4c4f6f69eff9cf4'
-    oldFile: !uuid '1275f7808545d1b467c93dd0a869367925d85a02'
-  /src/views/chart/ContentDetails/components/Behind:
-    newFile: null
-    oldFile: !uuid 'e0d4d9d108081e3da81515b8ab154c8c2c044b35'
-  /src/views/chart/ContentDetails/components/Behind/index.ts:
-    newFile: null
-    oldFile: !uuid '45dcf4d8b851362959752467eddb4c29491a9aba'
-  /src/views/chart/ContentDetails/components/Behind/index.vue:
-    newFile: null
-    oldFile: !uuid '569781920e4eab548ff4e7a80f6f1d0f5d700967'
-  /src/views/chart/ContentDetails/components/ChartBehind:
-    newFile: !uuid 'e0d4d9d108081e3da81515b8ab154c8c2c044b35'
-    oldFile: null
-  /src/views/chart/ContentDetails/components/ChartBehind/index.ts:
-    newFile: !uuid '45dcf4d8b851362959752467eddb4c29491a9aba'
-    oldFile: null
-  /src/views/chart/ContentDetails/components/ChartBehind/index.vue:
-    newFile: !uuid '569781920e4eab548ff4e7a80f6f1d0f5d700967'
-    oldFile: null
-  /src/views/chart/ContentDetails/components/ChartSetting:
-    newFile: !uuid '4f23a73e9298d3410b1aef38717504157f721ec9'
-    oldFile: null
-  /src/views/chart/ContentDetails/components/ChartSetting/index.ts:
-    newFile: !uuid 'd18bd67326f2cb65e7c8f6887a6ad6de21da6d34'
-    oldFile: null
-  /src/views/chart/ContentDetails/components/ChartSetting/index.vue:
-    newFile: !uuid '3c74ffbb7c60e311c56637f1c527affc656c5d2d'
-    oldFile: null
-  /src/views/chart/ContentDetails/components/Setting:
-    newFile: null
-    oldFile: !uuid '2d9ed129d6e0562831e8a2640b229b68553c69c9'
-  /src/views/chart/ContentDetails/components/Setting/index.ts:
-    newFile: null
-    oldFile: !uuid 'b4667c582ae982b25b295319e1aab36b30442741'
-  /src/views/chart/ContentDetails/components/Setting/index.vue:
-    newFile: null
-    oldFile: !uuid '981f82b0419ac3f8c725bda2de3a9cc13d465af8'
-  /src/views/chart/ContentDetails/index.vue:
-    newFile: !uuid '1c46f31cb6b97d5fb08aefefad2095486d8bee0d'
-    oldFile: !uuid '04e481544e88c32dc21ca38cab446724005bcc2a'
+    newFile: !uuid '401f03cf33b15005b7c8b82d01221153c0c1b28f'
+    oldFile: !uuid '91e3911bbfb508fdf7a1a306aa6033d98c3557f8'
   /src/views/chart/ContentLayers:
-    newFile: !uuid 'f2e25e175dae0c6c764f219e3959ee4e73502efc'
-    oldFile: !uuid '298b1c46d5bf050c05e0aebe3f4379bceb4a43c8'
+    newFile: !uuid 'c6ae2b03995d6eec7231d184ea7b5b9735adfa91'
+    oldFile: !uuid 'f2e25e175dae0c6c764f219e3959ee4e73502efc'
   /src/views/chart/ContentLayers/index.vue:
-    newFile: !uuid '73a5c60d6da71d72a0d5edb1cf3a5eac4c2a6481'
-    oldFile: !uuid 'f18e2cd52b61d4414cd4b17b2c9a06f0e8a7146d'
-  /src/views/chart/hooks:
-    newFile: !uuid 'a450d4c79032300ce9ccb3e1f574dc315ceac3f2'
-    oldFile: !uuid 'a6427140fba52d3b35937a085567e71f279cff04'
-  /src/views/chart/hooks/useContextMenu.hook.ts:
-    newFile: !uuid '94464b725cffb0fdd4e03a84488dc7639f83dcf2'
-    oldFile: !uuid '6d443c82235bb2266d70d39c1e17abcb0227a6cb'
-gitCommitId: !uuid '88b03a416cde86d6e54f747aada307ed2da96890'
-renames:
-  /src/views/chart/ContentDetails/components/ChartBehind/index.ts: /src/views/chart/ContentDetails/components/Behind/index.ts
-  /src/views/chart/ContentDetails/components/ChartBehind/index.vue: /src/views/chart/ContentDetails/components/Behind/index.vue
-  /src/views/chart/ContentDetails/components/ChartSetting/index.vue: /src/views/chart/ContentDetails/components/Setting/index.vue
-revisionId: 811
+    newFile: !uuid '081287c0725e029789bb3713a9c6f4b941438449'
+    oldFile: !uuid '73a5c60d6da71d72a0d5edb1cf3a5eac4c2a6481'
+gitCommitId: !uuid '1b7bcd3e32faed9377b8fa8cea829f1794ed375c'
+renames: {
+  }
+revisionId: 812
