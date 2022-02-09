@@ -2,28 +2,10 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid 'df8dec342710deeaf8567792232001f56b9ac54a'
-    oldFile: !uuid '5cec64b772d800ae9aac101ee3ecfc79456e179c'
-  /src/views:
-    newFile: !uuid '9ec0cca4f6ebc0efea8b00fd0e7e0b0364ea25e5'
-    oldFile: !uuid '3603c9a65694658fffcb18285fa722ce717d6736'
-  /src/views/chart:
-    newFile: !uuid '64141015eaa35eae22196f8673e3a9d84d41b47c'
-    oldFile: !uuid '22083d53e465aedf5de5f2b5c4b68cc82210e308'
-  /src/views/chart/ContentDetails:
-    newFile: !uuid '00799af9680164a73a30847b44e6aba4191e2883'
-    oldFile: !uuid '4de9acde9e95aaefb8a4463e893855d047037ab2'
-  /src/views/chart/ContentDetails/components:
-    newFile: !uuid 'fa054e96263ca6cf2d751b5a7bdca481120b71af'
-    oldFile: !uuid '256916d93799a95b75ec22200dc9b814366a7687'
-  /src/views/chart/ContentDetails/components/CanvasPage:
-    newFile: !uuid '7d68aa21f4aeb7f70761027e2edc42f2515542a7'
-    oldFile: !uuid '792e4273fb58c0f8ed72d71fac01f42041836485'
-  /src/views/chart/ContentDetails/components/CanvasPage/index.vue:
-    newFile: !uuid 'f7f82ba0c47f58934aba394520855af918ca7158'
-    oldFile: !uuid '3a6c51e853605ebfa205298a1e975b19ce499d4c'
-gitCommitId: !uuid '60b18a20fabcd2dd5ee8b5896e2ef295c4c20ca6'
+  /package.json:
+    newFile: !uuid 'a0b298bf982296e159578883f8a2abd11e936b99'
+    oldFile: !uuid 'faf2bfb8a6b686697c01239d77b9a4389335123d'
+gitCommitId: !uuid '0cf898bd5785501ac09e5195025bcc141de6c6f5'
 renames: {
   }
-revisionId: 815
+revisionId: 816
