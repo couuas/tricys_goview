@@ -3,15 +3,21 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'ce581ff6306d6afcf198e2df9808b0c817c8e395'
-    oldFile: !uuid '080ae5c4bcb140a6077b3f57c350b3dc4cdee02e'
-  /src/utils:
-    newFile: !uuid 'd3030024351e16a60427463b0d1bc116d892525f'
-    oldFile: !uuid '69ddb5805d10a0c561268c1fadef67e01dad2536'
-  /src/utils/plugin.ts:
-    newFile: !uuid '10399044a9e4ac1d33d4f77baeefb48989f1c534'
-    oldFile: !uuid '561c76536085e197dfe6f7cc509c8469e3a8cc1b'
-gitCommitId: !uuid 'c8437fd3eade771c8572f1740720e6ab718211ab'
+    newFile: !uuid 'ede2da12680f89052549d7c75890618ca3f37d36'
+    oldFile: !uuid 'ce581ff6306d6afcf198e2df9808b0c817c8e395'
+  /src/store:
+    newFile: !uuid '8402a804d2e6b764097482dc8171a2dc1c759b6d'
+    oldFile: !uuid 'f7d697ed00dfcccf73d68752de2eb156cfc55082'
+  /src/store/modules:
+    newFile: !uuid '7c89e1cd1a9ee5761f34637538b219ce47921dbc'
+    oldFile: !uuid '11005abc687adc8cfbeb159fdf771160c001699b'
+  /src/store/modules/chartHistoryStore:
+    newFile: !uuid '54024c52b421a5a4b827d0a56937fb9136b33fe7'
+    oldFile: !uuid 'a5563df711567e43a854439c17cbd37982497c34'
+  /src/store/modules/chartHistoryStore/chartHistoryStore.ts:
+    newFile: !uuid '7938965abc179d9b302dab431a3f67f488ffe9a9'
+    oldFile: !uuid '8da1e15e773c481e064318e2ed59f6128f0e1edf'
+gitCommitId: !uuid '830d4752152181d8bd08e583a0d2204980a49779'
 renames: {
   }
-revisionId: 134
+revisionId: 135
