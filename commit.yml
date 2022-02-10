@@ -3,21 +3,21 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'c078e2804498785aba5fa04c3a7f85d86171ce86'
-    oldFile: !uuid '563e4d68878abea55ade9e3e153ae9fd0ea37297'
-  /src/utils:
-    newFile: !uuid '87188e67bf51d0d84188740e381773252e0aeec0'
-    oldFile: !uuid 'd3030024351e16a60427463b0d1bc116d892525f'
-  /src/utils/index.ts:
-    newFile: !uuid 'f6fd01e4e56bb85a4c0db9c3ce9e1bccd4e18d0b'
-    oldFile: !uuid 'e253e1296c4acfa62cbda92da2ec2827daf7dda3'
-  /src/utils/page.ts:
-    newFile: null
-    oldFile: !uuid '4abdc3e6e2c17303fb1ec088b06fa89b19def766'
-  /src/utils/router.ts:
-    newFile: !uuid '4abdc3e6e2c17303fb1ec088b06fa89b19def766'
-    oldFile: null
-gitCommitId: !uuid '31194bd4d6c0d7cdee868f48b8184a69982f0053'
-renames:
-  /src/utils/router.ts: /src/utils/page.ts
-revisionId: 819
+    newFile: !uuid '2c5eb29df3b513b6b63c80d686d45425f7e5feb6'
+    oldFile: !uuid 'c078e2804498785aba5fa04c3a7f85d86171ce86'
+  /src/store:
+    newFile: !uuid 'daefca6b39229aab58ef570d05bc521adc76d809'
+    oldFile: !uuid '8402a804d2e6b764097482dc8171a2dc1c759b6d'
+  /src/store/modules:
+    newFile: !uuid '6cc89c09d4fbad1cbcc312bc76ff7c6a24ec79ef'
+    oldFile: !uuid '7c89e1cd1a9ee5761f34637538b219ce47921dbc'
+  /src/store/modules/chartHistoryStore:
+    newFile: !uuid '1c83c81df6cda220ef97189d04e57e6e04e733a0'
+    oldFile: !uuid '54024c52b421a5a4b827d0a56937fb9136b33fe7'
+  /src/store/modules/chartHistoryStore/chartHistoryStore.ts:
+    newFile: !uuid '49ac6103446674b6978734d13979297c23cb7e9a'
+    oldFile: !uuid '7938965abc179d9b302dab431a3f67f488ffe9a9'
+gitCommitId: !uuid '902145df719790ccf2f12416cfc1923f793a8efd'
+renames: {
+  }
+revisionId: 820
