@@ -3,33 +3,61 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '87a2e971a3206ddc8b124f0a6603108875278424'
-    oldFile: !uuid '9913a3ec501f3d0ad0f6e75b8f944fef5e516b0a'
-  /src/packages:
-    newFile: !uuid '812ef215ea52ec2c55c7743788733f0a00ca5981'
-    oldFile: !uuid '12337274153ba7ba81c96effd601ce62c42aa9b3'
-  /src/packages/components:
-    newFile: !uuid '4a17bc0ac7fe2645d1a14ed1f338234006313773'
-    oldFile: !uuid '0c38e84e7a3998d76b121347222c3f4fdc9732ed'
-  /src/packages/components/Charts:
-    newFile: !uuid '153d9f055f840d25457bcf8ce8ac8a477e50c045'
-    oldFile: !uuid '3d1ba5035251847781e50b8f82652689644b9b77'
-  /src/packages/components/Charts/Pies:
-    newFile: !uuid '3f77ab66713f0ed1559564fa539cb5500ff5ef66'
-    oldFile: !uuid '7832000fa28781042cc808f4afea9820759e94a4'
-  /src/packages/components/Charts/Pies/PieCommon:
-    newFile: !uuid '08bd74b195bc73be3d9b971b0f34f0a8177144b3'
-    oldFile: !uuid 'b219cdf7116f1e7aa6f106ffb797813478095c0f'
-  /src/packages/components/Charts/Pies/PieCommon/config.ts:
-    newFile: !uuid 'c3edac243f4b70a30a0a6e5994ff62109ee5afb4'
-    oldFile: !uuid 'b030fb384ddde5ba4526d416de01e2bd50adf6b6'
-  /src/packages/public:
-    newFile: !uuid '1fbb6297879a27eb40eefcde682a393d0850333e'
-    oldFile: !uuid 'fe6736ee9f0a5126b1fe9866d30284b1bd8a5ee5'
-  /src/packages/public/chart.ts:
-    newFile: !uuid '43f3eb433b7a169f5da2d5c1bd81a5b2eba9df29'
-    oldFile: !uuid 'cd71013a32a16be85b58450b603aecee0b3b7799'
-gitCommitId: !uuid 'f06aafd14ea578088eee0cc90342843410c40b66'
-renames: {
-  }
-revisionId: 832
+    newFile: !uuid '69c9927f70ca58a6116a19c380111662924ad1b1'
+    oldFile: !uuid '87a2e971a3206ddc8b124f0a6603108875278424'
+  /src/views:
+    newFile: !uuid '9b1493297c49d4bf17e7f3a639257e9d705d7fdd'
+    oldFile: !uuid 'e86085da0e6f38b5f269e3b851f7dd73eaaf0248'
+  /src/views/chart:
+    newFile: !uuid 'e87f6f0146919d240d5633f0f978125266daaf62'
+    oldFile: !uuid 'b56c5c2352efd9fd2e25d5abe1e8ee98a40a4675'
+  /src/views/chart/ContentDetails:
+    newFile: !uuid 'cdea8a161e54f162c1e78842c7258525397e9cf0'
+    oldFile: !uuid '3e34f7f6c21a30728ed8e47155c78602adcd887e'
+  /src/views/chart/ContentDetails/components:
+    newFile: !uuid 'cfccd7345aa5a088b3f83bcb9f833236d711f247'
+    oldFile: !uuid 'deda6b640a7d05ccfaa3619db71d12f4092f4f3f'
+  /src/views/chart/ContentDetails/components/CanvasPage:
+    newFile: !uuid '382aa160dcbc75c165f0579b7be48578a25b147d'
+    oldFile: !uuid 'c71a281df511334b05873aecc2602d0a055ae07e'
+  /src/views/chart/ContentDetails/components/CanvasPage/components:
+    newFile: !uuid '965b90f92168f01fbcc516bb95606c0546abedca'
+    oldFile: !uuid 'd18a22bd06bafa03f33ce115927bc846c52f505f'
+  /src/views/chart/ContentDetails/components/CanvasPage/components/ChartSysSetting:
+    newFile: null
+    oldFile: !uuid '3dd26eb675526165fee8cf0b56e291f511e572e4'
+  /src/views/chart/ContentDetails/components/CanvasPage/components/ChartSysSetting/index.ts:
+    newFile: null
+    oldFile: !uuid '2c3c996ea9405bf1bd49466d0cc5c1edeef73604'
+  /src/views/chart/ContentDetails/components/CanvasPage/components/ChartSysSetting/index.vue:
+    newFile: null
+    oldFile: !uuid '1330d6df8d519aa5623b9ea23940b8664fb90d3f'
+  /src/views/chart/ContentDetails/components/CanvasPage/components/ChartThemSetting:
+    newFile: !uuid '5d04e80bb8b4e873591ca7e3c29d62302b7d1dcd'
+    oldFile: null
+  /src/views/chart/ContentDetails/components/CanvasPage/components/ChartThemSetting/index.vue:
+    newFile: !uuid '1330d6df8d519aa5623b9ea23940b8664fb90d3f'
+    oldFile: null
+  /src/views/chart/ContentDetails/components/CanvasPage/components/ChartTheme:
+    newFile: null
+    oldFile: !uuid 'ccf6f2d744bed35cc5049172eb180d01027f8178'
+  /src/views/chart/ContentDetails/components/CanvasPage/components/ChartTheme/index.ts:
+    newFile: null
+    oldFile: !uuid '79dfaea159fd737715ad4010bf4b35905c02d0a3'
+  /src/views/chart/ContentDetails/components/CanvasPage/components/ChartTheme/index.vue:
+    newFile: null
+    oldFile: !uuid 'ddd6f01fb1564c904eb8c0c3900d9c8207b42cec'
+  /src/views/chart/ContentDetails/components/CanvasPage/components/ChartThemeColor:
+    newFile: !uuid 'bb9e3cc5643f491e46ce7c0fc8369a0a5b57b5d9'
+    oldFile: null
+  /src/views/chart/ContentDetails/components/CanvasPage/components/ChartThemeColor/index.vue:
+    newFile: !uuid 'ddd6f01fb1564c904eb8c0c3900d9c8207b42cec'
+    oldFile: null
+  /src/views/chart/ContentDetails/components/CanvasPage/index.vue:
+    newFile: !uuid '83282ad32b1c6cf27f9c21ca3bee5cfa546000e1'
+    oldFile: !uuid '21ebc659c70f4ab3971132ec73267311d9a838cd'
+gitCommitId: !uuid 'a3b26ff2474bacaa3da7a5ce588da00dfebdce9c'
+renames:
+  /src/views/chart/ContentDetails/components/CanvasPage/components/ChartThemSetting/index.vue: /src/views/chart/ContentDetails/components/CanvasPage/components/ChartSysSetting/index.vue
+  /src/views/chart/ContentDetails/components/CanvasPage/components/ChartThemeColor/index.vue: /src/views/chart/ContentDetails/components/CanvasPage/components/ChartTheme/index.vue
+revisionId: 833
