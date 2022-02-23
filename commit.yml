@@ -3,30 +3,24 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '9314deb03474846a9641c1115142cf1dd77ed76f'
-    oldFile: !uuid '0a9a8d5065838cd60c13da15c8cb121eeeab8900'
-  /src/components:
-    newFile: !uuid 'a24c6cbc130eaf6d1b3acb974f78f56228eeac09'
-    oldFile: !uuid 'e8c7302ccd2d7a78b6d45f1869f1446f75a4cb4a'
-  /src/components/ChartItemSetting:
-    newFile: !uuid '5e4e49e34a101369bc2cf5ab517943b3f38057f7'
-    oldFile: !uuid 'c1a8f02df33cd8420f99a73115c5b45e9c23fde1'
-  /src/components/ChartItemSetting/CollapseItem.vue:
-    newFile: !uuid '2d078c9d88481064b96183a7f07d760068b35919'
-    oldFile: !uuid 'e25b288419a2d301fc1e358705f7b52f7e9ac99e'
-  /src/components/ChartItemSetting/GlobalSetting.vue:
-    newFile: !uuid 'be96d3e3efa0e11e92a4bc2f98faef9fa3137bb5'
-    oldFile: !uuid '0cb56945e5e97b4a0760322114465fcc5c92f1aa'
-  /src/settings:
-    newFile: !uuid '92ea2235d11f55dfe09723d22fd22b08ecbc32c7'
-    oldFile: !uuid 'd2cecd980b812f2d7d77e26874700210409e8823'
-  /src/settings/chartThemes:
-    newFile: !uuid '998ea60e146c92ac9379a675c53df8e610b5525e'
-    oldFile: !uuid 'ee823f09fed642981ccb2b03a42e19928e28fdb6'
-  /src/settings/chartThemes/global.theme.json:
-    newFile: !uuid '2c4a0b05dab3b7cc0ded6453ba1e3c2c83b5b25c'
-    oldFile: !uuid '758b2376991ee736702866cb258e41ce1c281a3e'
-gitCommitId: !uuid 'd7ebf0e173c91bdfbe68e0fd3a75f4a1406e6e34'
+    newFile: !uuid '77549ea462078afed0eade5e0ae9b0883a5d7f4f'
+    oldFile: !uuid '9314deb03474846a9641c1115142cf1dd77ed76f'
+  /src/views:
+    newFile: !uuid '01d4ee3da63d4d41b837ecbf563872a87cce3caf'
+    oldFile: !uuid '2d3c49a86e06613f7af50c7893a9fec8f04a0808'
+  /src/views/chart:
+    newFile: !uuid '0e6f418b2454f53ecda0aef65b369f979b285a1f'
+    oldFile: !uuid 'aec1a4934e81e3fe1544c4cd3e39d2e858413f12'
+  /src/views/chart/ContentEdit:
+    newFile: !uuid 'e6e1937d7c27acdd8dc7b0b0cacd9e4d3d503289'
+    oldFile: !uuid '6dbfa8292edbf0edb16e2b30435a0c91416f36e8'
+  /src/views/chart/ContentEdit/hooks:
+    newFile: !uuid 'd3a5a61fde1a70c82324452e5a9999506baba31b'
+    oldFile: !uuid 'bc45f2568b3d43feacad0ffe380e2311d0221d7a'
+  /src/views/chart/ContentEdit/hooks/useLayout.hook.ts:
+    newFile: !uuid '51823c1f02c7d12c6a26338ab519311915717315'
+    oldFile: !uuid '71fb3639093108aa034d6b6af61a641ef86eb605'
+gitCommitId: !uuid '89ac30438add48ce640df8d05285a37f1e363f51'
 renames: {
   }
-revisionId: 840
+revisionId: 841
