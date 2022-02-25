@@ -2,76 +2,13 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid 'ca46e1b0b2d076cc518ee4e8fd7ac25d08803056'
-    oldFile: !uuid '8fc378c1d0c0344221a18cdf7bee32db144d1cc6'
-  /src/packages:
-    newFile: !uuid '9beba9000bc4376e83db6f9949411b7773bd66f8'
-    oldFile: !uuid '3996afcac1281111996e14c7b81349ca77185842'
-  /src/packages/components:
-    newFile: !uuid '1f7c647d18b3af2c7038f1062586980baa80f631'
-    oldFile: !uuid 'a9e6fcb972d9fc07579f4d6a094bc0b70643a6b1'
-  /src/packages/components/Charts:
-    newFile: !uuid '81c0240de2c07819853019db1d0cd97e858394ae'
-    oldFile: !uuid '50f68c4466e15f0d7207c3b233ba35eeb681b2fa'
-  /src/packages/components/Charts/Lines:
-    newFile: !uuid '09d384e9f6fce3c70222d6a9962ae8a2c7ca12a2'
-    oldFile: !uuid '8cf013b9c2b44abc6745bcb0f3c3b22148790f3d'
-  /src/packages/components/Charts/Lines/LineCommon:
-    newFile: !uuid 'eab6d3ece2c0a80b655019e86843a291af1d7b38'
-    oldFile: !uuid '780c9faa8500944ad6c23ecafd9affc5c296c5e3'
-  /src/packages/components/Charts/Lines/LineCommon/index.vue:
-    newFile: !uuid '636a00dda3e7a5c06eea444362e64c9b69369f7f'
-    oldFile: !uuid '617406e1b5cc3a2824130fa47e439c33b1309753'
-  /src/packages/components/Charts/Lines/LineGradientSingle:
-    newFile: !uuid 'e6dab966c52f851db70e34f846d8d94ebadc80e7'
-    oldFile: !uuid '34b02263b145e2eb56697d22f34ac6634382d401'
-  /src/packages/components/Charts/Lines/LineGradientSingle/config.ts:
-    newFile: !uuid '8903f5a56e45b2a4c75db1def624b896fe54c230'
-    oldFile: null
-  /src/packages/components/Charts/Lines/LineGradientSingle/config.vue:
-    newFile: !uuid '3e3b929c5da3fb9b900db948a37b38fa8c12f908'
-    oldFile: null
-  /src/packages/components/Charts/Lines/LineGradientSingle/index.vue:
-    newFile: !uuid '636a00dda3e7a5c06eea444362e64c9b69369f7f'
-    oldFile: !uuid '850cdeef4295ac46cc09852fe77ee52f7ca2664e'
-  /src/packages/components/Charts/Lines/LineGradients:
-    newFile: !uuid '6b25304871236a9d0c4faa750ffbe95169a61f70'
-    oldFile: !uuid '38940566581e3b245324eb3400885091ce8b1f6d'
-  /src/packages/components/Charts/Lines/LineGradients/config.ts:
-    newFile: !uuid 'cd81b85608ed528bc5740d4c25f0a304b3c4d830'
-    oldFile: null
-  /src/packages/components/Charts/Lines/LineGradients/config.vue:
-    newFile: !uuid '3e3b929c5da3fb9b900db948a37b38fa8c12f908'
-    oldFile: null
-  /src/packages/components/Charts/Lines/LineGradients/index.ts:
-    newFile: !uuid 'ca8e300f8dd4cd0cb8638dd3665cef0af49e7768'
-    oldFile: !uuid 'f17d72c05bee05a6690d76013ee8c4a62be62dd6'
-  /src/packages/components/Charts/Lines/LineGradients/index.vue:
-    newFile: !uuid '636a00dda3e7a5c06eea444362e64c9b69369f7f'
-    oldFile: !uuid '850cdeef4295ac46cc09852fe77ee52f7ca2664e'
-  /src/packages/components/Charts/Pies:
-    newFile: !uuid 'a638c044496f2581728e83c2b6962094687eea9c'
-    oldFile: !uuid '1ec647c8a9e0a175559b8b717e70a1048e0131f9'
-  /src/packages/components/Charts/Pies/PieCommon:
-    newFile: !uuid '5ae70ba52717a186a94e767dc83a9c11257d4902'
-    oldFile: !uuid '12cb419a09586d07f38a585fa800824b00084e54'
-  /src/packages/components/Charts/Pies/PieCommon/config.ts:
-    newFile: !uuid 'db634dd1b45b33ff25f119cb04d2db33a9192686'
-    oldFile: !uuid '1bd77aa30e18274c521984f47c644932547ea668'
-  /src/packages/index.ts:
-    newFile: !uuid '4fb919de46f0f7829f4ef407d77a5fc26698e974'
-    oldFile: !uuid '0944c2729384685012a791fb5b3a62bfd6e411a4'
-  /src/settings:
-    newFile: !uuid '38709b8585ffe6c9dc7d2551d86641a2ed3a46fa'
-    oldFile: !uuid '81ebb59aa5d4d7604c2853ed7dcb667c10cb868b'
-  /src/settings/chartThemes:
-    newFile: !uuid '3efb430ce89542708e98c2804d22b7c061229d29'
-    oldFile: !uuid '01ac91198853e66bb404dad0e34eb0b040dff625'
-  /src/settings/chartThemes/global.theme.json:
-    newFile: !uuid '33e84035a9fbebd33bbb133c0b9e18964dde3fb7'
-    oldFile: !uuid 'b758af680475082fa4bd1d297cefe18310024f5e'
-gitCommitId: !uuid '3923b49c9e1c00b1a0eab853074d59aabe48be80'
+  /package.json:
+    newFile: !uuid '208e4565f98ec6a04e3407825d3f56c0b2e1be95'
+    oldFile: !uuid '0b0a7b18b704c29fd63aa316d9dbc7b77cee6623'
+  /pnpm-lock.yaml:
+    newFile: !uuid '18b8309982ccfeb75c359e4f929921cba0d5b633'
+    oldFile: !uuid 'f239f686ccd2a6111c6dd13a81e80a0a1ec2472c'
+gitCommitId: !uuid '8fce610ec75f221a37b20db999af170dd28d99bd'
 renames: {
   }
-revisionId: 164
+revisionId: 165
