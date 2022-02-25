@@ -3,33 +3,51 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'ef8f8aa35bc6dc9db7b5c4e4897f01dc23ade691'
-    oldFile: !uuid 'ca46e1b0b2d076cc518ee4e8fd7ac25d08803056'
+    newFile: !uuid 'd7b4bab58f92c8b63cf1b736823c816448493be8'
+    oldFile: !uuid 'ef8f8aa35bc6dc9db7b5c4e4897f01dc23ade691'
+  /src/components:
+    newFile: !uuid '9ef4de651670867d48bcdd8fbc2d73cf56f2d5c4'
+    oldFile: !uuid 'c81ca087be33d016ae409ff34ce82bce29941c83'
+  /src/components/ChartItemSetting:
+    newFile: !uuid '505f0eced29964d095e58aca8ed803c0076a0f27'
+    oldFile: !uuid 'f8daabf1c9f1e3ba07af358ef614300858fb4c38'
+  /src/components/ChartItemSetting/GlobalSetting.vue:
+    newFile: !uuid '4aa10c684d75ed07531039f402f7ca1748228943'
+    oldFile: !uuid 'b18699554d1da851c1ddf514160683a53cf8e7e7'
   /src/packages:
-    newFile: !uuid '936cdf2a06237832aa92a95c5d9b37159956de13'
-    oldFile: !uuid '9beba9000bc4376e83db6f9949411b7773bd66f8'
-  /src/packages/components:
-    newFile: !uuid '59d0aea2aebd21b675989267676b19845d2a2688'
-    oldFile: !uuid '1f7c647d18b3af2c7038f1062586980baa80f631'
-  /src/packages/components/Charts:
-    newFile: !uuid 'd0bf640484272f06e661c1d9b5b17b364d846013'
-    oldFile: !uuid '81c0240de2c07819853019db1d0cd97e858394ae'
-  /src/packages/components/Charts/Lines:
-    newFile: !uuid 'e5643e8ea5c7f61e74933eed090cf3d324b8792c'
-    oldFile: !uuid '09d384e9f6fce3c70222d6a9962ae8a2c7ca12a2'
-  /src/packages/components/Charts/Lines/LineGradientSingle:
-    newFile: !uuid '6e8f5f346fe3a90f73c2c896756df503282f07f2'
-    oldFile: !uuid 'e6dab966c52f851db70e34f846d8d94ebadc80e7'
-  /src/packages/components/Charts/Lines/LineGradientSingle/config.ts:
-    newFile: !uuid 'a7bf0c34bca160e6c9c40baac6f9cc0e04dd0273'
-    oldFile: !uuid '8903f5a56e45b2a4c75db1def624b896fe54c230'
-  /src/packages/components/Charts/Lines/LineGradients:
-    newFile: !uuid 'b492720540d5e107b5536941c11d83d923d432af'
-    oldFile: !uuid '6b25304871236a9d0c4faa750ffbe95169a61f70'
-  /src/packages/components/Charts/Lines/LineGradients/config.ts:
-    newFile: !uuid '134673596399b85372224e1054501d56351779ca'
-    oldFile: !uuid 'cd81b85608ed528bc5740d4c25f0a304b3c4d830'
-gitCommitId: !uuid 'edfdcee3a4c55d7f1a7dc67668c63ff04fedc6ee'
+    newFile: !uuid '662989c7294d6e9f8af8521f725fac243c77eda9'
+    oldFile: !uuid '936cdf2a06237832aa92a95c5d9b37159956de13'
+  /src/packages/index.d.ts:
+    newFile: !uuid '8403bc8d08d5f562e612038a6e24e99f5045ba35'
+    oldFile: !uuid '8b646660233d8e509153634b78a7d3e41c712126'
+  /src/settings:
+    newFile: !uuid 'da1e4239e7bc205d205e9b17ad6759d44418b314'
+    oldFile: !uuid '38709b8585ffe6c9dc7d2551d86641a2ed3a46fa'
+  /src/settings/chartThemes:
+    newFile: !uuid 'e5e1148b4cc05528a0c2f87412d4ab609b5f30cb'
+    oldFile: !uuid '3efb430ce89542708e98c2804d22b7c061229d29'
+  /src/settings/chartThemes/global.theme.json:
+    newFile: !uuid 'ef3f19ecbb4da5cd09d8afdd2f45d8cef89913a0'
+    oldFile: !uuid '33e84035a9fbebd33bbb133c0b9e18964dde3fb7'
+  /src/views:
+    newFile: !uuid 'bac03a2eb259d7ad3a444a8bf2edf0a12ba72646'
+    oldFile: !uuid '8b732f67ac95fc2ac6a40c52821aadfb4075071e'
+  /src/views/chart:
+    newFile: !uuid '1c0b9115cc837057e2e3722feffda2e582b47bf7'
+    oldFile: !uuid '6a241fc5447f62341d66e17d2667706996235fa0'
+  /src/views/chart/ContentDetails:
+    newFile: !uuid '9eb53690333df4c50aaa9f0138494facc5a8a5a6'
+    oldFile: !uuid '806b3866e17e6f97362e5bc646910d54cb3fd431'
+  /src/views/chart/ContentDetails/components:
+    newFile: !uuid 'db3bdad15ef1560638902d27755d7af4c7eeeaac'
+    oldFile: !uuid '4fc7c0ab0de0a049bb888c198f5c8b5617338d39'
+  /src/views/chart/ContentDetails/components/ChartSetting:
+    newFile: !uuid '02b55e1f545f1ae64a8b6253e74c231951f3b358'
+    oldFile: !uuid 'b917b67cbe0ab7ae99b88df9a8548e3d0887b29c'
+  /src/views/chart/ContentDetails/components/ChartSetting/index.vue:
+    newFile: !uuid '77aeb70cdf2b76bdb31131e09bf871cb7c40acc8'
+    oldFile: !uuid '48ea3add0c7c018e7f9d6e3937817e2f169a3286'
+gitCommitId: !uuid '8e9905816e9eff91ea77a4e994da2a20837b1fee'
 renames: {
   }
-revisionId: 166
+revisionId: 167
