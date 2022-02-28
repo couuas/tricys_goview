@@ -2,238 +2,118 @@
 branches: {
   }
 fileChange:
+  /README.md:
+    newFile: !uuid '725de5d661aadb4ee8aad7d392831eb505c9a8db'
+    oldFile: !uuid '2b6e28f576910a402a1e3a619a5174b8dfd175bf'
+  /package.json:
+    newFile: !uuid 'd4c9fdf2dc53d85073511d2a3b3efc8f7bfcd5f1'
+    oldFile: !uuid '208e4565f98ec6a04e3407825d3f56c0b2e1be95'
+  /pnpm-lock.yaml:
+    newFile: !uuid 'e7a1ed58bc85c0d2c810bb39dddfa2c132dabcbc'
+    oldFile: !uuid '18b8309982ccfeb75c359e4f929921cba0d5b633'
   /src:
-    newFile: !uuid '5fdceec0bf1a46c7d5f7b63306c71d9c021a951e'
-    oldFile: !uuid '13856996af4134a673f1d2c0b7ab23befd12218d'
-  /src/packages:
-    newFile: !uuid 'fde119e9fd974432566447ff1313ededd783c41c'
-    oldFile: !uuid '84ccebb658db913d1861f0880126979da56396ff'
-  /src/packages/components:
-    newFile: !uuid '6e3caba4148b5703902fc03f1c19e85e123be643'
-    oldFile: !uuid '0f84d51e12bc6970b80df44c63135b4aaf23cba9'
-  /src/packages/components/Charts:
-    newFile: !uuid '20b6b977dae55c62bd371b2ceba85789c84eacdd'
-    oldFile: !uuid '86a9a007535b5524afc086d98ccdad162ea9b6ba'
-  /src/packages/components/Charts/Maps:
-    newFile: !uuid '513f9da7de574f77fe67190534d56302446ed754'
-    oldFile: !uuid 'c5acc936b663e343569926c208174c1a4e702708'
-  /src/packages/components/Charts/Maps/MapChine:
-    newFile: !uuid '498020663667da352e1e8a8ab56494fd8779c059'
-    oldFile: !uuid '8cd2575bb3a17861331c82b50cac0c090edb0ed8'
-  /src/packages/components/Charts/Maps/MapChine/config.vue:
-    newFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-    oldFile: null
-  /src/packages/components/Charts/Maps/MapChine/index.ts:
-    newFile: !uuid '71ac412259296165f6d8a44b385d43f42228a54e'
-    oldFile: !uuid 'f3c2a69f12b6a633421325afaf75878ce62ad600'
-  /src/packages/components/Charts/Mores:
-    newFile: !uuid '5eefd9bd6ff5c3d2921265c596cc23e9a524ead6'
-    oldFile: !uuid '69d089162aeb5d1341d5b3e4d6705d83e4999e4c'
-  /src/packages/components/Charts/Mores/Funnel:
-    newFile: !uuid '50f00e0f6ff1a07a47ecc81fa8c452585fc45d56'
-    oldFile: !uuid '4d07758d9d147baef436cd62580e2b1d53b31534'
-  /src/packages/components/Charts/Mores/Funnel/config.vue:
-    newFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-    oldFile: null
-  /src/packages/components/Charts/Mores/Funnel/index.ts:
-    newFile: !uuid 'f47cc7083558e014e2c1de319dd1aaeeddcc420a'
-    oldFile: !uuid 'ddbfab82bf993623eaad9ce73457e0251a8b9f5d'
-  /src/packages/components/Charts/Mores/Heatmap:
-    newFile: !uuid 'ca3afb3ccbb33ffe76d2b5dcbba6fa2a8378c1e1'
-    oldFile: !uuid 'fc71ca3d20f670cdb90b3a68721a1d0b060eccf3'
-  /src/packages/components/Charts/Mores/Heatmap/config.vue:
-    newFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-    oldFile: null
-  /src/packages/components/Charts/Mores/Heatmap/index.ts:
-    newFile: !uuid 'f4660a621538298cda28103383e116a7c4772a74'
-    oldFile: !uuid 'c984df89f772e28dfa7f952cfc3be7fb5da0ac2a'
-  /src/packages/components/Charts/Mores/Point:
-    newFile: !uuid '0a2f6b7932e6b51ffd5dd1ee0d8322992bda987c'
-    oldFile: !uuid '3484ea28954599e5c520d460a6859a8d9b824c44'
-  /src/packages/components/Charts/Mores/Point/config.vue:
-    newFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-    oldFile: null
-  /src/packages/components/Charts/Mores/Point/index.ts:
-    newFile: !uuid 'e76f81ff9657fbfe9696498755f0b13f2e1c467d'
-    oldFile: !uuid '00ced878268b1b6a4a9de76bf67c5c1acf52c3e8'
-  /src/packages/components/Charts/Mores/Radar:
-    newFile: !uuid '3a79ba8b76a34b7b71213dd121e5892406653655'
-    oldFile: !uuid '6a24add05bbe5d0e1f4eed0bfe19ca06e2cda26f'
-  /src/packages/components/Charts/Mores/Radar/config.vue:
-    newFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-    oldFile: null
-  /src/packages/components/Charts/Mores/Radar/index.ts:
-    newFile: !uuid '85a31a0551c50449e3c5f03e36616982f2984fa9'
-    oldFile: !uuid 'f87dc84598a0cb435329454c114344917cfd8d69'
-  /src/packages/components/Charts/Mores/TreeMap:
-    newFile: !uuid 'b9f6fbd04cf33c9d0a6b8dd2a3f791198b76f840'
-    oldFile: !uuid 'ea6bd43b79d6701ccbb10e51834f008e0745ce95'
-  /src/packages/components/Charts/Mores/TreeMap/config.vue:
-    newFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-    oldFile: null
-  /src/packages/components/Charts/Mores/TreeMap/index.ts:
-    newFile: !uuid 'ef24686c3be1e2119d8e0dd14c9ca82bef58df64'
-    oldFile: !uuid '39c4859c04a972ac230ce6a449962f892692fd42'
-  /src/packages/components/Charts/Mores/Variable:
-    newFile: !uuid '5d1af1fbb69019614f554227a0384cc7dfefb852'
-    oldFile: !uuid '1acd2184d3e3c22715b91a8134ef008b1fb04a86'
-  /src/packages/components/Charts/Mores/Variable/config.vue:
-    newFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-    oldFile: null
-  /src/packages/components/Charts/Mores/Variable/index.ts:
-    newFile: !uuid '5350ff7753ed1c316055a27039bcdb064cc840d9'
-    oldFile: !uuid '95c1ca9bb153f73358903b21d27ad21f9ba1c717'
-  /src/packages/components/Decorates:
-    newFile: !uuid 'f1b29356d1276d3c5c2e7d4680abb671dce44be8'
-    oldFile: !uuid '0028f1a8ffb79d7169772cac1865c73bff639923'
-  /src/packages/components/Decorates/Borders:
-    newFile: !uuid '4c568f8f05c2a29b1adb9ec57ecd72ac7604f5d8'
-    oldFile: !uuid '62d7c9d62a74104ca67adfef28753ac6986747dc'
-  /src/packages/components/Decorates/Borders/borderCommon:
-    newFile: !uuid 'c5e494d6248e54b024dba861bafbc18d655fb5fe'
-    oldFile: !uuid '899daec58fb91a9e96f6bcfbdb49e3598e2668b8'
-  /src/packages/components/Decorates/Borders/borderCommon/config.vue:
-    newFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-    oldFile: null
-  /src/packages/components/Decorates/Borders/borderCommon/index.ts:
-    newFile: !uuid 'efde825af6d0b28c1bb674567c4f588fa401d9b9'
-    oldFile: !uuid 'a95cf4bd7fc0522b8a4dd5cc9f0906015fa6c45f'
-  /src/packages/components/Decorates/Mores:
-    newFile: !uuid 'b185c77797ac0d0c688abdba6b8a613b2a24a934'
-    oldFile: !uuid '3551a427a5de0e71463c7d8aca458bb636f13cd0'
-  /src/packages/components/Decorates/Mores/Number:
-    newFile: !uuid 'acac53a5c6f3826ee439750d308d192092bb99b0'
-    oldFile: !uuid '6ec71648eb8a733cd067027c4c61e51084f0df70'
-  /src/packages/components/Decorates/Mores/Number/config.vue:
-    newFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-    oldFile: null
-  /src/packages/components/Decorates/Mores/Number/index.ts:
-    newFile: !uuid 'c6a02efe27b446f848eba8a34b3fe6d7a794bc78'
-    oldFile: !uuid '5a67b4498e750d5513b958b1b403c1fa2abaec5c'
-  /src/packages/components/Decorates/Mores/Time:
-    newFile: !uuid '4537f62cde1b772ad9fc7a13f40ab498904c9565'
-    oldFile: !uuid 'cadb585d442c51de676efbb4df35626ddf898abf'
-  /src/packages/components/Decorates/Mores/Time/config.vue:
-    newFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-    oldFile: null
-  /src/packages/components/Decorates/Mores/Time/index.ts:
-    newFile: !uuid '8b7b72d66b822b5ed044b550b85dfb4ee540890a'
-    oldFile: !uuid '967cf3e50a00c3e75b31738780d1cf6550ecd1a2'
-  /src/packages/components/Decorates/Mores/Weather:
-    newFile: !uuid '9d451c04c7605098a225ea72c965c6c74f8e25fd'
-    oldFile: !uuid 'b718bdc97a1fc59deb1dcae009d2bae864d5fff7'
-  /src/packages/components/Decorates/Mores/Weather/config.vue:
-    newFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-    oldFile: null
-  /src/packages/components/Decorates/Mores/Weather/index.ts:
-    newFile: !uuid '3d49e095ebbf3af47d52ff1ed6bdcc69e67aa5fe'
-    oldFile: !uuid '50302a5ffc3cbcc0aaca8225406250b91e20ce97'
-  /src/packages/components/Decorates/Mores/WeatherTime:
-    newFile: !uuid 'a0b04b8e8609c54c6639e97c8fd49bb9a7c36861'
-    oldFile: !uuid 'a2630639a4b036035a27a8582b284c57140ffe80'
-  /src/packages/components/Decorates/Mores/WeatherTime/config.vue:
-    newFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-    oldFile: null
-  /src/packages/components/Decorates/Mores/WeatherTime/index.ts:
-    newFile: !uuid '9e921e5eabfcdcc5e5d5656f0131ecfd7036519a'
-    oldFile: !uuid '5dc8170fae28fa34526dd46b32ab2932fcd44b13'
-  /src/packages/components/Informations:
-    newFile: !uuid '7649aa933aad60d24676334ae364c5ae9f9781b0'
-    oldFile: !uuid 'a676de9ac0d1ba7a604ca143c341d7c4ee6139c1'
-  /src/packages/components/Informations/Mores:
-    newFile: !uuid '5ade874d06ee1b87c6c3304b44061066c880bbbe'
-    oldFile: !uuid 'ac8b47f2a1167e6bf0b57b8659cb9c8cf7edd268'
-  /src/packages/components/Informations/Mores/Image:
-    newFile: !uuid 'b23485ee24f0b0c4de7ce8370568655d45da9fe3'
-    oldFile: !uuid '0c68cd45c6ca35cd0cbd4a18918767197fbee7ff'
-  /src/packages/components/Informations/Mores/Image/config.vue:
-    newFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-    oldFile: null
-  /src/packages/components/Informations/Mores/Image/index.ts:
-    newFile: !uuid '5742970a576ede66f63cff55fb13f5570092de12'
-    oldFile: !uuid '03695e2483a6f382df44763c60fca2d0499cf3bf'
-  /src/packages/components/Informations/Mores/TextCloud:
-    newFile: !uuid 'b1f6c8bc2fb95970b99f0c3edaafb9bfa90cdb62'
-    oldFile: !uuid 'e77b5e13137731aec0b3b9fc846ac637854e2083'
-  /src/packages/components/Informations/Mores/TextCloud/config.vue:
-    newFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-    oldFile: null
-  /src/packages/components/Informations/Mores/TextCloud/index.ts:
-    newFile: !uuid 'b38959bf1fb6b6eb33f548db8fc5f7f86dfec44a'
-    oldFile: !uuid '0ef1e94ceaa369b9702e4e1b85cca1da70e7bdf9'
-  /src/packages/components/Informations/Texts:
-    newFile: !uuid '53d8678e09c31f0b99c88077c4ecc02ff5b936a4'
-    oldFile: !uuid '63f6dac984beee5257c180767a6b5c33ec3598c4'
-  /src/packages/components/Informations/Texts/TextCommon:
-    newFile: !uuid '9e6ad488c7f9fb69baa9b97da3fc79b2beec17c8'
-    oldFile: !uuid '4afd254be43d94e2ef6c0f7795a3fc7d1a8e4f7a'
-  /src/packages/components/Informations/Texts/TextCommon/config.vue:
-    newFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-    oldFile: null
-  /src/packages/components/Informations/Texts/TextCommon/index.ts:
-    newFile: !uuid 'b560c7a512a32edbd5b8871b9d929f07a891708b'
-    oldFile: !uuid '0e5dba964896e4c1103f9e9df99d80e01400e69f'
-  /src/packages/components/Informations/Titles:
-    newFile: !uuid 'b4862a03119b815043cc289c334e7720ca5a2dc3'
-    oldFile: !uuid '0332f8359f9dd0cc6b475f6cc7d4d6e50d4b195c'
-  /src/packages/components/Informations/Titles/TitleBevelAngle:
-    newFile: !uuid '3073ad418e2c08f79307e0e9925f31fd50119513'
-    oldFile: !uuid 'b01fec86b59e7f8b6f245c668b1403bca074caf6'
-  /src/packages/components/Informations/Titles/TitleBevelAngle/config.vue:
-    newFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-    oldFile: null
-  /src/packages/components/Informations/Titles/TitleBevelAngle/index.ts:
-    newFile: !uuid 'c82e3f429b74d05c037cdaade48c51cfb33cf7b5'
-    oldFile: !uuid '3e277368ffd0e3970842710d6dce5ff975a7fbff'
-  /src/packages/components/Informations/Titles/TitleCommon:
-    newFile: !uuid '4376bce326fd984c1276318ca62cee6538ae19ea'
-    oldFile: !uuid '3edf26e9b71735453a58073de4ac02d1dbf5ed49'
-  /src/packages/components/Informations/Titles/TitleCommon/config.vue:
-    newFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-    oldFile: null
-  /src/packages/components/Informations/Titles/TitleCommon/index.ts:
-    newFile: !uuid '83e506be359189ca128448b84dc5d7a3b8e7e517'
-    oldFile: !uuid '55fc2ff21684b9056c8a5caf33d14b094877673a'
-  /src/packages/components/Informations/Titles/TitlePro:
-    newFile: !uuid '72c65119265aaf53dee86594c83032cea20506a2'
-    oldFile: !uuid '00c79f4d538478979460dff63adbc59d19d88dcc'
-  /src/packages/components/Informations/Titles/TitlePro/config.vue:
-    newFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-    oldFile: null
-  /src/packages/components/Informations/Titles/TitlePro/index.ts:
-    newFile: !uuid 'c474a5919f6509e26e5bcd4b80ca4a6aad01c9f9'
-    oldFile: !uuid 'd0600907d181117bdeb962ddaa2abe5a08c96933'
-  /src/packages/components/Tables:
-    newFile: !uuid 'ee50af945811592b5ba3035d6c0f0b95f07de63a'
-    oldFile: !uuid 'b481e0b6afe4cd4f3a3dd2287798a1d8d366c1ba'
-  /src/packages/components/Tables/Tables:
-    newFile: !uuid 'a1bd52faf9ccffa192618bd9f3194e8d98daa588'
-    oldFile: !uuid '46b7994c06e44c4a1fc692b791e380dd7f5c9a2f'
-  /src/packages/components/Tables/Tables/TableCategory:
-    newFile: !uuid 'ad72b257285b4f7f1441150656c3023fe23b53ab'
-    oldFile: !uuid '2de52bc96b65bcad931d38117f61f4c5cfc53905'
-  /src/packages/components/Tables/Tables/TableCategory/config.vue:
-    newFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-    oldFile: null
-  /src/packages/components/Tables/Tables/TableCategory/index.ts:
-    newFile: !uuid 'b368ac16088755b402853eefa671fe0181e52ded'
-    oldFile: !uuid '876b45d88e065107c261538e09d1b8cfb19216d3'
-  /src/packages/components/Tables/Tables/tableCommon:
-    newFile: !uuid 'bf575db328163c5d8bb47ec77f959685d18518b7'
-    oldFile: !uuid 'd467e2878ee35fb8a7a77cd482ffd7e650c9e9b9'
-  /src/packages/components/Tables/Tables/tableCommon/config.vue:
-    newFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-    oldFile: null
-  /src/packages/components/Tables/Tables/tableCommon/index.ts:
-    newFile: !uuid '7dec0887cb07fa420a93ecf7f2f0030617e1f7f0'
-    oldFile: !uuid '82f678ee8ad1985cc870ff15c7ddcaaf721531a4'
-  /types:
-    newFile: !uuid '618db2c0aa1b4968fd200b90ff6de62de54a3302'
-    oldFile: !uuid '802c22c23509254da220f6d574804a69fffc2581'
-  /types/vite-env.d.ts:
-    newFile: !uuid '0278f655c3a687ada88b8577d53d9b45a609af1e'
-    oldFile: !uuid '1ec1bddc753b71db2aea77bee36762d893d98b19'
-gitCommitId: !uuid 'cab18e29f5a4a07b3b96152fc2a51abed109342d'
+    newFile: !uuid 'cee9f272e7d7b97182b57232b19b399b5a3a64aa'
+    oldFile: !uuid '5fdceec0bf1a46c7d5f7b63306c71d9c021a951e'
+  /src/assets:
+    newFile: !uuid '550aef057da4c210e20faf6a31200c0680cc9bdb'
+    oldFile: !uuid 'ae8073d5f0632a17a299a0024ae7eb41404d7cb4'
+  /src/assets/images:
+    newFile: !uuid 'fb8348e4d843d61f2b8fb7f512812844cda69ce7'
+    oldFile: !uuid '4144321f7b903020d4b0d5111c0dc693051cb82d'
+  /src/assets/images/canvas:
+    newFile: !uuid '0b7d478faf155d7b532a5e392dab35632176143f'
+    oldFile: !uuid 'eabcc9bc68982c1c1abd2b26b7bf6f4abdd61efa'
+  /src/assets/images/canvas/noImage.png:
+    newFile: !uuid 'ee1bc8f4ffbd2c4330d835f7065cd8cc0ef4039d'
+    oldFile: !uuid 'a927780b51f8acb86540c52eb4aad9f4e683035a'
+  /src/assets/images/canvas/pageBg.png:
+    newFile: null
+    oldFile: !uuid 'd393f2b23a644048f652b9236b2ba81313f249c5'
+  /src/settings:
+    newFile: !uuid '5c54aa36b6b1070c9a47405d1f6f510bd78f87e9'
+    oldFile: !uuid 'dedc609039ded5848d079010f7570ff8b4eb5cf8'
+  /src/settings/systemSetting.ts:
+    newFile: !uuid '1f0e2d327492bc1ee9c518424fa5807624e070e1'
+    oldFile: !uuid '696f200e3052c9b0c9577862e86bf9be29002a01'
+  /src/utils:
+    newFile: !uuid 'cd1a051db276a8aada810ba2f5680e01a5467784'
+    oldFile: !uuid 'ebfa05bee908184f7af58fb9fd93f687b09870f0'
+  /src/utils/utils.ts:
+    newFile: !uuid 'f860df41f63b2f41b50472e6415c45d4b6f0edbd'
+    oldFile: !uuid '656be1b41c55c3cf3486b98b7cb6e15d01902155'
+  /src/views:
+    newFile: !uuid '11c478541e6be4ccb2e3cb5305fbb9c17188dc94'
+    oldFile: !uuid '65afedb9f4a33954b3fb14fd6e9236a1c992c333'
+  /src/views/chart:
+    newFile: !uuid 'b31c53efa9ef0b8a8779dec8b1fa4dc9739dc6f0'
+    oldFile: !uuid '563ba4af6d6a9f49a0df3b12133747c01966b8bf'
+  /src/views/chart/ContentEdit:
+    newFile: !uuid 'd75ba5bd7d0669ed86347e52e967cb624fda364b'
+    oldFile: !uuid '49a44f62e391635ada7ad73b19ca826466490e0c'
+  /src/views/chart/ContentEdit/components:
+    newFile: !uuid 'b963b03c0c6b464db8e754f430f735a24e641ee1'
+    oldFile: !uuid '453ed4209140b0a8e075b81658110ca8050a71ad'
+  /src/views/chart/ContentEdit/components/EditBottom:
+    newFile: !uuid 'a84fcf68ae62053da82ba486a42883836ce1457b'
+    oldFile: !uuid 'e75ec4c282fe14bf5d40094f875e6cc09a75ab55'
+  /src/views/chart/ContentEdit/components/EditBottom/index.vue:
+    newFile: !uuid '3a805f5674b2b93225fa8f7fdc83b7bf148c9150'
+    oldFile: !uuid '7627fae54d8163fe7da3b236f5e13836c9622361'
+  /src/views/chart/ContentEdit/components/EditRange:
+    newFile: !uuid 'b5e6dc20636da131f302708b98808d73a62c72c8'
+    oldFile: !uuid 'c08bc87f31af20e13cc085120009674295085496'
+  /src/views/chart/ContentEdit/components/EditRange/index.vue:
+    newFile: !uuid '5d5c2bcd2b2afc8eca4333da4a17a24266e6af72'
+    oldFile: !uuid '492a08fe76394c64adaa7c752bba4586997057d5'
+  /src/views/login:
+    newFile: !uuid '040230313aa3f8efb6ef6b02227a65411fe4568c'
+    oldFile: !uuid '424f64831ebdec34d6e6ea4e2cfd7719302289cf'
+  /src/views/login/index.vue:
+    newFile: !uuid 'a2522074e3e17d278da02c9e89d01afe7b977831'
+    oldFile: !uuid 'fa57848bfb2d3108c4cde7be0edc81fad1b27ee5'
+  /src/views/project:
+    newFile: !uuid '1a72d35a8f3a62ddeaa166fbe0d51b0ffd7b61d0'
+    oldFile: !uuid 'dbc731e7225533dd4e847bb33b2b61d79e45764d'
+  /src/views/project/items:
+    newFile: !uuid '0b34386b04de1a81bc4447b74c6607b047f29994'
+    oldFile: !uuid 'e229d714ede5ce29e287530245dc2a759344fede'
+  /src/views/project/items/components:
+    newFile: !uuid 'dbe70d90a6c9d40e53e6e0a915740359d8528a38'
+    oldFile: !uuid '627f48c0a6bbda0b67bbf95fd71e12ecc42fb05b'
+  /src/views/project/items/components/Card:
+    newFile: !uuid 'e524fdee7563526d4c11d49a86e3e6e793052284'
+    oldFile: !uuid '4f5ab523ed254ef009633daf6bb7295cb52e822f'
+  /src/views/project/items/components/Card/index.vue:
+    newFile: !uuid 'a459faf29afdf745d91e3f7d484e8bb868308f38'
+    oldFile: !uuid '097d5aa2fbdec6c06dc2d7d6f6f6740cf2ecb23f'
+  /src/views/project/items/components/List:
+    newFile: !uuid '898a1342728811ba16f7f3a4c762b2faf5dde9b7'
+    oldFile: !uuid 'bf256c07b96a1e3cbbc2bf4019f5fe1c32964c4a'
+  /src/views/project/items/components/List/hooks:
+    newFile: !uuid '6c5201f55241433e99a08d5e8059a02aacfc86f4'
+    oldFile: !uuid 'd038b8c08883be3743c92fb42e51283a56384f86'
+  /src/views/project/items/components/List/hooks/useData.hook.ts:
+    newFile: !uuid '79a5dcbcfaaf3d4acf17cec3efb26c35abce831b'
+    oldFile: !uuid 'd07936a91da0a1f957ceeebfd099c562961629eb'
+  /src/views/project/items/components/List/hooks/useModal.hook.ts:
+    newFile: !uuid '2c64bf8ec5e6a334df38ad6bcf23c42ac675f2cd'
+    oldFile: !uuid '76f63c9a95b56e4d8b50ba226ee52cb2e0ad1ad7'
+  /src/views/project/items/components/List/index.vue:
+    newFile: !uuid '9cdd4fefd4dec92957fc7ffc1575dee288b6db4a'
+    oldFile: !uuid 'cc13e758e8523492bec38b89c918ae8aa3d7e342'
+  /src/views/project/items/components/ModalCard:
+    newFile: !uuid '9bd272c8a6dbf6307dbf4828b3ed5e28830b0dcf'
+    oldFile: !uuid 'f8673ca2f928515c52b7aa6fe9c82323bd74262f'
+  /src/views/project/items/components/ModalCard/index.vue:
+    newFile: !uuid 'd6c94809234f45d8d2b7d27a6a168d47243ec756'
+    oldFile: !uuid 'c31704b9f406aafbaa895fc1c3b9399f745f5f17'
+  /src/views/project/items/index.d.ts:
+    newFile: !uuid '1795c4a52620cd9a352e1ee71fbab5d4cbe4daf4'
+    oldFile: !uuid 'abd887ed45a8cc2fb5d24c476e737420acbce814'
+  /tsconfig.json:
+    newFile: !uuid 'fdf7649f540e361e1c6422cccb0003b76891d18c'
+    oldFile: !uuid '343709df228bd3603ef4cbfb434dabc9de6d92f2'
+gitCommitId: !uuid '922afd831047b6794c0aab9b4f119731233a8a1f'
 renames: {
   }
-revisionId: 174
+revisionId: 175
