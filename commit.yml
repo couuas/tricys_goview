@@ -3,18 +3,129 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '699686bbbca519c7fb5c32fe31c0c43ccfa8049e'
-    oldFile: !uuid 'efaf58cf0a0cf06091c13eba29d39a38d95f74a7'
-  /src/components:
-    newFile: !uuid 'a3c3b4b622315a1028d21ed89c1aad72ff1b9fc0'
-    oldFile: !uuid '36b667a488f2728f330959a7706bcb82400cf71e'
-  /src/components/SystemSet:
-    newFile: !uuid '971d4879815a8563cbef8de2a3ef518eeb23e72a'
-    oldFile: !uuid 'a9a1a4be00b9b304fc775b538d3f58337a5fa017'
-  /src/components/SystemSet/index.vue:
-    newFile: !uuid '8f8b412a584fe3bfe39ab128cc7b76a21d98c3bc'
-    oldFile: !uuid '49d53c2c47b1a38a363695b93b3b1ac57c7d1467'
-gitCommitId: !uuid 'f26d7e394deb7f3776c7389e2e32bd8bfb09b453'
+    newFile: !uuid '7a6a0c80b8843d3d8b7b223496d460304aeb30e7'
+    oldFile: !uuid '699686bbbca519c7fb5c32fe31c0c43ccfa8049e'
+  /src/assets:
+    newFile: !uuid '7a07aa220b7aa2691db8642d693ab4d57e59edf4'
+    oldFile: !uuid 'b73d3a895431b98c57a8e8bfdcd991a0d6050dfa'
+  /src/assets/images:
+    newFile: !uuid '57c80c9dbc7c6652431872869ed74cc554710e08'
+    oldFile: !uuid '44bea6cceab06004e4b9a9351947dfc1950b5492'
+  /src/assets/images/chart:
+    newFile: !uuid '9e57f33e0a806dbb6c7816f59211f212af0f3639'
+    oldFile: !uuid '33cda39654edd28b06c1a11a024acaa13149f1d8'
+  /src/assets/images/chart/charts:
+    newFile: !uuid '200bd8d6509a8dc2049b16922e2c592fa919e54f'
+    oldFile: !uuid 'c713565a6c63110ac249da714d17316badf90a54'
+  /src/assets/images/chart/charts/bar_x.png:
+    newFile: !uuid '331f4c336c04de83ed8e30447191d3572465c6fc'
+    oldFile: !uuid '01eae8ab8f8a943dadfd1de64cd67a6546025225'
+  /src/assets/images/chart/charts/bar_y.png:
+    newFile: !uuid 'cdf3d9e375f8f36d8b8db3960d583f4fd5bc5e34'
+    oldFile: !uuid 'c5c0199501f0edc92028d993460995659dd0ccb0'
+  /src/assets/images/chart/charts/bar_y2.png:
+    newFile: !uuid '4ca6890b6cd530ee0137e47a8dbadf7f02d4d200'
+    oldFile: !uuid '6a1c738d6a0482c5665b1e42576ddb157863d667'
+  /src/assets/images/chart/charts/funnel.png:
+    newFile: !uuid '4ed1f55990b82655afdd3311f96aa67c5e6c0473'
+    oldFile: !uuid '6743a927113066ed7aa224c9be8261f8188cbb6e'
+  /src/assets/images/chart/charts/heatmap.png:
+    newFile: !uuid '7d5fd469036786e677c911d70d34fef4ba0c4963'
+    oldFile: !uuid '0f28711a9eafae50153afbebd12254c8138c529b'
+  /src/assets/images/chart/charts/line.png:
+    newFile: !uuid 'c67a84017e8c5927e1263db7e06cf53e79eb232a'
+    oldFile: !uuid '4834a0412dc801e442913b80e6e7589f1f0cfb85'
+  /src/assets/images/chart/charts/line_gradient.png:
+    newFile: !uuid 'b07e6b4c6b4f00e1a368679b735d9ea14e8337cd'
+    oldFile: !uuid 'dfe6b163aa231a085d3ada4956e7700a04df1711'
+  /src/assets/images/chart/charts/line_gradient2.png:
+    newFile: !uuid 'a5e9f8b2aa6b861ae87f045d59b09fc92c9c8976'
+    oldFile: !uuid '58ad3c37b0e6abdcf5edfcde5d38c531ffb38133'
+  /src/assets/images/chart/charts/line_gradient_single.png:
+    newFile: !uuid 'ea6ade292971d69707fc0e03550dd2c755f9bf7f'
+    oldFile: !uuid 'f5d66e05354dd188b894ec61bc4e1dbfb68ae762'
+  /src/assets/images/chart/charts/map.png:
+    newFile: !uuid '0abe4944dbc1974d96b537aaba20e5c4802887f2'
+    oldFile: !uuid 'a672c83a5bbef45387a76b0d6da4470892e71dc1'
+  /src/assets/images/chart/charts/map_logo.png:
+    newFile: !uuid '3dcd8bd51864ae6705596309cc61283311ed7819'
+    oldFile: !uuid '7310938a41e4e0bc8c83a9e99ceb099178fe41ec'
+  /src/assets/images/chart/charts/pie.png:
+    newFile: !uuid 'cc2c344609255c9d0373039b47402d6d6d84c57d'
+    oldFile: !uuid '6ac019bd7d9e71923c2e4875fa8e180311b1db7e'
+  /src/assets/images/chart/charts/point.png:
+    newFile: !uuid 'f58796520e8a27a86063cf717bcbb7c530a498fe'
+    oldFile: !uuid 'edbb793b951bb9931513eceacda4e2b845c2f06e'
+  /src/assets/images/chart/charts/radar.png:
+    newFile: !uuid '32c459fd62913bf39a5ce52957c2e85c7e8720d8'
+    oldFile: !uuid 'db5c0200af983a84fb6d65c7294707d8a1a8773c'
+  /src/assets/images/chart/charts/static.png:
+    newFile: !uuid 'a147e1ce7298d1b15200593c3fbe1fbad713d03a'
+    oldFile: !uuid '3bbe3f1d1d39ce4d823d9a11e61727a4750fb5ab'
+  /src/assets/images/chart/charts/tree_map.png:
+    newFile: !uuid '5d88249626bc45b197b96b784befc63351ed3616'
+    oldFile: !uuid 'a990ca615ea0e2b1def7817b1d6dd89daff181c4'
+  /src/assets/images/chart/charts/water_variable.png:
+    newFile: !uuid '78e67c54776b488632e9177568a4b8cabf58e8d3'
+    oldFile: !uuid '21b46e598cffd0ac31f97ec256b179a187907bdf'
+  /src/assets/images/chart/decorates:
+    newFile: !uuid '2a91c732abbb88c9f4fd5a8b32dc0791c8f300f2'
+    oldFile: !uuid 'e162cee086b3dfa2a3319c09edc07bbab5f2783a'
+  /src/assets/images/chart/decorates/border.png:
+    newFile: !uuid '4a258c60c8dae2a65a6bbd2a0036d64acafd8114'
+    oldFile: !uuid '5defb81f671d5ddcc19cb1685bbad84558197c0e'
+  /src/assets/images/chart/decorates/material_dynamic.png:
+    newFile: !uuid 'f2387eece06856305d42bb79de0f98a592cec74a'
+    oldFile: !uuid '945d7c755f2346cadbbb6f3af3983201e8776996'
+  /src/assets/images/chart/decorates/material_static.png:
+    newFile: !uuid '0d0be5943285a5c3928eb48c557893a3ac147123'
+    oldFile: !uuid 'f8ef02219f52dafabb31590ebb5a2a3a7e3de437'
+  /src/assets/images/chart/decorates/number.png:
+    newFile: !uuid '5d1107af25a8737d440cf43be0596641b10107ba'
+    oldFile: !uuid '1952ed4ce8d82ade25bd72596801c628451bf701'
+  /src/assets/images/chart/decorates/time.png:
+    newFile: !uuid 'e832fc34dad200cf34ff59f149fa9182f6900efb'
+    oldFile: !uuid '14f90e49e02092073f0e7bea6cabcb0cfe8becf5'
+  /src/assets/images/chart/decorates/weather.png:
+    newFile: !uuid 'a8c3fa470b83942e1f389a688141c0824dbd723f'
+    oldFile: !uuid '18467fe410e5aa13b35fd59866f74596c71fcc0f'
+  /src/assets/images/chart/decorates/weather_time.png:
+    newFile: !uuid '526a2bc0a441ce11b4930e71cee9519ff22aaa57'
+    oldFile: !uuid '0aded27f82436bf3c1c1b746b8d5337ae19638cd'
+  /src/assets/images/chart/informations:
+    newFile: !uuid '8bbac394a9e4868f6b9533a62cce7c02603467b1'
+    oldFile: !uuid '57cb0efe3bb57d61308a1b58bd27a95df9d5c857'
+  /src/assets/images/chart/informations/photo.png:
+    newFile: !uuid 'a7d613e2c41e9de4dacc4962301205650d73d0aa'
+    oldFile: !uuid '4bcbb97fb795acaa9ad9174232bcabbfbf17e961'
+  /src/assets/images/chart/informations/text_carousel.png:
+    newFile: !uuid '7c456a20676f45f9d46848d648dc95b08b7c049c'
+    oldFile: !uuid 'e98859e8621f4c7302871e680aac73710294e1a9'
+  /src/assets/images/chart/informations/text_static.png:
+    newFile: !uuid '7f4e3520f466402f9ea9036120d318fed63186f7'
+    oldFile: !uuid 'f4273970f437fcb5bbd0722b25f8a13b1b6c5d50'
+  /src/assets/images/chart/informations/title_diamond.png:
+    newFile: !uuid 'b4d431766f4124c26fc7be2e219462f5a0d7c7b3'
+    oldFile: !uuid '41a508b2ef7a3bc3bb54fc248b85baee42fe0751'
+  /src/assets/images/chart/informations/title_diamond2.png:
+    newFile: !uuid 'ba799a3733e8a6bbc5625b44abe95f625406864c'
+    oldFile: !uuid 'f6ee6611c236d8beb83e846ff1f6dfa1b5e8aa8a'
+  /src/assets/images/chart/informations/title_main.png:
+    newFile: !uuid '587e7e1e82f0c9401ea7af1e8385c38437ab9d53'
+    oldFile: !uuid '3e7e34af715a071d289466fb374e9ba00168cd03'
+  /src/assets/images/chart/informations/words_cloud.png:
+    newFile: !uuid '344f2bdda22702c4ade83318f4238fe2f93af2bd'
+    oldFile: !uuid 'e2c02816880e2773ce434e3f71c44248b94636ac'
+  /src/assets/images/chart/tables:
+    newFile: !uuid '607b87f27315f7e1118778795feaba7e66b4deb1'
+    oldFile: !uuid 'a45d592eb4913e3e0377be90160fefb09b4b7e5f'
+  /src/assets/images/chart/tables/tables.png:
+    newFile: !uuid '7916c106d890115c9ce7cc88e62a2837d210c494'
+    oldFile: !uuid '1c1a6a4d224235aa309a65feeca08cf2c656a953'
+  /src/assets/images/chart/tables/tables_categary.png:
+    newFile: !uuid 'b26a8f73e936d50156cf9df9bb5c5b95fde076cd'
+    oldFile: !uuid '1ebf838c9c704f105f1c4f5d79d841513dd2518a'
+gitCommitId: !uuid '504b3a762fece5377383f10ef404ea1f07828b52'
 renames: {
   }
-revisionId: 862
+revisionId: 863
