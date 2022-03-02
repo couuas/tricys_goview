@@ -2,13 +2,19 @@
 branches: {
   }
 fileChange:
-  /index.css:
-    newFile: !uuid '25c45debd2ba06628f0cf1a5fac5e6def15dd6d6'
-    oldFile: !uuid '3e422da2c71d25736f1fb84fec8968786545569a'
-  /index.html:
-    newFile: !uuid '09b596fb04683f94b49a5e2cd738d5190a991626'
-    oldFile: !uuid '01adc328dd1a9ce3d87269e006e5baaaf0a0e2e5'
-gitCommitId: !uuid '862753d35e8efa22e0de8a9b0ad660c087a8612e'
+  /src:
+    newFile: !uuid 'ee23de7979ad75d1a83911907e54ee92d6e6dfc2'
+    oldFile: !uuid 'f4b08c62222d5bbd184d82f2074f16926df0736c'
+  /src/settings:
+    newFile: !uuid '333b37e9f414184da9280d3d9cb45048033c2436'
+    oldFile: !uuid '53d9161be7efb0edbc31ac3f505854336d72eb60'
+  /src/settings/animations:
+    newFile: !uuid 'a3839667e6c155055be895f0236fb7728e6fc28e'
+    oldFile: null
+  /src/settings/animations/index.ts:
+    newFile: !uuid '57b35dc209faf03f3ff9865a7e7beda2cfcfcf68'
+    oldFile: null
+gitCommitId: !uuid '499f36bc629c1e8fa2d93ab57f0b49482481b891'
 renames: {
   }
-revisionId: 867
+revisionId: 868
