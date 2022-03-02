@@ -2,16 +2,13 @@
 branches: {
   }
 fileChange:
-  /build:
-    newFile: !uuid '6417fa49e45caedacb484cb2dabe0da027312d78'
-    oldFile: !uuid '8b9fab59597a74ff61a9ca7700b6a0c5e71f259a'
-  /build/constant.ts:
-    newFile: !uuid 'dfa2f491788302a3bdad0edd6193ffedc712ec96'
-    oldFile: !uuid '20445820d199dd757adbe696d32ef0802a571696'
-  /vite.config.ts:
-    newFile: !uuid 'f04f56b227e1a4bcfb974d388855d87a5d57b19f'
-    oldFile: !uuid '7baf65d36572c731ff1b25254c893d2f1ece01fa'
-gitCommitId: !uuid 'b6910031870a940e4b97f65f1c018f8aae02091f'
+  /index.css:
+    newFile: !uuid '25c45debd2ba06628f0cf1a5fac5e6def15dd6d6'
+    oldFile: !uuid '3e422da2c71d25736f1fb84fec8968786545569a'
+  /index.html:
+    newFile: !uuid '09b596fb04683f94b49a5e2cd738d5190a991626'
+    oldFile: !uuid '01adc328dd1a9ce3d87269e006e5baaaf0a0e2e5'
+gitCommitId: !uuid '862753d35e8efa22e0de8a9b0ad660c087a8612e'
 renames: {
   }
-revisionId: 866
+revisionId: 867
