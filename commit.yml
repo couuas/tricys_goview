@@ -3,48 +3,39 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'fb16bbf70f3033bd559bd138867991644cbfdd43'
-    oldFile: !uuid 'ac46f4270a2604aa23ef5b28b10b41659a083502'
-  /src/styles:
-    newFile: !uuid '9944bf752aba63200c4934037890c089b65038b6'
-    oldFile: !uuid 'cb9389394dc49a4568ae11bf9e5ede9457bea496'
-  /src/styles/common:
-    newFile: !uuid '236ae3a215f320476d863c112ea768cd4f438809'
-    oldFile: !uuid '23197349368fd918b66785deb1d04a4eba7d4631'
-  /src/styles/common/format.scss:
-    newFile: !uuid '8d61cffc738329732ddf810b3597d74b094e4f7d'
+    newFile: !uuid '7d12e2b163f83544bb979c4c199c21cc1b3ce3e0'
+    oldFile: !uuid 'fb16bbf70f3033bd559bd138867991644cbfdd43'
+  /src/components:
+    newFile: !uuid '865e02bef545e0b66b0ffb331fc316c4ea9cb068'
+    oldFile: !uuid 'a3c3b4b622315a1028d21ed89c1aad72ff1b9fc0'
+  /src/components/ChartItemSetting:
+    newFile: !uuid 'd0aec26fe859baa2736d8a88d9bb864aeaf48977'
+    oldFile: !uuid 'aa5fd43001df5656eb3fedef3509e1fb6bf01a0c'
+  /src/components/ChartItemSetting/SizeSetting.vue:
+    newFile: !uuid '6ff8b4b9dc8a2c873d731b8c76cd68c5c9d5bfa6'
     oldFile: null
-  /src/styles/common/style.scss:
-    newFile: !uuid 'c06dee6c75acc12adf8def0ad9825ab3f52fd06e'
-    oldFile: !uuid 'c87a9066e1fff62bda34225208c4f74a0b1eb95e'
+  /src/components/ChartItemSetting/index.ts:
+    newFile: !uuid 'ff5617290e845fc6cf70afddcfaaa4708562a2ec'
+    oldFile: !uuid 'c733beb258fc7c31904df9c503dc57a073f1cfee'
   /src/views:
-    newFile: !uuid 'e71484c840051de0a1a47ad9dea56c463b6ff495'
-    oldFile: !uuid 'b312f22758aeff35d638f0403399a584dc18da1d'
+    newFile: !uuid '3feb6909779013007b7353d92dc5d34c6237ce55'
+    oldFile: !uuid 'e71484c840051de0a1a47ad9dea56c463b6ff495'
   /src/views/chart:
-    newFile: !uuid '536bb18c8b9ba0f350e5b6c044b785261f2a0eba'
-    oldFile: !uuid '034b11a30296b34bca3d42601d6ca34617fa96c2'
-  /src/views/chart/ContentEdit:
-    newFile: !uuid '91ca4bd25aa798996caab962fd8859a97d706ca6'
-    oldFile: !uuid '77b4654bb4c41add6f64852dcc0e36c124075b52'
-  /src/views/chart/ContentEdit/components:
-    newFile: !uuid '136ac9bad73a1e3965e80f7cda88814b88685f7e'
-    oldFile: !uuid '170943cad281de4b5730eae3fd141165e744b19b'
-  /src/views/chart/ContentEdit/components/EditShapeBox:
-    newFile: !uuid 'a59757a4fea1363596bbb3b2bf472d66105ece33'
-    oldFile: !uuid '5db53259b1ea237bb0026bb12170a7f8234ee8b8'
-  /src/views/chart/ContentEdit/components/EditShapeBox/index.vue:
-    newFile: !uuid '7111f0454db4f3036f21e8e06d7ca61c75b58f68'
-    oldFile: !uuid '86c1cfd1eafc77ce96512de2956411161c20425d'
-  /src/views/chart/ContentEdit/hooks:
-    newFile: !uuid 'fa0575d02de0459d639d92967bf24b2da6c9e9fd'
-    oldFile: !uuid 'd4fcbbe0e2583a20f8b00ec091c899df68ee7047'
-  /src/views/chart/ContentEdit/hooks/useDrag.hook.ts:
-    newFile: !uuid '116f92c141b58f98797c945896d1775c78a48180'
-    oldFile: !uuid '09233341a91cdb2e975a52221aef4df085a7c8cc'
-  /src/views/chart/ContentEdit/hooks/useStyle.hook.ts:
-    newFile: !uuid 'e2e5e890ebd44e196312cead5f3154febfe6deab'
-    oldFile: !uuid '85cc970d30ecd827f462e60eb2d2fffa2e35701a'
-gitCommitId: !uuid 'd1db7ad494f400c168ddd1f84c3a7cf9341a73d3'
+    newFile: !uuid '3be85fae910eeea6faa918d0d06d895440f5f667'
+    oldFile: !uuid '536bb18c8b9ba0f350e5b6c044b785261f2a0eba'
+  /src/views/chart/ContentConfigurations:
+    newFile: !uuid 'efdeae5262c0e3ffdb928cc7ffb914cf8fd9ba72'
+    oldFile: !uuid '24aa72cf720ce7d0a493fe5280fd2aaba1ad405a'
+  /src/views/chart/ContentConfigurations/components:
+    newFile: !uuid 'a2441d71bbc7250178ce20e33ecd4fbbac868b8b'
+    oldFile: !uuid '547b571fb1f09017f4a4ccb7b2ac736fe98beeea'
+  /src/views/chart/ContentConfigurations/components/ChartSetting:
+    newFile: !uuid 'eac718842a549a12a0bb7b76b250ceb06df59bd5'
+    oldFile: !uuid '062f3c2e81040e030c69896329d880385dc68faf'
+  /src/views/chart/ContentConfigurations/components/ChartSetting/index.vue:
+    newFile: !uuid '37464d9744e82023978f8a3bd17e71f8b13f2b90'
+    oldFile: !uuid 'd41038db8b31479a3b6172d1e06050871f77ff20'
+gitCommitId: !uuid '19b7853057f1726c9468e6aa3257f5c4657fbc61'
 renames: {
   }
-revisionId: 187
+revisionId: 188
