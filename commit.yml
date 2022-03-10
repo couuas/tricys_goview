@@ -3,60 +3,18 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'a925400ee43aaa447baa5c306e19233934726051'
-    oldFile: !uuid 'ce7e66dc92ab035e9dd46f3bac5db061fa6137f8'
+    newFile: !uuid 'f8ae7167ac23ae8b897fbce83f9dbe26e925bdfa'
+    oldFile: !uuid 'a925400ee43aaa447baa5c306e19233934726051'
   /src/packages:
-    newFile: !uuid '566c91e22ab93286a8e76bdb67a85657654d914b'
-    oldFile: !uuid '8d6834fee678b54b0191d1dc5511cb964933d812'
-  /src/packages/chartConfiguration:
-    newFile: !uuid 'c6b7cdf7ed9597826bb2108b7647cdc564d5498d'
-    oldFile: !uuid 'ea6c8803c9067145da7a5c36c92eb30572f5c143'
-  /src/packages/chartConfiguration/echarts:
-    newFile: !uuid 'a99821330a2d14ea501afdcb7ae41807d7c7322d'
-    oldFile: !uuid 'b58518cc614b70a8bf7899a07534cf024cc6c8fe'
-  /src/packages/chartConfiguration/echarts/index.ts:
-    newFile: !uuid '9b084cf54a6d1e3f895a538d5c22605ad671227a'
-    oldFile: !uuid 'd6144207b56fc1d0a59d5428f6a9f6de3d1c4631'
-  /src/packages/chartConfiguration/echarts/line.ts:
-    newFile: !uuid '6716ecbacef31ae1f41b10deafc9994649465b27'
-    oldFile: null
-  /src/packages/components:
-    newFile: !uuid 'bfaa3d21fc952d2bd0a8421ee801eb6a6eae4651'
-    oldFile: !uuid '656222e45ba2a571d89eb384f6f01a575c4fb4f7'
-  /src/packages/components/Charts:
-    newFile: !uuid '1fb4f0d656a66242075d983d0baf909e22738110'
-    oldFile: !uuid '0dbe939fbcfca7d8b6810af7db4361267fd5aa60'
-  /src/packages/components/Charts/Bars:
-    newFile: !uuid '0cb78e5997cf463436fcfb70435f72ae110b3c73'
-    oldFile: !uuid 'a532b18be61072fb76797890d60895a4e6dec7c3'
-  /src/packages/components/Charts/Bars/BarCommon:
-    newFile: !uuid '57b61291b3be2e61e57602c1f8b7ab64815b1f5b'
-    oldFile: !uuid 'fa939c95902bd0260d9af973b070747d1b66a7e3'
-  /src/packages/components/Charts/Bars/BarCommon/config.vue:
-    newFile: !uuid 'a4b866a451bd2ad0385bafa332fe4615f2f6e057'
-    oldFile: !uuid '130caf10146de1263be32799cb1f68b6a89ad676'
-  /src/packages/components/Charts/Bars/BarCrossrange:
-    newFile: !uuid '6cdd831898b13e868274c235f8182565947ef628'
-    oldFile: !uuid '091e0cdd9fecb7fd302251c66cd7e8f5355a58dc'
-  /src/packages/components/Charts/Bars/BarCrossrange/config.vue:
-    newFile: !uuid 'a4b866a451bd2ad0385bafa332fe4615f2f6e057'
-    oldFile: !uuid '130caf10146de1263be32799cb1f68b6a89ad676'
-  /src/packages/components/Charts/Lines:
-    newFile: !uuid '9c7af561103e64a1feef7691ba89fd7972e791e9'
-    oldFile: !uuid '8fd5c10e2c8f6e510d0674b8c44e310f7485a85b'
-  /src/packages/components/Charts/Lines/LineCommon:
-    newFile: !uuid '7f6ec7720a92514a50f96af397db7879f5f14c27'
-    oldFile: !uuid '5fae30432c9458dce3052fe9b2ffcae67204d2cd'
-  /src/packages/components/Charts/Lines/LineCommon/config.ts:
-    newFile: !uuid '95f44f03fb67e9b5b0ea1148fb065e5d8bda5b28'
-    oldFile: !uuid 'dc173278b3a0a70f2119b724240188b2f498c30a'
-  /src/packages/components/Charts/Lines/LineCommon/config.vue:
-    newFile: !uuid '25b2aae86119bd4197edc8bbc74f1ef442d71374'
-    oldFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-  /src/packages/components/Charts/Lines/LineCommon/index.vue:
-    newFile: !uuid 'd45e8dd8ee8cf90e0a52fa931435e76fb2065dc0'
-    oldFile: !uuid '636a00dda3e7a5c06eea444362e64c9b69369f7f'
-gitCommitId: !uuid '06b1e409301438d61222ee0f4fea1e6cc52bd0f3'
+    newFile: !uuid '4ba281c676439392903aab6c2f232fbbca495cf4'
+    oldFile: !uuid '566c91e22ab93286a8e76bdb67a85657654d914b'
+  /src/packages/index.d.ts:
+    newFile: !uuid '6516d481124df56d72a5a27bc8bd97cb69852c1c'
+    oldFile: !uuid '16a17618a2e69cfc7349f8d581cc3e3dd155d7e8'
+  /src/packages/index.ts:
+    newFile: !uuid 'e012a8e0c03c83f5661a942c005330005734da1b'
+    oldFile: !uuid '0203e83cbeaa56b6870ab4d9fabd2cc2f4519887'
+gitCommitId: !uuid 'b71b7bfd0e201456723d9423c964e84b3926a258'
 renames: {
   }
-revisionId: 891
+revisionId: 892
