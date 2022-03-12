@@ -3,51 +3,30 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '8d086e61302f93c6e4964c97f18082598cf96586'
-    oldFile: !uuid '1228dcfe3c04967206b435c02b0c3c959ab25629'
+    newFile: !uuid '00b1bebb4c102df42553967a2dbdf7d4443592b6'
+    oldFile: !uuid '8d086e61302f93c6e4964c97f18082598cf96586'
   /src/components:
-    newFile: !uuid '625ea90ac0f9f91407d69c80b4a36e8aa2d5aec5'
-    oldFile: !uuid '7de893d95ec93266c523834d8224e9c7276bee18'
+    newFile: !uuid '3b90262eea482d062470ff97e061ac2fe4d8453e'
+    oldFile: !uuid '625ea90ac0f9f91407d69c80b4a36e8aa2d5aec5'
   /src/components/ThemeColorSelect:
-    newFile: !uuid '7b4cd995da85d9c7bbe2003e58b782bd45448944'
-    oldFile: !uuid '7dfd7fe8ea2202614f6ca6b7579639e7269ba7af'
+    newFile: !uuid '250a28a62dd75dcba0275156700b0e3fa453f14d'
+    oldFile: !uuid '7b4cd995da85d9c7bbe2003e58b782bd45448944'
   /src/components/ThemeColorSelect/components:
-    newFile: !uuid '5ead80e9500dc1a95c9e336eaa0c03564f03e04d'
-    oldFile: null
+    newFile: !uuid '926e861db247c54ec28095015813906ef0183379'
+    oldFile: !uuid '5ead80e9500dc1a95c9e336eaa0c03564f03e04d'
   /src/components/ThemeColorSelect/components/ColorList.vue:
-    newFile: !uuid 'af65fd2dae03c2b0674c09c09555741f12cc34a3'
-    oldFile: null
-  /src/components/ThemeColorSelect/index.vue:
-    newFile: !uuid '1ce652ea27321b6db54193b0855be1866b3f8678'
-    oldFile: !uuid '035d95070e0aa594e1386e325e557af7652ee377'
-  /src/hooks:
-    newFile: !uuid '3da5ce0d606650f62061f55d43253750911f0003'
-    oldFile: !uuid '683ac21cb95651aaef67d165ef337f6738d34c4e'
-  /src/hooks/theme.hook.ts:
-    newFile: !uuid '107ea6b0d8054e5cafbe964f4abf371a64725673'
-    oldFile: !uuid 'dc1bce065512a2519e200d8af876a93fa6244a1a'
+    newFile: !uuid '5e6841e528228a3254727a4245fe2e40b983ccc5'
+    oldFile: !uuid 'af65fd2dae03c2b0674c09c09555741f12cc34a3'
   /src/settings:
-    newFile: !uuid 'aa2e92137c9e39353c88ce3a9fe731ded24b8cde'
-    oldFile: !uuid 'c1d5eb19d37ca86323db4fc6fd583f0601d7b243'
-  /src/settings/designSetting.ts:
-    newFile: !uuid '962fc485f621fdf481b80866bd66eb3494122dcf'
-    oldFile: !uuid '5ce862e9cd9c2ba4a10064a4d8a8ceb499b281e4'
-  /src/store:
-    newFile: !uuid 'e9ca13d69f1f5a67443b6c75062cd46ee9c9a0ca'
-    oldFile: !uuid 'ca26a5df1a5631494a0e3be53a9b1ecc3bcb8a81'
-  /src/store/modules:
-    newFile: !uuid '33d55ae548f8da18457be0b9e8a061534d7a1700'
-    oldFile: !uuid '0549f0ab88182538dbccb64854b5c14f4fcfc2b5'
-  /src/store/modules/designStore:
-    newFile: !uuid 'f4a6255cc8e0abeb55b49f9848313e1b7a0b3bc5'
-    oldFile: !uuid '237115626670e1ae228f34cd377b4c1e972e7d8b'
-  /src/store/modules/designStore/designStore.d.ts:
-    newFile: !uuid '5786028bb70b5a1d3c0118115f7ccc8489d95b44'
-    oldFile: !uuid 'ee834afc16152d25a732be098293b727daaf2881'
-  /src/store/modules/designStore/designStore.ts:
-    newFile: !uuid '88128bb05683320bd6624bc3449c555481ab9cd7'
-    oldFile: !uuid '98f31c74b91e566f9bb95879036d9da150183a79'
-gitCommitId: !uuid 'dd0bf5611d3a73d7c91358141314e0fff9a4af7f'
+    newFile: !uuid '4efd111ece9359a254eceafc6591a5f1432402ae'
+    oldFile: !uuid 'aa2e92137c9e39353c88ce3a9fe731ded24b8cde'
+  /src/settings/designColor.json:
+    newFile: !uuid '5e506ba4348625e4784df571011af960bbc989be'
+    oldFile: !uuid '9a78f677bb4aa4824ec914ace7f9ff48c98f6c7c'
+  /src/settings/designColorRecommend.json:
+    newFile: !uuid '6ec95e5af87e49f2dcc3d7216fc4dacc94c3bbf6'
+    oldFile: null
+gitCommitId: !uuid '987f4f73a27353c3236e378bea8d4632e42516d7'
 renames: {
   }
-revisionId: 909
+revisionId: 910
