@@ -2,19 +2,10 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid 'c658050f31559781dd34291b4b9ff7184a427aba'
-    oldFile: !uuid 'a510607b9c5420739ab6fac211e7549e214f7ba5'
-  /src/views:
-    newFile: !uuid 'df4ff031bc1b82b7f9b7607d94904748929004d8'
-    oldFile: !uuid 'aaf3e3a92eaa5f6ee4b9fdd7771c122946064e93'
-  /src/views/login:
-    newFile: !uuid '9c1aff944aac6cb8bd4a66a794d0a6c6590e1900'
-    oldFile: !uuid 'd5439add78b6feee9e23072fb2ed3976e0312e79'
-  /src/views/login/index.vue:
-    newFile: !uuid '6618890990a4e387b0bb28161c4cecc9c6b4d26f'
-    oldFile: !uuid '794388ff30a11d96e83c71d3d583817fd1419565'
-gitCommitId: !uuid '07cb0a7d3abb93771339e7e90b00a66572ae109a'
+  /index.css:
+    newFile: !uuid '2e996bd6392f328cd221667417692c3056555e8c'
+    oldFile: !uuid '25c45debd2ba06628f0cf1a5fac5e6def15dd6d6'
+gitCommitId: !uuid '4d54a3029b88cfb8c36238118a889684a994359e'
 renames: {
   }
-revisionId: 904
+revisionId: 905
