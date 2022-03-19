@@ -3,48 +3,18 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '58583bf6c68a0fdde7b88cd73e9f3b79f344094f'
-    oldFile: !uuid 'fbf58a4cba55141dbe6536d6c5bd30fec3184f8a'
+    newFile: !uuid '71d773f66d2fc38678318b0b7e6e2c35a18c3f15'
+    oldFile: !uuid '58583bf6c68a0fdde7b88cd73e9f3b79f344094f'
   /src/components:
-    newFile: !uuid '6fb92354f3e9b43cdf24225be2ac2b68412a13e6'
-    oldFile: !uuid 'ab8be35f1b6b67b419eb0c366edaf06304e976cc'
+    newFile: !uuid '5560e16cb054099a0149db5705e1240ad1141cef'
+    oldFile: !uuid '6fb92354f3e9b43cdf24225be2ac2b68412a13e6'
   /src/components/ChartItemSetting:
-    newFile: !uuid '20d14720a3f95ac5dc676eb1cb2faeeb7f8dbb8e'
-    oldFile: !uuid '1222076e2db6e12a86aab5ead0cd3a9725953744'
+    newFile: !uuid 'ef3fc1e9be979d2f7cf065dc44675215210a4584'
+    oldFile: !uuid '20d14720a3f95ac5dc676eb1cb2faeeb7f8dbb8e'
   /src/components/ChartItemSetting/NameSetting.vue:
-    newFile: !uuid '6194728e5a99caa662af742e56e7892f1cc71c0a'
-    oldFile: null
-  /src/components/ChartItemSetting/PositionSetting.vue:
-    newFile: !uuid 'f639bfdb8d417fdca027802ccf87f38a3029d98b'
-    oldFile: !uuid '467157db905a1c0f3b0dfaa04769002f064b0401'
-  /src/components/ChartItemSetting/index.ts:
-    newFile: !uuid 'e8c7ad664b015c0df793888e3aecae5674d3ce25'
-    oldFile: !uuid 'e0a722ccc2400f4bb3ff108d15b1259b7563264f'
-  /src/views:
-    newFile: !uuid 'dc82022d33477d37efcacd276d5b08b6aa8f07ae'
-    oldFile: !uuid '06c9d813eeef247bff8d746f1e8ea794fb19fb36'
-  /src/views/chart:
-    newFile: !uuid 'd8a181fb8aaa8e631f7e788d173053279b260814'
-    oldFile: !uuid 'aaac496be548b69fc3fbbb3be27985d16912967b'
-  /src/views/chart/ContentConfigurations:
-    newFile: !uuid '6a3faae0b51d19591b19fc9e4aa4cc392d03c1a0'
-    oldFile: !uuid 'de8efbccd1dc925f9355f801a75764e70016eacd'
-  /src/views/chart/ContentConfigurations/components:
-    newFile: !uuid 'b059f4bb3f7f97aec2d7d70d2b2cbceb62ae67a8'
-    oldFile: !uuid '2361a7d42d8829778c4ffef387d62df213009422'
-  /src/views/chart/ContentConfigurations/components/CanvasPage:
-    newFile: !uuid 'ded7bb6f718ee9180892c6c376cdcb5b5152de6d'
-    oldFile: !uuid 'b16dc3f72570e74845710ed0163d1e2753c5d6bf'
-  /src/views/chart/ContentConfigurations/components/CanvasPage/index.vue:
-    newFile: !uuid 'b34f8b066e870993c96043d9e1b3dd9cda20fe3f'
-    oldFile: !uuid 'eeb264e5f5fc411428424ab15df4c25859ba7f5a'
-  /src/views/chart/ContentConfigurations/components/ChartSetting:
-    newFile: !uuid '1c917644559c6aeee8f5e34f42ed2b978ed44704'
-    oldFile: !uuid 'c0bfbef5051ea76b65ef554c60452ac43f9b04cf'
-  /src/views/chart/ContentConfigurations/components/ChartSetting/index.vue:
-    newFile: !uuid '91b65e82efc78497af3a000bf239bda29b15f52c'
-    oldFile: !uuid '2f657b3e1db9dfa5c5f0ea6641386a042d14ce02'
-gitCommitId: !uuid 'c4e3c34842eb5e94ca86a3dc5cd9182bcb311b14'
+    newFile: !uuid 'b05cf929b07b5b39311d2622803e65ee5713b3b6'
+    oldFile: !uuid '6194728e5a99caa662af742e56e7892f1cc71c0a'
+gitCommitId: !uuid 'e672b7545338af84a0250d5c1fcc6b70a8944b9a'
 renames: {
   }
-revisionId: 924
+revisionId: 925
