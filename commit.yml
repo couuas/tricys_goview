@@ -3,93 +3,54 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '459669fd832f0c541e9f93f66dd0561b7067bb2d'
-    oldFile: !uuid 'abd466bec919e55649aaf74edf759a8e9ec597b3'
+    newFile: !uuid 'faf31b3f63621d82c1750e717a1d833554bb8b0b'
+    oldFile: !uuid '459669fd832f0c541e9f93f66dd0561b7067bb2d'
+  /src/assets:
+    newFile: !uuid 'a23b9eeac9eb8852160410288f277b9c25501860'
+    oldFile: !uuid '8ca228a841bb5b0fc37763d97377cbfa2a19199b'
+  /src/assets/images:
+    newFile: !uuid 'a6f10db566782683c60af0839d1ccc7c83bae010'
+    oldFile: !uuid '16f115788444268861e7eafc224ae3218f61f868'
+  /src/assets/images/chart:
+    newFile: !uuid '618d516ca0780e1303843da9434d5156b2f20cc7'
+    oldFile: !uuid '64095d82dce0b25cf036e69c69fff18fa2ae2ec5'
+  /src/assets/images/chart/decorates:
+    newFile: !uuid '729f6fb95de3c2837baa76c84d7651b220a44311'
+    oldFile: !uuid '042c34dca35bb239e53489f8ffc7405858f85022'
+  /src/assets/images/chart/decorates/border07.png:
+    newFile: !uuid 'e60f09658350f6fe880cdb89512393db4769b960'
+    oldFile: null
   /src/packages:
-    newFile: !uuid '12d2b15dc311078b9509692232b42db652fa3968'
-    oldFile: !uuid '08c849a498938f7ab3be15c58ba819aaae1f1b2d'
+    newFile: !uuid '91a94645c6ee1628b47bb901d5b11aeafd7c9d92'
+    oldFile: !uuid '12d2b15dc311078b9509692232b42db652fa3968'
   /src/packages/components:
-    newFile: !uuid 'ff9f6cd68cf09e9e4f7402a856091a0db3a298d5'
-    oldFile: !uuid '8c5c7bc733ffb70f817ef749f53a81c33a501521'
+    newFile: !uuid '7109d97768856425863218c68f125c4817abde18'
+    oldFile: !uuid 'ff9f6cd68cf09e9e4f7402a856091a0db3a298d5'
   /src/packages/components/Decorates:
-    newFile: !uuid '2427948881a4076f4b27ca86b0ad289e0f0fd513'
-    oldFile: !uuid '9dcf10e5b993c5cedb861fc68e8b9c54533b82e5'
+    newFile: !uuid 'ef124ce581d37359a100ce5cefef33c8f87f5797'
+    oldFile: !uuid '2427948881a4076f4b27ca86b0ad289e0f0fd513'
   /src/packages/components/Decorates/Borders:
-    newFile: !uuid 'ecb0b065d391c180ebd12bd95c441a20e7bf3b7b'
-    oldFile: !uuid 'a47794e58dfab0ce6cff14ae970b06e6593f87bf'
-  /src/packages/components/Decorates/Borders/Border01:
-    newFile: !uuid 'aa0c04fc10ecf249be71c3291798ea77b62a3a5b'
-    oldFile: !uuid '0a064fb52a3b7ae8cd4649e783ad04b4831527bd'
-  /src/packages/components/Decorates/Borders/Border01/config.ts:
-    newFile: !uuid '8f4745b4bcfc9ef65eff337d1a27de43974df1c0'
-    oldFile: !uuid '4a8f9703ceeb903260bb791fc9bb739ba63a1fe8'
-  /src/packages/components/Decorates/Borders/Border01/config.vue:
-    newFile: !uuid '41ba9dfd9ec573a25a10d359e5cb6962a5777891'
-    oldFile: !uuid '6e946469e202428bd505fb4c5dd3c9d605335f17'
-  /src/packages/components/Decorates/Borders/Border01/index.vue:
-    newFile: !uuid '0f070ba1c3a62b7dd913a5bf2ac7193f39d28d96'
-    oldFile: !uuid 'ac7b9923fa1ab0cbfd4187440ea328387e0bd76c'
-  /src/packages/components/Decorates/Borders/Border02:
-    newFile: !uuid '53d5727ec3e64923e13c3e3473c4f1fbc871b8b3'
-    oldFile: !uuid 'b04f0933eb750c789b5a828bf6c7e930f11c9b86'
-  /src/packages/components/Decorates/Borders/Border02/config.ts:
-    newFile: !uuid '1c9f5db061ac7fa6a3ca0decd768693d13a4231e'
-    oldFile: !uuid '0b4fa2bbcd49819f40bcde33c41c42711bae557b'
-  /src/packages/components/Decorates/Borders/Border02/config.vue:
-    newFile: !uuid 'c629a0b6eaf69a280a6d48eada23fa96547cd85b'
-    oldFile: !uuid '5657b6a03b60343c042a7866511960474b768a5d'
-  /src/packages/components/Decorates/Borders/Border02/index.vue:
-    newFile: !uuid 'fc70bfa9cdb607005f4ba2dd5a2511019ffba464'
-    oldFile: !uuid '3e8aebe11bf519e1efe5e4c23d54454bc2497df8'
-  /src/packages/components/Decorates/Borders/Border03:
-    newFile: !uuid 'b21438d895e82d243479f0a1cc8b7ef3525df377'
-    oldFile: !uuid '0715669c7cae53dcf219d33e41f04486c3e7e769'
-  /src/packages/components/Decorates/Borders/Border03/config.ts:
-    newFile: !uuid 'c977370ad97210ec9cbcff9e619aa5ad1d1d3683'
-    oldFile: !uuid '31814923caea8c69db641454c676664b448b4a4e'
-  /src/packages/components/Decorates/Borders/Border03/config.vue:
+    newFile: !uuid '112105af8a15bab8600f7bfe5cce6de18313224f'
+    oldFile: !uuid 'ecb0b065d391c180ebd12bd95c441a20e7bf3b7b'
+  /src/packages/components/Decorates/Borders/Border07:
+    newFile: !uuid 'e9468be3feb9a10b157dcb30ade92c511e79f5bf'
+    oldFile: null
+  /src/packages/components/Decorates/Borders/Border07/config.ts:
+    newFile: !uuid '63c2c79343ff730cd9bfc84fb38130d423960d18'
+    oldFile: null
+  /src/packages/components/Decorates/Borders/Border07/config.vue:
     newFile: !uuid '0aa710d0451e8947368a7b3efda911c5c2d2ff28'
-    oldFile: !uuid '5657b6a03b60343c042a7866511960474b768a5d'
-  /src/packages/components/Decorates/Borders/Border03/index.vue:
-    newFile: !uuid '3a8342bf7fec75b72d2352606e4a41c8a1808d8b'
-    oldFile: !uuid '99c123ccf08b7ba75afc22e26e3cd7868516440a'
-  /src/packages/components/Decorates/Borders/Border04:
-    newFile: !uuid '013864df95e8014db001d0995774d1e8fd3c5432'
-    oldFile: !uuid '925d02e3a73d50b67c895301a68a6d9424c83d08'
-  /src/packages/components/Decorates/Borders/Border04/config.ts:
-    newFile: !uuid 'e5b38e29177b1c3014aa07a8fb0dae85668b5135'
-    oldFile: !uuid '74a39fdfacf18ed0e26d4850cfb156a6f750b21c'
-  /src/packages/components/Decorates/Borders/Border04/config.vue:
-    newFile: !uuid '0aa710d0451e8947368a7b3efda911c5c2d2ff28'
-    oldFile: !uuid '5657b6a03b60343c042a7866511960474b768a5d'
-  /src/packages/components/Decorates/Borders/Border04/index.vue:
-    newFile: !uuid 'dc849811b96e62887622bd76b7fe73f70d3d8683'
-    oldFile: !uuid '169b42cca88381d4dafcb5152a14215c7287b932'
-  /src/packages/components/Decorates/Borders/Border05:
-    newFile: !uuid 'a3c9aac65a3c4b595f1e3e612bebf6458c85c5f2'
-    oldFile: !uuid '97db3942e67fe172630d88d34cfa43332f4c8ccf'
-  /src/packages/components/Decorates/Borders/Border05/config.ts:
-    newFile: !uuid '7783fdf656bdb86eb02c5ac08e84d74b4c7d2290'
-    oldFile: !uuid 'b4ddb1b3d068dd35f69caf0036dccfc25af1a53a'
-  /src/packages/components/Decorates/Borders/Border05/config.vue:
-    newFile: !uuid '0aa710d0451e8947368a7b3efda911c5c2d2ff28'
-    oldFile: !uuid '5657b6a03b60343c042a7866511960474b768a5d'
-  /src/packages/components/Decorates/Borders/Border05/index.vue:
-    newFile: !uuid 'aeb5c315f41427326a1bae1dd2448aecac4b0c38'
-    oldFile: !uuid '3696ebd216ba38c72cf3b55a2ecc401eb92154f9'
-  /src/packages/components/Decorates/Borders/Border06:
-    newFile: !uuid '25c050fc4ae2a743f3b3b8664c803d5c1f4893f3'
-    oldFile: !uuid '865eed405d7e99db634904f7be09b3e861576195'
-  /src/packages/components/Decorates/Borders/Border06/config.ts:
-    newFile: !uuid 'cd40a0a9ee3ab09a5e33fc913d669e7125aa1c0e'
-    oldFile: !uuid '003d026fa77d673e7a79a73b40ddfa048aa30b8d'
-  /src/packages/components/Decorates/Borders/Border06/config.vue:
-    newFile: !uuid '0aa710d0451e8947368a7b3efda911c5c2d2ff28'
-    oldFile: !uuid '5657b6a03b60343c042a7866511960474b768a5d'
-  /src/packages/components/Decorates/Borders/Border06/index.vue:
-    newFile: !uuid '60bcfeeb16946779e9e19f7176343d03beda644d'
-    oldFile: !uuid '98865939bc245b392f5002aa7ba637c76e5792d0'
-gitCommitId: !uuid '09e402357a5a2794c113bd0234fecbcb8b46344b'
+    oldFile: null
+  /src/packages/components/Decorates/Borders/Border07/index.ts:
+    newFile: !uuid 'c9c568534cb02ead2a5de126527ad2d9cd4eaf1b'
+    oldFile: null
+  /src/packages/components/Decorates/Borders/Border07/index.vue:
+    newFile: !uuid 'deae7609c19c674aa0715dc9c748273de33bcf1a'
+    oldFile: null
+  /src/packages/components/Decorates/Borders/index.ts:
+    newFile: !uuid '71d43bf02451207df10206187bc5a43fc43d7faf'
+    oldFile: !uuid 'e7a6a4da62222294a3539361de2fff41b695772f'
+gitCommitId: !uuid 'e146018f7dc691aba73a050f02ccf14ec64fef61'
 renames: {
   }
-revisionId: 952
+revisionId: 953
