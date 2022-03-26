@@ -3,54 +3,36 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'faf31b3f63621d82c1750e717a1d833554bb8b0b'
-    oldFile: !uuid '459669fd832f0c541e9f93f66dd0561b7067bb2d'
-  /src/assets:
-    newFile: !uuid 'a23b9eeac9eb8852160410288f277b9c25501860'
-    oldFile: !uuid '8ca228a841bb5b0fc37763d97377cbfa2a19199b'
-  /src/assets/images:
-    newFile: !uuid 'a6f10db566782683c60af0839d1ccc7c83bae010'
-    oldFile: !uuid '16f115788444268861e7eafc224ae3218f61f868'
-  /src/assets/images/chart:
-    newFile: !uuid '618d516ca0780e1303843da9434d5156b2f20cc7'
-    oldFile: !uuid '64095d82dce0b25cf036e69c69fff18fa2ae2ec5'
-  /src/assets/images/chart/decorates:
-    newFile: !uuid '729f6fb95de3c2837baa76c84d7651b220a44311'
-    oldFile: !uuid '042c34dca35bb239e53489f8ffc7405858f85022'
-  /src/assets/images/chart/decorates/border07.png:
-    newFile: !uuid 'e60f09658350f6fe880cdb89512393db4769b960'
-    oldFile: null
+    newFile: !uuid '9d36a356425c31029fb1ded16e2c363d25f822e7'
+    oldFile: !uuid 'faf31b3f63621d82c1750e717a1d833554bb8b0b'
+  /src/components:
+    newFile: !uuid '1917254bfc238425fc856e604ae6507e82a1fa14'
+    oldFile: !uuid 'f4b45f93a6b3a8f0713e96d3424926795c4a2344'
+  /src/components/ChartItemSetting:
+    newFile: !uuid '1a550d7907dc240667a62b8ecb96c5bcd3de2471'
+    oldFile: !uuid '63cb63578172a682c7fb96d1d697a8be0e2c386d'
+  /src/components/ChartItemSetting/StylesSetting.vue:
+    newFile: !uuid '19a4ca5b89f9ab3209068ddb9e174b99dd28ebb8'
+    oldFile: !uuid 'c30a4474257ba19229eaee4d1857d48e3cf573f7'
   /src/packages:
-    newFile: !uuid '91a94645c6ee1628b47bb901d5b11aeafd7c9d92'
-    oldFile: !uuid '12d2b15dc311078b9509692232b42db652fa3968'
+    newFile: !uuid 'dc2eb58d5346518cd20939d1c34b413b6f602f01'
+    oldFile: !uuid '91a94645c6ee1628b47bb901d5b11aeafd7c9d92'
   /src/packages/components:
-    newFile: !uuid '7109d97768856425863218c68f125c4817abde18'
-    oldFile: !uuid 'ff9f6cd68cf09e9e4f7402a856091a0db3a298d5'
+    newFile: !uuid 'f7f547816414f5aec6cc77aabc8b0ecfd8b3f566'
+    oldFile: !uuid '7109d97768856425863218c68f125c4817abde18'
   /src/packages/components/Decorates:
-    newFile: !uuid 'ef124ce581d37359a100ce5cefef33c8f87f5797'
-    oldFile: !uuid '2427948881a4076f4b27ca86b0ad289e0f0fd513'
+    newFile: !uuid '5111c1cc3424504f383b032d87c578f86d4af2fc'
+    oldFile: !uuid 'ef124ce581d37359a100ce5cefef33c8f87f5797'
   /src/packages/components/Decorates/Borders:
-    newFile: !uuid '112105af8a15bab8600f7bfe5cce6de18313224f'
-    oldFile: !uuid 'ecb0b065d391c180ebd12bd95c441a20e7bf3b7b'
-  /src/packages/components/Decorates/Borders/Border07:
-    newFile: !uuid 'e9468be3feb9a10b157dcb30ade92c511e79f5bf'
-    oldFile: null
-  /src/packages/components/Decorates/Borders/Border07/config.ts:
-    newFile: !uuid '63c2c79343ff730cd9bfc84fb38130d423960d18'
-    oldFile: null
-  /src/packages/components/Decorates/Borders/Border07/config.vue:
-    newFile: !uuid '0aa710d0451e8947368a7b3efda911c5c2d2ff28'
-    oldFile: null
-  /src/packages/components/Decorates/Borders/Border07/index.ts:
-    newFile: !uuid 'c9c568534cb02ead2a5de126527ad2d9cd4eaf1b'
-    oldFile: null
-  /src/packages/components/Decorates/Borders/Border07/index.vue:
-    newFile: !uuid 'deae7609c19c674aa0715dc9c748273de33bcf1a'
-    oldFile: null
-  /src/packages/components/Decorates/Borders/index.ts:
-    newFile: !uuid '71d43bf02451207df10206187bc5a43fc43d7faf'
-    oldFile: !uuid 'e7a6a4da62222294a3539361de2fff41b695772f'
-gitCommitId: !uuid 'e146018f7dc691aba73a050f02ccf14ec64fef61'
+    newFile: !uuid 'b325aac7ed5fb514325bd54012202c2dc9b98d46'
+    oldFile: !uuid '112105af8a15bab8600f7bfe5cce6de18313224f'
+  /src/packages/components/Decorates/Borders/Border04:
+    newFile: !uuid '6b0ee8d7fff0b0937a61244972480e8fe3bdc500'
+    oldFile: !uuid '013864df95e8014db001d0995774d1e8fd3c5432'
+  /src/packages/components/Decorates/Borders/Border04/config.vue:
+    newFile: !uuid 'bcede3534b214e71b2d12e705399d47a62946395'
+    oldFile: !uuid '0aa710d0451e8947368a7b3efda911c5c2d2ff28'
+gitCommitId: !uuid '91220d31a7e66f84bbb593da96f18627b7e5bb31'
 renames: {
   }
-revisionId: 953
+revisionId: 954
