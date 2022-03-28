@@ -3,52 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'ccbe8846bd49c0e7393ab4826af9469d1ddd2385'
-    oldFile: !uuid 'cbb62fc6b898857acfc7cafffcd2e264b2ee4fca'
-  /src/packages:
-    newFile: !uuid 'cf757fb208b22bdb940031181c11a104dc5f8e57'
-    oldFile: !uuid '189afbd05d82ba338a097737ec1bb00b6c5a3aeb'
-  /src/packages/components:
-    newFile: !uuid 'fb0c43880dcf8dde2d1485b50d597ce9c0246de9'
-    oldFile: !uuid 'c40a29533a565676dda4bd6447bed740e918d006'
-  /src/packages/components/Charts:
-    newFile: !uuid 'a2e1e788cba0a44dc170c58b326386820fcb5f72'
-    oldFile: !uuid '0ac84c485621b9405c68158b592bf9a2184caa4c'
-  /src/packages/components/Charts/Mores:
-    newFile: !uuid 'b712b3630a65d32115ec721e2f27cb91e0477598'
-    oldFile: !uuid '86ee37e91c32cc967222281f1ea9258fd0af96fe'
-  /src/packages/components/Charts/Mores/Variable:
+    newFile: !uuid 'c982df7f84d37ea843ab2c8199e75a026ce3b0ce'
+    oldFile: !uuid 'ccbe8846bd49c0e7393ab4826af9469d1ddd2385'
+  /src/assets:
+    newFile: !uuid '6c08e40acfec90fc9defb3ac9b88ba681023f019'
+    oldFile: !uuid 'd561fd0f82bf48e09647ae60893f0e65133f820e'
+  /src/assets/images:
+    newFile: !uuid 'd6bdfe90e0fed7526839f33ebda3b07e9c5171d8'
+    oldFile: !uuid '600fbf38318952b27cc403faf10c05e78c7d3431'
+  /src/assets/images/chart:
+    newFile: !uuid '70fa3a38797f22c67a58eb6f5ee8372e4276cb17'
+    oldFile: !uuid '8e51aa366d3a38993a8435fde83b85916c6223bb'
+  /src/assets/images/chart/charts:
+    newFile: !uuid 'ec7351d2443e51e08a1493cde4b8c0c1981c72ae'
+    oldFile: !uuid '6166bb2785f884691f71252be545f6c38d5b1f83'
+  /src/assets/images/chart/charts/water_WaterPolo.png:
+    newFile: !uuid '78e67c54776b488632e9177568a4b8cabf58e8d3'
+    oldFile: null
+  /src/assets/images/chart/charts/water_variable.png:
     newFile: null
-    oldFile: !uuid '9c737fbddc875052967a8739e40f5b89e377ca77'
-  /src/packages/components/Charts/Mores/Variable/config.vue:
-    newFile: null
-    oldFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-  /src/packages/components/Charts/Mores/Variable/index.ts:
-    newFile: null
-    oldFile: !uuid '24cc86953efd8db9fcc45bed77f4c985c20584cd'
-  /src/packages/components/Charts/Mores/Variable/index.vue:
-    newFile: null
-    oldFile: !uuid '31fe77be1ddebcb65cf6a2d7e60d0d85dd41967a'
-  /src/packages/components/Charts/Mores/WaterPolo:
-    newFile: !uuid '1a55de962a58c3c41d3747546b94fa16f13eb806'
-    oldFile: null
-  /src/packages/components/Charts/Mores/WaterPolo/config.ts:
-    newFile: !uuid '1a701428de5d53e0bf24f5d435dee7abd80312ea'
-    oldFile: null
-  /src/packages/components/Charts/Mores/WaterPolo/config.vue:
-    newFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-    oldFile: null
-  /src/packages/components/Charts/Mores/WaterPolo/index.ts:
-    newFile: !uuid '9bd2e2cb8ec35ee0b3b9ac40b6eadd65c59a8c6c'
-    oldFile: null
-  /src/packages/components/Charts/Mores/WaterPolo/index.vue:
-    newFile: !uuid '31fe77be1ddebcb65cf6a2d7e60d0d85dd41967a'
-    oldFile: null
-  /src/packages/components/Charts/Mores/index.ts:
-    newFile: !uuid '9bee3aa69d95f91899af976092d04b257d63f067'
-    oldFile: !uuid '3e7317f3ee570e9d76612f7b1ae990c66db28d99'
-gitCommitId: !uuid '0d873e4ffa64d796df2e66314de6e91e7b982d17'
+    oldFile: !uuid '78e67c54776b488632e9177568a4b8cabf58e8d3'
+gitCommitId: !uuid '96ea54a4130c7daf1b85057e7fd9aaf3561a61f1'
 renames:
-  /src/packages/components/Charts/Mores/WaterPolo/config.vue: /src/packages/components/Charts/Mores/Variable/config.vue
-  /src/packages/components/Charts/Mores/WaterPolo/index.vue: /src/packages/components/Charts/Mores/Variable/index.vue
-revisionId: 277
+  /src/assets/images/chart/charts/water_WaterPolo.png: /src/assets/images/chart/charts/water_variable.png
+revisionId: 278
