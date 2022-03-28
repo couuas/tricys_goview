@@ -3,54 +3,57 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '340a37d76897e50e9599c83896252e057ad23ae8'
-    oldFile: !uuid 'f66f584e5454b7e42d022f77288671fa7d6453c9'
-  /src/assets:
-    newFile: !uuid '78946e3c41e9ff6db433883f039178a2cc6481f3'
-    oldFile: !uuid 'a9e56e4e0e1babcf8ffbc4ba26059e7fa3d934f1'
-  /src/assets/images:
-    newFile: !uuid '3151e4d718733a44da7b193e0d89656ecb83b42e'
-    oldFile: !uuid 'a12845850a344eaa60442811e2bb0a9974614237'
-  /src/assets/images/chart:
-    newFile: !uuid '8e51aa366d3a38993a8435fde83b85916c6223bb'
-    oldFile: !uuid 'c33879e81af2230a63d2e166b49c1b91c6c7cf72'
-  /src/assets/images/chart/decorates:
-    newFile: !uuid '505f628f79d940d53606ca1d8f6a5a99c47bab31'
-    oldFile: !uuid '9a4bec4e999a5dba2c1db68b0f4347574db5037e'
-  /src/assets/images/chart/decorates/border13.png:
-    newFile: !uuid 'c46f7c3e13abff52b91ee99af8b53b42b2bf9f0f'
-    oldFile: null
-  /src/packages:
-    newFile: !uuid '189afbd05d82ba338a097737ec1bb00b6c5a3aeb'
-    oldFile: !uuid '371dc80225eb6843c76d1d0919308a0e9b6086b8'
-  /src/packages/components:
-    newFile: !uuid 'c40a29533a565676dda4bd6447bed740e918d006'
-    oldFile: !uuid '08809beb67d17e5d922296a6f3c237bfa2348d18'
-  /src/packages/components/Decorates:
-    newFile: !uuid '25cb5123a890c430d04fc71e4183631c0c64ecad'
-    oldFile: !uuid '0cbd6f93563a49cd6862de44be1bd3805d6de6d1'
-  /src/packages/components/Decorates/Borders:
-    newFile: !uuid 'e743017afd3b8dd4b504889c6a20f1cc34d8d5c9'
-    oldFile: !uuid '0f3094bfe1ddaada590401818869b758f6658e90'
-  /src/packages/components/Decorates/Borders/Border13:
-    newFile: !uuid '7cfa0303b109363c203c8730206a376ad93eb1c3'
-    oldFile: null
-  /src/packages/components/Decorates/Borders/Border13/config.ts:
-    newFile: !uuid 'aaff3192e9939ef4e439075db9c6f6a4e0ad2466'
-    oldFile: null
-  /src/packages/components/Decorates/Borders/Border13/config.vue:
-    newFile: !uuid '0aa710d0451e8947368a7b3efda911c5c2d2ff28'
-    oldFile: null
-  /src/packages/components/Decorates/Borders/Border13/index.ts:
-    newFile: !uuid '7f756116e972d85441683103e863cf3efc954634'
-    oldFile: null
-  /src/packages/components/Decorates/Borders/Border13/index.vue:
-    newFile: !uuid 'c73dc2a0496c5c6c09642445f62c078136d7d306'
-    oldFile: null
-  /src/packages/components/Decorates/Borders/index.ts:
-    newFile: !uuid '2e05e4be3c17b33769f8c8b17d33ed2757b2fd41'
-    oldFile: !uuid 'e796ea5d31696bac15109b324e0e33f373a6e74e'
-gitCommitId: !uuid 'f29299fde5e792d0860cb7ed67ea7c6a4c3101e2'
+    newFile: !uuid '623b990022e05acd4df63bde4b06cfed0154b5d1'
+    oldFile: !uuid '340a37d76897e50e9599c83896252e057ad23ae8'
+  /src/layout:
+    newFile: !uuid 'b1ac085b607558edb4201663b012076f0df23b36'
+    oldFile: !uuid 'd23043e8528811428919d4bf4e9988f02d9d399e'
+  /src/layout/components:
+    newFile: !uuid '0647bbaa167f99e01fd5b896d8b00af9a44986b8'
+    oldFile: !uuid 'a253cb3b73f9ceccdee006daf048af64612368ce'
+  /src/layout/components/LayoutHeader:
+    newFile: !uuid 'd1a7a61a1cb23a77d131e6abffd436b932a968ef'
+    oldFile: !uuid '4784e790c6421b31f4cac99f99aa00754e1d3177'
+  /src/layout/components/LayoutHeader/index.vue:
+    newFile: !uuid '8b1bb3977406d9aeaa36910a93da1a0df31b4ab0'
+    oldFile: !uuid 'dd63af9ef8997390a88efbff3f408792c74f9cc3'
+  /src/plugins:
+    newFile: !uuid 'b4624ebfb4014abf148340f4f4c2ed0439ae9678'
+    oldFile: !uuid '36c69f9a8cfc140b503696cf6a55b367ca72e744'
+  /src/plugins/icon.ts:
+    newFile: !uuid '5ea315010247858990f15ee3acca39ccd0f4cbb1'
+    oldFile: !uuid '5239db98b53c1d1342df533f3c55648a16ca94ff'
+  /src/store:
+    newFile: !uuid '1bb37917701db0c184a76644914756d48b97046c'
+    oldFile: !uuid 'c908e0b7d4de076344148c14fa76ed0f1c53f568'
+  /src/store/modules:
+    newFile: !uuid '5bfecb72c22eaaa3a3d8263fd2d710af898b9771'
+    oldFile: !uuid '3526b32ad610dca42465e8a7cf17e651b2729495'
+  /src/store/modules/chartEditStore:
+    newFile: !uuid '1de249032debd259d7bda51503a037e3aa04f50d'
+    oldFile: !uuid '6016e9f3332670adf8a9140758d76136d9979096'
+  /src/store/modules/chartEditStore/chartEditStore.ts:
+    newFile: !uuid '077355875871c3df5e75ddc270134fc260ef9269'
+    oldFile: !uuid 'cea0fe8e535e5523d04dbf65211aa391ddd5af47'
+  /src/views:
+    newFile: !uuid '53309377b640b1fb14a271dd3db9e0fec65bf381'
+    oldFile: !uuid '34c85ce5282e380a6222248c3d05526a7a440d58'
+  /src/views/chart:
+    newFile: !uuid 'af188406c77b029da8977565fd51a5a32c5c651d'
+    oldFile: !uuid '35ac589e308c73155d48bcd27d8c774725bcd273'
+  /src/views/chart/HeaderLeftBtn:
+    newFile: !uuid '5cc0ad64fc980654062e6a2b468335b0bbb44021'
+    oldFile: !uuid '677105244d61e47c26df90f7b90e883ddadf8db9'
+  /src/views/chart/HeaderLeftBtn/index.vue:
+    newFile: !uuid 'af92532d32ea8a5e7613ae1209eec17c4fd4e3b3'
+    oldFile: !uuid 'c356871ba109763245c9fd085d7e16c5585a9fde'
+  /src/views/chart/hooks:
+    newFile: !uuid '69e9bf0c4350dee855c2cf26cbca04a5a8b6ea14'
+    oldFile: !uuid 'a0b5848f5f6a490b233ad4cc2a5f42a6b740ed03'
+  /src/views/chart/hooks/useKeyboard.hook.ts:
+    newFile: !uuid '4b327d95237869b63b1e3ab882c06555f1cba606'
+    oldFile: !uuid '04bb67cd3ea3406fe2e7bad6f1b15edbc167f279'
+gitCommitId: !uuid '0b71c43e8927e1382867774181cb3d5d719f0e67'
 renames: {
   }
-revisionId: 958
+revisionId: 959
