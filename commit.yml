@@ -3,48 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'fd5d7d2b9a58ec6b94901f3670af4c45b962fd93'
-    oldFile: !uuid '28bfe522f13fb15b7a683862629f52a2ad75fae6'
-  /src/assets:
-    newFile: !uuid '4b16f84bc17d927228c2337cc2230b14f42222f4'
-    oldFile: !uuid '68708f1b5c6a682b453472b68eeef0e79c6707ac'
-  /src/assets/images:
-    newFile: !uuid '063bc69d9735aab60b8358bfc034411c320606c2'
-    oldFile: !uuid '703e039eb8511ab8442de967dbfd076d1f10309f'
-  /src/assets/images/chart:
-    newFile: !uuid '7bf00788331332ba49c385a37df5ae9dbc257c94'
-    oldFile: !uuid '87108fd5b0b20d4e613f9db072a9992468e1aada'
-  /src/assets/images/chart/decorates:
-    newFile: !uuid '375d2d629b5ea86d8a9881ae3f9784015c91b75d'
-    oldFile: !uuid '2a1281cf4d27273603d396079cfc4d609a2d8bb4'
-  /src/assets/images/chart/decorates/decorates01.png:
-    newFile: !uuid '9bc27e06f9af076d5b69a906a0b33fda5d72a668'
-    oldFile: !uuid '75dfbf6b0a8ee2e303de5dc2839aa07b4201a17e'
+    newFile: !uuid '794de98edbb873254247b54f328315f23c2899bf'
+    oldFile: !uuid 'fd5d7d2b9a58ec6b94901f3670af4c45b962fd93'
   /src/packages:
-    newFile: !uuid 'dfddd6c8b1279130321b72916a1325044ecd7887'
-    oldFile: !uuid '9e4bb66d5126dad804d1ea5112419f822058d1d5'
+    newFile: !uuid '682acf4897d7e0a672965f60a82d5f100a47fdd4'
+    oldFile: !uuid 'dfddd6c8b1279130321b72916a1325044ecd7887'
   /src/packages/components:
-    newFile: !uuid '75c4b648deb7a98b0c6fc7fc598134c73148fb2d'
-    oldFile: !uuid '2419784ac0aeb4f1546306a6b59598239fbd702d'
+    newFile: !uuid '822f71c6150074f3d243e611fd82c9a5259b239a'
+    oldFile: !uuid '75c4b648deb7a98b0c6fc7fc598134c73148fb2d'
   /src/packages/components/Decorates:
-    newFile: !uuid 'e12fd1cc6b4b0b7d6b2adf6ac4408d1ba2f4cfe0'
-    oldFile: !uuid 'b57e4458af15ed4fd540c8ef7bde6f003e5f2b10'
+    newFile: !uuid 'dd31466a35e2d60d21056608af8689b914aaa24c'
+    oldFile: !uuid 'e12fd1cc6b4b0b7d6b2adf6ac4408d1ba2f4cfe0'
   /src/packages/components/Decorates/Decorates:
-    newFile: !uuid 'e9427fce299b39642bc4eb8feec3814000868edc'
-    oldFile: !uuid '6ac1f39f97221b3dd1453b9e488d4ed8e1ab1232'
+    newFile: !uuid '03625caa1d738a260ac18f65e3d404a9676af9d0'
+    oldFile: !uuid 'e9427fce299b39642bc4eb8feec3814000868edc'
   /src/packages/components/Decorates/Decorates/Decorates01:
-    newFile: !uuid '7297477a98c9d12023397b9f058d2cd4e19bff1d'
-    oldFile: !uuid '4e781d32fbd3187045a8f222894f5e3d2df03df9'
-  /src/packages/components/Decorates/Decorates/Decorates01/config.ts:
-    newFile: !uuid '0a4fa87f5d5ec5104f3ae3bba2dc015e4b486468'
-    oldFile: !uuid 'b0dac7e9a49f81a35e319286bb71ee2f03e99434'
-  /src/packages/components/Decorates/Decorates/Decorates01/config.vue:
-    newFile: !uuid '2924d09a3740dc0f4f0e577f0eb1c804022c1aa2'
-    oldFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-  /src/packages/components/Decorates/Decorates/Decorates01/index.vue:
-    newFile: !uuid '66296e52e50f19b0a09dcafce788016c0c5fe017'
-    oldFile: !uuid '363a64fda50e6dae5c9572be0a810d991e4d34ae'
-gitCommitId: !uuid 'd1ea05c2c015fa745be0903b676b0931b581a759'
+    newFile: !uuid '4fab8723aceedd579db9e9e5475bcdb37a8aec01'
+    oldFile: !uuid '7297477a98c9d12023397b9f058d2cd4e19bff1d'
+  /src/packages/components/Decorates/Decorates/Decorates01/index.ts:
+    newFile: !uuid '26e1ff73fc354c7c7da61ae244dfc054ab3c69f5'
+    oldFile: !uuid '838cc465b3b790c5dde4b31e9d6a56d2afb54b8c'
+gitCommitId: !uuid '0d54716e596895414ca93ba8183cee49497458c2'
 renames: {
   }
-revisionId: 968
+revisionId: 969
