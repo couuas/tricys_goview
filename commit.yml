@@ -3,66 +3,159 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '1a541af6a25b23f683b2d52487e8ff3e178e218c'
-    oldFile: !uuid 'd0b9f4feaa80d75852ca2d38ad20e82f3088e390'
+    newFile: !uuid '4ccd55a6c6816cacca02bf497aacec1a68c850e2'
+    oldFile: !uuid '1a541af6a25b23f683b2d52487e8ff3e178e218c'
   /src/packages:
-    newFile: !uuid '5b0719f8368a16eb46894c40f0a1767e249aa294'
-    oldFile: !uuid 'd8f875cd33a1610252a48dcdef5c287219f57134'
+    newFile: !uuid '4760f58d1a1845a728b5e11545f1594619a98717'
+    oldFile: !uuid '5b0719f8368a16eb46894c40f0a1767e249aa294'
   /src/packages/components:
-    newFile: !uuid '890c6585be997653b2375828e7300a49cce6e9d5'
-    oldFile: !uuid '5c69c10c4913625452fc78b0d659784b52f3d6e4'
+    newFile: !uuid '85966bf1aa41423122f60af08ebc7f5f6fa877d7'
+    oldFile: !uuid '890c6585be997653b2375828e7300a49cce6e9d5'
   /src/packages/components/Decorates:
-    newFile: !uuid '54bc37383e299fbde0b733b9fef87244569aeb37'
-    oldFile: !uuid 'b3fe79623cf07d9dbf488da4d7aa436619790c8e'
-  /src/packages/components/Decorates/Borders:
-    newFile: !uuid 'f9a05b7f9c5d8eea2e60749e407307f2610523b4'
-    oldFile: !uuid 'e743017afd3b8dd4b504889c6a20f1cc34d8d5c9'
-  /src/packages/components/Decorates/Borders/Border01:
-    newFile: !uuid '4d5b88c8d70924cd97275231829385652394c3fa'
-    oldFile: !uuid '6bf288d9e818c0090401ce868a8e3c1f7bac9970'
-  /src/packages/components/Decorates/Borders/Border01/config.vue:
-    newFile: !uuid '1e9962df8478b446bc51079cb1efc74a51677541'
-    oldFile: !uuid '300c407a7e2370ee3302b0dfa2b8e596751362c8'
-  /src/packages/components/Decorates/Borders/Border08:
-    newFile: !uuid '4a1aa98f7a61f93ca53b4fbbe5a28da0d110ea0b'
-    oldFile: !uuid '6368c15af676a73bee863014e4e9e5941cdc0bbc'
-  /src/packages/components/Decorates/Borders/Border08/config.vue:
-    newFile: !uuid '85637159ce8aeb48c8bac737371d1ca3569a4137'
-    oldFile: !uuid 'adc3cde358adcc6d3baedc5f8dd7cfaa32427528'
+    newFile: !uuid 'd81de0df1bc2bf089e5f97c2c18a9c06d7ac32eb'
+    oldFile: !uuid '54bc37383e299fbde0b733b9fef87244569aeb37'
   /src/packages/components/Decorates/Decorates:
-    newFile: !uuid '7150e0f9557b3129882d3e212a7c6dcab410dcc4'
-    oldFile: !uuid '4f37f1c7fdef0dcc0c730e5e453ad65c8c0c8cf3'
+    newFile: !uuid '9bd58d37db2766dafe805a3123269733c8ec1316'
+    oldFile: !uuid '7150e0f9557b3129882d3e212a7c6dcab410dcc4'
   /src/packages/components/Decorates/Decorates/Decorates01:
-    newFile: !uuid '28dc87c2d3f9037918ce07070e25640889dff834'
-    oldFile: !uuid 'a5d338faecc0b00fcd8e2729da444bcd0f0b18fa'
-  /src/packages/components/Decorates/Decorates/Decorates01/config.vue:
-    newFile: !uuid '7d64693a2bb423f9d2fff90bf5acae4904c1ffc8'
-    oldFile: !uuid '2924d09a3740dc0f4f0e577f0eb1c804022c1aa2'
-  /src/packages/components/Decorates/Mores:
-    newFile: !uuid '9cb83e48711d7095a9aeea73757f9f1e4a6b4af5'
-    oldFile: !uuid '422159e697de5d1c221560df575c435f57440240'
-  /src/packages/components/Decorates/Mores/Number:
-    newFile: !uuid 'fecb0e25f0299114a91048f9575ba64d1bf571c7'
-    oldFile: !uuid '05714b52d5e565253dda5557894195db49b3ba47'
-  /src/packages/components/Decorates/Mores/Number/config.ts:
-    newFile: !uuid '00e4c557345f7dd6ec1f5288621f3141e6a441f4'
+    newFile: !uuid '8c2c7165c275665a7ee790cb4300226d6b9614e3'
+    oldFile: !uuid '28dc87c2d3f9037918ce07070e25640889dff834'
+  /src/packages/components/Decorates/Decorates/Decorates01/index.ts:
+    newFile: !uuid '857958923a10a1b7464fa067b7101d7a2e3257eb'
+    oldFile: !uuid '26e1ff73fc354c7c7da61ae244dfc054ab3c69f5'
+  /src/packages/components/Decorates/Decorates/Decorates02:
+    newFile: !uuid 'fdd6df4837c26df51dfb9a3bb9274626e9ca23bc'
+    oldFile: !uuid 'd5230f527ea911a8984babdfa11764925da5389e'
+  /src/packages/components/Decorates/Decorates/Decorates02/index.ts:
+    newFile: !uuid '6c4caaca76f77950c357e5abf558e4e753da2b0f'
+    oldFile: !uuid '4016dfac2a560cfe4eda33dd7d6c11edec341b92'
+  /src/packages/components/Decorates/Decorates/Decorates03:
+    newFile: !uuid 'fa9aa3a178b0750c5f5ce1a2c4d0819e6a2f1443'
+    oldFile: !uuid '3bed127e872e6c9175d3c2aceb7e49632b26d160'
+  /src/packages/components/Decorates/Decorates/Decorates03/index.ts:
+    newFile: !uuid 'f7dcf43facf939b7be97dbef152af213cdae36c9'
+    oldFile: !uuid 'c2fda8aee6f59ecec5a23076ee90a4094e47cd51'
+  /src/packages/components/Decorates/Decorates/Decorates04:
+    newFile: !uuid '5cf956cca1d7bd5a6a1ec28f41b5a7b95c91a5a9'
+    oldFile: !uuid '64e662349a93934a015e02e5884c0f850ebbbfd2'
+  /src/packages/components/Decorates/Decorates/Decorates04/config.vue:
+    newFile: !uuid '82b5efb1e40e71b3b8f13767ad745b41cb240756'
+    oldFile: !uuid '9d8059cf4e82f12a85d76d6f239b58f1807dbb1d'
+  /src/packages/components/Decorates/Decorates/Decorates04/index.ts:
+    newFile: !uuid '5c608583f3f93b0833c19b19c352a986a062d174'
+    oldFile: !uuid '38adf988112dfc410007fd7533c8aa5a1686f279'
+  /src/packages/components/Decorates/Decorates/Decorates05:
+    newFile: !uuid '350ab9f96c461200a070e979c77cb9d7859b19c3'
+    oldFile: !uuid '3848649f6ef72abf152de61ce6da4570afbcb5da'
+  /src/packages/components/Decorates/Decorates/Decorates05/index.ts:
+    newFile: !uuid '9b3396fc30b8a17ee959c996e5d983ddddfdaddb'
+    oldFile: !uuid '9a61f90f56aedbcfe77f152d44309140053d0a9a'
+  /src/packages/components/Decorates/index.d.ts:
+    newFile: !uuid '6793722653fdc41778d64a9c891601fdc2d15e33'
+    oldFile: !uuid '029749813a9c02a28c59d92156c1de6e655e6f59'
+  /src/packages/components/Informations:
+    newFile: !uuid '8a8c9a5259c99ebe5fff5f4b043ff0b1ac968228'
+    oldFile: !uuid '1575aa3fe90e46327d4cf984f4421db8374eda1b'
+  /src/packages/components/Informations/Mores:
+    newFile: !uuid 'c45f8af5f745e365f104d62d7847fabcd2477220'
+    oldFile: !uuid 'b0d7b4af0220f64cbcaafe153e7ff39a19048447'
+  /src/packages/components/Informations/Mores/Image:
+    newFile: !uuid 'be6049957b2c5d9bbb3608378d448f274f706b21'
+    oldFile: !uuid '374aa5140d944a73782826f7c412a1e3268a4375'
+  /src/packages/components/Informations/Mores/Image/index.ts:
+    newFile: !uuid 'dc8d7bde96ea02f0a2f1dad25b1c8079cbc9595b'
+    oldFile: !uuid 'a6bd669d4d622775ab671dc6abc8165bbb2e42cf'
+  /src/packages/components/Informations/Mores/TextCloud:
+    newFile: !uuid 'ff508856327a3f9a373d65c55c9ad658ade24b5e'
+    oldFile: !uuid 'f8c07102eb4bb61806abda9f841eb824336a1ae1'
+  /src/packages/components/Informations/Mores/TextCloud/index.ts:
+    newFile: !uuid '54fa2c3ad16e9ac178a9a40cab1009bb865f1079'
+    oldFile: !uuid '6f912ff7348a76243b51a27e8ce1ba4b220d371f'
+  /src/packages/components/Informations/Texts:
+    newFile: !uuid '21374ba1c8602c35dc0f1f220968d54f676097e3'
+    oldFile: !uuid '058e3f4c815f97be1e229ea5492aff9f2e4f66d2'
+  /src/packages/components/Informations/Texts/TextCommon:
+    newFile: !uuid 'be37d1bdb2d14212d2d05eae2edc2616f1429342'
+    oldFile: !uuid 'fe39214d122c3caaefa1e13de99f5f4d620153cf'
+  /src/packages/components/Informations/Texts/TextCommon/index.ts:
+    newFile: !uuid 'ffce3131f06573277c9426a43630cd0d92901e46'
+    oldFile: !uuid '34f4eb2dd2673c6255860ce3b211760a3e4db7d3'
+  /src/packages/components/Informations/Titles:
+    newFile: !uuid '38c40954ef2ac25a8b79daf3ff72953d442258d7'
+    oldFile: !uuid '93a933b038847c12ecc5c6be301eadd26b13f606'
+  /src/packages/components/Informations/Titles/TitleBevelAngle:
+    newFile: !uuid 'd0ffa2d28a7c337a981784691b1f791e13b723fb'
+    oldFile: !uuid '2d5af4e7af7245a8beca0521fc1ddc77d5be5b82'
+  /src/packages/components/Informations/Titles/TitleBevelAngle/index.ts:
+    newFile: !uuid '6cd30455a79840fb4c69bb7c05b69b858c876ad7'
+    oldFile: !uuid '5b0305b895681bc5f784fc9a973e9060d872cfaa'
+  /src/packages/components/Informations/Titles/TitleCommon:
+    newFile: !uuid '76f5ecabefe317815a35005b66e9d6536de57848'
+    oldFile: !uuid '6cdcbc4ecd5548518fc61e3ea398b9b92f39d7cb'
+  /src/packages/components/Informations/Titles/TitleCommon/index.ts:
+    newFile: !uuid 'f7c5583018009f7441d2033dcfdb215c35b81001'
+    oldFile: !uuid '1a6b5ac7fed884f11c7419d955cf2b0a4af84778'
+  /src/packages/components/Informations/Titles/TitlePro:
+    newFile: !uuid '90a7af820a7181b76ee1957d121cc453ac08668a'
+    oldFile: !uuid 'dbb293a64b7bae9807efcb825e6d82a5bedbd45f'
+  /src/packages/components/Informations/Titles/TitlePro/index.ts:
+    newFile: !uuid 'ba422898d44db7a17384f9271fdf5992768d4455'
+    oldFile: !uuid '84c1e4e67b8950b3c85f1f9e926b8757d9554431'
+  /src/packages/components/Tables:
+    newFile: !uuid 'a02956b56c00d974d0a527c270d6fc1da650d855'
+    oldFile: !uuid '655ec43a41fa064f27ae58f362834a0b01761a0e'
+  /src/packages/components/Tables/Tables:
+    newFile: !uuid '12b6ffed82748a5b144e2cad84bbb9b4edadfa2c'
+    oldFile: !uuid '7cea58d3a4301d94166187f14ad536b959a3dcbb'
+  /src/packages/components/Tables/Tables/TableCategory:
+    newFile: !uuid '586a91d06f31c0a8f69de0b99c567c96d1b07dfd'
+    oldFile: !uuid '84a954504e0b227ef9f573f80dfd7e152f4eed46'
+  /src/packages/components/Tables/Tables/TableCategory/config.ts:
+    newFile: !uuid '4260e1183a51ec77ecfbded084d8e5cb284e0a09'
     oldFile: null
-  /src/packages/components/Decorates/Mores/Number/config.vue:
-    newFile: !uuid 'b8d6e218476899b1834fbccc8527824e331b3004'
+  /src/packages/components/Tables/Tables/TableCategory/index.vue:
+    newFile: !uuid '07db6abce6b6178324d8bce208b26e859ccc9068'
+    oldFile: !uuid 'ebda1e9cb126cfd0f55e90d4751830461e5c7dd0'
+  /src/packages/components/Tables/Tables/tableCommon:
+    newFile: !uuid 'a1ff04c1756cf5efbb9eeaba5ef49030e1034e76'
+    oldFile: !uuid '2715b2a8848038daa56f7bf216dd88e13f99b98d'
+  /src/packages/components/Tables/Tables/tableCommon/config.ts:
+    newFile: !uuid '23c2b6f5facf8d7d9ba850b75c954b293a896e24'
+    oldFile: null
+  /src/packages/components/Tables/Tables/tableCommon/config.vue:
+    newFile: !uuid '6cee7d783db6172a975d5afb2170562b1029c6df'
     oldFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
-  /src/packages/components/Decorates/Mores/Number/index.ts:
-    newFile: !uuid '7a5d54fcba453120e2ac6ab478c8326490bb228d'
-    oldFile: !uuid '650d1191b7b4e97c9d0aa02543a4f2190eed51d9'
-  /src/packages/components/Decorates/Mores/Number/index.vue:
-    newFile: !uuid 'b4ddfb13d11cedd81b16949c1e09ccefc530e27b'
-    oldFile: !uuid '797e2979f887349ab5266781fa3685c9a5ebee9d'
-  /src/plugins:
-    newFile: !uuid '2e1daa5f5cb3e0b0bdad637751a476f9f119305c'
-    oldFile: !uuid 'b4624ebfb4014abf148340f4f4c2ed0439ae9678'
-  /src/plugins/naive.ts:
-    newFile: !uuid 'c2e29f76a918257d4a28baa64154257a971b65d4'
-    oldFile: !uuid '8fc203a26f5e5a60ba85d03a6ba13cd6dfc91ec8'
-gitCommitId: !uuid 'c03b4c0263e8790539c8adda4642be2fc03f8e86'
+  /src/packages/components/Tables/Tables/tableCommon/data.json:
+    newFile: !uuid 'ed8bb52304d628604c16bb09547f22c862594ede'
+    oldFile: null
+  /src/packages/components/Tables/Tables/tableCommon/index.vue:
+    newFile: !uuid '6516c4fbcb981f9a6a95ca19fa43fb1fc7527e1c'
+    oldFile: !uuid 'ebda1e9cb126cfd0f55e90d4751830461e5c7dd0'
+  /src/packages/components/Tables/index.d.ts:
+    newFile: !uuid 'f4e0fea14f04f1aca274b68685b4e0f334c401c2'
+    oldFile: !uuid '315ba3f79c24874319378fdfc7dbdfb16b7c4436'
+  /src/packages/index.d.ts:
+    newFile: !uuid '5c5b1e2e0b0826d8c92c99831d8bf6ac95e6aa82'
+    oldFile: !uuid '543fde9531ded8797e263ec4225367bb23f7f99c'
+  /src/packages/index.ts:
+    newFile: !uuid '84c7e5109afc3e82f5c401e73f33e2b01fe9f337'
+    oldFile: !uuid '2d892bebde3d584fc895883b41faee935a096592'
+  /src/views:
+    newFile: !uuid 'd189f6a6e4fa4839c509367fa77c7eed7a60719e'
+    oldFile: !uuid 'b1ef5b2b62b358c0eabb8bf5c047e7fb1bd3f5f7'
+  /src/views/chart:
+    newFile: !uuid '5ed5e13cf0bd35bf99db9c770ca5cfac6283223e'
+    oldFile: !uuid '372af5fcf5efff42aa36bef987412a8f22cc225d'
+  /src/views/chart/ContentCharts:
+    newFile: !uuid '3b99d9c9821126705ff24b7835d07e0dd45a50c5'
+    oldFile: !uuid 'f7ae6b4295c9290b7b32e3de8dcec7d8797d00e0'
+  /src/views/chart/ContentCharts/hooks:
+    newFile: !uuid 'a6014e5678c767f1eb0281180397bba89d45fda2'
+    oldFile: !uuid '2fe4a6f6146f9aff3e3dae21f582f805e2feb03e'
+  /src/views/chart/ContentCharts/hooks/useAside.hook.ts:
+    newFile: !uuid '27d62e0272416174f65ccfbfbb9a27872dfe2f72'
+    oldFile: !uuid '77878aecc03e2c4222e641760e9b97af68e07f4b'
+gitCommitId: !uuid '7654d29d10bcf634d31bca5e4448b8ce30a1d849'
 renames: {
   }
-revisionId: 291
+revisionId: 292
