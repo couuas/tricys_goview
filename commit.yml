@@ -3,109 +3,66 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'ff0c25f2092f50d2ab3292c2f55780d5b38f5518'
-    oldFile: !uuid '18641a7d27681498b1a55c75048ee715d7a434e3'
-  /src/components:
-    newFile: !uuid 'b3bdacfd88b385e9a47e0e9a201717482f0b81dc'
-    oldFile: !uuid '1917254bfc238425fc856e604ae6507e82a1fa14'
-  /src/components/GoSystemSet:
-    newFile: !uuid 'cc8af8bda244822c57b7704056b088d90b4401db'
+    newFile: !uuid '72ae42ea636010b1b6167da94ad1055f83501ac2'
+    oldFile: !uuid 'ff0c25f2092f50d2ab3292c2f55780d5b38f5518'
+  /src/packages:
+    newFile: !uuid '5b0719f8368a16eb46894c40f0a1767e249aa294'
+    oldFile: !uuid 'd8f875cd33a1610252a48dcdef5c287219f57134'
+  /src/packages/components:
+    newFile: !uuid '890c6585be997653b2375828e7300a49cce6e9d5'
+    oldFile: !uuid '5c69c10c4913625452fc78b0d659784b52f3d6e4'
+  /src/packages/components/Decorates:
+    newFile: !uuid '54bc37383e299fbde0b733b9fef87244569aeb37'
+    oldFile: !uuid 'b3fe79623cf07d9dbf488da4d7aa436619790c8e'
+  /src/packages/components/Decorates/Borders:
+    newFile: !uuid 'f9a05b7f9c5d8eea2e60749e407307f2610523b4'
+    oldFile: !uuid 'e743017afd3b8dd4b504889c6a20f1cc34d8d5c9'
+  /src/packages/components/Decorates/Borders/Border01:
+    newFile: !uuid '4d5b88c8d70924cd97275231829385652394c3fa'
+    oldFile: !uuid '6bf288d9e818c0090401ce868a8e3c1f7bac9970'
+  /src/packages/components/Decorates/Borders/Border01/config.vue:
+    newFile: !uuid '1e9962df8478b446bc51079cb1efc74a51677541'
+    oldFile: !uuid '300c407a7e2370ee3302b0dfa2b8e596751362c8'
+  /src/packages/components/Decorates/Borders/Border08:
+    newFile: !uuid '4a1aa98f7a61f93ca53b4fbbe5a28da0d110ea0b'
+    oldFile: !uuid '6368c15af676a73bee863014e4e9e5941cdc0bbc'
+  /src/packages/components/Decorates/Borders/Border08/config.vue:
+    newFile: !uuid '85637159ce8aeb48c8bac737371d1ca3569a4137'
+    oldFile: !uuid 'adc3cde358adcc6d3baedc5f8dd7cfaa32427528'
+  /src/packages/components/Decorates/Decorates:
+    newFile: !uuid '7150e0f9557b3129882d3e212a7c6dcab410dcc4'
+    oldFile: !uuid '4f37f1c7fdef0dcc0c730e5e453ad65c8c0c8cf3'
+  /src/packages/components/Decorates/Decorates/Decorates01:
+    newFile: !uuid '28dc87c2d3f9037918ce07070e25640889dff834'
+    oldFile: !uuid 'a5d338faecc0b00fcd8e2729da444bcd0f0b18fa'
+  /src/packages/components/Decorates/Decorates/Decorates01/config.vue:
+    newFile: !uuid '7d64693a2bb423f9d2fff90bf5acae4904c1ffc8'
+    oldFile: !uuid '2924d09a3740dc0f4f0e577f0eb1c804022c1aa2'
+  /src/packages/components/Decorates/Mores:
+    newFile: !uuid '9cb83e48711d7095a9aeea73757f9f1e4a6b4af5'
+    oldFile: !uuid '422159e697de5d1c221560df575c435f57440240'
+  /src/packages/components/Decorates/Mores/Number:
+    newFile: !uuid 'fecb0e25f0299114a91048f9575ba64d1bf571c7'
+    oldFile: !uuid '05714b52d5e565253dda5557894195db49b3ba47'
+  /src/packages/components/Decorates/Mores/Number/config.ts:
+    newFile: !uuid '00e4c557345f7dd6ec1f5288621f3141e6a441f4'
     oldFile: null
-  /src/components/GoSystemSet/index.d.ts:
-    newFile: !uuid '97ac0b64ffb5cf3d05ff886963fe26ab98770322'
-    oldFile: null
-  /src/components/GoSystemSet/index.ts:
-    newFile: !uuid '162c18118df788acd7405ed132ac8f801784c21c'
-    oldFile: null
-  /src/components/GoSystemSet/index.vue:
-    newFile: !uuid '695eb479ec8bf8964e0f0a819b7457fff7b0ccc0'
-    oldFile: null
-  /src/components/SystemSet:
-    newFile: null
-    oldFile: !uuid 'dc200178c8a642f258d918bd16bc14d48015966e'
-  /src/components/SystemSet/index.d.ts:
-    newFile: null
-    oldFile: !uuid '97ac0b64ffb5cf3d05ff886963fe26ab98770322'
-  /src/components/SystemSet/index.ts:
-    newFile: null
-    oldFile: !uuid 'af2f4290296eef64d8cc1a5168ac9dae06c68f33'
-  /src/components/SystemSet/index.vue:
-    newFile: null
-    oldFile: !uuid '22711435f75190e86066e55e2420d8ae300ab6cd'
-  /src/components/UserInfo:
-    newFile: !uuid '9e83aba1b23d1c622e7cbe31418ba9765ae0d803'
-    oldFile: !uuid '83380be31ec4466e82527fecb51c135705560d51'
-  /src/components/UserInfo/index.vue:
-    newFile: !uuid '913130db516dd7e06ebd05ec6b2d3bdbbfcba202'
-    oldFile: !uuid '4ac7814875ea3387bbb3f4abb1282cba4048d975'
-  /src/enums:
-    newFile: !uuid '7d262baf0146a3b8b24b086c14bf38066d1ccda7'
-    oldFile: !uuid 'af48f005491decf03614ca2c853950ba5ba63308'
-  /src/enums/editPageEnum.ts:
-    newFile: !uuid 'ff94dd21d55aaa283b2b373237ca1cd80377de14'
-    oldFile: !uuid '889f2432d3fbb6ee927e54d1a820859a04f63ce8'
-  /src/settings:
-    newFile: !uuid '3e4ad4e3fcfbb18fbd921fd42a37285a1d5ec5cb'
-    oldFile: !uuid '00313ed331354a9d50e412acc971300bc192fa11'
-  /src/settings/systemSetting.ts:
-    newFile: !uuid 'ef9f2dd61693c73faa7c7361b5fc67ff75b0c8c6'
-    oldFile: !uuid '4b23510701406dd1368227c30fc0f435c63f3d76'
-  /src/store:
-    newFile: !uuid 'e25913f36e894d218b5de81a7fe21ded4940c824'
-    oldFile: !uuid '1bb37917701db0c184a76644914756d48b97046c'
-  /src/store/modules:
-    newFile: !uuid '351ef8651edc93588395093b5d77c5cf539276b0'
-    oldFile: !uuid '5bfecb72c22eaaa3a3d8263fd2d710af898b9771'
-  /src/store/modules/chartEditStore:
-    newFile: !uuid '272df703b69bdff7fd8c2f7d33354f769a0b6094'
-    oldFile: !uuid '1de249032debd259d7bda51503a037e3aa04f50d'
-  /src/store/modules/chartEditStore/chartEditStore.ts:
-    newFile: !uuid 'b351bc5bf6810dd3dfb377b9ba7c9327fbd221d5'
-    oldFile: !uuid '077355875871c3df5e75ddc270134fc260ef9269'
-  /src/store/modules/settingStore:
-    newFile: !uuid '51f8405a40e766f3d67811ac469efdc13ffed237'
-    oldFile: !uuid 'ff2333fcce187f37c0bfe2999bfe7b29d6260b18'
-  /src/store/modules/settingStore/settingStore.d.ts:
-    newFile: !uuid '7c9c9c2fcfee369bdb47cf91b5f828f4bb6cd964'
-    oldFile: !uuid '17ae5dd0ca0233bde39a45d98f2304a479b6254e'
-  /src/store/modules/settingStore/settingStore.ts:
-    newFile: !uuid 'f3e81bc860e8c4bdff581483a186db106df2543f'
-    oldFile: !uuid '0e7186a2baf72ceb879fdafd13d061a492d0636a'
-  /src/views:
-    newFile: !uuid 'b1ef5b2b62b358c0eabb8bf5c047e7fb1bd3f5f7'
-    oldFile: !uuid 'f9aa27359ac0d3ad8f97cbe9aa04d39c1c230b76'
-  /src/views/chart:
-    newFile: !uuid '372af5fcf5efff42aa36bef987412a8f22cc225d'
-    oldFile: !uuid '42e605941cec0de1c0093b9eab2742323b7148a7'
-  /src/views/chart/ContentEdit:
-    newFile: !uuid '45f4810ea0998a1715a0893e1ff673fd68118112'
-    oldFile: !uuid '4024fcdca70d9aea2fbb58362c624665697ea1c6'
-  /src/views/chart/ContentEdit/components:
-    newFile: !uuid '6ae5b3b82f98726293c2aa8838549211231a745b'
-    oldFile: !uuid '35ed9a5215c1033dae7ba3ac6893aed8bc576aa1'
-  /src/views/chart/ContentEdit/components/EditBottom:
-    newFile: !uuid 'a72fbefabbff07de177b85364749611bd79242c6'
-    oldFile: !uuid '71d8c5b403a54f1db806530611116b93a5fe2829'
-  /src/views/chart/ContentEdit/components/EditBottom/index.vue:
-    newFile: !uuid '9408070eadc8e2546c1fc7d0b6852f58a6a3d7de'
-    oldFile: !uuid '3fd155ddc5e22ede3b1b0cbda3ee6dad080ba992'
-  /src/views/chart/ContentLayers:
-    newFile: !uuid 'df4c248eb39dd39b0c5dabe5fe4450c869c099df'
-    oldFile: !uuid '0e8ba5d69f96bdc8673d5657b8758cd279da00cb'
-  /src/views/chart/ContentLayers/index.vue:
-    newFile: !uuid '66ba4d24493c998f04d6549ac4ae7b096eb0428d'
-    oldFile: !uuid '8c7f47f7210b539dfd5cbc379abe91da634a6a0b'
-  /src/views/chart/hooks:
-    newFile: !uuid 'b212a870c113a758f421762b490a8e8d2c731e27'
-    oldFile: !uuid '3c22239c642d3742a98d6d0b707677960bad6b96'
-  /src/views/chart/hooks/useContextMenu.hook.ts:
-    newFile: !uuid 'a733df259b445e7ef1a513ab36ef69a95a920058'
-    oldFile: !uuid '3e448719d339d4e8f54cf3c76945a17667180cb8'
-  /src/views/chart/hooks/useKeyboard.hook.ts:
-    newFile: !uuid '76838f4c18e82db13cb0a9193ec7661e85d709eb'
-    oldFile: !uuid '949cdd6b192f91787d9f92b0ece87c06fe4eeca1'
-gitCommitId: !uuid '089bb8945a3fb3be56c9fbe1b331536ec7ee215a'
-renames:
-  /src/components/GoSystemSet/index.d.ts: /src/components/SystemSet/index.d.ts
-  /src/components/GoSystemSet/index.vue: /src/components/SystemSet/index.vue
-revisionId: 973
+  /src/packages/components/Decorates/Mores/Number/config.vue:
+    newFile: !uuid 'b8d6e218476899b1834fbccc8527824e331b3004'
+    oldFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
+  /src/packages/components/Decorates/Mores/Number/index.ts:
+    newFile: !uuid '7a5d54fcba453120e2ac6ab478c8326490bb228d'
+    oldFile: !uuid '650d1191b7b4e97c9d0aa02543a4f2190eed51d9'
+  /src/packages/components/Decorates/Mores/Number/index.vue:
+    newFile: !uuid 'b4ddfb13d11cedd81b16949c1e09ccefc530e27b'
+    oldFile: !uuid '797e2979f887349ab5266781fa3685c9a5ebee9d'
+  /src/plugins:
+    newFile: !uuid '2e1daa5f5cb3e0b0bdad637751a476f9f119305c'
+    oldFile: !uuid 'b4624ebfb4014abf148340f4f4c2ed0439ae9678'
+  /src/plugins/naive.ts:
+    newFile: !uuid 'c2e29f76a918257d4a28baa64154257a971b65d4'
+    oldFile: !uuid '8fc203a26f5e5a60ba85d03a6ba13cd6dfc91ec8'
+gitCommitId: !uuid '2b0f8a817c68da1fbbc515120a8a96dd476613d7'
+renames: {
+  }
+revisionId: 974
