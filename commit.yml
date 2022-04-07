@@ -2,22 +2,22 @@
 branches: {
   }
 fileChange:
-  /package.json:
-    newFile: !uuid 'db31c4d071744fd9099e79e6778a929b10ab12b6'
-    oldFile: !uuid 'c95b539fdf11ad45264512aaff1ef97f2d894fa4'
-  /pnpm-lock.yaml:
-    newFile: !uuid '7f004c7e5bc7a1644563736e787a0a6eb134ef04'
-    oldFile: !uuid 'cd7960997085d33f695e4be1c6393b9744244093'
   /src:
-    newFile: !uuid 'eeb0dd551f304664deb80070f67c4362add8f42c'
-    oldFile: !uuid 'c96bd4ca2a1355508b77d2ed6d2116c5df8eb3a0'
-  /src/i18n:
-    newFile: !uuid '74406c5b1811a57a0ca8c380e12e85357a6d9303'
-    oldFile: !uuid '83ad948e8727ae7f1926510abd9fd7a6573cc7c6'
-  /src/i18n/index.ts:
-    newFile: !uuid 'ed78d55163fc669f411cad13cb9477a3d6800b23'
-    oldFile: !uuid '2670a585de344fe8ae476a1fa3bddea53754b403'
-gitCommitId: !uuid '64cad02b6299b4055723b2800651304a8bc070ae'
+    newFile: !uuid '4170497a77cc8f8700226d287969f34eac492077'
+    oldFile: !uuid 'eeb0dd551f304664deb80070f67c4362add8f42c'
+  /src/store:
+    newFile: !uuid '89fddac5f350888c1fd52646e43b826d1fd13e29'
+    oldFile: !uuid '15f7a8ea67d157eff4bb81ec7567a4c3ed072286'
+  /src/store/modules:
+    newFile: !uuid '36923243f8e9710075c209655bba4cb040734c79'
+    oldFile: !uuid '2bbbcddcd597d93eb79471e0d39b914913a3d597'
+  /src/store/modules/langStore:
+    newFile: !uuid '8497cd2674d30f036ec6d55b43c8801b85c2a1ce'
+    oldFile: !uuid '15a836a06ad5981774952aafd4a07a6cce0df58e'
+  /src/store/modules/langStore/langStore.ts:
+    newFile: !uuid '2c1fd2b95f82373c996128b86b040723ca41cf52'
+    oldFile: !uuid '6ac68d6d87212cbb77e314642d6629ca7adfa755'
+gitCommitId: !uuid 'bb9ea4ca32f72a8f8eff77064e0d4a8a5bcb07f0'
 renames: {
   }
-revisionId: 991
+revisionId: 992
