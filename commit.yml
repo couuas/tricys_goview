@@ -3,15 +3,81 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '17e82976eeeaad6e0735136398ff0ab5766a5dae'
-    oldFile: !uuid '2d84f065aa031859cd27e6ca20df905ea4b2119c'
-  /src/utils:
-    newFile: !uuid 'ab5f4de6e89922215d1e5ebdbe37e0a40c317dcf'
-    oldFile: !uuid '7da576b04ab129e80e92db701d06634837c5704b'
-  /src/utils/file.ts:
-    newFile: !uuid '0ce0978f57c10074a4bb0cd5ff6f7a6a577c75c5'
-    oldFile: !uuid '0f8a15f232c66a904ac20fcf6f231eaaec6f8cb6'
-gitCommitId: !uuid '7bb0b1a463d97f3b7dba7e70c54a91d2e87e1d40'
+    newFile: !uuid '568707917f8a554efcf6b93f190121e16844160f'
+    oldFile: !uuid '17e82976eeeaad6e0735136398ff0ab5766a5dae'
+  /src/components:
+    newFile: !uuid 'f690300b03cb58fa19e698dd164be7b01fa1e563'
+    oldFile: !uuid 'e48d3622bb309e4a715bbef0ac2b7a0188b3199c'
+  /src/components/GoSystemSet:
+    newFile: !uuid '27ea91205bcec7049decb4fb40267ba3d16f1a32'
+    oldFile: !uuid 'cc8af8bda244822c57b7704056b088d90b4401db'
+  /src/components/GoSystemSet/index.d.ts:
+    newFile: !uuid 'ba8370b0f4989a0f03dcf94884980a5f7dbb4771'
+    oldFile: !uuid '97ac0b64ffb5cf3d05ff886963fe26ab98770322'
+  /src/components/GoSystemSet/index.vue:
+    newFile: !uuid '75df1a172274c33b7230f6b8e87da2e6ca3f4319'
+    oldFile: !uuid '695eb479ec8bf8964e0f0a819b7457fff7b0ccc0'
+  /src/settings:
+    newFile: !uuid '7ddf8d31532aa80e5013be89b4b7ca21aa429d96'
+    oldFile: !uuid '1bb2d03683428afda8ee570526b862ef2f3ff650'
+  /src/settings/systemSetting.ts:
+    newFile: !uuid 'ac3628680f6c4aa1a3852b2115285bf70dd57421'
+    oldFile: !uuid 'ef9f2dd61693c73faa7c7361b5fc67ff75b0c8c6'
+  /src/store:
+    newFile: !uuid 'ab27136cf9aa986e7386a75a46d5ce108ebf1040'
+    oldFile: !uuid '89fddac5f350888c1fd52646e43b826d1fd13e29'
+  /src/store/modules:
+    newFile: !uuid 'b8dde892c7386a9917d588511d39dc9a56bc0337'
+    oldFile: !uuid '36923243f8e9710075c209655bba4cb040734c79'
+  /src/store/modules/chartLayoutStore:
+    newFile: !uuid 'a83b2754fed3c70d62426ffbb4e75f4357d1df27'
+    oldFile: !uuid '372eaab0bb345cfa068491b4d39a0642dbf02773'
+  /src/store/modules/chartLayoutStore/chartLayoutStore.d.ts:
+    newFile: !uuid '4df6e122f9cb5f8d287d8061bd059ca9de3fcc91'
+    oldFile: !uuid 'b405a63f4b6aa53d83822d4251ef2628f6f51c9a'
+  /src/store/modules/chartLayoutStore/chartLayoutStore.ts:
+    newFile: !uuid 'd37dd428e19a33053c7ef2f2c504c26f1bfd18b1'
+    oldFile: !uuid 'f805769862fe7df1c39c3ab0d412984667b65408'
+  /src/store/modules/settingStore:
+    newFile: !uuid '0e1756434e8d441d30cdd665c30258f7fbc8b227'
+    oldFile: !uuid '51f8405a40e766f3d67811ac469efdc13ffed237'
+  /src/store/modules/settingStore/settingStore.d.ts:
+    newFile: !uuid '5da4dfe6e224c03efb743d25d10cdcdbb554aabd'
+    oldFile: !uuid '7c9c9c2fcfee369bdb47cf91b5f828f4bb6cd964'
+  /src/store/modules/settingStore/settingStore.ts:
+    newFile: !uuid '775cd13299dcfdcf7363e77cbe4ecf411d94ed65'
+    oldFile: !uuid 'f3e81bc860e8c4bdff581483a186db106df2543f'
+  /src/views:
+    newFile: !uuid 'b1e991ad72d524863fc8578981df411dea22172c'
+    oldFile: !uuid 'ce8d713e539c28894903ca1a9e6adeac01644aca'
+  /src/views/chart:
+    newFile: !uuid 'a317fa97606ae88ccfc704cd6d72396d3fe37a9f'
+    oldFile: !uuid 'dee49c869cfc553a2ce1271d38f60f0702766aca'
+  /src/views/chart/ContentBox:
+    newFile: !uuid 'f6c0686d88a5da508cbb90a7b3a1f8442685512a'
+    oldFile: !uuid '6462238f50059bb753a11b22b5456f70e2b9487d'
+  /src/views/chart/ContentBox/index.vue:
+    newFile: !uuid '7b83d931ac114455039795e278eb7d5d37791ac7'
+    oldFile: !uuid '3c6ffe98e9c80c4527a3e7b44e9698efe9ebfee5'
+  /src/views/chart/ContentEdit:
+    newFile: !uuid 'a7c74c20c1b7e41ae072d17f95f628621cc4fab5'
+    oldFile: !uuid '3c3cdf55bd7316aedf95bb5a0210a6f55c7c9069'
+  /src/views/chart/ContentEdit/components:
+    newFile: !uuid '18b3d303e36a7390bc228e969e76f1d7af915ffc'
+    oldFile: !uuid 'a9c5ae94c63b77379aa075ffef570676c6e4237a'
+  /src/views/chart/ContentEdit/components/EditTools:
+    newFile: !uuid 'af3430be1d59cfc580232cf698e8c8e22f094349'
+    oldFile: null
+  /src/views/chart/ContentEdit/components/EditTools/index.ts:
+    newFile: !uuid 'e4dcfcb22390792874edc5776c56165aac02a3d5'
+    oldFile: null
+  /src/views/chart/ContentEdit/components/EditTools/index.vue:
+    newFile: !uuid 'ed3273c04748d560961bd31a0f5f1d713b622f8e'
+    oldFile: null
+  /src/views/chart/ContentEdit/index.vue:
+    newFile: !uuid 'fb0f18cbde112e68b189969292eab95b69a822a6'
+    oldFile: !uuid 'bc0941dc8667c1480e1420cb5cafc98456d8a307'
+gitCommitId: !uuid '77137990a62a20fc3f8f8b0b090a448c2ef3aff6'
 renames: {
   }
-revisionId: 998
+revisionId: 999
