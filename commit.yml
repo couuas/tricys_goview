@@ -3,21 +3,80 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'e1801e73be46c5944d3bdb1f754be99ced28968c'
-    oldFile: !uuid 'bc4ea6048e0883b72f741156e52017b3fede7a9f'
-  /src/store:
-    newFile: !uuid '33420227caaaa173c1a28416a39f4ed0dfb99e96'
-    oldFile: !uuid 'd2d994c3e0669aca393a73f38315985fbe71de77'
-  /src/store/modules:
-    newFile: !uuid '9eeb53b40b946515fe1a693daad95a702e08e10a'
-    oldFile: !uuid 'a0f91e5a467ed164335ac3493f447029390685fa'
-  /src/store/modules/chartLayoutStore:
-    newFile: !uuid '1755e0714addc1f811a97d40be68668a424772a6'
-    oldFile: !uuid 'a83b2754fed3c70d62426ffbb4e75f4357d1df27'
-  /src/store/modules/chartLayoutStore/chartLayoutStore.d.ts:
-    newFile: !uuid '1445d8b3266e4ec22f070a9215bf3bc5f31d0548'
-    oldFile: !uuid '4df6e122f9cb5f8d287d8061bd059ca9de3fcc91'
-gitCommitId: !uuid '10a21c9f6bfe94a61e3b3899f93c0245b063cad8'
-renames: {
-  }
-revisionId: 1007
+    newFile: !uuid '175b7fca20f2d539193d9d54c18ab6e16f19b6fe'
+    oldFile: !uuid 'e1801e73be46c5944d3bdb1f754be99ced28968c'
+  /src/views:
+    newFile: !uuid 'f5322acef8e4d41fe256910b48ebc718f12403d3'
+    oldFile: !uuid '7e79c63718fe048bfde692a4cea48a197a45588d'
+  /src/views/chart:
+    newFile: !uuid '38adebfa959aa3ec7f24630d3f6e004f5833b1ad'
+    oldFile: !uuid '7bc432fece6369b562141ca6b4f01045ae9b8b30'
+  /src/views/chart/HeaderLeftBtn:
+    newFile: null
+    oldFile: !uuid '5cc0ad64fc980654062e6a2b468335b0bbb44021'
+  /src/views/chart/HeaderLeftBtn/index.ts:
+    newFile: null
+    oldFile: !uuid '1a76146a8e053323b769cd454a327b0547d72095'
+  /src/views/chart/HeaderLeftBtn/index.vue:
+    newFile: null
+    oldFile: !uuid 'af92532d32ea8a5e7613ae1209eec17c4fd4e3b3'
+  /src/views/chart/HeaderRightBtn:
+    newFile: null
+    oldFile: !uuid '68a8fa8ea857f249729ba08835015e2761ced22f'
+  /src/views/chart/HeaderRightBtn/index.ts:
+    newFile: null
+    oldFile: !uuid 'd6b6debed0a4786f6eec009f16e95f69ffba33c0'
+  /src/views/chart/HeaderRightBtn/index.vue:
+    newFile: null
+    oldFile: !uuid '463508d6ae8bfbbc017b92f7700d3568e3a1dfd3'
+  /src/views/chart/HeaderTitle:
+    newFile: null
+    oldFile: !uuid 'b0af663583c005af4d73356fec59ef78a1aeb554'
+  /src/views/chart/HeaderTitle/index.ts:
+    newFile: null
+    oldFile: !uuid '19b5dbcbfb98d2c8109dc37d6d117ef211d891db'
+  /src/views/chart/HeaderTitle/index.vue:
+    newFile: null
+    oldFile: !uuid '09408297aa24c9c4d4e56bb40cb0014c52380cd0'
+  /src/views/chart/contentHeader:
+    newFile: !uuid 'bd410e709b01e4380bd1ece26abc2175ec6ffe9b'
+    oldFile: null
+  /src/views/chart/contentHeader/headerLeftBtn:
+    newFile: !uuid 'ec456d91d507879f96427ed51d611385cc066be5'
+    oldFile: null
+  /src/views/chart/contentHeader/headerLeftBtn/index.ts:
+    newFile: !uuid '1a76146a8e053323b769cd454a327b0547d72095'
+    oldFile: null
+  /src/views/chart/contentHeader/headerLeftBtn/index.vue:
+    newFile: !uuid 'ae1a4fd1c573050861616f24515bcacbc67f7d0e'
+    oldFile: null
+  /src/views/chart/contentHeader/headerRightBtn:
+    newFile: !uuid '68a8fa8ea857f249729ba08835015e2761ced22f'
+    oldFile: null
+  /src/views/chart/contentHeader/headerRightBtn/index.ts:
+    newFile: !uuid 'd6b6debed0a4786f6eec009f16e95f69ffba33c0'
+    oldFile: null
+  /src/views/chart/contentHeader/headerRightBtn/index.vue:
+    newFile: !uuid '463508d6ae8bfbbc017b92f7700d3568e3a1dfd3'
+    oldFile: null
+  /src/views/chart/contentHeader/headerTitle:
+    newFile: !uuid 'b0af663583c005af4d73356fec59ef78a1aeb554'
+    oldFile: null
+  /src/views/chart/contentHeader/headerTitle/index.ts:
+    newFile: !uuid '19b5dbcbfb98d2c8109dc37d6d117ef211d891db'
+    oldFile: null
+  /src/views/chart/contentHeader/headerTitle/index.vue:
+    newFile: !uuid '09408297aa24c9c4d4e56bb40cb0014c52380cd0'
+    oldFile: null
+  /src/views/chart/index.vue:
+    newFile: !uuid 'f24de368067d6bd8f57c533993dd92b261f31245'
+    oldFile: !uuid 'e093671199e2d106af73c77c78fa9ea5624b4af2'
+gitCommitId: !uuid '533af6b2f9e2823b6c35024d16d83c4ed8f49855'
+renames:
+  /src/views/chart/contentHeader/headerLeftBtn/index.ts: /src/views/chart/HeaderLeftBtn/index.ts
+  /src/views/chart/contentHeader/headerLeftBtn/index.vue: /src/views/chart/HeaderLeftBtn/index.vue
+  /src/views/chart/contentHeader/headerRightBtn/index.ts: /src/views/chart/HeaderRightBtn/index.ts
+  /src/views/chart/contentHeader/headerRightBtn/index.vue: /src/views/chart/HeaderRightBtn/index.vue
+  /src/views/chart/contentHeader/headerTitle/index.ts: /src/views/chart/HeaderTitle/index.ts
+  /src/views/chart/contentHeader/headerTitle/index.vue: /src/views/chart/HeaderTitle/index.vue
+revisionId: 1008
