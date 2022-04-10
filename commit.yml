@@ -3,27 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'b760a8b1d0a84c257d236f5d4ce79a7df3fd69cb'
-    oldFile: !uuid '044ef6e23a88855121ed43109beb19029aef9935'
+    newFile: !uuid '5a053a1382ae8e5ab757e7921debcfe09c1226d4'
+    oldFile: !uuid 'b760a8b1d0a84c257d236f5d4ce79a7df3fd69cb'
   /src/views:
-    newFile: !uuid '7eda20fe91a00b6285bfba8398de3eb8cb3582c0'
-    oldFile: !uuid 'bf2f87b175dbbddf4db52dfe13713849255e342c'
+    newFile: !uuid '8dfd32fa4e4b6808ebb25f501e9eff22132799f7'
+    oldFile: !uuid '7eda20fe91a00b6285bfba8398de3eb8cb3582c0'
   /src/views/chart:
-    newFile: !uuid '0f167980d7f320c9f1098a6c843f620afac0fcc2'
-    oldFile: !uuid '47aec5a641fba6dc450516266887d8bae746fb08'
+    newFile: !uuid 'fb669ed11253692255846385c3b6582d53c1be7b'
+    oldFile: !uuid '0f167980d7f320c9f1098a6c843f620afac0fcc2'
   /src/views/chart/ContentEdit:
-    newFile: !uuid '263da5df30f7906bf827f6b7b4e591926ed5c9ec'
-    oldFile: !uuid '3039f1fa0ff3851afdccd1b508926ea3062dbce9'
+    newFile: !uuid '9c8479c7b0a31f67e04ad86729f330a641d3dfd6'
+    oldFile: !uuid '263da5df30f7906bf827f6b7b4e591926ed5c9ec'
   /src/views/chart/ContentEdit/components:
-    newFile: !uuid '0cf3f9761d14bacefe2e2cbb7264460fabfa9275'
-    oldFile: !uuid '418593747b60fbcb115909478dd3bdd9bbb84333'
-  /src/views/chart/ContentEdit/components/EditTools:
-    newFile: !uuid 'd23105224c09d0573c07e20bf3980feaced7d558'
-    oldFile: !uuid '6608d53657244b84ac5a54ab45a67bcb1861a5b7'
-  /src/views/chart/ContentEdit/components/EditTools/index.vue:
-    newFile: !uuid 'fe1e573c6e630674af52fea9ee2064338847ae17'
-    oldFile: !uuid '0b33dea018e61c4cee5cde2dcd05d33b89294cc4'
-gitCommitId: !uuid '33b2f67df81e3dc50fcfd86e375a5265fb85884d'
+    newFile: !uuid 'e5441383bded1503a90dbb1dcdd889d373935465'
+    oldFile: !uuid '0cf3f9761d14bacefe2e2cbb7264460fabfa9275'
+  /src/views/chart/ContentEdit/components/EditAlignLine:
+    newFile: !uuid '615f298f40f2311ac823934fa27c8366a8660a6d'
+    oldFile: !uuid '427b67e0172405a2cc0a34691c60b233af52ac23'
+  /src/views/chart/ContentEdit/components/EditAlignLine/index.vue:
+    newFile: !uuid '20491a8cd125131f0a42395a99890e0986af982d'
+    oldFile: !uuid 'f2a37e5e8f206018a8a3062fb063c37e3104437b'
+gitCommitId: !uuid '4b3acfca74333c89d0dc747c9a21afd4147bf423'
 renames: {
   }
-revisionId: 1003
+revisionId: 1004
