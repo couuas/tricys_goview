@@ -3,27 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '40f792e419d1dd45eec662294af965ec03fa9af6'
-    oldFile: !uuid 'a5fce4c8a1d70bd9d4576173d72afb7049b093f3'
-  /src/views:
-    newFile: !uuid 'e37ce85da9dbded79f770daac6c80be45d5148ec'
-    oldFile: !uuid 'a51b747bef49614c9fcd0015ac84b241ab8e8fac'
-  /src/views/chart:
-    newFile: !uuid '7cb99dd500ee76ed301cb89aab99e44b7e08b0c2'
-    oldFile: !uuid '8f0276baa187d2fd71d516fc09c49b99a94b2d7c'
-  /src/views/chart/ContentEdit:
-    newFile: !uuid '7da4ce2bd7d8674907920b60c32f5014001def50'
-    oldFile: !uuid '5d5e4dfa77fd8e1d85f022b118c58264ce556635'
-  /src/views/chart/ContentEdit/components:
-    newFile: !uuid '3415f059cdbec3619c2dfd0278b1455050844e06'
-    oldFile: !uuid '44569ed1906d502b1bdb310db54efbb0b588d0f9'
-  /src/views/chart/ContentEdit/components/EditTools:
-    newFile: !uuid '8b9f519f635e34b4c551c79feef5773f38194ab7'
-    oldFile: !uuid '7350edb46d34bc2d0987bf49bec4963164fb4384'
-  /src/views/chart/ContentEdit/components/EditTools/index.vue:
-    newFile: !uuid '103a3739fa9ab17f3a52c3cec2e5e50db9074dc1'
-    oldFile: !uuid '034620d0d4f5215ab3869c957d2d1b2fc7910a7b'
-gitCommitId: !uuid '1bcace8d5e435af8acb81594a5fd5ac43f45851f'
+    newFile: !uuid '151ec697b1d6dfa317f8c07de713b6ca6edd17f0'
+    oldFile: !uuid '40f792e419d1dd45eec662294af965ec03fa9af6'
+  /src/packages:
+    newFile: !uuid '979200e06df9d534425171b3ebebaf13b55183fe'
+    oldFile: !uuid '51f4f02059a8cca0e6dce86ca93bcebed1d660c5'
+  /src/packages/components:
+    newFile: !uuid 'b880ac0315879b6aef2d4f08412700cdf2bd4b42'
+    oldFile: !uuid '37730a8bdbe241680506d71748dac641ca0d597c'
+  /src/packages/components/Tables:
+    newFile: !uuid '01e11cd4345ac3d75cb78c5d463d02d41755df8d'
+    oldFile: !uuid '0814512992280a325b0ba4162026851e3e8cd854'
+  /src/packages/components/Tables/Tables:
+    newFile: !uuid 'eaade94cb255eae61ee1cc05e05e2fda3532da32'
+    oldFile: !uuid '1431827c9bd89ebe09f230b525a0b46dd20ef4f7'
+  /src/packages/components/Tables/Tables/TableList:
+    newFile: !uuid '802a3b70c3a563f8bcdb94d2743ecc7b32436786'
+    oldFile: !uuid '8d9acb2d7f5113397bbe32d10863389acd18bfab'
+  /src/packages/components/Tables/Tables/TableList/index.vue:
+    newFile: !uuid 'f5e95e07961b4f84ee9d3af507b5febf59e70bed'
+    oldFile: !uuid '22594d6817e411f472203ab3d70187a2bc5df72e'
+gitCommitId: !uuid '553d9d75195b382902228b682b3a269cfea68f1e'
 renames: {
   }
-revisionId: 1011
+revisionId: 1012
