@@ -3,27 +3,36 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '4c9011bfe13e11375d30c23b2f15e7ecd45688e9'
-    oldFile: !uuid 'e107ea30769ea84b48042c2658c58087794b6025'
-  /src/packages:
-    newFile: !uuid '979200e06df9d534425171b3ebebaf13b55183fe'
-    oldFile: !uuid '51f4f02059a8cca0e6dce86ca93bcebed1d660c5'
-  /src/packages/components:
-    newFile: !uuid 'b880ac0315879b6aef2d4f08412700cdf2bd4b42'
-    oldFile: !uuid '37730a8bdbe241680506d71748dac641ca0d597c'
-  /src/packages/components/Tables:
-    newFile: !uuid '01e11cd4345ac3d75cb78c5d463d02d41755df8d'
-    oldFile: !uuid '0814512992280a325b0ba4162026851e3e8cd854'
-  /src/packages/components/Tables/Tables:
-    newFile: !uuid 'eaade94cb255eae61ee1cc05e05e2fda3532da32'
-    oldFile: !uuid '1431827c9bd89ebe09f230b525a0b46dd20ef4f7'
-  /src/packages/components/Tables/Tables/TableList:
-    newFile: !uuid '802a3b70c3a563f8bcdb94d2743ecc7b32436786'
-    oldFile: !uuid '8d9acb2d7f5113397bbe32d10863389acd18bfab'
-  /src/packages/components/Tables/Tables/TableList/index.vue:
-    newFile: !uuid 'f5e95e07961b4f84ee9d3af507b5febf59e70bed'
-    oldFile: !uuid '22594d6817e411f472203ab3d70187a2bc5df72e'
-gitCommitId: !uuid '383b7c3cd5b4b459a0e731dac520fd0e09c1a71c'
+    newFile: !uuid '237e09d89b7f9c587ddc4cb234668733789b7fe3'
+    oldFile: !uuid '4c9011bfe13e11375d30c23b2f15e7ecd45688e9'
+  /src/views:
+    newFile: !uuid '1609b5f4b47f9655e966d4122b3f79234f0e45f7'
+    oldFile: !uuid 'e37ce85da9dbded79f770daac6c80be45d5148ec'
+  /src/views/chart:
+    newFile: !uuid '97ed3588e4e0494fa621a7f4e252fea001b965f8'
+    oldFile: !uuid '7cb99dd500ee76ed301cb89aab99e44b7e08b0c2'
+  /src/views/chart/ContentEdit:
+    newFile: !uuid '522bd87901e454d20ae48ee90f62ba8335af8b69'
+    oldFile: !uuid '7da4ce2bd7d8674907920b60c32f5014001def50'
+  /src/views/chart/ContentEdit/components:
+    newFile: !uuid '72f4b9a8129979654f97f0c05198bfaa104e14f4'
+    oldFile: !uuid '3415f059cdbec3619c2dfd0278b1455050844e06'
+  /src/views/chart/ContentEdit/components/EditRange:
+    newFile: !uuid '0a04003634619a661a91103d906dd9c40866965a'
+    oldFile: !uuid 'eefdc503dcafbe337ca60dcf6399304b1354a95f'
+  /src/views/chart/ContentEdit/components/EditRange/index.vue:
+    newFile: !uuid '7ea38ad173a7bcf20626b878c46cafc422de9281'
+    oldFile: !uuid 'faf35e757a5bf270bd3661aaca1eceef76b54280'
+  /src/views/chart/ContentEdit/components/EditWatermark:
+    newFile: !uuid 'cf70833f1f885762f05dcf209359252117dfb588'
+    oldFile: null
+  /src/views/chart/ContentEdit/components/EditWatermark/index.ts:
+    newFile: !uuid '77882abc118444752995cd479c6da76bd546cd02'
+    oldFile: null
+  /src/views/chart/ContentEdit/components/EditWatermark/index.vue:
+    newFile: !uuid '09dba8d8d5341d78daaab57039ed0d5ea6b61805'
+    oldFile: null
+gitCommitId: !uuid '295115b6be7ef72a6f76ca12fb7fce8db1afebda'
 renames: {
   }
-revisionId: 329
+revisionId: 330
