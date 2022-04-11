@@ -3,36 +3,48 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '237e09d89b7f9c587ddc4cb234668733789b7fe3'
-    oldFile: !uuid '4c9011bfe13e11375d30c23b2f15e7ecd45688e9'
+    newFile: !uuid 'a83f8a79ccbebe44bf9b64358ac904adcfdae9c2'
+    oldFile: !uuid '237e09d89b7f9c587ddc4cb234668733789b7fe3'
+  /src/settings:
+    newFile: !uuid '79fae79b7c7e7700fa43e4f3990aa6b75be72520'
+    oldFile: !uuid '7ddf8d31532aa80e5013be89b4b7ca21aa429d96'
+  /src/settings/designSetting.ts:
+    newFile: !uuid '343e326a7ea90ef36137dc7dc77f6de9c89c4a36'
+    oldFile: !uuid 'f81db87947a56786cf1287e9ce17c3c1527e9f96'
+  /src/settings/systemSetting.ts:
+    newFile: !uuid '65ccc4b28932f84a4c1e7aa105fcf98346402fb0'
+    oldFile: !uuid 'ac3628680f6c4aa1a3852b2115285bf70dd57421'
+  /src/store:
+    newFile: !uuid 'b55148546f8a75db650d41c0324c8d6ea0a07d74'
+    oldFile: !uuid '33420227caaaa173c1a28416a39f4ed0dfb99e96'
+  /src/store/modules:
+    newFile: !uuid '8ce4e992e510c675187f7db3ca12411611d835ad'
+    oldFile: !uuid '9eeb53b40b946515fe1a693daad95a702e08e10a'
+  /src/store/modules/chartHistoryStore:
+    newFile: !uuid 'd4e81226e20606c85b8792d5bacc078f6a0ce725'
+    oldFile: !uuid 'bb026019ef52857ac18d3b0b5b392800116d6ae8'
+  /src/store/modules/chartHistoryStore/chartHistoryStore.ts:
+    newFile: !uuid '9d29fbbebbb9635b7a40d51330c939a7c2fde689'
+    oldFile: !uuid '1355cd754d14d73c264ccbebf07cef2d41e330ef'
   /src/views:
-    newFile: !uuid '1609b5f4b47f9655e966d4122b3f79234f0e45f7'
-    oldFile: !uuid 'e37ce85da9dbded79f770daac6c80be45d5148ec'
+    newFile: !uuid '9ab23f2fb87f13344882f70189219ee6878801ac'
+    oldFile: !uuid '1609b5f4b47f9655e966d4122b3f79234f0e45f7'
   /src/views/chart:
-    newFile: !uuid '97ed3588e4e0494fa621a7f4e252fea001b965f8'
-    oldFile: !uuid '7cb99dd500ee76ed301cb89aab99e44b7e08b0c2'
+    newFile: !uuid 'edcb40ffaba3493005b01894d4d06e1fe5fdc255'
+    oldFile: !uuid '97ed3588e4e0494fa621a7f4e252fea001b965f8'
   /src/views/chart/ContentEdit:
-    newFile: !uuid '522bd87901e454d20ae48ee90f62ba8335af8b69'
-    oldFile: !uuid '7da4ce2bd7d8674907920b60c32f5014001def50'
+    newFile: !uuid 'fbb91c0afd946d574f32b34d71dd20f78341ee78'
+    oldFile: !uuid '522bd87901e454d20ae48ee90f62ba8335af8b69'
   /src/views/chart/ContentEdit/components:
-    newFile: !uuid '72f4b9a8129979654f97f0c05198bfaa104e14f4'
-    oldFile: !uuid '3415f059cdbec3619c2dfd0278b1455050844e06'
-  /src/views/chart/ContentEdit/components/EditRange:
-    newFile: !uuid '0a04003634619a661a91103d906dd9c40866965a'
-    oldFile: !uuid 'eefdc503dcafbe337ca60dcf6399304b1354a95f'
-  /src/views/chart/ContentEdit/components/EditRange/index.vue:
-    newFile: !uuid '7ea38ad173a7bcf20626b878c46cafc422de9281'
-    oldFile: !uuid 'faf35e757a5bf270bd3661aaca1eceef76b54280'
-  /src/views/chart/ContentEdit/components/EditWatermark:
-    newFile: !uuid 'cf70833f1f885762f05dcf209359252117dfb588'
-    oldFile: null
-  /src/views/chart/ContentEdit/components/EditWatermark/index.ts:
-    newFile: !uuid '77882abc118444752995cd479c6da76bd546cd02'
-    oldFile: null
-  /src/views/chart/ContentEdit/components/EditWatermark/index.vue:
-    newFile: !uuid '09dba8d8d5341d78daaab57039ed0d5ea6b61805'
-    oldFile: null
-gitCommitId: !uuid '295115b6be7ef72a6f76ca12fb7fce8db1afebda'
+    newFile: !uuid 'd9b972b2ab63457110f6a4a6fa528bc372c04b8d'
+    oldFile: !uuid '72f4b9a8129979654f97f0c05198bfaa104e14f4'
+  /src/views/chart/ContentEdit/components/EditHistory:
+    newFile: !uuid '89caa0d86f2ca300283ad22c227e2b8ed16c21f4'
+    oldFile: !uuid '72b61d8d196fd151967cb0fa6ad736c608ef9341'
+  /src/views/chart/ContentEdit/components/EditHistory/index.vue:
+    newFile: !uuid '0cb59501ce54b9233f8f630706ff94fd714c1207'
+    oldFile: !uuid '737cfb3e9c0fe5b3d4d0d29216df906f69d114b4'
+gitCommitId: !uuid '8a30a763f0d0a64c10495b7118f15d3b06c746c6'
 renames: {
   }
-revisionId: 330
+revisionId: 331
