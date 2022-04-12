@@ -2,46 +2,10 @@
 branches: {
   }
 fileChange:
-  /package.json:
-    newFile: !uuid '1f44331de89b1d6b9eb7304aa7f7e0c36d7d28cc'
-    oldFile: !uuid 'db31c4d071744fd9099e79e6778a929b10ab12b6'
-  /pnpm-lock.yaml:
-    newFile: !uuid '1f16f11dde99530a5ff4827e235d800559b0657a'
-    oldFile: !uuid '7f004c7e5bc7a1644563736e787a0a6eb134ef04'
-  /src:
-    newFile: !uuid '555f003192f8b4a6bccbf2381e610dc5d54003a5'
-    oldFile: !uuid 'ce7652374d68970c02b629b47937715263e071ad'
-  /src/enums:
-    newFile: !uuid 'fece1948f48073bc05df4b34c8d701573aa956eb'
-    oldFile: !uuid '7d262baf0146a3b8b24b086c14bf38066d1ccda7'
-  /src/enums/editPageEnum.ts:
-    newFile: !uuid 'e3fa196e0396beaea93f6823a0527e87c9452cad'
-    oldFile: !uuid 'ff94dd21d55aaa283b2b373237ca1cd80377de14'
-  /src/views:
-    newFile: !uuid 'decca63b6b599e9cb64324d708f4e9e3a896744e'
-    oldFile: !uuid '379df1781a7c30b08a9f24dc7e182ea6ec5a4661'
-  /src/views/chart:
-    newFile: !uuid '16f3d3bde96c872d1bc61e61234bc1949a4913be'
-    oldFile: !uuid 'f7779b453e2b8ffee3e3df70e5d07d69f5936696'
-  /src/views/chart/ContentEdit:
-    newFile: !uuid 'b747d3b34221f3e8c024f105e3a79f1be74a00a0'
-    oldFile: !uuid '36b09325916a7ffac889da6ca5276d1571140c0e'
-  /src/views/chart/ContentEdit/components:
-    newFile: !uuid '9168cbc8d2fb26db169f623b8ccfefb13c7b26bf'
-    oldFile: !uuid '4a0a119bc9abb55acbc4b462f7b33fefefe1718a'
-  /src/views/chart/ContentEdit/components/EditBottom:
-    newFile: !uuid 'b425be424ee6dcb2ed7f7f572c7c8daa269ec611'
-    oldFile: !uuid 'a72fbefabbff07de177b85364749611bd79242c6'
-  /src/views/chart/ContentEdit/components/EditBottom/index.vue:
-    newFile: !uuid 'f856a97e021252d0ce40bc82da6f6ba556c03cf3'
-    oldFile: !uuid '9408070eadc8e2546c1fc7d0b6852f58a6a3d7de'
-  /src/views/chart/hooks:
-    newFile: !uuid '8fdf48a170909cb367e66e6f2db30c4b6df0ad1a'
-    oldFile: !uuid '334de92aedbaa5120656905c919927c29939428a'
-  /src/views/chart/hooks/useKeyboard.hook.ts:
-    newFile: !uuid '383b6d336afdeedc4e65ee13cea333fd28d118c5'
-    oldFile: !uuid '604d9c357c6210182f75eb764d41b1a563c4b52f'
-gitCommitId: !uuid '6f22bc61272369afd890a3606daaf170cfea71ec'
+  /index.html:
+    newFile: !uuid 'bf639925629fc942accb75705fccc1791b273027'
+    oldFile: !uuid '94791cb2c9bf3341a86f8132f5a8173185b877a7'
+gitCommitId: !uuid '9f0ee713108fc19c342418ecc1b713b7659425af'
 renames: {
   }
-revisionId: 334
+revisionId: 335
