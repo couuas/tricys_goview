@@ -3,21 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '67223125259196c1e750ebde3cce52640cc74552'
-    oldFile: !uuid '79f0e75797934b3a2b28644c15b3b14812422b5e'
+    newFile: !uuid '4ac9b0809c4a25b4041bdf3de746957c02b270d1'
+    oldFile: !uuid '67223125259196c1e750ebde3cce52640cc74552'
   /src/views:
-    newFile: !uuid '0f9b4e8949cb391973fd6a38064a1c1f40346952'
-    oldFile: !uuid '4c576ab3f22e6daac491906bedbe23c87856df9e'
+    newFile: !uuid '18d8a8be0d48d3c03c7cf39c6e89e301f7e9be0d'
+    oldFile: !uuid '0f9b4e8949cb391973fd6a38064a1c1f40346952'
   /src/views/chart:
-    newFile: !uuid '069e2313c1f66a921cd5944cb60bc554a8e2c644'
-    oldFile: !uuid '89b619fcc919b579263f1c4a4813cf8157685ba8'
-  /src/views/chart/hooks:
-    newFile: !uuid '136cf0c2ec5ea9255d0be5a6becda52675e7eeed'
-    oldFile: !uuid '8fdf48a170909cb367e66e6f2db30c4b6df0ad1a'
-  /src/views/chart/hooks/useKeyboard.hook.ts:
-    newFile: !uuid '0d7d4ad22269dcc49ba44db44e7a74d69742c69a'
-    oldFile: !uuid '383b6d336afdeedc4e65ee13cea333fd28d118c5'
-gitCommitId: !uuid '9cd18c9086dd6229826720b27d4bab0b863059dd'
+    newFile: !uuid '6dedd06a9523bc77e93515291a8affbee5ca5415'
+    oldFile: !uuid '069e2313c1f66a921cd5944cb60bc554a8e2c644'
+  /src/views/chart/ContentEdit:
+    newFile: !uuid '28dca22e17edb2e9d1bd32dcf348759c4cbac176'
+    oldFile: !uuid '2835383702fd7b6e331eedb41d9cd1aefa4f3c4b'
+  /src/views/chart/ContentEdit/components:
+    newFile: !uuid '7178eaf6f91a4f63ebc3cd62e10a61acecaa1308'
+    oldFile: !uuid 'abb1c99fd2b5c5a67a7757d8775ad3a59a4e5764'
+  /src/views/chart/ContentEdit/components/EditShortcutKey:
+    newFile: !uuid '4c76b1cfb84002c3ec2b69cea449cd59ef7e4c09'
+    oldFile: !uuid '7a0dfc6cc33baad727c159e2d69981dd393f2bfc'
+  /src/views/chart/ContentEdit/components/EditShortcutKey/ShortcutKeyModal.vue:
+    newFile: !uuid '72cb812a434252232afa74a3acf2e8ccb7441d21'
+    oldFile: !uuid '330865b06efc6ecb455a9b0eed412f3ee3c7f915'
+gitCommitId: !uuid '0b674fb0ae11f6b4972d6b6acef6f08183007601'
 renames: {
   }
-revisionId: 1021
+revisionId: 1022
