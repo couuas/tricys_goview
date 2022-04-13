@@ -3,27 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '2279fa4f0efa177a2d406fefb8fdb4defa696582'
-    oldFile: !uuid 'e288fb3d0be4b116c26f483725c02ed0790ed234'
-  /src/views:
-    newFile: !uuid 'cd40220e8e19de282ee2a51b78b6bc1d79b0a6b2'
-    oldFile: !uuid '18d8a8be0d48d3c03c7cf39c6e89e301f7e9be0d'
-  /src/views/chart:
-    newFile: !uuid '369e99974c812ee0c05bcdbf40707bf078943661'
-    oldFile: !uuid '6dedd06a9523bc77e93515291a8affbee5ca5415'
-  /src/views/chart/ContentEdit:
-    newFile: !uuid '8be383b210c79f0afdf7c63b4923a041443792a7'
-    oldFile: !uuid '28dca22e17edb2e9d1bd32dcf348759c4cbac176'
-  /src/views/chart/ContentEdit/components:
-    newFile: !uuid 'b8002884bf8d37da71dd39611ea53377d55f7bb5'
-    oldFile: !uuid '7178eaf6f91a4f63ebc3cd62e10a61acecaa1308'
-  /src/views/chart/ContentEdit/components/EditShortcutKey:
-    newFile: !uuid '3f6185ccd85626fd24fd6f2e6a528126abab06d7'
-    oldFile: !uuid '4c76b1cfb84002c3ec2b69cea449cd59ef7e4c09'
-  /src/views/chart/ContentEdit/components/EditShortcutKey/ShortcutKeyModal.vue:
-    newFile: !uuid 'd3014b0428be8a96d52a59de45c2c58df05dd387'
-    oldFile: !uuid '72cb812a434252232afa74a3acf2e8ccb7441d21'
-gitCommitId: !uuid 'dc7e3f5a060ad945d644508f20521236c4458373'
+    newFile: !uuid 'ceb404c38ca14303036cf551423783c6393d48b0'
+    oldFile: !uuid '2279fa4f0efa177a2d406fefb8fdb4defa696582'
+  /src/packages:
+    newFile: !uuid '1d589bb2741e23a0e66fb286d9865a25da325d3b'
+    oldFile: !uuid '979200e06df9d534425171b3ebebaf13b55183fe'
+  /src/packages/components:
+    newFile: !uuid '7ecb2a045b58d6958ed8c9d18298ea07f3704938'
+    oldFile: !uuid 'b880ac0315879b6aef2d4f08412700cdf2bd4b42'
+  /src/packages/components/Decorates:
+    newFile: !uuid '2d20bb662ba74aa828c7092cc14677922b58f469'
+    oldFile: !uuid '24a9188faadda3edb6bdb675b672868b7f716f21'
+  /src/packages/components/Decorates/Decorates:
+    newFile: !uuid '962e2acfac00b88015aa1b48905cee469c9a36a8'
+    oldFile: !uuid 'af9ce6a1882f1f3c203fdeea80f39940390cdcaf'
+  /src/packages/components/Decorates/Decorates/Decorates02:
+    newFile: !uuid 'ad9fc84522a7e724c158659771520adf7e966187'
+    oldFile: !uuid '3f2410a94f99496650ccd11ed82ef42e6a2bd8db'
+  /src/packages/components/Decorates/Decorates/Decorates02/index.vue:
+    newFile: !uuid '842b92819abc9c7bad722540cb0535c3f27a7c1e'
+    oldFile: !uuid '9abbed33f2493e2d47d79a943bc8abb0239dc2f4'
+gitCommitId: !uuid '77a6b50307e17c79a8037154057640a7eb52e9d4'
 renames: {
   }
-revisionId: 341
+revisionId: 342
