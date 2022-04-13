@@ -2,10 +2,46 @@
 branches: {
   }
 fileChange:
-  /index.html:
-    newFile: !uuid 'bf639925629fc942accb75705fccc1791b273027'
-    oldFile: !uuid '94791cb2c9bf3341a86f8132f5a8173185b877a7'
-gitCommitId: !uuid '9f0ee713108fc19c342418ecc1b713b7659425af'
+  /src:
+    newFile: !uuid 'f3f0ce1078aa288722ae97fee091519f258f0918'
+    oldFile: !uuid '555f003192f8b4a6bccbf2381e610dc5d54003a5'
+  /src/enums:
+    newFile: !uuid 'c4e652aebddfbd1a36a2ad58052f3ea02f2a1cf6'
+    oldFile: !uuid 'fece1948f48073bc05df4b34c8d701573aa956eb'
+  /src/enums/editPageEnum.ts:
+    newFile: !uuid '1bd8fbc64a91055b63206b6f471d9f348380093a'
+    oldFile: !uuid 'e3fa196e0396beaea93f6823a0527e87c9452cad'
+  /src/views:
+    newFile: !uuid '3a0245c3bb115e99b075941d8ee1370cf29c90f8'
+    oldFile: !uuid 'decca63b6b599e9cb64324d708f4e9e3a896744e'
+  /src/views/chart:
+    newFile: !uuid '9afae1f0dc010b4ab9d1d3f9fb634b10d5269832'
+    oldFile: !uuid '16f3d3bde96c872d1bc61e61234bc1949a4913be'
+  /src/views/chart/ContentEdit:
+    newFile: !uuid '4f21a69278ed886b050620aaf0a007a83c9a313a'
+    oldFile: !uuid 'b747d3b34221f3e8c024f105e3a79f1be74a00a0'
+  /src/views/chart/ContentEdit/components:
+    newFile: !uuid 'faf1845e313a8ea2c9c2eb8ba2d92cdc44307b07'
+    oldFile: !uuid '9168cbc8d2fb26db169f623b8ccfefb13c7b26bf'
+  /src/views/chart/ContentEdit/components/EditBottom:
+    newFile: !uuid 'bda750c4d08504cd0ab0b66d2a337eaf49edef8f'
+    oldFile: !uuid 'b425be424ee6dcb2ed7f7f572c7c8daa269ec611'
+  /src/views/chart/ContentEdit/components/EditBottom/index.vue:
+    newFile: !uuid '5c98c2b56aa5ab1e509d2904d7dcc93e2e4b2da4'
+    oldFile: !uuid 'f856a97e021252d0ce40bc82da6f6ba556c03cf3'
+  /src/views/chart/ContentEdit/components/EditShortcutKey:
+    newFile: !uuid 'fb3f9126467ac3423be81073534dafeea8a4cfa8'
+    oldFile: null
+  /src/views/chart/ContentEdit/components/EditShortcutKey/ShortcutKeyModal.vue:
+    newFile: !uuid '0f9a507b6df85998034ff5e050073a66d6ce10a9'
+    oldFile: null
+  /src/views/chart/ContentEdit/components/EditShortcutKey/index.ts:
+    newFile: !uuid 'f7c25095563d16ea78b51c837d31c613be44b258'
+    oldFile: null
+  /src/views/chart/ContentEdit/components/EditShortcutKey/index.vue:
+    newFile: !uuid '1ffc81630d5a8dd0ed295362d7ddeb237883e64f'
+    oldFile: null
+gitCommitId: !uuid '7ebe986b178667c88d38e246a8751170b70ebd7a'
 renames: {
   }
-revisionId: 335
+revisionId: 336
