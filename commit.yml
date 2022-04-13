@@ -3,27 +3,21 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '8a3f21f32e7573dc753ad0c279b74345fc02fa94'
-    oldFile: !uuid 'f3f0ce1078aa288722ae97fee091519f258f0918'
+    newFile: !uuid '912cf55e608674e98ec465480b18d9c699503cd2'
+    oldFile: !uuid '8a3f21f32e7573dc753ad0c279b74345fc02fa94'
   /src/views:
-    newFile: !uuid '4c576ab3f22e6daac491906bedbe23c87856df9e'
-    oldFile: !uuid '3a0245c3bb115e99b075941d8ee1370cf29c90f8'
+    newFile: !uuid '0f9b4e8949cb391973fd6a38064a1c1f40346952'
+    oldFile: !uuid '4c576ab3f22e6daac491906bedbe23c87856df9e'
   /src/views/chart:
-    newFile: !uuid '89b619fcc919b579263f1c4a4813cf8157685ba8'
-    oldFile: !uuid '9afae1f0dc010b4ab9d1d3f9fb634b10d5269832'
-  /src/views/chart/ContentEdit:
-    newFile: !uuid '2835383702fd7b6e331eedb41d9cd1aefa4f3c4b'
-    oldFile: !uuid '4f21a69278ed886b050620aaf0a007a83c9a313a'
-  /src/views/chart/ContentEdit/components:
-    newFile: !uuid 'abb1c99fd2b5c5a67a7757d8775ad3a59a4e5764'
-    oldFile: !uuid 'faf1845e313a8ea2c9c2eb8ba2d92cdc44307b07'
-  /src/views/chart/ContentEdit/components/EditShortcutKey:
-    newFile: !uuid '7a0dfc6cc33baad727c159e2d69981dd393f2bfc'
-    oldFile: !uuid 'fb3f9126467ac3423be81073534dafeea8a4cfa8'
-  /src/views/chart/ContentEdit/components/EditShortcutKey/ShortcutKeyModal.vue:
-    newFile: !uuid '330865b06efc6ecb455a9b0eed412f3ee3c7f915'
-    oldFile: !uuid '0f9a507b6df85998034ff5e050073a66d6ce10a9'
-gitCommitId: !uuid '15564813bc36eba48c3b1ed23dd3a3d1f9d5100b'
+    newFile: !uuid '069e2313c1f66a921cd5944cb60bc554a8e2c644'
+    oldFile: !uuid '89b619fcc919b579263f1c4a4813cf8157685ba8'
+  /src/views/chart/hooks:
+    newFile: !uuid '136cf0c2ec5ea9255d0be5a6becda52675e7eeed'
+    oldFile: !uuid '8fdf48a170909cb367e66e6f2db30c4b6df0ad1a'
+  /src/views/chart/hooks/useKeyboard.hook.ts:
+    newFile: !uuid '0d7d4ad22269dcc49ba44db44e7a74d69742c69a'
+    oldFile: !uuid '383b6d336afdeedc4e65ee13cea333fd28d118c5'
+gitCommitId: !uuid 'dc347aeb0f51f86803ad76e83d0908d307d3570e'
 renames: {
   }
-revisionId: 337
+revisionId: 338
