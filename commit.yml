@@ -2,22 +2,16 @@
 branches: {
   }
 fileChange:
-  /package.json:
-    newFile: !uuid '2046e5f0f377e8a7533cd83abc8ff9e055586bd5'
-    oldFile: !uuid '3be436d90d18f796d026256bf45170c333e9263c'
   /src:
-    newFile: !uuid 'a412c2ee14ba18bb23e60d5cd5115b725b87a23f'
-    oldFile: !uuid '884174aec3501516394c0603ff64b46661b8717d'
-  /src/i18n:
-    newFile: !uuid '1d782bab3094b796df0f840069d186e80ae2ce40'
-    oldFile: !uuid '008c44f140f3ceab165b010feaa206d9cf64c6d6'
-  /src/i18n/en:
-    newFile: !uuid '05cbe1206deeafc4808e4a536d87a1b971400b15'
-    oldFile: !uuid 'b605df89f03fa916f6cc7b42c42f2f6a16286002'
-  /src/i18n/en/index.ts:
-    newFile: !uuid '70c76becccdec832e60e48558013ca7165f83622'
-    oldFile: !uuid '026c24b3d6391828e39e62c1aa7d8fbfe4b72e06'
-gitCommitId: !uuid 'd067560776fbd6fce4116d2cc26aea2084311801'
+    newFile: !uuid '4cfdf6a263a9b7535550ddc8b0cd97195444ccbb'
+    oldFile: !uuid 'a412c2ee14ba18bb23e60d5cd5115b725b87a23f'
+  /src/api:
+    newFile: !uuid 'd5acd7ee7fb32ad48b650efd9c417a9b3e99a342'
+    oldFile: !uuid '4cff07001b51fd3834f601db992fdebfd02c39ea'
+  /src/api/axios.ts:
+    newFile: !uuid '384ef3be168078a363de2a0f50121e23b14e6fa9'
+    oldFile: !uuid '56b6ebf91ba9babb5b82515fadbdc5d42d2f210a'
+gitCommitId: !uuid '03628fd46be34cf3c7e1c40ffc9a54e57d9d89b8'
 renames: {
   }
-revisionId: 349
+revisionId: 350
