@@ -2,16 +2,22 @@
 branches: {
   }
 fileChange:
+  /package.json:
+    newFile: !uuid '2046e5f0f377e8a7533cd83abc8ff9e055586bd5'
+    oldFile: !uuid '3be436d90d18f796d026256bf45170c333e9263c'
   /src:
-    newFile: !uuid '1c3aa4cb368ea37d1521e131163a45a9fd910b70'
-    oldFile: !uuid 'a2073a9b1c76ba98bbee3dc16b66dcd22ac08bbe'
-  /src/settings:
-    newFile: !uuid '1ac211f80a2c486f12c3c291bb26a806d1e48144'
-    oldFile: !uuid '79fae79b7c7e7700fa43e4f3990aa6b75be72520'
-  /src/settings/pathConst.ts:
-    newFile: !uuid '74cbb91d3ce62377b07d5521b867b90b43d5c3dd'
-    oldFile: !uuid '247ce5814f408f535418e9a9e86246ad0c7e6d27'
-gitCommitId: !uuid '74338c06f0c80e058ea4e92c9b930597fcec88a4'
+    newFile: !uuid '2e9dc823c4ef13cabd68ae6f926cb8500637f82b'
+    oldFile: !uuid '1c3aa4cb368ea37d1521e131163a45a9fd910b70'
+  /src/i18n:
+    newFile: !uuid '1d782bab3094b796df0f840069d186e80ae2ce40'
+    oldFile: !uuid '008c44f140f3ceab165b010feaa206d9cf64c6d6'
+  /src/i18n/en:
+    newFile: !uuid '05cbe1206deeafc4808e4a536d87a1b971400b15'
+    oldFile: !uuid 'b605df89f03fa916f6cc7b42c42f2f6a16286002'
+  /src/i18n/en/index.ts:
+    newFile: !uuid '70c76becccdec832e60e48558013ca7165f83622'
+    oldFile: !uuid '026c24b3d6391828e39e62c1aa7d8fbfe4b72e06'
+gitCommitId: !uuid 'be81a8c731fda9d993c6c88b4537947501c8250e'
 renames: {
   }
-revisionId: 1031
+revisionId: 1032
