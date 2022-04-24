@@ -2,52 +2,34 @@
 branches: {
   }
 fileChange:
-  /package.json:
-    newFile: !uuid '16bdbc474b25458c3221cc78432eabf7f7390be7'
-    oldFile: !uuid '2046e5f0f377e8a7533cd83abc8ff9e055586bd5'
-  /pnpm-lock.yaml:
-    newFile: !uuid '81604ad3b8aeabb38eda7a9e7968b6429212c893'
-    oldFile: !uuid '33bb6373d2a25a275d837bc44be0d40dc164a156'
   /src:
-    newFile: !uuid 'dc71ef3de7c67623e106509184d5427c658efc0b'
-    oldFile: !uuid 'e08db9dac5f8eb6e3fd8c45663007c0762313bd3'
-  /src/components:
-    newFile: !uuid '493e232cc487889e7b4f3808fbf783281b16a2ae'
-    oldFile: !uuid '41519d297fbab9ac18552a52db4629dd382bb5d7'
-  /src/components/Pages:
-    newFile: !uuid '7c67cb7c2233b8896efaa3b404a68f2840a8290f'
-    oldFile: !uuid '2ce34d2c65790f0c63b8fba7cbed0d48281b24b8'
-  /src/components/Pages/ChartItemSetting:
-    newFile: !uuid '24ee6883e7efa5824318667bc749913d60ec0b33'
-    oldFile: !uuid 'd1a96014b0f9eb852d227108e4be499382f2db92'
-  /src/components/Pages/ChartItemSetting/StylesSetting.vue:
-    newFile: !uuid '7ac4464a631a4bb8257a91d391358a0ef247fa49'
-    oldFile: !uuid 'e1e00f8da1aa2411d7ec6e164aa63a81166219a9'
-  /src/i18n:
-    newFile: !uuid '56c017f3b787507c62cfe767c57f1ffa72abd3e3'
-    oldFile: !uuid '1d782bab3094b796df0f840069d186e80ae2ce40'
-  /src/i18n/index.ts:
-    newFile: !uuid '78187575c69007e2943235d67dc1dc90309083c2'
-    oldFile: !uuid 'f133c40dcca6b5a499c78fdf9b4152a27f57b373'
-  /src/views:
-    newFile: !uuid '1ffc29039475a9a9fc9075a0027aeba3b1f648ea'
-    oldFile: !uuid 'd4ce57d9c74ae0749035ecfafdb9b58e3e1e7876'
-  /src/views/chart:
-    newFile: !uuid '4d5ddf39247a2d16206564d1141f9e13187319e3'
-    oldFile: !uuid 'c8fe44da14b9cfe12d9dd3fa15c0fca4d84e9485'
-  /src/views/chart/ContentCharts:
-    newFile: !uuid '747d79a36c240afa82fae4b4ffeac05580341d67'
-    oldFile: !uuid '3ccdcd4fa601cbc791323bdc17c7d023049ce1e2'
-  /src/views/chart/ContentCharts/components:
-    newFile: !uuid '04cddfde17023a59d7331be7dfed7fefbf172c82'
-    oldFile: !uuid '414e73bd79d5f59358eed0adb5928f69c6be7d55'
-  /src/views/chart/ContentCharts/components/ChartsSearch:
-    newFile: !uuid '87a3c3fd8c182e9087acce62a91d097e39bdd735'
-    oldFile: !uuid 'fed9032e2cfffc1a2fc29cc0813cd1c372544ecd'
-  /src/views/chart/ContentCharts/components/ChartsSearch/index.vue:
-    newFile: !uuid 'ecc1a707b60c63012f558806915492b455e9a2ac'
-    oldFile: !uuid 'fd41f8ee4c5d89d6e0971d2e2ec873fcfec9392e'
-gitCommitId: !uuid 'a0d0a5e2146790da5e7585bd7afe6dae538b1f99'
+    newFile: !uuid '5ad7b9db053b2ee93ad8db6801d37917ade21524'
+    oldFile: !uuid 'dc71ef3de7c67623e106509184d5427c658efc0b'
+  /src/packages:
+    newFile: !uuid 'b2933bfb48368919630487753660d0d82ef60a3b'
+    oldFile: !uuid '95303c777b3c6965872e272ab2f8ff0fb6aa018f'
+  /src/packages/components:
+    newFile: !uuid '4ca7c4fc80e169ba977e0c44efe649e904c65561'
+    oldFile: !uuid '5ee9d0335c71f541240516a53daabbd71a8e54ab'
+  /src/packages/components/Informations:
+    newFile: !uuid 'fe0c795d71ec26b6b03577c843bed7c195b90fda'
+    oldFile: !uuid '5d6a5b39e7110e5fe9e5049510dede18540fb1b0'
+  /src/packages/components/Informations/Texts:
+    newFile: !uuid 'db29ec97336589565d53746eeee2361f68c29fbf'
+    oldFile: !uuid '0fbf1c21cd55373b29771ea0eac1928c86acd459'
+  /src/packages/components/Informations/Texts/TextCommon:
+    newFile: !uuid 'a3a6bdbe8448cde6f66097a6b7545b0460889389'
+    oldFile: !uuid '635ee7acb155d42bb47626f34c7f47d83b962c97'
+  /src/packages/components/Informations/Texts/TextCommon/config.ts:
+    newFile: !uuid '8b8fcf258b9ed62bedaf8589b7387285beb4f502'
+    oldFile: !uuid 'e383d299a33b0549c766a3774a72fc8152047e6d'
+  /src/packages/components/Informations/Texts/TextCommon/config.vue:
+    newFile: !uuid '812cb42fa46a85b4039a9265802bf2b24bbd2be6'
+    oldFile: !uuid 'ef99f515606b1b32a2c0ff65d46f4bff23a58219'
+  /src/packages/components/Informations/Texts/TextCommon/index.vue:
+    newFile: !uuid 'b5a16500b1f16753d402c6b7246779e937292b20'
+    oldFile: !uuid '153bd598d2c0cd348d936c8fa298bcecc5baa830'
+gitCommitId: !uuid 'f641889eddd011e52bd4e26abdd081cdd6c13e97'
 renames: {
   }
-revisionId: 355
+revisionId: 356
