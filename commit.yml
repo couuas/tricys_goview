@@ -3,33 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '5ad7b9db053b2ee93ad8db6801d37917ade21524'
-    oldFile: !uuid 'dc71ef3de7c67623e106509184d5427c658efc0b'
-  /src/packages:
-    newFile: !uuid 'b2933bfb48368919630487753660d0d82ef60a3b'
-    oldFile: !uuid '95303c777b3c6965872e272ab2f8ff0fb6aa018f'
-  /src/packages/components:
-    newFile: !uuid '4ca7c4fc80e169ba977e0c44efe649e904c65561'
-    oldFile: !uuid '5ee9d0335c71f541240516a53daabbd71a8e54ab'
-  /src/packages/components/Informations:
-    newFile: !uuid 'fe0c795d71ec26b6b03577c843bed7c195b90fda'
-    oldFile: !uuid '5d6a5b39e7110e5fe9e5049510dede18540fb1b0'
-  /src/packages/components/Informations/Texts:
-    newFile: !uuid 'db29ec97336589565d53746eeee2361f68c29fbf'
-    oldFile: !uuid '0fbf1c21cd55373b29771ea0eac1928c86acd459'
-  /src/packages/components/Informations/Texts/TextCommon:
-    newFile: !uuid 'a3a6bdbe8448cde6f66097a6b7545b0460889389'
-    oldFile: !uuid '635ee7acb155d42bb47626f34c7f47d83b962c97'
-  /src/packages/components/Informations/Texts/TextCommon/config.ts:
-    newFile: !uuid '8b8fcf258b9ed62bedaf8589b7387285beb4f502'
-    oldFile: !uuid 'e383d299a33b0549c766a3774a72fc8152047e6d'
-  /src/packages/components/Informations/Texts/TextCommon/config.vue:
-    newFile: !uuid '812cb42fa46a85b4039a9265802bf2b24bbd2be6'
-    oldFile: !uuid 'ef99f515606b1b32a2c0ff65d46f4bff23a58219'
-  /src/packages/components/Informations/Texts/TextCommon/index.vue:
-    newFile: !uuid 'b5a16500b1f16753d402c6b7246779e937292b20'
-    oldFile: !uuid '153bd598d2c0cd348d936c8fa298bcecc5baa830'
-gitCommitId: !uuid 'f641889eddd011e52bd4e26abdd081cdd6c13e97'
+    newFile: !uuid '3309000780b42a43695ec059fb208a97beec5793'
+    oldFile: !uuid '5ad7b9db053b2ee93ad8db6801d37917ade21524'
+  /src/views:
+    newFile: !uuid '7d4fab62dec6ad2e8948fc710ee603bc07436cd3'
+    oldFile: !uuid '1ffc29039475a9a9fc9075a0027aeba3b1f648ea'
+  /src/views/chart:
+    newFile: !uuid 'db16fede13092f692db23117ac765cc42f1ea1b8'
+    oldFile: !uuid '4d5ddf39247a2d16206564d1141f9e13187319e3'
+  /src/views/chart/ContentConfigurations:
+    newFile: !uuid 'fcf64d442a6d61160953175351d106776ce72d17'
+    oldFile: !uuid 'ed1fae172b5c4447fbfe663563d82cffa1bdf8d5'
+  /src/views/chart/ContentConfigurations/components:
+    newFile: !uuid 'efc1b2a9566ec4f1fdd8284396dc45cd54c34e07'
+    oldFile: !uuid 'a13d2f94b04ad77fddc36914488b589cc84bba75'
+  /src/views/chart/ContentConfigurations/components/ChartSetting:
+    newFile: !uuid '8a37a46a97937b0e9bffae30bacf1db16ccd7a00'
+    oldFile: !uuid '0d31390f83c6abf7759a559bc9f5e07c369631e6'
+  /src/views/chart/ContentConfigurations/components/ChartSetting/index.vue:
+    newFile: !uuid '4e112295809cb28104a258c8aa46d13b26d92f46'
+    oldFile: !uuid '0affcdd6a75472715d9aa3fe77958d0aa94235cd'
+gitCommitId: !uuid 'b4972eed39d49b3aedeab11cc0d98982e5121415'
 renames: {
   }
-revisionId: 356
+revisionId: 357
