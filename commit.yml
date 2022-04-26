@@ -3,27 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '1ff9cede19e80e8dc4b695f21a2056b178f29e76'
-    oldFile: !uuid '79845883c44b6ce9667998cb2eb1cf81518da402'
+    newFile: !uuid 'd4f4e936d41b1820726a59f57513c3389a39ba49'
+    oldFile: !uuid '1ff9cede19e80e8dc4b695f21a2056b178f29e76'
   /src/views:
-    newFile: !uuid '48d17992a444039a40c3476d87008cbc10a28303'
-    oldFile: !uuid 'f53e38e2a9cb6bc5a2c2454b58f3cb952ac99371'
+    newFile: !uuid 'fd15c6cdf55e902f2c4420655029f11beddb030e'
+    oldFile: !uuid '48d17992a444039a40c3476d87008cbc10a28303'
   /src/views/chart:
-    newFile: !uuid 'bda7421bee43815c3523e66e5a1bf1a4115764fe'
-    oldFile: !uuid 'f04bbb052de5e391790930ba977b26649e9b9a00'
-  /src/views/chart/ContentConfigurations:
-    newFile: !uuid '0ae14011db3cb76a9b2f91fa81076ad302e71e77'
-    oldFile: !uuid 'dfe1629535659b87bb757909896425d1d45aa5fd'
-  /src/views/chart/ContentConfigurations/components:
-    newFile: !uuid 'ca0dbdca8f86cef20c74498429d961a372cd5655'
-    oldFile: !uuid '3e9277802eea190169c8b84f8ada32c145728769'
-  /src/views/chart/ContentConfigurations/components/CanvasPage:
-    newFile: !uuid '6279097c0392d99dce9462c2635d057d273a8979'
-    oldFile: !uuid 'af6a96413437f785b930f4ee286369f6dd27bb40'
-  /src/views/chart/ContentConfigurations/components/CanvasPage/index.vue:
-    newFile: !uuid '3d67971bc1302710f6d2802cfa0c92c39aab5c26'
-    oldFile: !uuid '272c716ab4a21dbe0196ef456fc11f7b038900fe'
-gitCommitId: !uuid 'f0751499b3b9a98575feb0a40a5ce360b7cb6de0'
+    newFile: !uuid '5f2c48ae4222974e95ca909006697069a58e4673'
+    oldFile: !uuid 'bda7421bee43815c3523e66e5a1bf1a4115764fe'
+  /src/views/chart/ContentEdit:
+    newFile: !uuid '183132a92cfd618b66c12076cd5c3e745026f028'
+    oldFile: !uuid '8be383b210c79f0afdf7c63b4923a041443792a7'
+  /src/views/chart/ContentEdit/components:
+    newFile: !uuid '501fd6adf27bfff115a40f6de61f699b22e0ecb8'
+    oldFile: !uuid 'b8002884bf8d37da71dd39611ea53377d55f7bb5'
+  /src/views/chart/ContentEdit/components/EditHistory:
+    newFile: !uuid '5b38fde44758f11e6de9b3fe591c2cb5dd86e5cd'
+    oldFile: !uuid '89caa0d86f2ca300283ad22c227e2b8ed16c21f4'
+  /src/views/chart/ContentEdit/components/EditHistory/index.vue:
+    newFile: !uuid '00d9d9e022319b1d8aca8431a0c1e12661493240'
+    oldFile: !uuid '0cb59501ce54b9233f8f630706ff94fd714c1207'
+gitCommitId: !uuid '66b4c457bf284d7b1d6cd51af5ed17e6066801f6'
 renames: {
   }
-revisionId: 361
+revisionId: 362
