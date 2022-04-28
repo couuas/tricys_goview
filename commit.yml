@@ -3,51 +3,21 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'db1bfc1fa9b576b706203a484607f3111389ce15'
-    oldFile: !uuid '07de4ea833ff9f7aa27c8874e0ba4538391239e1'
-  /src/hooks:
-    newFile: !uuid '8fc0597fac7cc56dee7f0cbd6cc952db68ff0e0d'
-    oldFile: !uuid '86f09f9ba6a69d648f04d5f734eb7c8ce9563280'
-  /src/hooks/useChartDataFetch.hook.ts:
-    newFile: !uuid 'b0230bb5c3115bb281125e7965a378dc4b69a03a'
-    oldFile: !uuid 'bbe668a585b59a1a715df9a5c7d811b1a3a0e61c'
-  /src/packages:
-    newFile: !uuid '3c70a4c6487480b02bf06c05f44e7e29fa118276'
-    oldFile: !uuid '6417b8b6ca1cf424962baf49d7b7a1ebe8cbe303'
-  /src/packages/components:
-    newFile: !uuid 'af473a7c38bedecfb337474eadad58825092e8c5'
-    oldFile: !uuid '4ca7c4fc80e169ba977e0c44efe649e904c65561'
-  /src/packages/components/Charts:
-    newFile: !uuid 'a86aa441369a4d433600439fd77ac467c9e4a93c'
-    oldFile: !uuid '21bfac27d8c08e4e2980cb82a758b23bfbcc9ffe'
-  /src/packages/components/Charts/Bars:
-    newFile: !uuid 'aaa6f5406a32306c49121bd509762d805ca9876b'
-    oldFile: !uuid '3c5265ee164bee6b1c49f3daa10ceb77026377c4'
-  /src/packages/components/Charts/Bars/BarCommon:
-    newFile: !uuid '8bd8d0c01a54d38652830b4a0790c1e261dd5e38'
-    oldFile: !uuid 'be9f4224ddde17418b8545b16d33502deeb794cd'
-  /src/packages/components/Charts/Bars/BarCommon/config.ts:
-    newFile: !uuid '187ff85284289681e28cd9099e1558879654401e'
-    oldFile: !uuid 'fc544a1c98fa6abaf52f9102c798612b6a3d1912'
-  /src/packages/components/Informations:
-    newFile: !uuid 'ff8ae2df6fb81bd955288168b4adc129d21162fc'
-    oldFile: !uuid 'fe0c795d71ec26b6b03577c843bed7c195b90fda'
-  /src/packages/components/Informations/Mores:
-    newFile: !uuid '5c3e46d61d4f518640a2f4f5aaca67b5c3cc8424'
-    oldFile: !uuid 'c45f8af5f745e365f104d62d7847fabcd2477220'
-  /src/packages/components/Informations/Mores/Image:
-    newFile: !uuid '7bd921ec4ee1116f892feefb37bb8739e11c0281'
-    oldFile: !uuid 'be6049957b2c5d9bbb3608378d448f274f706b21'
-  /src/packages/components/Informations/Mores/Image/config.ts:
-    newFile: !uuid '453bbe5af73a16e2d45fc525c2784d1bd51ed92b'
-    oldFile: null
-  /src/packages/components/Informations/Mores/Image/index.vue:
-    newFile: !uuid '56830a1a9f2cd21836829823c57afa9437b9b5a0'
-    oldFile: !uuid 'a962fd674ae9c2115eb5518d38a4e86f0c49c4e0'
-  /src/packages/index.ts:
-    newFile: !uuid '25476aa139466dcf3f5d60c1dc88c756ffa909cc'
-    oldFile: !uuid 'adfa09f7de16320815ad8016b72b9f9c9d821fb2'
-gitCommitId: !uuid 'e0b0d5747be7026803217b438e5b3938fb750416'
+    newFile: !uuid '4f3f17d9694f233182c9c6b9914782b9e28d629a'
+    oldFile: !uuid 'db1bfc1fa9b576b706203a484607f3111389ce15'
+  /src/store:
+    newFile: !uuid 'e590142e56829448a6a7d1b00a919d057cffc677'
+    oldFile: !uuid '400fb96080e217be34209ce4ac1b39cec747d4c7'
+  /src/store/modules:
+    newFile: !uuid 'e8d4fe81fb5610a7f9d434b8b25287a1e7f9d88d'
+    oldFile: !uuid '7e11ed9bd11c7223cace82d8218e38de63153ed9'
+  /src/store/modules/langStore:
+    newFile: !uuid 'dc2ac8de682ffd85f5a06a791faf973f4d83524a'
+    oldFile: !uuid '8497cd2674d30f036ec6d55b43c8801b85c2a1ce'
+  /src/store/modules/langStore/langStore.ts:
+    newFile: !uuid '9eb7bdeb2736cb7afcfc7061c0f86aa2790187ba'
+    oldFile: !uuid '2c1fd2b95f82373c996128b86b040723ca41cf52'
+gitCommitId: !uuid '871b61acf54ebd91134873936d5a75f44add46e2'
 renames: {
   }
-revisionId: 1046
+revisionId: 1047
