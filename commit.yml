@@ -3,21 +3,21 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '02ea92046fc84fb8acfa3245a72d35308f66c377'
-    oldFile: !uuid '24638b26f9ab987a91ea4b2cc8d11bf60b994b2c'
+    newFile: !uuid '53664980b2b80059effd27b81db631b04aaa622e'
+    oldFile: !uuid '02ea92046fc84fb8acfa3245a72d35308f66c377'
   /src/store:
-    newFile: !uuid 'e590142e56829448a6a7d1b00a919d057cffc677'
-    oldFile: !uuid '400fb96080e217be34209ce4ac1b39cec747d4c7'
+    newFile: !uuid 'c5b71270aaceeedf41ab71d16e17f6f417b1163e'
+    oldFile: !uuid 'e590142e56829448a6a7d1b00a919d057cffc677'
   /src/store/modules:
-    newFile: !uuid 'e8d4fe81fb5610a7f9d434b8b25287a1e7f9d88d'
-    oldFile: !uuid '7e11ed9bd11c7223cace82d8218e38de63153ed9'
-  /src/store/modules/langStore:
-    newFile: !uuid 'dc2ac8de682ffd85f5a06a791faf973f4d83524a'
-    oldFile: !uuid '8497cd2674d30f036ec6d55b43c8801b85c2a1ce'
-  /src/store/modules/langStore/langStore.ts:
-    newFile: !uuid '9eb7bdeb2736cb7afcfc7061c0f86aa2790187ba'
-    oldFile: !uuid '2c1fd2b95f82373c996128b86b040723ca41cf52'
-gitCommitId: !uuid 'afaccad16ca4824e4513451bffd34a58bf34ac87'
+    newFile: !uuid '897430713f1b0dd829a5ffa749793f1a601080ba'
+    oldFile: !uuid 'e8d4fe81fb5610a7f9d434b8b25287a1e7f9d88d'
+  /src/store/modules/chartEditStore:
+    newFile: !uuid '1192c6b217196066c2f367000a1f91aedd3a9687'
+    oldFile: !uuid '5c1d618ee93a3890c2c76de7391838ec0edb74f6'
+  /src/store/modules/chartEditStore/chartEditStore.d.ts:
+    newFile: !uuid '3fd9bd5c55fa97fa97ce119f0aee2cdd694d3520'
+    oldFile: !uuid '9e378850f4bf307ac1ff1a48a08c3853f696f05b'
+gitCommitId: !uuid 'ca7bd08b5708b34914afa61186bac07828f6e279'
 renames: {
   }
-revisionId: 364
+revisionId: 365
