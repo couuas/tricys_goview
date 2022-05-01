@@ -2,22 +2,73 @@
 branches: {
   }
 fileChange:
+  /public:
+    newFile: !uuid 'a88657bb33e8c0314c55b8d75d16599f32a3deb0'
+    oldFile: !uuid 'c280db6a5214a3a14cf2808652f4610335abe779'
+  /public/logo.png:
+    newFile: !uuid 'f06ff216476ed50c83a8ea59fe12b4efc96d8c40'
+    oldFile: null
   /src:
-    newFile: !uuid '53664980b2b80059effd27b81db631b04aaa622e'
-    oldFile: !uuid '02ea92046fc84fb8acfa3245a72d35308f66c377'
-  /src/store:
-    newFile: !uuid 'c5b71270aaceeedf41ab71d16e17f6f417b1163e'
-    oldFile: !uuid 'e590142e56829448a6a7d1b00a919d057cffc677'
-  /src/store/modules:
-    newFile: !uuid '897430713f1b0dd829a5ffa749793f1a601080ba'
-    oldFile: !uuid 'e8d4fe81fb5610a7f9d434b8b25287a1e7f9d88d'
-  /src/store/modules/chartEditStore:
-    newFile: !uuid '1192c6b217196066c2f367000a1f91aedd3a9687'
-    oldFile: !uuid '5c1d618ee93a3890c2c76de7391838ec0edb74f6'
-  /src/store/modules/chartEditStore/chartEditStore.d.ts:
-    newFile: !uuid '3fd9bd5c55fa97fa97ce119f0aee2cdd694d3520'
-    oldFile: !uuid '9e378850f4bf307ac1ff1a48a08c3853f696f05b'
-gitCommitId: !uuid 'ca7bd08b5708b34914afa61186bac07828f6e279'
+    newFile: !uuid '9250288d4aea17cef67a80f57621312d1c359cee'
+    oldFile: !uuid '53664980b2b80059effd27b81db631b04aaa622e'
+  /src/assets:
+    newFile: !uuid 'af3d289ff8ea31d0f371bf7d8d96b428d1fc72ce'
+    oldFile: !uuid '5409ce564b06c52327ff988b23ff5b56d9a6f953'
+  /src/assets/logo.png:
+    newFile: !uuid 'f06ff216476ed50c83a8ea59fe12b4efc96d8c40'
+    oldFile: null
+  /src/packages:
+    newFile: !uuid '501647a35455d77134f6e29321b4a73d294739a1'
+    oldFile: !uuid '3c70a4c6487480b02bf06c05f44e7e29fa118276'
+  /src/packages/components:
+    newFile: !uuid 'ff86ba3e306bba43e4d8ffd0bdcd12ae3ed9b013'
+    oldFile: !uuid 'af473a7c38bedecfb337474eadad58825092e8c5'
+  /src/packages/components/Informations:
+    newFile: !uuid '1306c53f5e18a226e9b910eda68b1a339ded560c'
+    oldFile: !uuid 'ff8ae2df6fb81bd955288168b4adc129d21162fc'
+  /src/packages/components/Informations/Mores:
+    newFile: !uuid '47dd72f3fcf4050fa5df140626401c5717f951ca'
+    oldFile: !uuid '5c3e46d61d4f518640a2f4f5aaca67b5c3cc8424'
+  /src/packages/components/Informations/Mores/Image:
+    newFile: !uuid 'b2c417d56f69101f9539b17bae4b84c58a29fd0c'
+    oldFile: !uuid '7bd921ec4ee1116f892feefb37bb8739e11c0281'
+  /src/packages/components/Informations/Mores/Image/config.ts:
+    newFile: !uuid 'ec2bd666fe801dfcc5abd96e869353acc13123f8'
+    oldFile: !uuid '453bbe5af73a16e2d45fc525c2784d1bd51ed92b'
+  /src/packages/components/Informations/Mores/Image/config.vue:
+    newFile: !uuid '58c0a42baa3075f0efaf6cf610c81c84ae35afc8'
+    oldFile: !uuid '44a7bc22be3301e27e25d67177bd3c92e204cb20'
+  /src/packages/components/Informations/Mores/Image/index.vue:
+    newFile: !uuid '85311a894f1fa9b1853d0cb22f4c9a5e5dcb8fa8'
+    oldFile: !uuid '56830a1a9f2cd21836829823c57afa9437b9b5a0'
+  /src/packages/components/Informations/Texts:
+    newFile: !uuid '8718bb572f7007c8fba3e98dd65f4c714ed49a71'
+    oldFile: !uuid 'db29ec97336589565d53746eeee2361f68c29fbf'
+  /src/packages/components/Informations/Texts/TextCommon:
+    newFile: !uuid 'c474b28f462203dcc71f9d9696dc8b738b6fe868'
+    oldFile: !uuid 'a3a6bdbe8448cde6f66097a6b7545b0460889389'
+  /src/packages/components/Informations/Texts/TextCommon/config.ts:
+    newFile: !uuid '5f99adef3bc85dff36922764ce2d7127e94c33df'
+    oldFile: !uuid '8b8fcf258b9ed62bedaf8589b7387285beb4f502'
+  /src/packages/components/Informations/Texts/TextCommon/config.vue:
+    newFile: !uuid '4988e9c48732531422604c766bde57b840d6f4da'
+    oldFile: !uuid '812cb42fa46a85b4039a9265802bf2b24bbd2be6'
+  /src/packages/components/Informations/Texts/TextCommon/index.vue:
+    newFile: !uuid 'cc2f0a47ab36be931f0cdc90f0fd8c37e1af3338'
+    oldFile: !uuid 'b5a16500b1f16753d402c6b7246779e937292b20'
+  /src/views:
+    newFile: !uuid '2272fbd274e25eb368a65953b175765e1387d1b4'
+    oldFile: !uuid 'fd15c6cdf55e902f2c4420655029f11beddb030e'
+  /src/views/preview:
+    newFile: !uuid '2b03ba25da0882215a20047869961b9e4c04fb5c'
+    oldFile: !uuid 'e59648add6db6b6fa9e33e44d6e78b09c7973b75'
+  /src/views/preview/utils:
+    newFile: !uuid '10bbf4f62537dbda158c369d3038cb4139469268'
+    oldFile: !uuid '03d0a7802bd37a10ab80488c3f601a76ee205c79'
+  /src/views/preview/utils/style.ts:
+    newFile: !uuid '88923dd170699f2abbc24e5e4055d1ecc7c6858e'
+    oldFile: !uuid '8f2c908525a49f24366964a2b48a22c0c86b9b89'
+gitCommitId: !uuid '5b88c7dae57dc622cccd14b4396a18b429ee94fc'
 renames: {
   }
-revisionId: 365
+revisionId: 366
