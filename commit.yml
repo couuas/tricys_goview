@@ -3,15 +3,45 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'a647a6deadbdf34160dc9003b28dc9f0b5f1cdb6'
-    oldFile: !uuid '6995b9e78ea4b463a6662f44c87ac528868670e5'
-  /src/utils:
-    newFile: !uuid '41c05def8fa861b57eb560375587cd50577f785c'
-    oldFile: !uuid '970e46f030bf10ca6c33135647b76f3784e6f2e9'
-  /src/utils/plugin.ts:
-    newFile: !uuid 'bd8b9aa8c0edceaf38fe8b97eaece9b4ec5ae892'
-    oldFile: !uuid '358859f1b54eb93ed0b58a1b5b0c9f1796efa56b'
-gitCommitId: !uuid '8ca08a560026b6dd4d1c773715b5bb12cffa1e4c'
+    newFile: !uuid '4ab30a8767af6a320eb847feb9bc520ebd9906da'
+    oldFile: !uuid 'a647a6deadbdf34160dc9003b28dc9f0b5f1cdb6'
+  /src/packages:
+    newFile: !uuid 'd0a43c5aab60445690e48f06f68a5305cbf7a5ef'
+    oldFile: !uuid '501647a35455d77134f6e29321b4a73d294739a1'
+  /src/packages/components:
+    newFile: !uuid '91bfbe64bcac210ea74f46a476351c87631c7579'
+    oldFile: !uuid 'ff86ba3e306bba43e4d8ffd0bdcd12ae3ed9b013'
+  /src/packages/components/Charts:
+    newFile: !uuid '52edba446edc37f6417df9b9dc129d629514baf4'
+    oldFile: !uuid 'a86aa441369a4d433600439fd77ac467c9e4a93c'
+  /src/packages/components/Charts/Lines:
+    newFile: !uuid '87f8e808462b9e9c9c63fe9debf9e1cc7eb12eae'
+    oldFile: !uuid '906907c4284429e61c13ff5a750053e1adca041b'
+  /src/packages/components/Charts/Lines/LineGradientSingle:
+    newFile: !uuid '66086dd9cdd7b7afceee332c610f34409c2f4c97'
+    oldFile: !uuid '3e7c9458309b9a0135e92c6b733f937ab2c37473'
+  /src/packages/components/Charts/Lines/LineGradientSingle/index.ts:
+    newFile: !uuid '611da9915022851030fbd6a70606887a41a723ae'
+    oldFile: !uuid '32cd84fc16221b59c41756343948137389ae72a1'
+  /src/packages/components/Charts/Lines/LineGradients:
+    newFile: !uuid '86f9da6a4ce8081e59831d54fef40b0923d028bd'
+    oldFile: !uuid '8f11c0c51d069a92dfedfd159e43ff5459aa1161'
+  /src/packages/components/Charts/Lines/LineGradients/index.ts:
+    newFile: !uuid '5e466773389e92376ae83e96cdfe7c508c60b45a'
+    oldFile: !uuid 'c0ccd0f4fde0eb2d968e7f8572d6af192a9c3130'
+  /src/packages/components/Tables:
+    newFile: !uuid '38b00e431a575e9bccdb5f5a528fcde6a9b7c19b'
+    oldFile: !uuid 'b2f571482eae8d18d2e7c769bf1fc771bb41648d'
+  /src/packages/components/Tables/Tables:
+    newFile: !uuid 'd13b4081eb2dbfb46aa6ba7a848e1a94d4f63389'
+    oldFile: !uuid '09d0ceab371b9ffc2dd29b655eb9903c351a2ad1'
+  /src/packages/components/Tables/Tables/TableList:
+    newFile: !uuid 'c9521aa1fa9d975a5f322bd3bda73db85d35f4ed'
+    oldFile: !uuid 'cc615b7b7a7a62a9e3b6599754693cab609dfc76'
+  /src/packages/components/Tables/Tables/TableList/index.ts:
+    newFile: !uuid '1e443fefe7e6dfcb408ba84d07035a32ccde98cd'
+    oldFile: !uuid 'd8e24f1c12bb60ef35f82b7e9d9f1e4e3905a102'
+gitCommitId: !uuid '8f5bc134f27309697d61bfde29944b34cbba5557'
 renames: {
   }
-revisionId: 1052
+revisionId: 1053
