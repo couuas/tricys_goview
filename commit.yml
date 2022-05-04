@@ -3,18 +3,18 @@ branches: {
   }
 fileChange:
   /README.md:
-    newFile: !uuid '16e66ac111172a1a7d188ac8e51b2e15963e4a06'
-    oldFile: !uuid '9452c7dfeaef21efd30f520e6f9e3dc11d837995'
+    newFile: !uuid 'b547830859fd0ca18314f3f95eacf962590ca3d7'
+    oldFile: !uuid '16e66ac111172a1a7d188ac8e51b2e15963e4a06'
   /public:
-    newFile: !uuid '00130ed63ab1e77ffaf152e325a6028b6bc24fc7'
-    oldFile: !uuid '35584e2a540a8e94c87cba7e9f8162b7f0aed220'
+    newFile: !uuid 'd7daab3dd7f4d91bce84d0e843e76df242a5a95f'
+    oldFile: !uuid '00130ed63ab1e77ffaf152e325a6028b6bc24fc7'
   /public/GoView截图.png:
+    newFile: null
+    oldFile: !uuid '617784ddd0bd05db620eaa05d1be21c8df39e438'
+  /public/goView-canvas.png:
     newFile: !uuid '617784ddd0bd05db620eaa05d1be21c8df39e438'
     oldFile: null
-  /public/logo-t-y.png:
-    newFile: !uuid '9679a20d5258ec7f8c69bb6534e4901319f4b516'
-    oldFile: null
-gitCommitId: !uuid '8ca9a3be052283f6ca3655cf99839b51b876a0e8'
-renames: {
-  }
-revisionId: 1074
+gitCommitId: !uuid '45e5ca0722ebf5cf27cffa85a10b96845ce05d46'
+renames:
+  /public/goView-canvas.png: /public/GoView截图.png
+revisionId: 1075
