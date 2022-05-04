@@ -2,10 +2,10 @@
 branches: {
   }
 fileChange:
-  /GoView 反馈交流群群二维码.png:
-    newFile: null
-    oldFile: !uuid '6490f8e8fd452be10b6fc7bcced01af983bc47fe'
-gitCommitId: !uuid 'c67df660984e169d211680c6d5c972c5133bdb8a'
+  /README.md:
+    newFile: !uuid '3b9a46257ba539aca9b42fd008a3dd2e26933ca8'
+    oldFile: !uuid '8df56a9bdc498adcfd6a7ea3c53f63b7b30ec0f1'
+gitCommitId: !uuid 'a913fd9b2fdd0cabe9d9c8725ad1569122448b67'
 renames: {
   }
-revisionId: 382
+revisionId: 383
