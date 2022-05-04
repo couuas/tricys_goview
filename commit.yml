@@ -2,16 +2,16 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid '4af8fbe989ba18444ff0051b9860252d944858d7'
-    oldFile: !uuid '991fc20bb80b2dfdc7a4568ab82f52bbddae8f46'
-  /src/assets:
-    newFile: !uuid 'f74f00c0b31fca1d1f91997f78a5f5c78a6f9851'
-    oldFile: !uuid '8d51f85958fb02737a6e78d7aeb6495947dcf3a0'
-  /src/assets/logo.png:
-    newFile: !uuid 'd2ce95553d56063df82402d6fb1ae88ae9742604'
-    oldFile: !uuid 'f06ff216476ed50c83a8ea59fe12b4efc96d8c40'
-gitCommitId: !uuid '3836131a279f8b18f51cb25a56a68c0e6c0c07af'
+  /README.md:
+    newFile: !uuid '1eba1dad7dc019571b97903dbd3c8cae5fe3dc0e'
+    oldFile: !uuid 'dc6452efc880ea88f1a5de5913ed529e79e23b42'
+  /public:
+    newFile: !uuid '33a86504dc249ad7534f1cd1b674958f28621aa4'
+    oldFile: !uuid 'b9bc8df19bb53fd14a4375bc7b1aff4d189ddaf2'
+  /public/logo-poster.png:
+    newFile: !uuid '1a6a32b499264450df2e0877133deb1b9dca79d5'
+    oldFile: null
+gitCommitId: !uuid '57dba3f9a2da0c52ce873c8ce7d8798b8e709311'
 renames: {
   }
-revisionId: 387
+revisionId: 388
