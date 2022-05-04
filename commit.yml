@@ -2,10 +2,19 @@
 branches: {
   }
 fileChange:
+  /GoView 反馈交流群群二维码.png:
+    newFile: !uuid '6490f8e8fd452be10b6fc7bcced01af983bc47fe'
+    oldFile: null
   /README.md:
-    newFile: !uuid '8d5fb9fea4b7fda68c3f684a803c40fd29c2d1a6'
-    oldFile: !uuid '725de5d661aadb4ee8aad7d392831eb505c9a8db'
-gitCommitId: !uuid 'b129123fa0e46ed382d78184517d8ea203cabdcd'
+    newFile: !uuid '2b1e2d0b884be2869a34667f4f965db90a480985'
+    oldFile: !uuid '8d5fb9fea4b7fda68c3f684a803c40fd29c2d1a6'
+  /public:
+    newFile: !uuid 'c7a715e4f3f5c75f29f1d7b29eed3ca258df60f5'
+    oldFile: !uuid 'a88657bb33e8c0314c55b8d75d16599f32a3deb0'
+  /public/GoView截图.png:
+    newFile: !uuid '617784ddd0bd05db620eaa05d1be21c8df39e438'
+    oldFile: null
+gitCommitId: !uuid 'e3fa62a3f89ba7543c8fef7350517b275036352d'
 renames: {
   }
-revisionId: 1062
+revisionId: 1063
