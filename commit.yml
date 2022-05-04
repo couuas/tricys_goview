@@ -2,16 +2,13 @@
 branches: {
   }
 fileChange:
-  /README.md:
-    newFile: !uuid '1eba1dad7dc019571b97903dbd3c8cae5fe3dc0e'
-    oldFile: !uuid 'dc6452efc880ea88f1a5de5913ed529e79e23b42'
   /public:
-    newFile: !uuid '33a86504dc249ad7534f1cd1b674958f28621aa4'
-    oldFile: !uuid 'b9bc8df19bb53fd14a4375bc7b1aff4d189ddaf2'
-  /public/logo-poster.png:
-    newFile: !uuid '1a6a32b499264450df2e0877133deb1b9dca79d5'
-    oldFile: null
-gitCommitId: !uuid '57dba3f9a2da0c52ce873c8ce7d8798b8e709311'
+    newFile: !uuid 'e92fd70daa4d1190278b9e0ee0fd7593b2c8e1b4'
+    oldFile: !uuid '33a86504dc249ad7534f1cd1b674958f28621aa4'
+  /public/GoView截图.png:
+    newFile: null
+    oldFile: !uuid '617784ddd0bd05db620eaa05d1be21c8df39e438'
+gitCommitId: !uuid '56e82d96c64411af48a79882891f79ec6f5efcad'
 renames: {
   }
-revisionId: 388
+revisionId: 389
