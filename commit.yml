@@ -2,71 +2,34 @@
 branches: {
   }
 fileChange:
-  /README.md:
-    newFile: !uuid '86dbdacf2290fe9622c17797ee67948fe8a57954'
-    oldFile: !uuid 'b547830859fd0ca18314f3f95eacf962590ca3d7'
-  /public:
-    newFile: !uuid 'b2c9ab23f23622992b1ed8acb48f8a69d046b40c'
-    oldFile: !uuid 'd7daab3dd7f4d91bce84d0e843e76df242a5a95f'
-  /public/goView-QQ.png:
-    newFile: null
-    oldFile: !uuid 'daeed71275dda09baed1f3c51c5d367ecd6963f4'
-  /public/goView-canvas.png:
-    newFile: null
-    oldFile: !uuid '617784ddd0bd05db620eaa05d1be21c8df39e438'
-  /public/logo-poster.png:
-    newFile: null
-    oldFile: !uuid '1a6a32b499264450df2e0877133deb1b9dca79d5'
-  /public/logo-t-y.png:
-    newFile: null
-    oldFile: !uuid '9679a20d5258ec7f8c69bb6534e4901319f4b516'
-  /public/logo.png:
-    newFile: null
-    oldFile: !uuid 'd2ce95553d56063df82402d6fb1ae88ae9742604'
-  /readme:
-    newFile: !uuid '923d4f56167e2bd9af7dd4303308bc2c699f237e'
-    oldFile: null
-  /readme/goView-QQ.png:
-    newFile: !uuid 'daeed71275dda09baed1f3c51c5d367ecd6963f4'
-    oldFile: null
-  /readme/goView-canvas.png:
-    newFile: !uuid '617784ddd0bd05db620eaa05d1be21c8df39e438'
-    oldFile: null
-  /readme/logo-poster.png:
-    newFile: !uuid '1a6a32b499264450df2e0877133deb1b9dca79d5'
-    oldFile: null
-  /readme/logo-t-y.png:
-    newFile: !uuid '9679a20d5258ec7f8c69bb6534e4901319f4b516'
-    oldFile: null
-  /readme/logo.png:
-    newFile: !uuid 'd2ce95553d56063df82402d6fb1ae88ae9742604'
-    oldFile: null
   /src:
-    newFile: !uuid '75fbcd39f482a5903a8366f8f9b2777d016352c5'
-    oldFile: !uuid 'f8d3c6e96abfa1a660a6ae7f5822227fccc96603'
-  /src/packages:
-    newFile: !uuid '2f72e09e0843706098bcf9931ca9ab0629788d86'
-    oldFile: !uuid '672e69b69d3d727429fd1bd3739f1e84cf89fc03'
-  /src/packages/components:
-    newFile: !uuid '52dcaf6de848893e470b656b846810a78f800166'
-    oldFile: !uuid 'd282d0d4f7fbb31cbce67d5f499e9b1319c5f0c9'
-  /src/packages/components/Informations:
-    newFile: !uuid 'a3017942bd730e4c3e4bc8ff358671bc3aebc392'
-    oldFile: !uuid '1306c53f5e18a226e9b910eda68b1a339ded560c'
-  /src/packages/components/Informations/Mores:
-    newFile: !uuid 'a10875c194f08cee56a1ff958dec115c5a7838b9'
-    oldFile: !uuid '47dd72f3fcf4050fa5df140626401c5717f951ca'
-  /src/packages/components/Informations/Mores/Image:
-    newFile: !uuid 'aba87341aba731c8068e51fcd4638a5cb79be933'
-    oldFile: !uuid 'b2c417d56f69101f9539b17bae4b84c58a29fd0c'
-  /src/packages/components/Informations/Mores/Image/config.ts:
-    newFile: !uuid 'a91dccaf537fcf9d14ecb9ea4a06ff194f3db101'
-    oldFile: !uuid 'ec2bd666fe801dfcc5abd96e869353acc13123f8'
-gitCommitId: !uuid '6169d841ee07588f5b01372d6ce0f437289fd90b'
-renames:
-  /readme/goView-QQ.png: /public/goView-QQ.png
-  /readme/goView-canvas.png: /public/goView-canvas.png
-  /readme/logo-poster.png: /public/logo-poster.png
-  /readme/logo-t-y.png: /public/logo-t-y.png
-  /readme/logo.png: /public/logo.png
-revisionId: 395
+    newFile: !uuid 'bd4c40caeb40e71029fecf44f47cb6492ff18540'
+    oldFile: !uuid '75fbcd39f482a5903a8366f8f9b2777d016352c5'
+  /src/views:
+    newFile: !uuid 'db0f02300aeec4f5b0aeff61d057f0e626e2ca57'
+    oldFile: !uuid '4bb559273c18869cad33551087ec6e28fbd357ba'
+  /src/views/chart:
+    newFile: !uuid '939c28a498cb837dd6d01445d342e6d889ff1b5b'
+    oldFile: !uuid '5f2adebd195dfd7511fffb68c62b15f543582174'
+  /src/views/chart/ContentEdit:
+    newFile: !uuid '5d6cd9a4dd0806d0f245ab38a05ff291ce3f71f5'
+    oldFile: !uuid '2c63f7663916da6764e52fe80f968bfe4c122831'
+  /src/views/chart/ContentEdit/components:
+    newFile: !uuid '11492699f9a0b14cf48bab3e057e518677aa137c'
+    oldFile: !uuid 'b5f2249dbdc0b4320550c861e688ed311dab54fa'
+  /src/views/chart/ContentEdit/components/EditRule:
+    newFile: !uuid '203c76da31898eebdcd0f76dc1f041b186db3321'
+    oldFile: !uuid '1be6f7ece903220bd525b42cae86d5253c583463'
+  /src/views/chart/ContentEdit/components/EditRule/index.vue:
+    newFile: !uuid '74bcd0c4663a208e93a6baaffa9f6c6b299801d2'
+    oldFile: !uuid 'd6d5b58d7f40e444791e537321cf0c93a809ade7'
+  /src/views/chart/ContentEdit/components/EditWatermark:
+    newFile: !uuid '44c51bc942c53161f794bd5bcc89e293e9e9a3c1'
+    oldFile: !uuid 'cf70833f1f885762f05dcf209359252117dfb588'
+  /src/views/chart/ContentEdit/components/EditWatermark/index.vue:
+    newFile: !uuid '88fe42994d8c96c1263287eaded9793f54d9c2f6'
+    oldFile: !uuid '09dba8d8d5341d78daaab57039ed0d5ea6b61805'
+gitCommitId: !uuid '84864b759c1d52664f9edc98ecd19f73c3986679'
+renames: {
+  }
+revisionId: 396
