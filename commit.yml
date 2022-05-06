@@ -2,13 +2,71 @@
 branches: {
   }
 fileChange:
-  /package.json:
-    newFile: !uuid '024cf119d7faea6bda236f09b15c4637415493a9'
-    oldFile: !uuid 'b25402f87938682d4ba28ded6a724c4364a81887'
-  /pnpm-lock.yaml:
-    newFile: !uuid '05a318995f150c42969c51f7836ee8ce20194a24'
-    oldFile: !uuid 'a04190225dee16d1dcd79c5dd2e4f2ee5b432e65'
-gitCommitId: !uuid '47e04ba6e383e0465f53c3c982ed8b10cad298cf'
-renames: {
-  }
-revisionId: 1077
+  /README.md:
+    newFile: !uuid '86dbdacf2290fe9622c17797ee67948fe8a57954'
+    oldFile: !uuid 'b547830859fd0ca18314f3f95eacf962590ca3d7'
+  /public:
+    newFile: !uuid 'b2c9ab23f23622992b1ed8acb48f8a69d046b40c'
+    oldFile: !uuid 'd7daab3dd7f4d91bce84d0e843e76df242a5a95f'
+  /public/goView-QQ.png:
+    newFile: null
+    oldFile: !uuid 'daeed71275dda09baed1f3c51c5d367ecd6963f4'
+  /public/goView-canvas.png:
+    newFile: null
+    oldFile: !uuid '617784ddd0bd05db620eaa05d1be21c8df39e438'
+  /public/logo-poster.png:
+    newFile: null
+    oldFile: !uuid '1a6a32b499264450df2e0877133deb1b9dca79d5'
+  /public/logo-t-y.png:
+    newFile: null
+    oldFile: !uuid '9679a20d5258ec7f8c69bb6534e4901319f4b516'
+  /public/logo.png:
+    newFile: null
+    oldFile: !uuid 'd2ce95553d56063df82402d6fb1ae88ae9742604'
+  /readme:
+    newFile: !uuid '923d4f56167e2bd9af7dd4303308bc2c699f237e'
+    oldFile: null
+  /readme/goView-QQ.png:
+    newFile: !uuid 'daeed71275dda09baed1f3c51c5d367ecd6963f4'
+    oldFile: null
+  /readme/goView-canvas.png:
+    newFile: !uuid '617784ddd0bd05db620eaa05d1be21c8df39e438'
+    oldFile: null
+  /readme/logo-poster.png:
+    newFile: !uuid '1a6a32b499264450df2e0877133deb1b9dca79d5'
+    oldFile: null
+  /readme/logo-t-y.png:
+    newFile: !uuid '9679a20d5258ec7f8c69bb6534e4901319f4b516'
+    oldFile: null
+  /readme/logo.png:
+    newFile: !uuid 'd2ce95553d56063df82402d6fb1ae88ae9742604'
+    oldFile: null
+  /src:
+    newFile: !uuid '6034dedc312391e294f5c2627179c423570ef3c1'
+    oldFile: !uuid 'bffb4a2781786cdf3bed032a633e7a586fa95449'
+  /src/packages:
+    newFile: !uuid '2f72e09e0843706098bcf9931ca9ab0629788d86'
+    oldFile: !uuid '672e69b69d3d727429fd1bd3739f1e84cf89fc03'
+  /src/packages/components:
+    newFile: !uuid '52dcaf6de848893e470b656b846810a78f800166'
+    oldFile: !uuid 'd282d0d4f7fbb31cbce67d5f499e9b1319c5f0c9'
+  /src/packages/components/Informations:
+    newFile: !uuid 'a3017942bd730e4c3e4bc8ff358671bc3aebc392'
+    oldFile: !uuid '1306c53f5e18a226e9b910eda68b1a339ded560c'
+  /src/packages/components/Informations/Mores:
+    newFile: !uuid 'a10875c194f08cee56a1ff958dec115c5a7838b9'
+    oldFile: !uuid '47dd72f3fcf4050fa5df140626401c5717f951ca'
+  /src/packages/components/Informations/Mores/Image:
+    newFile: !uuid 'aba87341aba731c8068e51fcd4638a5cb79be933'
+    oldFile: !uuid 'b2c417d56f69101f9539b17bae4b84c58a29fd0c'
+  /src/packages/components/Informations/Mores/Image/config.ts:
+    newFile: !uuid 'a91dccaf537fcf9d14ecb9ea4a06ff194f3db101'
+    oldFile: !uuid 'ec2bd666fe801dfcc5abd96e869353acc13123f8'
+gitCommitId: !uuid '60ec01eb324b88457b98eb366ad35949613a3eb1'
+renames:
+  /readme/goView-QQ.png: /public/goView-QQ.png
+  /readme/goView-canvas.png: /public/goView-canvas.png
+  /readme/logo-poster.png: /public/logo-poster.png
+  /readme/logo-t-y.png: /public/logo-t-y.png
+  /readme/logo.png: /public/logo.png
+revisionId: 1078
