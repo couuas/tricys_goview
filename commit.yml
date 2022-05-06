@@ -2,31 +2,13 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid 'f8d3c6e96abfa1a660a6ae7f5822227fccc96603'
-    oldFile: !uuid '4af8fbe989ba18444ff0051b9860252d944858d7'
-  /src/views:
-    newFile: !uuid '4bb559273c18869cad33551087ec6e28fbd357ba'
-    oldFile: !uuid '7276f3a5ee087c56ced56c362c5d7fd39c891514'
-  /src/views/project:
-    newFile: !uuid '3cf908a0fd20aded6b0ebf1f359fc081f7c779f0'
-    oldFile: !uuid '5ffe6ed5f4adf1a4c6357d5222a7d645c2d8018e'
-  /src/views/project/items:
-    newFile: !uuid '0d090563709699b4bec103b9e0bbc7445eb38b0e'
-    oldFile: !uuid '7e83fec17af854e2cf69c446fec469b766b84098'
-  /src/views/project/items/components:
-    newFile: !uuid 'b718394362660c5a061506995c2ea516fa947411'
-    oldFile: !uuid 'e5965b490ea91498ed4c78809920a7b2c51fcf18'
-  /src/views/project/items/components/ProjectItemsList:
-    newFile: !uuid '1c4fccc699da5f5bc24eccfba9be4eb18e49f702'
-    oldFile: !uuid '198d97968b2a99ef95e438f3e32e86841dc21fa5'
-  /src/views/project/items/components/ProjectItemsList/hooks:
-    newFile: !uuid '4bcdfa727e4a2e18cc2d126782e808a64711cc16'
-    oldFile: !uuid '14b3e3fd2d76673f6d5687fa599c6b6b71e2d926'
-  /src/views/project/items/components/ProjectItemsList/hooks/useData.hook.ts:
-    newFile: !uuid '1c38b116e3c5247ae5225451f4c560baa14f90cd'
-    oldFile: !uuid '44f9580c22bd1f214820d451ef7e5abc4fb76a19'
-gitCommitId: !uuid '99517313f79dfbd6ed32601966f8f69896b6d60d'
+  /package.json:
+    newFile: !uuid '024cf119d7faea6bda236f09b15c4637415493a9'
+    oldFile: !uuid 'b25402f87938682d4ba28ded6a724c4364a81887'
+  /pnpm-lock.yaml:
+    newFile: !uuid '05a318995f150c42969c51f7836ee8ce20194a24'
+    oldFile: !uuid 'a04190225dee16d1dcd79c5dd2e4f2ee5b432e65'
+gitCommitId: !uuid 'e9363df52335f7c55ed1d8afe5a16e01beb1b0de'
 renames: {
   }
-revisionId: 393
+revisionId: 394
