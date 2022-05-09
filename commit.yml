@@ -3,9 +3,12 @@ branches: {
   }
 fileChange:
   /package.json:
-    newFile: !uuid '71b254a891852dd0d26e1b68b42d32901edccf41'
-    oldFile: !uuid 'ffba89739fd2dc511257918e7206f358022121ed'
-gitCommitId: !uuid '1e188dd26b4ea7196fdee08c5e744b2880eaa677'
+    newFile: !uuid 'f0a90cb8877a9b7ccf85eb8475c4650e6d8244d5'
+    oldFile: !uuid '71b254a891852dd0d26e1b68b42d32901edccf41'
+  /pnpm-lock.yaml:
+    newFile: !uuid '5cd8e2bffba40218d11b174de27f2d9bc61e4579'
+    oldFile: !uuid '05a318995f150c42969c51f7836ee8ce20194a24'
+gitCommitId: !uuid 'ca8e08f3dbeabe5412d54235fe33bd0f1636f06d'
 renames: {
   }
-revisionId: 1083
+revisionId: 1084
