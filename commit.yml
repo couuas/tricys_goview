@@ -2,10 +2,40 @@
 branches: {
   }
 fileChange:
-  /package.json:
-    newFile: !uuid 'ffba89739fd2dc511257918e7206f358022121ed'
-    oldFile: !uuid '024cf119d7faea6bda236f09b15c4637415493a9'
-gitCommitId: !uuid 'd3caa77ba342537c9ca6b7c08ee9628b6c8b0ad7'
+  /src:
+    newFile: !uuid '8a66cb1d81a918493624eeb1ff2485a8e3eb196e'
+    oldFile: !uuid 'bd4c40caeb40e71029fecf44f47cb6492ff18540'
+  /src/components:
+    newFile: !uuid 'e378636d5c591991260f8cfd3b132aaeffca2ceb'
+    oldFile: !uuid '3b2ea82099e44093929527142cdd76eda68a062a'
+  /src/components/Pages:
+    newFile: !uuid '475181716ed92a96c1e0ae5a16d0215dc2e100cb'
+    oldFile: !uuid 'fb0258b2ed8b76409f2ad44a5e3d978a01b183b2'
+  /src/components/Pages/ChartItemSetting:
+    newFile: !uuid '7142d255181b8e1381ba4f83a63cb4c1e33c15e4'
+    oldFile: !uuid '758a6044977762ec24482e1c58a16c9ee72ec7a2'
+  /src/components/Pages/ChartItemSetting/PositionSetting.vue:
+    newFile: !uuid '82f17bd08f4692bb0523ae5133e5e75a36c5207a'
+    oldFile: !uuid '173910f58d80981c14e6a2efd89e6dfe1c6e8a49'
+  /src/packages:
+    newFile: !uuid '3b3a704692dff09ec150c90454044c8804493dce'
+    oldFile: !uuid '2f72e09e0843706098bcf9931ca9ab0629788d86'
+  /src/packages/components:
+    newFile: !uuid '5433e607d2f5f3b8d6bd70978c3b42e75bea2558'
+    oldFile: !uuid '52dcaf6de848893e470b656b846810a78f800166'
+  /src/packages/components/Charts:
+    newFile: !uuid '921182e90fdb543dd5cb2bbdecd7bbe82b8407a9'
+    oldFile: !uuid '67165f290c6a1b66e4550df9a99aa3db9f785131'
+  /src/packages/components/Charts/Mores:
+    newFile: !uuid '04241bc973000ec72c251ee09099f4957dbdfa62'
+    oldFile: !uuid '01727035676d041a6b599672ee55e093bf742981'
+  /src/packages/components/Charts/Mores/WaterPolo:
+    newFile: !uuid 'c2ece29621980bc866fab0e2e5f3ae4df389bc3d'
+    oldFile: !uuid '7c92d73df4e06ba1ea68cec3c6479c6a548e39f0'
+  /src/packages/components/Charts/Mores/WaterPolo/config.vue:
+    newFile: !uuid '029b9919ac33499915a50e11d269491f8cb0bda5'
+    oldFile: !uuid 'f96ca8e909552aa64d4d9f8928f9cb84e6664725'
+gitCommitId: !uuid '0ef0b65b02a504c1c416f1e09d07e994274f2301'
 renames: {
   }
-revisionId: 397
+revisionId: 398
