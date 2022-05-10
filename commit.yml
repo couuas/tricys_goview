@@ -3,47 +3,18 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'c4a4a091a78ff00656a13cdd39e7a25393bcee97'
-    oldFile: !uuid '2912191928cd39ef11a6cf6cfee5fb8d504d14c4'
-  /src/packages:
-    newFile: !uuid '218e535f661ea62d747d3121d7bc5dbef3584eef'
-    oldFile: !uuid 'd4600966504a3830c2291915c2c86a096ccc5dc4'
-  /src/packages/components:
-    newFile: !uuid '4ec0b828e66cd5d9de06cba389e5e6dd435ece2d'
-    oldFile: !uuid '2b6c95efaea3de89815ce1389c8a8dd89f8d55ee'
-  /src/packages/components/Tables:
-    newFile: !uuid 'fc186e3e31992044a53721e17459c550f67088f9'
-    oldFile: !uuid '4b80ad5b43c3fab2338d7f5c3ac25cb2ea99ae92'
-  /src/packages/components/Tables/Tables:
-    newFile: !uuid '92759be9ce98407df38886d8da71b6f8738cd994'
-    oldFile: !uuid '340cd44a048b5a218964b8c7ea0a86f1ab71aa26'
-  /src/packages/components/Tables/Tables/TableCommon:
-    newFile: !uuid 'feeecb76875a36acb4b0ede13aeb570c48ef5378'
-    oldFile: null
-  /src/packages/components/Tables/Tables/TableCommon/config.vue:
-    newFile: !uuid '542020b3985de0b3c80e679de37ea145cf905128'
-    oldFile: null
-  /src/packages/components/Tables/Tables/TableCommon/index.ts:
-    newFile: !uuid '30bdc60650c1e7247e997759f0578f9a6804fdc6'
-    oldFile: null
-  /src/packages/components/Tables/Tables/TableCommon/index.vue:
-    newFile: !uuid '07db6abce6b6178324d8bce208b26e859ccc9068'
-    oldFile: null
-  /src/packages/components/Tables/Tables/tableCommon:
-    newFile: null
-    oldFile: !uuid 'feeecb76875a36acb4b0ede13aeb570c48ef5378'
-  /src/packages/components/Tables/Tables/tableCommon/config.vue:
-    newFile: null
-    oldFile: !uuid '542020b3985de0b3c80e679de37ea145cf905128'
-  /src/packages/components/Tables/Tables/tableCommon/index.ts:
-    newFile: null
-    oldFile: !uuid '30bdc60650c1e7247e997759f0578f9a6804fdc6'
-  /src/packages/components/Tables/Tables/tableCommon/index.vue:
-    newFile: null
-    oldFile: !uuid '07db6abce6b6178324d8bce208b26e859ccc9068'
-gitCommitId: !uuid '8fcd2a914194532333fc7a763df88c8b7491b43a'
-renames:
-  /src/packages/components/Tables/Tables/TableCommon/config.vue: /src/packages/components/Tables/Tables/tableCommon/config.vue
-  /src/packages/components/Tables/Tables/TableCommon/index.ts: /src/packages/components/Tables/Tables/tableCommon/index.ts
-  /src/packages/components/Tables/Tables/TableCommon/index.vue: /src/packages/components/Tables/Tables/tableCommon/index.vue
-revisionId: 1091
+    newFile: !uuid '5e37aae29b8b3df2e005fe61af650c39e9931fb4'
+    oldFile: !uuid 'c4a4a091a78ff00656a13cdd39e7a25393bcee97'
+  /src/api:
+    newFile: !uuid '39d890021d8ae1a1fac8428eb98bcae636e5f1d9'
+    oldFile: !uuid '76a9601a9af642a1f4a2f573989585e0840b335a'
+  /src/api/mock:
+    newFile: !uuid '5f5b0a98639a778937f39cce9dc5ad7d999066bf'
+    oldFile: !uuid '8319e678caa581b1dd519d789ea19cf96f4ed73a'
+  /src/api/mock/test.mock.ts:
+    newFile: !uuid '4f0478a618d35d1c743e86c57c67abc4bd932478'
+    oldFile: !uuid '0fc97df5ef85b66da965f809287a8f73951b9737'
+gitCommitId: !uuid 'c4c457288542274c87e7a467236a1785dfc071fa'
+renames: {
+  }
+revisionId: 1092
