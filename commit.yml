@@ -3,18 +3,15 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '5e37aae29b8b3df2e005fe61af650c39e9931fb4'
-    oldFile: !uuid 'c4a4a091a78ff00656a13cdd39e7a25393bcee97'
-  /src/api:
-    newFile: !uuid '39d890021d8ae1a1fac8428eb98bcae636e5f1d9'
-    oldFile: !uuid '76a9601a9af642a1f4a2f573989585e0840b335a'
-  /src/api/mock:
-    newFile: !uuid '5f5b0a98639a778937f39cce9dc5ad7d999066bf'
-    oldFile: !uuid '8319e678caa581b1dd519d789ea19cf96f4ed73a'
-  /src/api/mock/test.mock.ts:
-    newFile: !uuid '4f0478a618d35d1c743e86c57c67abc4bd932478'
-    oldFile: !uuid '0fc97df5ef85b66da965f809287a8f73951b9737'
-gitCommitId: !uuid 'c4c457288542274c87e7a467236a1785dfc071fa'
+    newFile: !uuid 'fdbd35bcd2097d11a8f97035e1bbe43d3c61feca'
+    oldFile: !uuid '5e37aae29b8b3df2e005fe61af650c39e9931fb4'
+  /src/settings:
+    newFile: !uuid '0692165b503fcc6edb1812fd48984ae5a347de6a'
+    oldFile: !uuid 'bf5de9ac464ff820c469c9943c5bfabed3dca64d'
+  /src/settings/systemSetting.ts:
+    newFile: !uuid '65ccc4b28932f84a4c1e7aa105fcf98346402fb0'
+    oldFile: !uuid 'ed72c6edbd34801a72d7016a497ca990dfefc8ba'
+gitCommitId: !uuid 'c5eefec24d5bca2fa11c4a9310727c78b7c195e4'
 renames: {
   }
-revisionId: 1092
+revisionId: 1093
