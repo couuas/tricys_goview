@@ -3,89 +3,18 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '69b02ad69c104d735f9bff5dc39042f3a320f1ba'
-    oldFile: !uuid '02c4e6b2936b1e35e56905b12675c7dc1071ec4b'
+    newFile: !uuid '379cf1d7bdd34e60a4a24cdc54bb1cd1e6fe04b4'
+    oldFile: !uuid '69b02ad69c104d735f9bff5dc39042f3a320f1ba'
   /src/views:
-    newFile: !uuid '3c5c9f9b4ae922d6326c3bb7497072ef2c0819d4'
-    oldFile: !uuid '11173d24bce24f1c7f38f8b61234c5bd6202d54c'
+    newFile: !uuid '95c73912d55bc3c0309e9454a8cee44cfe318d78'
+    oldFile: !uuid '3c5c9f9b4ae922d6326c3bb7497072ef2c0819d4'
   /src/views/chart:
-    newFile: !uuid 'd15392009501241e6a0c3a8093238d780f47f48b'
-    oldFile: !uuid '769db033dedb11b055f7c2ae43e603e83e6415db'
-  /src/views/chart/ContentHeader:
-    newFile: !uuid '0262125cbf33769e2f7f356a2146c06262041925'
-    oldFile: null
-  /src/views/chart/ContentHeader/headerLeftBtn:
-    newFile: !uuid '853eeaf995a27094779d6dc8ca3dfee74ab1fa34'
-    oldFile: null
-  /src/views/chart/ContentHeader/headerLeftBtn/index.ts:
-    newFile: !uuid '1a76146a8e053323b769cd454a327b0547d72095'
-    oldFile: null
-  /src/views/chart/ContentHeader/headerLeftBtn/index.vue:
-    newFile: !uuid 'ceb6939a4b56118885efb64feb6c08053683a85b'
-    oldFile: null
-  /src/views/chart/ContentHeader/headerRightBtn:
-    newFile: !uuid '68a8fa8ea857f249729ba08835015e2761ced22f'
-    oldFile: null
-  /src/views/chart/ContentHeader/headerRightBtn/index.ts:
-    newFile: !uuid 'd6b6debed0a4786f6eec009f16e95f69ffba33c0'
-    oldFile: null
-  /src/views/chart/ContentHeader/headerRightBtn/index.vue:
-    newFile: !uuid '463508d6ae8bfbbc017b92f7700d3568e3a1dfd3'
-    oldFile: null
-  /src/views/chart/ContentHeader/headerTitle:
-    newFile: !uuid '1396249c4b7f1344efb03dea061ff3174964322e'
-    oldFile: null
-  /src/views/chart/ContentHeader/headerTitle/index.ts:
-    newFile: !uuid '19b5dbcbfb98d2c8109dc37d6d117ef211d891db'
-    oldFile: null
-  /src/views/chart/ContentHeader/headerTitle/index.vue:
-    newFile: !uuid 'a0cebe509d13afdf73f047b765845d59af6059e4'
-    oldFile: null
-  /src/views/chart/contentHeader:
-    newFile: null
-    oldFile: !uuid '0262125cbf33769e2f7f356a2146c06262041925'
-  /src/views/chart/contentHeader/headerLeftBtn:
-    newFile: null
-    oldFile: !uuid '853eeaf995a27094779d6dc8ca3dfee74ab1fa34'
-  /src/views/chart/contentHeader/headerLeftBtn/index.ts:
-    newFile: null
-    oldFile: !uuid '1a76146a8e053323b769cd454a327b0547d72095'
-  /src/views/chart/contentHeader/headerLeftBtn/index.vue:
-    newFile: null
-    oldFile: !uuid 'ceb6939a4b56118885efb64feb6c08053683a85b'
-  /src/views/chart/contentHeader/headerRightBtn:
-    newFile: null
-    oldFile: !uuid '68a8fa8ea857f249729ba08835015e2761ced22f'
-  /src/views/chart/contentHeader/headerRightBtn/index.ts:
-    newFile: null
-    oldFile: !uuid 'd6b6debed0a4786f6eec009f16e95f69ffba33c0'
-  /src/views/chart/contentHeader/headerRightBtn/index.vue:
-    newFile: null
-    oldFile: !uuid '463508d6ae8bfbbc017b92f7700d3568e3a1dfd3'
-  /src/views/chart/contentHeader/headerTitle:
-    newFile: null
-    oldFile: !uuid '1396249c4b7f1344efb03dea061ff3174964322e'
-  /src/views/chart/contentHeader/headerTitle/index.ts:
-    newFile: null
-    oldFile: !uuid '19b5dbcbfb98d2c8109dc37d6d117ef211d891db'
-  /src/views/chart/contentHeader/headerTitle/index.vue:
-    newFile: null
-    oldFile: !uuid 'a0cebe509d13afdf73f047b765845d59af6059e4'
-  /src/views/preview:
-    newFile: !uuid '37aa649a6e33e6a7e3b30f95ac60902a33afa242'
-    oldFile: !uuid '92af81964b341d671bf4262f647ee91827de7a9b'
-  /src/views/preview/hooks:
-    newFile: !uuid 'a6c12113cefa77dd1cfa19cd2340f8c059175978'
-    oldFile: !uuid '7313115c7e13cdc93a5133446b719ad5e7cf32bb'
-  /src/views/preview/hooks/useScale.hook.ts:
-    newFile: !uuid '0db5e48b9100bf69b1ecd04b02c31952c75644c7'
-    oldFile: !uuid '7ed7040b7603db7d9fccb905a70690870dc1c6b1'
-gitCommitId: !uuid 'b37ba4169471a8746244bacbfdd23fbe5e89e4ca'
-renames:
-  /src/views/chart/ContentHeader/headerLeftBtn/index.ts: /src/views/chart/contentHeader/headerLeftBtn/index.ts
-  /src/views/chart/ContentHeader/headerLeftBtn/index.vue: /src/views/chart/contentHeader/headerLeftBtn/index.vue
-  /src/views/chart/ContentHeader/headerRightBtn/index.ts: /src/views/chart/contentHeader/headerRightBtn/index.ts
-  /src/views/chart/ContentHeader/headerRightBtn/index.vue: /src/views/chart/contentHeader/headerRightBtn/index.vue
-  /src/views/chart/ContentHeader/headerTitle/index.ts: /src/views/chart/contentHeader/headerTitle/index.ts
-  /src/views/chart/ContentHeader/headerTitle/index.vue: /src/views/chart/contentHeader/headerTitle/index.vue
-revisionId: 1086
+    newFile: !uuid 'c9075ad1121dcbc7e58608d6ed1c556ba22cb635'
+    oldFile: !uuid 'd15392009501241e6a0c3a8093238d780f47f48b'
+  /src/views/chart/index.vue:
+    newFile: !uuid '46cbfe3ef4969d19c734f6d40a4f1725ea580f6d'
+    oldFile: !uuid 'f856da371b61c7eed0a0317fee880910f6a73bc6'
+gitCommitId: !uuid '77ff376e75fbb3eaac6a344c968eb13ebfa5c9f9'
+renames: {
+  }
+revisionId: 1087
