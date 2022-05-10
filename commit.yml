@@ -3,51 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '9202e769d6bf4dd29925cb90e925291b3cc3cdb3'
-    oldFile: !uuid '7bad7774e43490861edd352a957d9d26ab506d41'
-  /src/packages:
-    newFile: !uuid 'd4600966504a3830c2291915c2c86a096ccc5dc4'
-    oldFile: !uuid '748ea759dbce74bd2d4c934cf136458976664ecf'
-  /src/packages/components:
-    newFile: !uuid '2b6c95efaea3de89815ce1389c8a8dd89f8d55ee'
-    oldFile: !uuid '9eac1928f6d0545d70b65c3e015afa4db97959e0'
-  /src/packages/components/Informations:
-    newFile: !uuid '7a78d4998683bbe7815871750671b31062a12f03'
-    oldFile: !uuid 'a3017942bd730e4c3e4bc8ff358671bc3aebc392'
-  /src/packages/components/Informations/Mores:
-    newFile: !uuid 'e70ae31372c3d1f4213c4075a08caa2485bbf5cb'
-    oldFile: !uuid 'a10875c194f08cee56a1ff958dec115c5a7838b9'
-  /src/packages/components/Informations/Mores/TextCloud:
-    newFile: !uuid 'c25cca41f8d0f5cf2f1fafa308c650df69285462'
-    oldFile: !uuid 'ff508856327a3f9a373d65c55c9ad658ade24b5e'
-  /src/packages/components/Informations/Mores/TextCloud/index.ts:
-    newFile: !uuid 'edc04d887881fb0e04c5617cffd70c5145b156e1'
-    oldFile: !uuid '54fa2c3ad16e9ac178a9a40cab1009bb865f1079'
-  /src/packages/components/Tables:
-    newFile: !uuid '4b80ad5b43c3fab2338d7f5c3ac25cb2ea99ae92'
-    oldFile: !uuid '38b00e431a575e9bccdb5f5a528fcde6a9b7c19b'
-  /src/packages/components/Tables/Tables:
-    newFile: !uuid '340cd44a048b5a218964b8c7ea0a86f1ab71aa26'
-    oldFile: !uuid 'd13b4081eb2dbfb46aa6ba7a848e1a94d4f63389'
-  /src/packages/components/Tables/Tables/TableCategory:
-    newFile: !uuid 'cd428aede11da11f22091cad0128eb067be496d0'
-    oldFile: !uuid '1e7904eddaee52bf6d3846c0f2222fec393dd76b'
-  /src/packages/components/Tables/Tables/TableCategory/index.ts:
-    newFile: !uuid 'e8031e5b0a79f9ae04005a58e8a0854ce1d376f3'
-    oldFile: !uuid '00712bb6976248ae22674f3664b87f9178e8491e'
-  /src/packages/components/Tables/Tables/TableList:
-    newFile: !uuid '4d936f6ba18640cf72e82ac547f636d3e44bb90f'
-    oldFile: !uuid 'c9521aa1fa9d975a5f322bd3bda73db85d35f4ed'
-  /src/packages/components/Tables/Tables/TableList/index.ts:
-    newFile: !uuid 'a8e8c4bee6e7bc329570e748dfd4ac4dbf2d6203'
-    oldFile: !uuid '1e443fefe7e6dfcb408ba84d07035a32ccde98cd'
-  /src/packages/components/Tables/Tables/tableCommon:
-    newFile: !uuid 'feeecb76875a36acb4b0ede13aeb570c48ef5378'
-    oldFile: !uuid '7527f6f557a91f53792d2780ea91bb07e6275bd6'
-  /src/packages/components/Tables/Tables/tableCommon/index.ts:
-    newFile: !uuid '30bdc60650c1e7247e997759f0578f9a6804fdc6'
-    oldFile: !uuid 'aecbdb095cdb41e4d6af2329ba2d5c167d48bc8b'
-gitCommitId: !uuid 'e797879e0da5922fc1f6ac9342c9c62c6da32a29'
+    newFile: !uuid '2912191928cd39ef11a6cf6cfee5fb8d504d14c4'
+    oldFile: !uuid '9202e769d6bf4dd29925cb90e925291b3cc3cdb3'
+  /src/views:
+    newFile: !uuid '0ea2e4ae82261a726f66e2d341567ea226fde156'
+    oldFile: !uuid 'f3f32c69df2efa36aed91017307899e7bcc95699'
+  /src/views/chart:
+    newFile: !uuid 'd943fb9296d80ab00d5e092bd9e320860f778dbe'
+    oldFile: !uuid '0c62b2943dca8943876b4687a1c6d39764fadf5e'
+  /src/views/chart/ContentCharts:
+    newFile: !uuid 'b19f6ee27e3a1da0bbb29117a5c7378c2b066594'
+    oldFile: !uuid '98081b58da0fc1cf83ee56535c9783ad4606746b'
+  /src/views/chart/ContentCharts/index.vue:
+    newFile: !uuid '3f81d0492efd684f8da81d03528fa87d095b1d5c'
+    oldFile: !uuid '2ffe8be33b2b72453160ee5ab3f398562d00343c'
+  /src/views/chart/ContentLayers:
+    newFile: !uuid 'd8409bf19551f39841c6a266944cc6284445a0d1'
+    oldFile: !uuid '502fff378ed665320439ab5a4adc1280612462d0'
+  /src/views/chart/ContentLayers/index.vue:
+    newFile: !uuid 'f921c4c6d1e64ac271812918fd049e3bf95eb89c'
+    oldFile: !uuid 'a5f9985155d61394ed131f186fd806459b42265c'
+gitCommitId: !uuid '71c71164936142d0c0afff2d6d3536029b930405'
 renames: {
   }
-revisionId: 1089
+revisionId: 1090
