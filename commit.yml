@@ -3,27 +3,51 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '998146cc19e5eddcce86cf477c036294182351f7'
-    oldFile: !uuid '4bc051385dc411a99fb2a4c00cb21e8a14c7a986'
-  /src/views:
-    newFile: !uuid 'f3f32c69df2efa36aed91017307899e7bcc95699'
-    oldFile: !uuid '95c73912d55bc3c0309e9454a8cee44cfe318d78'
-  /src/views/chart:
-    newFile: !uuid '0c62b2943dca8943876b4687a1c6d39764fadf5e'
-    oldFile: !uuid 'c9075ad1121dcbc7e58608d6ed1c556ba22cb635'
-  /src/views/chart/ContentConfigurations:
-    newFile: !uuid '7b06e82c8d9516079b598619b8dfbaa80e38b16a'
-    oldFile: !uuid 'f2baeec971f50bb19f83f348ed9e90bcc9c8f218'
-  /src/views/chart/ContentConfigurations/index.vue:
-    newFile: !uuid '9117594ad71bbedeb8090b5816c40e106c582595'
-    oldFile: !uuid 'baedfe13a7204544e7d122619e542683f76e1f0f'
-  /src/views/chart/ContentEdit:
-    newFile: !uuid '51db1f0f899b6ebd5a6a8927765bfc89aa9e7aa6'
-    oldFile: !uuid '5d6cd9a4dd0806d0f245ab38a05ff291ce3f71f5'
-  /src/views/chart/ContentEdit/index.vue:
-    newFile: !uuid '27a017c26b3cecb2e9e0baecc8ddb60c69a6752c'
-    oldFile: !uuid '903342d8a8cc186a02ab8836f963a4246c3b56c7'
-gitCommitId: !uuid 'b4da5a925d812c851cf059e032df17a7a5207678'
+    newFile: !uuid 'a96ae226563ef545b833242a2eb033b69d6d5d04'
+    oldFile: !uuid '998146cc19e5eddcce86cf477c036294182351f7'
+  /src/packages:
+    newFile: !uuid 'd4600966504a3830c2291915c2c86a096ccc5dc4'
+    oldFile: !uuid '748ea759dbce74bd2d4c934cf136458976664ecf'
+  /src/packages/components:
+    newFile: !uuid '2b6c95efaea3de89815ce1389c8a8dd89f8d55ee'
+    oldFile: !uuid '9eac1928f6d0545d70b65c3e015afa4db97959e0'
+  /src/packages/components/Informations:
+    newFile: !uuid '7a78d4998683bbe7815871750671b31062a12f03'
+    oldFile: !uuid 'a3017942bd730e4c3e4bc8ff358671bc3aebc392'
+  /src/packages/components/Informations/Mores:
+    newFile: !uuid 'e70ae31372c3d1f4213c4075a08caa2485bbf5cb'
+    oldFile: !uuid 'a10875c194f08cee56a1ff958dec115c5a7838b9'
+  /src/packages/components/Informations/Mores/TextCloud:
+    newFile: !uuid 'c25cca41f8d0f5cf2f1fafa308c650df69285462'
+    oldFile: !uuid 'ff508856327a3f9a373d65c55c9ad658ade24b5e'
+  /src/packages/components/Informations/Mores/TextCloud/index.ts:
+    newFile: !uuid 'edc04d887881fb0e04c5617cffd70c5145b156e1'
+    oldFile: !uuid '54fa2c3ad16e9ac178a9a40cab1009bb865f1079'
+  /src/packages/components/Tables:
+    newFile: !uuid '4b80ad5b43c3fab2338d7f5c3ac25cb2ea99ae92'
+    oldFile: !uuid '38b00e431a575e9bccdb5f5a528fcde6a9b7c19b'
+  /src/packages/components/Tables/Tables:
+    newFile: !uuid '340cd44a048b5a218964b8c7ea0a86f1ab71aa26'
+    oldFile: !uuid 'd13b4081eb2dbfb46aa6ba7a848e1a94d4f63389'
+  /src/packages/components/Tables/Tables/TableCategory:
+    newFile: !uuid 'cd428aede11da11f22091cad0128eb067be496d0'
+    oldFile: !uuid '1e7904eddaee52bf6d3846c0f2222fec393dd76b'
+  /src/packages/components/Tables/Tables/TableCategory/index.ts:
+    newFile: !uuid 'e8031e5b0a79f9ae04005a58e8a0854ce1d376f3'
+    oldFile: !uuid '00712bb6976248ae22674f3664b87f9178e8491e'
+  /src/packages/components/Tables/Tables/TableList:
+    newFile: !uuid '4d936f6ba18640cf72e82ac547f636d3e44bb90f'
+    oldFile: !uuid 'c9521aa1fa9d975a5f322bd3bda73db85d35f4ed'
+  /src/packages/components/Tables/Tables/TableList/index.ts:
+    newFile: !uuid 'a8e8c4bee6e7bc329570e748dfd4ac4dbf2d6203'
+    oldFile: !uuid '1e443fefe7e6dfcb408ba84d07035a32ccde98cd'
+  /src/packages/components/Tables/Tables/tableCommon:
+    newFile: !uuid 'feeecb76875a36acb4b0ede13aeb570c48ef5378'
+    oldFile: !uuid '7527f6f557a91f53792d2780ea91bb07e6275bd6'
+  /src/packages/components/Tables/Tables/tableCommon/index.ts:
+    newFile: !uuid '30bdc60650c1e7247e997759f0578f9a6804fdc6'
+    oldFile: !uuid 'aecbdb095cdb41e4d6af2329ba2d5c167d48bc8b'
+gitCommitId: !uuid '01bb9a89395701be1f585ffb1e9c5caf2dc07598'
 renames: {
   }
-revisionId: 405
+revisionId: 406
