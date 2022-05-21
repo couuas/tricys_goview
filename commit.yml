@@ -3,18 +3,42 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '3d718d35f90e609d6525c1a1329d616d74deec06'
-    oldFile: !uuid '946d1eaae2b4bffc20e56586448994ac868a1073'
+    newFile: !uuid '2042ba24260b8fe330caafbf9fbf29722c6be55e'
+    oldFile: !uuid '3d718d35f90e609d6525c1a1329d616d74deec06'
+  /src/i18n:
+    newFile: !uuid '07138e87f4cc2588d33236fb4f550411e34e8fde'
+    oldFile: !uuid 'd088071958b47830fb94cd32234ef0d6bab1617f'
+  /src/i18n/en:
+    newFile: !uuid 'f8200b018fabc13378c373455d2b28606f45b847'
+    oldFile: !uuid 'c9c521d5988080d7b4a9d7a2e95ee60f46d45c2b'
+  /src/i18n/en/index.ts:
+    newFile: !uuid 'a83af4ab9913519a363151cabdbbcd77bf528199'
+    oldFile: !uuid 'c55b33bbe8ef7f18e7802accb5c2e205ce4e22a8'
+  /src/i18n/zh:
+    newFile: !uuid 'c932fef57fd2a42c04aeab6b6c6454942d97c151'
+    oldFile: !uuid '67bf61f70e7e8a60568471b360c2c4e65ac148b3'
+  /src/i18n/zh/index.ts:
+    newFile: !uuid 'c67bb10388b496408c39cf5a9efe798d281886c6'
+    oldFile: !uuid '81918edcb5cd78a967d4ad1127471e3e2bd25e8c'
+  /src/i18n/zh/login.ts:
+    newFile: !uuid '96182694502710c65c6f527343e8f252e76ec955'
+    oldFile: !uuid '38d53eabe4ee1221aca6e961d138c551bde9a4d1'
+  /src/utils:
+    newFile: !uuid '3152539872ed03f19e44b06784b7972b4018e4b0'
+    oldFile: !uuid '42da92190ede9b283b9553bdd47654a38599dac5'
+  /src/utils/router.ts:
+    newFile: !uuid 'e5235399c9cbc61d840336e85684cebc41b43f7b'
+    oldFile: !uuid 'f4a1396c6a46823523ca26e4c6ae6dd15ce34e9c'
   /src/views:
-    newFile: !uuid 'c140de83af1bacc01dbbd38fa5dd20ab83adc7c8'
-    oldFile: !uuid 'c8aa685301d1dedc420b38a0c29f2db7c90ee6a2'
+    newFile: !uuid '53a04ab4b7a08cf7d1cfd05c37f4b6197026e376'
+    oldFile: !uuid 'c140de83af1bacc01dbbd38fa5dd20ab83adc7c8'
   /src/views/login:
-    newFile: !uuid '3f1fa4b5729932c75d0abb868e2389c4ef570c37'
-    oldFile: !uuid '73b5ee1f84e8f6a5034ae99b6ec4069892e6c40b'
+    newFile: !uuid 'f8c7e754bdd468d724fce21f96b3cf1abe8b742f'
+    oldFile: !uuid '3f1fa4b5729932c75d0abb868e2389c4ef570c37'
   /src/views/login/index.vue:
-    newFile: !uuid '734087e1e9eef255854b8ed9958181f6ee9c2f35'
-    oldFile: !uuid 'cf1422e1023807d92f19c4ca3a053b206da8ff48'
-gitCommitId: !uuid 'a07d4daed57f450910bdb7224aadf3819c2df678'
+    newFile: !uuid '616ecae85c64f538890588e1f36c48780cfc4237'
+    oldFile: !uuid '734087e1e9eef255854b8ed9958181f6ee9c2f35'
+gitCommitId: !uuid 'c754a36ee5f9fbaa0e99573c169729be579d7203'
 renames: {
   }
-revisionId: 428
+revisionId: 429
