@@ -2,34 +2,13 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid 'ff344e669d45611401fa3a81778fcdb41483b284'
-    oldFile: !uuid '2042ba24260b8fe330caafbf9fbf29722c6be55e'
-  /src/views:
-    newFile: !uuid 'e2b78b7f89fb017594dffdf6dfb3b4c93289a1e4'
-    oldFile: !uuid '53a04ab4b7a08cf7d1cfd05c37f4b6197026e376'
-  /src/views/project:
-    newFile: !uuid '5d37d855e80247421c925904c4440a9fb40b403a'
-    oldFile: !uuid '7ee86b52d9100712867f98245b979667895bd0bd'
-  /src/views/project/layout:
-    newFile: !uuid '34ecd36ef21f2db5272fb93323637ac662cd2ba7'
-    oldFile: !uuid 'c62c1e24dd29019226803b07f0c312497c07a293'
-  /src/views/project/layout/components:
-    newFile: !uuid 'cbd7c4b2baccc74bd2aaf54cff9571b5f6902c31'
-    oldFile: !uuid '9f80d6f9d3868ccfdbafe9e13f515a3f1e23d2a8'
-  /src/views/project/layout/components/ProjectLayoutCreate:
-    newFile: !uuid 'fe9587bcdab0ce0af68cba08353bc593a8576e53'
-    oldFile: !uuid 'e67a1f32bf814db728198bbc15b78cad805371ad'
-  /src/views/project/layout/components/ProjectLayoutCreate/components:
-    newFile: !uuid 'fe3ac12117c026b94c548c9356eb0a62921af2f4'
-    oldFile: !uuid '982a778be2d5b3ff36c3a04a030652acc17232c1'
-  /src/views/project/layout/components/ProjectLayoutCreate/components/CreateModal:
-    newFile: !uuid '7d7c7778a5685b48d42a87e3ba61072cfa38986b'
-    oldFile: !uuid '3d066895d3851a1d124c25859dbe582ebea32f30'
-  /src/views/project/layout/components/ProjectLayoutCreate/components/CreateModal/index.vue:
-    newFile: !uuid '4c77f4aca29ecec57311a31b78d0eb6771d137d7'
-    oldFile: !uuid 'dd6af50f0cc725cf9a8b8e31c1c33b7e4aa88277'
-gitCommitId: !uuid 'a4e18f88934fea5d748287b17750f203b6ef4fd1'
+  /package.json:
+    newFile: !uuid '59f44de2045a5dae3fe75c90daa9cf3fa48381db'
+    oldFile: !uuid '6ec7c777e537c139ce83284bfeb7905b693727ef'
+  /pnpm-lock.yaml:
+    newFile: !uuid 'b3396ecf7754ad0a07857c71c7e3e00fb7456817'
+    oldFile: !uuid 'ed4aa950ad5cc68782e2361194d5b2c04503bf24'
+gitCommitId: !uuid '093e7d1edb6dfb6d45a306c718bab3fc7dc81ea0'
 renames: {
   }
-revisionId: 430
+revisionId: 431
