@@ -3,24 +3,36 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '666b9a80908d5e0b7e38a18a5281b22216a1fae0'
-    oldFile: !uuid '7d765d1e63b17c29ed3328dca77fefd2da7f6f3e'
+    newFile: !uuid 'df38aade038ba71396d80122f6e6e9090b9eef16'
+    oldFile: !uuid '666b9a80908d5e0b7e38a18a5281b22216a1fae0'
+  /src/api:
+    newFile: !uuid '619f452848f8ba75161f79bf154f7489e5767a0b'
+    oldFile: !uuid 'df00769776ac686e007d1565c6fd194c76b32ecd'
+  /src/api/path:
+    newFile: !uuid 'e2f1d99ed0d8fd49a9cf2a71f13c3b114afb6dac'
+    oldFile: !uuid '7b18f0d1c52786dcb128d069661b805c53c9212e'
+  /src/api/path/project.ts:
+    newFile: !uuid '56dbe67c3772405dff4a919c518435ce96b79649'
+    oldFile: !uuid '8d2d2c6d0ffaafb54212680a70e4da8a8f71c8bd'
+  /src/enums:
+    newFile: !uuid '54006ff13a00bbce4f732e6b018a16f0399c5162'
+    oldFile: !uuid '0910686f085c82d656be31c71c86f38ac6db2df1'
+  /src/enums/httpEnum.ts:
+    newFile: !uuid 'f6dee6bbdcc553d46e12b2f0479d769fd9b99df0'
+    oldFile: !uuid '8bb72a9130ffd8ee35a12131e77b736b3d3eeabc'
   /src/views:
-    newFile: !uuid '5088a93560563564ee41c9299a58e31a91fd9219'
-    oldFile: !uuid '9cc3bb4e40f2be2274917a4debb3561588fb21f1'
-  /src/views/exception:
-    newFile: !uuid '9923b64163d7a3ae42e72add4634b0a8f6657091'
-    oldFile: !uuid 'b8861c493d3ab95691e8126e487132d3052b8207'
-  /src/views/exception/403.vue:
-    newFile: !uuid '679462d77d7b8119fb8ff73e5f4fd3c6afc555bf'
-    oldFile: !uuid '2887a0205e2f415344aa40fd7f46e4f10ff9656a'
-  /src/views/exception/404.vue:
-    newFile: !uuid '86546c3bf7a8d4e6beb574e9f2dae1bbb0df6e8a'
-    oldFile: !uuid '769aae9d19349308bb30738cd1db9ed59af2e483'
-  /src/views/exception/500.vue:
-    newFile: !uuid 'c0d35a6ae0428ff637f02926641e6d2ca2b01376'
-    oldFile: !uuid '957596ff0081179bfcdae33236328fcc044510b9'
-gitCommitId: !uuid '5dab8fa7d94dd4ff7299b36b6ca192fced6ca379'
+    newFile: !uuid '3d644a67d175a78c60da3162dc92d13dbcb00420'
+    oldFile: !uuid '5088a93560563564ee41c9299a58e31a91fd9219'
+  /src/views/chart:
+    newFile: !uuid 'cad49e076cffdaa57843c68ccede05e00f133bd1'
+    oldFile: !uuid 'c1dc732a7fb4ab84f9bf8685392811e471af23d0'
+  /src/views/chart/hooks:
+    newFile: !uuid 'b7b7ce24e494ef0fd9285727f799fe31c32f2579'
+    oldFile: !uuid 'ec9582929d9b4e95499e2d97d13dfecde97e4efc'
+  /src/views/chart/hooks/useSync.hook.ts:
+    newFile: !uuid 'e70b60e2bdd769944264adeb8c801d120405a1fc'
+    oldFile: !uuid 'ad3d3949ace3bd92ca247741a9ba428ac77dfcc2'
+gitCommitId: !uuid '00b6b63e1ec0be32a451d17cc121fc407bdd7570'
 renames: {
   }
-revisionId: 442
+revisionId: 443
