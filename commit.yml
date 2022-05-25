@@ -3,27 +3,21 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '00a8b031fad0669d268de0b06b8784ed7004a146'
-    oldFile: !uuid 'bc5e8680061d7e5037d5077221a542e801023f1d'
+    newFile: !uuid '6bacb5ec5bbf17744fb8aa51698d5e161e8dd1e6'
+    oldFile: !uuid '00a8b031fad0669d268de0b06b8784ed7004a146'
   /src/views:
-    newFile: !uuid '2128acabb5e222b51b29c1f1c35f94cfc9e7fe44'
-    oldFile: !uuid 'cc46731bde39992612683681907ca6fc29a1187a'
+    newFile: !uuid 'd360d02f3337ca487768ef3c7d54292a43003a15'
+    oldFile: !uuid '2128acabb5e222b51b29c1f1c35f94cfc9e7fe44'
   /src/views/chart:
-    newFile: !uuid 'e57af1a64963e2638dc7e9c316f39633a99bd1d2'
-    oldFile: !uuid '5a77770881996454ae3c7b63c3910665fdfe40d6'
-  /src/views/chart/ContentEdit:
-    newFile: !uuid '64ec4ea91002906bf3b4b33f13ec8a58d2881e59'
-    oldFile: !uuid 'a92bccb9018429328c71c3386d469c8adf707e3d'
-  /src/views/chart/ContentEdit/components:
-    newFile: !uuid 'f3df50ed2b68fd59cf97b66a9a73371588722aa0'
-    oldFile: !uuid '5aeaffc4c6e1a6ab3be58aa0542d76c2e77620eb'
-  /src/views/chart/ContentEdit/components/EditShortcutKey:
-    newFile: !uuid '604e4837775da4c74ffb9b7273035994dd3e7d16'
-    oldFile: !uuid '6217e54c2fc2629c8793ce9b0cb1904cd07f1dd7'
-  /src/views/chart/ContentEdit/components/EditShortcutKey/ShortcutKeyModal.vue:
-    newFile: !uuid '2820e7e3c5f8ecb0fbbc93ee9a7880683950efc7'
-    oldFile: !uuid 'd3014b0428be8a96d52a59de45c2c58df05dd387'
-gitCommitId: !uuid 'b861587f0165ce76882ec077be2748ded02e3d56'
+    newFile: !uuid 'b41c00f3cb6c0cdf083e37074f6e53bb16c690cc'
+    oldFile: !uuid 'e57af1a64963e2638dc7e9c316f39633a99bd1d2'
+  /src/views/chart/hooks:
+    newFile: !uuid 'ccf672ef3b120d9b22a2b90f4cb49d1999e0c91e'
+    oldFile: !uuid 'd2a3123aa1466778f781a2e74af56c2e1c9da754'
+  /src/views/chart/hooks/useSync.hook.ts:
+    newFile: !uuid '553ce522ec1eae5479d4acbc5dd50324b0427c4b'
+    oldFile: !uuid '1321c62b12fab5924715e431a990a5ce12e6d803'
+gitCommitId: !uuid 'fb2edeb7d27472bc5048c5dc0faec1e90ab4f7af'
 renames: {
   }
-revisionId: 446
+revisionId: 447
