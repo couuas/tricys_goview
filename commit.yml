@@ -3,30 +3,18 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'c7636922042bf03110397432c7ac0450c0b21c2f'
-    oldFile: !uuid '6bfa11973a53e897808594c3c36c6816a98ecd09'
-  /src/views:
-    newFile: !uuid 'c12e40d65ab48900a8b763004818f8cfb8a77707'
-    oldFile: !uuid '70e3bd0c5af716c10faeeb81cf9e40fd6a3f2782'
-  /src/views/chart:
-    newFile: !uuid '1e5e7ad07db061893052290123a8c7749b4dea10'
-    oldFile: !uuid 'b89083d2a102fc478f03045507ed1b7b8c582ff5'
-  /src/views/chart/ContentEdit:
-    newFile: !uuid '50a335495115bfd1b75035df72c0d1910fcff574'
-    oldFile: !uuid '371c792c553e49f14d8d8fe9cba792ca2ce10f83'
-  /src/views/chart/ContentEdit/components:
-    newFile: !uuid '4e30aec9c3e96bad7ef01da71dcf330623f197fc'
-    oldFile: !uuid '05686e65359eb5cbf654be32125bb9bec8aa060e'
-  /src/views/chart/ContentEdit/components/EditTools:
-    newFile: !uuid 'da7b8f24c7c55e9266c5f3f6c7c5ba74644ce9aa'
-    oldFile: !uuid '4edee286af32fd08e87ea0635355a6cfc2e916b7'
-  /src/views/chart/ContentEdit/components/EditTools/hooks:
-    newFile: !uuid '343448720093248f3eb091783d819c752fb3749c'
-    oldFile: !uuid 'a47abe708cf274f170d3fa2c305a2d477554239e'
-  /src/views/chart/ContentEdit/components/EditTools/hooks/useFile.hooks.ts:
-    newFile: !uuid '396863e6278a6777dac84086a8474f005a095b1b'
-    oldFile: !uuid '72606710001c4d9c12af35e84c51e4425ac9b25c'
-gitCommitId: !uuid '15fc418fc4726f5e9c60b24ae5b44141d7ddd36f'
+    newFile: !uuid 'ee279915754c73f1e0bbecf319e1891615c944e1'
+    oldFile: !uuid 'c7636922042bf03110397432c7ac0450c0b21c2f'
+  /src/api:
+    newFile: !uuid '4fd48c0ffaf638b0f89f332e6b9416a21813a53b'
+    oldFile: !uuid '39d890021d8ae1a1fac8428eb98bcae636e5f1d9'
+  /src/api/axios.ts:
+    newFile: !uuid '2e20ebd0ceecc8b05b3249707834a2d50773c57f'
+    oldFile: !uuid '384ef3be168078a363de2a0f50121e23b14e6fa9'
+  /src/api/http.ts:
+    newFile: !uuid '0e1fef82b789e2c8a6899e1023b05f3bce934cbb'
+    oldFile: !uuid '13d696592842d45efa0a40bc2b8f9bdbd8b3a738'
+gitCommitId: !uuid 'c095e15d6c03bfad862496f99f89f26e1115a110'
 renames: {
   }
-revisionId: 428
+revisionId: 429
