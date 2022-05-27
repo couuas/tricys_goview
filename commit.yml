@@ -3,45 +3,54 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '07d4ec6e0fcbd943b9bac63a7488df54ebc6bf00'
-    oldFile: !uuid '5a64dc3be067c4f14ca5da4104eb2374435aaf12'
-  /src/store:
-    newFile: !uuid 'daed0ea798c0c222f44ca9dd257bbcb3be19de80'
-    oldFile: !uuid '87ba6928cdca34af607e7531acd752aa886200a2'
-  /src/store/modules:
-    newFile: !uuid '15f8fd052c862cfd9056f279b88540b89cfe1b89'
-    oldFile: !uuid '56fe6eaeece116dad636db22e3666018bafef3f4'
-  /src/store/modules/chartEditStore:
-    newFile: !uuid 'c3d03ca3805c691376a4289a3b725a839ead5c5e'
-    oldFile: !uuid 'f178f0fcb8faf5ae6c686be478925f66895556fd'
-  /src/store/modules/chartEditStore/chartEditStore.d.ts:
-    newFile: !uuid '022fc54300a65becc6fb2285fba6106dddc30859'
-    oldFile: !uuid '9271835216251a355b78e2670bb7fcb7475134b0'
-  /src/store/modules/chartEditStore/chartEditStore.ts:
-    newFile: !uuid '7d64add2c82de12eb72850a2d05365592b2ba9a1'
-    oldFile: !uuid '095d510e85e87aad2c4e3f3ab4454c986cfefb45'
+    newFile: !uuid '8a4d70f2df7aae4204bd787a8076f60a1fcefc0b'
+    oldFile: !uuid '07d4ec6e0fcbd943b9bac63a7488df54ebc6bf00'
+  /src/api:
+    newFile: !uuid '128faa91e9e4dca9441bfa93e325c4886dcc8fb8'
+    oldFile: !uuid 'e8a66400ce27efd7b3d866fa42ab1135ce6d7e17'
+  /src/api/axios.config.ts:
+    newFile: !uuid 'c42121c086fccf370c864a61a1df0d83ced84c3c'
+    oldFile: !uuid '9a6f2ee2ac12eb2b244af264afd15729ce137718'
+  /src/api/path:
+    newFile: !uuid '3e41cdde5211d01489d995627bf36c2fa10d2fa7'
+    oldFile: !uuid 'd6765b5d47e81a822e359435dba1518a234bdc01'
+  /src/api/path/photo.ts:
+    newFile: null
+    oldFile: !uuid '986fec7fd743dd69c3f1fdcbfd09ccf4084acca3'
+  /src/api/path/project.ts:
+    newFile: !uuid '6d05ced8da6de0974429626deae3909c30915e46'
+    oldFile: !uuid '69899dde8f27c69fd7af4e4396074f6ea16979f5'
+  /src/api/path/system.api.ts:
+    newFile: !uuid 'eaf0f9a994a340be96d9a42c2cf163e5b680fdf9'
+    oldFile: !uuid '1197fd3912d12cb19219a9cbcc9d18cc886317f3'
+  /src/settings:
+    newFile: !uuid 'f19a110744fa6c3be03095969291ebcff864b545'
+    oldFile: !uuid 'ff859262f1cc2b12ebae99a6454a904d905700ef'
+  /src/settings/httpSetting.ts:
+    newFile: !uuid '7b3962d44652d3772cb1dbbe40040f8aa8d2fc41'
+    oldFile: !uuid '2dfd2c3a09bca364a22d03a92b3547edefcae894'
+  /src/utils:
+    newFile: !uuid 'b9112a82ee15405d6daf40ee8e52838a5fefab39'
+    oldFile: !uuid '7621c231fc19277b86678205967f30d9aebc7f27'
+  /src/utils/file.ts:
+    newFile: !uuid '9691a90a442fd73d8a6cfdc6bd491ac94567dfbb'
+    oldFile: !uuid '0ce0978f57c10074a4bb0cd5ff6f7a6a577c75c5'
+  /src/utils/utils.ts:
+    newFile: !uuid 'e81e244369d45a3e6554c00e663ab5431471aaa1'
+    oldFile: !uuid 'e8db216c3b63f62327090d24588ae2567847d72f'
   /src/views:
-    newFile: !uuid 'aa2fd0652b71ec3c34fd9502debe8ddee7a2de64'
-    oldFile: !uuid '76f4c13497159607ab439e20f3898dc279108bfd'
+    newFile: !uuid 'ec2bd5dddab28051c84884a7894e7bb85e59d151'
+    oldFile: !uuid 'aa2fd0652b71ec3c34fd9502debe8ddee7a2de64'
   /src/views/chart:
-    newFile: !uuid 'd3296a52aa52f3811d9ae052587e59384bad85bf'
-    oldFile: !uuid '29ce42785c8bb8e0b1bac14bb7fe8ed59c34a4cf'
-  /src/views/chart/ContentHeader:
-    newFile: !uuid 'cf21126015d108b77df7667045654c7ab25eb499'
-    oldFile: !uuid '39ad26d1a61622ab55c69796ff4c9192e778ae03'
-  /src/views/chart/ContentHeader/headerTitle:
-    newFile: !uuid '493153e75700d5005bbf0e899d87f49116faa421'
-    oldFile: !uuid '10a70d68f8867ac4ee5d5bae650cd7b604454285'
-  /src/views/chart/ContentHeader/headerTitle/index.vue:
-    newFile: !uuid 'a56f255660ed5fd34ca02f61758de8649ce5152c'
-    oldFile: !uuid '05fca106cc80ea29dd7a1206e5a474f89da349ab'
+    newFile: !uuid '400ead9b72b74ea2e88df51135d95261d15c4d51'
+    oldFile: !uuid 'd3296a52aa52f3811d9ae052587e59384bad85bf'
   /src/views/chart/hooks:
-    newFile: !uuid 'dc88089b405aef74622194638d68f0c557420d7c'
-    oldFile: !uuid '82f6cf8bea4a5d016b1d25e0506bb9c5f6e375b0'
+    newFile: !uuid '05d5bff575cf53f661948015c762fea15c609fdb'
+    oldFile: !uuid 'dc88089b405aef74622194638d68f0c557420d7c'
   /src/views/chart/hooks/useSync.hook.ts:
-    newFile: !uuid 'b25499102eec648a6b01b582f17b99f00a7840a5'
-    oldFile: !uuid '95b8a37fc08129e6c5a52ecbbdb69c2ad84dbb26'
-gitCommitId: !uuid '9098443c83131967afdb83d6c3d90e558b5f7b83'
+    newFile: !uuid 'cd9b532534fa49d348dc437ebc1225fe16bfbc0a'
+    oldFile: !uuid 'b25499102eec648a6b01b582f17b99f00a7840a5'
+gitCommitId: !uuid 'ebd6132385435ec1f399979789327532115819d4'
 renames: {
   }
-revisionId: 449
+revisionId: 450
