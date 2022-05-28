@@ -3,27 +3,57 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '60de069855d3b599cb4642de36b608370ad92bc2'
-    oldFile: !uuid '98c04c367153f2b2820709cf8ef21e54a018eca9'
+    newFile: !uuid '0c2b8829e97254114116960f07759f96a62624ae'
+    oldFile: !uuid '60de069855d3b599cb4642de36b608370ad92bc2'
+  /src/assets:
+    newFile: !uuid 'bae19095e781d558901dcfba75488414f304e103'
+    oldFile: !uuid 'f74f00c0b31fca1d1f91997f78a5f5c78a6f9851'
+  /src/assets/images:
+    newFile: !uuid 'bd1e9d405770ebf2b5aeed5cd4248203acbefa6e'
+    oldFile: !uuid '6bb789d22ad2c02ee057bc225b09679413611bda'
+  /src/assets/images/project:
+    newFile: null
+    oldFile: !uuid 'c999070a51e59827140013bfc8faff40f381d255'
+  /src/assets/images/project/moke-20211219181327.png:
+    newFile: null
+    oldFile: !uuid '7be19aa31540c4255c818bbcc62eaaca881b9c51'
   /src/views:
-    newFile: !uuid 'bfba1f977a2df77cd2c2d42e07f6f0d1d4f344a2'
-    oldFile: !uuid 'f8bd3f9f1ecf92530b88715a8c40684c4b73f7a2'
-  /src/views/chart:
-    newFile: !uuid '1b6aa4f93ede25ea8de0ce9fac88d70e17f8a34d'
-    oldFile: !uuid '7ea9eea374be0ea8c273186bc8bf03cedda606c8'
-  /src/views/chart/ContentEdit:
-    newFile: !uuid '701e12a52437b91111b42739b254c11be1053f84'
-    oldFile: !uuid '9dffd1e17f218d591acdd69e33282e18590f833a'
-  /src/views/chart/ContentEdit/components:
-    newFile: !uuid '6d34077f6bf024019b05657191bf6f2cacc02373'
-    oldFile: !uuid '4f21623f26a89c1826f3337bee5c4d85a2ff3a32'
-  /src/views/chart/ContentEdit/components/EditShapeBox:
-    newFile: !uuid '76712322b91011da5ea5569de9cb34ca4c60678e'
-    oldFile: !uuid '2fdd464af1b3cab198b7cca29dcdd63379070431'
-  /src/views/chart/ContentEdit/components/EditShapeBox/index.vue:
-    newFile: !uuid 'ab7fec8f7c01a6405200c993a3ef50c9a1446481'
-    oldFile: !uuid 'd796dae5f0f4c0916755d1efa2b208f789f01bf8'
-gitCommitId: !uuid '63b5186c3e8d348718952dc8c72520ea00aecc28'
+    newFile: !uuid '6f7b95592e8394a8e3cbb9b7c95208c6629bb935'
+    oldFile: !uuid 'bfba1f977a2df77cd2c2d42e07f6f0d1d4f344a2'
+  /src/views/project:
+    newFile: !uuid '88410c4cbcb6ae535bc6174364b4cdbc84d7bc4a'
+    oldFile: !uuid 'a7313a46c2fbb3a618a6eea4443167737e2ed45a'
+  /src/views/project/items:
+    newFile: !uuid '615981b4faa419ff96d938527d10f801ba809880'
+    oldFile: !uuid 'ba5e7282a540a656e6c451a03375a8149189f67d'
+  /src/views/project/items/components:
+    newFile: !uuid '27ba3c25d0f2c2f551a42018e9b3886f3037298a'
+    oldFile: !uuid '5321c5a06e1070d7717dd9eb4bab667b4ec074e3'
+  /src/views/project/items/components/ProjectItemsCard:
+    newFile: !uuid '58a87711b842b338d77b5668ebe5594e8e0e4639'
+    oldFile: !uuid 'ad6d58554f13fd98af93e4aede43e0a588af4a3e'
+  /src/views/project/items/components/ProjectItemsCard/index.vue:
+    newFile: !uuid '18dfb399bfa5317d494d27f8ba6995ae3ce7e35c'
+    oldFile: !uuid 'd5917b4afcfc88ce933ed163ed920b5c14f9041d'
+  /src/views/project/items/components/ProjectItemsList:
+    newFile: !uuid '0d246948007d20eab8a6b03be4786cf0fe295bfa'
+    oldFile: !uuid '956038016e0675eae4891a730a5223097616001b'
+  /src/views/project/items/components/ProjectItemsList/hooks:
+    newFile: !uuid '151a0589edc49a091eb7124243b677478dde7ddf'
+    oldFile: !uuid 'ae89ec4604e948d18f8bab004b29d98c2b9cf5cc'
+  /src/views/project/items/components/ProjectItemsList/hooks/useData.hook.ts:
+    newFile: !uuid 'ef8e050d413f5813e0ee8ffb9bee0493f92f9985'
+    oldFile: !uuid '5fb234d05ec451f7118299e560480a65f9c470c7'
+  /src/views/project/items/components/ProjectItemsModalCard:
+    newFile: !uuid '3e8b4f094fc9a5732900af26ec12f9e9cf1bf959'
+    oldFile: !uuid 'a073ff18b1bf44be80d1de5727db2ea9b51e0bde'
+  /src/views/project/items/components/ProjectItemsModalCard/index.vue:
+    newFile: !uuid 'f5b7bc614c77cb8eb17f37cde93dbb5af14c8d6f'
+    oldFile: !uuid 'c9c64fab2d09b918b264790daad88f1e40d2a769'
+  /src/views/project/items/index.d.ts:
+    newFile: !uuid '1aab6e8368b8cb45f23d17b6e6f1cc16f822155f'
+    oldFile: !uuid '1ff9b24890f7117f3119055c0fcb039640fadc1b'
+gitCommitId: !uuid 'e16413b570c0239a4db25727ba1ee98563278a83'
 renames: {
   }
-revisionId: 455
+revisionId: 456
