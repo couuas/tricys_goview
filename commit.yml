@@ -3,27 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '98c04c367153f2b2820709cf8ef21e54a018eca9'
-    oldFile: !uuid '522074888e54abd1c0bee450cafa226f7fdd54f5'
-  /src/utils:
-    newFile: !uuid '06c3b6f66fffeb4257dfb02c42bbaf9a3d622edc'
-    oldFile: !uuid 'ec8cb026baeb1d09b63897c53826d10d3123a075'
-  /src/utils/file.ts:
-    newFile: !uuid '4a10bd38395af9f4ac7168ff51ab0215535529a3'
-    oldFile: !uuid '3529dff7cfce6076a4bfa25a616ccc680f3c94c6'
+    newFile: !uuid '60de069855d3b599cb4642de36b608370ad92bc2'
+    oldFile: !uuid '98c04c367153f2b2820709cf8ef21e54a018eca9'
   /src/views:
-    newFile: !uuid 'f8bd3f9f1ecf92530b88715a8c40684c4b73f7a2'
-    oldFile: !uuid '8c1ec65ab94552fa5c0004a8434360cf23a8c733'
+    newFile: !uuid 'bfba1f977a2df77cd2c2d42e07f6f0d1d4f344a2'
+    oldFile: !uuid 'f8bd3f9f1ecf92530b88715a8c40684c4b73f7a2'
   /src/views/chart:
-    newFile: !uuid '7ea9eea374be0ea8c273186bc8bf03cedda606c8'
-    oldFile: !uuid 'ff7a6305b8f8d1e989ad9131f7959108d7c31be0'
-  /src/views/chart/hooks:
-    newFile: !uuid '724aa68a5ee77184e6687a8ead140df2b1bea263'
-    oldFile: !uuid 'fc8d69048f93849a937cdb7a23cbd09362c1dd85'
-  /src/views/chart/hooks/useSync.hook.ts:
-    newFile: !uuid 'd73ecf9d54104db05b8d8277938f5e09a23ef5da'
-    oldFile: !uuid '59a35c9c2f4ee71c700ec66d453732bf76d21006'
-gitCommitId: !uuid 'ba20316761621f4a3e62e22b6c6298b659d75d3b'
+    newFile: !uuid '1b6aa4f93ede25ea8de0ce9fac88d70e17f8a34d'
+    oldFile: !uuid '7ea9eea374be0ea8c273186bc8bf03cedda606c8'
+  /src/views/chart/ContentEdit:
+    newFile: !uuid '701e12a52437b91111b42739b254c11be1053f84'
+    oldFile: !uuid '9dffd1e17f218d591acdd69e33282e18590f833a'
+  /src/views/chart/ContentEdit/components:
+    newFile: !uuid '6d34077f6bf024019b05657191bf6f2cacc02373'
+    oldFile: !uuid '4f21623f26a89c1826f3337bee5c4d85a2ff3a32'
+  /src/views/chart/ContentEdit/components/EditShapeBox:
+    newFile: !uuid '76712322b91011da5ea5569de9cb34ca4c60678e'
+    oldFile: !uuid '2fdd464af1b3cab198b7cca29dcdd63379070431'
+  /src/views/chart/ContentEdit/components/EditShapeBox/index.vue:
+    newFile: !uuid 'ab7fec8f7c01a6405200c993a3ef50c9a1446481'
+    oldFile: !uuid 'd796dae5f0f4c0916755d1efa2b208f789f01bf8'
+gitCommitId: !uuid '63b5186c3e8d348718952dc8c72520ea00aecc28'
 renames: {
   }
-revisionId: 454
+revisionId: 455
