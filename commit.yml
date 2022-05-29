@@ -2,28 +2,10 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid '5819834d9b61e8b080b25079d5608e3a6b92e535'
-    oldFile: !uuid '8fefb299511157828f28845689d508f15d8972b0'
-  /src/views:
-    newFile: !uuid '18e1f4dd7c508d9f5e406d87e0bfae786b97ce2e'
-    oldFile: !uuid 'ac60079e10edffb6cad2598644d58a567cf9641b'
-  /src/views/chart:
-    newFile: !uuid '1e69a832797d2f52f9e7210df945310844b21295'
-    oldFile: !uuid 'bae063de0ad82e26fb3e4dbd4c985c999a6a191e'
-  /src/views/chart/ContentEdit:
-    newFile: !uuid '43c232f7f6a67b0621236926c23dc479b6a57d48'
-    oldFile: !uuid '316eb349967e6af9d9f66eb87d7469fc01f382ee'
-  /src/views/chart/ContentEdit/components:
-    newFile: !uuid '4d52de592f1ca223260fb992338de3017287c916'
-    oldFile: !uuid '51c014ed9fa867f5e6d341918dea1b14523b3a07'
-  /src/views/chart/ContentEdit/components/EditShapeBox:
-    newFile: !uuid '76712322b91011da5ea5569de9cb34ca4c60678e'
-    oldFile: !uuid '2fdd464af1b3cab198b7cca29dcdd63379070431'
-  /src/views/chart/ContentEdit/components/EditShapeBox/index.vue:
-    newFile: !uuid 'ab7fec8f7c01a6405200c993a3ef50c9a1446481'
-    oldFile: !uuid 'd796dae5f0f4c0916755d1efa2b208f789f01bf8'
-gitCommitId: !uuid 'd61769f9b87fd3484ca1fe62a6b6d702bdb2723b'
+  /README.md:
+    newFile: !uuid '820e4f28d9c2101a0dda012461684ead4aceebd6'
+    oldFile: !uuid '620a826cc44ed03fa5ac4744e068f9cbbfe1ef56'
+gitCommitId: !uuid 'e5bf08f709f86f6acc9c1b798e54500e682f3a64'
 renames: {
   }
-revisionId: 1114
+revisionId: 1115
