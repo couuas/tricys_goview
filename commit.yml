@@ -2,13 +2,22 @@
 branches: {
   }
 fileChange:
-  /package.json:
-    newFile: !uuid '45beac26d9571ec1bd814ac365a88c49398fffe1'
-    oldFile: !uuid '59f44de2045a5dae3fe75c90daa9cf3fa48381db'
-  /pnpm-lock.yaml:
-    newFile: !uuid '8d290381484ab714d223a265048615b08ff4bb0e'
-    oldFile: !uuid 'b3396ecf7754ad0a07857c71c7e3e00fb7456817'
-gitCommitId: !uuid '6b551ae68bec5d0971c17ffb58aeeef58edb02da'
+  /src:
+    newFile: !uuid '8aacfe2bd1304270a2bf1a159bfb123e4b3341d5'
+    oldFile: !uuid '2a5256726690182f7916e3340af547422ed4d462'
+  /src/views:
+    newFile: !uuid '57a08ff95b7df3cb31cd782a95cf5195545f5385'
+    oldFile: !uuid '9cf567597fe72f62bd90b401296f48a05cdba9bd'
+  /src/views/preview:
+    newFile: !uuid '5dd2d90535e4934507f63efd4b712dc0eca58bde'
+    oldFile: !uuid '37aa649a6e33e6a7e3b30f95ac60902a33afa242'
+  /src/views/preview/hooks:
+    newFile: !uuid 'd77e017b25bf7bc786965121b68a3c7f447d1d69'
+    oldFile: !uuid 'a6c12113cefa77dd1cfa19cd2340f8c059175978'
+  /src/views/preview/hooks/useComInstall.hook.ts:
+    newFile: !uuid 'f25064dc693c3490caf6273e231908a20712f81c'
+    oldFile: !uuid '4ce4557673bdd43671e3427a811d9cb24904733b'
+gitCommitId: !uuid '6ab34a09969d8af80644a8e44b67a2be5dbc266c'
 renames: {
   }
-revisionId: 465
+revisionId: 466
