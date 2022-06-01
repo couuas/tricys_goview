@@ -3,27 +3,30 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '9d1fa5d40caa499f274276b7ea0a4f83994a5b42'
-    oldFile: !uuid '6653d045e76f753c121e776b1878a739cc072d4f'
+    newFile: !uuid '0d0f89289bd1afa7947746c170cc95d8596b6d08'
+    oldFile: !uuid '9d1fa5d40caa499f274276b7ea0a4f83994a5b42'
   /src/views:
-    newFile: !uuid '19c9613fe17808560dd791b59e712aa5703bd322'
-    oldFile: !uuid 'fcfe3cfee6750a3ca30ccd1f24b0a56725f6a48a'
+    newFile: !uuid 'e39c33333fe6e08ffba929ab8ab80b76ecbf7af1'
+    oldFile: !uuid '19c9613fe17808560dd791b59e712aa5703bd322'
   /src/views/project:
-    newFile: !uuid '04fe8364e1bb7c3dfb22f822fc34b4a0efb7bd1d'
-    oldFile: !uuid 'e00f3130ce12920fe7f464f594c192c135fd06d2'
+    newFile: !uuid '04dba5cffd3bd80dd95406549e4c6b7da5f0a047'
+    oldFile: !uuid '04fe8364e1bb7c3dfb22f822fc34b4a0efb7bd1d'
   /src/views/project/items:
-    newFile: !uuid 'ac07746aa5cbfd4ff68caf5f04679eca7f5ad110'
-    oldFile: !uuid 'a6539e9fd215acc3075b3372f6fb2e92b206e269'
+    newFile: !uuid '0585cac4ed655b4180e2e0d658f43633ee13d5db'
+    oldFile: !uuid 'ac07746aa5cbfd4ff68caf5f04679eca7f5ad110'
   /src/views/project/items/components:
-    newFile: !uuid 'dd09121bb7a7fc21c7a8a9535fc6b59a91c08d9c'
-    oldFile: !uuid '9cee9e14a1a2974b59a99e19c8dc4d9cf81d4e90'
-  /src/views/project/items/components/ProjectItemsCard:
-    newFile: !uuid 'ba4f23f091eed475b3f22c1c7c87c8ee629b7d24'
-    oldFile: !uuid '40c676f903e0ffa00716bcfef472f9bdc8781e9f'
-  /src/views/project/items/components/ProjectItemsCard/index.vue:
-    newFile: !uuid '5207838ffa7f8db3d162c23bbb133b88c29c24bf'
-    oldFile: !uuid '6a8e7d6e0a1c3146885e8c6c5f02b6d55757f0c9'
-gitCommitId: !uuid 'f655a57e617f87ecfab105eb83f74c7c7ba3990d'
+    newFile: !uuid 'ddfe4bba3c771d319b9985a8170bf4d6f76640a5'
+    oldFile: !uuid 'dd09121bb7a7fc21c7a8a9535fc6b59a91c08d9c'
+  /src/views/project/items/components/ProjectItemsList:
+    newFile: !uuid 'd3996c3785a2616829d3938c36a855fe2b47b8d7'
+    oldFile: !uuid 'a836ce3e70cc70b4e971416bbddcf8acb3cd2d3d'
+  /src/views/project/items/components/ProjectItemsList/hooks:
+    newFile: !uuid 'c115bdff2836f176f52f26d8fa11615bcacd4154'
+    oldFile: !uuid '2844dcc401f14c5b32fe52f213d010355e103a69'
+  /src/views/project/items/components/ProjectItemsList/hooks/useData.hook.ts:
+    newFile: !uuid '591e5ff1f11f2b386804627be834a9d2953637f4'
+    oldFile: !uuid '9c05184626043078f352707fd81ec537a12b5e55'
+gitCommitId: !uuid '077881e499abbb021c2d8d9fdbb910fbfc18b4b3'
 renames: {
   }
-revisionId: 471
+revisionId: 472
