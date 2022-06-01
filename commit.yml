@@ -2,31 +2,10 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid '5e2cffcd46b8253bb8bb97c798b8b5f3545a69ec'
-    oldFile: !uuid '7da18359da9d481f9d198ce9abf5dc96333eb08f'
-  /src/views:
-    newFile: !uuid 'd748fb25a42769d4b865f483bce593156223cc21'
-    oldFile: !uuid '18e1f4dd7c508d9f5e406d87e0bfae786b97ce2e'
-  /src/views/chart:
-    newFile: !uuid 'b54f789acef54b22bae50deadac7a878d579ea7e'
-    oldFile: !uuid '1e69a832797d2f52f9e7210df945310844b21295'
-  /src/views/chart/ContentEdit:
-    newFile: !uuid 'aab15759b8db34aa50f86c3cf32cb0249e42bbce'
-    oldFile: !uuid '43c232f7f6a67b0621236926c23dc479b6a57d48'
-  /src/views/chart/ContentEdit/components:
-    newFile: !uuid '2dce5f02fa2caa601764a7cd2063ff178cb72f23'
-    oldFile: !uuid '4d52de592f1ca223260fb992338de3017287c916'
-  /src/views/chart/ContentEdit/components/EditTools:
-    newFile: !uuid 'ed04d1d92d9b5da24bd491235248a0c97eecf131'
-    oldFile: !uuid 'da7b8f24c7c55e9266c5f3f6c7c5ba74644ce9aa'
-  /src/views/chart/ContentEdit/components/EditTools/hooks:
-    newFile: !uuid 'b08ca5fbc1272a5ddd04fdc5dab019e3c7f0fe15'
-    oldFile: !uuid '343448720093248f3eb091783d819c752fb3749c'
-  /src/views/chart/ContentEdit/components/EditTools/hooks/useFile.hooks.ts:
-    newFile: !uuid 'cf40180e92a1edb251643ba394c970e6a9a5f411'
-    oldFile: !uuid '396863e6278a6777dac84086a8474f005a095b1b'
-gitCommitId: !uuid 'b981640eaea0b8d0d37f835dc5a03005b0fef3f8'
+  /package.json:
+    newFile: !uuid '4f6c9c29948f33e271ba0d8b1308bc8475c081d1'
+    oldFile: !uuid '59f44de2045a5dae3fe75c90daa9cf3fa48381db'
+gitCommitId: !uuid 'f287cf68ab891bcb9291542806bb33d364460286'
 renames: {
   }
-revisionId: 435
+revisionId: 436
