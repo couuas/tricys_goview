@@ -3,21 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '751fc4122160e02a94aaa42688340a9233cb45db'
-    oldFile: !uuid '0027f31f71eca15f179ca055b62d8d6159d0fc2d'
+    newFile: !uuid '2a5256726690182f7916e3340af547422ed4d462'
+    oldFile: !uuid '751fc4122160e02a94aaa42688340a9233cb45db'
   /src/views:
-    newFile: !uuid 'd3a6dcdd1e5cecd6e7bd76176e802fefb2aae690'
-    oldFile: !uuid 'd93f8eef1333e981747aab32b21b5acd2c1dca69'
-  /src/views/chart:
-    newFile: !uuid 'b64f483cdca9d9eec318e608faf4ad16f3184bae'
-    oldFile: !uuid 'ea6a2f7fd474d26992f9d6b695706824800b605c'
-  /src/views/chart/hooks:
-    newFile: !uuid 'ed1ca8a0e9c4896cda5ac41407e0f0d5fe40b8c7'
-    oldFile: !uuid 'f12c0f439e08ca3b79b1c3283a5515d96863312b'
-  /src/views/chart/hooks/useSync.hook.ts:
-    newFile: !uuid '614bfbba85bdb6d1575082f666146a1eda1e7637'
-    oldFile: !uuid '3c1acb17d1445596cbbf408f8f445632c728cec2'
-gitCommitId: !uuid '294a4a6cdf6d63c7a379829c435124650ec7e690'
+    newFile: !uuid '9cf567597fe72f62bd90b401296f48a05cdba9bd'
+    oldFile: !uuid 'd3a6dcdd1e5cecd6e7bd76176e802fefb2aae690'
+  /src/views/project:
+    newFile: !uuid '5cfeecf4b8cee890a91ae2f792316c8f61e78220'
+    oldFile: !uuid 'b8feb87cd3b84a9d586bb2cf15a165f7590f023f'
+  /src/views/project/items:
+    newFile: !uuid '78f80aac7fc9d1b7cb510cdc6ee79f45a464d3de'
+    oldFile: !uuid 'ad6ddec4944f22c63b73153ebbac0dd97e118b07'
+  /src/views/project/items/components:
+    newFile: !uuid 'da41b8333b57e70d38ae3b97bdb8c35adcad47aa'
+    oldFile: !uuid '45b228cad93f06d83a6b04eaf651bbe4f20ccd3d'
+  /src/views/project/items/components/ProjectItemsCard:
+    newFile: !uuid '40c676f903e0ffa00716bcfef472f9bdc8781e9f'
+    oldFile: !uuid '58a87711b842b338d77b5668ebe5594e8e0e4639'
+  /src/views/project/items/components/ProjectItemsCard/index.vue:
+    newFile: !uuid '6a8e7d6e0a1c3146885e8c6c5f02b6d55757f0c9'
+    oldFile: !uuid '18dfb399bfa5317d494d27f8ba6995ae3ce7e35c'
+gitCommitId: !uuid '2917cde2e53903ada46075ac96176686211a61c7'
 renames: {
   }
-revisionId: 463
+revisionId: 464
