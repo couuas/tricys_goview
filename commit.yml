@@ -3,21 +3,54 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '8aacfe2bd1304270a2bf1a159bfb123e4b3341d5'
-    oldFile: !uuid '2a5256726690182f7916e3340af547422ed4d462'
+    newFile: !uuid 'aef6ee4dce4914b084cc8921d6c87264f791970a'
+    oldFile: !uuid '8aacfe2bd1304270a2bf1a159bfb123e4b3341d5'
+  /src/api:
+    newFile: !uuid '62cd3bd2cb91031f854f41ed0238139601d99fe0'
+    oldFile: !uuid '7c774eb4f8c9685dc43cf50cfb0d87f7801b36bc'
+  /src/api/path:
+    newFile: !uuid '7bdd80bf66ccd2adb17737fd11c752c0874590db'
+    oldFile: !uuid '8d4c8ed5053904c5d6c2a52b428f380ebea7a9e6'
+  /src/api/path/system.api.ts:
+    newFile: !uuid '1839b109d58f548d24200e661ab324ada961f3d0'
+    oldFile: !uuid '499194c7c631764158cc1aaef6669556065b26ee'
   /src/views:
-    newFile: !uuid '57a08ff95b7df3cb31cd782a95cf5195545f5385'
-    oldFile: !uuid '9cf567597fe72f62bd90b401296f48a05cdba9bd'
+    newFile: !uuid '024363ba61ce9de5195a47f213a8ef8e38c2b9f0'
+    oldFile: !uuid '57a08ff95b7df3cb31cd782a95cf5195545f5385'
+  /src/views/chart:
+    newFile: !uuid '8baf2b5aa510985579069a3429cfa3d3cb59ea73'
+    oldFile: !uuid 'b64f483cdca9d9eec318e608faf4ad16f3184bae'
+  /src/views/chart/hooks:
+    newFile: !uuid '768b726191473c710b7df8ef0e20194864128d28'
+    oldFile: !uuid 'ed1ca8a0e9c4896cda5ac41407e0f0d5fe40b8c7'
+  /src/views/chart/hooks/useSync.hook.ts:
+    newFile: !uuid '528e60ff0574eb48f2580d7359510034792df3fd'
+    oldFile: !uuid '614bfbba85bdb6d1575082f666146a1eda1e7637'
   /src/views/preview:
-    newFile: !uuid '5dd2d90535e4934507f63efd4b712dc0eca58bde'
-    oldFile: !uuid '37aa649a6e33e6a7e3b30f95ac60902a33afa242'
+    newFile: !uuid '26948300fe534b54cffbd52c71ef6b3a0b6b732a'
+    oldFile: !uuid '5dd2d90535e4934507f63efd4b712dc0eca58bde'
   /src/views/preview/hooks:
-    newFile: !uuid 'd77e017b25bf7bc786965121b68a3c7f447d1d69'
-    oldFile: !uuid 'a6c12113cefa77dd1cfa19cd2340f8c059175978'
-  /src/views/preview/hooks/useComInstall.hook.ts:
-    newFile: !uuid 'f25064dc693c3490caf6273e231908a20712f81c'
-    oldFile: !uuid '4ce4557673bdd43671e3427a811d9cb24904733b'
-gitCommitId: !uuid '6ab34a09969d8af80644a8e44b67a2be5dbc266c'
+    newFile: !uuid '1fbb4229449bc8aa4fbbd77d3028fda26352f92f'
+    oldFile: !uuid 'd77e017b25bf7bc786965121b68a3c7f447d1d69'
+  /src/views/preview/hooks/useScale.hook.ts:
+    newFile: !uuid '202aaf0524e0912b086fcefc3982af2caf1789a7'
+    oldFile: !uuid '0db5e48b9100bf69b1ecd04b02c31952c75644c7'
+  /src/views/preview/index.d.ts:
+    newFile: !uuid '0dfbe7ca99c300b172c2d46e89aa0782498f3a1d'
+    oldFile: !uuid '612f037f5bf905baf7d80f2a77e36334d816ea4b'
+  /src/views/preview/index.vue:
+    newFile: !uuid '4e6bc664262c9a48fff6729247799aeebacc1e00'
+    oldFile: !uuid 'ea057f647a053547f0bb5967f4e8a8148dab9333'
+  /src/views/preview/suspenseIndex.vue:
+    newFile: !uuid '7036df6e132b1f381e468b794e956f7033f23a6c'
+    oldFile: null
+  /src/views/preview/utils:
+    newFile: !uuid '92024bbfb75c64f596547daafb8d08962e80f477'
+    oldFile: !uuid '85f6d65d1cef1313d6dc3cbe9d68b212dcd1121a'
+  /src/views/preview/utils/storage.ts:
+    newFile: !uuid '798ed751168ff25dc1265f1ddfeac2a8fcb72065'
+    oldFile: !uuid '1a97af29cb520c145c843773a2a64775f60a1495'
+gitCommitId: !uuid '221351ec1130ef838765395d8daabdbc9cdcf2ba'
 renames: {
   }
-revisionId: 466
+revisionId: 467
