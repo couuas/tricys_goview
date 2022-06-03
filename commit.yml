@@ -3,30 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'd72ef74179e08a71c1a3a27ab7c53fd289c72c86'
-    oldFile: !uuid '78f76fb8b416869bd1fcfcce669fc05c125168dc'
-  /src/utils:
-    newFile: !uuid 'f990ff3f1b4c03d2faf9503afa1d0666e1b3befb'
-    oldFile: !uuid 'ed708d15da762af77e4ec74eb40d32b9728b169f'
-  /src/utils/router.ts:
-    newFile: !uuid '5a11735761662d42882fa7042c2dc0f3cd9dd5c3'
-    oldFile: !uuid 'a748830aa4db6692503c4c9fa02a579dd4d191de'
+    newFile: !uuid '3592bbf9b8638c787f92c844e2ca76d318341f92'
+    oldFile: !uuid 'd72ef74179e08a71c1a3a27ab7c53fd289c72c86'
   /src/views:
-    newFile: !uuid '7e50ae83f636040a830b5697eb93b87321d6f5ca'
-    oldFile: !uuid 'b9ed728284040ecb48ed0b508be53e55d619de77'
+    newFile: !uuid '175592dea305794586fbe1ef3740ecf3f0d19f4a'
+    oldFile: !uuid '7e50ae83f636040a830b5697eb93b87321d6f5ca'
   /src/views/chart:
-    newFile: !uuid 'ae8375430b27ff9bf4dc9493ec4ad975bc72321f'
-    oldFile: !uuid '06194589e5f8e879ec1f1d24788c7645c3252ad2'
-  /src/views/chart/ContentHeader:
-    newFile: !uuid 'ab69f6aa34cb2eb382687db753b9d52823902da2'
-    oldFile: !uuid 'cd07bbf5486f2e86f40fade35e6b8a79dc5701b9'
-  /src/views/chart/ContentHeader/headerRightBtn:
-    newFile: !uuid '02a95fb5d72a7fe7cb9e9684bfb1116d6a924925'
-    oldFile: !uuid '64ac7ab67f715b373d1b1e824ee1b35ee7b53ccb'
-  /src/views/chart/ContentHeader/headerRightBtn/index.vue:
-    newFile: !uuid '600c11e3e933ed329e52bbfcc1d7a812f3a5235a'
-    oldFile: !uuid 'ef56ac287cabf4e7a255653af884ff00ef4dda4c'
-gitCommitId: !uuid 'b9b915e913620e3c577eb62b3b10113990d2b61b'
+    newFile: !uuid 'a994743e2159f885735d8e7f43c4dbedfd56d4cf'
+    oldFile: !uuid 'ae8375430b27ff9bf4dc9493ec4ad975bc72321f'
+  /src/views/chart/ContentEdit:
+    newFile: !uuid '4589657f52d4affa20d72c3ed7b456b553e82f54'
+    oldFile: !uuid 'c7b8143995097b022138c0135fbc1ccfc0a9a72c'
+  /src/views/chart/ContentEdit/components:
+    newFile: !uuid 'ccffa3f7fd6d290ba73a5331c2815dcfa3ae5f70'
+    oldFile: !uuid '35d81a2c3524f65bb0c71b860a843f57d78e8e08'
+  /src/views/chart/ContentEdit/components/EditShapeBox:
+    newFile: !uuid '50bdb1ad66cdffb9b7968fe7de0eabe736743f4b'
+    oldFile: !uuid '76712322b91011da5ea5569de9cb34ca4c60678e'
+  /src/views/chart/ContentEdit/components/EditShapeBox/index.vue:
+    newFile: !uuid 'a0dd460684f1ea2d05091cae090f35f8ed74fea6'
+    oldFile: !uuid 'ab7fec8f7c01a6405200c993a3ef50c9a1446481'
+gitCommitId: !uuid '712233c21554e72aeeebd3187a25c9e5232b7b62'
 renames: {
   }
-revisionId: 475
+revisionId: 476
