@@ -2,10 +2,16 @@
 branches: {
   }
 fileChange:
-  /package.json:
-    newFile: !uuid '7945d787333cb9f441f98aef4c6147aa1c1b4ff2'
-    oldFile: !uuid 'dabfbc6d55681f72da2b357518b94a4e0360bebc'
-gitCommitId: !uuid '340cab11b7d56e2811fbd959c7093d2e63bb4311'
+  /src:
+    newFile: !uuid '0c629377962803dd1427f523e3dcdc240d372b51'
+    oldFile: !uuid '3592bbf9b8638c787f92c844e2ca76d318341f92'
+  /src/utils:
+    newFile: !uuid '67161db9ffa69e1aa79ec892b7c746a4459d520e'
+    oldFile: !uuid 'f990ff3f1b4c03d2faf9503afa1d0666e1b3befb'
+  /src/utils/plugin.ts:
+    newFile: !uuid '34e8036729fa054596864b354541602230672246'
+    oldFile: !uuid '5b4e7e0927e370b7ef50c0307bc1acdbbcc61e72'
+gitCommitId: !uuid '80b05db7646e2f3093a71be7f9af8d791ea0ad8a'
 renames: {
   }
-revisionId: 477
+revisionId: 478
