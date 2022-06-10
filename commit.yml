@@ -2,28 +2,10 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid 'c42ed397fbc33f4fd63f85fb04ff85f08aa4c29e'
-    oldFile: !uuid 'd2047144aa992e1b2718167415caa9602db4695b'
-  /src/views:
-    newFile: !uuid '431d9c4e17351b5b9ea013273949086e73f122e5'
-    oldFile: !uuid '1f10879454c051d63e287527c497df25bd9def14'
-  /src/views/project:
-    newFile: !uuid '73df03a23e4c6819ee94f92bf32fe557a5f9d179'
-    oldFile: !uuid 'a1d94ba7bbbdc52b0b72bb93e4726c81b7a37265'
-  /src/views/project/items:
-    newFile: !uuid '898d05608f0728817741c2b7359b048819865e21'
-    oldFile: !uuid '3b10b894432630e453ac23a4da89172227e51468'
-  /src/views/project/items/components:
-    newFile: !uuid '663348e66346c3881f4c436b13f5e239894b2f97'
-    oldFile: !uuid 'ad6650a4d562f1847876db75cace58b6ffdf11d4'
-  /src/views/project/items/components/ProjectItemsCard:
-    newFile: !uuid '1708aabd3e9c9bd8fb50a29eefb124d3eece9c14'
-    oldFile: !uuid '2f7b95c7f7b2f152e544a3f85ab63cc3674eb43e'
-  /src/views/project/items/components/ProjectItemsCard/index.vue:
-    newFile: !uuid 'b042d2294d17bd03d75220e05e76902559cbffcc'
-    oldFile: !uuid '5ce708b18a49a2cb8e503a99788df460c9ef2c33'
-gitCommitId: !uuid 'b1870296c0ca1fad2ff61f2c4e07ebbc489d0116'
+  /README.md:
+    newFile: !uuid '986d144b1654970e9b59dcf01a7e3b863ebb497b'
+    oldFile: !uuid '120561473009d4f6e5d48bf3338ec955b3352b91'
+gitCommitId: !uuid 'c7f5508e07a385cded2100e91642f0c2b2be67dc'
 renames: {
   }
-revisionId: 443
+revisionId: 444
