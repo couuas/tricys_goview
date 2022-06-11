@@ -3,42 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '3529b4714f205ad5f6e2c5624676a8b36d634d0d'
-    oldFile: !uuid '8e5c5499424a0221c9be340d6540e56ca7c6d503'
-  /src/packages:
-    newFile: !uuid 'f7142481666dea9b33e85942ae417e060842e78d'
-    oldFile: !uuid '952ba808bb1010c4df3c057be79089e1c1178861'
-  /src/packages/public:
-    newFile: !uuid 'bd129cb096ccf3205681508a7590d9c2d7da243b'
-    oldFile: !uuid '9086e787da3126c4adc9f025a0103f279c9e8657'
-  /src/packages/public/publicConfig.ts:
-    newFile: !uuid '25d75d7f4dce7ab8d049d87fce59cf9a04763146'
-    oldFile: !uuid '285f45603c13ef839b99e5af6ea8a7926375587f'
+    newFile: !uuid 'e56567ebf4cbde7768800c95813a648f25ba3b02'
+    oldFile: !uuid '3529b4714f205ad5f6e2c5624676a8b36d634d0d'
   /src/views:
-    newFile: !uuid '45bc497574d1cfb4fc08700a711f9a279f05ff22'
-    oldFile: !uuid '431d9c4e17351b5b9ea013273949086e73f122e5'
+    newFile: !uuid 'aed261c8887778a1e86cb5935197bced3d101026'
+    oldFile: !uuid '45bc497574d1cfb4fc08700a711f9a279f05ff22'
   /src/views/chart:
-    newFile: !uuid 'd3387a0368bf5267944e16de56f63d333169611a'
-    oldFile: !uuid 'b300b84abb951a826b05dd1f8b05946db170a6fb'
-  /src/views/chart/ContentConfigurations:
-    newFile: !uuid '37c9d87569a4b2e6785d029df33ce9091675c366'
-    oldFile: !uuid '8a46769ab6bd97d6b4e70d8a73b741a243bc1faa'
-  /src/views/chart/ContentConfigurations/components:
-    newFile: !uuid '4f7ae1944036e56345fefc1823ef170f2d6035f7'
-    oldFile: !uuid '0e634ebcbbd83dedab7eff2dadad7f279ee2f2b3'
-  /src/views/chart/ContentConfigurations/components/ChartData:
-    newFile: !uuid 'd180b7a37cc52931f38a3fad94295ab22c77dabd'
-    oldFile: !uuid '57e605af7b0f91a4dfd1daf739b7ac830a46b707'
-  /src/views/chart/ContentConfigurations/components/ChartData/components:
-    newFile: !uuid 'b1acf0d9d6acedda147701c6824031ea9c090873'
-    oldFile: !uuid '14bb78c8d01a36f37c1129ba3042a535ed9b5796'
-  /src/views/chart/ContentConfigurations/components/ChartData/components/ChartDataAjax:
-    newFile: !uuid 'e78c46b9310e7e97a37dfefd23855e32cf7eb68f'
-    oldFile: !uuid 'ab69b1789deff48a0552ea0ffd21a268bff09255'
-  /src/views/chart/ContentConfigurations/components/ChartData/components/ChartDataAjax/index.vue:
-    newFile: !uuid 'bd795936fe0b638b58a5f6ee47148c56ecef9ba0'
-    oldFile: !uuid '72e3c0cdb31c987e3a097151f0d7a9b7558e8e8c'
-gitCommitId: !uuid 'b39bcd864c9b82569065a67fb5989715a638e008'
+    newFile: !uuid '9801c7e4d5294baf81e42f229d6d16b685697163'
+    oldFile: !uuid 'd3387a0368bf5267944e16de56f63d333169611a'
+  /src/views/chart/ContentEdit:
+    newFile: !uuid '906175427a2615d39efa794f001b58e40343b7c2'
+    oldFile: !uuid 'c3907ef0343c74ce9aba02363e93005e5ad49db9'
+  /src/views/chart/ContentEdit/components:
+    newFile: !uuid 'fc032f49472f574a94c7ae3c46a23062fdd6c11c'
+    oldFile: !uuid '6d2bca68b98c9ac19fa0585916122d52bd6e2666'
+  /src/views/chart/ContentEdit/components/EditShapeBox:
+    newFile: !uuid 'd083021a94b6218850b4a27a4c4351c92263c183'
+    oldFile: !uuid 'ae1c2e0bcb02125891d097782384d447971301b4'
+  /src/views/chart/ContentEdit/components/EditShapeBox/index.vue:
+    newFile: !uuid '9198aef37c55cbde8d8c268c9237249f18c2632a'
+    oldFile: !uuid 'ab8b594c39b102943f42be7a96cb4cb527542724'
+gitCommitId: !uuid '85beabe7c8b731e4cc200df481eed48743bea69f'
 renames: {
   }
-revisionId: 447
+revisionId: 448
