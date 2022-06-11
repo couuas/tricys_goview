@@ -2,28 +2,13 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid '9887bd7b068e766cbbda371bb00ee96b40c4c6f0'
-    oldFile: !uuid '8064b46ce082457d1164a5acc56e97e57df1c40d'
-  /src/packages:
-    newFile: !uuid '952ba808bb1010c4df3c057be79089e1c1178861'
-    oldFile: !uuid '218e535f661ea62d747d3121d7bc5dbef3584eef'
-  /src/packages/components:
-    newFile: !uuid 'f856814e32cc6402806828717c50a2f6c9a24786'
-    oldFile: !uuid '4ec0b828e66cd5d9de06cba389e5e6dd435ece2d'
-  /src/packages/components/Charts:
-    newFile: !uuid '5a08ba1b8ed3bc149ea941fa410d417a38fd890d'
-    oldFile: !uuid '5d1f17ec516fe8cab704672a89b1a344f4f51a8f'
-  /src/packages/components/Charts/Lines:
-    newFile: !uuid 'a1c05c1a652b748c7784db6ede3ca5e0809236f3'
-    oldFile: !uuid 'e5df4106b4891e6ed724e95ad255d3dd8af369c0'
-  /src/packages/components/Charts/Lines/LineGradients:
-    newFile: !uuid 'e0cce35c8e2519cec72eea7e20049cf8f5b1c76b'
-    oldFile: !uuid '07cc6a1ad1a57a12e486f717cab6b246c8b166b5'
-  /src/packages/components/Charts/Lines/LineGradients/config.ts:
-    newFile: !uuid '484b4c6b796deb9d51f9b31ac7a136bcf2012626'
-    oldFile: !uuid 'c402cea23660910a5e4533ffac8986753a28084c'
-gitCommitId: !uuid '5f49bc1aa86cf4f13a4f0b8dcfae8fe86c504cad'
+  /package.json:
+    newFile: !uuid 'ea40b55eb63218c343383e5979b4afab9ac97518'
+    oldFile: !uuid '7945d787333cb9f441f98aef4c6147aa1c1b4ff2'
+  /pnpm-lock.yaml:
+    newFile: !uuid '9f6aaa8d9014f01ddf2062980ff6f9ae421625a9'
+    oldFile: !uuid '8d290381484ab714d223a265048615b08ff4bb0e'
+gitCommitId: !uuid 'abe76aeb59a1d2d4343bbc303f48df2162f54a33'
 renames: {
   }
-revisionId: 484
+revisionId: 485
