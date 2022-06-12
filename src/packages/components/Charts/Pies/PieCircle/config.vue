@@ -1,14 +1,14 @@
 <template>
   <!-- 遍历 seriesList -->
-  <CollapseItem v-for="(item, index) in seriesList" :key="index" :name="`圆环-${index + 1}`" :expanded="true">
+  <CollapseItem v-for="(item, index) in config.series" :key="index" :name="`圆环-${index + 1}`" :expanded="true">
     <SettingItemBox name="数据">
       <SettingItem name="数值">
-        <n-input-number v-model:value="item.data[0].value" :min="0" :step="0.01" size="small" placeholder="数值">
+        <n-input-number v-model:value="config.dataset" :min="0" :max="1" :step="0.01" size="small" placeholder="数值">
         </n-input-number>
       </SettingItem>
     </SettingItemBox>
     <!-- Echarts 全局设置 -->
-    <SettingItemBox name="样式">
+    <SettingItemBox name="进度条样式">
       <SettingItem name="颜色">
         <n-color-picker
           size="small"
@@ -17,7 +17,7 @@
         ></n-color-picker>
       </SettingItem>
       <SettingItem name="阴影模糊等级">
-        <n-input-number v-model:value="item.data[0].itemStyle.normal.shadowBlur" :min="0" :step="1" size="small" placeholder="阴影模糊等级">
+        <n-input-number v-model:value="item.data[0].itemStyle.normal.shadowBlur" :min="0" :max="50" :step="1" size="small" placeholder="阴影模糊等级">
         </n-input-number>
       </SettingItem>
       <SettingItem name="阴影颜色">
@@ -34,16 +34,16 @@
         <n-color-picker
           size="small"
           :modes="['hex']"
-          v-model:value="title.textStyle.color"
+          v-model:value="config.title.textStyle.color"
         ></n-color-picker>
       </SettingItem>
       <SettingItem name="字体大小">
-        <n-input-number v-model:value="title.textStyle.fontSize" :min="0" :step="1" size="small" placeholder="字体大小">
+        <n-input-number v-model:value="config.title.textStyle.fontSize" :min="0" :step="1" size="small" placeholder="字体大小">
         </n-input-number>
       </SettingItem>
     </SettingItemBox>
     <!-- 其他样式 -->
-    <SettingItemBox name="其它样式">
+    <SettingItemBox name="轨道样式">
       <SettingItem name="颜色">
         <n-color-picker
           size="small"
@@ -63,8 +63,6 @@
         ></n-color-picker>
       </SettingItem>
     </SettingItemBox>
-    <!-- Echarts 全局设置 -->
-    <global-setting :optionData="optionData" :in-chart="true"></global-setting>
   </CollapseItem>
 </template>
 
@@ -72,7 +70,6 @@
 import { PropType, computed } from 'vue'
 // 以下是封装的设置模块布局组件，具体效果可在官网查看
 import {
-  GlobalSetting,
   CollapseItem,
   SettingItemBox,
   SettingItem
@@ -83,18 +80,10 @@ const props = defineProps({
   optionData: {
     type: Object as PropType<GlobalThemeJsonType>,
     required: true
-  },
-  title: {
-    type: Object as PropType<GlobalThemeJsonType>,
-    required: true
   }
 })
 
-const seriesList = computed(() => {
-  return props.optionData.series
-})
-
-const title = computed(() => {
-  return props.optionData.title
+const config = computed(() => {
+  return props.optionData
 })
 </script>

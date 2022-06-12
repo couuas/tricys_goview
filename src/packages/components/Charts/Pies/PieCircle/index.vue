@@ -1,9 +1,9 @@
 <template>
-  <v-chart ref="vChartRef" :theme="themeColor" :option="option" :manual-update="isPreview()" autoresize></v-chart>
+  <v-chart ref="vChartRef" :theme="themeColor" :option="option.value" :manual-update="isPreview()" autoresize></v-chart>
 </template>
 
 <script setup lang="ts">
-import { computed, PropType, watch } from 'vue'
+import {computed, PropType, reactive, watch} from 'vue'
 import VChart from 'vue-echarts'
 import { use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
@@ -46,18 +46,26 @@ use([
   TitleComponent
 ])
 
+const option = reactive({
+  value: {}
+})
+
 watch(
     () => props.chartConfig.option.dataset,
     (newData) => {
-      props.chartConfig.option.title.text = newData + "%"
-      props.chartConfig.option.series[0].data[0].value = newData
-      props.chartConfig.option.series[0].data[1].value = 100 - newData
+      // console.log('update:'+newData)
+      const d = parseFloat(`${newData}`) * 100
+      let config = props.chartConfig.option
+      config.title.text = d.toFixed(2) + "%"
+      config.series[0].data[0].value[0] = d
+      config.series[0].data[1].value[0] = 100 - d
+      option.value = mergeTheme(config, props.themeSetting, includes)
+      option.value = config
+    },
+    {
+      immediate: true,
     }
 )
-
-const option = computed(() => {
-  return mergeTheme(props.chartConfig.option, props.themeSetting, includes)
-})
 
 const { vChartRef } = useChartDataFetch(props.chartConfig, useChartEditStore)
 </script>

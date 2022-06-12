@@ -11,9 +11,9 @@ const option = {
   legend: {
     show: true,
   },
-  dataset: 45,
+  dataset: 0.25,
   title: {
-    text: 0 + "%",
+    text: 25 + "%",
     x: "center",
     y: "center",
     textStyle: {
@@ -45,7 +45,7 @@ const option = {
           }
         },
         {
-          value: 75,
+          value: [75],
           itemStyle: {
             normal: {
               color: "#00bcd44a",
