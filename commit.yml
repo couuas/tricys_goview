@@ -3,27 +3,39 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '495207974c93395af4957e8a7141d039c38f3201'
-    oldFile: !uuid '05609d81da1771f8885f322fd5516f55466fab63'
-  /src/views:
-    newFile: !uuid 'aed261c8887778a1e86cb5935197bced3d101026'
-    oldFile: !uuid '45bc497574d1cfb4fc08700a711f9a279f05ff22'
-  /src/views/chart:
-    newFile: !uuid '9801c7e4d5294baf81e42f229d6d16b685697163'
-    oldFile: !uuid 'd3387a0368bf5267944e16de56f63d333169611a'
-  /src/views/chart/ContentEdit:
-    newFile: !uuid '906175427a2615d39efa794f001b58e40343b7c2'
-    oldFile: !uuid 'c3907ef0343c74ce9aba02363e93005e5ad49db9'
-  /src/views/chart/ContentEdit/components:
-    newFile: !uuid 'fc032f49472f574a94c7ae3c46a23062fdd6c11c'
-    oldFile: !uuid '6d2bca68b98c9ac19fa0585916122d52bd6e2666'
-  /src/views/chart/ContentEdit/components/EditShapeBox:
-    newFile: !uuid 'd083021a94b6218850b4a27a4c4351c92263c183'
-    oldFile: !uuid 'ae1c2e0bcb02125891d097782384d447971301b4'
-  /src/views/chart/ContentEdit/components/EditShapeBox/index.vue:
-    newFile: !uuid '9198aef37c55cbde8d8c268c9237249f18c2632a'
-    oldFile: !uuid 'ab8b594c39b102943f42be7a96cb4cb527542724'
-gitCommitId: !uuid '3c221345dd756ce2875cef99674ebb41b0e03896'
+    newFile: !uuid '5bac540f4f524fdce5f3fd13be8a61f8eea57dc2'
+    oldFile: !uuid '495207974c93395af4957e8a7141d039c38f3201'
+  /src/packages:
+    newFile: !uuid '4e528b8e46260c5e30ffe4244ed655d0f9a92d1c'
+    oldFile: !uuid 'f7142481666dea9b33e85942ae417e060842e78d'
+  /src/packages/components:
+    newFile: !uuid '091d4e830114bb5556d902a620621d0a843a0f06'
+    oldFile: !uuid 'f856814e32cc6402806828717c50a2f6c9a24786'
+  /src/packages/components/Charts:
+    newFile: !uuid 'b9d3b4031bb11fdf1a7f859c1ca27933ceaed773'
+    oldFile: !uuid '5a08ba1b8ed3bc149ea941fa410d417a38fd890d'
+  /src/packages/components/Charts/Mores:
+    newFile: !uuid '6e893a4665fc14ff431ffd0410eeaac5504b1847'
+    oldFile: !uuid '04241bc973000ec72c251ee09099f4957dbdfa62'
+  /src/packages/components/Charts/Mores/Process:
+    newFile: !uuid 'f934a85959b5ca4b07df6e0ab406aec2e283631f'
+    oldFile: null
+  /src/packages/components/Charts/Mores/Process/config.ts:
+    newFile: !uuid 'd2033e90687d48c77c983b2035de8e59699504ae'
+    oldFile: null
+  /src/packages/components/Charts/Mores/Process/config.vue:
+    newFile: !uuid '534f973b628e84164d47ffc92e86376acd9b2399'
+    oldFile: null
+  /src/packages/components/Charts/Mores/Process/index.ts:
+    newFile: !uuid '80409afe2cfe93f4e274c004c4cdbf3a0ae7d2ff'
+    oldFile: null
+  /src/packages/components/Charts/Mores/Process/index.vue:
+    newFile: !uuid 'a3182d57e1b7aac1f6ddbdc2692f8d18fb05d00a'
+    oldFile: null
+  /src/packages/components/Charts/index.ts:
+    newFile: !uuid '2dd3e54b4d1b57edfc45342ed762c32536f829c2'
+    oldFile: !uuid '3f03e1757f37aabae4352a2101ca8e93631f7cac'
+gitCommitId: !uuid 'eafbcb2cde431d4ca07c4734129b220ed7a761d2'
 renames: {
   }
-revisionId: 1131
+revisionId: 1132
