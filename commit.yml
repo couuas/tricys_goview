@@ -2,61 +2,37 @@
 branches: {
   }
 fileChange:
+  /.gitignore:
+    newFile: !uuid '60a4aff18e393a13a29cd42f427552746c6c5185'
+    oldFile: !uuid 'd451ff16c1010b8dc4285ef4d338028792a0ecd3'
   /src:
-    newFile: !uuid '31e47cc596ad30f163d9732b25c8fa6dafe52824'
-    oldFile: !uuid '097c78ccc7ad0f21ad3bfba0ea8c34a7d73300dc'
-  /src/assets:
-    newFile: !uuid '4d5070f5852b0503207c3100cb19a3923c20bfd8'
-    oldFile: !uuid 'b8dbeabc229e264066d96755fdec8f232785c639'
-  /src/assets/images:
-    newFile: !uuid '3ed6f9c004603257f1ea73974846261df0c163c5'
-    oldFile: !uuid '139de4a77850d4c624c07318e35b77839a241cf7'
-  /src/assets/images/chart:
-    newFile: !uuid '6acfc2abf07d0457b6315285422f1e56de4ab9c5'
-    oldFile: !uuid '5a67617db3190b19dc49d59395c7d8fa6577b8d6'
-  /src/assets/images/chart/charts:
-    newFile: !uuid 'd00832ff9bbbd3eede23cb2049975501a466d013'
-    oldFile: !uuid '52fe3e206ecad4a2fa076cdcf84c682359587653'
-  /src/assets/images/chart/charts/process.png:
-    newFile: !uuid '4be18d73f8cb52afa94d6fdbd9c10dbd4a70fdf2'
-    oldFile: !uuid 'b44576969a68c2a7224e5a473af92590fc934f06'
+    newFile: !uuid '7c1f77124039603badc0ca123e3b65656344d2c2'
+    oldFile: !uuid '31e47cc596ad30f163d9732b25c8fa6dafe52824'
   /src/packages:
-    newFile: !uuid '7683394900be5d756be48c22297741d31c2029e4'
-    oldFile: !uuid '0df73c92fa47754e2f1368e97e3e64b4a3d807e5'
+    newFile: !uuid '4bc1d86318eff01f06d070f79bae1aaf280efda6'
+    oldFile: !uuid '7683394900be5d756be48c22297741d31c2029e4'
   /src/packages/components:
-    newFile: !uuid '1ad655e5a7a20e3abfb26a46baffaa23b674517f'
-    oldFile: !uuid 'd180a2aef30d1d6a91010180573e85c67a0b10eb'
-  /src/packages/components/Charts:
-    newFile: !uuid '7b10fda38b3e67caaa95a6d2eaac9bf3c4f009a2'
-    oldFile: !uuid 'ffc3aec8e90472a245f97fe5b9252e84930153ce'
-  /src/packages/components/Charts/Mores:
-    newFile: !uuid '9506d9174007638dcb39ed549f22cd2a760c8c8d'
-    oldFile: !uuid '251ea84677376e35d542d87c6033935f2f3fa50d'
-  /src/packages/components/Charts/Mores/Process:
-    newFile: !uuid 'f7434fabfc983c39d1f5afb24fe944e1f5db95df'
-    oldFile: !uuid '9b6e556e4a7e4a17f224f90231191c1d1a68b580'
-  /src/packages/components/Charts/Mores/Process/config.ts:
-    newFile: !uuid '34d86502c38440640087a3f1af2f2900603a3d7b'
-    oldFile: !uuid '0bac2293c25413cb1c36d53a6d1f078e09f8bc9c'
-  /src/packages/components/Charts/Mores/Process/config.vue:
-    newFile: !uuid '74003105b1f351089dec22318df22fe383856649'
-    oldFile: !uuid 'c6b1909dd482f8d46dcc6dcab0320242e10593e7'
-  /src/packages/components/Charts/Mores/Process/index.ts:
-    newFile: !uuid '093aa03a87c71cf908acd74f0c64d1c2809e245c'
-    oldFile: !uuid 'd841e4f9deda47f00ec9dbfd704e70b8574b34f0'
-  /src/packages/components/Charts/Pies:
-    newFile: !uuid 'e34e33e564c7ec55ba580e77464ae2da7b9f105d'
-    oldFile: !uuid '56d66b639772a6cc37d43cb844c4f2fd3bd3fa44'
-  /src/packages/components/Charts/Pies/PieCircle:
-    newFile: !uuid '7ccedd4f791a71985e0f3edd9d635780bd5a341e'
-    oldFile: !uuid '041aed2f31855f0aed66f72cf223ed228d32f06a'
-  /src/packages/components/Charts/Pies/PieCircle/config.ts:
-    newFile: !uuid 'ff6f63b338d92b58cb88fc2aec85ea5c11eae329'
-    oldFile: !uuid 'e5a09dbe6971bf733aa248f058f44c72c0ad2409'
-  /src/packages/components/Charts/Pies/PieCircle/config.vue:
-    newFile: !uuid '9a5a19bb07bf0ed9e105d6b51b0047152e090081'
-    oldFile: !uuid '258bafc7e216bcc00e46ecd1f627069e5a2fe57c'
-gitCommitId: !uuid 'ca8cac3f1a119ea15a6d5c38ce053c1eb303ed85'
+    newFile: !uuid '7a2ce7312ed4c25e4784923e9f06c78c9addc518'
+    oldFile: !uuid '1ad655e5a7a20e3abfb26a46baffaa23b674517f'
+  /src/packages/components/Decorates:
+    newFile: !uuid '4d3672217323e5ee1d385c145f57ee89e9815a0e'
+    oldFile: !uuid 'cf643442c5db275d6fbe6c204de089fc8386843d'
+  /src/packages/components/Decorates/Mores:
+    newFile: !uuid 'd671ca6b27f0c21ea888f04420b86b1a1eb82f4a'
+    oldFile: !uuid '53672c6231e1034e608f70be513a89f61b31d773'
+  /src/packages/components/Decorates/Mores/Number:
+    newFile: !uuid 'd9ee3f24726b4343f07b14c76b83a67830ebf2a8'
+    oldFile: !uuid '25f1aea4f3f61b170213958daf0731de11b6cbf9'
+  /src/packages/components/Decorates/Mores/Number/config.ts:
+    newFile: !uuid 'c3a8b940cd2430eff53fa2476e365cc517df1032'
+    oldFile: !uuid 'b9fd8920253f5aa7c4a8a7617d5124bfc6d9623c'
+  /src/packages/components/Decorates/Mores/Number/config.vue:
+    newFile: !uuid 'c951ed5e14c3cd53bac83a23f925abf9de1f5864'
+    oldFile: !uuid 'f7114a3033a1ebac8c6fa8f4ebee1239243c0322'
+  /src/packages/components/Decorates/Mores/Number/index.vue:
+    newFile: !uuid 'ccf30bd3611e74c5369fc6fe73da5fbe01aaa51d'
+    oldFile: !uuid 'b4ddfb13d11cedd81b16949c1e09ccefc530e27b'
+gitCommitId: !uuid '5abfcfdd1bf75e4fd652fd8c7d337f150c7d56f1'
 renames: {
   }
-revisionId: 454
+revisionId: 455
