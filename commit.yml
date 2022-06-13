@@ -3,27 +3,39 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '63b0c067461369ae3a0b3706ee2caf6567b524b2'
-    oldFile: !uuid '0645173a7695d95b6767c4b0d6fa31c0a3d1c815'
-  /src/views:
-    newFile: !uuid 'cdda7cb195437ee710545ec1b5846b7ab0b0920f'
-    oldFile: !uuid 'aed261c8887778a1e86cb5935197bced3d101026'
-  /src/views/chart:
-    newFile: !uuid 'eba8d556c09f039ae2f72d977175cd42784f1406'
-    oldFile: !uuid '9801c7e4d5294baf81e42f229d6d16b685697163'
-  /src/views/chart/ContentEdit:
-    newFile: !uuid 'cf7e0d4fc520116c2df48fbeef0b4af32d304e66'
-    oldFile: !uuid '906175427a2615d39efa794f001b58e40343b7c2'
-  /src/views/chart/ContentEdit/components:
-    newFile: !uuid '2e325aee743d9d64508728b9d43d2e03f90dba68'
-    oldFile: !uuid 'fc032f49472f574a94c7ae3c46a23062fdd6c11c'
-  /src/views/chart/ContentEdit/components/EditBottom:
-    newFile: !uuid '4330abcfbb5324b009c6ab9ae94b0a1a6e55741e'
-    oldFile: !uuid '17abaff052ddf9c8abf02cdd1fc0c20b57daf890'
-  /src/views/chart/ContentEdit/components/EditBottom/index.vue:
-    newFile: !uuid '85aad898c2b0880fbfce04ac50029ab95dd02cdc'
-    oldFile: !uuid '864806f94d80945045acaa3cabe9f3605fd0b3fa'
-gitCommitId: !uuid '70f9df76506c026337596cb1f7704cbde25bd9df'
+    newFile: !uuid '558c10130136eb123942ae6f54331ae5392ec05a'
+    oldFile: !uuid '63b0c067461369ae3a0b3706ee2caf6567b524b2'
+  /src/packages:
+    newFile: !uuid '3eb3a3da22a81f3ade186b746e32c2ef386ada2a'
+    oldFile: !uuid 'cb24f5630128ee9d61e1439e9e05f2049e04072f'
+  /src/packages/components:
+    newFile: !uuid '61e6490c8ffc0f22da8dc82edb17d46e88120050'
+    oldFile: !uuid 'aceeeac06d9624d8ed6dee1bac1ae781fa9e02a3'
+  /src/packages/components/Charts:
+    newFile: !uuid 'adffc06e8cdfa84f34bc8760943b1ade9f076113'
+    oldFile: !uuid '9159a69e8a0042a682733b8ce315cef5643078c3'
+  /src/packages/components/Charts/Pies:
+    newFile: !uuid 'f9ffa604e3cbafe06cef1b54a6881a4d303d98d3'
+    oldFile: !uuid '079f9a2bd115e1707b5fa5c8d581a59fece6f996'
+  /src/packages/components/Charts/Pies/PieCircle:
+    newFile: !uuid 'f1111ec9bec88ca25341b0bc1a953ee982c7ecc5'
+    oldFile: null
+  /src/packages/components/Charts/Pies/PieCircle/config.ts:
+    newFile: !uuid 'e5a09dbe6971bf733aa248f058f44c72c0ad2409'
+    oldFile: null
+  /src/packages/components/Charts/Pies/PieCircle/config.vue:
+    newFile: !uuid '258bafc7e216bcc00e46ecd1f627069e5a2fe57c'
+    oldFile: null
+  /src/packages/components/Charts/Pies/PieCircle/index.ts:
+    newFile: !uuid '9ec6298b8e11d4f4f03043ae1065e7f28785d8ae'
+    oldFile: null
+  /src/packages/components/Charts/Pies/PieCircle/index.vue:
+    newFile: !uuid 'a4bf95da928d72dba6f56fdf30b342efd216eadb'
+    oldFile: null
+  /src/packages/components/Charts/Pies/index.ts:
+    newFile: !uuid 'f89116fcaf1a117b5652ccffe9455c1640c043c8'
+    oldFile: !uuid 'f5ce290b132c42111b35dce1e9cc4d66931e4c14'
+gitCommitId: !uuid 'ac23d4c8dcf2e3eb17f39b904d5817d8d4d7199d'
 renames: {
   }
-revisionId: 1134
+revisionId: 1135
