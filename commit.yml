@@ -3,54 +3,45 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'd6bc9240650f5fcf988e1c40a6db137037cf9c09'
-    oldFile: !uuid 'b7a853e02620ea5663f7051dd87d956cbc762842'
+    newFile: !uuid '097c78ccc7ad0f21ad3bfba0ea8c34a7d73300dc'
+    oldFile: !uuid 'd6bc9240650f5fcf988e1c40a6db137037cf9c09'
   /src/assets:
-    newFile: !uuid '27cca6ac890a707b9d434cea1c96be3199a20dd3'
-    oldFile: !uuid '1751fe6f9c000929f47c145b26761dd35672b303'
+    newFile: !uuid 'b8dbeabc229e264066d96755fdec8f232785c639'
+    oldFile: !uuid '27cca6ac890a707b9d434cea1c96be3199a20dd3'
   /src/assets/images:
-    newFile: !uuid '164d86e70cfd09acd72b594b34b0422de0a788cd'
-    oldFile: !uuid 'f75d5bd370b484b7d7975b03e2e662d72bd67ead'
+    newFile: !uuid '139de4a77850d4c624c07318e35b77839a241cf7'
+    oldFile: !uuid '164d86e70cfd09acd72b594b34b0422de0a788cd'
   /src/assets/images/chart:
-    newFile: !uuid 'cff35992433a2ba7f5277b1768e5688dff1cf11e'
-    oldFile: !uuid '4700f7877c45c507fcefa47c55c2fcd9ab1d8c63'
+    newFile: !uuid '5a67617db3190b19dc49d59395c7d8fa6577b8d6'
+    oldFile: !uuid 'cff35992433a2ba7f5277b1768e5688dff1cf11e'
   /src/assets/images/chart/charts:
-    newFile: !uuid 'd96183e6f996c1c28f5039c0c452bd0a76458668'
-    oldFile: !uuid '594aef57d7acd74ca2f21b264d16a4b2607894fe'
+    newFile: !uuid '52fe3e206ecad4a2fa076cdcf84c682359587653'
+    oldFile: !uuid 'd96183e6f996c1c28f5039c0c452bd0a76458668'
   /src/assets/images/chart/charts/circle.png:
-    newFile: !uuid '9e8da7943aae288352d0a214c696a57fca06495b'
+    newFile: null
+    oldFile: !uuid '9e8da7943aae288352d0a214c696a57fca06495b'
+  /src/assets/images/chart/charts/pie-circle.png:
+    newFile: !uuid '7d99ed04f85dd4d7bd1047988a72fb282e819e86'
     oldFile: null
   /src/packages:
-    newFile: !uuid '3eb3a3da22a81f3ade186b746e32c2ef386ada2a'
-    oldFile: !uuid 'cb24f5630128ee9d61e1439e9e05f2049e04072f'
+    newFile: !uuid '0df73c92fa47754e2f1368e97e3e64b4a3d807e5'
+    oldFile: !uuid '3eb3a3da22a81f3ade186b746e32c2ef386ada2a'
   /src/packages/components:
-    newFile: !uuid '61e6490c8ffc0f22da8dc82edb17d46e88120050'
-    oldFile: !uuid 'aceeeac06d9624d8ed6dee1bac1ae781fa9e02a3'
+    newFile: !uuid 'd180a2aef30d1d6a91010180573e85c67a0b10eb'
+    oldFile: !uuid '61e6490c8ffc0f22da8dc82edb17d46e88120050'
   /src/packages/components/Charts:
-    newFile: !uuid 'adffc06e8cdfa84f34bc8760943b1ade9f076113'
-    oldFile: !uuid '9159a69e8a0042a682733b8ce315cef5643078c3'
+    newFile: !uuid 'ffc3aec8e90472a245f97fe5b9252e84930153ce'
+    oldFile: !uuid 'adffc06e8cdfa84f34bc8760943b1ade9f076113'
   /src/packages/components/Charts/Pies:
-    newFile: !uuid 'f9ffa604e3cbafe06cef1b54a6881a4d303d98d3'
-    oldFile: !uuid '079f9a2bd115e1707b5fa5c8d581a59fece6f996'
+    newFile: !uuid '56d66b639772a6cc37d43cb844c4f2fd3bd3fa44'
+    oldFile: !uuid 'f9ffa604e3cbafe06cef1b54a6881a4d303d98d3'
   /src/packages/components/Charts/Pies/PieCircle:
-    newFile: !uuid 'f1111ec9bec88ca25341b0bc1a953ee982c7ecc5'
-    oldFile: null
-  /src/packages/components/Charts/Pies/PieCircle/config.ts:
-    newFile: !uuid 'e5a09dbe6971bf733aa248f058f44c72c0ad2409'
-    oldFile: null
-  /src/packages/components/Charts/Pies/PieCircle/config.vue:
-    newFile: !uuid '258bafc7e216bcc00e46ecd1f627069e5a2fe57c'
-    oldFile: null
+    newFile: !uuid '041aed2f31855f0aed66f72cf223ed228d32f06a'
+    oldFile: !uuid 'f1111ec9bec88ca25341b0bc1a953ee982c7ecc5'
   /src/packages/components/Charts/Pies/PieCircle/index.ts:
-    newFile: !uuid '9ec6298b8e11d4f4f03043ae1065e7f28785d8ae'
-    oldFile: null
-  /src/packages/components/Charts/Pies/PieCircle/index.vue:
-    newFile: !uuid 'a4bf95da928d72dba6f56fdf30b342efd216eadb'
-    oldFile: null
-  /src/packages/components/Charts/Pies/index.ts:
-    newFile: !uuid 'f89116fcaf1a117b5652ccffe9455c1640c043c8'
-    oldFile: !uuid 'f5ce290b132c42111b35dce1e9cc4d66931e4c14'
-gitCommitId: !uuid '6c871b071f6587a242d19d0c6418b0d9691dd8d0'
+    newFile: !uuid 'deec7530d0b74d17ea4b2938c73b43554b46eac8'
+    oldFile: !uuid '9ec6298b8e11d4f4f03043ae1065e7f28785d8ae'
+gitCommitId: !uuid '3dc745d4adb080c983ada6b7c8d865858bab493b'
 renames: {
   }
-revisionId: 452
+revisionId: 453
