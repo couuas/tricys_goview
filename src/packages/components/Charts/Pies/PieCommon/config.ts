@@ -5,7 +5,7 @@ import dataJson from './data.json'
 
 export const includes = ['legend']
 
-const option = {
+export const option = {
   tooltip: {
     show: true,
     trigger: 'item'
@@ -17,14 +17,17 @@ const option = {
   series: [
     {
       type: 'pie',
-      radius: ['40%', '65%'],
+      radius: [40, 65],
       center: ['50%', '60%'],
-      avoidLabelOverlap: false,
+      color: ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc'],
       itemStyle: {
         show: true,
         borderRadius: 10,
         borderColor: '#fff',
-        borderWidth: 2
+        borderWidth: 2,
+        borderType: 'solid',
+        shadowBlur: 10,
+        shadowColor: "#97e2f5"
       },
       label: {
         show: false,
