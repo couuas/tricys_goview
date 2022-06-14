@@ -3,42 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'b77ecc18fbcacd39ec28eee45b22aab57bb0672e'
-    oldFile: !uuid 'b365f1086d6d9d52a9323dc96eb2a826fd861f04'
+    newFile: !uuid '5d82e2303ae3442c92b8198faeafa543116f3e84'
+    oldFile: !uuid 'b77ecc18fbcacd39ec28eee45b22aab57bb0672e'
   /src/packages:
-    newFile: !uuid '1704a80980a6dc2988065902aa1e82eeb7b0df7d'
-    oldFile: !uuid '26c38a704a125756821a4d2f8cd824b240bb3c8c'
+    newFile: !uuid 'cb76bb8d92c8d21242a559596ed8d942b9421f6f'
+    oldFile: !uuid '1704a80980a6dc2988065902aa1e82eeb7b0df7d'
   /src/packages/components:
-    newFile: !uuid '7be927e754136466a557f7c87864dcc95ae003be'
-    oldFile: !uuid 'c3b92ff9844504fe37a40e4e960737a37b0c00ba'
-  /src/packages/components/Tables:
-    newFile: !uuid 'f48e58e58fb7483dc62db7f0a788c7c9927db6f3'
-    oldFile: !uuid 'fc186e3e31992044a53721e17459c550f67088f9'
-  /src/packages/components/Tables/Tables:
-    newFile: !uuid '6e5c6882942e67ee004384ee5511ed62bfedcff2'
-    oldFile: !uuid '92759be9ce98407df38886d8da71b6f8738cd994'
-  /src/packages/components/Tables/Tables/TableScrollBoard:
-    newFile: !uuid 'a3d240e1858741e613bcd12da938a1e097c8ecef'
-    oldFile: null
-  /src/packages/components/Tables/Tables/TableScrollBoard/config.ts:
-    newFile: !uuid 'e39ddded6ce641180447d6c07d4109ba78d76c7e'
-    oldFile: null
-  /src/packages/components/Tables/Tables/TableScrollBoard/config.vue:
-    newFile: !uuid '9dd1e12de8e441b62f37e6ed358e52a60522a389'
-    oldFile: null
-  /src/packages/components/Tables/Tables/TableScrollBoard/data.json:
-    newFile: !uuid '2508e6ff9bbdc6d49c8b036f0b5ffdd85a59f182'
-    oldFile: null
-  /src/packages/components/Tables/Tables/TableScrollBoard/index.ts:
-    newFile: !uuid '0ceb94bbbb282ef7255b5f5a6ff0fad490993cb4'
-    oldFile: null
-  /src/packages/components/Tables/Tables/TableScrollBoard/index.vue:
-    newFile: !uuid '9792e796ef2f20e99473feebb45b0ad48798f889'
-    oldFile: null
-  /src/packages/components/Tables/Tables/index.ts:
-    newFile: !uuid '388951a9efc50f46b055b3c4d16eb10d02ae4543'
-    oldFile: !uuid 'a2443e3582814ac750caaa0c47afd454572ed8de'
-gitCommitId: !uuid 'c1dfd78d180a76141d5359638a7b05d1e3a7c22c'
+    newFile: !uuid '5a0b4f21a5408b89484e68ebd7c236fdad368651'
+    oldFile: !uuid '7be927e754136466a557f7c87864dcc95ae003be'
+  /src/packages/components/Decorates:
+    newFile: !uuid 'c1e78ee99f645005b27959ebda941796c3ef3e3f'
+    oldFile: !uuid 'e8df0f2ea5d0682e37ba85106a7187d523951979'
+  /src/packages/components/Decorates/Mores:
+    newFile: !uuid '36f4241a0756d38e2b9c42cf1c9ff8763c4b4542'
+    oldFile: !uuid 'd671ca6b27f0c21ea888f04420b86b1a1eb82f4a'
+  /src/packages/components/Decorates/Mores/Number:
+    newFile: !uuid '98ef371621b08ce5adc374638089ea87c3015239'
+    oldFile: !uuid 'd9ee3f24726b4343f07b14c76b83a67830ebf2a8'
+  /src/packages/components/Decorates/Mores/Number/index.vue:
+    newFile: !uuid '806ec4e13274a5fe27c2a925159275d4745fc65f'
+    oldFile: !uuid 'ccf30bd3611e74c5369fc6fe73da5fbe01aaa51d'
+gitCommitId: !uuid 'bcd1dfd7bd4038404d41bd844192dc1b53ebfadd'
 renames: {
   }
-revisionId: 495
+revisionId: 496
