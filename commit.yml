@@ -3,30 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '2df90f9a631904e6ed06b375a6f69810b15aa617'
-    oldFile: !uuid '1bb2caab617d71536090f5ec52bac1e17235dda0'
+    newFile: !uuid 'b365f1086d6d9d52a9323dc96eb2a826fd861f04'
+    oldFile: !uuid '2df90f9a631904e6ed06b375a6f69810b15aa617'
   /src/packages:
-    newFile: !uuid '0de4054ad0fab4528d15f9e715c2a62751de9010'
-    oldFile: !uuid '4bc1d86318eff01f06d070f79bae1aaf280efda6'
+    newFile: !uuid '26c38a704a125756821a4d2f8cd824b240bb3c8c'
+    oldFile: !uuid '0de4054ad0fab4528d15f9e715c2a62751de9010'
   /src/packages/components:
-    newFile: !uuid 'e9385ddb025deac1a480cfccbd038a9352ee10fb'
-    oldFile: !uuid '7a2ce7312ed4c25e4784923e9f06c78c9addc518'
-  /src/packages/components/Charts:
-    newFile: !uuid 'a66d774549d639733c3e547804abd3017650b085'
-    oldFile: !uuid '7b10fda38b3e67caaa95a6d2eaac9bf3c4f009a2'
-  /src/packages/components/Charts/Mores:
-    newFile: !uuid 'cabf0a68d572c761b157320dec969b8270ca7881'
-    oldFile: !uuid '9506d9174007638dcb39ed549f22cd2a760c8c8d'
-  /src/packages/components/Charts/Mores/WaterPolo:
-    newFile: !uuid '8774375aa04f8a4fb02c770fd0175f04f7fbec30'
-    oldFile: !uuid 'c2ece29621980bc866fab0e2e5f3ae4df389bc3d'
-  /src/packages/components/Charts/Mores/WaterPolo/config.ts:
-    newFile: !uuid '89441cca13e30f7c7a7fd73cb78ea9ba48b40e86'
-    oldFile: !uuid 'e671ed00c21615b74e600a26a53c8ec9b27184fa'
-  /src/packages/components/Charts/Mores/WaterPolo/config.vue:
-    newFile: !uuid '4121b3801caad8429adda89d80598aeeceab74a1'
-    oldFile: !uuid '029b9919ac33499915a50e11d269491f8cb0bda5'
-gitCommitId: !uuid 'd3afea8c5ee9f0e7312a7552adcb96f8dd328589'
+    newFile: !uuid 'c3b92ff9844504fe37a40e4e960737a37b0c00ba'
+    oldFile: !uuid 'e9385ddb025deac1a480cfccbd038a9352ee10fb'
+  /src/packages/components/Decorates:
+    newFile: !uuid 'e8df0f2ea5d0682e37ba85106a7187d523951979'
+    oldFile: !uuid '4d3672217323e5ee1d385c145f57ee89e9815a0e'
+  /src/packages/components/Decorates/Borders:
+    newFile: !uuid '170c9f9e1179df0173b4e1f3115803c2cabb2977'
+    oldFile: !uuid '960d9a0d395bbba950671ebe39d387e8aefb6639'
+  /src/packages/components/Decorates/Borders/Border04:
+    newFile: !uuid '1d4635b0cf8af7e14df81af29d6076c44bbaca88'
+    oldFile: !uuid '08229ed208cd4df5d100a012564d0b485327a016'
+  /src/packages/components/Decorates/Borders/Border04/index.vue:
+    newFile: !uuid 'aa42ef700b3adaf7aded627cc7747241d4d3b9b9'
+    oldFile: !uuid 'dc849811b96e62887622bd76b7fe73f70d3d8683'
+gitCommitId: !uuid '39aa1645c94d55c264ac84e34f542674ae1d84cb'
 renames: {
   }
-revisionId: 493
+revisionId: 494
