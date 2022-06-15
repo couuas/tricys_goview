@@ -2,28 +2,16 @@
 branches: {
   }
 fileChange:
-  /.commitlintrc.js:
-    newFile: !uuid '21ca9ba36f457154ba4c73a70dc7dd8f855afc20'
-    oldFile: null
-  /.gitignore:
-    newFile: !uuid '2c024b9a53bee9ff10fcbececc52319162344f2c'
-    oldFile: !uuid 'd451ff16c1010b8dc4285ef4d338028792a0ecd3'
-  /.husky:
-    newFile: !uuid '487f577db259fab3ef27d2c024a0ed852ca69ef2'
-    oldFile: null
-  /.husky/commit-msg:
-    newFile: !uuid '42cdacde0b7243cf54aef0d2e13a0e4acf9f4b32'
-    oldFile: null
+  /Makefile:
+    newFile: !uuid '37f890136b4e4ee1b40f6951f8671b7d03ac5629'
+    oldFile: !uuid 'ede77eec6de2a91d9c69ba77a0e3d83b82c81991'
   /package.json:
-    newFile: !uuid 'fa65c890c177050b618f07909f30089eadb77f27'
-    oldFile: !uuid '56838888726c3aa38dd79d211558a0e469a3d3c8'
-  /pnpm-lock.yaml:
-    newFile: !uuid 'd3781558f84c20bc4f3cbda2c90246d7e276051f'
-    oldFile: !uuid 'e00108f8166428ceadeb84e740fce6590e0d2a06'
-  /prettier.config.js:
-    newFile: !uuid 'a6e6deed67c8a4e70513b5e07d8930d24e89b307'
-    oldFile: !uuid '51caa0be0b7bc6179dbd1359f0796ca386461365'
-gitCommitId: !uuid '6edbb7c8a7a9c55462b580dd4a75ce595eba18dc'
+    newFile: !uuid 'adb66c69518ba816854f4d033b414a27e4973b90'
+    oldFile: !uuid 'fa65c890c177050b618f07909f30089eadb77f27'
+  /vite.config.ts:
+    newFile: !uuid 'a449b9d36b7274129bad699f913587afbf1fe550'
+    oldFile: !uuid 'e44d895b6d6ce4ae4a4032ae9264354dd54ef376'
+gitCommitId: !uuid 'db815661e8fdffa505de03686866f435b9d3852c'
 renames: {
   }
-revisionId: 503
+revisionId: 504
