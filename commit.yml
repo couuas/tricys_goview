@@ -3,39 +3,42 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'f25ac1daef65cee7a1624d05583f46e863e66d6b'
-    oldFile: !uuid '658ea5cb98fe8f39e3d9be5caa99e2e67635cf53'
+    newFile: !uuid 'cc8b8cedf1641314527e1ceb92600469999d69ed'
+    oldFile: !uuid 'f25ac1daef65cee7a1624d05583f46e863e66d6b'
+  /src/assets:
+    newFile: !uuid '1fe18202be4b53bb93fafd4ae6f337e736da5307'
+    oldFile: !uuid '0cd4988dca0dbdb46447f7a27c6d8a74355c3887'
+  /src/assets/images:
+    newFile: !uuid '1e97ab110e11398cb3c42c929f4b60dd66252ba0'
+    oldFile: !uuid 'f3659077cd2573f0c44a7037a1fc73a3223f2844'
+  /src/assets/images/chart:
+    newFile: !uuid '01ef501c1e20db8d566281115fc4966de68dd4ec'
+    oldFile: !uuid '9837c78c828582fd9214558fe53588bbad04fc9b'
+  /src/assets/images/chart/informations:
+    newFile: !uuid '4f3a84d347d2e30ac7ae21b8cf9ab1ec8fa2ea92'
+    oldFile: !uuid '8bbac394a9e4868f6b9533a62cce7c02603467b1'
+  /src/assets/images/chart/informations/text_gradient.png:
+    newFile: !uuid '87ead7c30dd7434ca0870bf0ab2435cea913b3bb'
+    oldFile: null
   /src/packages:
-    newFile: !uuid '30a79547062fb9bbbe59d57585180dfa8ef7768c'
-    oldFile: !uuid 'cb76bb8d92c8d21242a559596ed8d942b9421f6f'
+    newFile: !uuid 'c7f2d77f5764c5f374e865affc6070d2a084185c'
+    oldFile: !uuid '30a79547062fb9bbbe59d57585180dfa8ef7768c'
   /src/packages/components:
-    newFile: !uuid 'bb3fc649ac8b67262590d3debadecb807e3da012'
-    oldFile: !uuid '5a0b4f21a5408b89484e68ebd7c236fdad368651'
+    newFile: !uuid '5b8d85bebcf583375309b7e3d3f2c9ad0e07c374'
+    oldFile: !uuid 'bb3fc649ac8b67262590d3debadecb807e3da012'
   /src/packages/components/Informations:
-    newFile: !uuid '9d702b4591e1f2ddb71dcbb79d94194438734b10'
-    oldFile: !uuid '7a78d4998683bbe7815871750671b31062a12f03'
+    newFile: !uuid '44c1c2591d3828c4c524f8c0848588b551df1166'
+    oldFile: !uuid '9d702b4591e1f2ddb71dcbb79d94194438734b10'
   /src/packages/components/Informations/Texts:
-    newFile: !uuid '82e6fcc0334c4018246f5a683f232ead7be660f2'
-    oldFile: !uuid '8718bb572f7007c8fba3e98dd65f4c714ed49a71'
+    newFile: !uuid '36a1b1d45d86fa16b672d0ef42ebb743ca3686ee'
+    oldFile: !uuid '82e6fcc0334c4018246f5a683f232ead7be660f2'
   /src/packages/components/Informations/Texts/TextGradient:
-    newFile: !uuid '749a590b83b4665ebbea7f48069015c5351893dc'
-    oldFile: null
-  /src/packages/components/Informations/Texts/TextGradient/config.ts:
-    newFile: !uuid '8114b4049221c7d16fabba491fec2ed1e287d59d'
-    oldFile: null
-  /src/packages/components/Informations/Texts/TextGradient/config.vue:
-    newFile: !uuid '44e087579aeb2cfebf51d8626b79997b1ffac391'
-    oldFile: null
+    newFile: !uuid '9f1ad717a66e4ce640adf5a3bd8ebb589f81b63f'
+    oldFile: !uuid '749a590b83b4665ebbea7f48069015c5351893dc'
   /src/packages/components/Informations/Texts/TextGradient/index.ts:
-    newFile: !uuid '701c29f0390ccb001a2ab094240a3c58149c8737'
-    oldFile: null
-  /src/packages/components/Informations/Texts/TextGradient/index.vue:
-    newFile: !uuid '87160cbfb78980e29bb758ef9458b99adf81a200'
-    oldFile: null
-  /src/packages/components/Informations/Texts/index.ts:
-    newFile: !uuid '093a2d529e742b0ea9fb326a3fb0c536ba0b191c'
-    oldFile: !uuid '60f9e456d876c405b499b5d4fae331259f66aed4'
-gitCommitId: !uuid '3f5f8275504920d2df617924d31cbec6306db043'
+    newFile: !uuid '58fbbd4e12118b525c3bfc8ebd236497132518a8'
+    oldFile: !uuid '701c29f0390ccb001a2ab094240a3c58149c8737'
+gitCommitId: !uuid '0c5b5f96f1ad068d7bc078c3030a0f6f5e567519'
 renames: {
   }
-revisionId: 462
+revisionId: 463
