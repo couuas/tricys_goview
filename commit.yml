@@ -3,39 +3,39 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '2de500e26b537bda49751dbf607a689dc67fd26b'
-    oldFile: !uuid 'f559195e08774d703d8c6a0d756517586f10a513'
+    newFile: !uuid 'f3db27d09c7cb24c67bc6fcee92b6b6fbf2e34b1'
+    oldFile: !uuid '2de500e26b537bda49751dbf607a689dc67fd26b'
   /src/packages:
-    newFile: !uuid 'cb76bb8d92c8d21242a559596ed8d942b9421f6f'
-    oldFile: !uuid 'e5040ce984b735b56070c31d693ee17e3122a8a0'
+    newFile: !uuid '30a79547062fb9bbbe59d57585180dfa8ef7768c'
+    oldFile: !uuid 'cb76bb8d92c8d21242a559596ed8d942b9421f6f'
   /src/packages/components:
-    newFile: !uuid '5a0b4f21a5408b89484e68ebd7c236fdad368651'
-    oldFile: !uuid '1d38b4f9253ad3fa611dfee911f9d8ad29f42530'
-  /src/packages/components/Tables:
-    newFile: !uuid 'f48e58e58fb7483dc62db7f0a788c7c9927db6f3'
-    oldFile: !uuid '8bf6410260de7b85e7d5df6cfbdc6f4d0570b7fd'
-  /src/packages/components/Tables/Tables:
-    newFile: !uuid '6e5c6882942e67ee004384ee5511ed62bfedcff2'
-    oldFile: !uuid 'f24408b8049297850148011c9f33163d1080638d'
-  /src/packages/components/Tables/Tables/TableScrollBoard:
-    newFile: !uuid 'a3d240e1858741e613bcd12da938a1e097c8ecef'
-    oldFile: !uuid '7048d414447827b5655f5ea4650f5a8034ae97d9'
-  /src/packages/components/Tables/Tables/TableScrollBoard/config.ts:
-    newFile: !uuid 'e39ddded6ce641180447d6c07d4109ba78d76c7e'
-    oldFile: !uuid 'b93dfc24e323289e79352fe56f7cfe50f862882c'
-  /src/packages/components/Tables/Tables/TableScrollBoard/config.vue:
-    newFile: !uuid '9dd1e12de8e441b62f37e6ed358e52a60522a389'
-    oldFile: !uuid '85a565952c9cc0e8a8732b2883466726ae87a7c7'
-  /src/packages/components/Tables/Tables/TableScrollBoard/data.js:
-    newFile: null
-    oldFile: !uuid '267c2ffca811a7f8c25a1a63216831d7d8c64d86'
-  /src/packages/components/Tables/Tables/TableScrollBoard/data.json:
-    newFile: !uuid '2508e6ff9bbdc6d49c8b036f0b5ffdd85a59f182'
+    newFile: !uuid 'bb3fc649ac8b67262590d3debadecb807e3da012'
+    oldFile: !uuid '5a0b4f21a5408b89484e68ebd7c236fdad368651'
+  /src/packages/components/Informations:
+    newFile: !uuid '9d702b4591e1f2ddb71dcbb79d94194438734b10'
+    oldFile: !uuid '7a78d4998683bbe7815871750671b31062a12f03'
+  /src/packages/components/Informations/Texts:
+    newFile: !uuid '82e6fcc0334c4018246f5a683f232ead7be660f2'
+    oldFile: !uuid '8718bb572f7007c8fba3e98dd65f4c714ed49a71'
+  /src/packages/components/Informations/Texts/TextGradient:
+    newFile: !uuid '749a590b83b4665ebbea7f48069015c5351893dc'
     oldFile: null
-  /src/packages/components/Tables/Tables/TableScrollBoard/index.vue:
-    newFile: !uuid '9792e796ef2f20e99473feebb45b0ad48798f889'
-    oldFile: !uuid 'f029412eb21e3d3ceb21568f83542bc28293be9c'
-gitCommitId: !uuid 'ffa127593a8f1555733de9b5586f5e062997cdea'
+  /src/packages/components/Informations/Texts/TextGradient/config.ts:
+    newFile: !uuid '8114b4049221c7d16fabba491fec2ed1e287d59d'
+    oldFile: null
+  /src/packages/components/Informations/Texts/TextGradient/config.vue:
+    newFile: !uuid '44e087579aeb2cfebf51d8626b79997b1ffac391'
+    oldFile: null
+  /src/packages/components/Informations/Texts/TextGradient/index.ts:
+    newFile: !uuid '701c29f0390ccb001a2ab094240a3c58149c8737'
+    oldFile: null
+  /src/packages/components/Informations/Texts/TextGradient/index.vue:
+    newFile: !uuid '87160cbfb78980e29bb758ef9458b99adf81a200'
+    oldFile: null
+  /src/packages/components/Informations/Texts/index.ts:
+    newFile: !uuid '093a2d529e742b0ea9fb326a3fb0c536ba0b191c'
+    oldFile: !uuid '60f9e456d876c405b499b5d4fae331259f66aed4'
+gitCommitId: !uuid 'b8d0d1a2ffa0992b71cd1c11efea05bb79de7e87'
 renames: {
   }
-revisionId: 1144
+revisionId: 1145
