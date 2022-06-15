@@ -2,10 +2,28 @@
 branches: {
   }
 fileChange:
-  /README.md:
-    newFile: !uuid '8bccb0af72e109999004e64f3b681e2af33585a4'
-    oldFile: !uuid '3a586ec1948d8e3a05807d03f873cec819d2a16d'
-gitCommitId: !uuid '799c445c4bd5a08d7fb21b7564d2ac62d4861ec5'
+  /.commitlintrc.js:
+    newFile: !uuid '21ca9ba36f457154ba4c73a70dc7dd8f855afc20'
+    oldFile: null
+  /.gitignore:
+    newFile: !uuid '2c024b9a53bee9ff10fcbececc52319162344f2c'
+    oldFile: !uuid 'd451ff16c1010b8dc4285ef4d338028792a0ecd3'
+  /.husky:
+    newFile: !uuid '487f577db259fab3ef27d2c024a0ed852ca69ef2'
+    oldFile: null
+  /.husky/commit-msg:
+    newFile: !uuid '42cdacde0b7243cf54aef0d2e13a0e4acf9f4b32'
+    oldFile: null
+  /package.json:
+    newFile: !uuid 'fa65c890c177050b618f07909f30089eadb77f27'
+    oldFile: !uuid '56838888726c3aa38dd79d211558a0e469a3d3c8'
+  /pnpm-lock.yaml:
+    newFile: !uuid 'd3781558f84c20bc4f3cbda2c90246d7e276051f'
+    oldFile: !uuid 'e00108f8166428ceadeb84e740fce6590e0d2a06'
+  /prettier.config.js:
+    newFile: !uuid 'a6e6deed67c8a4e70513b5e07d8930d24e89b307'
+    oldFile: !uuid '51caa0be0b7bc6179dbd1359f0796ca386461365'
+gitCommitId: !uuid '6edbb7c8a7a9c55462b580dd4a75ce595eba18dc'
 renames: {
   }
-revisionId: 502
+revisionId: 503
