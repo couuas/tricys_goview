@@ -2,10 +2,55 @@
 branches: {
   }
 fileChange:
-  /pnpm-lock.yaml:
-    newFile: !uuid 'e00108f8166428ceadeb84e740fce6590e0d2a06'
-    oldFile: !uuid '9f6aaa8d9014f01ddf2062980ff6f9ae421625a9'
-gitCommitId: !uuid '8092edab81782d2ade812fc6f1fa02999ff53849'
+  /src:
+    newFile: !uuid '6bdbe30bd29bc460e128f4186bd336e19e163f65'
+    oldFile: !uuid '05deced5eb5d5e4d738507f2c193a2b63224fa37'
+  /src/assets:
+    newFile: !uuid '5d7e220dfe848e433f45347e2b542122fa6bf01f'
+    oldFile: !uuid '542468e16dbe8a10fcdd643f98175930886cfbca'
+  /src/assets/images:
+    newFile: !uuid '7137335b2d309599ab870cd686e72ebd164f5aad'
+    oldFile: !uuid '322fa70671f926d3e5b375fb00bc88a5a5d0cb21'
+  /src/assets/images/chart:
+    newFile: !uuid '01ef501c1e20db8d566281115fc4966de68dd4ec'
+    oldFile: !uuid '9837c78c828582fd9214558fe53588bbad04fc9b'
+  /src/assets/images/chart/informations:
+    newFile: !uuid '4f3a84d347d2e30ac7ae21b8cf9ab1ec8fa2ea92'
+    oldFile: !uuid '8bbac394a9e4868f6b9533a62cce7c02603467b1'
+  /src/assets/images/chart/informations/text_gradient.png:
+    newFile: !uuid '87ead7c30dd7434ca0870bf0ab2435cea913b3bb'
+    oldFile: null
+  /src/packages:
+    newFile: !uuid 'c7f2d77f5764c5f374e865affc6070d2a084185c'
+    oldFile: !uuid 'cb76bb8d92c8d21242a559596ed8d942b9421f6f'
+  /src/packages/components:
+    newFile: !uuid '5b8d85bebcf583375309b7e3d3f2c9ad0e07c374'
+    oldFile: !uuid '5a0b4f21a5408b89484e68ebd7c236fdad368651'
+  /src/packages/components/Informations:
+    newFile: !uuid '44c1c2591d3828c4c524f8c0848588b551df1166'
+    oldFile: !uuid '7a78d4998683bbe7815871750671b31062a12f03'
+  /src/packages/components/Informations/Texts:
+    newFile: !uuid '36a1b1d45d86fa16b672d0ef42ebb743ca3686ee'
+    oldFile: !uuid '8718bb572f7007c8fba3e98dd65f4c714ed49a71'
+  /src/packages/components/Informations/Texts/TextGradient:
+    newFile: !uuid '9f1ad717a66e4ce640adf5a3bd8ebb589f81b63f'
+    oldFile: null
+  /src/packages/components/Informations/Texts/TextGradient/config.ts:
+    newFile: !uuid '8114b4049221c7d16fabba491fec2ed1e287d59d'
+    oldFile: null
+  /src/packages/components/Informations/Texts/TextGradient/config.vue:
+    newFile: !uuid '44e087579aeb2cfebf51d8626b79997b1ffac391'
+    oldFile: null
+  /src/packages/components/Informations/Texts/TextGradient/index.ts:
+    newFile: !uuid '58fbbd4e12118b525c3bfc8ebd236497132518a8'
+    oldFile: null
+  /src/packages/components/Informations/Texts/TextGradient/index.vue:
+    newFile: !uuid '87160cbfb78980e29bb758ef9458b99adf81a200'
+    oldFile: null
+  /src/packages/components/Informations/Texts/index.ts:
+    newFile: !uuid '093a2d529e742b0ea9fb326a3fb0c536ba0b191c'
+    oldFile: !uuid '60f9e456d876c405b499b5d4fae331259f66aed4'
+gitCommitId: !uuid '73c769744351180fd94e08bc25e046a24c4b12f6'
 renames: {
   }
-revisionId: 499
+revisionId: 500
