@@ -2,25 +2,25 @@
 branches: {
   }
 fileChange:
+  /package.json:
+    newFile: !uuid '56838888726c3aa38dd79d211558a0e469a3d3c8'
+    oldFile: !uuid 'ea40b55eb63218c343383e5979b4afab9ac97518'
   /src:
-    newFile: !uuid 'fb47b995d7833115e20bae45e45a72c02afe9336'
-    oldFile: !uuid '5d82e2303ae3442c92b8198faeafa543116f3e84'
-  /src/assets:
-    newFile: !uuid '542468e16dbe8a10fcdd643f98175930886cfbca'
-    oldFile: !uuid 'a3c0b58ddda03b708b06b260873b9b5ae625cda0'
-  /src/assets/images:
-    newFile: !uuid '322fa70671f926d3e5b375fb00bc88a5a5d0cb21'
-    oldFile: !uuid '3e069bc5cd3c450ab60324707328407075d46e79'
-  /src/assets/images/chart:
-    newFile: !uuid '9837c78c828582fd9214558fe53588bbad04fc9b'
-    oldFile: !uuid '6acfc2abf07d0457b6315285422f1e56de4ab9c5'
-  /src/assets/images/chart/tables:
-    newFile: !uuid '3925a669736c21be7bd4d33b6943feb59521b186'
-    oldFile: !uuid '4d6d4b6379c74a4d89764b4b855b0c34021eef56'
-  /src/assets/images/chart/tables/table_scrollboard.png:
-    newFile: !uuid '355ca73a510f9e57c5d4d80183c26a46eed9fb2b'
-    oldFile: null
-gitCommitId: !uuid '3e969e4ae56d68bb60d3941f92bd1b818e191588'
+    newFile: !uuid '05deced5eb5d5e4d738507f2c193a2b63224fa37'
+    oldFile: !uuid 'fb47b995d7833115e20bae45e45a72c02afe9336'
+  /src/views:
+    newFile: !uuid 'f2df29c83b894a49242d205339c065496ba35b18'
+    oldFile: !uuid '5263781c4557c3533596e01c12e94461bbbd9d65'
+  /src/views/chart:
+    newFile: !uuid 'c6a481003fd343382f11485ce1286feea2debf77'
+    oldFile: !uuid 'e7c25dfee8b4333dde4033fc885067f06c9c117e'
+  /src/views/chart/ContentLayers:
+    newFile: !uuid '587e2f15dc0fcf4d09acb12cc5fa39f4f6802def'
+    oldFile: !uuid 'd8409bf19551f39841c6a266944cc6284445a0d1'
+  /src/views/chart/ContentLayers/index.vue:
+    newFile: !uuid 'bebfae42fd2149fb969a55994a52b477f39e5ee9'
+    oldFile: !uuid 'f921c4c6d1e64ac271812918fd049e3bf95eb89c'
+gitCommitId: !uuid 'ef4f45ddb00cb0b442192c6fceefaf57e4eeb587'
 renames: {
   }
-revisionId: 497
+revisionId: 498
