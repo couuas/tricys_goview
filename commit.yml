@@ -2,22 +2,10 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid '6cb9bcf21b1db35e6ad0716c1979a0577d2e9ec6'
-    oldFile: !uuid 'd6a7bcc34a993be6966e7d31bd788ad23e73efc1'
-  /src/views:
-    newFile: !uuid '3794789d1f30ce93dfa05b8fccaeaad30911510b'
-    oldFile: !uuid '5463d34fe38949cde0f3813666fbd44ea431dbdb'
-  /src/views/login:
-    newFile: !uuid '855db84f52245d147d9b6d0c1561e09fb98a4315'
-    oldFile: !uuid '8a68d3a9f48c9ecd551b3d5f93a7f8afd210c85c'
-  /src/views/login/index.vue:
-    newFile: !uuid '6cd657c5dadd7debe40d567cb593b21e15c582be'
-    oldFile: !uuid 'd8fda4e1eabeb4d76dc0bad4ceb61e1c46bfefc1'
-  /vite.config.ts:
-    newFile: !uuid '5e343f77b1249f8ead292fdc86b2a90086ecec4f'
-    oldFile: !uuid '2c06b424fc7bb4e8c186ae17e8208eed32adeec3'
-gitCommitId: !uuid 'fcdc26e9eb90fcee35051156bf0fd28fda7bd5f1'
+  /package.json:
+    newFile: !uuid '7dd7c9ae68e37d3b9029da942b0429656ca7da00'
+    oldFile: !uuid 'f8ce3720c420a3eb2bdb57e275763ffa1be51d28'
+gitCommitId: !uuid 'a84f8f44114254061037141aa9c9b16ab3b9e562'
 renames: {
   }
-revisionId: 469
+revisionId: 470
