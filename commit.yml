@@ -2,10 +2,10 @@
 branches: {
   }
 fileChange:
-  /vite.config.ts:
-    newFile: !uuid 'e44d895b6d6ce4ae4a4032ae9264354dd54ef376'
-    oldFile: !uuid 'a449b9d36b7274129bad699f913587afbf1fe550'
-gitCommitId: !uuid '3cf01f0c513ac6976fe6c038ce18179869b27606'
+  /package.json:
+    newFile: !uuid '7d2569a21e4d1d0e255652613203f20d5076bed0'
+    oldFile: !uuid 'adb66c69518ba816854f4d033b414a27e4973b90'
+gitCommitId: !uuid '5197eb92920c82386710b3149aea8209babfa8b7'
 renames: {
   }
-revisionId: 505
+revisionId: 506
