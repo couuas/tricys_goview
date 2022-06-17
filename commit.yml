@@ -2,10 +2,34 @@
 branches: {
   }
 fileChange:
-  /package.json:
-    newFile: !uuid '7d2569a21e4d1d0e255652613203f20d5076bed0'
-    oldFile: !uuid 'adb66c69518ba816854f4d033b414a27e4973b90'
-gitCommitId: !uuid '5197eb92920c82386710b3149aea8209babfa8b7'
+  /src:
+    newFile: !uuid '5ffa6428c3261e3683762caa8a1d6db87a1f18d1'
+    oldFile: !uuid '6bdbe30bd29bc460e128f4186bd336e19e163f65'
+  /src/packages:
+    newFile: !uuid '37f1501bbe77154336a6192065d02c172bd0a4ef'
+    oldFile: !uuid 'c7f2d77f5764c5f374e865affc6070d2a084185c'
+  /src/packages/components:
+    newFile: !uuid '16d5d09de7b98a4afa871bb798248487031381b2'
+    oldFile: !uuid '5b8d85bebcf583375309b7e3d3f2c9ad0e07c374'
+  /src/packages/components/Tables:
+    newFile: !uuid 'd7c647ad6552dd4f3e0595ed369793bd5c11533d'
+    oldFile: !uuid 'f48e58e58fb7483dc62db7f0a788c7c9927db6f3'
+  /src/packages/components/Tables/Tables:
+    newFile: !uuid 'c32a734204825012b473958d74c60a469b05624b'
+    oldFile: !uuid '6e5c6882942e67ee004384ee5511ed62bfedcff2'
+  /src/packages/components/Tables/Tables/TableList:
+    newFile: !uuid '07f402f0bc4552f8808d450702505f67e2d03be1'
+    oldFile: !uuid '4d936f6ba18640cf72e82ac547f636d3e44bb90f'
+  /src/packages/components/Tables/Tables/TableList/config.ts:
+    newFile: !uuid 'd3f60d4d5a85cd96bfa512dc426f286181524580'
+    oldFile: !uuid '920685e9c832f37b56ae2f4ccbde5b3fbb9f4531'
+  /src/packages/components/Tables/Tables/TableList/config.vue:
+    newFile: !uuid 'fb76b46ea1f5e851eb4cfbd7d725070235dd6f03'
+    oldFile: !uuid 'bd7c34c51ba152ab9a7be6e0bba6905b0d15d028'
+  /src/packages/components/Tables/Tables/TableList/index.vue:
+    newFile: !uuid 'f8ff364ad9dac916f0a49974b5df3bf498f2d78a'
+    oldFile: !uuid 'f5e95e07961b4f84ee9d3af507b5febf59e70bed'
+gitCommitId: !uuid '437818abce4c9e9e1ac0c938e15ee2bda8aba454'
 renames: {
   }
-revisionId: 506
+revisionId: 507
