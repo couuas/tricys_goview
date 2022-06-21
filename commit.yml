@@ -3,39 +3,21 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '0bcb9956918b7f9704328d543f473e37181a8411'
-    oldFile: !uuid '4adab63aba5f40895ab34b0fb51b5399852fbade'
+    newFile: !uuid 'b4348ea4a39c054ef5c74e45d52b4d349bafe917'
+    oldFile: !uuid '0bcb9956918b7f9704328d543f473e37181a8411'
   /src/store:
-    newFile: !uuid '4a9de5839ff92452a94f90625442a7842b67ecf9'
-    oldFile: !uuid 'a9744b30dcc2a6813c7d9f87d5e24a43249c5df5'
+    newFile: !uuid 'bb5ea3b57fd96d0b6c25d65b6fd4b03be1d28edd'
+    oldFile: !uuid '4a9de5839ff92452a94f90625442a7842b67ecf9'
   /src/store/modules:
-    newFile: !uuid 'f3718460de25b09f019fd4e52d91b01003c217aa'
-    oldFile: !uuid '6660ff34c5d58bf0b8e9ed15ed793fdcbfe321a3'
+    newFile: !uuid '6cfd116a1a27b1d38ee0f822efbf794953d70a00'
+    oldFile: !uuid 'f3718460de25b09f019fd4e52d91b01003c217aa'
   /src/store/modules/chartEditStore:
-    newFile: !uuid 'd4532f514d4f921a53453d7bbeb55cc57a62a933'
-    oldFile: !uuid 'b42db542616a1af3deafcf2bc5b9523f507806b7'
-  /src/store/modules/chartEditStore/chartEditStore.d.ts:
-    newFile: !uuid 'e4513c8ec347ff71f775d7e6c0c74cb13247ea77'
-    oldFile: !uuid '653fc467840e0b97a1155092ffaa42eeb9c30c93'
-  /src/views:
-    newFile: !uuid '48e27ce3d5e42811652a288998961383521b82ef'
-    oldFile: !uuid 'd2b0f53b91de5931ab8d0257fbf81e511158013f'
-  /src/views/chart:
-    newFile: !uuid 'ecd6863b071600d78e92b609782148562f0f28d2'
-    oldFile: !uuid 'a5dec6c828382b24bcbe8da73a2449b70f84251f'
-  /src/views/chart/ContentConfigurations:
-    newFile: !uuid '77b4846152b0f78dafe5aeadf9a16175688fcf89'
-    oldFile: !uuid '37c9d87569a4b2e6785d029df33ce9091675c366'
-  /src/views/chart/ContentConfigurations/components:
-    newFile: !uuid 'ac94316d8f2f6c6d976a83794d9f4a50d22ff8f4'
-    oldFile: !uuid '4f7ae1944036e56345fefc1823ef170f2d6035f7'
-  /src/views/chart/ContentConfigurations/components/CanvasPage:
-    newFile: !uuid '8a459c80633c326236f140cc969d7e49be3b9331'
-    oldFile: !uuid 'c13813aac1819bc180be28c65ab2ebfc7f855e70'
-  /src/views/chart/ContentConfigurations/components/CanvasPage/index.vue:
-    newFile: !uuid 'a3d3286649622a14f5fa6bc5ed062e30557208e6'
-    oldFile: !uuid 'db53971dabb0dc1c2a9d5cc4b80fefe20c86983f'
-gitCommitId: !uuid '2b47817d2691862fc0197d293769ef13b65686c9'
+    newFile: !uuid '3a191c299b9557b88b5c867409a40423d67c9cc2'
+    oldFile: !uuid 'd4532f514d4f921a53453d7bbeb55cc57a62a933'
+  /src/store/modules/chartEditStore/chartEditStore.ts:
+    newFile: !uuid '131d95cc8dbd6dc0f200467e14e8c7fb7ee42171'
+    oldFile: !uuid '843c942ee5ffc21bc5c4b49202e101492cd9164f'
+gitCommitId: !uuid '4355c766fd0d5826443dbbcce0624941f1093303'
 renames: {
   }
-revisionId: 476
+revisionId: 477
