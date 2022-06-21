@@ -3,21 +3,66 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '4dc72024f9984a4db2676741360707d3979e25cc'
-    oldFile: !uuid 'ac1df99e06bbdac0b3e2ea2cc7f355f540260aaa'
+    newFile: !uuid '9567c61753f23590007cb2c642f620e79a8b3a9e'
+    oldFile: !uuid '4dc72024f9984a4db2676741360707d3979e25cc'
   /src/store:
-    newFile: !uuid 'bb5ea3b57fd96d0b6c25d65b6fd4b03be1d28edd'
-    oldFile: !uuid '4a9de5839ff92452a94f90625442a7842b67ecf9'
+    newFile: !uuid '71a6b50246227e32b6afe55ae6eeb7029b3f0c89'
+    oldFile: !uuid 'bb5ea3b57fd96d0b6c25d65b6fd4b03be1d28edd'
   /src/store/modules:
-    newFile: !uuid '6cfd116a1a27b1d38ee0f822efbf794953d70a00'
-    oldFile: !uuid 'f3718460de25b09f019fd4e52d91b01003c217aa'
+    newFile: !uuid '0d5235f27ce3e363dc3cf3b32de77709e43f5b5a'
+    oldFile: !uuid '6cfd116a1a27b1d38ee0f822efbf794953d70a00'
   /src/store/modules/chartEditStore:
-    newFile: !uuid '3a191c299b9557b88b5c867409a40423d67c9cc2'
-    oldFile: !uuid 'd4532f514d4f921a53453d7bbeb55cc57a62a933'
+    newFile: !uuid 'cf5fcd41d486fa57107702069c4d3bd15be31299'
+    oldFile: !uuid '3a191c299b9557b88b5c867409a40423d67c9cc2'
+  /src/store/modules/chartEditStore/chartEditStore.d.ts:
+    newFile: !uuid 'f26c0461e2de82c9b4f7b6115624046709eca8c4'
+    oldFile: !uuid 'e4513c8ec347ff71f775d7e6c0c74cb13247ea77'
   /src/store/modules/chartEditStore/chartEditStore.ts:
-    newFile: !uuid '131d95cc8dbd6dc0f200467e14e8c7fb7ee42171'
-    oldFile: !uuid '843c942ee5ffc21bc5c4b49202e101492cd9164f'
-gitCommitId: !uuid '455e387a623df9eca5308e6e7a187f361a5d75d2'
+    newFile: !uuid 'a0b63abef24faa2ada71fa0d6d84e75a383b116a'
+    oldFile: !uuid '131d95cc8dbd6dc0f200467e14e8c7fb7ee42171'
+  /src/views:
+    newFile: !uuid '79d963d9b5a3498dbe135bfe5a71061781c5a246'
+    oldFile: !uuid '48e27ce3d5e42811652a288998961383521b82ef'
+  /src/views/chart:
+    newFile: !uuid '24183e1fbb4d9918197ff4f1ccb4b86aafd46019'
+    oldFile: !uuid 'ecd6863b071600d78e92b609782148562f0f28d2'
+  /src/views/chart/ContentConfigurations:
+    newFile: !uuid '3e4730a8ce03951fa7ecbee2db6b7011f1bdbf82'
+    oldFile: !uuid '77b4846152b0f78dafe5aeadf9a16175688fcf89'
+  /src/views/chart/ContentConfigurations/index.vue:
+    newFile: !uuid '92ba612d5cf430ce657ec261d2a6b7dba657af50'
+    oldFile: !uuid '9117594ad71bbedeb8090b5816c40e106c582595'
+  /src/views/chart/ContentEdit:
+    newFile: !uuid 'fb330e65217f76a200c0b45b21b6603ed54c54d6'
+    oldFile: !uuid '7b25f6338dc6b6d0520dbbafe2f8efafc44cb939'
+  /src/views/chart/ContentEdit/components:
+    newFile: !uuid 'ddcb06e61699812323adb456d75ebfeba3cc8c87'
+    oldFile: !uuid '7650f457dfc63b55596e07762bb5de0c9999dad1'
+  /src/views/chart/ContentEdit/components/EditAlignLine:
+    newFile: !uuid '19ad11de2f0b64a65ced09af10f3222cfd7d7313'
+    oldFile: !uuid 'f8533f3475f1f42fd09643f28786cc825fa5d132'
+  /src/views/chart/ContentEdit/components/EditAlignLine/index.vue:
+    newFile: !uuid 'dea92fe102c60b8afcc8813bc6c39ff303be7a01'
+    oldFile: !uuid '233c33dba518ad339a51758366a9519dc076e77a'
+  /src/views/chart/ContentEdit/components/EditShapeBox:
+    newFile: !uuid 'c2903237729a41d8c801b60890ac676d0e7cbc50'
+    oldFile: !uuid 'd083021a94b6218850b4a27a4c4351c92263c183'
+  /src/views/chart/ContentEdit/components/EditShapeBox/index.vue:
+    newFile: !uuid '59899b73130cd26636284559594146257c2a0508'
+    oldFile: !uuid '9198aef37c55cbde8d8c268c9237249f18c2632a'
+  /src/views/chart/ContentLayers:
+    newFile: !uuid 'abf7d2a6b68dc1dc4bbcfa53c3c95dca47244f3a'
+    oldFile: !uuid '587e2f15dc0fcf4d09acb12cc5fa39f4f6802def'
+  /src/views/chart/ContentLayers/components:
+    newFile: !uuid '0d0bfbb1d5b7b4332885d612675df74743dd55e2'
+    oldFile: !uuid '7856f3fad0b7e4b639f170e968edc78ddc338d12'
+  /src/views/chart/ContentLayers/components/LayersListItem:
+    newFile: !uuid '9411f9ca1df5c72f3ac80d84fd9043fe6bd43ce8'
+    oldFile: !uuid '4aa20880195706d4eb8c05870247813f2167dbe5'
+  /src/views/chart/ContentLayers/components/LayersListItem/index.vue:
+    newFile: !uuid '97c090281d67d005a43a95d4f82af0eec7a7f9b8'
+    oldFile: !uuid '3444807e1c527a4bb69547d8c0511527325afc99'
+gitCommitId: !uuid '0f73536ce0d73c6c08bfeeb9e9b8a99c68c8c1e9'
 renames: {
   }
-revisionId: 1160
+revisionId: 1161
