@@ -19,8 +19,7 @@ const option = {
         roundCap: true,
         clip: false,
         itemStyle: {
-          borderWidth: 1,
-          borderColor: '#464646'
+          color:'#3263ec'
         }
       },
       axisLine: {
@@ -48,7 +47,7 @@ const option = {
         width: 50,
         height: 14,
         fontSize: 20,
-        color: 'auto',
+        color: '#3263ec',
         borderColor: 'auto',
         borderRadius: 20,
         borderWidth: 0,

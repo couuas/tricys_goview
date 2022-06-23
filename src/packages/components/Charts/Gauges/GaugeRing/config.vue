@@ -10,6 +10,20 @@
         <n-input-number v-model:value="config.series[0].detail.fontSize" :min="10" :step="1" size="small" placeholder="数值">
         </n-input-number>
       </SettingItem>
+      <SettingItem name="环颜色">
+        <n-color-picker
+          size="small"
+          :modes="['hex']"
+          v-model:value="config.series[0].progress.itemStyle.color"
+        ></n-color-picker>
+      </SettingItem>
+      <SettingItem name="字颜色">
+        <n-color-picker
+          size="small"
+          :modes="['hex']"
+          v-model:value="config.series[0].detail.color"
+        ></n-color-picker>
+      </SettingItem>
     </SettingItemBox>
   </CollapseItem>
 </template>
