@@ -3,27 +3,15 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '3500fc52a839a4acccd5d407d03c1ddfb46d956b'
-    oldFile: !uuid '9567c61753f23590007cb2c642f620e79a8b3a9e'
-  /src/views:
-    newFile: !uuid '300ac2daaf1979c4fb6f54fe98952ab709df3a4c'
-    oldFile: !uuid '79d963d9b5a3498dbe135bfe5a71061781c5a246'
-  /src/views/chart:
-    newFile: !uuid '9852d74491e1885152c5ad8ea1cfda07dcc292ce'
-    oldFile: !uuid '24183e1fbb4d9918197ff4f1ccb4b86aafd46019'
-  /src/views/chart/hooks:
-    newFile: !uuid '36a854e1bdef60dee7f1e22db5d3540d6127001f'
-    oldFile: !uuid 'a389129ac18de7907e400de21e5c13bc2b8ede3a'
-  /src/views/chart/hooks/useKeyboard.hook.ts:
-    newFile: !uuid '58ab28c462bf47736a2d10885feb0558d67be5ad'
-    oldFile: !uuid '0d7d4ad22269dcc49ba44db44e7a74d69742c69a'
-  /types:
-    newFile: !uuid 'f67b5fcdba56af07a1e415a2660e0bfc9f40d6cd'
-    oldFile: !uuid 'baa7adf012337c516e46eb4f88c52eca60fcb482'
-  /types/global.d.ts:
-    newFile: !uuid '3636172e9bac7690c329124dbb39e02daea709f9'
-    oldFile: !uuid '74863473d8b9a35cd076ddcb592354e901b4dd8a'
-gitCommitId: !uuid 'a0c8bc7fe55fb44a5607338d6a1cf7187509115f'
+    newFile: !uuid '9bb4d9ed2a25474b92628f674befbbcbebbf6305'
+    oldFile: !uuid '3500fc52a839a4acccd5d407d03c1ddfb46d956b'
+  /src/hooks:
+    newFile: !uuid '9ce3ed8ec3fc44302d0d4eafdfc1d3c99fb8d780'
+    oldFile: !uuid '0476df459308c03bdc619f45b7354c8112118382'
+  /src/hooks/useChartDataFetch.hook.ts:
+    newFile: !uuid '9f1e88659b68663b31712512fe3c3270d09609d0'
+    oldFile: !uuid 'ac5224753b50c6a5f9a294ecbe2f1c06cbc55e73'
+gitCommitId: !uuid 'c07d7c7c28f250fb5d2e89dcb5ccebb189bc486e'
 renames: {
   }
-revisionId: 1162
+revisionId: 1163
