@@ -3,21 +3,39 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'd2e1b9ed374d121a3996b28fda6ce25406d2e1df'
-    oldFile: !uuid '3e449069262e718c0c6c60a5811d3705e6455d2a'
-  /src/store:
-    newFile: !uuid '372f1309cf16cdd33502f61b21a3ec569488cb51'
-    oldFile: !uuid '25682c5458f0858156f7d43cdfdb7630309f71cc'
-  /src/store/modules:
-    newFile: !uuid '7346f0727bca0fd964128d859d63fe84f76c2af1'
-    oldFile: !uuid 'a3b854bf5de8174b17729134ec99dc7412529442'
-  /src/store/modules/chartEditStore:
-    newFile: !uuid '6f17bb21a6bf867c44fd4d47a9fc48bc06a5a325'
-    oldFile: !uuid 'cd2866461231714df3abc1bee08876ee469a6279'
-  /src/store/modules/chartEditStore/chartEditStore.ts:
-    newFile: !uuid '86ed7b3c934710397e0b9e710b450cda2c359fdf'
-    oldFile: !uuid 'bb14f2124b60e9fd0d5a741e4932f36aa0abc189'
-gitCommitId: !uuid 'cdccfa3e12d8ffa084328ebe5a25f401a43647b6'
+    newFile: !uuid '642f5ee9983aa14e04a2960f67738af6e71acf0f'
+    oldFile: !uuid 'd2e1b9ed374d121a3996b28fda6ce25406d2e1df'
+  /src/components:
+    newFile: !uuid '4ab3674939e0e7311cebc7872f24f2d4c29e2227'
+    oldFile: !uuid 'e378636d5c591991260f8cfd3b132aaeffca2ceb'
+  /src/components/Pages:
+    newFile: !uuid 'dcd8fa8b05db8f2da73c3721ef0bffbb9f7c0a89'
+    oldFile: !uuid '475181716ed92a96c1e0ae5a16d0215dc2e100cb'
+  /src/components/Pages/ChartItemSetting:
+    newFile: !uuid '7d37b223b28b9e87a58e6b4fa7d4f136c67d7d98'
+    oldFile: !uuid '7142d255181b8e1381ba4f83a63cb4c1e33c15e4'
+  /src/components/Pages/ChartItemSetting/GlobalSetting.vue:
+    newFile: !uuid '0548cfc443c0b99022984c8d63241ac53ebf63de'
+    oldFile: !uuid '8946fb6c97d0b37669abccbc4c197361ae90d237'
+  /src/packages:
+    newFile: !uuid '040245a3447e87a3051e12ed788d12e35c812743'
+    oldFile: !uuid 'ddd9f8fb6edbc5c5a86a757fbe98dc0bd7e9c014'
+  /src/packages/public:
+    newFile: !uuid '0ea36fe258ddccfa26d688babe2529da4d3bd01c'
+    oldFile: !uuid 'bd129cb096ccf3205681508a7590d9c2d7da243b'
+  /src/packages/public/chart.ts:
+    newFile: !uuid 'd36a850ec0304350cfbbb6822ac5e32af9036d74'
+    oldFile: !uuid '84f3f061a7a14ed2bf6ffe91064b5e07bd6d48da'
+  /src/settings:
+    newFile: !uuid 'd93668df5077faea5723836a5dd3a309905bd59f'
+    oldFile: !uuid 'd0e216d9f8cec2ea0b68746eb30010268f186346'
+  /src/settings/chartThemes:
+    newFile: !uuid 'be97f6b5cf48116826ba3602e94df2c8f9753b8a'
+    oldFile: !uuid '85447f54bd4ecd312d273015fb765bd02882a88b'
+  /src/settings/chartThemes/global.theme.json:
+    newFile: !uuid 'd7b2a61fb3f08b625779c636ed89cfd4ae963584'
+    oldFile: !uuid '410700c73619b04dfc18dff5badfefe959df4d95'
+gitCommitId: !uuid '7cccbabca41712014f8892f6286179f2e689af1d'
 renames: {
   }
-revisionId: 514
+revisionId: 515
