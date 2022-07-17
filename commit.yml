@@ -2,13 +2,28 @@
 branches: {
   }
 fileChange:
-  /README.md:
-    newFile: !uuid '9b194765ed544094eee010df7c7ab7153b7a2bb6'
-    oldFile: !uuid '05267c46615f93e63081d6e9059266d62c05de0e'
-  /package.json:
-    newFile: !uuid 'a2becb4b667a060c6656175b0611dcc4010ce59d'
-    oldFile: !uuid '98295f6fcf8e70016e0191b910eca9ce38c0ac7b'
-gitCommitId: !uuid '4c38abd1987f3c73e13b32be5a8e69c475b40362'
+  /src:
+    newFile: !uuid '56f8fe795dfeb145379f15f4a09279d0a883533a'
+    oldFile: !uuid '2e211792f02af2a6bfbce9ef44e81277fc85d63d'
+  /src/packages:
+    newFile: !uuid 'd8218bdf91796a8bb398508c81d15bbf0c4b24c6'
+    oldFile: !uuid 'f8d119ba3a6732784ad4e09ad4879c906db31390'
+  /src/packages/components:
+    newFile: !uuid '05af47659e43b7a7b42f732280f212253bd465b6'
+    oldFile: !uuid 'b41b50ea87e0d332882f485a4071a306d9e9ba50'
+  /src/packages/components/Decorates:
+    newFile: !uuid '5da46d163bb5bf451260f4ad46d72300c2ebfbe1'
+    oldFile: !uuid '2703ce97ed7ebd42f19484a70e62786c00e8641d'
+  /src/packages/components/Decorates/Mores:
+    newFile: !uuid '34d2bbe83846b8ea6b2fa12c93ead639c325ffcf'
+    oldFile: !uuid '4888e3ab22b7ad7da44945fc0008d9e5bcf56b59'
+  /src/packages/components/Decorates/Mores/Number:
+    newFile: !uuid '2e480ee96243b6d6f456f8b5840b1550744ac8f0'
+    oldFile: !uuid '950fe501590221e792a3c97a3d31b168129e0f7e'
+  /src/packages/components/Decorates/Mores/Number/config.vue:
+    newFile: !uuid '760fb14fd00916117bc540709a7e9f6a412ccb92'
+    oldFile: !uuid '217366894856fdb1a1617a2f06b56cff89278824'
+gitCommitId: !uuid 'ace8c1c411d35d1fc34bf4b22b396252b52c733f'
 renames: {
   }
-revisionId: 510
+revisionId: 511
