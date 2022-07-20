@@ -3,39 +3,39 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '1a3f95c60ecac84bdf0de128289c828bd9094319'
-    oldFile: !uuid '54844fd35ce90df581cc3aa322a82196568bc9b9'
+    newFile: !uuid '543e0f3a4280e63030b489c1b60ea3d758b5400d'
+    oldFile: !uuid '1a3f95c60ecac84bdf0de128289c828bd9094319'
   /src/views:
-    newFile: !uuid '2ab738fc2be0f87765b678eaaa52c9b249adf11d'
-    oldFile: !uuid '4850472f24b6ba8e2eeb5b26dd0eaa5d86e15d9a'
+    newFile: !uuid '1cd5d1ad8fb37a0ade0303c48dc93371fafd5cac'
+    oldFile: !uuid '2ab738fc2be0f87765b678eaaa52c9b249adf11d'
   /src/views/chart:
-    newFile: !uuid '0369b362686ab23f3213f5fb65ebf30ca8fed400'
-    oldFile: !uuid '22cdf2f1cbe78e02884d8bdab8dedeb3fbea05ca'
+    newFile: !uuid 'da41ef27639c52bd6dc7f6e6f229bd433fd6a1a9'
+    oldFile: !uuid '0369b362686ab23f3213f5fb65ebf30ca8fed400'
   /src/views/chart/ContentConfigurations:
-    newFile: !uuid 'abe58a6be92fa5d64ea507b2bc0550a140d7888a'
-    oldFile: !uuid 'd42192d09d2feb5c5fd86cb340d44f68ea437d37'
+    newFile: !uuid '277d7d437687c4ef741effca32af4f229574617b'
+    oldFile: !uuid 'abe58a6be92fa5d64ea507b2bc0550a140d7888a'
   /src/views/chart/ContentConfigurations/components:
-    newFile: !uuid '063663080eafbad6f5b4432867c05a0fbfd0d440'
-    oldFile: !uuid 'd0c054efe96b8c12bb67894229d024fd1e02387b'
+    newFile: !uuid '2ce091c77bfcb36a8aa3e561e6eb16a3ed228d77'
+    oldFile: !uuid '063663080eafbad6f5b4432867c05a0fbfd0d440'
   /src/views/chart/ContentConfigurations/components/ChartData:
-    newFile: !uuid '9899fad96c53293ff674a1cf9a5e88ee75291826'
-    oldFile: !uuid 'a56d6a9788d75725c993d36317a9fa99882332b3'
+    newFile: !uuid '498df257f0a8153ae23c1a3ddf471a999ffaa826'
+    oldFile: !uuid '9899fad96c53293ff674a1cf9a5e88ee75291826'
   /src/views/chart/ContentConfigurations/components/ChartData/components:
-    newFile: !uuid '632c297a385d64057d966183c28276acc3517544'
-    oldFile: !uuid '11598354bc584ee9d091b9314f781cc1cb09960b'
-  /src/views/chart/ContentConfigurations/components/ChartData/components/ChartDataAjax:
-    newFile: !uuid '57f40f767585b17f1eaf237c0b44728f60e2a857'
-    oldFile: !uuid '5f309c91f92426ef53a131a1fd0b569a04349712'
-  /src/views/chart/ContentConfigurations/components/ChartData/components/ChartDataAjax/index.vue:
-    newFile: !uuid '365b104b83e73e5bb4acc318568b4def653b577d'
-    oldFile: !uuid 'af54e3e467b77ee59a24f9c433b6ba4800bba199'
-  /src/views/chart/ContentConfigurations/components/ChartData/components/ChartDataMonacoEditor:
-    newFile: !uuid 'ea1c66737f47d004a3136a3fb76426c148039703'
-    oldFile: !uuid '2bd29c4334b56a8087af8b2d239502265b493c99'
-  /src/views/chart/ContentConfigurations/components/ChartData/components/ChartDataMonacoEditor/index.vue:
-    newFile: !uuid '567378420f104d5dd8de13fabc9ae440be04b92e'
-    oldFile: !uuid 'dff4a2400cf37d90276ec9e211f548029be3cd41'
-gitCommitId: !uuid 'c9b2fc2674d7a2fee2c02218738d53e951ccce3a'
+    newFile: !uuid '6538b9aa955e092835203b814ec6aa06efc48007'
+    oldFile: !uuid '632c297a385d64057d966183c28276acc3517544'
+  /src/views/chart/ContentConfigurations/components/ChartData/components/ChartDataRequest:
+    newFile: !uuid '9ee89fdea3e3eb723e58e1e852a58ee60d34f657'
+    oldFile: !uuid 'e246c149635b4877eb52fc2ba497dde504ced9fc'
+  /src/views/chart/ContentConfigurations/components/ChartData/components/ChartDataRequest/components:
+    newFile: !uuid '4ebd860cfaccb1709e99e2c484edd7d737130c8e'
+    oldFile: !uuid '68bc6f5f7e3865b14bb6ef30d0149c3218843a1f'
+  /src/views/chart/ContentConfigurations/components/ChartData/components/ChartDataRequest/components/RequestTargetConfig:
+    newFile: !uuid 'ed956c19a094bb5abe5ab77585c39ee05486411c'
+    oldFile: !uuid '338a0f9747591baf1a5a02059d7cee2f23bc3458'
+  ? /src/views/chart/ContentConfigurations/components/ChartData/components/ChartDataRequest/components/RequestTargetConfig/index.vue
+  : newFile: !uuid '3897c8827ed6fe7cf9dfb87d88d6a3a721919d5b'
+    oldFile: !uuid 'c94f9a9a9abf84a7ca5073d21d234625534f3459'
+gitCommitId: !uuid '2d76991d276a18ab90ee6d1f40824a357cdee28b'
 renames: {
   }
-revisionId: 1198
+revisionId: 1199
