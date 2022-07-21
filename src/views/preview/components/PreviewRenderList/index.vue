@@ -10,13 +10,12 @@
       ...getTransformStyle(item.styles)
     }"
   >
-    <component
-      :is="item.chartConfig.chartKey"
-      :chartConfig="item"
+    <PreViewRenderItem
+      :use-event="true"
+      :item="item"
       :themeSetting="themeSetting"
-      :themeColor="themeColor"
-      :style="{...getSizeStyle(item.attr)}"
-    ></component>
+      :themeColor="themeColor">
+    </PreViewRenderItem>
   </div>
 </template>
 
@@ -26,6 +25,8 @@ import { ChartEditStorageType } from '../../index.d'
 import { chartColors } from '@/settings/chartThemes/index'
 import { animationsClass, getFilterStyle, getTransformStyle } from '@/utils'
 import { getSizeStyle, getComponentAttrStyle } from '../../utils'
+import PreViewRenderItem from './PreViewRenderItem.vue'
+
 
 const props = defineProps({
   localStorageInfo: {

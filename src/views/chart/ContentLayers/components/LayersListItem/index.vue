@@ -22,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, toRefs, computed } from 'vue'
+import { ref, toRefs, computed,isRef } from 'vue'
 import { requireErrorImg } from '@/utils'
 import { useDesignStore } from '@/store/modules/designStore/designStore'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
@@ -39,7 +39,10 @@ const props = defineProps({
   }
 })
 
-const { image } = toRefs(props.componentData.chartConfig)
+// 消除页面警告
+const { image } = isRef(props.componentData.chartConfig) ?
+                    toRefs(props.componentData.chartConfig)
+                      : props.componentData.chartConfig
 
 // 计算当前选中目标
 const select = computed(() => {

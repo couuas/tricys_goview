@@ -1,5 +1,7 @@
 import type { GlobalThemeJsonType } from '@/settings/chartThemes/index'
 import type { RequestConfigType } from '@/store/modules/chartEditStore/chartEditStore.d'
+import { EventType } from '@/enums/eventEnum';
+
 
 export enum ChartFrameEnum {
   // echarts 框架
@@ -12,8 +14,15 @@ export enum ChartFrameEnum {
   STATIC = 'static'
 }
 
+export type OptionsType = {
+  label: string
+  value: string
+  [key: string]: string
+}
+
 // 组件配置
 export type ConfigType = {
+  id?: string
   key: string
   chartKey: string
   conKey: string
@@ -22,7 +31,28 @@ export type ConfigType = {
   categoryName: string
   package: string
   chartFrame?: ChartFrameEnum
+  eventList?: Array<OptionsType>
   image: string | (() => Promise<typeof import('*.png')>)
+}
+
+
+export type EventList = Array<{
+  name: string,
+  event: string,
+  type: string,
+  code: string,
+  uid: string,
+  [key: string]: any
+}>
+
+
+export type EventConfigValue = Record<string, {
+  title: string,
+  eventList: EventList
+}>
+
+export type EventConfig = {
+  [key: EventType]: EventConfigValue
 }
 
 // 数据请求
@@ -88,6 +118,8 @@ export interface CreateComponentType extends PublicConfigType {
   key: string
   chartConfig: ConfigType
   option: GlobalThemeJsonType
+  eventList: Array<OptionsType>
+  eventConfig: EventConfig
 }
 
 // 获取组件实例类中某个key对应value类型的方法

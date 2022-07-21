@@ -126,6 +126,7 @@ export enum ChartEditStoreEnum {
   RECORD_CHART = 'recordChart',
   // 以下需要存储
   EDIT_CANVAS_CONFIG = 'editCanvasConfig',
+  EVENT_CONFIG = 'eventConfig',
   REQUEST_GLOBAL_CONFIG = 'requestGlobalConfig',
   COMPONENT_LIST = 'componentList',
 }

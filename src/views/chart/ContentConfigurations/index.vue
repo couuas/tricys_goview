@@ -92,7 +92,8 @@ const {
   ConstructIcon,
   FlashIcon,
   DesktopOutlineIcon,
-  LeafIcon
+  LeafIcon,
+  RocketIcon
 } = icon.ionicons5
 
 const ContentEdit = loadAsyncComponent(() => import('../ContentEdit/index.vue'))
@@ -107,6 +108,9 @@ const ChartData = loadAsyncComponent(() =>
 )
 const ChartAnimation = loadAsyncComponent(() =>
   import('./components/ChartAnimation/index.vue')
+)
+const ChartEvent = loadAsyncComponent(() =>
+  import('./components/ChartEvent/index.vue')
 )
 
 const collapsed = ref<boolean>(getDetails.value)
@@ -164,6 +168,12 @@ const canvasTabList = [
     title: '数据',
     icon: FlashIcon,
     render: ChartData
+  },
+  {
+    key: 'eventData',
+    title: '事件',
+    icon: RocketIcon,
+    render: ChartEvent
   }
 ]
 </script>

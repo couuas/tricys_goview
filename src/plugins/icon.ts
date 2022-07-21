@@ -53,6 +53,9 @@ import {
   ArrowForward as ArrowForwardIcon,
   Planet as PawIcon,
   Search as SearchIcon,
+  Reload as ReloadIcon,
+  Add as AddIcon,
+  AddCircle as AddCircleIcon,
 } from '@vicons/ionicons5'
 
 import {
@@ -82,10 +85,15 @@ import {
   FitToHeight as FitToHeightIcon,
   FitToWidth as FitToWidthIcon,
   Filter as FilterIcon,
-  FilterEdit as FilterEditIcon
+  FilterEdit as FilterEditIcon,
+  Edit as EditIcon,
 } from '@vicons/carbon'
 
 const ionicons5 = {
+  // 新增
+  AddIcon,
+  // 新增2
+  AddCircleIcon,
   // 帮助（问号）
   HelpOutlineIcon,
   // 添加
@@ -198,6 +206,7 @@ const ionicons5 = {
 }
 
 const carbon = {
+  EditIcon,
   // 图表
   RoadmapIcon,
   // 信息
