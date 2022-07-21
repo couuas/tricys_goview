@@ -30,7 +30,6 @@ import {
   RequestGlobalConfigType,
   EditCanvasConfigType
 } from './chartEditStore.d'
-
 const chartHistoryStore = useChartHistoryStore()
 const settingStore = useSettingStore()
 

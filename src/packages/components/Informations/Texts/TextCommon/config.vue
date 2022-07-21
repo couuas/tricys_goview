@@ -62,7 +62,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType } from 'vue'
+import { PropType, toRefs } from 'vue'
 import { option, WritingModeEnum, WritingModeObject } from './config'
 import {
   CollapseItem,
@@ -76,6 +76,8 @@ const props = defineProps({
     required: true
   }
 })
+
+const { optionData} = toRefs(props)
 
 const verticalOptions = [{
   label: WritingModeEnum.HORIZONTAL,
