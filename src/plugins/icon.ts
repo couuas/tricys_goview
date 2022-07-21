@@ -56,6 +56,9 @@ import {
   Reload as ReloadIcon,
   Add as AddIcon,
   AddCircle as AddCircleIcon,
+  ChevronUpOutline as ChevronUpOutlineIcon,
+  ChevronDownOutline as ChevronDownOutlineIcon,
+  Pulse as PulseIcon
 } from '@vicons/ionicons5'
 
 import {
@@ -199,10 +202,18 @@ const ionicons5 = {
   ArrowForwardIcon,
   // 狗爪
   PawIcon,
+  // 重新加载
+  ReloadIcon,
   // 搜索（放大镜）
   SearchIcon,
   // 过滤器
-  FilterIcon
+  FilterIcon,
+  // 向上
+  ChevronUpOutlineIcon,
+  // 向下
+  ChevronDownOutlineIcon,
+  // 脉搏
+  PulseIcon
 }
 
 const carbon = {

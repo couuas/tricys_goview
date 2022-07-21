@@ -1,6 +1,6 @@
 {
   "name": "go-view",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "scripts": {
     "dev": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
@@ -13,7 +13,7 @@
     "@vicons/ionicons5": "~0.11.0",
     "@vueuse/core": "^7.7.1",
     "animate.css": "^4.1.1",
-    "axios": "0.23.0",
+    "axios": "^0.27.2",
     "color": "^4.2.3",
     "crypto-js": "^4.1.1",
     "echarts": "^5.3.2",
