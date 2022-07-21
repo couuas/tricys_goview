@@ -27,7 +27,9 @@
 
   <n-modal
     v-model:show="showModal"
-    preset="card"
+    title="事件"
+    type="info"
+    preset="dialog"
     :mask-closable="false"
     :on-after-leave="onModalClosed">
     <n-form
