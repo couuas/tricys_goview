@@ -1,5 +1,5 @@
 import { publicConfig } from '@/packages/public'
-import { CreateComponentType } from '@/packages/index.d'
+import { CreateComponentType, EventConfig, OptionsType } from '@/packages/index.d'
 import { Decorates04Config } from './index'
 import cloneDeep from 'lodash/cloneDeep'
 

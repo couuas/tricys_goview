@@ -119,9 +119,9 @@ export interface CreateComponentType extends PublicConfigType {
   key: string
   chartConfig: ConfigType
   option: GlobalThemeJsonType
-  eventList: Array<OptionsType>
-  methodList: Array<OptionsType>
-  eventConfig: EventConfig
+  eventList?: Array<OptionsType>
+  methodList?: Array<OptionsType>
+  eventConfig?: EventConfig
 }
 
 // 获取组件实例类中某个key对应value类型的方法
