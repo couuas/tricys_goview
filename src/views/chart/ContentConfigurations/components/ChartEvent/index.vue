@@ -7,7 +7,7 @@
       :title="item.title"
       :name="key">
       <template #header-extra>
-        <n-icon size="24" @click.stop="onAddEvent(item, key)">
+        <n-icon size="24" @click.stop="onAddEvent(item, key as unknown as EventType)">
           <component :is="AddCircleIcon"></component>
         </n-icon>
       </template>
@@ -103,7 +103,7 @@ const { targetData, chartEditStore } = useTargetData();
 
 // 事件配置
 const eventConfig = computed<EventConfig>(() => {
-  return targetData.value?.eventConfig
+  return targetData.value?.eventConfig as EventConfig
 })
 
 // 监听数据变化, 设置初始值

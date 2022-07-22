@@ -5,7 +5,7 @@
       :themeSetting="themeSetting"
       :themeColor="themeColor"
       :style="{...getSizeStyle(item.attr)}"
-      v-on="useEvent ? getEventList(item.eventConfig) : {}"
+      v-on="useEvent ? getEventList(item.eventConfig as EventConfig) : {}"
     ></component>
 </template>
 
@@ -14,8 +14,7 @@ import { PropType, toRefs, getCurrentInstance, ComponentInternalInstance } from 
 import { useEventBus } from '@/hooks'
 import { convertEventBusListeners } from '@/hooks/useEventBus.hook'
 import { getSizeStyle } from '../../utils'
-import omit from 'lodash/omit'
-import { EventTriggerType, EventType } from '@/enums/eventEnum'
+import { EventTriggerType } from '@/enums/eventEnum'
 import { CreateComponentType, EventConfig } from '@/packages/index.d'
 import {  newFunctionHandle } from '@/utils'
 
@@ -77,7 +76,7 @@ const getEventList = (eventConfig: EventConfig) => {
 const listeners = {
   on: {
     forceUpdate: () => {
-      instance.ctx.$forceUpdate()
+      instance.proxy?.$forceUpdate()
     }
   }
 }

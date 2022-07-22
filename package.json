@@ -3,9 +3,10 @@
   "version": "1.0.6",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build",
+    "build": "npm run test && vite build",
     "preview": "vite preview",
     "new": "plop --plopfile ./plop/plopfile.js",
+    "test": "vue-tsc --noEmit",
     "postinstall": "husky install"
   },
   "dependencies": {
