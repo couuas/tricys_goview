@@ -12,14 +12,14 @@
         </n-icon>
       </template>
       <n-empty
-        v-if="!item.eventList.length"
+        v-if="!item.methodList.length"
         :show-icon="false">
       </n-empty>
       <template v-else>
         <n-data-table
           :row-key="(rowData:any) => rowData.uid"
           :columns="columns"
-          :data="item.eventList"
+          :data="item.methodList"
         />
       </template>
     </n-collapse-item>
@@ -68,7 +68,7 @@
         <n-form-item label="自定义js" path="code">
           <n-space vertical :style="{width: '100%'}">
             <n-tag type="info">
-              <span class="func-keyword">function</span>&nbsp;&nbsp;()&nbsp;&nbsp;{
+              <span class="func-keyword">function</span>&nbsp;&nbsp;(data)&nbsp;&nbsp;{
             </n-tag>
             <monaco-editor v-model:modelValue="model.code" language="javascript" height="500px"/>
             <n-tag type="info">}</n-tag>
@@ -112,11 +112,21 @@ watch(targetData, (newVal) => {
   if(!eventConfig.value){
     newVal.eventConfig = reactive({})
   }
+  //原生事件
   Object.keys(EventTypeTitle).forEach((key: string) => {
     if(!(key in eventConfig.value)){
       (newVal.eventConfig as any)[key] = {
         title: EventTypeTitle[key as EventType],
-        eventList: []
+        methodList: []
+      }
+    }
+  })
+  // 组件内置事件
+  newVal.chartConfig.eventList?.map((item: OptionsType) => {
+    if(!(item.value in eventConfig.value)){
+      (newVal.eventConfig as any)[item.value] = {
+        title: item.label,
+        methodList: []
       }
     }
   })
@@ -164,12 +174,12 @@ const selectedComponent = computed((): CreateComponentType | void => {
   return chartEditStore.componentList.find(item => Object.is(item.id, model.value.componentId))
 })
 
-const commEventList = mapToOptions(CommonEventMap)
+const commMethodList = mapToOptions(CommonEventMap)
 
 const componentMethodOptions = computed(() => {
   return [
-    ...commEventList,
-    ...(selectedComponent.value ? (selectedComponent.value.chartConfig.eventList as Array<OptionsType>) : [])
+    ...commMethodList,
+    ...(selectedComponent.value ? (selectedComponent.value.chartConfig.methodList as Array<OptionsType>) : [])
   ]
 })
 
@@ -223,7 +233,7 @@ const columns = [
             ...columnIconAttr,
             title: '删除',
             onClick(){
-              ((eventConfig.value[rowData.eventType as keyof EventConfig]) as EventConfigValue[string]).eventList.splice(rowIndex, 1)
+              ((eventConfig.value[rowData.eventType as keyof EventConfig]) as EventConfigValue[string]).methodList.splice(rowIndex, 1)
             }
           }, () => h(icon.ionicons5.RemoveIcon))
         ]
@@ -237,13 +247,13 @@ const onSubmit = () => {
     formRef.value?.validate((errors) => {
       if (!errors && operateCollapse) {
         if(model.value.uid){
-          const index = operateCollapse.eventList
+          const index = operateCollapse.methodList
                           .findIndex((item:any) => item.uid === model.value.uid)
           if(index > -1){
-            operateCollapse.eventList[index] = {...model.value}
+            operateCollapse.methodList[index] = {...model.value}
           }
         }else{
-          operateCollapse.eventList.push({
+          operateCollapse.methodList.push({
             ...model.value,
             eventType,
             uid: getUUID(),

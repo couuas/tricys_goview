@@ -50,10 +50,10 @@ const bus = useEventBus()
  * }
  */
 const getEventList = (eventConfig: EventConfig) => {
-  const res = Object.keys(omit(eventConfig, EventType.OTHER)) // 剔除other字段
+  const res = Object.keys(eventConfig) // 剔除other字段
     .reduce((previousValue: EventConfig, currentValue: string) => {
       // @ts-ignore
-      previousValue[currentValue] = eventConfig[currentValue].eventList.map((item: any) => {
+      previousValue[currentValue] = eventConfig[currentValue].methodList.map((item: any) => {
         if(item.type === EventTriggerType.JAVASCRIPT){
           return (config: CreateComponentType) => {
             try {

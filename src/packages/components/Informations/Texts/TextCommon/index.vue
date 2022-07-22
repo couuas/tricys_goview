@@ -34,10 +34,14 @@ const props = defineProps({
   }
 })
 
+const emits = defineEmits([TextCommonEventEnum.BAR])
+
+emits(TextCommonEventEnum.BAR, 'setup event')
+
 const listeners = convertEventBusListeners({
   on: {
-    [TextCommonEventEnum.TEST]: () => {
-      alert('这是我的内置方法')
+    [TextCommonEventEnum.FOO]: () => {
+      alert('触发方法')
     }
   }
 }, props.chartConfig.id)

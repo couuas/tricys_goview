@@ -31,12 +31,13 @@ export type ConfigType = {
   categoryName: string
   package: string
   chartFrame?: ChartFrameEnum
+  methodList?: Array<OptionsType>
   eventList?: Array<OptionsType>
   image: string | (() => Promise<typeof import('*.png')>)
 }
 
 
-export type EventList = Array<{
+export type MethodList = Array<{
   name: string,
   event: string,
   type: string,
@@ -48,7 +49,7 @@ export type EventList = Array<{
 
 export type EventConfigValue = Record<string, {
   title: string,
-  eventList: EventList
+  methodList: MethodList
 }>
 
 export type EventConfig = {
@@ -119,6 +120,7 @@ export interface CreateComponentType extends PublicConfigType {
   chartConfig: ConfigType
   option: GlobalThemeJsonType
   eventList: Array<OptionsType>
+  methodList: Array<OptionsType>
   eventConfig: EventConfig
 }
 
