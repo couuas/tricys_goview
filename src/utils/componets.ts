@@ -31,7 +31,7 @@ export const loadSkeletonAsyncComponent = (loader: AsyncComponentLoader<any>) =>
   })
 
 
-export const getComponentConfig = (options: Omit<ConfigType, 'chartKey' | 'conKey' | 'id'>): Partial<ConfigType> => {
+export const getComponentConfig = (options: Omit<ConfigType, 'chartKey' | 'conKey' | 'id'>): ConfigType => {
   return {
     ...options,
     chartKey: `V${options.key}`,
