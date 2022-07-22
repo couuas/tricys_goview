@@ -17,6 +17,7 @@ import { getSizeStyle } from '../../utils'
 import { EventTriggerType } from '@/enums/eventEnum'
 import { CreateComponentType, EventConfig } from '@/packages/index.d'
 import {  newFunctionHandle } from '@/utils'
+import isObject from 'lodash/isObject'
 
 const props = defineProps({
   item: {
@@ -49,7 +50,8 @@ const bus = useEventBus()
  * }
  */
 const getEventList = (eventConfig: EventConfig) => {
-  const res = Object.keys(eventConfig) // 剔除other字段
+  if(!isObject(eventConfig)) return {}
+  const res = Object.keys(eventConfig)
     .reduce((previousValue: EventConfig, currentValue: string) => {
       // @ts-ignore
       previousValue[currentValue] = eventConfig[currentValue].methodList.map((item: any) => {
