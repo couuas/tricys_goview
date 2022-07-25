@@ -6,3 +6,5 @@ dist-ssr
 *.local
 .vscode
 stats.html
+auto-imports.d.ts
+components.d.ts

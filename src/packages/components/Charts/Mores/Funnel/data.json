@@ -1,0 +1,9 @@
+{
+    "source": [
+        ["name","value"],
+        ["Visit", 20],
+        ["Inquiry", 40],
+        ["Order", 60],
+        ["Click", 80]
+    ]
+}

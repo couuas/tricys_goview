@@ -7,6 +7,10 @@ import { viteMockServe } from 'vite-plugin-mock'
 import monacoEditorPlugin from 'vite-plugin-monaco-editor'
 import { visualizer } from "rollup-plugin-visualizer";
 import viteImagemin from 'vite-plugin-imagemin'
+import AutoImport from 'unplugin-auto-import/vite'
+import Components from 'unplugin-vue-components/vite'
+import { NaiveUiResolver
+} from 'unplugin-vue-components/resolvers'
 
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir)
@@ -20,6 +24,19 @@ const plugins = [
 ]
 
 const devPlugins = [
+  AutoImport(
+    {
+      imports: [
+        'vue',
+        'vue-router',
+      ]
+    }
+  ),
+  Components({
+    resolvers: [
+      NaiveUiResolver()
+    ]
+  }),
   viteMockServe({
     mockPath: '/src/api/mock',
     // 开发打包开关
