@@ -3,7 +3,7 @@
   "version": "1.0.6",
   "scripts": {
     "dev": "vite --host",
-    "build": "npm run test && vite build",
+    "build": "rimraf ./dist && npm run test && vite build",
     "preview": "vite preview",
     "new": "plop --plopfile ./plop/plopfile.js",
     "test": "vue-tsc --noEmit",

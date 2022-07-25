@@ -17,6 +17,7 @@ import { useChartDataFetch } from '@/hooks'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { mergeTheme } from '@/packages/public/chart'
 import { isPreview } from '@/utils'
+import { CreateComponentType } from '@/packages/index.d'
 import { includes } from './config'
 
 const props = defineProps({
