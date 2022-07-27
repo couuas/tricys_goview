@@ -20,6 +20,11 @@ export const loadAsyncComponent = (loader: AsyncComponentLoader<any>) =>
   defineAsyncComponent({
     loader,
     loadingComponent: AsyncLoading,
+    errorComponent: {
+      render(){
+        return '加载失败'
+      }
+    },
     delay: 20,
   })
   

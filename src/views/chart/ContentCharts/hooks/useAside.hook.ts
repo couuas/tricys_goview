@@ -13,6 +13,7 @@ const {
   RoadmapIcon,
   SpellCheckIcon,
   GraphicalDataFlowIcon,
+  DataFormatIcon,
 } = icon.carbon
 
 
@@ -43,6 +44,10 @@ const packagesListObj = {
   [PackagesCategoryEnum.DECORATES]: {
     icon: renderIcon(GraphicalDataFlowIcon),
     label: PackagesCategoryName.DECORATES,
+  },
+  [PackagesCategoryEnum.FORM]: {
+    icon: renderIcon(DataFormatIcon),
+    label: PackagesCategoryName.FORM,
   },
 }
 

@@ -2,6 +2,7 @@ import { ChartList } from '@/packages/components/Charts/index'
 import { DecorateList } from '@/packages/components/Decorates/index'
 import { InformationList } from '@/packages/components/Informations/index'
 import { TableList } from '@/packages/components/Tables/index'
+import { FormList } from '@/packages/components/Form/index'
 import {
   PackagesCategoryEnum,
   PackagesType,
@@ -17,7 +18,8 @@ export let packagesList: PackagesType = {
   [PackagesCategoryEnum.CHARTS]: ChartList,
   [PackagesCategoryEnum.INFORMATIONS]: InformationList,
   [PackagesCategoryEnum.TABLES]: TableList,
-  [PackagesCategoryEnum.DECORATES]: DecorateList
+  [PackagesCategoryEnum.DECORATES]: DecorateList,
+  [PackagesCategoryEnum.FORM]: FormList,
 }
 
 /**

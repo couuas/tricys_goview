@@ -29,7 +29,13 @@ const devPlugins = [
       imports: [
         'vue',
         'vue-router',
-      ]
+        {
+          'vue': ['PropType']
+        }
+      ],
+      eslintrc: {
+        enabled: true
+      }
     }
   ),
   Components({

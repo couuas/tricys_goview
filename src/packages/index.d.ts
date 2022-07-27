@@ -33,7 +33,7 @@ export type ConfigType = {
   chartFrame?: ChartFrameEnum
   methodList?: Array<OptionsType>
   eventList?: Array<OptionsType>
-  image: string | (() => Promise<typeof import('*.png')>)
+  image?: string | (() => Promise<typeof import('*.png')>)
 }
 
 
@@ -132,7 +132,8 @@ export enum PackagesCategoryEnum {
   CHARTS = 'Charts',
   TABLES = 'Tables',
   INFORMATIONS = 'Informations',
-  DECORATES = 'Decorates'
+  DECORATES = 'Decorates',
+  FORM = 'Form',
 }
 
 // 包分类名称
@@ -140,7 +141,8 @@ export enum PackagesCategoryName {
   CHARTS = '图表',
   TABLES = '列表',
   INFORMATIONS = '信息',
-  DECORATES = '小组件'
+  DECORATES = '小组件',
+  FORM = '表单',
 }
 
 // 获取组件
@@ -155,4 +157,5 @@ export type PackagesType = {
   [PackagesCategoryEnum.INFORMATIONS]: ConfigType[]
   [PackagesCategoryEnum.TABLES]: ConfigType[]
   [PackagesCategoryEnum.DECORATES]: ConfigType[]
+  [PackagesCategoryEnum.FORM]: ConfigType[]
 }

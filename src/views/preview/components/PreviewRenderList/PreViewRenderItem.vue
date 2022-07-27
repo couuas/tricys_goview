@@ -1,5 +1,6 @@
 <template>
   <component
+      ref="componentRef"
       :is="item.chartConfig.chartKey"
       :chartConfig="item"
       :themeSetting="themeSetting"
@@ -10,14 +11,15 @@
 </template>
 
 <script lang='ts' setup>
-import { PropType, toRefs, getCurrentInstance, ComponentInternalInstance } from 'vue'
+import { PropType, toRefs, computed, getCurrentInstance, ComponentInternalInstance } from 'vue'
 import { useEventBus } from '@/hooks'
 import { convertEventBusListeners } from '@/hooks/useEventBus.hook'
 import { getSizeStyle } from '../../utils'
 import { EventTriggerType } from '@/enums/eventEnum'
-import { CreateComponentType, EventConfig } from '@/packages/index.d'
+import { CreateComponentType, EventConfig, PackagesCategoryEnum } from '@/packages/index.d'
 import {  newFunctionHandle } from '@/utils'
 import isObject from 'lodash/isObject'
+import { COMMON_EVENT_ENUM, DATA_COMPONENT_EVENT_ENUM } from '@/enums/eventEnum'
 
 const props = defineProps({
   item: {
@@ -39,7 +41,8 @@ const props = defineProps({
 })
 
 
-const { item, themeSetting, themeColor, useEvent } = toRefs(props)
+const { item, themeSetting, themeColor, useEvent } = toRefs(props);
+const componentRef = ref(null)
 const instance = getCurrentInstance() as ComponentInternalInstance
 const bus = useEventBus()
 /**
@@ -56,17 +59,17 @@ const getEventList = (eventConfig: EventConfig) => {
       // @ts-ignore
       previousValue[currentValue] = eventConfig[currentValue].methodList.map((item: any) => {
         if(item.type === EventTriggerType.JAVASCRIPT){
-          return (config: CreateComponentType) => {
+          return (e: any) => {
             try {
-              newFunctionHandle(config, item.code)
+              newFunctionHandle(e, item.code)
             } catch (error) {
               console.error(error, item.code)
               throw error
             }
           }
         }else{
-          return () => {
-            bus.emit(`${item.componentId}:${item.componentMethod}`)
+          return (data: any) => {
+            bus.emit(`${item.componentId}:${item.componentMethod}`, data)
           }
         }
       })
@@ -74,12 +77,24 @@ const getEventList = (eventConfig: EventConfig) => {
     }, {} as EventConfig)
   return res;
 }
+// 是否是数据组件
+const isDataComponent = computed(() => {
+  return item.value.chartConfig.package === PackagesCategoryEnum.CHARTS ||
+          item.value.chartConfig.package === PackagesCategoryEnum.TABLES
+})
 
-const listeners = {
+const listeners: Record<string, any> = {
   on: {
-    forceUpdate: () => {
+    [COMMON_EVENT_ENUM.FORCE_UPDATE]: () => {
       instance.proxy?.$forceUpdate()
     }
+  }
+}
+
+if(isDataComponent.value){
+  // 数据组件监听刷新数据
+  listeners.on[DATA_COMPONENT_EVENT_ENUM.LOAD_DATA] = () => {
+    componentRef.value.loadData()
   }
 }
 

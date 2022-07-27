@@ -30,9 +30,25 @@ export const EventTriggerTypeMap =  new Map(
   ]
 )
 
+// 数据组件事件
+export enum DATA_COMPONENT_EVENT_ENUM {
+  LOAD_DATA ='loadData'
+}
+
+export const dataComponentEventMap = new Map(
+  [
+    [DATA_COMPONENT_EVENT_ENUM.LOAD_DATA, '加载数据'],
+  ]
+)
+
+// 公共事件
+export enum COMMON_EVENT_ENUM {
+  FORCE_UPDATE ='forceUpdate'
+}
+
 export const CommonEventMap = new Map(
   [
-    ['forceUpdate', '强制更新'],
+    [COMMON_EVENT_ENUM.FORCE_UPDATE, '强制更新'],
   ]
 )
 

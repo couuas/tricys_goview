@@ -49,5 +49,15 @@ const option = computed(() => {
   return mergeTheme(props.chartConfig.option, props.themeSetting, includes)
 })
 
-const { vChartRef } = useChartDataFetch(props.chartConfig, useChartEditStore)
+const { vChartRef, pauseFn, resumeFn, fetchFn } = useChartDataFetch(props.chartConfig, useChartEditStore)
+
+defineExpose({
+  loadData: async () => {
+    if(fetchFn){
+      pauseFn()
+      await fetchFn()
+      resumeFn()
+    }
+  }
+})
 </script>

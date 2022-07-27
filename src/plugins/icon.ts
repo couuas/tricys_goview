@@ -90,6 +90,7 @@ import {
   Filter as FilterIcon,
   FilterEdit as FilterEditIcon,
   Edit as EditIcon,
+  DataFormat as DataFormatIcon
 } from '@vicons/carbon'
 
 const ionicons5 = {
@@ -218,6 +219,7 @@ const ionicons5 = {
 
 const carbon = {
   EditIcon,
+  DataFormatIcon,
   // 图表
   RoadmapIcon,
   // 信息

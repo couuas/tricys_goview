@@ -5,6 +5,7 @@ import { CreateComponentType, ChartFrameEnum } from '@/packages/index.d'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { RequestDataTypeEnum } from '@/enums/httpEnum'
 import { isPreview, newFunctionHandle, intervalUnitHandle } from '@/utils'
+import { useIntervalFn } from '@vueuse/core'
 
 // 获取类型
 type ChartEditStoreType = typeof useChartEditStore
@@ -21,10 +22,16 @@ export const useChartDataFetch = (
   updateCallback?: (...args: any) => any
 ) => {
   const vChartRef = ref<typeof VChart | null>(null)
-  let fetchInterval: any = 0
+  let pauseFn: any = null
+  let resumeFn: any = null
+  let fetchFn: any = null
 
   const requestIntervalFn = () => {
     const chartEditStore = useChartEditStore()
+
+    pauseFn = null
+    resumeFn = null
+    fetchFn = null
     
     // 全局数据
     const {
@@ -55,9 +62,7 @@ export const useChartDataFetch = (
         const completePath = requestOriginUrl && requestOriginUrl.value + requestUrl.value
         if (!completePath) return
 
-        clearInterval(fetchInterval)
-
-        const fetchFn = async () => {
+        fetchFn = async (callback: () => any) => {
           const res = await customizeHttp(toRaw(targetComponent.request), toRaw(chartEditStore.requestGlobalConfig))
           if (res && res.data) {
             try {
@@ -73,6 +78,7 @@ export const useChartDataFetch = (
                   }
                 }
               }
+              callback && callback()
             } catch (error) {
               console.error(error)
             }
@@ -87,11 +93,17 @@ export const useChartDataFetch = (
         // 单位
         const unit = targetInterval && targetInterval.value ? targetUnit.value : globalUnit.value
         // 开启轮询
-        if (time) fetchInterval = setInterval(fetchFn, intervalUnitHandle(time, unit))
+        if (time) {
+          const { pause, resume, isActive } = useIntervalFn(fetchFn, intervalUnitHandle(time, unit))
+          pauseFn = pause
+          resumeFn = resume
+        } 
       }
-    } catch (error) {}
+    } catch (error) {
+      console.error(error)
+    }
   }
-
+  
   isPreview() && requestIntervalFn()
-  return { vChartRef }
+  return { vChartRef, pauseFn, resumeFn, fetchFn }
 }
