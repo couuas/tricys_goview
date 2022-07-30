@@ -13,7 +13,10 @@
     ></chart-data-static>
 
     <!-- 动态 -->
-    <chart-data-ajax v-else></chart-data-ajax>
+    <template v-else>
+      <chart-data-ajax></chart-data-ajax>
+      <chart-data-foreign-key></chart-data-foreign-key>
+    </template>
   </div>
 </template>
 
@@ -22,6 +25,7 @@ import { SettingItemBox } from '@/components/Pages/ChartItemSetting'
 import { useTargetData } from '../hooks/useTargetData.hook'
 import { ChartDataStatic } from './components/ChartDataStatic/index'
 import { ChartDataAjax } from './components/ChartDataAjax/index'
+import { ChartDataForeignKey } from './components/ChartDataForeignKey/index'
 import { SelectCreateDataType, SelectCreateDataEnum } from './index.d'
 import { RequestDataTypeEnum } from '@/enums/httpEnum'
 

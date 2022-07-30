@@ -28,7 +28,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { PreviewRenderList } from './components/PreviewRenderList'
+import { PreviewRenderList } from './components/PreviewRenderList/index'
 import { getFilterStyle } from '@/utils'
 import { getEditCanvasConfigStyle, getSessionStorageInfo } from './utils'
 import { useComInstall } from './hooks/useComInstall.hook'

@@ -114,6 +114,11 @@ export interface PublicConfigType extends requestConfig {
   filter?: string
   setPosition: Function
 }
+export interface dataCollectComponent {
+  componentId: string
+  field: string
+  [key: string]: any
+}
 
 export interface CreateComponentType extends PublicConfigType {
   key: string
@@ -122,6 +127,7 @@ export interface CreateComponentType extends PublicConfigType {
   eventList?: Array<OptionsType>
   methodList?: Array<OptionsType>
   eventConfig?: EventConfig
+  dataCollectComponentList?: Array<dataCollectComponent>
 }
 
 // 获取组件实例类中某个key对应value类型的方法

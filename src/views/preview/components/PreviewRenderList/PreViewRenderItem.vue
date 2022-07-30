@@ -11,7 +11,7 @@
 </template>
 
 <script lang='ts' setup>
-import { PropType, toRefs, computed, getCurrentInstance, ComponentInternalInstance } from 'vue'
+import { PropType, ref, toRefs, getCurrentInstance, ComponentInternalInstance, onMounted } from 'vue'
 import { useEventBus } from '@/hooks'
 import { convertEventBusListeners } from '@/hooks/useEventBus.hook'
 import { getSizeStyle } from '../../utils'
@@ -20,6 +20,7 @@ import { CreateComponentType, EventConfig, PackagesCategoryEnum } from '@/packag
 import {  newFunctionHandle } from '@/utils'
 import isObject from 'lodash/isObject'
 import { COMMON_EVENT_ENUM, DATA_COMPONENT_EVENT_ENUM } from '@/enums/eventEnum'
+import { useDataCollectStore } from '@/store/modules/dataCollectStore/dataCollectStore'
 
 const props = defineProps({
   item: {
@@ -42,7 +43,7 @@ const props = defineProps({
 
 
 const { item, themeSetting, themeColor, useEvent } = toRefs(props);
-const componentRef = ref(null)
+const componentRef = ref<any>(null)
 const instance = getCurrentInstance() as ComponentInternalInstance
 const bus = useEventBus()
 /**
@@ -77,12 +78,6 @@ const getEventList = (eventConfig: EventConfig) => {
     }, {} as EventConfig)
   return res;
 }
-// 是否是数据组件
-const isDataComponent = computed(() => {
-  return item.value.chartConfig.package === PackagesCategoryEnum.CHARTS ||
-          item.value.chartConfig.package === PackagesCategoryEnum.TABLES
-})
-
 const listeners: Record<string, any> = {
   on: {
     [COMMON_EVENT_ENUM.FORCE_UPDATE]: () => {
@@ -91,11 +86,23 @@ const listeners: Record<string, any> = {
   }
 }
 
-if(isDataComponent.value){
+// 数据组件
+if( item.value.chartConfig.package === PackagesCategoryEnum.CHARTS ||
+     item.value.chartConfig.package === PackagesCategoryEnum.TABLES){
   // 数据组件监听刷新数据
   listeners.on[DATA_COMPONENT_EVENT_ENUM.LOAD_DATA] = () => {
-    componentRef.value.loadData()
+    componentRef.value?.loadData()
   }
+}
+
+// 表单组件
+if(item.value.chartConfig.package === PackagesCategoryEnum.FORM){
+  const dataCollectStore = useDataCollectStore()
+  // 渲染完成记录状态
+  onMounted(() => {
+    dataCollectStore.recordMountedComponent(item.value.id)
+  })
+
 }
 
 useEventBus(convertEventBusListeners(listeners, item.value.id))
