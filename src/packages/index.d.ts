@@ -1,5 +1,7 @@
 import type { GlobalThemeJsonType } from '@/settings/chartThemes/index'
 import type { RequestConfigType } from '@/store/modules/chartEditStore/chartEditStore.d'
+import { EventType } from '@/enums/eventEnum';
+
 
 export enum ChartFrameEnum {
   // echarts 框架
@@ -12,8 +14,15 @@ export enum ChartFrameEnum {
   STATIC = 'static'
 }
 
+export type OptionsType = {
+  label: string
+  value: string
+  [key: string]: string
+}
+
 // 组件配置
 export type ConfigType = {
+  id?: string
   key: string
   chartKey: string
   conKey: string
@@ -22,7 +31,29 @@ export type ConfigType = {
   categoryName: string
   package: string
   chartFrame?: ChartFrameEnum
-  image: string | (() => Promise<typeof import('*.png')>)
+  methodList?: Array<OptionsType>
+  eventList?: Array<OptionsType>
+  image?: string | (() => Promise<typeof import('*.png')>)
+}
+
+
+export type MethodList = Array<{
+  name: string,
+  event: string,
+  type: string,
+  code: string,
+  uid: string,
+  [key: string]: any
+}>
+
+
+export type EventConfigValue = Record<string, {
+  title: string,
+  methodList: MethodList
+}>
+
+export type EventConfig = {
+  [key: EventType]: EventConfigValue
 }
 
 // 数据请求
@@ -83,11 +114,20 @@ export interface PublicConfigType extends requestConfig {
   filter?: string
   setPosition: Function
 }
+export interface dataCollectComponent {
+  componentId: string
+  field: string
+  [key: string]: any
+}
 
 export interface CreateComponentType extends PublicConfigType {
   key: string
   chartConfig: ConfigType
   option: GlobalThemeJsonType
+  eventList?: Array<OptionsType>
+  methodList?: Array<OptionsType>
+  eventConfig?: EventConfig
+  dataCollectComponentList?: Array<dataCollectComponent>
 }
 
 // 获取组件实例类中某个key对应value类型的方法
@@ -98,7 +138,8 @@ export enum PackagesCategoryEnum {
   CHARTS = 'Charts',
   TABLES = 'Tables',
   INFORMATIONS = 'Informations',
-  DECORATES = 'Decorates'
+  DECORATES = 'Decorates',
+  FORM = 'Form',
 }
 
 // 包分类名称
@@ -106,7 +147,8 @@ export enum PackagesCategoryName {
   CHARTS = '图表',
   TABLES = '列表',
   INFORMATIONS = '信息',
-  DECORATES = '小组件'
+  DECORATES = '小组件',
+  FORM = '表单',
 }
 
 // 获取组件
@@ -121,4 +163,5 @@ export type PackagesType = {
   [PackagesCategoryEnum.INFORMATIONS]: ConfigType[]
   [PackagesCategoryEnum.TABLES]: ConfigType[]
   [PackagesCategoryEnum.DECORATES]: ConfigType[]
+  [PackagesCategoryEnum.FORM]: ConfigType[]
 }

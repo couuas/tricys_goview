@@ -127,6 +127,12 @@ onMounted(() => {
 })
 </script>
 
+<script lang="ts">
+export default {
+  name: 'ContentEdit'
+}
+</script>
+
 <style lang="scss" scoped>
 @include goId('chart-edit-layout') {
   position: relative;

@@ -7,22 +7,30 @@
         size="small"
       ></n-switch>
     </template>
-    <setting-item-box name="标题">
-      <setting-item name="颜色">
-        <n-color-picker
-          v-model:value="title.textStyle.color"
-          size="small"
-        ></n-color-picker>
+    <setting-item-box name="属性" :alone="true">
+      <setting-item name="文本">
+        <n-input v-model:value="title.text" size="small" type="text"></n-input>
       </setting-item>
-      <setting-item name="大小">
-        <n-input-number
-          v-model:value="title.textStyle.fontSize"
-          :min="1"
-          size="small"
-        ></n-input-number>
-      </setting-item>
+      <!-- <setting-item name="textAlign">
+        <n-select v-model:value="title.textAlign" size="small" :options="textAlignOptions" />
+      </setting-item> -->
+      <template v-if="title.textStyle">
+        <setting-item name="颜色">
+          <n-color-picker
+            v-model:value="title.textStyle.color"
+            size="small"
+          ></n-color-picker>
+        </setting-item>
+        <setting-item name="大小">
+          <n-input-number
+            v-model:value="title.textStyle.fontSize"
+            :min="1"
+            size="small"
+          ></n-input-number>
+        </setting-item>
+      </template>
     </setting-item-box>
-    <setting-item-box name="副标题">
+    <setting-item-box name="副标题" v-if="title.subtextStyle">
       <setting-item name="颜色">
         <n-color-picker
           size="small"
@@ -374,4 +382,11 @@ const yAxis = computed(() => {
 const legend = computed(() => {
   return props.optionData.legend
 })
+
+const textAlignOptions = [
+  {label: '自动', value: 'auto'},
+  {label: '左对齐', value: 'left'},
+  {label: '右对齐', value: 'right'},
+  {label: '居中对齐', value: 'center'},
+]
 </script>

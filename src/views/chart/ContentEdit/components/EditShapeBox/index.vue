@@ -70,6 +70,7 @@ const select = computed(() => {
     border-radius: 5px;
     background-color: #fff;
     transform: translate(-40%, -30%);
+    cursor: col-resize;
     &.t {
       width: 30px;
       transform: translate(-50%, -50%);

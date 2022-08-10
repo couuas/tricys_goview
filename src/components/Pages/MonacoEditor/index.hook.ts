@@ -1,11 +1,11 @@
 import { ref, onBeforeUnmount, nextTick } from 'vue'
 import { useDesignStore } from '@/store/modules/designStore/designStore'
-import * as monaco from 'monaco-editor/esm/vs/editor/editor.api.js'
+import { editor } from 'monaco-editor/esm/vs/editor/editor.api.js'
 
 export const useMonacoEditor = (language = 'javascript') => {
 const designStore = useDesignStore()
 
-  let monacoEditor: monaco.editor.IStandaloneCodeEditor | null = null
+  let monacoEditor: editor.IStandaloneCodeEditor | null = null
   let initReadOnly = false
   const el = ref<HTMLElement | null>(null)
 
@@ -25,12 +25,12 @@ const designStore = useDesignStore()
   }
 
   // 创建实例
-  const createEditor = (editorOption: monaco.editor.IStandaloneEditorConstructionOptions = {}) => {
+  const createEditor = (editorOption: editor.IStandaloneEditorConstructionOptions = {}) => {
     if (!el.value) return
-    const javascriptModel = monaco.editor.createModel('', language)
+    const javascriptModel = editor.createModel('', language)
     initReadOnly = !!editorOption.readOnly
     // 创建
-    monacoEditor = monaco.editor.create(el.value, {
+    monacoEditor = editor.create(el.value, {
       model: javascriptModel,
       // 是否启用预览图
       minimap: { enabled: false },

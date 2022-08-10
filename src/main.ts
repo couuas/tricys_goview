@@ -20,7 +20,7 @@ async function appInit() {
   const app = createApp(App)
 
   // 注册全局常用的 naive-ui 组件
-  setupNaive(app)
+  // setupNaive(app)
 
   // 注册全局自定义指令
   setupDirectives(app)

@@ -7,7 +7,7 @@ import { globalThemeJson } from '@/settings/chartThemes/index'
  * * 合并 color 和全局配置项
  * @param option 配置
  * @param themeSetting 设置
- * @param excludes 排除元素
+ * @param includes 合并元素
  * @returns object
  */
 export const mergeTheme = <T, U>(option: T, themeSetting: U, includes: string[]) => {

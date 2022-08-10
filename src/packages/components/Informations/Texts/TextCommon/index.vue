@@ -22,9 +22,10 @@
 <script setup lang="ts">
 import { PropType, toRefs, shallowReactive, watch } from 'vue'
 import { CreateComponentType } from '@/packages/index.d'
-import { useChartDataFetch } from '@/hooks'
+import { useChartDataFetch, useEventBus, convertEventBusListeners } from '@/hooks'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { option as configOption  } from './config'
+import { TextCommonEventEnum } from './enum'
 
 const props = defineProps({
   chartConfig: {
@@ -32,6 +33,20 @@ const props = defineProps({
     required: true
   }
 })
+
+const emits = defineEmits([TextCommonEventEnum.BAR])
+
+emits(TextCommonEventEnum.BAR, 'setup event')
+
+const listeners = convertEventBusListeners({
+  on: {
+    [TextCommonEventEnum.FOO]: () => {
+      alert('触发方法')
+    }
+  }
+}, props.chartConfig.id)
+
+useEventBus(listeners)
 
 const { w, h } = toRefs(props.chartConfig.attr)
 const {
