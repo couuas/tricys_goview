@@ -2,22 +2,35 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid '0d66559fac3f06ca77d7f75decc8e4ef82621214'
-    oldFile: !uuid '93390bb624e6c3f702888d38e37495b5d0efd126'
-  /src/views:
-    newFile: !uuid 'a7b0c63091784237e3f92c70001f2f7ebcb1dd66'
-    oldFile: !uuid '2e70790bff0cc62bf98dabaf3d1ae7656413fa50'
-  /src/views/preview:
-    newFile: !uuid 'c5cdeabee2adf8553a03ae7b0093f2bf2ea19b1c'
-    oldFile: !uuid '2073cdd97d401eb32a18d4c0bca678a441830427'
-  /src/views/preview/utils:
-    newFile: !uuid '442d078bd7fd86f5c41976deb6fffe25258cc02c'
-    oldFile: !uuid '85f6d65d1cef1313d6dc3cbe9d68b212dcd1121a'
-  /src/views/preview/utils/style.ts:
-    newFile: !uuid '8392c3482937c59ffeef8e0faebefc4bd96d53e2'
-    oldFile: !uuid '1ae54448fd893d94e8240c1490bca654d2e91e1d'
-gitCommitId: !uuid '3eb35272263528e66c1308fbe22d3e9abf6d1112'
-renames: {
-  }
-revisionId: 529
+  /README.md:
+    newFile: !uuid '07d8d78852567db700e85dfedaa1851014f72eef'
+    oldFile: !uuid '9b194765ed544094eee010df7c7ab7153b7a2bb6'
+  /readme:
+    newFile: !uuid '2cb0c70c45ef87611f33602759d49b8279676965'
+    oldFile: !uuid '923d4f56167e2bd9af7dd4303308bc2c699f237e'
+  /readme/go-view-canvas.png:
+    newFile: !uuid '617784ddd0bd05db620eaa05d1be21c8df39e438'
+    oldFile: null
+  /readme/go-view-color.png:
+    newFile: !uuid 'ff7158a345a4caa68f586c05f46a2aedc1afef65'
+    oldFile: null
+  /readme/go-view-fetch.png:
+    newFile: !uuid 'baad22fc1156b0e28de79a1357da63cf69eaa145'
+    oldFile: null
+  /readme/go-view-filter.png:
+    newFile: !uuid 'b5f6f3acaa222f188020cd95cb1682aec9561b2e'
+    oldFile: null
+  /readme/go-view-qq.png:
+    newFile: !uuid 'daeed71275dda09baed1f3c51c5d367ecd6963f4'
+    oldFile: null
+  /readme/goView-QQ.png:
+    newFile: null
+    oldFile: !uuid 'daeed71275dda09baed1f3c51c5d367ecd6963f4'
+  /readme/goView-canvas.png:
+    newFile: null
+    oldFile: !uuid '617784ddd0bd05db620eaa05d1be21c8df39e438'
+gitCommitId: !uuid 'ceac00f3eb59175ce0e68f5ef544d9206298b8f9'
+renames:
+  /readme/go-view-canvas.png: /readme/goView-canvas.png
+  /readme/go-view-qq.png: /readme/goView-QQ.png
+revisionId: 530
