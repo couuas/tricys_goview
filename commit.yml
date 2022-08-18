@@ -3,27 +3,33 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'f5a4cf6594d678af7be10292b65a14087689da39'
-    oldFile: !uuid 'f4793c795928229bab3578c5ae6fbdff1cfe23ca'
+    newFile: !uuid '609f070fce853485a593079fd3fee5e24ad226c9'
+    oldFile: !uuid 'f5a4cf6594d678af7be10292b65a14087689da39'
   /src/views:
-    newFile: !uuid '32e99d86ec1adecac2dd006696a858d649c17dfc'
-    oldFile: !uuid '81a7a9f105c04088360f94ec866936e966b80ddc'
+    newFile: !uuid '4943a425b4594480fc88ef0f5ed05813035513ee'
+    oldFile: !uuid '32e99d86ec1adecac2dd006696a858d649c17dfc'
   /src/views/chart:
-    newFile: !uuid 'a5cf549e26310d294d1971db5a99522c46debdc8'
-    oldFile: !uuid 'd8d5fe57f36ab1b4aa4e2b52287e021ca15cc93e'
+    newFile: !uuid '0af1647ce6fee43518876aa6bce9699bcc5c18ca'
+    oldFile: !uuid 'a5cf549e26310d294d1971db5a99522c46debdc8'
   /src/views/chart/ContentEdit:
-    newFile: !uuid '48b95e661c2a9a93238d4f7caff8bf564e13a6b5'
-    oldFile: !uuid '5c09aacab793afcac99620b06ce39cee099e271a'
+    newFile: !uuid '23ce6b154a33dada3f11a6792e64dc70dd4c91f6'
+    oldFile: !uuid '48b95e661c2a9a93238d4f7caff8bf564e13a6b5'
   /src/views/chart/ContentEdit/components:
-    newFile: !uuid '99ffe1a8d60ee4616c9dcd5fe39313a02ed3b732'
-    oldFile: !uuid 'd0315cbda7cfb167e64b132fe854ec2918de75ab'
-  /src/views/chart/ContentEdit/components/EditRange:
-    newFile: !uuid '05f1494101a0e82183467dc9d58b33c4842894cc'
-    oldFile: !uuid 'd0e2116bce28eeafbda9f85c8b6287bc416127a5'
-  /src/views/chart/ContentEdit/components/EditRange/index.vue:
-    newFile: !uuid '0394f5ad8706844523c3686a2e3a07c685745d67'
-    oldFile: !uuid '9b251f8597fc34e79017ebfe1058c8cdc04f9ac4'
-gitCommitId: !uuid '6cd30283e7c48475cff6d73f22ea1126a04b494a'
+    newFile: !uuid 'ab3c168f5a819d953027258e02e3e228b0b49a78'
+    oldFile: !uuid '99ffe1a8d60ee4616c9dcd5fe39313a02ed3b732'
+  /src/views/chart/ContentEdit/components/EditSelect:
+    newFile: !uuid '10f7e9a7d333ef594a1570903c0c51069b8a0184'
+    oldFile: !uuid '035f9388ed7fd73736c6e2e436bebfbcc5788529'
+  /src/views/chart/ContentEdit/components/EditSelect/index.vue:
+    newFile: !uuid 'c7d37836db7209c57a984b08f6981f062cdf8f5b'
+    oldFile: !uuid 'bfe78959ecfc487a575bf9e184a9981d650bcd04'
+  /src/views/chart/ContentEdit/hooks:
+    newFile: !uuid 'b62876b604f872a108c64e974d3683eff4b77b2a'
+    oldFile: !uuid '949a7a335d85415b7be3633fc4dcf194cbd5d7e3'
+  /src/views/chart/ContentEdit/hooks/useDrag.hook.ts:
+    newFile: !uuid '510cb9794cc05f6eddcd5767bddb6856a2513032'
+    oldFile: !uuid '6039046d1203c8ccb956851b0fef81e9e9db93b7'
+gitCommitId: !uuid '52c1eabf1efb49aa24e7a0d6ce9f4604255573ba'
 renames: {
   }
-revisionId: 1220
+revisionId: 1221
