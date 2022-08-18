@@ -3,33 +3,24 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '609f070fce853485a593079fd3fee5e24ad226c9'
-    oldFile: !uuid 'f5a4cf6594d678af7be10292b65a14087689da39'
+    newFile: !uuid 'bec43b7c1566956cc5a8fec56ff95efc6a1264ef'
+    oldFile: !uuid '609f070fce853485a593079fd3fee5e24ad226c9'
   /src/views:
-    newFile: !uuid '4943a425b4594480fc88ef0f5ed05813035513ee'
-    oldFile: !uuid '32e99d86ec1adecac2dd006696a858d649c17dfc'
+    newFile: !uuid '76bd843b5df5408ac3f33f4f7463d6a882d4ad4f'
+    oldFile: !uuid '4943a425b4594480fc88ef0f5ed05813035513ee'
   /src/views/chart:
-    newFile: !uuid '0af1647ce6fee43518876aa6bce9699bcc5c18ca'
-    oldFile: !uuid 'a5cf549e26310d294d1971db5a99522c46debdc8'
+    newFile: !uuid '9437607ddc80925305ed8d6239c60b86ded3f5e4'
+    oldFile: !uuid '0af1647ce6fee43518876aa6bce9699bcc5c18ca'
   /src/views/chart/ContentEdit:
-    newFile: !uuid '23ce6b154a33dada3f11a6792e64dc70dd4c91f6'
-    oldFile: !uuid '48b95e661c2a9a93238d4f7caff8bf564e13a6b5'
-  /src/views/chart/ContentEdit/components:
-    newFile: !uuid 'ab3c168f5a819d953027258e02e3e228b0b49a78'
-    oldFile: !uuid '99ffe1a8d60ee4616c9dcd5fe39313a02ed3b732'
-  /src/views/chart/ContentEdit/components/EditSelect:
-    newFile: !uuid '10f7e9a7d333ef594a1570903c0c51069b8a0184'
-    oldFile: !uuid '035f9388ed7fd73736c6e2e436bebfbcc5788529'
-  /src/views/chart/ContentEdit/components/EditSelect/index.vue:
-    newFile: !uuid 'c7d37836db7209c57a984b08f6981f062cdf8f5b'
-    oldFile: !uuid 'bfe78959ecfc487a575bf9e184a9981d650bcd04'
+    newFile: !uuid '31788ad5f21c1e32618027c72b8c1fa571fd7ae6'
+    oldFile: !uuid '23ce6b154a33dada3f11a6792e64dc70dd4c91f6'
   /src/views/chart/ContentEdit/hooks:
-    newFile: !uuid 'b62876b604f872a108c64e974d3683eff4b77b2a'
-    oldFile: !uuid '949a7a335d85415b7be3633fc4dcf194cbd5d7e3'
+    newFile: !uuid '8db60aea8c98aebf1bd6b869e426a09a680bd291'
+    oldFile: !uuid 'b62876b604f872a108c64e974d3683eff4b77b2a'
   /src/views/chart/ContentEdit/hooks/useDrag.hook.ts:
-    newFile: !uuid '510cb9794cc05f6eddcd5767bddb6856a2513032'
-    oldFile: !uuid '6039046d1203c8ccb956851b0fef81e9e9db93b7'
-gitCommitId: !uuid '52c1eabf1efb49aa24e7a0d6ce9f4604255573ba'
+    newFile: !uuid 'ed15914fad60c8368d9189123be62aa91504f07c'
+    oldFile: !uuid '510cb9794cc05f6eddcd5767bddb6856a2513032'
+gitCommitId: !uuid '8ddc85738ae7cbb195c308d69f8619ec926f810a'
 renames: {
   }
-revisionId: 1221
+revisionId: 1222
