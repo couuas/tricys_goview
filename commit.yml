@@ -3,15 +3,21 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'b656d98ab923df383c51379af525bee533ac4270'
-    oldFile: !uuid '9d4968a94ba17fe8456e0c010fa3237993bfa622'
-  /src/enums:
-    newFile: !uuid '2560cd5b1bff6483940e98c359156ffe99bca38f'
-    oldFile: !uuid '2e4ac5bb696e054a344a5021dee94bcc5434ccec'
-  /src/enums/editPageEnum.ts:
-    newFile: !uuid '5fb94988ca677e8fc15ca5c7915125b162b21f35'
-    oldFile: !uuid '832fa041b4113d7b0856dfd3e98ae0d43ded7788'
-gitCommitId: !uuid '3c04f811479ac666bf489ca3c6b11152ed3e248e'
+    newFile: !uuid '5e1dcbd5d77087b962c11858b559890a92a157a5'
+    oldFile: !uuid 'b656d98ab923df383c51379af525bee533ac4270'
+  /src/views:
+    newFile: !uuid '615c754292e05228ccc759244f32e4dd59ac7361'
+    oldFile: !uuid '39c3d86ae1038befbdff348b6e147cd5eddbf4df'
+  /src/views/chart:
+    newFile: !uuid '104849d02a26de7a6eda3afecb637e2236f559f3'
+    oldFile: !uuid '47a561679f335563d59770f140753ee8112127ce'
+  /src/views/chart/hooks:
+    newFile: !uuid 'c015cc0b7efdea1597892d4d105f6b4ef7cc9bea'
+    oldFile: !uuid 'ad05a90de66c4a7e30e508e8a52f5ff33dcc6bb2'
+  /src/views/chart/hooks/useSync.hook.ts:
+    newFile: !uuid '310e9268a99b1b473ca86d0839d6e3433e0dc1e7'
+    oldFile: !uuid '3481bfc2dbfc15fe4d893353cb2dd3f25214bc54'
+gitCommitId: !uuid 'c2a9642393ce786b39b034b375c3f620ea7ecade'
 renames: {
   }
-revisionId: 528
+revisionId: 529
