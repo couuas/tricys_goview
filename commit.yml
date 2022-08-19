@@ -3,18 +3,15 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '9d4968a94ba17fe8456e0c010fa3237993bfa622'
-    oldFile: !uuid '1e09e021d00bd8975e8ad953ad54359b87f7d8d6'
-  /src/views:
-    newFile: !uuid '39c3d86ae1038befbdff348b6e147cd5eddbf4df'
-    oldFile: !uuid '75cca467a15e1aa7d9f5e32e5c619854346a2498'
-  /src/views/exception:
-    newFile: !uuid 'cf53a96fe74ffc65314be45d5259848b41f5328f'
-    oldFile: !uuid 'cbf3e7fa26efd1215306a317ade8479bc9e20a82'
-  /src/views/exception/500.vue:
-    newFile: !uuid '9494d02cde533c30531a6193afa9883279c0776d'
-    oldFile: !uuid '82928c1e4647b6fe8b31b8da7e3afafc460e5fcd'
-gitCommitId: !uuid 'ec28ccf09c535654de2c38b353a1b87009dacf5b'
+    newFile: !uuid 'b656d98ab923df383c51379af525bee533ac4270'
+    oldFile: !uuid '9d4968a94ba17fe8456e0c010fa3237993bfa622'
+  /src/enums:
+    newFile: !uuid '2560cd5b1bff6483940e98c359156ffe99bca38f'
+    oldFile: !uuid '2e4ac5bb696e054a344a5021dee94bcc5434ccec'
+  /src/enums/editPageEnum.ts:
+    newFile: !uuid '5fb94988ca677e8fc15ca5c7915125b162b21f35'
+    oldFile: !uuid '832fa041b4113d7b0856dfd3e98ae0d43ded7788'
+gitCommitId: !uuid '3c04f811479ac666bf489ca3c6b11152ed3e248e'
 renames: {
   }
-revisionId: 527
+revisionId: 528
