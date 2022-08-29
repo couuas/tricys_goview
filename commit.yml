@@ -2,10 +2,28 @@
 branches: {
   }
 fileChange:
-  /LICENSE:
-    newFile: !uuid 'a44f18f96c6b3b5fae582fcbfafe56dd03c416e9'
-    oldFile: !uuid 'd012d2a83f920433dd8585145e397dc3c55c97ac'
-gitCommitId: !uuid '801aa1f82f5498529e88444c71dcde153078bf1c'
+  /src:
+    newFile: !uuid '4dbba79b1e96c4539b301666b9fff10f7cab096e'
+    oldFile: !uuid '32d421fc985db38785677eb84466aa45397afc44'
+  /src/utils:
+    newFile: !uuid 'b3ed328bcae8416f3e9d52daa850aa1e6b16dfba'
+    oldFile: !uuid 'a7cf896e70701461fed5b287c487fe7a7c318bc0'
+  /src/utils/utils.ts:
+    newFile: !uuid '2604efa9523621e04b92c8d606895c5a3b60244c'
+    oldFile: !uuid '43a3746c7b742683491de32bdfc8a53834ed077f'
+  /src/views:
+    newFile: !uuid 'a8563f29a1f91c96e288e629be68e290a496438a'
+    oldFile: !uuid '0e891fc4e6506f417a5a2af1b751ec4fcafe3d2d'
+  /src/views/chart:
+    newFile: !uuid 'fe20ba27cd8aa747af68a4f3b287302a8f670463'
+    oldFile: !uuid '8f2aee05075c8481051e3ff535d2db737409fc81'
+  /src/views/chart/hooks:
+    newFile: !uuid '5fa28dc26081ff2fda6725361e38146f2b6f89dd'
+    oldFile: !uuid '5e3d18159dfa6a2b44a087cd1d3454eb2b8bc61f'
+  /src/views/chart/hooks/useSync.hook.ts:
+    newFile: !uuid '943bbf5784fef3a51deba04476f95a739399b1da'
+    oldFile: !uuid '8e869a4f939c21a9d58f9fde7afcc7f9966832e3'
+gitCommitId: !uuid 'da809f13b357c1db717f553a494541d8b50c4dca'
 renames: {
   }
-revisionId: 532
+revisionId: 533
