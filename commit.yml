@@ -3,9 +3,45 @@ branches: {
   }
 fileChange:
   /package.json:
-    newFile: !uuid '5977229387fccd16746aebe0b732397c35814337'
-    oldFile: !uuid '287c21d68aa47892a971b88ac33ac8ef825fde7d'
-gitCommitId: !uuid '0624c6001062fddbe057778e1dc2da3b043e057c'
+    newFile: !uuid 'e5a7146678151e1602ae8f36772ad4bc48d29be9'
+    oldFile: !uuid '5977229387fccd16746aebe0b732397c35814337'
+  /src:
+    newFile: !uuid 'd2fcd7383368ad616f3fd128560889b324feab2f'
+    oldFile: !uuid '4a31089763cbb92befafa9d2ee08555071e89f07'
+  /src/packages:
+    newFile: !uuid '416665656b721006de51ec2c41540f56c6bca9c2'
+    oldFile: !uuid 'db351bfa264b031302c8f872f8d4b6c00c6c53c4'
+  /src/packages/index.d.ts:
+    newFile: !uuid '8b80eced1902f1dfba7b8293c7e228b6b9547a81'
+    oldFile: !uuid '153dc6af91ff0dceb2e669d9d6e5ac05a8b450d2'
+  /src/store:
+    newFile: !uuid 'ffb0c346b82dcaaec834c068865cea9986aa5f3c'
+    oldFile: !uuid 'c3a4e7d6af9dd1527b066f91b5d5e49a958bb651'
+  /src/store/modules:
+    newFile: !uuid 'b6ec567f920a89d75bf17cf4027bdad7ee86cf2d'
+    oldFile: !uuid '2ffdf7c788bfba64f7e39dab95d3978dfb776eee'
+  /src/store/modules/chartEditStore:
+    newFile: !uuid '770c77ac609ad53e13e9c1c653f54cac97489b4f'
+    oldFile: !uuid '54dd4ac077ca22d43086e841c88c8b3490d98779'
+  /src/store/modules/chartEditStore/chartEditStore.ts:
+    newFile: !uuid '4a50a7eb6d3b9b124e2120dbb8680f68944f1a8c'
+    oldFile: !uuid '9b9567be3975b8ae6f77c4808266e12b6d1349c5'
+  /src/views:
+    newFile: !uuid '0b43974e1ecf406d1a9a32b0b725c7cdffedacb4'
+    oldFile: !uuid '0f183a3788aac6228a280ddd275357e4d95ea177'
+  /src/views/chart:
+    newFile: !uuid '40d7d66e7955d3ef9e394557230dae7430fdf162'
+    oldFile: !uuid 'b8d6bfeee22f592912a14238fe416a63c5fc604d'
+  /src/views/chart/ContentEdit:
+    newFile: !uuid '9e4523ae79a40eb24f0f07fa9c80f7f5956c4c5f'
+    oldFile: !uuid 'bd885949dbccca1158020a1445b4cfda6aa9f74d'
+  /src/views/chart/ContentEdit/hooks:
+    newFile: !uuid 'f0f2af28ae175c5358fa45d02a2b3199f1c4eafc'
+    oldFile: !uuid '8db60aea8c98aebf1bd6b869e426a09a680bd291'
+  /src/views/chart/ContentEdit/hooks/useDrag.hook.ts:
+    newFile: !uuid 'b6b1b61d9ba25ac97bc0b8e49a69e2abe5a65a53'
+    oldFile: !uuid 'ed15914fad60c8368d9189123be62aa91504f07c'
+gitCommitId: !uuid '31f67232aeb3c356d1b3d6b537fee5e111156259'
 renames: {
   }
-revisionId: 548
+revisionId: 549
