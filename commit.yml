@@ -2,13 +2,43 @@
 branches: {
   }
 fileChange:
-  /package.json:
-    newFile: !uuid '287c21d68aa47892a971b88ac33ac8ef825fde7d'
-    oldFile: !uuid 'ea8faaa0e8bfbfcf33b52933603924e8cd4de7b8'
-  /pnpm-lock.yaml:
-    newFile: !uuid '2bf233fa319dab562b8839cf1c9547ddf996aa4e'
-    oldFile: !uuid 'eb4b22112650a85bf5f44397a2c4ec5ae1a55c31'
-gitCommitId: !uuid '96a41f8ebc538195bedfcfa35b135b82cfef959e'
+  /src:
+    newFile: !uuid '2296c0484b0a13b6639127c4ab1b5c6974d03a7b'
+    oldFile: !uuid 'c91f7d511caa94dba934450d6d820d2b5835537e'
+  /src/components:
+    newFile: !uuid '7311f3c0ee6b544055181701eab69010364ba5da'
+    oldFile: !uuid '4348a7894325e024d95bf010fd6e52aadc03caee'
+  /src/components/GoSystemInfo:
+    newFile: !uuid 'e6a56f82afb3ca188f91c0e08ef59335acee57bf'
+    oldFile: null
+  /src/components/GoSystemInfo/index.ts:
+    newFile: !uuid 'd2bf262b9dd1a0825737a2a0b5735965b4fed046'
+    oldFile: null
+  /src/components/GoSystemInfo/index.vue:
+    newFile: !uuid 'c0a4f7e8485d90a1e3eb306db88cfe0da85b4641'
+    oldFile: null
+  /src/components/GoUserInfo:
+    newFile: !uuid '5071bafa53ab5abac416697df8e91cc0bc89846f'
+    oldFile: !uuid '920ce221dea308409071e66b2d71bf716e9e4b77'
+  /src/components/GoUserInfo/index.vue:
+    newFile: !uuid 'aa01056fd781f898811616b76e0b64e457c5909c'
+    oldFile: !uuid '4b3da73ce4f0ab9a1a0481150fc428f61e09206d'
+  /src/i18n:
+    newFile: !uuid 'baa0de283b1bb1013ba14fda3290d2fcfd48f5a5'
+    oldFile: !uuid 'cfa2e811bd34daeab2718b5b8ddf6a000bd46c4b'
+  /src/i18n/en:
+    newFile: !uuid '23b0c37be2cc737a7413c4e557e280381046062d'
+    oldFile: !uuid '9e6c093b671ec7605c22c53c211f5e9b4c1625a8'
+  /src/i18n/en/index.ts:
+    newFile: !uuid '4ce0787289bfe5e5039d2d8820e943cf34157d5c'
+    oldFile: !uuid '140a3add7a086084f3e8308a4e194feafa34d7e5'
+  /src/i18n/zh:
+    newFile: !uuid '348601845ab995b6ec3dc5c600c96a39ea0e50ea'
+    oldFile: !uuid '786fa74d820a652a50d6927301995b68b0b7531f'
+  /src/i18n/zh/index.ts:
+    newFile: !uuid 'c26d1567ff4bb45b8d778caede1ff0bc7b394819'
+    oldFile: !uuid '0fd4dd0528fb10f55601768107f71ba48eeaa675'
+gitCommitId: !uuid '199c6abcb1b87a5720fc48004830460ed9b6dcf6'
 renames: {
   }
-revisionId: 1228
+revisionId: 1229
