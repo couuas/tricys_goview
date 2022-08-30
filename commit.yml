@@ -2,28 +2,10 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid '4a31089763cbb92befafa9d2ee08555071e89f07'
-    oldFile: !uuid '4307e6eb333b8cd57631fe45be2a8d416a878f5b'
-  /src/packages:
-    newFile: !uuid 'db351bfa264b031302c8f872f8d4b6c00c6c53c4'
-    oldFile: !uuid '27dd7f40c5ceaa4a1da46850b43b7fb46b0bbf2b'
-  /src/packages/components:
-    newFile: !uuid 'd3d6403472abac4c5a691058236db76c5fa6366d'
-    oldFile: !uuid '05af47659e43b7a7b42f732280f212253bd465b6'
-  /src/packages/components/Informations:
-    newFile: !uuid 'b3c24d101293482d9e28527483e77e04e5dac981'
-    oldFile: !uuid 'ae186dd6295db60c1d3c7b9015b203f61c64235c'
-  /src/packages/components/Informations/Texts:
-    newFile: !uuid '1f09fde388fa7035c3c111fb5c2cc9d8d593623a'
-    oldFile: !uuid 'da64d37696fbd202ba5e34bfbf705e119de23d3b'
-  /src/packages/components/Informations/Texts/TextGradient:
-    newFile: !uuid '464827d3938c2b3a8a610d256979550dd07f6aef'
-    oldFile: !uuid 'b0c3d6315fc220b89f4a7291c728f7ca84ce28d1'
-  /src/packages/components/Informations/Texts/TextGradient/index.vue:
-    newFile: !uuid '09daa783f103fdf60c96809788652cd3257354eb'
-    oldFile: !uuid 'd16d1c198d6965a9be25e839da2c7f0ea18cdb4d'
-gitCommitId: !uuid 'b512328a70bed21211d64133f63eaae87d3c3a64'
+  /package.json:
+    newFile: !uuid '5977229387fccd16746aebe0b732397c35814337'
+    oldFile: !uuid '287c21d68aa47892a971b88ac33ac8ef825fde7d'
+gitCommitId: !uuid '0624c6001062fddbe057778e1dc2da3b043e057c'
 renames: {
   }
-revisionId: 547
+revisionId: 548
