@@ -2,55 +2,10 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid '9700d8d16dc3449cec82a96953754272866caf96'
-    oldFile: !uuid '4e8f5ec28253e3738f59a1476e42a0a5dcd7f19d'
-  /src/utils:
-    newFile: !uuid '2db3ce436503b2539c19a611c0a327d5bbabaa1b'
-    oldFile: !uuid 'b3ed328bcae8416f3e9d52daa850aa1e6b16dfba'
-  /src/utils/router.ts:
-    newFile: !uuid '5f104f56eea88de7477d5c8871d03364698c358b'
-    oldFile: !uuid '5a11735761662d42882fa7042c2dc0f3cd9dd5c3'
-  /src/views:
-    newFile: !uuid '3f491442eb3dbfa2cf5322c2e0d3b2048c2dd727'
-    oldFile: !uuid 'a8563f29a1f91c96e288e629be68e290a496438a'
-  /src/views/preview:
-    newFile: !uuid '0b6f2e8505b8e69f96a074f1e703619f7bf0391b'
-    oldFile: !uuid '56cfe045a99e0315dcb52f71da58c80ac7bff83c'
-  /src/views/preview/utils:
-    newFile: !uuid '756172c7f74eb46b7d0aa77a0133ce78f4dc6627'
-    oldFile: !uuid 'e6cb9a41b491aeab4333ef1bf0fa7862d76b40f0'
-  /src/views/preview/utils/storage.ts:
-    newFile: !uuid '494315c7f2b63c0b26254a4b5293ed73fe043404'
-    oldFile: !uuid 'b708488c7185775e75e649a7604b991d3dc80fef'
-  /src/views/project:
-    newFile: !uuid 'c391e479ca09582302294de00f2060eef806da80'
-    oldFile: !uuid 'dde4df07ddcdf969f23f7c94fb0de51c3319b240'
-  /src/views/project/items:
-    newFile: !uuid '94c3009237bb3431e88ad51f2e36482c7e5d987c'
-    oldFile: !uuid 'ecfd34545de73c01541275758bad12cfbfa54096'
-  /src/views/project/items/components:
-    newFile: !uuid 'f8a43929499c7043fcd6b77145df273e0e17c70e'
-    oldFile: !uuid '54ceadd5b9de620494e180dbde84b4c8832e93d3'
-  /src/views/project/items/components/ProjectItemsCard:
-    newFile: !uuid '25b711b38f7b17e11f0cadf0ee368cafadfe1cc0'
-    oldFile: !uuid '1d8e2bbdddbcc23a39453a142b9b201e0cc29f47'
-  /src/views/project/items/components/ProjectItemsCard/index.vue:
-    newFile: !uuid 'a0f847cf2c70e3747590f294f68aa736648b4ffa'
-    oldFile: !uuid 'd9622c95f9b8c21e20549004b1b9ecf5cce4f916'
-  /src/views/project/items/components/ProjectItemsList:
-    newFile: !uuid '79f1e9d52d4c5f13ae4f3581a6c084d536da15ca'
-    oldFile: !uuid 'd3996c3785a2616829d3938c36a855fe2b47b8d7'
-  /src/views/project/items/components/ProjectItemsList/hooks:
-    newFile: !uuid '0f042735f9a571b5ed49ed74ccda75ecf8234eb6'
-    oldFile: !uuid 'c115bdff2836f176f52f26d8fa11615bcacd4154'
-  /src/views/project/items/components/ProjectItemsList/hooks/useModal.hook.ts:
-    newFile: !uuid 'e28b1f915c9166094fe8b3edf981970d65de77ac'
-    oldFile: !uuid 'af74d44a5bbd1693f92434dd16cf2173f9a91358'
-  /src/views/project/items/components/ProjectItemsList/index.vue:
-    newFile: !uuid '2ce7145c64bead8d1aec6e9565b990126d05c83d'
-    oldFile: !uuid '73783e8a5d32c9f7bf5cd9325a33076ec3a0a7a6'
-gitCommitId: !uuid '171e0aa408ef791bb6da45edf8fd447c7b94d6d7'
+  /package.json:
+    newFile: !uuid '5908446bf69e9a22104c7ed613cd118d6929c2ab'
+    oldFile: !uuid '890006531660d82fc70c6e92254e1181c6cce2f2'
+gitCommitId: !uuid '32ca138e6a8228b78f52b5dba77d4dfec329ecd9'
 renames: {
   }
-revisionId: 535
+revisionId: 536
