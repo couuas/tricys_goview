@@ -2,46 +2,52 @@
 branches: {
   }
 fileChange:
-  /package.json:
-    newFile: !uuid 'e5a7146678151e1602ae8f36772ad4bc48d29be9'
-    oldFile: !uuid '5977229387fccd16746aebe0b732397c35814337'
   /src:
-    newFile: !uuid 'd2fcd7383368ad616f3fd128560889b324feab2f'
-    oldFile: !uuid '4a31089763cbb92befafa9d2ee08555071e89f07'
+    newFile: !uuid '5d327ce6e8ab58b4c7d389240b51c3b9b5c70f9c'
+    oldFile: !uuid 'd2fcd7383368ad616f3fd128560889b324feab2f'
   /src/packages:
-    newFile: !uuid '416665656b721006de51ec2c41540f56c6bca9c2'
-    oldFile: !uuid 'db351bfa264b031302c8f872f8d4b6c00c6c53c4'
-  /src/packages/index.d.ts:
-    newFile: !uuid '8b80eced1902f1dfba7b8293c7e228b6b9547a81'
-    oldFile: !uuid '153dc6af91ff0dceb2e669d9d6e5ac05a8b450d2'
+    newFile: !uuid '7846f03ac893120bb5d6cea86a952581701ab53b'
+    oldFile: !uuid '416665656b721006de51ec2c41540f56c6bca9c2'
+  /src/packages/public:
+    newFile: !uuid '942c11e5c070313397594dac9ead20532707c47a'
+    oldFile: !uuid '7d96e3ede40b620161d716c8100632dbefbad325'
+  /src/packages/public/publicConfig.ts:
+    newFile: !uuid 'ddccc09d8516d77ddf4988328877d2985aeace83'
+    oldFile: !uuid 'a285cf1387483f1f5a4a74d9136bb8189d19cfd1'
+  /src/settings:
+    newFile: !uuid '8de0731dcb58be536dc9e00edaeceec761ccc03f'
+    oldFile: !uuid '6be3885d615bd0ff1bd6e25f6b1c4c34bb7122ee'
+  /src/settings/designSetting.ts:
+    newFile: !uuid '42fa7ad55cc528fe9403ca44468acede5cae970b'
+    oldFile: !uuid '713b88bd4539b117aaf65a201432c2feecf213e7'
   /src/store:
-    newFile: !uuid 'ffb0c346b82dcaaec834c068865cea9986aa5f3c'
-    oldFile: !uuid 'c3a4e7d6af9dd1527b066f91b5d5e49a958bb651'
+    newFile: !uuid '7f6ec4b272d1e3707400682123b47057ac7948d7'
+    oldFile: !uuid 'ffb0c346b82dcaaec834c068865cea9986aa5f3c'
   /src/store/modules:
-    newFile: !uuid 'b6ec567f920a89d75bf17cf4027bdad7ee86cf2d'
-    oldFile: !uuid '2ffdf7c788bfba64f7e39dab95d3978dfb776eee'
+    newFile: !uuid 'dd9e4af5043ab932d8c847eb70496637d6cd628b'
+    oldFile: !uuid 'b6ec567f920a89d75bf17cf4027bdad7ee86cf2d'
   /src/store/modules/chartEditStore:
-    newFile: !uuid '770c77ac609ad53e13e9c1c653f54cac97489b4f'
-    oldFile: !uuid '54dd4ac077ca22d43086e841c88c8b3490d98779'
+    newFile: !uuid '00e77965d1aa50d3f1f71941878c1a6f238641a3'
+    oldFile: !uuid '770c77ac609ad53e13e9c1c653f54cac97489b4f'
   /src/store/modules/chartEditStore/chartEditStore.ts:
-    newFile: !uuid '4a50a7eb6d3b9b124e2120dbb8680f68944f1a8c'
-    oldFile: !uuid '9b9567be3975b8ae6f77c4808266e12b6d1349c5'
+    newFile: !uuid '6f48c788e7ae9fd90a7a7e9fa00c6332c97c425b'
+    oldFile: !uuid '4a50a7eb6d3b9b124e2120dbb8680f68944f1a8c'
   /src/views:
-    newFile: !uuid '0b43974e1ecf406d1a9a32b0b725c7cdffedacb4'
-    oldFile: !uuid '0f183a3788aac6228a280ddd275357e4d95ea177'
+    newFile: !uuid '9dd58f307542d2c79c03e4d72be0cb45e83fc13c'
+    oldFile: !uuid '0b43974e1ecf406d1a9a32b0b725c7cdffedacb4'
   /src/views/chart:
-    newFile: !uuid '40d7d66e7955d3ef9e394557230dae7430fdf162'
-    oldFile: !uuid 'b8d6bfeee22f592912a14238fe416a63c5fc604d'
+    newFile: !uuid '2b34ce442516371b18622a0ce0855f03df410ad7'
+    oldFile: !uuid '40d7d66e7955d3ef9e394557230dae7430fdf162'
   /src/views/chart/ContentEdit:
-    newFile: !uuid '9e4523ae79a40eb24f0f07fa9c80f7f5956c4c5f'
-    oldFile: !uuid 'bd885949dbccca1158020a1445b4cfda6aa9f74d'
+    newFile: !uuid 'f8311f8215e13c0f10775bb683f3d15ffd31fa30'
+    oldFile: !uuid '9e4523ae79a40eb24f0f07fa9c80f7f5956c4c5f'
   /src/views/chart/ContentEdit/hooks:
-    newFile: !uuid 'f0f2af28ae175c5358fa45d02a2b3199f1c4eafc'
-    oldFile: !uuid '8db60aea8c98aebf1bd6b869e426a09a680bd291'
+    newFile: !uuid 'f2420a5fb740b3b1aa5d54e28e32dd6a64f3dfbe'
+    oldFile: !uuid 'f0f2af28ae175c5358fa45d02a2b3199f1c4eafc'
   /src/views/chart/ContentEdit/hooks/useDrag.hook.ts:
-    newFile: !uuid 'b6b1b61d9ba25ac97bc0b8e49a69e2abe5a65a53'
-    oldFile: !uuid 'ed15914fad60c8368d9189123be62aa91504f07c'
-gitCommitId: !uuid '31f67232aeb3c356d1b3d6b537fee5e111156259'
+    newFile: !uuid 'f481192d83a924866100042c23ce06d402927fb9'
+    oldFile: !uuid 'b6b1b61d9ba25ac97bc0b8e49a69e2abe5a65a53'
+gitCommitId: !uuid 'f0e860f30610a7012eda3d7955b77e2fd9ffb8c3'
 renames: {
   }
-revisionId: 549
+revisionId: 550
