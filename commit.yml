@@ -3,93 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '460fe229a0d26577315df82c1b8ef7885a2392c8'
-    oldFile: !uuid '2e304ac8202cac22ce860977ef18ad12ccde465a'
+    newFile: !uuid 'd9a63a79ffa84f9b6879302846a6b82fac65db79'
+    oldFile: !uuid '460fe229a0d26577315df82c1b8ef7885a2392c8'
   /src/packages:
-    newFile: !uuid '8bc99a8c78593b3de45f443e95308f35c833ed98'
-    oldFile: !uuid '2caf8b1603afc6e555083c1b7a7a42b7294a4281'
+    newFile: !uuid '5892cab68789525e8c0e644ca126aac684bfa2b4'
+    oldFile: !uuid '8bc99a8c78593b3de45f443e95308f35c833ed98'
   /src/packages/components:
-    newFile: !uuid '692890b8558e3b4d82dad4e2edf69db2a9d19cc3'
-    oldFile: !uuid 'bf37c4432ca48d5ab0543559685db587ef953ad5'
+    newFile: !uuid 'bfdb28d29064b3d578e27a86c6e5a1a836976675'
+    oldFile: !uuid '692890b8558e3b4d82dad4e2edf69db2a9d19cc3'
   /src/packages/components/Charts:
-    newFile: !uuid 'a6ef3fa67e07edcea46d8afdc2328572b5198b39'
-    oldFile: !uuid 'c0cd16de63333a9a1aed3939856d1ec5183677c2'
+    newFile: !uuid '85cf390e2c1ce7235ed5028d2a94dbad838bfab0'
+    oldFile: !uuid 'a6ef3fa67e07edcea46d8afdc2328572b5198b39'
   /src/packages/components/Charts/Maps:
-    newFile: !uuid '698a9755fae9c9c9de0ef211968a2d785f8a5fd2'
-    oldFile: !uuid '5109314aa610978acb9785751e557e7bc5973db9'
+    newFile: !uuid 'f2a855725e882189dae84dae4e63d50667e49470'
+    oldFile: !uuid '698a9755fae9c9c9de0ef211968a2d785f8a5fd2'
   /src/packages/components/Charts/Maps/MapChina:
-    newFile: !uuid 'badcc1641106d46887c4393a0840ba23c8ddb375'
-    oldFile: null
-  /src/packages/components/Charts/Maps/MapChina/config.ts:
-    newFile: !uuid '6c68e198481f3ff6e10acf123f5d5c009f8b21a9'
-    oldFile: null
-  /src/packages/components/Charts/Maps/MapChina/config.vue:
-    newFile: !uuid '30ef48fe3634be881fbdbac622fdda0a40fa3c67'
-    oldFile: null
-  /src/packages/components/Charts/Maps/MapChina/data.json:
-    newFile: !uuid '6fe2d091518cc57811836f7f4f794772b11d1149'
-    oldFile: null
-  /src/packages/components/Charts/Maps/MapChina/index.ts:
-    newFile: !uuid '19cf5d1c7fa9f543e249fa752448aa2d6850fb61'
-    oldFile: null
+    newFile: !uuid '7e5bf24e258e6f102f54ab1d8c45e79df03d9745'
+    oldFile: !uuid 'badcc1641106d46887c4393a0840ba23c8ddb375'
   /src/packages/components/Charts/Maps/MapChina/index.vue:
-    newFile: !uuid '71cb3f334421143a2c26b1c0d6e7ef68eafca459'
-    oldFile: null
-  /src/packages/components/Charts/Maps/MapChina/map.json:
-    newFile: !uuid '8f943b970765d7ab3aa8adb1ea575fda9521eb15'
-    oldFile: null
-  /src/packages/components/Charts/Maps/MapChine:
-    newFile: null
-    oldFile: !uuid 'ff31fd1017c2560abcc9b3008f997afd2b43c15a'
-  /src/packages/components/Charts/Maps/MapChine/config.ts:
-    newFile: null
-    oldFile: !uuid '1354b99df69816b8c5857ffd3912096e8f0a67b2'
-  /src/packages/components/Charts/Maps/MapChine/config.vue:
-    newFile: null
-    oldFile: !uuid '6692179af3f3737bde97d7877d9e59536026ce45'
-  /src/packages/components/Charts/Maps/MapChine/data.json:
-    newFile: null
-    oldFile: !uuid 'b08164aceaf782493da2cf7cd503c6237f865f0b'
-  /src/packages/components/Charts/Maps/MapChine/index.ts:
-    newFile: null
-    oldFile: !uuid '6f50cbf91758e097e52fcf08d8725fd907cd479f'
-  /src/packages/components/Charts/Maps/MapChine/index.vue:
-    newFile: null
-    oldFile: !uuid '711575a75d5d4ee028d631cb07e7f5e7cfbaba95'
-  /src/packages/components/Charts/Maps/MapChine/points.json:
-    newFile: null
-    oldFile: !uuid '4abe8de359216b25e5b6193d0ed85d001beea824'
-  /src/packages/components/Charts/Maps/index.ts:
-    newFile: !uuid 'c8909f973d97ec9774d1b8330385ba9b308acfa1'
-    oldFile: !uuid '7e8e5d7b9d4f9d157314b8b9968c1b23aac53517'
-  /src/packages/index.d.ts:
-    newFile: !uuid '4333373a78ef7b5faa367f940fee5299dfd9d115'
-    oldFile: !uuid '8b80eced1902f1dfba7b8293c7e228b6b9547a81'
-  /src/views:
-    newFile: !uuid '033fb8c7d237664f3cd475e658c7f0ceec91d683'
-    oldFile: !uuid '6de2b658a6460b71cb2515f4d38f17d9a47e4228'
-  /src/views/chart:
-    newFile: !uuid '2208099770693cb7329f841aecb28d22daf13e67'
-    oldFile: !uuid 'a2883b05836edfebdc02ff0d896052d225aa21ef'
-  /src/views/chart/ContentConfigurations:
-    newFile: !uuid '17771b0d930e140ffbb66558fff649839cd6c614'
-    oldFile: !uuid '625a18303c7f18f62ff0a155526c0ffd0b32eb30'
-  /src/views/chart/ContentConfigurations/components:
-    newFile: !uuid '83184a2dc4f2e1e18d5755f6a69db95733f04fb4'
-    oldFile: !uuid 'f2cbd5c3945bbc6e47465902a310e1ecc592ae2a'
-  /src/views/chart/ContentConfigurations/components/ChartData:
-    newFile: !uuid '9c9388d5d383ebd8383f2015f1a885b4a344043b'
-    oldFile: !uuid '91b914d7811a7aa336a00171d42aaabfc8015062'
-  /src/views/chart/ContentConfigurations/components/ChartData/components:
-    newFile: !uuid '8d3fed185e94491e1e98d953f54c0414f8be2040'
-    oldFile: !uuid 'd3a32a34b6a2fbfb2255f80e4e167e9d672e93a7'
-  /src/views/chart/ContentConfigurations/components/ChartData/components/ChartDataMatchingAndShow:
-    newFile: !uuid 'b4dad4c6a17056ed43648e044695659eaab450c4'
-    oldFile: !uuid '9b933c4f4603687165f91e74052feff6aff9553a'
-  /src/views/chart/ContentConfigurations/components/ChartData/components/ChartDataMatchingAndShow/index.vue:
-    newFile: !uuid '97d2c5605b0fbd766b12f93b999c12a37d3849b2'
-    oldFile: !uuid 'ab86f9cb0b71124434f06fc0674bf2390b6c212c'
-gitCommitId: !uuid '1aa56d844a9abd92b3b9b7ba017d1ea43b9638a0'
+    newFile: !uuid 'a6bec47efb12045b3db561e2f98279869655bab5'
+    oldFile: !uuid '71cb3f334421143a2c26b1c0d6e7ef68eafca459'
+gitCommitId: !uuid 'ceffd2ef0c729ebe2a45670fff23594058081ca6'
 renames: {
   }
-revisionId: 557
+revisionId: 558
