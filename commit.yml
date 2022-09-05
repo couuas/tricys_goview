@@ -2,28 +2,25 @@
 branches: {
   }
 fileChange:
+  /.eslintrc.js:
+    newFile: !uuid 'd27e761e38eb53dc60d357bceeeb54fe7abfdf12'
+    oldFile: !uuid '2b7377700f08ce1aeab7dd82047a6c25740fff18'
   /src:
-    newFile: !uuid 'd82fa01e49626124ce0d8401d00f65baf2cd46ad'
-    oldFile: !uuid 'f89791fdc09b0e6e4fa6119233dd25179619b735'
-  /src/packages:
-    newFile: !uuid '5892cab68789525e8c0e644ca126aac684bfa2b4'
-    oldFile: !uuid '8bc99a8c78593b3de45f443e95308f35c833ed98'
-  /src/packages/components:
-    newFile: !uuid 'bfdb28d29064b3d578e27a86c6e5a1a836976675'
-    oldFile: !uuid '692890b8558e3b4d82dad4e2edf69db2a9d19cc3'
-  /src/packages/components/Charts:
-    newFile: !uuid '85cf390e2c1ce7235ed5028d2a94dbad838bfab0'
-    oldFile: !uuid 'a6ef3fa67e07edcea46d8afdc2328572b5198b39'
-  /src/packages/components/Charts/Maps:
-    newFile: !uuid 'f2a855725e882189dae84dae4e63d50667e49470'
-    oldFile: !uuid '698a9755fae9c9c9de0ef211968a2d785f8a5fd2'
-  /src/packages/components/Charts/Maps/MapChina:
-    newFile: !uuid '7e5bf24e258e6f102f54ab1d8c45e79df03d9745'
-    oldFile: !uuid 'badcc1641106d46887c4393a0840ba23c8ddb375'
-  /src/packages/components/Charts/Maps/MapChina/index.vue:
-    newFile: !uuid 'a6bec47efb12045b3db561e2f98279869655bab5'
-    oldFile: !uuid '71cb3f334421143a2c26b1c0d6e7ef68eafca459'
-gitCommitId: !uuid '255c47a8e1f32102ee8bdc9726639a5582b2c82e'
+    newFile: !uuid '0edabe907dd39ca0be015a9ae76d97deb3eb3247'
+    oldFile: !uuid 'd82fa01e49626124ce0d8401d00f65baf2cd46ad'
+  /src/components:
+    newFile: !uuid '5d341976efd68294eff282ad876ba2c872b5329e'
+    oldFile: !uuid '7311f3c0ee6b544055181701eab69010364ba5da'
+  /src/components/Tips:
+    newFile: !uuid 'c932bc18ef5f20945441b37a741eac22e454eb6f'
+    oldFile: !uuid '272c7b5bb0d544fb7f9434951e976380a4c7ce55'
+  /src/components/Tips/MacOsControlBtn:
+    newFile: !uuid '51af484eaee13b310d89a96a5cd26dde6a2b3b68'
+    oldFile: !uuid 'a264264fcf64a12a83a649ce5188a8afb63a981f'
+  /src/components/Tips/MacOsControlBtn/index.vue:
+    newFile: !uuid 'fbfd2c1878d03f5838f6e49c294a05ec378a9812'
+    oldFile: !uuid '980454d0b1a8ccc5f8694f56be0a5472f918fe58'
+gitCommitId: !uuid 'e4bc388faa714bbc21e422a72afea4c46c04eb05'
 renames: {
   }
-revisionId: 1241
+revisionId: 1242
