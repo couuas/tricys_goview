@@ -456,6 +456,8 @@ export const useChartEditStore = defineStore({
       try {
         // 暂不支持多选
         if (this.getTargetChart.selectId.length > 1) return
+        // 处理弹窗普通复制的场景
+        if (document.getElementsByClassName('n-modal-body-wrapper').length) return
 
         loadingStart()
         const index: number = this.fetchTargetIndex()
@@ -598,7 +600,7 @@ export const useChartEditStore = defineStore({
               ids.push(item.id)
             })
           } else {
-            ;(historyData[0] as CreateComponentGroupType).groupList.forEach(item => {
+            (historyData[0] as CreateComponentGroupType).groupList.forEach(item => {
               ids.push(item.id)
             })
           }
