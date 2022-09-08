@@ -3,27 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'd27045aa8999d095c73b99d18f54cedc6433399c'
-    oldFile: !uuid '3c968fd1ecc3efac8d94bd11845ba4b2bac6e7df'
-  /src/packages:
-    newFile: !uuid 'a535fc8b94384ef260963dfc51ad55ca0b0da04a'
-    oldFile: !uuid '023c0b62372a839a72e8a9f7ee761575e62ca10a'
-  /src/packages/components:
-    newFile: !uuid '5a725e06609aa034e057da8d84f93899419d88b4'
-    oldFile: !uuid 'dd5e161af05f9e85d9ca89c2d929ea6848d2734f'
-  /src/packages/components/Charts:
-    newFile: !uuid 'bf6e6b76abc89f9fd42c0b123bce96af0c37f265'
-    oldFile: !uuid 'c549cb541712f22621baf727a395c04dcc6a277b'
-  /src/packages/components/Charts/Mores:
-    newFile: !uuid '87be90dd0c17a2136f71c0c0a676c25a9559869f'
-    oldFile: !uuid '9c0ff98cd0d22558149c92613d597908a1555bc2'
-  /src/packages/components/Charts/Mores/Radar:
-    newFile: !uuid '29686d3f667b158a6fcf2ac3b928dbb1afa57da7'
-    oldFile: !uuid '7a8c56da5efd1cfc5ef75bcd88a109f8895a9930'
-  /src/packages/components/Charts/Mores/Radar/index.vue:
-    newFile: !uuid '9eb1f05fbc585097646fc2f39facf9d90161cfca'
-    oldFile: !uuid '60ba34f94de24acedc08e1cbd81e60deb26ef008'
-gitCommitId: !uuid '2234861cffe16f26789715ab2076acfc21b61b45'
+    newFile: !uuid 'b702d6cd3efde71c58db8c03daf8410fa3d966e1'
+    oldFile: !uuid 'd27045aa8999d095c73b99d18f54cedc6433399c'
+  /src/views:
+    newFile: !uuid 'af0e5f15694945009ccc2421722c2034f26fa402'
+    oldFile: !uuid '8cd07b3c378a08dd97dacc71ad8d9decd8e3bffb'
+  /src/views/chart:
+    newFile: !uuid '9da83af5ee390c447592d81bb9fd4511764752fd'
+    oldFile: !uuid 'bfc80d36513a99c9c40cf72c8396b32087277806'
+  /src/views/chart/ContentLayers:
+    newFile: !uuid '01e417a3173433e43887eb35a53b27e5a02690f8'
+    oldFile: !uuid 'f7352c11c8a669f44e07362e4f4f103bd1114290'
+  /src/views/chart/ContentLayers/components:
+    newFile: !uuid '9b3d63271bb6edeaa6db2f3dea851ff25e69074f'
+    oldFile: !uuid 'bcb0dbbdbfffc0348eaeb591e0ff03fe7c206749'
+  /src/views/chart/ContentLayers/components/LayersListItem:
+    newFile: !uuid '2e8f60e3a0946a849d89f376267e4ae5e0f3b56d'
+    oldFile: !uuid '6f0bf338cda8affad0903a318fd7bd21b7a1229c'
+  /src/views/chart/ContentLayers/components/LayersListItem/index.vue:
+    newFile: !uuid '437a7a7351ce3d77b765c0c139e3be1176337b04'
+    oldFile: !uuid '43e5311ef74f9453135d33c66e76e1943dc6f385'
+gitCommitId: !uuid '1c170bbb8a5fad6e5320394b805df467586e3db1'
 renames: {
   }
-revisionId: 570
+revisionId: 571
