@@ -3,39 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'f911a7d3155adadc50cf7a96ea72ee98469fdc0e'
-    oldFile: !uuid '1d87df6c0fe481c0368b263f683fc7ef10bb5742'
+    newFile: !uuid '34f1ea079eb3e50cb16ef03b573204aa74c24fed'
+    oldFile: !uuid 'f911a7d3155adadc50cf7a96ea72ee98469fdc0e'
   /src/packages:
-    newFile: !uuid '55319c854d5066a2e4f561cb1c4a53844f3b43c1'
-    oldFile: !uuid 'f06a317d7f529320d51ef72241b284def37e5f9d'
+    newFile: !uuid 'bb3b8098f430283e1186754ad47904b0da5c71e8'
+    oldFile: !uuid '55319c854d5066a2e4f561cb1c4a53844f3b43c1'
   /src/packages/components:
-    newFile: !uuid '199fa0ebe3cd1dfdd89882107df9e817c8e96afd'
-    oldFile: !uuid 'd2874ae763f721db3a315cfb16e080bdf3083f0a'
+    newFile: !uuid 'af624a2bb89608bef1c6c2b46b34d2519d5e4c01'
+    oldFile: !uuid '199fa0ebe3cd1dfdd89882107df9e817c8e96afd'
   /src/packages/components/Charts:
-    newFile: !uuid 'f281be2375dc9fc96b58e35749087a54118df84c'
-    oldFile: !uuid 'b8931fae88058b6c0b67b8b015939854f8d12925'
+    newFile: !uuid 'b16e59dfaff05ff16b81abec41cc8a5123302cd8'
+    oldFile: !uuid 'f281be2375dc9fc96b58e35749087a54118df84c'
   /src/packages/components/Charts/Mores:
-    newFile: !uuid 'b27b54aaa1851dc4512475cea6d9ff1a40bf485c'
-    oldFile: !uuid '71795c7a112dc7d8ed8a5a413742ace86762a39a'
-  /src/packages/components/Charts/Mores/Funnel:
-    newFile: !uuid '6cf694f9fd4228a7af91ea5f35caf2176e6633a9'
-    oldFile: !uuid 'ee9a6b84f4253b5e4a9e9d5f1b426e34fa6fedeb'
-  /src/packages/components/Charts/Mores/Funnel/config.ts:
-    newFile: !uuid 'c9495824c0ec23e631d97e9026a4bd94ad40a77a'
-    oldFile: !uuid '2ec23bf2271cb412c7e59e1bf8c591e5063938fa'
-  /src/views:
-    newFile: !uuid 'dbd1e163e11013992b7525c073d937d1e2041b03'
-    oldFile: !uuid '7429bba30b0f2bc47a7b7b121f72e3495ec2a0da'
-  /src/views/chart:
-    newFile: !uuid 'e48a1ecd155981382c3098976aa6ffc1ffa66893'
-    oldFile: !uuid 'fc7d134f529446bb87759da4505466d2c5eda5a4'
-  /src/views/chart/ContentEdit:
-    newFile: !uuid '326943476d1312e2fbe618b178071e54ee02c7b5'
-    oldFile: !uuid '9a772305519cb7f05bb6c09c9f682a74cf045c4d'
-  /src/views/chart/ContentEdit/index.vue:
-    newFile: !uuid '25e4d1733ce9119a440e25d92c2e687f2f6693a8'
-    oldFile: !uuid 'd9382e8b6ec58feba04f76fc47ca8486c96860e6'
-gitCommitId: !uuid '49956d32cc96b4d8c3cde1a7720ecbb8c22e762d'
+    newFile: !uuid '78789a063e3eb9a56ac6a6ab4810ea62ed312af1'
+    oldFile: !uuid 'b27b54aaa1851dc4512475cea6d9ff1a40bf485c'
+  /src/packages/components/Charts/Mores/WaterPolo:
+    newFile: !uuid '9592da6345079139632cb4c7c211597e3ad49984'
+    oldFile: !uuid '08029a056d348e15cda959b6a1fda11577cadac7'
+  /src/packages/components/Charts/Mores/WaterPolo/index.ts:
+    newFile: !uuid '2d1500d2da38a4f4d7da0fda69fc5bdb61771573'
+    oldFile: !uuid '5ada609339bf4712c8d0155c27e5799934fca1d4'
+gitCommitId: !uuid '21fe89adf694da42daa03e292efe9d81c0c17192'
 renames: {
   }
-revisionId: 1258
+revisionId: 1259
