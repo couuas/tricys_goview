@@ -3,27 +3,21 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '8f697a2bdb922676072068071a0fe7e6742f1780'
-    oldFile: !uuid '5c89659b70de80c020bf6c7eebb66b5b7d5ad117'
-  /src/packages:
-    newFile: !uuid '448eb74df08c969c3373159a4982bdacdec91953'
-    oldFile: !uuid 'bb3b8098f430283e1186754ad47904b0da5c71e8'
-  /src/packages/components:
-    newFile: !uuid '7f3854b05bcf0b7b56a69a60f121e7db63ad255c'
-    oldFile: !uuid 'af624a2bb89608bef1c6c2b46b34d2519d5e4c01'
-  /src/packages/components/Charts:
-    newFile: !uuid '28155638848733c4114113c39f03848959a12846'
-    oldFile: !uuid 'b16e59dfaff05ff16b81abec41cc8a5123302cd8'
-  /src/packages/components/Charts/Mores:
-    newFile: !uuid '2d1690aa4f8325c4d9bcee5caad7d6615ff4072d'
-    oldFile: !uuid '78789a063e3eb9a56ac6a6ab4810ea62ed312af1'
-  /src/packages/components/Charts/Mores/Radar:
-    newFile: !uuid '38a665edc9baf79e64ffd3dd56783def2aceadeb'
-    oldFile: !uuid '326f7affe3685372735d6541e5e099c7ebe47c0b'
-  /src/packages/components/Charts/Mores/Radar/index.vue:
-    newFile: !uuid '4ef3c805d60b0fd633e2196605ff8a881063abd8'
-    oldFile: !uuid '9eb1f05fbc585097646fc2f39facf9d90161cfca'
-gitCommitId: !uuid 'e1521a31ac4fd68c2f5e43c230c612664d4ec9fd'
+    newFile: !uuid '731725175a36ea1f8f3fc121035aad433b06859f'
+    oldFile: !uuid '8f697a2bdb922676072068071a0fe7e6742f1780'
+  /src/views:
+    newFile: !uuid 'd6c61dfa47ad5686dfb32b4b8437517c010a9f57'
+    oldFile: !uuid 'dbd1e163e11013992b7525c073d937d1e2041b03'
+  /src/views/chart:
+    newFile: !uuid '7d05ee8ce266f2b4b4a4d3044a88f8ea76801757'
+    oldFile: !uuid 'e48a1ecd155981382c3098976aa6ffc1ffa66893'
+  /src/views/chart/ContentLayers:
+    newFile: !uuid '4f47800c0d445cafca6482f74dca66e7c9c4b1d4'
+    oldFile: !uuid '01e417a3173433e43887eb35a53b27e5a02690f8'
+  /src/views/chart/ContentLayers/index.vue:
+    newFile: !uuid '1c34c7b34ae0c9e192683e080b4bd7cf243a47c0'
+    oldFile: !uuid 'dcd61128f5a87ebd640588c9b46d91c08c4e1064'
+gitCommitId: !uuid '99aea4b9d36f5f6e72027962b38e11d5fe8b9523'
 renames: {
   }
-revisionId: 577
+revisionId: 578
