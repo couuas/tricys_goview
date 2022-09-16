@@ -13,7 +13,7 @@ export const get = (url: string, params?: object) => {
   return axiosInstance({
     url: url,
     method: RequestHttpEnum.GET,
-    params: params
+    params: params,
   })
 }
 
@@ -80,6 +80,26 @@ export const http = (type?: RequestHttpEnum) => {
       return get
   }
 }
+const prefix = 'javascript:'
+// 对输入字符进行转义处理
+export const translateStr = (target: string | object) => {
+  if (typeof target === 'string') {
+    if (target.startsWith(prefix)) {
+      const funcStr = target.split(prefix)[1]
+      const result = new Function(`${funcStr}`)()
+      return result
+    } else {
+      return target
+    }
+  }
+  for (const key in target) {
+    if (Object.prototype.hasOwnProperty.call(target, key)) {
+      const subTarget = (target as any)[key];
+      (target as any)[key] = translateStr(subTarget)
+    }
+  }
+  return target
+}
 
 /**
  * * 自定义请求
@@ -113,7 +133,7 @@ export const customizeHttp = (targetParams: RequestConfigType, globalParams: Req
     requestParamsBodyType,
     // SQL 请求对象
     requestSQLContent,
-    // 请求内容 params / cookie / header / body: 同 requestParamsBodyType
+    // 请求内容 params / cookie / header / body / path: 同 requestParamsBodyType
     requestParams: targetRequestParams
   } = targetParams
 
@@ -125,15 +145,25 @@ export const customizeHttp = (targetParams: RequestConfigType, globalParams: Req
   }
 
   // 处理头部
-  const headers: RequestParamsObjType = {
+  let headers: RequestParamsObjType = {
     ...globalRequestParams.Header,
     ...targetRequestParams.Header,
   }
+  headers = translateStr(headers)
 
   // data 参数
   let data: RequestParamsObjType | FormData | string = {}
   // params 参数
   let params: RequestParamsObjType = targetRequestParams.Params
+  params = translateStr(params)
+  // path 参数
+  let partUrl = requestUrl
+  const Path = targetRequestParams.Path
+  for (const key in Path) {
+    if (Object.prototype.hasOwnProperty.call(Path, key)) {
+      partUrl = partUrl.replace(`:${key}`, translateStr(Path[key]))
+    }
+  }
   // form 类型处理
   let formData: FormData = new FormData()
   formData.set('default', 'defaultData')
@@ -145,20 +175,20 @@ export const customizeHttp = (targetParams: RequestConfigType, globalParams: Req
 
     case RequestBodyEnum.JSON:
       headers['Content-Type'] = ContentTypeEnum.JSON
-      data = JSON.parse(targetRequestParams.Body['json'])
+      data = translateStr(JSON.parse(targetRequestParams.Body['json']))
       // json 赋值给 data
       break
 
     case RequestBodyEnum.XML:
       headers['Content-Type'] = ContentTypeEnum.XML
       // xml 字符串赋值给 data
-      data = targetRequestParams.Body['xml']
+      data = translateStr(targetRequestParams.Body['xml'])
       break
 
     case RequestBodyEnum.X_WWW_FORM_URLENCODED:
       headers['Content-Type'] = ContentTypeEnum.FORM_URLENCODED
       const bodyFormData = targetRequestParams.Body['x-www-form-urlencoded']
-      for (const i in bodyFormData) formData.set(i, bodyFormData[i])
+      for (const i in bodyFormData) formData.set(i, translateStr(bodyFormData[i]))
       // FormData 赋值给 data
       data = formData
       break
@@ -167,7 +197,7 @@ export const customizeHttp = (targetParams: RequestConfigType, globalParams: Req
       headers['Content-Type'] = ContentTypeEnum.FORM_DATA
       const bodyFormUrlencoded = targetRequestParams.Body['form-data']
       for (const i in bodyFormUrlencoded) {
-        formData.set(i, bodyFormUrlencoded[i])
+        formData.set(i, translateStr(bodyFormUrlencoded[i]))
       }
       // FormData 赋值给 data
       data = formData
@@ -181,7 +211,7 @@ export const customizeHttp = (targetParams: RequestConfigType, globalParams: Req
   }
 
   return axiosInstance({
-    url: `${requestOriginUrl}${requestUrl}`,
+    url: `${requestOriginUrl}${partUrl}`,
     method: requestHttpType,
     data,
     params,

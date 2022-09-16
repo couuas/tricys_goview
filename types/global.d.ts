@@ -9,4 +9,11 @@ interface Window {
   $KeyboardActive?: Set<string>
 }
 
+
+declare interface MyResponseType {
+  code: number;
+  msg: string;
+  data: any;
+}
+
 declare type Recordable<T = any> = Record<string, T>
