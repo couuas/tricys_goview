@@ -137,7 +137,8 @@ export const useChartEditStore = defineStore({
           xml: ''
         },
         Header: {},
-        Params: {}
+        Params: {},
+        Path: {}
       }
     },
     // 图表数组（需存储给后端）
@@ -624,7 +625,7 @@ export const useChartEditStore = defineStore({
               ids.push(item.id)
             })
           } else {
-            ;(historyData[0] as CreateComponentGroupType).groupList.forEach(item => {
+            (historyData[0] as CreateComponentGroupType).groupList.forEach(item => {
               ids.push(item.id)
             })
           }
