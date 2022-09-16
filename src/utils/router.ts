@@ -169,7 +169,7 @@ export const fetchRouteParams = () => {
  */
 export const fetchRouteParamsLocation = () => {
   try {
-    return document.location.hash.split('/').pop() || ''
+    return (document.location.hash.split('/').pop() || '').split('?').shift()
   } catch (error) {
     window['$message'].warning('查询路由信息失败，请联系管理员！')
     return ''
