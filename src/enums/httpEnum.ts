@@ -99,6 +99,7 @@ export enum RequestParamsTypeEnum {
   PARAMS = 'Params',
   BODY = 'Body',
   HEADER = 'Header',
+  PATH = 'Path',
 }
 
 /**
@@ -108,6 +109,7 @@ export type RequestParamsObjType = {
   [T: string]: string
 }
 export type RequestParams = {
+  [RequestParamsTypeEnum.PATH]: RequestParamsObjType
   [RequestParamsTypeEnum.PARAMS]: RequestParamsObjType
   [RequestParamsTypeEnum.HEADER]: RequestParamsObjType
   [RequestParamsTypeEnum.BODY]: {

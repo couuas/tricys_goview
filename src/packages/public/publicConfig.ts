@@ -31,7 +31,8 @@ const requestConfig: RequestConfigType = {
       xml: ''
     },
     Header: {},
-    Params: {}
+    Params: {},
+    Path: {}
   }
 }
 
