@@ -2,43 +2,19 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid 'b387a0327e4bdcf63c5e571c9bedfff942b9fd7e'
-    oldFile: !uuid 'a39242e88d2e22305a4947085a46199bc6baa84a'
-  /src/components:
-    newFile: !uuid '5474d6e482b053c32b843c5294a6165d61a47b7c'
-    oldFile: !uuid '7ad2834c2ad4d2246198db74e6f54a91ec248c41'
-  /src/components/Pages:
-    newFile: !uuid '7b7763651159e26d66a9d61a208c907a3224a02a'
-    oldFile: !uuid '7204c588a41e5ae596d62fd93562cf9731abb2cb'
-  /src/components/Pages/ChartItemSetting:
-    newFile: !uuid '653fe37fbd37ab7f5c6ae8f4571e1b1a1cb41f59'
-    oldFile: !uuid '52c4f81ea79066d0a5a657301144cc0c22e8adc7'
-  /src/components/Pages/ChartItemSetting/GlobalSetting.vue:
-    newFile: !uuid '33bf673862583506f81a5e2dc61311adea18996c'
-    oldFile: !uuid 'e428e8e237493d4c72f63124f8f95f13abf7151b'
-  /src/packages:
-    newFile: !uuid 'c124341fcb954d1d47710ba622367e3ea4d51545'
-    oldFile: !uuid '1ec4fc35db8af939f662b46a8603138b97ec528b'
-  /src/packages/components:
-    newFile: !uuid 'db554e9b82febbde9e34944ec79e615f478874ab'
-    oldFile: !uuid '8f9a96e103708a8d8c1480a1951648a784a1bc25'
-  /src/packages/components/Charts:
-    newFile: !uuid 'cc6f72eda06816791fbfaaacb3694a071194fc70'
-    oldFile: !uuid '1ae6f5a455b0a985d06e946466d973e984dcabb3'
-  /src/packages/components/Charts/Mores:
-    newFile: !uuid '7fb98e0201ba19aa3f9192570803711b9e02438f'
-    oldFile: !uuid '77cd4e242200de652abddfc2a2bb701135362ab1'
-  /src/packages/components/Charts/Mores/Heatmap:
-    newFile: !uuid 'd489e47730a5ab4c74335d6e81ea69fb04d4bca7'
-    oldFile: !uuid '9de31c1bd423511b11734c3d11d72388cb7c0179'
-  /src/packages/components/Charts/Mores/Heatmap/config.ts:
-    newFile: !uuid '8e8cc6f6e77983eb4623ed249244859e742ea64f'
-    oldFile: !uuid 'bc1ce06ae6d469055a0aea36021956183d372e98'
-  /src/packages/components/Charts/Mores/Heatmap/config.vue:
-    newFile: !uuid '8f51f12e10e19938300730d2d3cbf9d57a19fba6'
-    oldFile: !uuid '7ace7081bce83c8dea14eec97aa71d60e2dab6e4'
-gitCommitId: !uuid '427d72fb8b4f6bad8ba27ac0feb4b128d16e6007'
+  /.workflow:
+    newFile: !uuid '1d1a75ad0ad51c1fc25e46f6a2325ad1a4576be8'
+    oldFile: null
+  /.workflow/branch-pipeline.yml:
+    newFile: !uuid '1128d8a42e82c344bc915f29a411b6a8114708fb'
+    oldFile: null
+  /.workflow/master-pipeline.yml:
+    newFile: !uuid '8faf2bcc2657acf6c4d4b1da07d4a581916b37c9'
+    oldFile: null
+  /.workflow/pr-pipeline.yml:
+    newFile: !uuid '1a05dd09da0d84882c5ce61eb1215564a251de6c'
+    oldFile: null
+gitCommitId: !uuid 'bab8faadee217da93c13329b73b9c34330e261cd'
 renames: {
   }
-revisionId: 1269
+revisionId: 1270
