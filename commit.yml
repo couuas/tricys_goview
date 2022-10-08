@@ -2,22 +2,10 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid '66087b1d4eb6c0be918c3efeeb5766cc03ea7a95'
-    oldFile: !uuid 'e96eb2f2c9b10abc451931022037f713824c009a'
-  /src/views:
-    newFile: !uuid '51b113cdd86c6075aef20b3dac736079b10f751a'
-    oldFile: !uuid 'b47a2354bd9f49acb881b4c547924cab45b41c37'
-  /src/views/chart:
-    newFile: !uuid 'eacea23b9fcae49c51463e119bf1d9466722e0ae'
-    oldFile: !uuid '9cc04800e86fb05f1ba5ff0b9cb26cbc3cdd3715'
-  /src/views/chart/hooks:
-    newFile: !uuid 'e21aeb5b1d311e395e85400c7cefa38108f1f9e0'
-    oldFile: !uuid '6b13f590c86af3846ff0b032dcb10b851acf6450'
-  /src/views/chart/hooks/useKeyboard.hook.ts:
-    newFile: !uuid 'ff32b11ef454fc99af26725234b69fabb4d649ac'
-    oldFile: !uuid 'a2ee49c05c54295fe1e3e7fcc2f0ac4c4f039198'
-gitCommitId: !uuid '502edbca5d88edde2dba0708664c500faf4ace14'
+  /package.json:
+    newFile: !uuid '83d801ce7bcfd9c3385d396730d42ae86bc731ea'
+    oldFile: !uuid '211c1af3d4db30ff96efbd1465b758962e590d72'
+gitCommitId: !uuid '5f79ab6e6dace78a24ee54f49b115cfe41464db8'
 renames: {
   }
-revisionId: 1278
+revisionId: 1279
