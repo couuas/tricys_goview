@@ -3,9 +3,9 @@ branches: {
   }
 fileChange:
   /package.json:
-    newFile: !uuid '83d801ce7bcfd9c3385d396730d42ae86bc731ea'
-    oldFile: !uuid '211c1af3d4db30ff96efbd1465b758962e590d72'
-gitCommitId: !uuid '5f79ab6e6dace78a24ee54f49b115cfe41464db8'
+    newFile: !uuid '211c1af3d4db30ff96efbd1465b758962e590d72'
+    oldFile: !uuid '83d801ce7bcfd9c3385d396730d42ae86bc731ea'
+gitCommitId: !uuid 'd811ab7dfaddbb07286ddd82b66c5d001760058c'
 renames: {
   }
-revisionId: 1279
+revisionId: 1280
