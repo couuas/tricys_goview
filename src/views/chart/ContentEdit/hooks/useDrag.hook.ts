@@ -76,7 +76,7 @@ export const mousedownBoxSelect = (e: MouseEvent, item?: CreateComponentType | C
   chartEditStore.setMousePosition(undefined, undefined, startOffsetX, startOffsetY)
 
   // 移动框选
-  const mousemove = throttle((moveEvent: MouseEvent) => {
+  const mousemove = (moveEvent: MouseEvent) => {
     // 取消当前选中
     chartEditStore.setTargetSelectChart()
     chartEditStore.setEditCanvas(EditCanvasTypeEnum.IS_SELECT, true)
@@ -149,7 +149,9 @@ export const mousedownBoxSelect = (e: MouseEvent, item?: CreateComponentType | C
         }
       }
     })
-  }, 20)
+  }
+
+  // const throttleMousemove = throttle(mousemove, 20)
 
   // 鼠标抬起
   const mouseup = () => {
