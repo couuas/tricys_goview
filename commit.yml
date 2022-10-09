@@ -3,12 +3,33 @@ branches: {
   }
 fileChange:
   /package.json:
-    newFile: !uuid '9a5686811c503e9b395fe6a2916efcd6ec66f034'
-    oldFile: !uuid '211c1af3d4db30ff96efbd1465b758962e590d72'
-  /pnpm-lock.yaml:
-    newFile: !uuid '3b3b03543355dcf9b7c93623620e2593fe067641'
-    oldFile: !uuid '07381313a22b63181ef92b3af10a3e457b9253ab'
-gitCommitId: !uuid '443573455b82ead224f9234b6f4893c58b2a461c'
+    newFile: !uuid '8638b29120c357ad6fff8e316d8fb2ea02c026c8'
+    oldFile: !uuid '9a5686811c503e9b395fe6a2916efcd6ec66f034'
+  /src:
+    newFile: !uuid 'f22b92d8786c755abed2040aeeec121ab9d755f5'
+    oldFile: !uuid '66087b1d4eb6c0be918c3efeeb5766cc03ea7a95'
+  /src/views:
+    newFile: !uuid '7fafa74fdf63cd7e0ad0fcdfc70f52cd52d3c940'
+    oldFile: !uuid '51b113cdd86c6075aef20b3dac736079b10f751a'
+  /src/views/chart:
+    newFile: !uuid '10cc106a8d4942f987c710e613738b87293ed377'
+    oldFile: !uuid 'eacea23b9fcae49c51463e119bf1d9466722e0ae'
+  /src/views/chart/ContentEdit:
+    newFile: !uuid '2cf7d2fd85d963f522be0274720573c85e2eb9c5'
+    oldFile: !uuid 'e4b45dd2b5692849cb3a38359b29261567816b89'
+  /src/views/chart/ContentEdit/hooks:
+    newFile: !uuid '8335f7170de00c2f5f3c885db54c71bc1830123d'
+    oldFile: !uuid '2d16d93739e366fb019cdde67ee02ad573959939'
+  /src/views/chart/ContentEdit/hooks/useDrag.hook.ts:
+    newFile: !uuid '74e006b9ef679fa52f583b982fd29d7f3e3f451d'
+    oldFile: !uuid '995a1427a9047e1c5f5327c4687dc2db1cf1c98b'
+  /src/views/chart/hooks:
+    newFile: !uuid '69ea8001b57fca8a0509957a553e5dbb11c5580d'
+    oldFile: !uuid 'e21aeb5b1d311e395e85400c7cefa38108f1f9e0'
+  /src/views/chart/hooks/useSync.hook.ts:
+    newFile: !uuid '9bf705643b7fc0520c757ebe62d383b4c0396015'
+    oldFile: !uuid 'bfa7400d95110fd0cb8fb24784fe8b3a3b4dcac7'
+gitCommitId: !uuid 'aef155e039b6ed3544c25a5dd0ced5b357b04544'
 renames: {
   }
-revisionId: 1281
+revisionId: 1282
