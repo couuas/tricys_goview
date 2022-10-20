@@ -1,5 +1,11 @@
 import { CreateComponentType, EventLife } from '@/packages/index.d'
 import * as echarts from 'echarts'
+import { BackEndFactory } from '@/backend/ibackend'
+
+// * 初始化
+export const useSystemInit = async () => {
+  const res = await BackEndFactory.init({}) as any;
+}
 
 // 所有图表组件集合对象
 const components: { [K in string]?: any } = {}

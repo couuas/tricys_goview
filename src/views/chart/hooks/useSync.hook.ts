@@ -1,8 +1,19 @@
-import { getUUID } from '@/utils'
+import { onUnmounted } from 'vue';
+import html2canvas from 'html2canvas'
+import { getUUID, httpErrorHandle, fetchRouteParamsLocation, base64toFile } from '@/utils'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
-import { ChartEditStoreEnum, ChartEditStorage } from '@/store/modules/chartEditStore/chartEditStore.d'
+import { EditCanvasTypeEnum, ChartEditStoreEnum, ProjectInfoEnum, ChartEditStorage } from '@/store/modules/chartEditStore/chartEditStore.d'
 import { useChartHistoryStore } from '@/store/modules/chartHistoryStore/chartHistoryStore'
+//import { useSystemStore } from '@/store/modules/systemStore/systemStore'
 import { fetchChartComponent, fetchConfigComponent, createComponent } from '@/packages/index'
+import { saveInterval } from '@/settings/designSetting'
+import throttle from 'lodash/throttle'
+// 接口状态
+import { ResultEnum } from '@/enums/httpEnum'
+// 接口
+import { BackEndFactory } from '@/backend/ibackend'
+// 画布枚举
+import { SyncEnum } from '@/enums/editPageEnum'
 import { CreateComponentType, CreateComponentGroupType, ConfigType } from '@/packages/index.d'
 import { PublicGroupConfigClass } from '@/packages/public/publicConfig'
 import merge from 'lodash/merge'
@@ -130,7 +141,117 @@ export const useSync = () => {
     }
   }
 
+  /**
+   * * 赋值全局数据
+   * @param projectData 项目数据
+   * @returns
+   */
+  const updateStoreInfo = (projectData: {
+    id: string,
+    projectName: string,
+    indexImage: string,
+    remarks: string,
+    state: number
+  }) => {
+    const { id, projectName, remarks, indexImage, state } = projectData
+    // ID
+    chartEditStore.setProjectInfo(ProjectInfoEnum.PROJECT_ID, id)
+    // 名称
+    chartEditStore.setProjectInfo(ProjectInfoEnum.PROJECT_NAME, projectName)
+    // 描述
+    chartEditStore.setProjectInfo(ProjectInfoEnum.REMARKS, remarks)
+    // 缩略图
+    chartEditStore.setProjectInfo(ProjectInfoEnum.THUMBNAIL, indexImage)
+    // 发布
+    chartEditStore.setProjectInfo(ProjectInfoEnum.RELEASE, state === 1)
+  }
+
+  // * 数据获取
+  const dataSyncFetch = async () => {
+    chartEditStore.setEditCanvas(EditCanvasTypeEnum.SAVE_STATUS, SyncEnum.START)
+    try {
+      const res = await BackEndFactory.fetchProject({ projectId: fetchRouteParamsLocation() }) as any
+      if (res.code === ResultEnum.SUCCESS) {
+        if (res.data) {
+          updateStoreInfo(res.data)
+          // 更新全局数据
+          if(res.data.content && res.data.content != "{}"){
+            await updateComponent(JSON.parse(res.data.content))
+            return
+          }
+        }
+        chartEditStore.setProjectInfo(ProjectInfoEnum.PROJECT_ID, fetchRouteParamsLocation())
+        setTimeout(() => {
+          chartEditStore.setEditCanvas(EditCanvasTypeEnum.SAVE_STATUS, SyncEnum.SUCCESS)
+        }, 1000)
+        return
+      }
+      chartEditStore.setEditCanvas(EditCanvasTypeEnum.SAVE_STATUS, SyncEnum.FAILURE)
+    } catch (error) {
+      chartEditStore.setEditCanvas(EditCanvasTypeEnum.SAVE_STATUS, SyncEnum.FAILURE)
+      httpErrorHandle()
+    }
+  }
+
+  // * 数据保存
+  const dataSyncUpdate = throttle(async () => {
+    if(!fetchRouteParamsLocation()) return
+
+    let projectId = chartEditStore.getProjectInfo[ProjectInfoEnum.PROJECT_ID];
+    if(projectId === null || projectId === ''){
+      window['$message'].error('数据初未始化成功,请刷新页面！')
+      return
+    }
+
+    chartEditStore.setEditCanvas(EditCanvasTypeEnum.SAVE_STATUS, SyncEnum.START)
+
+    // 获取缩略图片
+    const range = document.querySelector('.go-edit-range') as HTMLElement
+    // 生成图片
+    const canvasImage: HTMLCanvasElement = await html2canvas(range, {
+      backgroundColor: null,
+      allowTaint: true,
+      useCORS: true
+    })
+
+    // 保存数据和预览图
+    const res= await BackEndFactory.updateProject({
+      projectId,
+      content:JSON.stringify(chartEditStore.getStorageInfo || {}),
+      object:base64toFile(canvasImage.toDataURL(), `${fetchRouteParamsLocation()}_index_preview.png`)
+    }) as any
+
+    if (res.code === ResultEnum.SUCCESS) {
+      // 成功状态
+      setTimeout(() => {
+        chartEditStore.setEditCanvas(EditCanvasTypeEnum.SAVE_STATUS, SyncEnum.SUCCESS)
+      }, 1000)
+      return
+    }
+    //提示
+    window['$message'].success(window['$t']('global.r_save_fail'))
+    // 失败状态
+    chartEditStore.setEditCanvas(EditCanvasTypeEnum.SAVE_STATUS, SyncEnum.FAILURE)
+  }, 3000)
+
+  // * 定时处理
+  const intervalDataSyncUpdate = () => {
+    // 定时获取数据
+    const syncTiming = setInterval(() => {
+      dataSyncUpdate()
+    }, saveInterval * 1000)
+
+    // 销毁
+    onUnmounted(() => {
+      clearInterval(syncTiming)
+    })
+  }
+
   return {
-    updateComponent
+    updateComponent,
+    updateStoreInfo,
+    dataSyncFetch,
+    dataSyncUpdate,
+    intervalDataSyncUpdate
   }
 }
