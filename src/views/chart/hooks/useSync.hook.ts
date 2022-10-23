@@ -176,7 +176,7 @@ export const useSync = () => {
           updateStoreInfo(res.data)
           // 更新全局数据
           if(res.data.content && res.data.content != "{}"){
-            await updateComponent(JSON.parse(res.data.content))
+            await updateComponent(JSON.parse(res.data.content), true)
             return
           }
         }
@@ -246,7 +246,7 @@ export const useSync = () => {
       clearInterval(syncTiming)
     })
   }
-
+  
   return {
     updateComponent,
     updateStoreInfo,

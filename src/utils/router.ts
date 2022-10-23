@@ -146,7 +146,8 @@ export const openGiteeSourceCode = () => {
  * @returns boolean
  */
 export const isPreview = () => {
-  return document.location.hash.includes('preview')
+  return false
+  //return document.location.hash.includes('preview')
 }
 
 /**

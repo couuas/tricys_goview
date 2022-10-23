@@ -167,7 +167,12 @@ const { DocumentTextIcon, ChevronDownIcon, PencilIcon } = icon.ionicons5
 
 const EventLifeName = {
   [EventLife.BEFORE_MOUNT]: '渲染之前',
-  [EventLife.MOUNTED]: '渲染之后'
+  [EventLife.MOUNTED]: '渲染之后',
+  [EventLife.MOUSE_CLICK] : '点击',
+  [EventLife.MOUSE_OVER] : "进入",
+  [EventLife.MOUSE_LEAVE] : "离开",
+  [EventLife.ECHART_LEGEND_SELECT_CHANGED] : "选择图例",
+  [EventLife.ECHART_HIGH_LIGHT] : "高亮"
 }
 
 const EventLifeTip = {

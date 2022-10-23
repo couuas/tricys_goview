@@ -96,6 +96,13 @@ export enum EventLife {
   MOUNTED = 'vnodeMounted',
   // 渲染之前
   BEFORE_MOUNT = 'vnodeBeforeMount',
+  // 鼠标事件
+  MOUSE_CLICK = 'click',
+  MOUSE_OVER = "mouseover",
+  MOUSE_LEAVE = "mouseleave",
+  // 图表事件
+  ECHART_LEGEND_SELECT_CHANGED = "legendselectchanged",
+  ECHART_HIGH_LIGHT = "highlight"
 }
 
 // 组件实例类
