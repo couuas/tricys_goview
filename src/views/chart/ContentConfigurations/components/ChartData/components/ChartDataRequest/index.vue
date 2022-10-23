@@ -1,5 +1,5 @@
 <template>
-  <n-modal class="go-chart-data-request" v-model:show="modelShow" :mask-closable="false">
+  <n-modal class="go-chart-data-request" v-model:show="modelShow" :mask-closable="false" @esc="escHandler">
     <n-card :bordered="false" role="dialog" size="small" aria-modal="true" style="width: 1000px; height: 800px">
       <template #header></template>
       <template #header-extra> </template>
@@ -32,10 +32,12 @@ import { RequestContentTypeEnum } from '@/enums/httpEnum'
 import { useTargetData } from '../../../hooks/useTargetData.hook'
 import { RequestGlobalConfig } from './components/RequestGlobalConfig'
 import { RequestTargetConfig } from './components/RequestTargetConfig'
+import { useSync } from '@/views/chart/hooks/useSync.hook'
 
 const emit = defineEmits(['update:modelShow', 'sendHandle'])
 
 const { targetData } = useTargetData()
+const { dataSyncUpdate } = useSync()
 // 解构基础配置
 const { chartConfig } = toRefs(targetData.value)
 const { requestContentType } = toRefs(targetData.value.request)
@@ -51,6 +53,10 @@ defineProps({
 const closeHandle = () => {
   emit('update:modelShow', false)
   emit('sendHandle')
+  dataSyncUpdate()
+}
+const escHandler = ()=>{
+  emit('update:modelShow', false)
 }
 </script>
 

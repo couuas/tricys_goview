@@ -114,19 +114,24 @@ const shortcutKeyOptions = [
     mac: `${MacKeyboard.CTRL.toUpperCase()} + ${MacKeyboard.SHIFT.toUpperCase()} + Z `
   },
   {
+    label: '保存',
+    win: `${WinKeyboard.CTRL.toUpperCase()} + S `,
+    mac: `${MacKeyboard.CTRL.toUpperCase()} + S `,
+  },
+  {
     label: '多选',
     win: `${WinKeyboard.CTRL.toUpperCase()} + 🖱️ `,
-    mac: `${MacKeyboard.CTRL_SOURCE_KEY.toUpperCase()} + 🖱️ `
+    mac: `${MacKeyboard.CTRL.toUpperCase()} + 🖱️ `
   },
   {
     label: '创建分组',
     win: `${WinKeyboard.CTRL.toUpperCase()} + G / 🖱️ `,
-    mac: `${MacKeyboard.CTRL_SOURCE_KEY.toUpperCase()} + G / 🖱️`
+    mac: `${MacKeyboard.CTRL.toUpperCase()} + G / 🖱️`
   },
   {
     label: '解除分组',
     win: `${WinKeyboard.CTRL.toUpperCase()} + ${WinKeyboard.SHIFT.toUpperCase()} + G `,
-    mac: `${MacKeyboard.CTRL_SOURCE_KEY.toUpperCase()} + ${WinKeyboard.SHIFT.toUpperCase()} + G `
+    mac: `${MacKeyboard.CTRL.toUpperCase()} + ${WinKeyboard.SHIFT.toUpperCase()} + G `
   }
 ]
 const closeHandle = () => {

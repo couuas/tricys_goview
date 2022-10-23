@@ -1,11 +1,11 @@
 import { useRoute } from 'vue-router'
-import { ResultEnum } from '@/enums/httpEnum'
-import { ErrorPageNameMap, PageEnum } from '@/enums/pageEnum'
+import { ResultEnum, RequestHttpHeaderEnum } from '@/enums/httpEnum'
+import { ErrorPageNameMap, PageEnum, PreviewEnum } from '@/enums/pageEnum'
 import { docPath, giteeSourceCodePath } from '@/settings/pathConst'
-import { cryptoDecode } from './crypto'
 import { StorageEnum } from '@/enums/storageEnum'
-import { clearLocalStorage, getLocalStorage } from './storage'
+import { clearLocalStorage, getLocalStorage, clearCookie } from './storage'
 import router from '@/router'
+import { BackEndFactory } from '@/backend/ibackend'
 
 /**
  * * 根据名字跳转路由
@@ -101,11 +101,20 @@ export const reloadRoutePage = () => {
 }
 
 /**
- * * 退出
+ * * 退出登录
  */
-export const logout = () => {
-  clearLocalStorage(StorageEnum.GO_LOGIN_INFO_STORE)
-  routerTurnByName(PageEnum.BASE_LOGIN_NAME)
+export const logout = async () => {
+  try {
+    const res = await BackEndFactory.logout() as any
+    if(res.code === ResultEnum.SUCCESS) {
+      window['$message'].success(window['$t']('global.logout_success'))
+      clearCookie(RequestHttpHeaderEnum.COOKIE)
+      clearLocalStorage(StorageEnum.GO_LOGIN_INFO_STORE)
+      routerTurnByName(PageEnum.BASE_LOGIN_NAME)
+    }
+  } catch (error) {
+    window['$message'].success(window['$t']('global.logout_failure'))
+  }
 }
 
 /**
@@ -137,7 +146,8 @@ export const openGiteeSourceCode = () => {
  * @returns boolean
  */
 export const isPreview = () => {
-  return document.location.hash.includes('preview')
+  return false
+  //return document.location.hash.includes('preview')
 }
 
 /**
@@ -153,6 +163,28 @@ export const fetchRouteParams = () => {
   }
 }
 
+export const fetchRouteQuery = () => {
+  try {
+    const route = useRoute()
+    return route.query
+  } catch (error) {
+    window['$message'].warning('查询路由信息失败，请联系管理员！')
+  }
+}
+
+/**
+ * * 通过硬解析获取当前路由下的参数
+ * @returns object
+ */
+export const fetchRouteParamsLocation = () => {
+  try {
+    return document.location.hash.split('/').pop() || ''
+  } catch (error) {
+    window['$message'].warning('查询路由信息失败，请联系管理员！')
+    return ''
+  }
+}
+
 /**
  * * 回到主页面
  * @param confirm
@@ -162,19 +194,28 @@ export const goHome = () => {
 }
 
 /**
- * * 判断是否登录（现阶段是有 login 数据即可）
+ * * 判断是否登录
  * @return boolean
  */
-export const loginCheck = () => {
+ export const loginCheck = () => {
   try {
     const info = getLocalStorage(StorageEnum.GO_LOGIN_INFO_STORE)
     if (!info) return false
-    const decodeInfo = cryptoDecode(info)
-    if (decodeInfo) {
-      return true
-    }
+    // 检查 Token ?
+    if(info.token && info.userinfo) return true
     return false
   } catch (error) {
     return false
   }
 } 
+
+/**
+ * * 预览地址
+ * @returns 
+ */
+ export const previewPath = (id?: string | number) => {
+  const { origin, pathname } = document.location
+  const path = fetchPathByName(PreviewEnum.CHART_PREVIEW_NAME, 'href')
+  const previewPath = `${origin}${pathname}${path}/${id || fetchRouteParamsLocation()}`
+  return previewPath
+}

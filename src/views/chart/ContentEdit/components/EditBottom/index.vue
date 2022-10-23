@@ -1,16 +1,15 @@
 <template>
   <div class="go-edit-bottom">
-    <n-space>
-      <!-- 历史记录 -->
+    <div class="go-flex-items-center">
       <edit-history></edit-history>
-      <!-- CTRL按键触发展示 -->
-      <n-text id="keyboard-dress-show" depth="3"></n-text>
-    </n-space>
+      <n-divider vertical />
+      <edit-data-sync></edit-data-sync>
+    </div>
 
     <n-space class="bottom-ri">
       <!-- 快捷键提示 -->
       <edit-shortcut-key />
-
+      
       <!-- 缩放比例 -->
       <n-select
         :disabled="lockScale"
@@ -19,13 +18,18 @@
         size="mini"
         :options="filterOptions"
         @update:value="selectHandle"
-      ></n-select>
+     ></n-select>
 
       <!-- 锁定缩放 -->
       <n-tooltip trigger="hover">
         <template #trigger>
           <n-button @click="lockHandle" text>
-            <n-icon class="lock-icon" :class="{ color: lockScale }" size="18" :depth="2">
+            <n-icon
+              class="lock-icon"
+              :class="{ color: lockScale }"
+              size="18"
+              :depth="2"
+            >
               <lock-closed-outline-icon v-if="lockScale"></lock-closed-outline-icon>
               <lock-open-outline-icon v-else></lock-open-outline-icon>
             </n-icon>
@@ -46,7 +50,7 @@
         :disabled="lockScale"
         :marks="sliderMaks"
         @update:value="sliderHandle"
-      ></n-slider>
+     ></n-slider>
     </n-space>
   </div>
 </template>
@@ -55,7 +59,8 @@
 import { reactive, ref, toRefs, watchEffect } from 'vue'
 import { icon } from '@/plugins'
 import { EditHistory } from '../EditHistory/index'
-import EditShortcutKey from '../EditShortcutKey/index.vue'
+import { EditShortcutKey } from '../EditShortcutKey/index'
+import { EditDataSync } from '../EditDataSync/index'
 import { useDesignStore } from '@/store/modules/designStore/designStore'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { EditCanvasTypeEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
@@ -136,12 +141,13 @@ watchEffect(() => {
 <style lang="scss" scoped>
 $min-width: 500px;
 @include go('edit-bottom') {
-  width: 100%;
-  min-width: $min-width;
-  padding: 0 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0 10px;
+  width: 100%;
+  min-width: $min-width;
+  height: 40px;
   .bottom-ri {
     position: relative;
     top: 15px;

@@ -30,7 +30,7 @@
         :onBeforeUpload="beforeUploadHandle"
       >
         <n-upload-dragger>
-          <img v-if="canvasConfig.backgroundImage" class="upload-show" :src="canvasConfig.backgroundImage" alt="背景" />
+          <img v-if="canvasConfig.backgroundImage" class="upload-show" :src="BackEndFactory.getFileUrl(canvasConfig.backgroundImage)" alt="背景" />
           <div class="upload-img" v-show="!canvasConfig.backgroundImage">
             <img src="@/assets/images/canvas/noImage.png" />
             <n-text class="upload-desc" depth="3">
@@ -133,9 +133,12 @@ import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore
 import { EditCanvasConfigEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
 import { StylesSetting } from '@/components/Pages/ChartItemSetting'
 import { UploadCustomRequestOptions } from 'naive-ui'
-import { fileToUrl, loadAsyncComponent } from '@/utils'
+import { fileToUrl, loadAsyncComponent, fetchRouteParamsLocation } from '@/utils'
 import { PreviewScaleEnum } from '@/enums/styleEnum'
+import { ResultEnum } from '@/enums/httpEnum'
 import { icon } from '@/plugins'
+import { BackEndFactory } from '@/backend/ibackend'
+
 
 const { ColorPaletteIcon } = icon.ionicons5
 const { ScaleIcon, FitToScreenIcon, FitToHeightIcon, FitToWidthIcon } = icon.carbon
@@ -268,11 +271,21 @@ const clearColor = () => {
 // 自定义上传操作
 const customRequest = (options: UploadCustomRequestOptions) => {
   const { file } = options
-  nextTick(() => {
+  nextTick(async () => {
     if (file.file) {
-      const ImageUrl = fileToUrl(file.file)
-      chartEditStore.setEditCanvasConfig(EditCanvasConfigEnum.BACKGROUND_IMAGE, ImageUrl)
-      chartEditStore.setEditCanvasConfig(EditCanvasConfigEnum.SELECT_COLOR, false)
+      const uploadRes = await BackEndFactory.uploadFile(file.file, null) as any
+      if(uploadRes.code === ResultEnum.SUCCESS) {
+        chartEditStore.setEditCanvasConfig(
+          EditCanvasConfigEnum.BACKGROUND_IMAGE,
+          uploadRes.data.uri
+        )
+        chartEditStore.setEditCanvasConfig(
+          EditCanvasConfigEnum.SELECT_COLOR,
+          false
+        )
+        return
+      }
+      window['$message'].error('添加图片失败，请稍后重试！')
     } else {
       window['$message'].error('添加图片失败，请稍后重试！')
     }

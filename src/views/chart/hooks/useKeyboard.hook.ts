@@ -5,6 +5,9 @@ import debounce from 'lodash/debounce'
 import keymaster from 'keymaster'
 import { setKeyboardDressShow } from '@/utils'
 
+import { useSync } from './useSync.hook' 
+const useSyncIns = useSync()
+
 // Keymaster可以支持识别以下组合键： ⇧，shift，option，⌥，alt，ctrl，control，command，和⌘
 const chartEditStore = useChartEditStore()
 
@@ -23,12 +26,13 @@ export const winKeyboardValue = {
   [MenuEnum.DELETE]: 'delete',
   [MenuEnum.BACK]: winCtrlMerge('z'),
   [MenuEnum.FORWORD]: winCtrlMerge(winShiftMerge('z')),
+  [MenuEnum.SAVE]: winCtrlMerge('s'),
   [MenuEnum.GROUP]: winCtrlMerge('g'),
   [MenuEnum.UN_GROUP]: winCtrlMerge(winShiftMerge('g')),
   [MenuEnum.LOCK]: winCtrlMerge('l'),
   [MenuEnum.UNLOCK]: winCtrlMerge(winShiftMerge('l')),
   [MenuEnum.HIDE]: winCtrlMerge('h'),
-  [MenuEnum.SHOW]: winCtrlMerge(winShiftMerge('h'))
+  [MenuEnum.SHOW]: winCtrlMerge(winShiftMerge('h')),
 }
 
 // 这个 Ctrl 后面还是换成了 ⌘
@@ -48,6 +52,7 @@ export const macKeyboardValue = {
   [MenuEnum.DELETE]: macCtrlMerge('backspace'),
   [MenuEnum.BACK]: macCtrlMerge('z'),
   [MenuEnum.FORWORD]: macCtrlMerge(macShiftMerge('z')),
+  [MenuEnum.SAVE]: macCtrlMerge('s'),
   [MenuEnum.GROUP]: macCtrlMerge('g'),
   [MenuEnum.UN_GROUP]: macCtrlMerge(macShiftMerge('g')),
   [MenuEnum.LOCK]: macCtrlMerge('l'),
@@ -71,6 +76,7 @@ const winKeyList: Array<string> = [
   winKeyboardValue.back,
   winKeyboardValue.forward,
 
+  winKeyboardValue.save,
   winKeyboardValue.group,
   winKeyboardValue.unGroup,
 
@@ -96,6 +102,7 @@ const macKeyList: Array<string> = [
   macKeyboardValue.back,
   macKeyboardValue.forward,
 
+  macKeyboardValue.save,
   macKeyboardValue.group,
   macKeyboardValue.unGroup,
 
@@ -112,7 +119,7 @@ const keyRecordHandle = () => {
   window.$KeyboardActive = {
     ctrl: false
   }
-  
+
   document.onkeydown = (e: KeyboardEvent) => {
     if(e.keyCode === 17 && window.$KeyboardActive) {
       setKeyboardDressShow(e.keyCode)
@@ -202,6 +209,11 @@ export const useAddKeyboard = () => {
       // 解除隐藏 ct+sh+h
       case keyboardValue.show:
         keymaster(e, throttle(() => { chartEditStore.setShow(); return false }, throttleTime))
+        break;
+
+      // 保存 ct+s
+      case keyboardValue.save:
+        keymaster(e, throttle(() => { useSyncIns.dataSyncUpdate(); return false }, 200))
         break;
     }
   }

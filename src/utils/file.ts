@@ -1,4 +1,48 @@
 /**
+ * * base64转file
+ * @param dataurl 
+ * @param fileName 
+ * @returns 
+ */
+export const base64toFile = (dataurl: string, fileName: string) => {
+  let dataArr = dataurl.split(","),
+  mime = (dataArr as any[])[0].match(/:(.*?);/)[1],
+  bstr = atob(dataArr[1]),
+  n = bstr.length,
+  u8arr = new Uint8Array(n);
+  while (n--) {
+    u8arr[n] = bstr.charCodeAt(n);
+  }
+  return new File([u8arr], fileName, { type: mime });
+}
+
+/**
+ * * file转url
+ */
+ export const fileToUrl = (file: File): string => {
+  const Url = URL || window.URL || window.webkitURL
+  const ImageUrl = Url.createObjectURL(file)
+  return ImageUrl
+}
+
+/**
+ * file转 blob
+ * @param { File } file 文件对象
+ */
+export const fileToBlob = (file:File) =>{
+  return new Promise<Blob>(function (resolve, reject) {
+    let reader = new FileReader()
+    reader.readAsArrayBuffer(file)
+    reader.onload =  function (e: ProgressEvent<FileReader>) {
+      if(e.target){
+          const blob = new Blob([<ArrayBuffer>e.target.result], { type: file.type });
+          resolve(blob);
+      }
+    }
+  })
+}
+
+/**
  * *获取上传的文件数据
  * @param { File } file 文件对象
  */

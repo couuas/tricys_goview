@@ -124,9 +124,13 @@ import { GoLangSelect } from '@/components/GoLangSelect'
 import { LayoutHeader } from '@/layout/components/LayoutHeader'
 import { LayoutFooter } from '@/layout/components/LayoutFooter'
 import { PageEnum } from '@/enums/pageEnum'
+import { ResultEnum } from '@/enums/httpEnum'
 import { icon } from '@/plugins'
 import { StorageEnum } from '@/enums/storageEnum'
-import { routerTurnByName, cryptoEncode, setLocalStorage } from '@/utils'
+import { routerTurnByName, cryptoEncode, setLocalStorage, clearLocalStorage  } from '@/utils'
+
+import { BackEndFactory } from '@/backend/ibackend'
+
 const { GO_LOGIN_INFO_STORE } = StorageEnum
 
 const { PersonOutlineIcon, LockClosedOutlineIcon } = icon.ionicons5
@@ -210,17 +214,22 @@ const handleSubmit = (e: Event) => {
     if (!errors) {
       const { username, password } = formInline
       loading.value = true
-      setLocalStorage(
-        GO_LOGIN_INFO_STORE,
-        cryptoEncode(
-          JSON.stringify({
-            username,
-            password,
-          })
-        )
-      )
-      window['$message'].success(`${t('login.login_success')}!`)
-      routerTurnByName(PageEnum.BASE_HOME_NAME, true)
+      clearLocalStorage(GO_LOGIN_INFO_STORE)
+      const res = await BackEndFactory.login({
+        username,
+        password
+      }) as any
+      loading.value = false
+      if(res.code=== ResultEnum.SUCCESS && res.data) {
+        // const { tokenValue, tokenName } = res.data.token
+        // const { nickname, username, id } = res.data.userinfo
+        // 保存登陆信息
+        setLocalStorage( GO_LOGIN_INFO_STORE, res.data)
+        window['$message'].success(t('login.login_success'))
+        routerTurnByName(PageEnum.BASE_HOME_NAME, true)
+      }else{
+        window['$message'].error(res.msg ||`${t('login.login_error')}!`)
+      }
     } else {
       window['$message'].error(`${t('login.login_message')}!`)
     }
