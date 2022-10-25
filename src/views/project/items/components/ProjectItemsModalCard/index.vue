@@ -1,10 +1,6 @@
 <template>
   <!-- mask-closable 暂时是失效的，不知道为啥 -->
-  <n-modal
-    class="go-modal-box"
-    v-model:show="modalShow"
-    @afterLeave="closeHandle"
-  >
+  <n-modal class="go-modal-box" v-model:show="modalShow" @afterLeave="closeHandle">
     <n-card hoverable size="small">
       <div class="list-content">
         <!-- 标题 -->
@@ -17,21 +13,14 @@
         </n-space>
         <!-- 顶部按钮 -->
         <n-space class="list-content-top">
-          <mac-os-control-btn
-            :narrow="true"
-            :hidden="['close']"
-            @remove="closeHandle"
-         ></mac-os-control-btn>
+          <mac-os-control-btn :narrow="true" :hidden="['close']" @remove="closeHandle"></mac-os-control-btn>
         </n-space>
         <!-- 中间 -->
-        <div class="list-content-img">
-          <img
-            :src="
-              requireUrl('project/moke-20211219181327.png')
-            "
-            :alt="cardData?.title"
-          />
-        </div>
+        <div
+          class="list-content-img"
+          :title="cardData?.title"
+          :style="`background-image: url(${requireUrl('project/moke-20211219181327.png')})`"
+        ></div>
       </div>
       <template #action>
         <n-space class="list-footer" justify="space-between">
@@ -42,16 +31,8 @@
           <!-- 工具 -->
           <n-space>
             <n-text>
-              <n-badge
-                class="go-animation-twinkle"
-                dot
-                :color="cardData?.release ? '#34c749' : '#fcbc40'"
-             ></n-badge>
-              {{
-                cardData?.release
-                  ? $t('project.release')
-                  : $t('project.unreleased')
-              }}
+              <n-badge class="go-animation-twinkle" dot :color="cardData?.release ? '#34c749' : '#fcbc40'"></n-badge>
+              {{ cardData?.release ? $t('project.release') : $t('project.unreleased') }}
             </n-text>
 
             <template v-for="item in fnBtnList" :key="item.key">
@@ -143,13 +124,12 @@ $contentWidth: calc(82vw);
       width: $contentWidth;
     }
     &-img {
+      height: $contentHeight;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
       @extend .go-flex-center;
-      img {
-        max-height: $contentHeight;
-        min-height: 200px;
-        max-width: 100%;
-        @extend .go-border-radius;
-      }
+      @extend .go-border-radius;
     }
   }
   .list-footer {
