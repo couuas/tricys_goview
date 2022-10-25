@@ -9,21 +9,15 @@
             :hidden="['remove']"
             @close="deleteHanlde"
             @resize="resizeHandle"
-         ></mac-os-control-btn>
+          ></mac-os-control-btn>
         </div>
         <!-- 中间 -->
-        <div class="list-content-img" @click="resizeHandle">
-          <n-image
-            object-fit="contain"
-            height="180"
-            preview-disabled
-            :src="
-              requireUrl('project/moke-20211219181327.png')
-            "
-            :alt="cardData.title"
-            :fallback-src="requireErrorImg()"
-         ></n-image>
-        </div>
+        <div
+          class="list-content-img"
+          @click="resizeHandle"
+          :title="cardData.title"
+          :style="`background-image: url(${requireUrl('project/moke-20211219181327.png')}), url(${requireErrorImg()})`"
+        ></div>
       </div>
       <template #action>
         <div class="go-flex-items-center list-footer" justify="space-between">
@@ -34,16 +28,8 @@
           <div class="go-flex-items-center list-footer-ri">
             <n-space>
               <n-text>
-                <n-badge
-                  class="go-animation-twinkle"
-                  dot
-                  :color="cardData.release ? '#34c749' : '#fcbc40'"
-              ></n-badge>
-                {{
-                  cardData.release
-                    ? $t('project.release')
-                    : $t('project.unreleased')
-                }}
+                <n-badge class="go-animation-twinkle" dot :color="cardData.release ? '#34c749' : '#fcbc40'"></n-badge>
+                {{ cardData.release ? $t('project.release') : $t('project.unreleased') }}
               </n-text>
 
               <template v-for="item in fnBtnList" :key="item.key">
@@ -85,7 +71,7 @@
 
 <script setup lang="ts">
 import { reactive, ref, PropType } from 'vue'
-import { renderIcon, renderLang,  requireErrorImg } from '@/utils'
+import { renderIcon, renderLang, requireErrorImg } from '@/utils'
 import { icon } from '@/plugins'
 import { MacOsControlBtn } from '@/components/Tips/MacOsControlBtn'
 import { Chartype } from '../../index.d'
@@ -145,9 +131,7 @@ const selectOptions = ref([
     key: 'd1'
   },
   {
-    label: props.cardData?.release
-      ? renderLang('global.r_unpublish')
-      : renderLang('global.r_publish'),
+    label: props.cardData?.release ? renderLang('global.r_unpublish') : renderLang('global.r_publish'),
     key: 'send',
     icon: renderIcon(SendIcon)
   },
@@ -219,13 +203,11 @@ $contentHeight: 180px;
     }
     &-img {
       height: $contentHeight;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       @extend .go-flex-center;
       @extend .go-border-radius;
-      @include deep() {
-        img {
-          @extend .go-border-radius;
-        }
-      }
     }
   }
   .list-footer {
