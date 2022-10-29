@@ -2,10 +2,22 @@
 branches: {
   }
 fileChange:
-  /package.json:
-    newFile: !uuid '00624f867bea8fd176b57363e574d8f74c5c1062'
-    oldFile: !uuid 'd9f61f7b321b888be3ed9756b949aa081f717419'
-gitCommitId: !uuid '65db3aeb7fbf5c6534559366e35574596d94d4c6'
+  /README.md:
+    newFile: !uuid 'ab4c29c28d7d67eb10ab6896f7b4e22537de229a'
+    oldFile: !uuid '4040e3c4c4c6b1619060771174e78d422f7ac680'
+  /readme:
+    newFile: !uuid '85a1be9c0633cf439014637e0eb6e36054fc4227'
+    oldFile: !uuid '2cb0c70c45ef87611f33602759d49b8279676965'
+  /readme/go-view-event.png:
+    newFile: !uuid '8752bce384f411619cea215f577ccf1a484f3609'
+    oldFile: null
+  /readme/go-view-indexpage.png:
+    newFile: !uuid 'ba0dc202c6b83a453f416e85e1b2e0fb1cbf8667'
+    oldFile: null
+  /readme/go-view-theme.png:
+    newFile: !uuid '0f21f1a46ee02e28c9683e998c291fb299c6159e'
+    oldFile: null
+gitCommitId: !uuid '999f8587565cf9fd4e2c223042b3245d0a3e2c4d'
 renames: {
   }
-revisionId: 601
+revisionId: 602
