@@ -1,7 +1,7 @@
 <template>
   <div class="sizeScroll go-text-box">
     <div class="content">
-      <div ref="textAutoBox" id="inner" :class="{ innerActive: true }">
+      <div ref="textAutoBox" id="inner" class="innerActive">
         <div id="textAutoBox" v-html="option.dataset"></div>
       </div>
     </div>
@@ -54,7 +54,6 @@ onMounted(() => {
   if (!showDown) {
     nextTick(() => {textAutoBox.value.style.animationDuration = '0s'})
     relanimation.value = 0
-    console.log('停止',textAutoBox.value.style);
   }
 })
 
@@ -63,16 +62,6 @@ watch(
   () => props.chartConfig.option.dataset,
   (newData: any) => {
     option.dataset = newData
-
-  },
-  {
-    immediate: true
-  }
-)
-
-watch(
-  () => option.dataset,
-  () => {
     if (textAutoBox.value !== undefined) {
       showDown = false
       nextTick(() => {
@@ -92,6 +81,16 @@ watch(
         }
       })
     }
+  },
+  {
+    immediate: true
+  }
+)
+
+watch(
+  () => animation,
+  (newData: any) => {
+    relanimation = newData
   },
   {
     immediate: true
@@ -137,11 +136,11 @@ useChartDataFetch(props.chartConfig, useChartEditStore, (newData: string) => {
     }
   }
   @keyframes slide {
-    0% {
+    from {
       transform: translateY(0);
     }
-    100% {
-      transform: translateY(-60%);
+    to {
+      transform: translateY(-100%);
     }
   }
 }
