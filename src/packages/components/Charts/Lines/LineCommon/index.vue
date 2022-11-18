@@ -44,8 +44,11 @@ const props = defineProps({
 use([DatasetComponent, CanvasRenderer, LineChart, GridComponent, TooltipComponent, LegendComponent])
 
 const replaceMergeArr = ref<string[]>()
-
+// 当使用动态数据时，option 的格式不满足 echarts 的数据格式会报错，修改 filter 也没用
 const option = computed(() => {
+  if(!('dimensions' in props.chartConfig.option.dataset)) {
+    return window['$message'].error('数据格式不正确！')
+  }
   return mergeTheme(props.chartConfig.option, props.themeSetting, includes)
 })
 
