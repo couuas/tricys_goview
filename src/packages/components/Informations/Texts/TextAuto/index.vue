@@ -14,7 +14,6 @@ import { CreateComponentType } from '@/packages/index.d'
 import { useChartDataFetch } from '@/hooks'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { option as configOption } from './config'
-import cloneDeep from 'lodash/cloneDeep'
 
 const props = defineProps({
   chartConfig: {
@@ -46,14 +45,12 @@ const option = shallowReactive({
 
 let textAutoBox = ref()
 let showDown = false
-let relanimation = cloneDeep(animation)
 onMounted(() => {
   if (textAutoBox.value.clientHeight > props.chartConfig.attr.h) {
     showDown = true
   }
   if (!showDown) {
     nextTick(() => {textAutoBox.value.style.animationDuration = '0s'})
-    relanimation.value = 0
   }
 })
 
@@ -69,28 +66,16 @@ watch(
           showDown = true
         }
         if (!showDown) {
-          relanimation.value = 0
           setTimeout(() => {
-            textAutoBox.value.style.animationDuration = `${relanimation.value}s`
+            textAutoBox.value.style.animationDuration = `0s`
           }, 200);
         } else {
-          relanimation.value = animation.value
           setTimeout(() => {
-            textAutoBox.value.style.animationDuration = `${relanimation.value}s`
+            textAutoBox.value.style.animationDuration = `${animation.value}s`
           }, 200);
         }
       })
     }
-  },
-  {
-    immediate: true
-  }
-)
-
-watch(
-  () => animation,
-  (newData: any) => {
-    relanimation = newData
   },
   {
     immediate: true
@@ -123,7 +108,7 @@ useChartDataFetch(props.chartConfig, useChartEditStore, (newData: string) => {
     background-color: v-bind('backgroundColor');
     .innerActive {
       width: 100%;
-      animation: slide v-bind('relanimation + "s"') linear infinite;
+      animation: slide v-bind('animation + "s"') linear infinite;
       #textAutoBox {
         display: inline-block;
         width: 100%;
