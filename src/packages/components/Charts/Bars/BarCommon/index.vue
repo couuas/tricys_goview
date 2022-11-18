@@ -46,6 +46,9 @@ use([DatasetComponent, CanvasRenderer, BarChart, GridComponent, TooltipComponent
 const replaceMergeArr = ref<string[]>()
 
 const option = computed(() => {
+  if(!('dimensions' in props.chartConfig.option.dataset)) {
+    return window['$message'].error('数据格式不正确！')
+  }
   return mergeTheme(props.chartConfig.option, props.themeSetting, includes)
 })
 
