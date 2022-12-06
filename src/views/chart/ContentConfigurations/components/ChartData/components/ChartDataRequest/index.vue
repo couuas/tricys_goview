@@ -1,5 +1,5 @@
 <template>
-  <n-modal class="go-chart-data-request" v-model:show="modelShow" :mask-closable="false">
+  <n-modal class="go-chart-data-request" v-model:show="modelShow" :mask-closable="false" :on-esc="closeHandle">
     <n-card :bordered="false" role="dialog" size="small" aria-modal="true" style="width: 1000px; height: 800px">
       <template #header></template>
       <template #header-extra> </template>
@@ -19,7 +19,7 @@
             <n-text>—— </n-text>
             <n-tag type="primary" :bordered="false" style="border-radius: 5px"> {{ requestContentTypeObj[requestContentType] }} </n-tag>
           </div>
-          <n-button type="primary" @click="closeHandle">保存 & 发送请求</n-button>
+          <n-button type="primary" @click="closeAndSendHandle">保存 & 发送请求</n-button>
         </n-space>
       </template>
     </n-card>
@@ -50,8 +50,13 @@ defineProps({
 
 const closeHandle = () => {
   emit('update:modelShow', false)
+}
+
+const closeAndSendHandle = () => {
+  closeHandle()
   emit('sendHandle')
 }
+
 </script>
 
 <style lang="scss" scoped>
