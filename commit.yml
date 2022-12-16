@@ -2,31 +2,16 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid '2f1f571a16b7ce76aebc188a19e6197e43d615a3'
-    oldFile: !uuid '94745095def3e2eaeecf41efb603dbbb8684a0e8'
-  /src/packages:
-    newFile: !uuid '2e31cac525b6e25ff70facc3398d123b7a347afb'
-    oldFile: !uuid 'cd51d89bfe35c5efcb37842531f2f8db31d4db42'
-  /src/packages/components:
-    newFile: !uuid 'c1fb2779e9dad6d6a8b0a7fd2613ef942defe321'
-    oldFile: !uuid '277f5910942d52a397faf96c59e921a0a3a543bc'
-  /src/packages/components/Charts:
-    newFile: !uuid '1515f7d695b966fe1735ad97b305e25b01341649'
-    oldFile: !uuid 'c46329a71f7cd7af269fe682e254bb9d8c2ada44'
-  /src/packages/components/Charts/Pies:
-    newFile: !uuid 'bdd93b8f646fc2b7c985f5a2a80992dfd3557a64'
-    oldFile: !uuid 'cb413882a001b42fdbb7f8e803329744ef4d3635'
-  /src/packages/components/Charts/Pies/PieCommon:
-    newFile: !uuid 'ef779eb02a7d3149615ca4a7ea3ec6e6f7b82689'
-    oldFile: !uuid 'fae2ef98c75714a14e9b139cb97475d123f60992'
-  /src/packages/components/Charts/Pies/PieCommon/config.ts:
-    newFile: !uuid '73505883621dc4e0e8351e8c6b47128bfa7354eb'
-    oldFile: !uuid '068450b6c744b30b1f05b7c106a3cc5bf28022d3'
-  /src/packages/components/Charts/Pies/PieCommon/config.vue:
-    newFile: !uuid 'ee6b40f4887d962c6775cb66b5cdbd907efc5e28'
-    oldFile: !uuid '55aa8de50995795b6bbe681d420e89b683a43f8e'
-gitCommitId: !uuid '666841458e5fa2617afd783fbf7d737c1e3cce31'
+  /build:
+    newFile: !uuid 'c29e44bdfd1960921703e6fffc8322841ce2537b'
+    oldFile: !uuid 'fd6b407197a690de0b4a564e9238cfa38eab8a10'
+  /build/constant.ts:
+    newFile: !uuid '9d6ca339a9a9e31328cfb6a7c497f7a8bd1c0bbc'
+    oldFile: !uuid '38ff0454ea4ad9a7633737c387d7533467baa66c'
+  /yarn.lock:
+    newFile: !uuid '727e43535a0cf2d78f396876579fe4deb6e31c7d'
+    oldFile: !uuid '8d49caece2e9637953aff2681dcb532afba3d9d3'
+gitCommitId: !uuid '8cf47e9005cb2a46798bdda04666d28be340dd57'
 renames: {
   }
-revisionId: 575
+revisionId: 576
