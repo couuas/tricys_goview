@@ -18,14 +18,14 @@
       </n-space>
     </div>
 
-    <div
-      class="content"
-      :class="{
-        'content-height-show-top-bottom': showBottom || showTop,
-        'content-height-show-both': showBottom && showTop
-      }"
-    >
-      <template v-if="xScroll">
+    <div class="content" :class="{
+      'content-height-show-top-bottom': showBottom || showTop,
+      'content-height-show-both': showBottom && showTop
+    }">
+      <template v-if="disabledScroll">
+        <slot></slot>
+      </template>
+      <template v-else-if="xScroll">
         <n-scrollbar x-scrollable>
           <n-scrollbar>
             <slot></slot>
@@ -83,6 +83,11 @@ defineProps({
   xScroll: {
     type: Boolean,
     default: false
+  },
+  //不使用滚动
+  disabledScroll: {
+    type: Boolean,
+    default: false
   }
 })
 
@@ -93,41 +98,52 @@ const backHandle = () => {
 
 <style lang="scss" scoped>
 $topOrBottomHeight: 40px;
+
 @include go(content-box) {
   height: calc(100vh - #{$--header-height});
   margin: 1px;
   margin-bottom: 0;
+
   &.bg-depth0 {
     @include fetch-bg-color('background-color1');
+
     .bottom,
     .top {
       @include fetch-bg-color('background-color1');
     }
   }
+
   &.bg-depth1 {
     @include fetch-bg-color('background-color1');
+
     .bottom,
     .top {
       @include fetch-bg-color('background-color2');
     }
   }
+
   &.bg-depth2 {
     @include fetch-bg-color('background-color2');
+
     .bottom,
     .top {
       @include fetch-bg-color('background-color3');
     }
   }
+
   &.bg-depth3 {
     @include fetch-bg-color('background-color3');
+
     .bottom,
     .top {
       @include fetch-bg-color('background-color4');
     }
   }
+
   &.flex {
     flex: 1;
   }
+
   .top,
   .bottom {
     display: flex;
@@ -138,10 +154,12 @@ $topOrBottomHeight: 40px;
     padding: 0 10px;
     border-top: 1px solid;
     @include fetch-border-color('hover-border-color');
+
     .mt-1 {
       margin-top: 2px;
     }
   }
+
   .top {
     border-bottom: 1px solid;
     @include fetch-border-color('background-color1');
@@ -159,6 +177,7 @@ $topOrBottomHeight: 40px;
   .content-height-show-top-bottom {
     height: calc(100vh - #{$--header-height} - #{$topOrBottomHeight});
   }
+
   .content-height-show-both {
     height: calc(100vh - #{$--header-height} - #{$topOrBottomHeight} - #{$topOrBottomHeight});
   }
