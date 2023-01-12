@@ -2,10 +2,28 @@
 branches: {
   }
 fileChange:
-  /package.json:
-    newFile: !uuid 'db3aa6bb3164e170fa7f6563a61c5a1630ece1a5'
-    oldFile: !uuid 'e36da72daa776593c9e6c3dded84c8c5e56190c1'
-gitCommitId: !uuid '2b617e7ee5cb5410c4e00ee720cea77c0d768a11'
+  /src:
+    newFile: !uuid '7c82468f5a94184bdcea4f78c2f436d33f31cc01'
+    oldFile: !uuid '5927c6f1aa1996be21ea0e1b31658da127cad6ee'
+  /src/packages:
+    newFile: !uuid 'ce8b3ba0b8ecfe1a39d23d8218978fe3ea3359a4'
+    oldFile: !uuid '5a7537025b52da4dbd8d203b6169913cc7ed2c31'
+  /src/packages/components:
+    newFile: !uuid '2c623a0f3d1ac87f58b0601d5aa56eeb4443c1f5'
+    oldFile: !uuid 'f164431d993644d63b26fc93335458bf1928de0d'
+  /src/packages/components/Decorates:
+    newFile: !uuid '9bc09ea6451b444d568225af2b0917e7d301bd62'
+    oldFile: !uuid 'f1f32b7d14697ce281279c188fe110d2e6470ff4'
+  /src/packages/components/Decorates/Three:
+    newFile: !uuid '58dc44c9ba657f79aeeab83e647339de905346ae'
+    oldFile: !uuid 'e3b5c6371cb95c3f453e66e092981cf548cf4a69'
+  /src/packages/components/Decorates/Three/ThreeEarth01:
+    newFile: !uuid 'd11ddf85879874bacf64875a3a5cdb78306041ce'
+    oldFile: !uuid '74beeb5b7b5853463a269c4feef70c6fa8dbaf49'
+  /src/packages/components/Decorates/Three/ThreeEarth01/index.vue:
+    newFile: !uuid 'd25d4e6e0e7d472d160b6bc652586eae912ad486'
+    oldFile: !uuid '5fd62d6abe7c0442c4f8c52fcadb25d94484279e'
+gitCommitId: !uuid '1ac5aae34cfe547ec09c53a53dd4301fd95b44ef'
 renames: {
   }
-revisionId: 627
+revisionId: 628
