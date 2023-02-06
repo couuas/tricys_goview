@@ -32,7 +32,7 @@ import { ResultEnum } from '@/enums/httpEnum'
 import { fetchRouteParamsLocation, httpErrorHandle, setTitle } from '@/utils'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { ProjectInfoEnum, EditCanvasConfigEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
-import { updateProjectApi } from '@/api/path'
+import { renameProjectApi } from '@/api/path'
 import { useSync } from '../../hooks/useSync.hook'
 import { icon } from '@/plugins'
 
@@ -68,7 +68,7 @@ const handleFocus = () => {
 const handleBlur = async () => {
   focus.value = false
   chartEditStore.setProjectInfo(ProjectInfoEnum.PROJECT_NAME, title.value || '')
-  const res = (await updateProjectApi({
+  const res = (await renameProjectApi({
     id: fetchRouteParamsLocation(),
     projectName: title.value
   }))
