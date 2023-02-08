@@ -24,9 +24,9 @@ export const exportHandle = () => {
   }
 
   // 记录缩放比例
-  const scaleTemp = chartEditStore.getEditCanvas.scale
+  // const scaleTemp = chartEditStore.getEditCanvas.scale
   // 百分百展示页面
-  chartEditStore.setScale(1, true)
+  // chartEditStore.setScale(1, true)
   // 展示水印
   watermark.style.display = 'block'
 
@@ -35,7 +35,7 @@ export const exportHandle = () => {
       // 隐藏水印
       if (watermark) watermark.style.display = 'none'
       // 还原页面大小
-      chartEditStore.setScale(scaleTemp, true)
+      // chartEditStore.setScale(scaleTemp, true)
     })
   }, 600)
 }
