@@ -62,6 +62,16 @@ export const updateProjectApi = async (data: object) => {
   }
 }
 
+// * 重命名项目名称
+export const renameProjectApi = async (data: object) => {
+  try {
+    const res = await http(RequestHttpEnum.POST)(`${ModuleTypeEnum.PROJECT}/rename`, data)
+    return res
+  } catch {
+    httpErrorHandle()
+  }
+}
+
 // * 删除项目
 export const deleteProjectApi = async (data: object) => {
   try {
