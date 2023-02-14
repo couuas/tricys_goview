@@ -3,9 +3,15 @@ branches: {
   }
 fileChange:
   /README.md:
-    newFile: !uuid '56da7d27a43fdd81d16105eb6a5ff625b1adf708'
-    oldFile: !uuid '4bec67baa55e9009ba708372f025e6aeed1a0ace'
-gitCommitId: !uuid 'e295a05ec9af85d49632dac8bc2efeba3f921203'
+    newFile: !uuid 'ef21b95d1bc4a3f990b30bd962ce7e79f3d8e678'
+    oldFile: !uuid '56da7d27a43fdd81d16105eb6a5ff625b1adf708'
+  /readme:
+    newFile: !uuid 'dc758e761c5b4e3eb34f52df1efa9c21709eec02'
+    oldFile: !uuid '676e9fa03fbf04411221f756744bdab36e3b2a4d'
+  /readme/go-view-qq.png:
+    newFile: !uuid '2bfd4b59a703f337fdebaa8ac586b36eac7a4904'
+    oldFile: !uuid '51f5b0819807c505435fa77939434ecf6f15c3c8'
+gitCommitId: !uuid '0ee7c283f03a0cdd929c77530fe88b7182e84d4a'
 renames: {
   }
-revisionId: 636
+revisionId: 637
