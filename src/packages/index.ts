@@ -4,9 +4,9 @@ import { InformationList } from '@/packages/components/Informations/index'
 import { TableList } from '@/packages/components/Tables/index'
 import { PackagesCategoryEnum, PackagesType, ConfigType, FetchComFlagType } from '@/packages/index.d'
 
-const configModules = import.meta.globEager('./components/**/config.vue')
-const indexModules = import.meta.globEager('./components/**/index.vue')
-const imagesModules = import.meta.globEager('../assets/images/chart/**')
+const configModules = import.meta.glob('./components/**/config.vue')
+const indexModules = import.meta.glob('./components/**/index.vue')
+const imagesModules = import.meta.glob('../assets/images/chart/**')
 
 // * 所有图表
 export let packagesList: PackagesType = {
@@ -31,12 +31,13 @@ export const createComponent = async (targetData: ConfigType) => {
  * @param {string} chartName 名称
  * @param {FetchComFlagType} flag 标识 0为展示组件, 1为配置组件
  */
-const fetchComponent = (chartName: string, flag: FetchComFlagType) => {
+const fetchComponent = async (chartName: string, flag: FetchComFlagType) => {
   const module = flag === FetchComFlagType.VIEW ? indexModules : configModules
   for (const key in module) {
     const urlSplit = key.split('/')
     if (urlSplit[urlSplit.length - 2] === chartName) {
-      return module[key]
+      const loader = module[key] as () => Promise<{ default: any }>
+      return (await loader()).default
     }
   }
 }
@@ -45,18 +46,18 @@ const fetchComponent = (chartName: string, flag: FetchComFlagType) => {
  * * 获取展示组件
  * @param {ConfigType} dropData 配置项
  */
-export const fetchChartComponent = (dropData: ConfigType) => {
+export const fetchChartComponent = async (dropData: ConfigType) => {
   const { key } = dropData
-  return fetchComponent(key, FetchComFlagType.VIEW)?.default
+  return await fetchComponent(key, FetchComFlagType.VIEW)
 }
 
 /**
  * * 获取配置组件
  * @param {ConfigType} dropData 配置项
  */
-export const fetchConfigComponent = (dropData: ConfigType) => {
+export const fetchConfigComponent = async (dropData: ConfigType) => {
   const { key } = dropData
-  return fetchComponent(key, FetchComFlagType.CONFIG)?.default
+  return await fetchComponent(key, FetchComFlagType.CONFIG)
 }
 
 /**
@@ -74,7 +75,8 @@ export const fetchImages = async (targetData?: ConfigType) => {
   for (const key in imagesModules) {
     const urlSplit = key.split('/')
     if (urlSplit[urlSplit.length - 1] === imageName) {
-      return imagesModules[key]?.default
+      const loader = imagesModules[key] as () => Promise<{ default: string }>
+      return (await loader()).default
     }
   }
   return ''

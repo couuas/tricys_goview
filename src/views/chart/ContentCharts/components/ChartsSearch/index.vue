@@ -149,8 +149,8 @@ const selectChartHandle = async (item: ConfigType) => {
   try {
     loadingStart()
     // 动态注册图表组件
-    componentInstall(item.chartKey, fetchChartComponent(item))
-    componentInstall(item.conKey, fetchConfigComponent(item))
+    componentInstall(item.chartKey, await fetchChartComponent(item))
+    componentInstall(item.conKey, await fetchConfigComponent(item))
     // 创建新图表组件
     let newComponent: CreateComponentType = await createComponent(item)
     // 添加
