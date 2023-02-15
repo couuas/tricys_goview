@@ -68,14 +68,15 @@ const chartMode: Ref<ChartModeEnum> = computed(() => {
 })
 
 // 拖拽处理
-const dragStartHandle = (e: DragEvent, item: ConfigType) => {
-  // 动态注册图表组件
-  componentInstall(item.chartKey, fetchChartComponent(item))
-  componentInstall(item.conKey, fetchConfigComponent(item))
+const dragStartHandle = async (e: DragEvent, item: ConfigType) => {
   // 将配置项绑定到拖拽属性上
   e!.dataTransfer!.setData(DragKeyEnum.DRAG_KEY, JSONStringify(omit(item, ['image'])))
   // 修改状态
   chartEditStore.setEditCanvas(EditCanvasTypeEnum.IS_CREATE, true)
+  
+  // 动态注册图表组件
+  componentInstall(item.chartKey, await fetchChartComponent(item))
+  componentInstall(item.conKey, await fetchConfigComponent(item))
 }
 
 // 拖拽结束
@@ -88,8 +89,8 @@ const dblclickHandle = async (item: ConfigType) => {
   try {
     loadingStart()
     // 动态注册图表组件
-    componentInstall(item.chartKey, fetchChartComponent(item))
-    componentInstall(item.conKey, fetchConfigComponent(item))
+    componentInstall(item.chartKey, await fetchChartComponent(item))
+    componentInstall(item.conKey, await fetchConfigComponent(item))
     // 创建新图表组件
     let newComponent: CreateComponentType = await createComponent(item)
     // 添加

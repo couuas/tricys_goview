@@ -45,8 +45,9 @@ export class Resources {
    */
   private loadResources(): void {
     this.textureLoader = new TextureLoader(this.manager)
-    resources.textures?.forEach(item => {
-      this.textureLoader.load(item.url, t => {
+    resources.textures?.forEach(async item => {
+      const url = (await item.url()).default
+      this.textureLoader.load(url, t => {
         this.textures[item.name] = t
       })
     })
