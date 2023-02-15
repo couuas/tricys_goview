@@ -4,6 +4,7 @@ import screenfull from 'screenfull'
 import throttle from 'lodash/throttle'
 import Image_404 from '../assets/images/exception/image-404.png'
 import html2canvas from 'html2canvas'
+import domtoimage from 'dom-to-image'
 import { downloadByA } from './file'
 import { toString } from './type'
 import cloneDeep from 'lodash/cloneDeep'
@@ -177,6 +178,28 @@ export const removeEventListener = <K extends keyof WindowEventMap>(
  * * 截取画面为图片并下载
  * @param html 需要截取的 DOM
  */
+// export const canvasCut = (html: HTMLElement | null, callback?: Function) => {
+//   if (!html) {
+//     window['$message'].error('导出失败！')
+//     if (callback) callback()
+//     return
+//   }
+
+//   html2canvas(html, {
+//     backgroundColor: null,
+//     allowTaint: true,
+//     useCORS: true
+//   }).then((canvas: HTMLCanvasElement) => {
+//     window['$message'].success('导出成功！')
+//     downloadByA(canvas.toDataURL(), undefined, 'png')
+//     if (callback) callback()
+//   })
+// }
+
+/**
+ * * 截取画面为图片并下载
+ * @param html 需要截取的 DOM
+ */
 export const canvasCut = (html: HTMLElement | null, callback?: Function) => {
   if (!html) {
     window['$message'].error('导出失败！')
@@ -184,13 +207,11 @@ export const canvasCut = (html: HTMLElement | null, callback?: Function) => {
     return
   }
 
-  html2canvas(html, {
-    backgroundColor: null,
-    allowTaint: true,
-    useCORS: true
-  }).then((canvas: HTMLCanvasElement) => {
+  domtoimage.toPng(html, {
+    style: { left: 0, top: 0, transform: 'scale(1) translate(0,0)', marginLeft: 0, marginTop: 0 }
+  }).then((dataUrl: string) => {
     window['$message'].success('导出成功！')
-    downloadByA(canvas.toDataURL(), undefined, 'png')
+    downloadByA(dataUrl, undefined, 'png')
     if (callback) callback()
   })
 }
