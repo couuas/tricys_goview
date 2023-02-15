@@ -5,7 +5,7 @@
 
 interface ITextures {
   name: string
-  url: string
+  url: () => Promise<{ default: string }>
 }
 
 export interface IResources {
@@ -15,14 +15,13 @@ export interface IResources {
 const fileSuffix = ['earth', 'gradient', 'redCircle', 'label', 'aperture', 'glow', 'light_column', 'aircraft']
 const textures: ITextures[] = []
 
-const modules = import.meta.globEager("../../images/earth/*");
-
-for(let item in modules) {
+const modules = import.meta.glob("../../images/earth/*");
+for (let item in modules) {
   const n = item.split('/').pop()
-  if(n) {
+  if (n) {
     textures.push({
       name: n.split('.')[0],
-      url: modules[item].default
+      url: (modules[item] as () => Promise<{ default: string }>)
     })
   }
 }
