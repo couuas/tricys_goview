@@ -2,10 +2,25 @@
 branches: {
   }
 fileChange:
-  /package.json:
-    newFile: !uuid 'f89bc7f5bdaed11050a1d6fa7df8be7dedf0fe6e'
-    oldFile: !uuid 'e243e5176b8f2aded61279d16a1ca4b35c187717'
-gitCommitId: !uuid 'd90e0953b94a556c896e94abe35adb3ad9f30e40'
+  /src:
+    newFile: !uuid '29c43de087109dde1d9f9b27a67a04bd1fe139d8'
+    oldFile: !uuid '825714c4cece61a5744663f0f8db71dc26e6e667'
+  /src/main.ts:
+    newFile: !uuid '550bc63c9a89bea7d1ac9d9dca796e519ecd9886'
+    oldFile: !uuid 'd85d46cb04560f035590358835e3e9651b45f447'
+  /src/styles:
+    newFile: !uuid 'f13bb1de3c9770ff61f77d6d8b0b6f20f15b6566'
+    oldFile: !uuid '1c2bea0a6eda9115139d6145227c3244e16d90f2'
+  /src/styles/common:
+    newFile: !uuid '0398e2dc6e014dc209f377eeb486109db6df082c'
+    oldFile: !uuid '0e112eb75c532701462d2d79a4d4fd542c926692'
+  /src/styles/common/mixins:
+    newFile: !uuid 'b900cdb319f0ff8483287b5fd6e52e50b5b12cd5'
+    oldFile: !uuid '87e1ffba2916de6fdf4f8413edb853706e0744d1'
+  /src/styles/common/mixins/mixins.scss:
+    newFile: !uuid '5cb85f5f4e40ba4e2a6f4c7e28f8b4c961b2782b'
+    oldFile: !uuid 'ec6f2ccda38572da5b6529ff203406490995621b'
+gitCommitId: !uuid '0a3c1b343894e7f3f43801ba63794b0f979c9777'
 renames: {
   }
-revisionId: 1322
+revisionId: 1323
