@@ -2,16 +2,10 @@
 branches: {
   }
 fileChange:
-  /readme:
-    newFile: !uuid '546e929b448a7be52ec5abce48d80719ebf00267'
-    oldFile: !uuid '05ee978e5c2d67df85c0cb5e3c3d731fdcbac691'
-  /readme/sponsors:
-    newFile: !uuid 'c3eeb24730e3c289df0caac756d82c43b05a2861'
-    oldFile: !uuid 'e51f48815a74ee63bffd95935a079f32ad3f9257'
-  /readme/sponsors/ccflow-banner.png:
-    newFile: !uuid '7f537a708bf6dc3e18d4245fd33c8248d16d85bd'
-    oldFile: !uuid '06d32ff6e747d244ae29a9b5aaee1ab28ef7cec9'
-gitCommitId: !uuid 'ada4ce988592eb8c151878f7492ab972ebd17ab6'
+  /README.md:
+    newFile: !uuid '8a32ec0aa9dc5b3b8031a65229985899099faf1f'
+    oldFile: !uuid 'aff3c3292171d1725932131bf3d9dbc2a450de0f'
+gitCommitId: !uuid '7309d603f599ea383737092d1c235ee3d532e019'
 renames: {
   }
-revisionId: 1329
+revisionId: 1330
