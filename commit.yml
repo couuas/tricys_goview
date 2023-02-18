@@ -3,21 +3,9 @@ branches: {
   }
 fileChange:
   /README.md:
-    newFile: !uuid 'b47bb985246ca4bd2f20e4bdab2a3a963a41f41b'
-    oldFile: !uuid 'ef21b95d1bc4a3f990b30bd962ce7e79f3d8e678'
-  /readme:
-    newFile: !uuid '05ee978e5c2d67df85c0cb5e3c3d731fdcbac691'
-    oldFile: !uuid 'd2e830b35ecf8deff834c39cfef23a60b11ec9fe'
-  /readme/sponsors:
-    newFile: !uuid 'e51f48815a74ee63bffd95935a079f32ad3f9257'
-    oldFile: null
-  /readme/sponsors/ccflow-banner.png:
-    newFile: !uuid '06d32ff6e747d244ae29a9b5aaee1ab28ef7cec9'
-    oldFile: null
-  /readme/sponsors/qyy-banner.png:
-    newFile: !uuid '04e4fefe8499b72a22089ca62cc4d9f964604e09'
-    oldFile: null
-gitCommitId: !uuid 'd447c858300f206ab53fe8cec001815d4adf70d6'
+    newFile: !uuid '8180367c8b904cd43c52af678d82ac9ff7d45fb8'
+    oldFile: !uuid 'b47bb985246ca4bd2f20e4bdab2a3a963a41f41b'
+gitCommitId: !uuid '4348688e34c0afcdedbedd0dee1855c487734747'
 renames: {
   }
-revisionId: 1324
+revisionId: 1325
