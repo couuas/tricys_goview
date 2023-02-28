@@ -3,9 +3,15 @@ branches: {
   }
 fileChange:
   /README.md:
-    newFile: !uuid '99226df5f9bdcb01c2b636110f761879043ada51'
-    oldFile: !uuid '850bc2cac41a712b14a36f88885d965be12e1057'
-gitCommitId: !uuid '696fe95e03bced1c7df09d1fc03241ea0c28eb6e'
+    newFile: !uuid '3dbf5d5549954f7e195c9e8aed5199769f9799d9'
+    oldFile: !uuid '99226df5f9bdcb01c2b636110f761879043ada51'
+  /readme:
+    newFile: !uuid 'd37c9852dc0540b70c57f7d233dfbc22e436b234'
+    oldFile: !uuid '8e6c85e99665cf3165f0c9db6d7830544500cca9'
+  /readme/go-view-echarts-color.png:
+    newFile: !uuid '73eb21252fde533b7e87a3ff9ae4e6ec98e0c618'
+    oldFile: null
+gitCommitId: !uuid '2d7b34ab51b20d0a57557fa4d83d0571510b355e'
 renames: {
   }
-revisionId: 653
+revisionId: 654
