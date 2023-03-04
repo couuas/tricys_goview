@@ -3,21 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'bd534babda220840689871817e241fbc0ef5ade5'
-    oldFile: !uuid 'a1f2a20f043cd1ae3fee7ac792b121fd99d28c07'
-  /src/api:
-    newFile: !uuid 'ee1e7b1c8fb76597af2b37fa64d84f8bb37d33f5'
-    oldFile: !uuid 'b601d1a99ea2bd26fc5064d4559bbce09e6794b9'
-  /src/api/http.ts:
-    newFile: !uuid '33950baa903b451e85502d46e1a8fb63ea2461b6'
-    oldFile: !uuid 'a122d603506790010d542d4150053af7daf95009'
-  /src/utils:
-    newFile: !uuid '960fedf73e8734ca747c76ce8ce252fffca93c8e'
-    oldFile: !uuid '66f1eb6475d2499c44bced46aa97d62274deb87a'
-  /src/utils/utils.ts:
-    newFile: !uuid '31f23b066a4728dcfda6d4bbf98d69f287bac1b9'
-    oldFile: !uuid '95203154bdab03065798a5c1f48bd542fcd6a9f0'
-gitCommitId: !uuid 'aef798c382053797a8498fe146b230a9f486d364'
+    newFile: !uuid '2aeba1daecde8e049867ff5c05cccb6b41f7594b'
+    oldFile: !uuid 'bd534babda220840689871817e241fbc0ef5ade5'
+  /src/packages:
+    newFile: !uuid 'aa7a6dc518ff9fd8a634632a109d457741690014'
+    oldFile: !uuid '3f01193b008b2ec0a13a65de782ab5bfff352e5b'
+  /src/packages/components:
+    newFile: !uuid '3619ebb8645587f1476f5fd00ede992426644d3b'
+    oldFile: !uuid '0443a6f7b32b1099e9f196c8e25ecca0304fd63c'
+  /src/packages/components/Charts:
+    newFile: !uuid 'abf217018f413494fade676e0ffc1293d47678a7'
+    oldFile: !uuid '65e82555f1d334e1e23aaf4cb635329136079d26'
+  /src/packages/components/Charts/Maps:
+    newFile: !uuid '1654f5ac69fa65ab975d475625b57b9ec9b02656'
+    oldFile: !uuid '34a03b3e3ce1b1ad6ff52c7cc1a02a772131f63f'
+  /src/packages/components/Charts/Maps/MapBase:
+    newFile: !uuid '2bb21dbc04bd561086a0915353b55698e62195d1'
+    oldFile: !uuid '772ff9525f55e421990e3da2f5dd79afaec95132'
+  /src/packages/components/Charts/Maps/MapBase/index.vue:
+    newFile: !uuid '0b3baee4c430d5d08b5b94e6491ae0b6d82b871f'
+    oldFile: !uuid '7a66753d0e20869b73d912fb8ee0ac2dadc4d5b2'
+gitCommitId: !uuid 'dd0170eecc841db6512aa945e43d4caf32d62ace'
 renames: {
   }
-revisionId: 590
+revisionId: 591
