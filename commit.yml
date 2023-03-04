@@ -2,16 +2,49 @@
 branches: {
   }
 fileChange:
-  /README.md:
-    newFile: !uuid '3dbf5d5549954f7e195c9e8aed5199769f9799d9'
-    oldFile: !uuid '99226df5f9bdcb01c2b636110f761879043ada51'
-  /readme:
-    newFile: !uuid 'd37c9852dc0540b70c57f7d233dfbc22e436b234'
-    oldFile: !uuid '8e6c85e99665cf3165f0c9db6d7830544500cca9'
-  /readme/go-view-echarts-color.png:
-    newFile: !uuid '73eb21252fde533b7e87a3ff9ae4e6ec98e0c618'
+  /src:
+    newFile: !uuid '95da1ba165f8231825538edd68499aaeb1f185d9'
+    oldFile: !uuid '98a9d9914b3126eee51be1828f3ba64bee3df622'
+  /src/packages:
+    newFile: !uuid '60df8dbd5c8edbc4026bcc117f8005a9e62554c2'
+    oldFile: !uuid '3f01193b008b2ec0a13a65de782ab5bfff352e5b'
+  /src/packages/components:
+    newFile: !uuid '25d616cacc3f90efcb5bb141b631da0cec205f68'
+    oldFile: !uuid '0443a6f7b32b1099e9f196c8e25ecca0304fd63c'
+  /src/packages/components/Informations:
+    newFile: !uuid '06af23e13d199e6e9164fc2ff096ecdc00a2b274'
+    oldFile: !uuid '713eb1ff006bef03068f055de0bbfe492b31251a'
+  /src/packages/components/Informations/Mores:
+    newFile: !uuid 'ec3df9e18f0c50180a636ed019b1cc1e7ad634ec'
+    oldFile: !uuid '95afc29e198108f63a3099b72010d0041b93f3d9'
+  /src/packages/components/Informations/Mores/Carousel:
+    newFile: !uuid 'e961e693b1ffc6a1ea6c8bef5117ba758188be40'
     oldFile: null
-gitCommitId: !uuid '2d7b34ab51b20d0a57557fa4d83d0571510b355e'
+  /src/packages/components/Informations/Mores/Carousel/config.ts:
+    newFile: !uuid '78a6f2849a0bc9777dc64872460f7d348fef5dca'
+    oldFile: null
+  /src/packages/components/Informations/Mores/Carousel/config.vue:
+    newFile: !uuid 'da3f7492c24542a19c6b0bcc6a037ff8a780f411'
+    oldFile: null
+  /src/packages/components/Informations/Mores/Carousel/images:
+    newFile: !uuid '8bed609009a9835c19bb4032ea98699afd602904'
+    oldFile: null
+  /src/packages/components/Informations/Mores/Carousel/images/carousel.png:
+    newFile: !uuid '95f366b1ca29657df8a28c3494093c7ed2ce415b'
+    oldFile: null
+  /src/packages/components/Informations/Mores/Carousel/images/carousel2.png:
+    newFile: !uuid 'd8a6859fb678774df90133db43d778b87b4b5882'
+    oldFile: null
+  /src/packages/components/Informations/Mores/Carousel/index.ts:
+    newFile: !uuid 'fbb8d35cda3d9d9411cad5441aba56e81f3141dd'
+    oldFile: null
+  /src/packages/components/Informations/Mores/Carousel/index.vue:
+    newFile: !uuid '3018fbc209b960f62fc6dc084751c1be22923fb8'
+    oldFile: null
+  /src/packages/components/Informations/Mores/index.ts:
+    newFile: !uuid '0e842ce09929f985aa5fb1ba7e2f6070c543b514'
+    oldFile: !uuid '8fadc44153aceb462180bffac2b0fd63b1f6e93f'
+gitCommitId: !uuid 'b45b2107f1ed6f154981339821e6580a7f153b24'
 renames: {
   }
-revisionId: 654
+revisionId: 655
