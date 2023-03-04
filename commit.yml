@@ -2,10 +2,22 @@
 branches: {
   }
 fileChange:
-  /package.json:
-    newFile: !uuid '839f55b7f26c0c2f5f9ecb14383f157b20cafc16'
-    oldFile: !uuid '2f6eb0f7ef67980175b842092170dc36c361378b'
-gitCommitId: !uuid '032956e03b9219c727c4ccf75469beae12efcb81'
+  /src:
+    newFile: !uuid 'd02dc36033ddeb45bb1033b4426faa9777bf6fdf'
+    oldFile: !uuid '2ce5d140fc27689ff0bc469122bf7116e28c3336'
+  /src/layout:
+    newFile: !uuid 'ee022793ded9fa0ef2816525691fc055bd5fd1cb'
+    oldFile: !uuid '0169a8cfa5b45b1bf6a915cef2b20d2d466bf684'
+  /src/layout/components:
+    newFile: !uuid 'b9d72a42f109e7ed9efb6bfeeb39a92c142d88ff'
+    oldFile: !uuid '5ae1c3242b09cf8da1a77d3654da9b1a488e1eea'
+  /src/layout/components/LayoutHeader:
+    newFile: !uuid '523d25fc08cd94796b58c12e666227eeb0098986'
+    oldFile: !uuid '78512144b3bd6e93d3e29d5fc096cdd2b200d113'
+  /src/layout/components/LayoutHeader/index.vue:
+    newFile: !uuid 'd7bf233e4ba2c7ba4558b7add787577134ca5496'
+    oldFile: !uuid '718a92824323d6cddbe5691615c92f025154b5f7'
+gitCommitId: !uuid 'b5738f5cf46be5c22527327aec710627fe882645'
 renames: {
   }
-revisionId: 1340
+revisionId: 1341
