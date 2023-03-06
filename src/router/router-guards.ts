@@ -13,6 +13,11 @@ const routerAllowList = [
 export function createRouterGuards(router: Router) {
   // 前置
   router.beforeEach(async (to, from, next) => {
+    // http://localhost:3000/#/chart/preview/792622755697790976?t=123
+    // 把外部动态参数放入sessionStorage，后续API动态接口可以用sessionStorage拼接参数
+    for (let queryKey in to.query) {
+      window.sessionStorage.setItem(queryKey,<string>to.query[queryKey])
+    }
     const Loading = window['$loading'];
     Loading && Loading.start();
     const isErrorPage = router.getRoutes().findIndex((item) => item.name === to.name);
