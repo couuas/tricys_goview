@@ -169,7 +169,24 @@ export const fetchRouteParams = () => {
  */
 export const fetchRouteParamsLocation = () => {
   try {
-    return document.location.hash.split('/').pop() || ''
+    // http://localhost:3000/#/chart/preview/792622755697790976?t=123
+    // 修正大屏预览界面，添加query参数的时候ID获取异常。
+    const url = document.location.hash
+    const queryIndex = url.indexOf('?')
+    if (queryIndex > 0) {
+      const queryUrl = url.substring(queryIndex+1)
+      const queryParams = queryUrl.split('&')
+      // 并把参数放入sessionStorage，后续动态接口可以使用
+      // 例如请求参数中使用javascript: return window.sessionStorage.getItem('t')
+      queryParams.forEach((str: string) => {
+        const kv = str.split('=')
+        if (kv.length === 2) window.sessionStorage.setItem(kv[0], kv[1])
+      })
+      const uri = url.substring(0, queryIndex)
+      return uri.split('/').pop() || ''
+    } else {
+      return url.split('/').pop() || ''
+    }
   } catch (error) {
     window['$message'].warning('查询路由信息失败，请联系管理员！')
     return ''
@@ -203,7 +220,7 @@ export const loginCheck = () => {
 
 /**
  * * 预览地址
- * @returns 
+ * @returns
  */
  export const previewPath = (id?: string | number) => {
   const { origin, pathname } = document.location
