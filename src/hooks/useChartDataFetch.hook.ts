@@ -1,4 +1,4 @@
-import { ref, toRefs, toRaw } from 'vue'
+import { ref, toRefs, toRaw, watch } from 'vue'
 import type VChart from 'vue-echarts'
 import { customizeHttp } from '@/api/http'
 import { useChartDataPondFetch } from '@/hooks/'
@@ -89,6 +89,18 @@ export const useChartDataFetch = (
 
         // 立即调用
         fetchFn()
+
+        // 组件交互处理监听
+        watch(
+          () => targetComponent.request,
+          () => {
+            fetchFn()
+          },
+          {
+            deep: true
+          }
+        )
+
         // 定时时间
         const time = targetInterval && targetInterval.value ? targetInterval.value : globalRequestInterval.value
         // 单位
