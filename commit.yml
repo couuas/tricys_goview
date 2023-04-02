@@ -2,46 +2,10 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid '57e298ef525d95336fc5aaa25801fcb7982651d4'
-    oldFile: !uuid 'd7b5a4e916e3ec8f5b9377f4910c5736fefc4a2b'
-  /src/packages:
-    newFile: !uuid '30ede1b2cddca5a7ad174c6cfca6b45127b4dcf1'
-    oldFile: !uuid '02a01308c97304c2fde3ada91b19c5291ceba327'
-  /src/packages/components:
-    newFile: !uuid 'aeebc2fc8d909b0a4756f0d59b84f1327e2648de'
-    oldFile: !uuid '040c9a4f77f0e50e46e18cdf3d81e076c8855e15'
-  /src/packages/components/Informations:
-    newFile: !uuid '1a8d999fafcd1978182cb7174d543a9294e4dc87'
-    oldFile: !uuid '8d9ebb093968930f900cd51026399c0eadfa92fe'
-  /src/packages/components/Informations/Mores:
-    newFile: !uuid '6c967f3e365b48c04f55652b4b7231b3fd985fd3'
-    oldFile: !uuid '41513dbd03782e43ae329eef0866ae4f48d89d25'
-  /src/packages/components/Informations/Mores/Carousel:
-    newFile: null
-    oldFile: !uuid 'e961e693b1ffc6a1ea6c8bef5117ba758188be40'
-  /src/packages/components/Informations/Mores/Carousel/config.ts:
-    newFile: null
-    oldFile: !uuid '78a6f2849a0bc9777dc64872460f7d348fef5dca'
-  /src/packages/components/Informations/Mores/Carousel/config.vue:
-    newFile: null
-    oldFile: !uuid 'da3f7492c24542a19c6b0bcc6a037ff8a780f411'
-  /src/packages/components/Informations/Mores/Carousel/images:
-    newFile: null
-    oldFile: !uuid '8bed609009a9835c19bb4032ea98699afd602904'
-  /src/packages/components/Informations/Mores/Carousel/images/carousel.png:
-    newFile: null
-    oldFile: !uuid '95f366b1ca29657df8a28c3494093c7ed2ce415b'
-  /src/packages/components/Informations/Mores/Carousel/images/carousel2.png:
-    newFile: null
-    oldFile: !uuid 'd8a6859fb678774df90133db43d778b87b4b5882'
-  /src/packages/components/Informations/Mores/Carousel/index.ts:
-    newFile: null
-    oldFile: !uuid 'fbb8d35cda3d9d9411cad5441aba56e81f3141dd'
-  /src/packages/components/Informations/Mores/Carousel/index.vue:
-    newFile: null
-    oldFile: !uuid '3018fbc209b960f62fc6dc084751c1be22923fb8'
-gitCommitId: !uuid '3c3cdbff91347d72b381f827dc5c44564f399d0f'
+  /package.json:
+    newFile: !uuid '0cf5e8398d2a6812bb843c84ee179d514959e47a'
+    oldFile: !uuid 'f680c3d82c94656b294f0223cf739c5a80d3d54b'
+gitCommitId: !uuid '0e97a448bfc1d87874855ce43d2b995241b47f95'
 renames: {
   }
-revisionId: 662
+revisionId: 663
