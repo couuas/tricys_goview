@@ -2,28 +2,10 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid '278d36175b90798eece697087a39be03c3921c29'
-    oldFile: !uuid 'd033e8e0c516520a53fec8bb94691a1483160fe1'
-  /src/packages:
-    newFile: !uuid '549c2af5a5b7460348027f41d70d12c6b4536607'
-    oldFile: !uuid 'd8575f450351dc5348938e22686bb87f56461712'
-  /src/packages/components:
-    newFile: !uuid '5965bdc07dbf3ada0aea00f14ce3e11ad2158fd0'
-    oldFile: !uuid '97d33fcac45f020b1fa18d252df5d07268db23cf'
-  /src/packages/components/Charts:
-    newFile: !uuid 'c823efd00a35340cf2784599fda06a1de1ab0e38'
-    oldFile: !uuid 'ab3e69d38516818a8959903f9affd2a2475d2e90'
-  /src/packages/components/Charts/Bars:
-    newFile: !uuid '650b0e1be74c39b61d5fd670e31ad3549087860b'
-    oldFile: !uuid '8ea0739dd26430a206eb39097cb9855363a6af87'
-  /src/packages/components/Charts/Bars/BarCommon:
-    newFile: !uuid 'eeb19f2d1ac4339464be734fc2fb9f240b31f896'
-    oldFile: !uuid '7ee07ca648b009bd869ed686c030bc127ab460cc'
-  /src/packages/components/Charts/Bars/BarCommon/index.vue:
-    newFile: !uuid 'd4daecbc45aff044cb282e3ce177a9d20ed0a9e1'
-    oldFile: !uuid 'f10a5d14965708ff0757d9f43b5b690cafa439ab'
-gitCommitId: !uuid '36f287c5deab94a104ad5969804312a719058751'
+  /README.md:
+    newFile: !uuid '197e274d5bf5c9afaaa57b5928e80d19af5aee47'
+    oldFile: !uuid '3dbf5d5549954f7e195c9e8aed5199769f9799d9'
+gitCommitId: !uuid '504782d875c038ab81af621466abe4c55d79762f'
 renames: {
   }
-revisionId: 666
+revisionId: 667
