@@ -39,8 +39,8 @@ const onChange = (v: number | number[]) => {
       props.chartConfig,
       useChartEditStore,
       {
-        [ComponentInteractParamsEnum.DATE_START]: v[0] | dayjs().valueOf(),
-        [ComponentInteractParamsEnum.DATE_END]: v[1] | dayjs().valueOf(),
+        [ComponentInteractParamsEnum.DATE_START]: v[0],
+        [ComponentInteractParamsEnum.DATE_END]: v[1],
         [ComponentInteractParamsEnum.DATE_RANGE]: `${v[0]}-${v[1]}`
       },
       InteractEventOn.CHANGE
