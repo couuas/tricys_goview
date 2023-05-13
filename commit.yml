@@ -2,16 +2,10 @@
 branches: {
   }
 fileChange:
-  /readme:
-    newFile: !uuid 'ea96e3b8ae8632f204d9371ed49d744f2fb09901'
-    oldFile: !uuid '09bc9d701e4075d4f0db656939b2a9829b864f64'
-  /readme/sponsors:
-    newFile: !uuid '5030eb968c7af3f95081b98da2fdeff3707b7ac5'
-    oldFile: !uuid '741f4bf5117d050228ad8c964903cb71d3eb9600'
-  /readme/sponsors/fb-banner.gif:
-    newFile: !uuid '811bbc37be21bd7a1a64bc481fef32413a6d521e'
-    oldFile: !uuid '26dc72ea502b91977b4a8c3857c71f16481a149c'
-gitCommitId: !uuid '71fa42e8d75aa91e43b9b7f3f4e8988611acd8fc'
+  /README.md:
+    newFile: !uuid '28c79f39720cf47e1b6f386d4094cdcfd6c65761'
+    oldFile: !uuid 'f19f3327a4cae6a5e947e13316e8be5421498306'
+gitCommitId: !uuid '3e5bd01a2938d7a67c921551240ec763457b5ffc'
 renames: {
   }
-revisionId: 675
+revisionId: 676
