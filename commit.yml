@@ -3,21 +3,9 @@ branches: {
   }
 fileChange:
   /README.md:
-    newFile: !uuid '1e159f1e2859249221f7746da70d7a11e77d58d0'
-    oldFile: !uuid '197e274d5bf5c9afaaa57b5928e80d19af5aee47'
-  /readme:
-    newFile: !uuid '09bc9d701e4075d4f0db656939b2a9829b864f64'
-    oldFile: !uuid 'd37c9852dc0540b70c57f7d233dfbc22e436b234'
-  /readme/sponsors:
-    newFile: !uuid '741f4bf5117d050228ad8c964903cb71d3eb9600'
-    oldFile: !uuid 'c3eeb24730e3c289df0caac756d82c43b05a2861'
-  /readme/sponsors/fb-banner.gif:
-    newFile: !uuid '26dc72ea502b91977b4a8c3857c71f16481a149c'
-    oldFile: null
-  /readme/sponsors/zyplayer-banner.png:
-    newFile: !uuid '40dcf2a4b964f30eb773215ca674043c2267b81e'
-    oldFile: null
-gitCommitId: !uuid '55f7300a4c4ac1334d64d636867b6d9a532ecace'
+    newFile: !uuid 'f19f3327a4cae6a5e947e13316e8be5421498306'
+    oldFile: !uuid '1e159f1e2859249221f7746da70d7a11e77d58d0'
+gitCommitId: !uuid '5238b0d9b310f8ea5b8729d5b81e4a18f37744fa'
 renames: {
   }
-revisionId: 673
+revisionId: 674
