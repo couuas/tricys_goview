@@ -11,6 +11,7 @@ export const includes = ['legend', 'xAxis', 'yAxis', 'grid']
 const options = {
   tooltip: {
     show: true,
+    smooth: false,
     trigger: 'axis',
     axisPointer: {
       type: 'line'

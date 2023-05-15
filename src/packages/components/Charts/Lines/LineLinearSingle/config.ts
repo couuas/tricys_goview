@@ -27,6 +27,7 @@ export const option = {
   series: [
     {
       type: 'line',
+      smooth: true,
       symbolSize: 5, //设定实心点的大小
       lineStyle: {
         type: 'solid',
