@@ -38,6 +38,12 @@
           :options="lineConf.lineStyle.type"
        ></n-select>
       </SettingItem>
+      <SettingItem>
+        <n-space>
+          <n-switch v-model:value="item.smooth" size="small"/>
+          <n-text>平滑曲线</n-text>
+        </n-space>
+      </SettingItem>
     </SettingItemBox>
     <SettingItemBox name="实心点">
       <SettingItem name="大小">
