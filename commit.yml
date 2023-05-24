@@ -2,10 +2,34 @@
 branches: {
   }
 fileChange:
-  /README.md:
-    newFile: !uuid '28c79f39720cf47e1b6f386d4094cdcfd6c65761'
-    oldFile: !uuid 'f19f3327a4cae6a5e947e13316e8be5421498306'
-gitCommitId: !uuid '3e5bd01a2938d7a67c921551240ec763457b5ffc'
+  /src:
+    newFile: !uuid '8e848f65b6fb28f3f3ed782ee163c3ebce321a37'
+    oldFile: !uuid '435dd302e71b28d79bbb67e8dfe70926486e652f'
+  /src/packages:
+    newFile: !uuid 'd005abf5fabbb39941e9f81dc5e7f24becc635b9'
+    oldFile: !uuid '350f5110e0a929415cb9803cf9c115bf11064b82'
+  /src/packages/components:
+    newFile: !uuid 'd9329229060bb057f474b3df6037d4bb9055a124'
+    oldFile: !uuid 'f62eb4f9f5521fa7002eab9a80e2d621782c017d'
+  /src/packages/components/Charts:
+    newFile: !uuid 'abdc3de2b18c2000b7f740ddbf176ac61a04e2d8'
+    oldFile: !uuid 'c823efd00a35340cf2784599fda06a1de1ab0e38'
+  /src/packages/components/Charts/Maps:
+    newFile: !uuid '43278da3f1e748a989366eb8cb69740b3c38e96a'
+    oldFile: !uuid '55d5f78e94d03e227a263f843582cc498cecdadf'
+  /src/packages/components/Charts/Maps/MapAmap:
+    newFile: !uuid 'f7614e9ef8ae04db38acd103c491b30f64169c19'
+    oldFile: !uuid '02a681d0e8c4f25e335e25770a15ffa7980cd571'
+  /src/packages/components/Charts/Maps/MapAmap/config.ts:
+    newFile: !uuid 'a7ba4ac9bfdad41bbe1df47d2c10ceeed2ee4281'
+    oldFile: !uuid '97bf903c34f8d8fcfa9e5d70733710e9712473ea'
+  /src/packages/components/Charts/Maps/MapAmap/config.vue:
+    newFile: !uuid '8d8936b51a013e6c600a43fc759cfe1861bba8d7'
+    oldFile: !uuid 'be3864bc3c2ef0b220b930a3f102559848635e94'
+  /src/packages/components/Charts/Maps/MapAmap/index.vue:
+    newFile: !uuid '6e6786348c3558259d1c1319f51f18a12e82c6b2'
+    oldFile: !uuid '741013cb14a562691a3eca3a6495e1c91a55eeb2'
+gitCommitId: !uuid '9f63f48121836a4f5c6bdc3c9c4a52a0f3185e0e'
 renames: {
   }
-revisionId: 676
+revisionId: 677
