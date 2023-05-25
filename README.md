@@ -73,7 +73,7 @@
 
 Cloud IDE 代码在线预览地址：[https://idegitee.com/dromara/go-view](https://idegitee.com/dromara/go-view)
 
-#### 🤯 后端项目看这里!
+后端项目 gitee 地址：[https://gitee.com/MTrun/go-view-serve](https://gitee.com/MTrun/go-view-serve)
 
 后端地址（社区实现，仅供参考）：
 
@@ -129,15 +129,15 @@ Cloud IDE 代码在线预览地址：[https://idegitee.com/dromara/go-view](http
 | 名称                | 版本  | 名称        | 版本   |
 | ------------------- | ----- | ----------- | ------ |
 | Vue                 | 3.2.x | TypeScript4 | 4.6.x  |
-| Vite                | 2.9.x | NaiveUI     | 2.27.x |
+| Vite                | 4.2.x | NaiveUI     | 2.34.x |
 | ECharts             | 5.3.x | Pinia       | 2.0.x  |
-| 详见 `package.json` | 😁    | 🥰          | 🤗     |
+| 详见 `package.json` | 😁     | 🥰           | 🤗      |
 
 开发环境:
 
 | 名称 | 版本    | 名称    | 版本  |
 | ---- | ------- | ------- | ----- |
-| node | 16.14.x | npm     | 8.5.x |
+| node | 16.16.x | npm     | 8.5.x |
 | pnpm | 7.1.x   | windows | 11    |
 
 已完成图表：
@@ -147,12 +147,12 @@ Cloud IDE 代码在线预览地址：[https://idegitee.com/dromara/go-view](http
 | 图表   | 柱状图           | 横向柱状图 | 折线图         | 单/多 折线面积图(渐变色) |
 | \*     | 饼图             | 环形图     | 水球图         | 雷达图                   |
 | \*     | NaiveUI 多种进度 | 散点图     | 对数回归散点图 | 热力图                   |
-| \*     | 漏斗图           | 中国地图   | 高德地图       | 🦊                       |
+| \*     | 漏斗图           | 中国地图   | 高德地图       | 🦊                        |
 | 信息   | 文字             | 渐变文字   | 词云           | 嵌套网页                 |
-| \*     | 图片             | 视频       | 😺             | 🐯                       |
-| 列表   | 滚动排名列表     | 滚动表格   | 🐮             | 🐐                       |
+| \*     | 图片             | 视频       | 😺              | 🐯                        |
+| 列表   | 滚动排名列表     | 滚动表格   | 🐮              | 🐐                        |
 | 小组件 | 边框-01~13       | 装饰-01~05 | 数字翻牌       | 通用时间                 |
-| \*     | 数字计数         | 倒计时     | 时钟           | 🦁                       |
+| \*     | 数字计数         | 倒计时     | 时钟           | 🦁                        |
 
 ## 浏览器支持
 
