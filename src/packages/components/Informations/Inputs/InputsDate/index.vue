@@ -61,7 +61,7 @@ watch(
   (newData: number | number[]) => {
     option.dataset = newData
     // 关联目标组件首次请求带上默认内容
-    onChange(newData)
+    onChange(option.dataset)
   },
   {
     immediate: true
@@ -80,7 +80,7 @@ watch(
       option.dataset = dayjs().add(newData, 'day').valueOf()
     }
     // 关联目标组件首次请求带上默认内容
-    onChange(newData)
+    onChange(option.dataset)
   },
   {
     immediate: true
