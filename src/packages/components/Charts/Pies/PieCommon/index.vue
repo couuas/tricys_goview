@@ -134,7 +134,9 @@ watch(
 )
 
 const { vChartRef } = useChartDataFetch(props.chartConfig, useChartEditStore, (newData: typeof dataJson) => {
-  addPieInterval(newData)
+  if (props.chartConfig.option.isCarousel) {
+    addPieInterval(newData)
+  }
 })
 
 onMounted(() => {
