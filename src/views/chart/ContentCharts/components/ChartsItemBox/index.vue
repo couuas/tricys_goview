@@ -18,18 +18,14 @@
       >
         <div class="list-header">
           <mac-os-control-btn class="list-header-control-btn" :mini="true" :disabled="true"></mac-os-control-btn>
-          <n-text class="list-header-text" depth="3">
-            <n-ellipsis>{{ item.title }}</n-ellipsis>
-          </n-text>
+          <span class="list-header-text">{{ item.title }}</span>
         </div>
         <div class="list-center go-flex-center go-transition" draggable="true">
           <Icon v-if="item.icon" class="list-img" :icon="item.icon" color="#999" width="48" />
           <chart-glob-image v-else class="list-img" :chartConfig="item" />
         </div>
         <div class="list-bottom">
-          <n-text class="list-bottom-text" depth="3">
-            <n-ellipsis style="max-width: 90%">{{ item.title }}</n-ellipsis>
-          </n-text>
+          <span class="list-bottom-text">{{ item.title }}</span>
         </div>
         <!-- 遮罩 -->
         <div v-if="item.disabled" class="list-model"></div>
@@ -206,12 +202,21 @@ $halfCenterHeight: 50px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 2px 15px;
+      padding: 2px 6px 2px 15px;
       @include fetch-bg-color('background-color3');
       &-text {
         font-size: 12px;
         margin-left: 8px;
         user-select: none;
+        white-space: nowrap;
+        flex: 1;
+        width: 0;
+        text-align: right;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: inline-block;
+        transition: color .3s var(--n-bezier);
+        color: #99999a;
       }
     }
     .list-center {
@@ -231,6 +236,13 @@ $halfCenterHeight: 50px;
       .list-bottom-text {
         font-size: 12px;
         padding-left: 5px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        display: inline-block;
+        transition: color .3s var(--n-bezier);
+        color: #99999a;
+        max-width: 90%;
       }
     }
     .list-model {
@@ -294,7 +306,8 @@ $halfCenterHeight: 50px;
       }
     }
     .list-bottom {
-      display: block;
+      display: flex;
+      align-items: center;
     }
   }
   /* 缩小展示 */

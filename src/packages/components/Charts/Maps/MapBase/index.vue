@@ -1,12 +1,23 @@
 <template>
-  <v-chart ref="vChartRef" :init-options="initOptions" :theme="themeColor" :option="option.value" :manual-update="isPreview()" autoresize>
+  <div>
+    <n-icon 
+    v-if="(enter && levelHistory.length !== 0) || (enter && !isPreview())"
+    :color="backColor"
+    @click="backLevel"
+    :size="backSize" class="back-icon">
+      <ArrowBackIcon />
+    </n-icon>
+    <v-chart ref="vChartRef" :init-options="initOptions" :theme="themeColor" :option="option.value" :manual-update="isPreview()" autoresize @click="chartPEvents">
   </v-chart>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { PropType, reactive, watch, ref, nextTick } from 'vue'
+
+import { PropType, reactive, watch, ref, nextTick, toRefs } from 'vue'
 import config, { includes } from './config'
 import VChart from 'vue-echarts'
+import { icon } from '@/plugins'
 import { useCanvasInitOptions } from '@/hooks/useCanvasInitOptions.hook'
 import { use, registerMap } from 'echarts/core'
 import { EffectScatterChart, MapChart } from 'echarts/charts'
@@ -16,7 +27,11 @@ import { mergeTheme, setOption } from '@/packages/public/chart'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { isPreview } from '@/utils'
 import mapJsonWithoutHainanIsLands from './mapWithoutHainanIsLands.json'
+import mapChinaJson from './mapGeojson/china.json'
 import { DatasetComponent, GridComponent, TooltipComponent, GeoComponent, VisualMapComponent } from 'echarts/components'
+
+const { ArrowBackIcon } = icon.ionicons5
+let levelHistory: any = ref([])
 
 const props = defineProps({
   themeSetting: {
@@ -32,6 +47,8 @@ const props = defineProps({
     required: true
   }
 })
+
+const { backColor, backSize, enter } = toRefs(props.chartConfig.option.mapRegion)
 
 const initOptions = useCanvasInitOptions(props.chartConfig.option, props.themeSetting)
 
@@ -87,6 +104,16 @@ const vEchartsSetOption = () => {
 const dataSetHandle = async (dataset: any) => {
   props.chartConfig.option.series.forEach((item: any) => {
     if (item.type === 'effectScatter' && dataset.point) item.data = dataset.point
+    else if (item.type === 'lines' && dataset.line) {
+      item.data = dataset.line.map((it: any) => {
+        return {
+          ...it,
+          lineStyle: {
+            color: props.chartConfig.option.series[2].lineStyle.normal.color
+          }
+        }
+      })
+    }
     else if (item.type === 'map' && dataset.map) item.data = dataset.map
   })
   if (dataset.pieces) props.chartConfig.option.visualMap.pieces = dataset.pieces
@@ -101,6 +128,44 @@ const hainanLandsHandle = async (newData: boolean) => {
     registerMap('china', { geoJSON: mapJsonWithoutHainanIsLands as any, specialAreas: {} })
   }
 }
+
+// 点击区域
+const chartPEvents = (e: any) => {
+  if (!props.chartConfig.option.mapRegion.enter) {
+    return
+  }
+  mapChinaJson.features.forEach((item) => {
+    var pattern = new RegExp(e.name);
+    if (pattern.test(item.properties.name)) {
+      let code = String(item.properties.adcode)
+      levelHistory.value.push(code)
+      checkOrMap(code)
+    }
+  })
+}
+
+// 返回上一级
+const backLevel = () => {
+  levelHistory.value = []
+  if (levelHistory.value.length > 1) {
+    levelHistory.value.pop()
+    const code = levelHistory[levelHistory.value.length -1]
+    checkOrMap(code)
+  } else {
+    checkOrMap('china')
+  }
+}
+
+// 切换地图
+const checkOrMap = async (newData: string) => {
+  await getGeojson(newData)
+  props.chartConfig.option.geo.map = newData
+  props.chartConfig.option.series.forEach((item: any) => {
+    if (item.type === 'map') item.map = newData
+  })
+  vEchartsSetOption()
+}
+
 //监听 dataset 数据发生变化
 watch(
   () => props.chartConfig.option.dataset,
@@ -109,6 +174,17 @@ watch(
   },
   {
     immediate: true,
+    deep: false
+  }
+)
+
+// 监听线的颜色
+watch(
+  () =>  props.chartConfig.option.series[2].lineStyle.normal.color,
+  () => {
+    dataSetHandle(props.chartConfig.option.dataset)
+  },
+  {
     deep: false
   }
 )
@@ -132,14 +208,9 @@ watch(
 //监听地图展示区域发生变化
 watch(
   () => `${props.chartConfig.option.mapRegion.adcode}`,
-  async newData => {
+  newData => {
     try {
-      await getGeojson(newData)
-      props.chartConfig.option.geo.map = newData
-      props.chartConfig.option.series.forEach((item: any) => {
-        if (item.type === 'map') item.map = newData
-      })
-      vEchartsSetOption()
+      checkOrMap(newData)
     } catch (error) {
       console.log(error)
     }
@@ -154,3 +225,13 @@ useChartDataFetch(props.chartConfig, useChartEditStore, (newData: any) => {
   dataSetHandle(newData)
 })
 </script>
+
+<style scope lang="scss">
+.back-icon {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 50;
+}
+</style>
