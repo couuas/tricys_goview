@@ -8,7 +8,11 @@ import {
   RequestParamsObjType
 } from '@/enums/httpEnum'
 import type { RequestGlobalConfigType, RequestConfigType } from '@/store/modules/chartEditStore/chartEditStore.d'
+//新增取消下次请求开始时未完成的上一次请求 --start
+import axios from 'axios';
 
+let cancel:any;
+//新增取消下次请求开始时未完成的上一次请求 --end
 export const get = <T = any>(url: string, params?: object) => {
   return axiosInstance<T>({
     url: url,
@@ -18,13 +22,18 @@ export const get = <T = any>(url: string, params?: object) => {
 }
 
 export const post = <T = any>(url: string, data?: object, headersType?: string) => {
+  if (cancel !== undefined) {
+    cancel();
+  }
   return axiosInstance<T>({
     url: url,
     method: RequestHttpEnum.POST,
     data: data,
     headers: {
       'Content-Type': headersType || ContentTypeEnum.JSON
-    }
+    },
+    //新增取消下次请求开始时未完成的上一次请求
+    cancelToken: new axios.CancelToken(c => cancel = c)
   })
 }
 
@@ -163,6 +172,7 @@ export const customizeHttp = (targetParams: RequestConfigType, globalParams: Req
   params = translateStr(params)
   // form 类型处理
   let formData: FormData = new FormData()
+  formData.set('default', 'defaultData')
   // 类型处理
 
   switch (requestParamsBodyType) {
