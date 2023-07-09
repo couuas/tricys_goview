@@ -3,54 +3,21 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '9386773ea9ddad85ccd0c2a94b30e8024fa594ba'
-    oldFile: !uuid '43749a4c3b3fc8bf5a5b683875d347c5b79c1a9b'
-  /src/styles:
-    newFile: !uuid '06cae392e918708021ab1383a782ebd655a7a0cb'
-    oldFile: !uuid '1c2bea0a6eda9115139d6145227c3244e16d90f2'
-  /src/styles/common:
-    newFile: !uuid '232a6ebd255dd383cd9c3f60625c5580827c6b66'
-    oldFile: !uuid '0e112eb75c532701462d2d79a4d4fd542c926692'
-  /src/styles/common/mixins:
-    newFile: !uuid '953b79851dd8e3dbfe432c5df8060ffff6f38d17'
-    oldFile: !uuid '87e1ffba2916de6fdf4f8413edb853706e0744d1'
-  /src/styles/common/mixins/mixins.scss:
-    newFile: !uuid '38228a91ee252085dc830021b72cabce72e725bd'
-    oldFile: !uuid 'ec6f2ccda38572da5b6529ff203406490995621b'
-  /src/styles/pages:
-    newFile: !uuid '17c50a8e1bc16ba391ba2931e10e5e12e4a82631'
-    oldFile: !uuid 'b782acae4a819b281a6333672a84d9c88948464e'
-  /src/styles/pages/index.scss:
-    newFile: !uuid 'cde2d584333b1c50e0f7f8b12b4ece54b27ca854'
-    oldFile: !uuid 'b8f7272d0eb48214ab44e99841fcf2b05cf23292'
+    newFile: !uuid '880fdc7f425a54ae335e188f1ebe1f7b7523dece'
+    oldFile: !uuid '9386773ea9ddad85ccd0c2a94b30e8024fa594ba'
   /src/views:
-    newFile: !uuid '2a2470a8bc093b24f3f36ae03a022168d862b3e4'
-    oldFile: !uuid 'e2aef8961a916e41436c05a15c7f33d7e8da7367'
+    newFile: !uuid '4d686150edc171921f3818cdd3c88d525862e5ac'
+    oldFile: !uuid '2a2470a8bc093b24f3f36ae03a022168d862b3e4'
   /src/views/preview:
-    newFile: !uuid 'e8c793b28c56794b884805deb5fdf7df0760b92b'
-    oldFile: !uuid 'b50f69bf0147fe142711ba2724d277ca160b6607'
+    newFile: !uuid '5ff2e6f497d408d42a79321fc42155eb2c742c1d'
+    oldFile: !uuid 'e8c793b28c56794b884805deb5fdf7df0760b92b'
   /src/views/preview/hooks:
-    newFile: !uuid '0e822ba39ae5361827472cbbbfbef100878ede26'
-    oldFile: !uuid '8537f541c179f41762250c725ba45b7d62480888'
+    newFile: !uuid 'f2b2c26821e47985d47953a16371fe5a6cb7006a'
+    oldFile: !uuid '0e822ba39ae5361827472cbbbfbef100878ede26'
   /src/views/preview/hooks/useScale.hook.ts:
-    newFile: !uuid '5cad28cd986fe21d213050ebb7bfc5557264a047'
-    oldFile: !uuid 'eccf945eba1dfd9a22d8bac1df54b4979cd482bb'
-  /src/views/preview/suspenseIndex.vue:
-    newFile: !uuid 'bf2c528e6fb00b6f842f20cf8a52bcb8ac87e9ef'
-    oldFile: !uuid '1a1932b90c195169cb915e4f4c3f4828b2cd0f3c'
-  /src/views/preview/utils:
-    newFile: !uuid 'b5fc726372a59eef36162d272c111336bc7ab030'
-    oldFile: !uuid '60074e34eb00360d8e7f646059acf55a26a1eaff'
-  /src/views/preview/utils/drag.ts:
-    newFile: !uuid 'b78bbb5301521721036bb28d8cbbec6c968a4538'
-    oldFile: null
-  /src/views/preview/utils/index.ts:
-    newFile: !uuid 'c5aa120fcd4e629fbf14f777378577be6d1aa602'
-    oldFile: !uuid '1d0be713441a30672ae73c620af3ca9e25ceea39'
-  /src/views/preview/utils/keyboard.ts:
-    newFile: !uuid 'bacaa4e7d8d6681e34fb6c93d25ed909d6ba2393'
-    oldFile: !uuid '0b895ab4a6fe51f39c3f0d9ecdd4cdb4edad942f'
-gitCommitId: !uuid '634f689f07fa8d3c5ce8abb4d7f2db77d5692298'
+    newFile: !uuid '2666f9c8ed590fdcda730deaf23c9c776b3a195a'
+    oldFile: !uuid '5cad28cd986fe21d213050ebb7bfc5557264a047'
+gitCommitId: !uuid 'd6f4f20be0fdfa876514a49542da34dbc696d332'
 renames: {
   }
-revisionId: 610
+revisionId: 611
