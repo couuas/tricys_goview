@@ -7,7 +7,6 @@
 import {ref, computed, watch, PropType, nextTick} from 'vue'
 import VChart from 'vue-echarts'
 import { useCanvasInitOptions } from '@/hooks/useCanvasInitOptions.hook'
-import dataJson from './data.json'
 import { use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
 //引入柱状图 折线图
@@ -18,9 +17,6 @@ import { useChartDataFetch } from '@/hooks'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { isPreview } from '@/utils'
 import { DatasetComponent, GridComponent, TooltipComponent, LegendComponent } from 'echarts/components'
-import isObject from "lodash/isObject";
-import cloneDeep from "lodash/cloneDeep";
-import {seriesItem} from "@/packages/components/Charts/Bars/BarCommon/config";
 
 const props = defineProps({
   themeSetting: {
@@ -42,40 +38,24 @@ const initOptions = useCanvasInitOptions(props.chartConfig.option, props.themeSe
 use([DatasetComponent, CanvasRenderer, BarChart, LineChart, GridComponent, TooltipComponent, LegendComponent])
 
 const replaceMergeArr = ref<string[]>()
+
 const option = computed(() => {
   return mergeTheme(props.chartConfig.option, props.themeSetting, includes)
 })
 
 watch(
     () => props.chartConfig.option.dataset,
-    (newData: { dimensions: any }, oldData) => {
-      try {
-        if (!isObject(newData) || !('dimensions' in newData)) return
-        if (Array.isArray(newData?.dimensions)) {
-          const seriesArr = []
-          // 对oldData进行判断，防止传入错误数据之后对旧维度判断产生干扰
-          // 此处计算的是dimensions的Y轴维度，若是dimensions.length为0或1，则默认为1，排除X轴维度干扰
-          const oldDimensions = Array.isArray(oldData?.dimensions)&&oldData.dimensions.length >= 1 ? oldData.dimensions.length : 1;
-          const newDimensions = newData.dimensions.length >= 1 ? newData.dimensions.length : 1;
-          const dimensionsGap = newDimensions - oldDimensions;
-          if (dimensionsGap < 0) {
-            props.chartConfig.option.series.splice(newDimensions - 1)
-          } else if (dimensionsGap > 0) {
-            if(!oldData || !oldData?.dimensions || !Array.isArray(oldData?.dimensions) || !oldData?.dimensions.length ) {
-              props.chartConfig.option.series=[]
-            }
-            for (let i = 0; i < dimensionsGap; i++) {
-              seriesArr.push(cloneDeep(seriesItem))
-            }
-            props.chartConfig.option.series.push(...seriesArr)
-          }
-          replaceMergeArr.value = ['series']
-          nextTick(() => {
-            replaceMergeArr.value = []
-          })
+    (newData, oldData) => {
+      if (newData.dimensions.length !== oldData.dimensions.length) {
+        const seriesArr = []
+        for (let i = 0; i < newData.dimensions.length - 1; i++) {
+          seriesArr.push(barSeriesItem, lineSeriesItem)
         }
-      } catch (error) {
-        console.log(error)
+        replaceMergeArr.value = ['series']
+        props.chartConfig.option.series = seriesArr
+        nextTick(() => {
+          replaceMergeArr.value = []
+        })
       }
     },
     {
