@@ -2,19 +2,13 @@
 branches: {
   }
 fileChange:
-  /README.md:
-    newFile: !uuid '64c7e4f861b55bc137d3ff43cb719029dba4e47e'
-    oldFile: !uuid '2b896b7936f8cb4840397af710d4d05c306ab6e5'
-  /readme:
-    newFile: !uuid '21f2a8edfa65b8c85d67de4042f3a6cf34dc5c17'
-    oldFile: !uuid 'ea96e3b8ae8632f204d9371ed49d744f2fb09901'
-  /readme/go-view-qq.jpg:
-    newFile: !uuid '204359510d721f8003960a6110caef4c974e023a'
-    oldFile: null
-  /readme/go-view-qq.png:
-    newFile: null
-    oldFile: !uuid '2bfd4b59a703f337fdebaa8ac586b36eac7a4904'
-gitCommitId: !uuid '3101d468ca25d6f88d32764be9f7557799714348'
+  /package.json:
+    newFile: !uuid 'fe72a70630fad373f3b7161476ce47ec24ccd992'
+    oldFile: !uuid '8f2bcd256b31a276ed4e1cf66f93a545e36f80d9'
+  /pnpm-lock.yaml:
+    newFile: !uuid '8d00e0ef4a22f9e235e0bf5654aa34ee0636b2c8'
+    oldFile: !uuid 'e1d3498babb5d1dbd612a7aa6e38bc632594893b'
+gitCommitId: !uuid '3313113446edfc990b7b64164e8e876fcaf67beb'
 renames: {
   }
-revisionId: 687
+revisionId: 688
