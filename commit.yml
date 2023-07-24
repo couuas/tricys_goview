@@ -2,40 +2,19 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid '23b4eda2dd6a4de6316c3dccb24bd47f83fac62a'
-    oldFile: !uuid 'ffc5e94a98683f218ea0747a8480af53e12847ba'
-  /src/hooks:
-    newFile: !uuid '5a9a4e35c2e91365a65da61f0d7feb586e118bfb'
-    oldFile: !uuid '9fc44f26db789a7f2bdae871160912157861c464'
-  /src/hooks/useLifeHandler.hook.ts:
-    newFile: !uuid 'd17184d08f5bd592a16703361faf74cbdbb9fb28'
-    oldFile: !uuid '2412a79a40a33a50ca16714261b7905ff8c2a8d8'
-  /src/views:
-    newFile: !uuid '885b6c815402d1bf9a6ef7a84e756651dd4f098c'
-    oldFile: !uuid 'd02178d54f7ce5a6bc0c081bf4f9128c9f55a893'
-  /src/views/chart:
-    newFile: !uuid '91d3b1c693fff0e4fe81141dfaea01262929d68c'
-    oldFile: !uuid 'f70dd856b26c8cca72781e852068905728d22c40'
-  /src/views/chart/ContentConfigurations:
-    newFile: !uuid 'aacfbfbaf2e46539e9d9b3b9ffd31df8ad88664c'
-    oldFile: !uuid '64d42068feed833979d428f1824775ee3d541b6b'
-  /src/views/chart/ContentConfigurations/components:
-    newFile: !uuid '6f0098a348b5593dc1d4b637de44fbb4ff12ae30'
-    oldFile: !uuid 'fe9068b8c24602c37fd01628b969e4d615675b64'
-  /src/views/chart/ContentConfigurations/components/ChartEvent:
-    newFile: !uuid 'd81812bf617cd1c76db9f6046e2174e182682475'
-    oldFile: !uuid '865fbf98bfa424ed9435d12aa57f98239a0ea643'
-  /src/views/chart/ContentConfigurations/components/ChartEvent/components:
-    newFile: !uuid 'da3736751c16c77d80e52a2f3d59ce69f857ea8a'
-    oldFile: !uuid '0079210ab4f1ede7b90fa172b4fb61d87359ae46'
-  /src/views/chart/ContentConfigurations/components/ChartEvent/components/ChartEventBaseHandle:
-    newFile: !uuid 'c6204093834fb156fdf22b1f626800d4c6fabe1e'
-    oldFile: !uuid 'bde4ebde0de3ab1b25e1bd7e6bbce72205bf1318'
-  /src/views/chart/ContentConfigurations/components/ChartEvent/components/ChartEventBaseHandle/index.vue:
-    newFile: !uuid '81ac710fa4bce7affa54560e68fe3bd41f107aa3'
-    oldFile: !uuid 'cc2a7525bf390582d99b182d9c2a349e4fd11fd6'
-gitCommitId: !uuid '1ed97c8e14dd1608a46e9a338393ec4a9743573c'
+  /README.md:
+    newFile: !uuid '20831b8b3f8d6e050c906b561dd2748cd3a4ae80'
+    oldFile: !uuid '64c7e4f861b55bc137d3ff43cb719029dba4e47e'
+  /readme:
+    newFile: !uuid 'a2e211e552f40478ae9b0f58140b51f7e763bc62'
+    oldFile: !uuid '21f2a8edfa65b8c85d67de4042f3a6cf34dc5c17'
+  /readme/sponsors:
+    newFile: !uuid '39cb7c8e81bc3a19e2b21af505a65805798a1326'
+    oldFile: !uuid '5030eb968c7af3f95081b98da2fdeff3707b7ac5'
+  /readme/sponsors/dandian-banner.png:
+    newFile: !uuid '77b8a4a6c0052e61d3998c8750fbf456949d6782'
+    oldFile: null
+gitCommitId: !uuid 'de2acd992d5c6eb992afb9750996544394f5fc50'
 renames: {
   }
-revisionId: 690
+revisionId: 691
