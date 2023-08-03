@@ -2,19 +2,16 @@
 branches: {
   }
 fileChange:
-  /README.md:
-    newFile: !uuid '8f12377ed128a18c6ad9d7a288a2646e6d4ff919'
-    oldFile: !uuid '20831b8b3f8d6e050c906b561dd2748cd3a4ae80'
   /readme:
-    newFile: !uuid 'e4f534d8ec2a4c808cbe8e0b538b3feb7b0f46c1'
-    oldFile: !uuid 'a2e211e552f40478ae9b0f58140b51f7e763bc62'
+    newFile: !uuid '612555b285705be5951f816f571dd8efa1fa6648'
+    oldFile: !uuid 'e4f534d8ec2a4c808cbe8e0b538b3feb7b0f46c1'
   /readme/sponsors:
-    newFile: !uuid '463e3a8840a7b60629f3d85d5fd0d4ee205924d7'
-    oldFile: !uuid '39cb7c8e81bc3a19e2b21af505a65805798a1326'
-  /readme/sponsors/mdy-banner.png:
-    newFile: !uuid '5c40dec3c7e1e75459e2c1e0efb8da564f272cd2'
-    oldFile: null
-gitCommitId: !uuid '3c9be9151bf54888659af92a3a82f9b38a592760'
+    newFile: !uuid 'a7f221ae41278dbf1c76e32da2a1ff18cdda9f3a'
+    oldFile: !uuid '463e3a8840a7b60629f3d85d5fd0d4ee205924d7'
+  /readme/sponsors/qyy-banner.png:
+    newFile: !uuid '3b855910bf2e49fafb5bc3c70e376eb12c6c01ec'
+    oldFile: !uuid '04e4fefe8499b72a22089ca62cc4d9f964604e09'
+gitCommitId: !uuid '880ac0ce14614f9e3c6b9025b24837b07183431a'
 renames: {
   }
-revisionId: 692
+revisionId: 693
