@@ -3,18 +3,18 @@ branches: {
   }
 fileChange:
   /README.md:
-    newFile: !uuid '20831b8b3f8d6e050c906b561dd2748cd3a4ae80'
-    oldFile: !uuid '64c7e4f861b55bc137d3ff43cb719029dba4e47e'
+    newFile: !uuid '8f12377ed128a18c6ad9d7a288a2646e6d4ff919'
+    oldFile: !uuid '20831b8b3f8d6e050c906b561dd2748cd3a4ae80'
   /readme:
-    newFile: !uuid '37b728e570a6b04981e787dc19d614770d4de777'
-    oldFile: !uuid '2d6be0cf0dce568fe886e47c645d4f8b2ca57c66'
+    newFile: !uuid '3098e4e43b2733ab07a3ef7f0a0f52dcc9a4f5e4'
+    oldFile: !uuid '37b728e570a6b04981e787dc19d614770d4de777'
   /readme/sponsors:
-    newFile: !uuid '39cb7c8e81bc3a19e2b21af505a65805798a1326'
-    oldFile: !uuid '5030eb968c7af3f95081b98da2fdeff3707b7ac5'
-  /readme/sponsors/dandian-banner.png:
-    newFile: !uuid '77b8a4a6c0052e61d3998c8750fbf456949d6782'
+    newFile: !uuid '463e3a8840a7b60629f3d85d5fd0d4ee205924d7'
+    oldFile: !uuid '39cb7c8e81bc3a19e2b21af505a65805798a1326'
+  /readme/sponsors/mdy-banner.png:
+    newFile: !uuid '5c40dec3c7e1e75459e2c1e0efb8da564f272cd2'
     oldFile: null
-gitCommitId: !uuid '5bef16665a8d9b5906ec0fbde2c0c67afabf33c1'
+gitCommitId: !uuid '7fd9d339c44d2abf484c03b36ee5d9b1f1d95d0b'
 renames: {
   }
-revisionId: 1374
+revisionId: 1375
