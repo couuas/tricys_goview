@@ -26,6 +26,15 @@ export let packagesList: PackagesType = {
   [PackagesCategoryEnum.ICONS]: IconList
 }
 
+// 组件缓存, 可以大幅度提升组件加载速度
+const componentCacheMap = new Map<string, any>()
+const loadComponent = (filename: string)=>{
+  if (!componentCacheMap.has(filename)) {
+    componentCacheMap.set(filename, import(filename))
+  }
+  return componentCacheMap.get(filename)
+}
+
 /**
  * * 获取目标组件配置信息
  * @param targetData
@@ -35,10 +44,10 @@ export const createComponent = async (targetData: ConfigType) => {
   // redirectComponent 是给图片组件库和图标组件库使用的
   if (redirectComponent) {
     const [packageName, categoryName, keyName] = redirectComponent.split('/')
-    const redirectChart = await import(`./components/${packageName}/${categoryName}/${keyName}/config.ts`)
+    const redirectChart = await loadComponent(`./components/${packageName}/${categoryName}/${keyName}/config.ts`)
     return new redirectChart.default()
   }
-  const chart = await import(`./components/${targetData.package}/${category}/${key}/config.ts`)
+  const chart = await loadComponent(`./components/${targetData.package}/${category}/${key}/config.ts`)
   return new chart.default()
 }
 
