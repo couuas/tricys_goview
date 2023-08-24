@@ -3,15 +3,9 @@ branches: {
   }
 fileChange:
   /README.md:
-    newFile: !uuid 'e9956f76104ce8c8132e9f473626733f726e8ac4'
-    oldFile: !uuid '3efad4126539bbd2915a68cbc5a5007a42e58491'
-  /readme:
-    newFile: !uuid '9bff80de16803888741848afa105d5bf5b8ca4b1'
-    oldFile: !uuid 'ddf06bb054c234df26c189335253a0545f301a87'
-  /readme/logo-poster.png:
-    newFile: !uuid '94258aa6b6625c4d72d8c10e7cc73545bfd58420'
-    oldFile: !uuid '1a6a32b499264450df2e0877133deb1b9dca79d5'
-gitCommitId: !uuid 'a53a6678b78599a75dd4708f2e69b6ebc403b928'
+    newFile: !uuid '42a09aacc22291d6b1817cdc1db6cafa8709d025'
+    oldFile: !uuid 'e9956f76104ce8c8132e9f473626733f726e8ac4'
+gitCommitId: !uuid '66a04660fe25521eb817c5a2b6a83366f449b985'
 renames: {
   }
-revisionId: 1382
+revisionId: 1383
