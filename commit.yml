@@ -3,15 +3,15 @@ branches: {
   }
 fileChange:
   /README.md:
-    newFile: !uuid '3efad4126539bbd2915a68cbc5a5007a42e58491'
-    oldFile: !uuid 'a7400c781cf560b4810100ac8c732424be06138e'
+    newFile: !uuid 'e9956f76104ce8c8132e9f473626733f726e8ac4'
+    oldFile: !uuid '3efad4126539bbd2915a68cbc5a5007a42e58491'
   /readme:
-    newFile: !uuid '5536ce05648adbefb7afff4d91049d2fb4fe2490'
-    oldFile: !uuid '953ba95fe66a0999f360d1a46b952ee59e08e6fe'
-  /readme/GoViewPro.png:
-    newFile: !uuid '75ef89cf989eaf3104d6b59dad4e41a930c62f89'
-    oldFile: null
-gitCommitId: !uuid '67f69f2e0940a6d061e446259447ec31dbc6b376'
+    newFile: !uuid '1382fe7123e7336d52c5d794979a74c516160175'
+    oldFile: !uuid '5536ce05648adbefb7afff4d91049d2fb4fe2490'
+  /readme/logo-poster.png:
+    newFile: !uuid '94258aa6b6625c4d72d8c10e7cc73545bfd58420'
+    oldFile: !uuid '1a6a32b499264450df2e0877133deb1b9dca79d5'
+gitCommitId: !uuid '05879a9c41b17c48355dd96ec32225724829f976'
 renames: {
   }
-revisionId: 698
+revisionId: 699
