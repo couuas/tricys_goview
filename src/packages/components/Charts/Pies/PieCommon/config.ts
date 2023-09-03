@@ -13,7 +13,7 @@ export enum PieTypeEnum {
 }
 
 export const PieTypeObject = {
-  [PieTypeEnum.NORMAL]: 'nomal',
+  [PieTypeEnum.NORMAL]: 'normal',
   [PieTypeEnum.RING]: 'ring',
   [PieTypeEnum.ROSE]: 'rose'
 }
