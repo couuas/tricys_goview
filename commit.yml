@@ -2,34 +2,31 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid '745146d845215321d9d1e4fd33fa23c2c32cd515'
-    oldFile: !uuid '4ab560cfa053c10d2185058747a8f518eb8d0fe8'
-  /src/views:
-    newFile: !uuid '914bc78e83816cb98e155c9b0ee4ff5044f85418'
-    oldFile: !uuid '2f1220c447fdc4f27a111f2e9c93d9051a711e80'
-  /src/views/preview:
-    newFile: !uuid '66ede16a0229bf1e2b40981c60159607af43b964'
-    oldFile: !uuid '41ddd5ee8b973a130bdb95618a1ed6546776ef93'
-  /src/views/preview/components:
-    newFile: !uuid '5217115a6b8b23f0504a04b1bab2734e6085d1cd'
-    oldFile: !uuid '1450209d222b47e8286d4283443acd83c0955602'
-  /src/views/preview/components/PreviewRenderGroup:
-    newFile: !uuid '9d03e0499bbbae17adfc342f5062b9cb5b6cc037'
-    oldFile: !uuid '41923b366def7243413e9b9103b492f7e0daac2a'
-  /src/views/preview/components/PreviewRenderGroup/index.vue:
-    newFile: !uuid '19507fb7145b85d2bfccfa82fb89caa8aef60b67'
-    oldFile: !uuid 'a24e8676cb3576aa29dcff1c90b69e86a28b22eb'
-  /src/views/preview/components/PreviewRenderList:
-    newFile: !uuid '5716dd95929e637753fc5fdb3a4cc45cfa18774a'
-    oldFile: !uuid '86b8b5a997f0d2b6ed8682a3642a95e05fba968d'
-  /src/views/preview/components/PreviewRenderList/index.vue:
-    newFile: !uuid 'd22be72d1c360b104bffb82edde853d5f11ab106'
-    oldFile: !uuid '4d44e678d76841bce5303731488227a79c2fe9a9'
-  /src/views/preview/wrapper.vue:
-    newFile: !uuid '3ed56888529856f8dad939d370c2e8ee9c8d7979'
-    oldFile: !uuid '6a9b9a725949ea474a5dfce1db8e2f3f7a9f97d6'
-gitCommitId: !uuid '94a93618d646554bac63edc0b57412674e5cf856'
+  /README.md:
+    newFile: !uuid '063db8ee9527115f9e43ce4e9462962d0b3503cb'
+    oldFile: !uuid '39852a2e53da4134a9f1d169d358f81b5d7fb755'
+  /readme:
+    newFile: !uuid 'b816f525387901458052f524a18452b2f76ee81c'
+    oldFile: !uuid '1382fe7123e7336d52c5d794979a74c516160175'
+  /readme/sponsors:
+    newFile: !uuid 'b0d5e711b3bff08b2131aa6787c20c2d9e919bec'
+    oldFile: !uuid 'c79cdd3c19bd8c997e0c34c18ea567f41b90ba45'
+  /readme/sponsors/ccflow-banner.png:
+    newFile: !uuid '6849c7c637f1f04d273d3932d351d736012fd702'
+    oldFile: !uuid '7f537a708bf6dc3e18d4245fd33c8248d16d85bd'
+  /readme/sponsors/mdy-banner.png:
+    newFile: !uuid 'd594fbaa2e7dd3f9243975cbc76030109697638d'
+    oldFile: !uuid 'd9a55d1d76a968f7569570e229ed59bb70fa5326'
+  /readme/sponsors/qyy-banner.png:
+    newFile: !uuid 'f2d376577a4e144c0c10d673e4cd84735809f81e'
+    oldFile: !uuid '04e4fefe8499b72a22089ca62cc4d9f964604e09'
+  /readme/sponsors/shaguo-banner.png:
+    newFile: !uuid '08465235d2e8bb7f19b567474e4699c36d4fd310'
+    oldFile: null
+  /readme/sponsors/zyplayer-banner.png:
+    newFile: !uuid 'bfc0ff8cfd979924caf838a430dd8f4bb68261a4'
+    oldFile: !uuid '40dcf2a4b964f30eb773215ca674043c2267b81e'
+gitCommitId: !uuid 'ca6984bec208af59bf985d015c104904a5431e71'
 renames: {
   }
-revisionId: 705
+revisionId: 706
