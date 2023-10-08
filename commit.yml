@@ -2,31 +2,19 @@
 branches: {
   }
 fileChange:
-  /README.md:
-    newFile: !uuid '063db8ee9527115f9e43ce4e9462962d0b3503cb'
-    oldFile: !uuid '39852a2e53da4134a9f1d169d358f81b5d7fb755'
-  /readme:
-    newFile: !uuid 'b816f525387901458052f524a18452b2f76ee81c'
-    oldFile: !uuid '1382fe7123e7336d52c5d794979a74c516160175'
-  /readme/sponsors:
-    newFile: !uuid 'b0d5e711b3bff08b2131aa6787c20c2d9e919bec'
-    oldFile: !uuid 'c79cdd3c19bd8c997e0c34c18ea567f41b90ba45'
-  /readme/sponsors/ccflow-banner.png:
-    newFile: !uuid '6849c7c637f1f04d273d3932d351d736012fd702'
-    oldFile: !uuid '7f537a708bf6dc3e18d4245fd33c8248d16d85bd'
-  /readme/sponsors/mdy-banner.png:
-    newFile: !uuid 'd594fbaa2e7dd3f9243975cbc76030109697638d'
-    oldFile: !uuid 'd9a55d1d76a968f7569570e229ed59bb70fa5326'
-  /readme/sponsors/qyy-banner.png:
-    newFile: !uuid 'f2d376577a4e144c0c10d673e4cd84735809f81e'
-    oldFile: !uuid '04e4fefe8499b72a22089ca62cc4d9f964604e09'
-  /readme/sponsors/shaguo-banner.png:
-    newFile: !uuid '08465235d2e8bb7f19b567474e4699c36d4fd310'
-    oldFile: null
-  /readme/sponsors/zyplayer-banner.png:
-    newFile: !uuid 'bfc0ff8cfd979924caf838a430dd8f4bb68261a4'
-    oldFile: !uuid '40dcf2a4b964f30eb773215ca674043c2267b81e'
-gitCommitId: !uuid 'ca6984bec208af59bf985d015c104904a5431e71'
+  /src:
+    newFile: !uuid '9f7fdf18e9875e311ba013e0e1a7b7df1dce7d6d'
+    oldFile: !uuid '745146d845215321d9d1e4fd33fa23c2c32cd515'
+  /src/views:
+    newFile: !uuid 'd80be56b2f6d233313bbbf9dc0e192c121367dba'
+    oldFile: !uuid '914bc78e83816cb98e155c9b0ee4ff5044f85418'
+  /src/views/preview:
+    newFile: !uuid '031d59fb0c3e1b51b53f30edcbca8f513a961cd7'
+    oldFile: !uuid '66ede16a0229bf1e2b40981c60159607af43b964'
+  /src/views/preview/wrapper.vue:
+    newFile: !uuid 'ef1d4ca396cae45de833562e2f0fc7af530ce27b'
+    oldFile: !uuid '3ed56888529856f8dad939d370c2e8ee9c8d7979'
+gitCommitId: !uuid '72a6fabfee248ca9ee5e96e09f7fe190c09dc400'
 renames: {
   }
-revisionId: 706
+revisionId: 707
