@@ -159,11 +159,11 @@ const dragCanvas = (e: any) => {
 const canvasBox = () => {
   const layoutDom = document.getElementById('go-chart-edit-layout')
   if (layoutDom) {
-    // 此处减去滚动条的宽度和高度 
-    const scrollW = 20
+    // 应该减去的是标尺的厚度，虽然都是20，但是这样更容易让人理解
+    // 如果后面改了标尺厚度这里也不用改
     return {
-      height: layoutDom.clientHeight - scrollW,
-      width: layoutDom.clientWidth - scrollW
+      height: layoutDom.clientHeight - thick,
+      width: layoutDom.clientWidth - thick
     }
   }
   return {
@@ -188,7 +188,12 @@ const canvasPosCenter = () => {
   $app.value.scrollLeft = containerWidth / 2 - width / 2
   $app.value.scrollTop = containerHeight / 2 - height / 2
 }
-
+watch(scale, () => {
+  // 解决首次进来标尺位置不对的问题
+  // 解决每次缩放后标尺位置不对的问题
+  // 直接监听缩放比例的变化，每次重绘标尺组件
+  reDraw()
+}, { immediate: true })
 // 处理主题变化
 watch(
   () => designStore.getDarkTheme,
