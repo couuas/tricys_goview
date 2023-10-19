@@ -188,7 +188,10 @@ const canvasPosCenter = () => {
   $app.value.scrollLeft = containerWidth / 2 - width / 2
   $app.value.scrollTop = containerHeight / 2 - height / 2
 }
-
+// 处理首次进来和缩放变化后标尺比例不正确的问题
+watch(scale, () => {
+  reDraw()
+}, { immediate: true })
 // 处理主题变化
 watch(
   () => designStore.getDarkTheme,
