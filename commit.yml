@@ -3,9 +3,18 @@ branches: {
   }
 fileChange:
   /README.md:
-    newFile: !uuid '5ee4a4714a87bf7d4f3e87bfc3462f8fd23c1431'
-    oldFile: !uuid '063db8ee9527115f9e43ce4e9462962d0b3503cb'
-gitCommitId: !uuid 'e8727162bd70ec90a174360aa9a9dec698b3fc5f'
+    newFile: !uuid 'd2bf760230b2e3fbc63badf28b161723898f68d6'
+    oldFile: !uuid '5ee4a4714a87bf7d4f3e87bfc3462f8fd23c1431'
+  /readme:
+    newFile: !uuid 'd9650b8870ad5cad682bc3968dfe05180d5fc51f'
+    oldFile: !uuid 'b816f525387901458052f524a18452b2f76ee81c'
+  /readme/sponsors:
+    newFile: !uuid 'f06624abd2c78ecac4f59548ad00f9abb26b2c4e'
+    oldFile: !uuid 'b0d5e711b3bff08b2131aa6787c20c2d9e919bec'
+  /readme/sponsors/yuncheng-banner.png:
+    newFile: !uuid '7da1cf6fadb2771d245294167d5ee53535bd48f5'
+    oldFile: null
+gitCommitId: !uuid '84df69161f1cf6ac6ec709822db8ba68f502b477'
 renames: {
   }
-revisionId: 708
+revisionId: 709
