@@ -3,18 +3,15 @@ branches: {
   }
 fileChange:
   /README.md:
-    newFile: !uuid 'dc06f2e945858ac806240b6da0b4fc6d8774214a'
-    oldFile: !uuid 'd2bf760230b2e3fbc63badf28b161723898f68d6'
+    newFile: !uuid '3d662ae0bfe7020b1c8cfe6b945ff3daf453041b'
+    oldFile: !uuid 'dc06f2e945858ac806240b6da0b4fc6d8774214a'
   /readme:
-    newFile: !uuid '2d034bea6a6265619bf80708698f915c8a546e38'
-    oldFile: !uuid '98768d824a3516d920ef75beb2988cbf1fb8662b'
-  /readme/sponsors:
-    newFile: !uuid 'd57c5497531d2190d0e8ddb3c6b46c97221f9c29'
-    oldFile: !uuid 'f06624abd2c78ecac4f59548ad00f9abb26b2c4e'
-  /readme/sponsors/diboot-banner.png:
-    newFile: !uuid '7e83f45c3e326a9586bd20b5008b6707ddaba6cb'
-    oldFile: null
-gitCommitId: !uuid 'c408cf8e1d4085698daedcca600e0820079d9360'
+    newFile: !uuid '540e354897c3ddfb7d6fc7f2580f41593cb792f2'
+    oldFile: !uuid '2d034bea6a6265619bf80708698f915c8a546e38'
+  /readme/go-view-qq.jpg:
+    newFile: !uuid 'f29bc0826cad3ee296446b3a35d586dbfa5b9a3e'
+    oldFile: !uuid '204359510d721f8003960a6110caef4c974e023a'
+gitCommitId: !uuid '6ef2bd6b93838c624ef5ec4525e076bec538eb25'
 renames: {
   }
-revisionId: 1393
+revisionId: 1394
