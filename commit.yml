@@ -2,31 +2,19 @@
 branches: {
   }
 fileChange:
-  /package.json:
-    newFile: !uuid 'd4b4666cc4284306d1f8b7546907df7701e2a4b9'
-    oldFile: !uuid '5096e625501aeb6e49cd83f8400690965205d7ee'
-  /readme:
-    newFile: !uuid 'bef77609eb8f59d86b7e4163b0107967e41a681f'
-    oldFile: !uuid '540e354897c3ddfb7d6fc7f2580f41593cb792f2'
-  /readme/go-view-event.png:
-    newFile: !uuid 'da773e99ad4875b791794cc6d588a3022ffe4ded'
-    oldFile: null
   /src:
-    newFile: !uuid 'b2433a3908013ebd5e40de28a329abc9e5b5d6bf'
-    oldFile: !uuid '8c3b8360cd9f3bff00e90f67e9077a3c57e2c671'
+    newFile: !uuid '54087668bfa2881ee5494d4f705573c38aff7cbb'
+    oldFile: !uuid 'b2433a3908013ebd5e40de28a329abc9e5b5d6bf'
   /src/assets:
-    newFile: !uuid 'fa811eb14435da091e0e09e92af24e3a9107f5e5'
-    oldFile: !uuid '50225265028d64d12dfcca009dc4a84488e5bfdb'
-  /src/assets/images:
-    newFile: !uuid '791e28dcfe20ad3e1656084e05d4b6db9c6d53ec'
-    oldFile: !uuid 'ca1b39533a8c7b6e0ce700548ab69cc9390e4a8d'
-  /src/assets/images/project:
-    newFile: !uuid 'b9a9364fcb8640d1056533578d3a89ee5b32ec37'
+    newFile: !uuid '840a92a3f6b44864da2d4ec0a39495adaee39202'
+    oldFile: !uuid 'fa811eb14435da091e0e09e92af24e3a9107f5e5'
+  /src/assets/videos:
+    newFile: !uuid '8076eb40f5ec08ccad87cf98f44f13f6438c165c'
     oldFile: null
-  /src/assets/images/project/moke-20211219181327.png:
-    newFile: !uuid '023a7e5533baf26c9e383b9571e1b0bebb689187'
+  /src/assets/videos/earth.mp4:
+    newFile: !uuid '75355f6fc283b25362d654a5eb3a87d61d6160c1'
     oldFile: null
-gitCommitId: !uuid 'a93fd3c03612363e062c1aec0a0462f4d9e182b5'
+gitCommitId: !uuid 'def75f0948ad71fe295a016780792b0410f07c6c'
 renames: {
   }
-revisionId: 1397
+revisionId: 1398
