@@ -100,7 +100,7 @@ const btnHandle = async (key: string) => {
 
           const { id } = res.data
           const path = fetchPathByName(ChartEnum.CHART_HOME_NAME, 'href')
-          routerTurnByPath(path, [id], undefined, true)
+          routerTurnByPath(path, [id], undefined, true, true)
           closeHandle()
         }
       } catch (error) {

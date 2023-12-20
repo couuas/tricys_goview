@@ -37,61 +37,61 @@ import axiosInstance from './axios'
 import { RequestHttpEnum, ContentTypeEnum } from '@/enums/httpEnum'
 
 export const get = (url: string, params?: object) => {
-  return axiosInstance({
-    url: url,
-    method: RequestHttpEnum.GET,
-    params: params,
-  })
+    return axiosInstance({
+        url: url,
+        method: RequestHttpEnum.GET,
+        params: params,
+    })
 }
 
 export const post = (url: string, data?: object, headersType?: string) => {
-  return axiosInstance({
-    url: url,
-    method: RequestHttpEnum.POST,
-    data: data,
-    headers: {
-      'Content-Type': headersType || ContentTypeEnum.JSON
-    }
-  })
+    return axiosInstance({
+        url: url,
+        method: RequestHttpEnum.POST,
+        data: data,
+        headers: {
+            'Content-Type': headersType || ContentTypeEnum.JSON
+        }
+    })
 }
 
 export const put = (url: string, data?: object, headersType?: string) => {
-  return axiosInstance({
-    url: url,
-    method: RequestHttpEnum.PUT,
-    data: data,
-    headers: {
-      'Content-Type': headersType || ContentTypeEnum.JSON
-    }
-  })
+    return axiosInstance({
+        url: url,
+        method: RequestHttpEnum.PUT,
+        data: data,
+        headers: {
+            'Content-Type': headersType || ContentTypeEnum.JSON
+        }
+    })
 }
 
 export const del = (url: string, params?: object) => {
-  return axiosInstance({
-    url: url,
-    method: RequestHttpEnum.DELETE,
-    params
-  })
+    return axiosInstance({
+        url: url,
+        method: RequestHttpEnum.DELETE,
+        params
+    })
 }
 
 // 获取请求函数，默认get
 export const http = (type?: RequestHttpEnum) => {
-  switch (type) {
-    case RequestHttpEnum.GET:
-      return get
+    switch (type) {
+        case RequestHttpEnum.GET:
+            return get
 
-    case RequestHttpEnum.POST:
-      return post
+        case RequestHttpEnum.POST:
+            return post
 
-    case RequestHttpEnum.PUT:
-      return put
+        case RequestHttpEnum.PUT:
+            return put
 
-    case RequestHttpEnum.DELETE:
-      return del
+        case RequestHttpEnum.DELETE:
+            return del
 
-    default:
-      return get
-  }
+        default:
+            return get
+    }
 }
 
 ```
@@ -109,11 +109,3 @@ export const http = (type?: RequestHttpEnum) => {
 * build: 影响项目构建或依赖修改
 * style: 不影响程序逻辑的代码修改
 * chore: 不属于以上类型的其他类型(日常事务)
-
-## 交流
-
-QQ 群：1030129384
-
-![QQ群](readme/go-view-qq.png)
-
-![渲染海报](readme/logo-poster.png)

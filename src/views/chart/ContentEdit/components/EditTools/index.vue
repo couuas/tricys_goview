@@ -152,7 +152,7 @@ const editHandle = () => {
     if (!path) return
     const id = fetchRouteParamsLocation()
     updateToSession(id)
-    routerTurnByPath(path, [id], undefined, true)
+    routerTurnByPath(path, [id], undefined, true, true)
   }, 2000)
 }
 

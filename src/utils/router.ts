@@ -59,14 +59,29 @@ export const fetchPathByName = (pageName: string, p?: string) => {
  * @param windowOpen
  */
 export const routerTurnByPath = (
-  path: string,
-  query?: Array<string | number>,
-  isReplace?: boolean,
-  windowOpen?: boolean
+    path: string,
+    query?: Array<string | number>,
+    isReplace?: boolean,
+    windowOpen?: boolean,
+    isCallByParent?: boolean
 ) => {
   let fullPath = ''
   if (query?.length) {
     fullPath = `${path}/${query.join('/')}`
+  }
+  if (isCallByParent) {
+    // 获取父页面的 window 对象
+    var parentWindow = window.parent;
+    const message = {
+      // 属于哪个页面
+      page: 'customLargeScreen',
+      // 属于什么类型
+      type: 'changeRouter',
+      url: fullPath,
+      openNew: windowOpen ? 1 : 0
+    }
+    parentWindow.postMessage(JSON.stringify(message), '*');
+    return
   }
   if (windowOpen) {
     return openNewWindow(fullPath)
@@ -204,9 +219,9 @@ export const loginCheck = () => {
 
 /**
  * * 预览地址
- * @returns 
+ * @returns
  */
- export const previewPath = (id?: string | number) => {
+export const previewPath = (id?: string | number) => {
   const { origin, pathname } = document.location
   const path = fetchPathByName(PreviewEnum.CHART_PREVIEW_NAME, 'href')
   const previewPath = `${origin}${pathname}${path}/${id || fetchRouteParamsLocation()}`

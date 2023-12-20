@@ -117,7 +117,7 @@ const previewHandle = () => {
     setSessionStorage(StorageEnum.GO_CHART_STORAGE_LIST, [{ id: previewId, ...storageInfo }])
   }
   // 跳转
-  routerTurnByPath(path, [previewId], undefined, true)
+  routerTurnByPath(path, [previewId], undefined, true, true)
 }
 
 // 模态弹窗
