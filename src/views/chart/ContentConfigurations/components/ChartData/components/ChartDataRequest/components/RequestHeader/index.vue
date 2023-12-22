@@ -51,9 +51,10 @@
             <monaco-editor
               v-model:modelValue="requestParams[RequestParamsTypeEnum.BODY][requestParamsBodyType]"
               width="600px"
-              height="200px"
+              height="300px"
               language="json"
             />
+            <request-header-pre :targetDataRequest="targetDataRequest" style="margin-top: 20px" />
           </template>
 
           <!-- xml  -->
@@ -92,6 +93,7 @@ import { RequestHeaderTable } from '../RequestHeaderTable/index'
 import { SettingItemBox, SettingItem } from '@/components/Pages/ChartItemSetting'
 import { useTargetData } from '@/views/chart/ContentConfigurations/components/hooks/useTargetData.hook'
 import { RequestConfigType } from '@/store/modules/chartEditStore/chartEditStore.d'
+import { RequestHeaderPre } from '../RequestHeaderPre'
 import {
   RequestParamsTypeEnum,
   RequestContentTypeEnum,

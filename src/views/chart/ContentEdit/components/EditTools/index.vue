@@ -191,13 +191,13 @@ const btnList: BtnListType[] = [
     icon: DownloadIcon,
     handle: exportHandle
   },
-  {
-    key: 'edit',
-    type: TypeEnum.BUTTON,
-    name: '编辑',
-    icon: CreateIcon,
-    handle: editHandle
-  },
+  // {
+  //   key: 'edit',
+  //   type: TypeEnum.BUTTON,
+  //   name: '编辑',
+  //   icon: CreateIcon,
+  //   handle: editHandle
+  // },
   {
     key: 'setting',
     type: TypeEnum.BUTTON,

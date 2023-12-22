@@ -39,6 +39,10 @@ export const requestConfig: RequestConfigType = {
     },
     Header: {},
     Params: {}
+  },
+  requestBodyJSONPre: {
+    enable: false,
+    handler: ''
   }
 }
 
@@ -90,7 +94,7 @@ export class PublicConfigClass implements PublicConfigType {
   // 请求
   public request = cloneDeep(requestConfig)
   // 数据过滤
-  public filter = undefined
+  public filter: undefined | string = undefined
   // 事件
   public events = {
     baseEvent: {

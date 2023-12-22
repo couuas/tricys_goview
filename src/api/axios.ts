@@ -12,6 +12,8 @@ export interface MyResponseType<T> {
   code: ResultEnum
   data: T
   message: string
+  //  兼顾主系统
+  errcode: any
 }
 
 export interface MyRequestInstance extends Axios {
@@ -25,17 +27,17 @@ const axiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    // 白名单校验
-    if (includes(fetchAllowList, config.url)) return config
-    // 获取 token
-    const info = getLocalStorage(StorageEnum.GO_SYSTEM_STORE)
-    // 重新登录
-    if (!info) {
-      routerTurnByName(PageEnum.BASE_LOGIN_NAME)
-      return config
-    }
-    const userInfo = info[SystemStoreEnum.USER_INFO]
-    config.headers[userInfo[SystemStoreUserInfoEnum.TOKEN_NAME] || 'token'] =  userInfo[SystemStoreUserInfoEnum.USER_TOKEN] || ''
+    // // 白名单校验
+    // if (includes(fetchAllowList, config.url)) return config
+    // // 获取 token
+    // const info = getLocalStorage(StorageEnum.GO_SYSTEM_STORE)
+    // // 重新登录
+    // if (!info) {
+    //   routerTurnByName(PageEnum.BASE_LOGIN_NAME)
+    //   return config
+    // }
+    // const userInfo = info[SystemStoreEnum.USER_INFO]
+    // config.headers[userInfo[SystemStoreUserInfoEnum.TOKEN_NAME] || 'token'] =  userInfo[SystemStoreUserInfoEnum.USER_TOKEN] || ''
     return config
   },
   (err: AxiosError) => {
@@ -59,12 +61,12 @@ axiosInstance.interceptors.response.use(
       return Promise.resolve(res.data)
     }
 
-    // 登录过期
-    if (code === ResultEnum.TOKEN_OVERDUE) {
-      window['$message'].error(window['$t']('http.token_overdue_message'))
-      routerTurnByName(PageEnum.BASE_LOGIN_NAME)
-      return Promise.resolve(res.data)
-    }
+    // // 登录过期
+    // if (code === ResultEnum.TOKEN_OVERDUE) {
+    //   window['$message'].error(window['$t']('http.token_overdue_message'))
+    //   routerTurnByName(PageEnum.BASE_LOGIN_NAME)
+    //   return Promise.resolve(res.data)
+    // }
 
     // 固定错误码重定向
     if (ErrorPageNameMap.get(code)) {

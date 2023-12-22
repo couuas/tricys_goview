@@ -38,7 +38,7 @@ defineProps({
 </script>
 
 <style lang="scss" scoped>
-$leftWidth: 60px;
+$leftWidth: 100px;
 @include go('config-item-box') {
   position: relative;
   display: flex;

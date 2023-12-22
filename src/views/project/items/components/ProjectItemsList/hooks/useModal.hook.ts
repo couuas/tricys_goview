@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import { ChartEnum } from '@/enums/pageEnum'
+import { ChartEnum, PreviewEnum } from '@/enums/pageEnum'
 import { fetchPathByName, routerTurnByPath, openNewWindow, previewPath } from '@/utils'
 import { Chartype } from '../../../index.d'
 export const useModalDataInit = () => {
@@ -28,7 +28,9 @@ export const useModalDataInit = () => {
 
   // 预览处理
   const previewHandle = (cardData: Chartype) => {
-    openNewWindow(previewPath(cardData.id))
+    const path = fetchPathByName(PreviewEnum.CHART_PREVIEW_NAME, 'href')
+    routerTurnByPath(path, [cardData.id], undefined, true, true)
+    // openNewWindow(previewPath(cardData.id))
   }
 
   return {
