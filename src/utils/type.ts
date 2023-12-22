@@ -25,7 +25,7 @@ export function isArray(p: any): p is [] {
 }
 
 export const toNumber = (number: number | string, toFixedNumber = 2) => {
-  return isString(number) ? parseFloat(parseFloat(number).toFixed(2)) : number
+  return isString(number) ? parseFloat(parseFloat(number).toFixed(toFixedNumber)) : number
 }
 
 export const toString = (str: any) => {
