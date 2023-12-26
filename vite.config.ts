@@ -111,7 +111,6 @@ export default ({ mode }) => defineConfig({
     // terserOptions: terserOptions,
     rollupOptions: rollupOptions,
     brotliSize: brotliSize,
-    chunkSizeWarningLimit: chunkSizeWarningLimit,
-    sourcemap: true
+    chunkSizeWarningLimit: chunkSizeWarningLimit
   }
 })
