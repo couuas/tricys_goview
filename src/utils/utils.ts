@@ -293,6 +293,7 @@ export const JSONStringify = <T>(data: T) => {
 
 export const evalFn = (fn: string) => {
   var Fun = Function // 一个变量指向Function，防止前端编译工具报错
+  console.log(fn)
   return new Fun('return ' + fn)()
 }
 
@@ -311,8 +312,10 @@ export const JSONParse = (data: string) => {
     }
     // 还原函数值
     if (typeof v === 'string' && v.indexOf && (v.indexOf('function') > -1 || v.indexOf('=>') > -1)) {
+      console.log(k, v)
       return evalFn(`(function(){return ${v}})()`)
     } else if (typeof v === 'string' && v.indexOf && v.indexOf('return ') > -1) {
+      console.log(k, v)
       const baseLeftIndex = v.indexOf('(')
       if (baseLeftIndex > -1) {
         const newFn = `function ${v.substring(baseLeftIndex)}`

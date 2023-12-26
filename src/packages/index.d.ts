@@ -1,6 +1,7 @@
 import { BaseEvent, EventLife, InteractEvents, InteractEventOn, InteractActionsType } from '@/enums/eventEnum'
 import type { GlobalThemeJsonType } from '@/settings/chartThemes/index'
 import type { RequestConfigType } from '@/store/modules/chartEditStore/chartEditStore.d'
+import {CustomComponentsList} from "@/packages/components/CustomComponents/index";
 
 export enum ChartFrameEnum {
   // 支持 dataset 的 echarts 框架
@@ -177,7 +178,9 @@ export enum PackagesCategoryEnum {
   INFORMATIONS = 'Informations',
   PHOTOS = 'Photos',
   ICONS = 'Icons',
-  DECORATES = 'Decorates'
+  DECORATES = 'Decorates',
+  THEMESANDLAYOUTS = 'ThemesAndLayouts',
+  CUSTOMCOMPONENTS = 'CustomComponents',
 }
 
 // 包分类名称
@@ -187,7 +190,9 @@ export enum PackagesCategoryName {
   INFORMATIONS = '信息',
   PHOTOS = '图片',
   ICONS = '图标',
-  DECORATES = '小组件'
+  DECORATES = '小组件',
+  THEMESANDLAYOUTS = '主题',
+  CUSTOMCOMPONENTS = '自定义组件',
 }
 
 // 获取组件
@@ -204,4 +209,6 @@ export type PackagesType = {
   [PackagesCategoryEnum.PHOTOS]: ConfigType[]
   [PackagesCategoryEnum.ICONS]: ConfigType[]
   [PackagesCategoryEnum.DECORATES]: ConfigType[]
+  [PackagesCategoryEnum.THEMESANDLAYOUTS]: ConfigType[]
+  [PackagesCategoryEnum.CUSTOMCOMPONENTS]: ConfigType[]
 }

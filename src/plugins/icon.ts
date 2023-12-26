@@ -103,8 +103,13 @@ import {
   Carbon3DSoftware as Carbon3DSoftwareIcon,
   Filter as FilterIcon,
   FilterEdit as FilterEditIcon,
-  Laptop as LaptopIcon
+  Laptop as LaptopIcon,
+  AreaCustom as AreaCustomIcon,
 } from '@vicons/carbon'
+
+import {
+  Apps20Regular as Apps20RegularIcon
+} from '@vicons/fluent'
 
 const ionicons5 = {
   // 新增
@@ -303,12 +308,20 @@ const carbon = {
   FilterIcon,
   FilterEditIcon,
   // 图层
-  LaptopIcon
+  LaptopIcon,
+  // 自定义
+  AreaCustomIcon,
+}
+
+const fluent = {
+  // 主题
+  Apps20RegularIcon
 }
 
 // https://www.xicons.org/#/ 还有很多
 
 export const icon = {
   ionicons5,
-  carbon
+  carbon,
+  fluent
 }

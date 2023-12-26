@@ -25,10 +25,10 @@ export function getToken() {
     }
 }
 
-export const publicInterface = async (paramType:string, interfaceType:string, paramData:any) =>{
+export const publicInterface = async (paramType:string, interfaceType:string, paramData:unknown) =>{
     try {
         const access_token = getToken()
-        const res = await http(RequestHttpEnum.POST)<any>(paramType, {
+        const res = await http(RequestHttpEnum.POST)<unknown>(paramType, {
             access_token,
             type: interfaceType,
             data: paramData

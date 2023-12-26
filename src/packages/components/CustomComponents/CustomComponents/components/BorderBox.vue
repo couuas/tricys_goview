@@ -1,0 +1,49 @@
+<template>
+  <div class="box">
+    <div class="title">
+      <slot name="title">{{ title }}</slot>
+    </div>
+    <div class="content">
+      <slot></slot>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+const { title } = defineProps(['title'])
+</script>
+
+<style lang="scss" scoped>
+.box{
+  height: 100%;
+  width: 100%;
+  background: rgba(65,150,255,.04);
+  .title{
+    position: relative;
+    padding-left: 20px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 16px;
+    color: #fff;
+    border-top: 1px solid rgba(65,150,255,.5);
+    border-bottom: 1px solid rgba(65,150,255,.2);
+    background: linear-gradient(90deg,rgba(65,150,255,.1) 0,rgba(65,150,255,0));
+    &:after{
+      content: '';
+      height: 1px;
+      width: 20px;
+      background: linear-gradient(90deg,rgba(65,150,255,0) 0,#4196ff);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  }
+  .content{
+    height: calc(100% - 40px);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 7px;
+  }
+}
+</style>

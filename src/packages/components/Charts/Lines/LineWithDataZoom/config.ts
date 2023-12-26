@@ -183,7 +183,7 @@ export const option = {
         }
     ],
     dataset: {...dataJson},
-    series: [seriesItem]
+    series: Array(8).fill({}).map(_ => cloneDeep(seriesItem))
 }
 
 // setInterval(async() => {

@@ -185,7 +185,6 @@ export const customizeHttp = (targetParams: RequestConfigType, globalParams: Req
         const res = fn(global)
         // @ts-ignore
         data = JSON.stringify(res, null, 2)
-        console.log(data)
       }
       else {
         data = translateStr(targetRequestParams.Body['json'])

@@ -92,7 +92,7 @@ export const requestConfig = {
     "requestDataType": 1,
     "requestHttpType": RequestHttpEnum.POST,
     "requestUrl": "/api/goview/dcim/dems/statistic",
-    "requestInterval": 5,
+    "requestInterval": 15,
     "requestIntervalUnit": RequestHttpIntervalEnum.SECOND,
     "requestContentType": 0,
     "requestParamsBodyType": RequestBodyEnum.JSON,

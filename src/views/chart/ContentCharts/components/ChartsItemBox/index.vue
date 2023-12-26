@@ -131,6 +131,7 @@ const dblclickHandle = async (item: ConfigType) => {
     chartEditStore.setTargetSelectChart(newComponent.id)
     loadingFinish()
   } catch (error) {
+    console.log(error)
     loadingError()
     window['$message'].warning(`图表正在研发中, 敬请期待...`)
   }

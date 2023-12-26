@@ -50,7 +50,9 @@ export const excludeParseEventKeyList = [
   BaseEvent.ON_MOUSE_ENTER,
   BaseEvent.ON_MOUSE_LEAVE,
   //过滤器
-  'filter'
+  'filter',
+  //body-json处理
+  'handler',
 ]
 // 内置字符串函数键值列表
 export const excludeParseEventValueList = [

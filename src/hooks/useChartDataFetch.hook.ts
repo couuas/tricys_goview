@@ -72,8 +72,6 @@ export const useChartDataFetch = (
         clearInterval(fetchInterval)
 
         const fetchFn = async () => {
-          console.log(1234, JSON.parse(JSON.stringify(toRaw(targetComponent.request))))
-          console.log(1234, JSON.parse(JSON.stringify(toRaw(chartEditStore.getRequestGlobalConfig))))
           const res = await customizeHttp(toRaw(targetComponent.request), toRaw(chartEditStore.getRequestGlobalConfig))
           if (res) {
             try {
