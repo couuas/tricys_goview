@@ -60,7 +60,15 @@ export default ({ mode }) => defineConfig({
         changeOrigin: true,
         ws: true,
         secure: true,
-      }
+      },
+      '/svgConfig': {
+        // @ts-ignore
+        target: loadEnv(mode, process.cwd()).VITE_DEV_PATH,
+        changeOrigin: true,
+        rewrite: () => '',
+        ws: true,
+        secure: true,
+      },
     }
   },
   plugins: [
