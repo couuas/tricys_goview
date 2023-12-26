@@ -20,14 +20,14 @@ export const getSessionStorageInfo = async () => {
   if (!storageList || storageList.findIndex(e => e.id === id.toString()) === -1) {
     // 接口调用
     const res = await fetchProjectApi({ projectId: id })
-    if (res && res.code === ResultEnum.SUCCESS) {
+    if (res) {
       const { content, state } = res.data
-      if (state === -1) {
-        // 跳转未发布页
-        return { isRelease: false }
-      }
+      // if (state === -1) {
+      //   // 跳转未发布页
+      //   return { isRelease: false }
+      // }
       console.log(content)
-      const parseData = { ...JSONParse(content), id }
+      const parseData = { ...JSONParse(content ? content : '{}'), id }
       const { editCanvasConfig, requestGlobalConfig, componentList } = parseData
       chartEditStore.editCanvasConfig = editCanvasConfig
       chartEditStore.requestGlobalConfig = requestGlobalConfig

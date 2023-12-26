@@ -267,9 +267,9 @@ type ValueType = ItemType[]
 const { value } = defineProps(['value']) as { value: ValueType }
 
 const color = ref('#4dca59')
-const getRotate = (horizontal, data) => {
+const getRotate = (horizontal:string, data:number) => {
   // 传入指针水平位置，计算指针角度，水平位置即为指针角度为0时，两端点的纵坐标
-  const pue = parseFloat(data) // 当前指针值
+  const pue = parseFloat(data.toString()) // 当前指针值
   if (pue >= 0 && pue < 1.7) {
     color.value = '#4dca59'
   } else if (pue >= 1.7 && pue < 2.2) {

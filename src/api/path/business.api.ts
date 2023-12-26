@@ -3,32 +3,23 @@ import { http } from "@/api/http";
 import { RequestHttpEnum } from "@/enums/httpEnum";
 import { httpErrorHandle } from '@/utils'
 
-const allCookies = document.cookie;
-function getCookie(name: string) {
-    const cookies = document.cookie.split(';');
-    for (const cookie of cookies) {
-        const [cookieName, cookieValue] = cookie.trim().split('=');
-        if (cookieName === name) {
-            return decodeURIComponent(cookieValue);
-        }
-    }
-    return null;
-}
-console.log(allCookies, getCookie('access_token'));
-
 export function getToken() {
-    const TokenKey = 'access_token'
-    if (getCookie(TokenKey)) {
-        return getCookie(TokenKey)
-    } else {
-        return sessionStorage.getItem(TokenKey)
-    }
+    let queryStr = window.location.href
+    queryStr = queryStr.split('?')[1]
+    if(queryStr.indexOf('#') > -1) queryStr = queryStr.split('#')[0]
+    console.log(queryStr)
+    let query:{[key:string]: string} = {}
+    queryStr.split('&').forEach((item:string) => {
+        query[item.split('=')[0]] = item.split('=')[1]
+    })
+    return query.access_token
 }
 
-export const publicInterface = async (paramType:string, interfaceType:string, paramData:unknown) =>{
+export const publicInterface = async (paramType:string, interfaceType:string, paramData?:unknown) =>{
     try {
         const access_token = getToken()
-        const res = await http(RequestHttpEnum.POST)<unknown>(paramType, {
+        console.log(access_token, window)
+        const res = await http(RequestHttpEnum.POST)<any>(paramType, {
             access_token,
             type: interfaceType,
             data: paramData

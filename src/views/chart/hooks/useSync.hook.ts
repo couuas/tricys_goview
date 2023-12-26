@@ -251,11 +251,20 @@ export const useSync = () => {
     chartEditStore.setEditCanvas(EditCanvasTypeEnum.SAVE_STATUS, SyncEnum.START)
     try {
       const res = await fetchProjectApi({ projectId: fetchRouteParamsLocation() })
-      if (res && res.code === ResultEnum.SUCCESS) {
+      console.log(res)
+      if (res) {
+        // type dataType = {
+        //   id: string
+        //   projectName: string,
+        //   indexImage: string,
+        //   remarks: string,
+        //   state: number,
+        //   content: string,
+        // }
         if (res.data) {
-          updateStoreInfo(res.data)
+          updateStoreInfo(res.data as any)
           // 更新全局数据
-          await updateComponent(JSONParse(res.data.content))
+          await updateComponent(JSONParse((res.data as any).content))
           return
         }else {
           chartEditStore.setProjectInfo(ProjectInfoEnum.PROJECT_ID, fetchRouteParamsLocation())
@@ -267,6 +276,7 @@ export const useSync = () => {
       }
       chartEditStore.setEditCanvas(EditCanvasTypeEnum.SAVE_STATUS, SyncEnum.FAILURE)
     } catch (error) {
+      console.log(error)
       chartEditStore.setEditCanvas(EditCanvasTypeEnum.SAVE_STATUS, SyncEnum.FAILURE)
       httpErrorHandle()
     }
@@ -298,19 +308,19 @@ export const useSync = () => {
 
         // 上传预览图
         let uploadParams = new FormData()
-        uploadParams.append('object', base64toFile(canvasImage.toDataURL(), `${fetchRouteParamsLocation()}_index_preview.png`))
+        uploadParams.append('files', base64toFile(canvasImage.toDataURL(), `${fetchRouteParamsLocation()}_index_preview.png`))
         const uploadRes = await uploadFile(uploadParams)
         // 保存预览图
-        if(uploadRes && uploadRes.code === ResultEnum.SUCCESS) {
-          if (uploadRes.data.fileurl) {
+        if(uploadRes && uploadRes.data) {
+          if (uploadRes.data.length) {
             await updateProjectApi({
-              id: fetchRouteParamsLocation(),
-              indexImage: `${uploadRes.data.fileurl}`
+              id: Number(fetchRouteParamsLocation()),
+              indexImage: `${uploadRes.data[0]}`
             })
           } else {
             await updateProjectApi({
-              id: fetchRouteParamsLocation(),
-              indexImage: `${systemStore.getFetchInfo.OSSUrl}${uploadRes.data.fileName}`
+              id: Number(fetchRouteParamsLocation()),
+              indexImage: `${systemStore.getFetchInfo.OSSUrl}${uploadRes.data[0]}`
             })
           }
         }
@@ -320,12 +330,16 @@ export const useSync = () => {
     }
 
     // 保存数据
-    let params = new FormData()
-    params.append('projectId', projectId)
-    params.append('content', JSONStringify(chartEditStore.getStorageInfo() || {}))
+    // let params = new FormData()
+    // params.append('projectId', projectId)
+    // params.append('content', JSONStringify(chartEditStore.getStorageInfo() || {}))
+    const params = {
+      id: projectId,
+      content: JSONStringify(chartEditStore.getStorageInfo() || {})
+    }
     const res= await saveProjectApi(params)
 
-    if (res && res.code === ResultEnum.SUCCESS) {
+    if (res && res.data) {
       // 成功状态
       setTimeout(() => {
         chartEditStore.setEditCanvas(EditCanvasTypeEnum.SAVE_STATUS, SyncEnum.SUCCESS)

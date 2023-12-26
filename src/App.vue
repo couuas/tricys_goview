@@ -18,6 +18,9 @@ import { NConfigProvider } from 'naive-ui'
 import { GoAppProvider } from '@/components/GoAppProvider'
 import { I18n } from '@/components/I18n'
 import { useSystemInit, useDarkThemeHook, useThemeOverridesHook, useCode, useLang } from '@/hooks'
+import { getToken } from '@/api/path'
+
+getToken()
 
 // 暗黑主题
 const darkTheme = useDarkThemeHook()

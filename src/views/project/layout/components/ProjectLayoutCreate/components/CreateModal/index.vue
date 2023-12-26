@@ -95,7 +95,7 @@ const btnHandle = async (key: string) => {
           // 图片地址
           indexImage: null,
         })
-        if(res && res.code === ResultEnum.SUCCESS) {
+        if(res && res.data) {
           window['$message'].success(window['$t']('project.create_success'))
 
           const { id } = res.data

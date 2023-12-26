@@ -50,6 +50,14 @@ export default ({ mode }) => defineConfig({
         // @ts-ignore
         target: loadEnv(mode, process.cwd()).VITE_DEV_PATH,
         changeOrigin: true,
+        rewrite: (path) => path.replace(new RegExp(`^${axiosPre}`), ''),
+        ws: true,
+        secure: true,
+      },
+      '/data/file': {
+        // @ts-ignore
+        target: loadEnv(mode, process.cwd()).VITE_DEV_PATH,
+        changeOrigin: true,
         ws: true,
         secure: true,
       }

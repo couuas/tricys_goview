@@ -30,7 +30,7 @@ export const useDataListInit = () => {
     if (res && res.data) {
       const { count } = res as any // 这里的count与data平级，不在Response结构中
       paginat.count = count
-      list.value = res.data.map(e => {
+      list.value = res.data.map((e:any) => {
         const { id, projectName, state, createTime, indexImage, createUserId } = e
         return {
           id: id,
@@ -69,13 +69,11 @@ export const useDataListInit = () => {
       onPositiveCallback: () =>
         new Promise(res => {
           res(
-            deleteProjectApi({
-              ids: cardData.id
-            })
+            deleteProjectApi([cardData.id])
           )
         }),
       promiseResCallback: (res: any) => {
-        if (res.code === ResultEnum.SUCCESS) {
+        if (res.errcode === '00000') {
           window['$message'].success(window['$t']('global.r_delete_success'))
           fetchList()
           return
