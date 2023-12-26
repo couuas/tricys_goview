@@ -50,7 +50,8 @@ export default ({ mode }) => defineConfig({
         // @ts-ignore
         target: loadEnv(mode, process.cwd()).VITE_DEV_PATH,
         changeOrigin: true,
-        rewrite: (path) => path.replace(new RegExp(`^${axiosPre}`), ''),
+        // rewrite: (path) => path.replace(new RegExp(`^${axiosPre}`), ''),
+        rewrite: () => '',
         ws: true,
         secure: true,
       },
@@ -61,22 +62,14 @@ export default ({ mode }) => defineConfig({
         ws: true,
         secure: true,
       },
-      '/svgConfig/api/goview': {
-        // @ts-ignore
-        target: loadEnv(mode, process.cwd()).VITE_DEV_PATH,
-        changeOrigin: true,
-        rewrite: () => '',
-        ws: true,
-        secure: true,
-      },
-      '/svgConfig': {
-        // @ts-ignore
-        target: loadEnv(mode, process.cwd()).VITE_DEV_PATH,
-        changeOrigin: true,
-        rewrite: () => '',
-        ws: true,
-        secure: true,
-      },
+      // '/svgConfig': {
+      //   // @ts-ignore
+      //   target: loadEnv(mode, process.cwd()).VITE_DEV_PATH,
+      //   changeOrigin: true,
+      //   rewrite: () => '',
+      //   ws: true,
+      //   secure: true,
+      // },
     }
   },
   plugins: [
@@ -118,6 +111,7 @@ export default ({ mode }) => defineConfig({
     // terserOptions: terserOptions,
     rollupOptions: rollupOptions,
     brotliSize: brotliSize,
-    chunkSizeWarningLimit: chunkSizeWarningLimit
+    chunkSizeWarningLimit: chunkSizeWarningLimit,
+    sourcemap: true
   }
 })
