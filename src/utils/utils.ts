@@ -312,10 +312,8 @@ export const JSONParse = (data: string) => {
     }
     // 还原函数值
     if (typeof v === 'string' && v.indexOf && (v.indexOf('function') > -1 || v.indexOf('=>') > -1)) {
-      console.log(k, v)
       return evalFn(`(function(){return ${v}})()`)
     } else if (typeof v === 'string' && v.indexOf && v.indexOf('return ') > -1) {
-      console.log(k, v)
       const baseLeftIndex = v.indexOf('(')
       if (baseLeftIndex > -1) {
         const newFn = `function ${v.substring(baseLeftIndex)}`

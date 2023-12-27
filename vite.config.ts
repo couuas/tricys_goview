@@ -46,27 +46,47 @@ export default ({ mode }) => defineConfig({
     open: true,
     port: 3000,
     proxy: {
+      // 生产list页缩略图 开发时注释掉
+      '/svgConfig/customLargeScreen/data/file': {
+        // @ts-ignore
+        target: loadEnv(mode, process.cwd()).VITE_DEV_PATH,
+        changeOrigin: true,
+        rewrite: (path) => path.replace(new RegExp(`^/svgConfig/customLargeScreen`), ''),
+        ws: true,
+        secure: true,
+      },
+      // 生产打开 开发时注释掉
       [axiosPre]: {
         // @ts-ignore
         target: loadEnv(mode, process.cwd()).VITE_DEV_PATH,
         changeOrigin: true,
         // rewrite: (path) => path.replace(new RegExp(`^${axiosPre}`), ''),
-        rewrite: () => '',
+        // rewrite: () => '',
         ws: true,
         secure: true,
       },
-      '/data/file': {
-        // @ts-ignore
-        target: loadEnv(mode, process.cwd()).VITE_DEV_PATH,
-        changeOrigin: true,
-        ws: true,
-        secure: true,
-      },
-      // '/svgConfig': {
+      // 开发
+      // '/dcim': {
       //   // @ts-ignore
       //   target: loadEnv(mode, process.cwd()).VITE_DEV_PATH,
       //   changeOrigin: true,
-      //   rewrite: () => '',
+      //   ws: true,
+      //   secure: true,
+      // },
+      // // 开发首页缩略图
+      // '/data/file': {
+      //   // @ts-ignore
+      //   target: loadEnv(mode, process.cwd()).VITE_DEV_PATH,
+      //   changeOrigin: true,
+      //   ws: true,
+      //   secure: true,
+      // },
+      // // 开发 图片
+      // '/svgConfig/customLargeScreen': {
+      //   // @ts-ignore
+      //   target: loadEnv(mode, process.cwd()).VITE_DEV_PATH,
+      //   changeOrigin: true,
+      //   // rewrite: (path) => path.replace(new RegExp(`^/svgConfig/customLargeScreen`), ''),
       //   ws: true,
       //   secure: true,
       // },

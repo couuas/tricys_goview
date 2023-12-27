@@ -251,8 +251,6 @@ const getData = () => {
       } else {
         option.tooltip.formatter = '{b}<br/>' + '测点总数' + '&nbsp;&nbsp;' + '{c}'
       }
-      vChartRef.value.forceUpdate()
-      console.log(option, vChartRef.value)
     }
   }).catch((e:unknown) => {
     console.log(e)

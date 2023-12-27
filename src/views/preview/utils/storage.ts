@@ -13,13 +13,13 @@ export interface ChartEditStorageType extends ChartEditStorage {
 
 // 根据路由 id 获取存储数据的信息
 export const getSessionStorageInfo = async () => {
-  const id = fetchRouteParamsLocation()
+  const id = Number(fetchRouteParamsLocation())
   const storageList: ChartEditStorageType[] = getSessionStorage(StorageEnum.GO_CHART_STORAGE_LIST)
 
   // 是否本地预览
   if (!storageList || storageList.findIndex(e => e.id === id.toString()) === -1) {
     // 接口调用
-    const res = await fetchProjectApi({ projectId: id })
+    const res = await fetchProjectApi({ id })
     if (res) {
       const { content, state } = res.data
       // if (state === -1) {

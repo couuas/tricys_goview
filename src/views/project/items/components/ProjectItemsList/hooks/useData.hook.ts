@@ -24,8 +24,10 @@ export const useDataListInit = () => {
   const fetchList = async () => {
     loading.value = true
     const res = await projectListApi({
-      page: paginat.page,
-      limit: paginat.limit
+      page: {
+        page_number: paginat.page,
+        page_size: paginat.limit
+      }
     })
     if (res && res.data) {
       const { count } = res as any // 这里的count与data平级，不在Response结构中

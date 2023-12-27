@@ -45,42 +45,42 @@ export const menuOptionsInit = () => {
               key: PageEnum.BASE_HOME_ITEMS_NAME,
               icon: renderIcon(TvOutlineIcon),
             },
-            {
-              label: () =>
-                h(
-                  RouterLink,
-                  {
-                    to: {
-                      name: PageEnum.BASE_HOME_TEMPLATE_NAME,
-                    },
-                  },
-                  { default: () => t('project.my_templete') }
-                ),
-              key: PageEnum.BASE_HOME_TEMPLATE_NAME,
-              icon: renderIcon(ObjectStorageIcon),
-            },
+            // {
+            //   label: () =>
+            //     h(
+            //       RouterLink,
+            //       {
+            //         to: {
+            //           name: PageEnum.BASE_HOME_TEMPLATE_NAME,
+            //         },
+            //       },
+            //       { default: () => t('project.my_templete') }
+            //     ),
+            //   key: PageEnum.BASE_HOME_TEMPLATE_NAME,
+            //   icon: renderIcon(ObjectStorageIcon),
+            // },
           ],
         },
       ],
     },
 
-    {
-      key: 'divider-2',
-      type: 'divider',
-    },
-    {
-      label: () =>
-        h(
-          RouterLink,
-          {
-            to: {
-              name: PageEnum.BASE_HOME_TEMPLATE_MARKET_NAME,
-            },
-          },
-          { default: () => t('project.template_market') }
-        ),
-      key: PageEnum.BASE_HOME_TEMPLATE_MARKET_NAME,
-      icon: renderIcon(StoreIcon),
-    },
+    // {
+    //   key: 'divider-2',
+    //   type: 'divider',
+    // },
+    // {
+    //   label: () =>
+    //     h(
+    //       RouterLink,
+    //       {
+    //         to: {
+    //           name: PageEnum.BASE_HOME_TEMPLATE_MARKET_NAME,
+    //         },
+    //       },
+    //       { default: () => t('project.template_market') }
+    //     ),
+    //   key: PageEnum.BASE_HOME_TEMPLATE_MARKET_NAME,
+    //   icon: renderIcon(StoreIcon),
+    // },
   ])
 }

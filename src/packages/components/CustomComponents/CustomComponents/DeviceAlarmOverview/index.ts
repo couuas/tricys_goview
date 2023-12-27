@@ -10,5 +10,5 @@ export const DeviceAlarmOverviewConfig: ConfigType = {
   categoryName: ChatCategoryEnumName.CUSTOMCOMPONENTS,
   package: PackagesCategoryEnum.CUSTOMCOMPONENTS,
   chartFrame: ChartFrameEnum.COMMON,
-  image: 'photo.png'
+  image: 'DeviceAlarmOverview.png'
 }

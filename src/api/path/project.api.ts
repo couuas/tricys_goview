@@ -5,7 +5,13 @@ import {httpErrorHandle} from "@/utils";
 
 // * 项目列表
 export const projectListApi = async (data: object) => {
-    return publicInterface('/dcim/system/custom_large_screen', 'get', data)
+    let res:any = await publicInterface('/dcim/system/custom_large_screen', 'get_page', data)
+    return {
+        data: res.data.item,
+        errcode: res.errcode,
+        count: res.data.page.total
+    }
+    // return publicInterface('/dcim/system/custom_large_screen', 'get_page', data)
 }
 
 // * 新增项目

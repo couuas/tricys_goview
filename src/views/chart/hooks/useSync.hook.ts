@@ -250,8 +250,7 @@ export const useSync = () => {
     chartEditStore.componentList = []
     chartEditStore.setEditCanvas(EditCanvasTypeEnum.SAVE_STATUS, SyncEnum.START)
     try {
-      const res = await fetchProjectApi({ projectId: fetchRouteParamsLocation() })
-      console.log(res)
+      const res = await fetchProjectApi({ id: Number(fetchRouteParamsLocation()) })
       if (res) {
         // type dataType = {
         //   id: string
@@ -263,6 +262,9 @@ export const useSync = () => {
         // }
         if (res.data) {
           updateStoreInfo(res.data as any)
+          for(let k in res.data){
+            res.data[k] = res.data[k] ? res.data[k] : null
+          }
           // 更新全局数据
           await updateComponent(JSONParse((res.data as any).content))
           return
@@ -276,9 +278,8 @@ export const useSync = () => {
       }
       chartEditStore.setEditCanvas(EditCanvasTypeEnum.SAVE_STATUS, SyncEnum.FAILURE)
     } catch (error) {
-      console.log(error)
       chartEditStore.setEditCanvas(EditCanvasTypeEnum.SAVE_STATUS, SyncEnum.FAILURE)
-      httpErrorHandle()
+      // httpErrorHandle()
     }
   }
 

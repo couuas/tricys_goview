@@ -1,5 +1,5 @@
 <template>
-  <div @click="clickHandle">
+  <div @click="handleClick">
     <n-tooltip v-if="collapsed" placement="right" trigger="hover">
       <template #trigger>
         <n-button ghost type="primary" size="small">
@@ -34,6 +34,9 @@ import { ref } from 'vue'
 import { useDesignStore } from '@/store/modules/designStore/designStore'
 import { CreateModal } from './components/CreateModal/index'
 import { icon } from '@/plugins'
+import {createProjectApi} from "@/api/path";
+import {fetchPathByName, getUUID, routerTurnByPath} from "@/utils";
+import {ChartEnum} from "@/enums/pageEnum";
 
 const { DuplicateIcon, DuplicateOutlineIcon } = icon.ionicons5
 const designStore = useDesignStore()
@@ -50,5 +53,29 @@ const clickHandle = () => {
 
 const closeHandle = () => {
   modalShow.value = false
+}
+
+const handleClick = async () => {
+  try {
+    // 新增项目
+    const res = await createProjectApi({
+      // 项目名称
+      projectName: getUUID(),
+      // remarks
+      remarks: null,
+      // 图片地址
+      indexImage: null,
+    })
+    if(res && res.data) {
+      window['$message'].success(window['$t']('project.create_success'))
+
+      const { id } = res.data
+      const path = fetchPathByName(ChartEnum.CHART_HOME_NAME, 'href')
+      routerTurnByPath(path, [id], undefined, true, true)
+      closeHandle()
+    }
+  } catch (error) {
+    window['$message'].error(window['$t']('project.create_failure'))
+  }
 }
 </script>

@@ -30,12 +30,13 @@
       :chartConfig="item"
       :themeSetting="themeSetting"
       :themeColor="themeColor"
-      :style="{ 
+      :style="{
         ...getSizeStyle(item.attr),
         ...getFilterStyle(item.styles)
       }"
-      v-on="useLifeHandler(item)"
+      v-on="bindEvent(item)"
     ></component>
+<!--    v-on="useLifeHandler(item)"-->
   </div>
 </template>
 
@@ -50,6 +51,7 @@ import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore
 import { animationsClass, getFilterStyle, getTransformStyle, getBlendModeStyle, colorCustomMerge } from '@/utils'
 import { getSizeStyle, getComponentAttrStyle, getStatusStyle, getPreviewConfigStyle } from '../../utils'
 import { useLifeHandler } from '@/hooks'
+import { useCustomEvent } from '../../hooks/useCustomEvent.hook'
 
 // 初始化数据池
 const { initDataPond, clearMittDataPondMap } = useChartDataPondFetch()
@@ -79,6 +81,8 @@ clearMittDataPondMap()
 onMounted(() => {
   initDataPond(useChartEditStore)
 })
+
+const { bindEvent } = useCustomEvent()
 </script>
 
 <style lang="scss" scoped>

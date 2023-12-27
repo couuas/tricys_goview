@@ -205,10 +205,10 @@ export enum FetchComFlagType {
 export type PackagesType = {
   [PackagesCategoryEnum.CHARTS]: ConfigType[]
   [PackagesCategoryEnum.INFORMATIONS]: ConfigType[]
-  [PackagesCategoryEnum.TABLES]: ConfigType[]
-  [PackagesCategoryEnum.PHOTOS]: ConfigType[]
+  // [PackagesCategoryEnum.TABLES]: ConfigType[]
+  // [PackagesCategoryEnum.PHOTOS]: ConfigType[]
   [PackagesCategoryEnum.ICONS]: ConfigType[]
   [PackagesCategoryEnum.DECORATES]: ConfigType[]
-  [PackagesCategoryEnum.THEMESANDLAYOUTS]: ConfigType[]
+  // [PackagesCategoryEnum.THEMESANDLAYOUTS]: ConfigType[]
   [PackagesCategoryEnum.CUSTOMCOMPONENTS]: ConfigType[]
 }

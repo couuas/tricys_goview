@@ -10,5 +10,5 @@ export const RealTimeTrafficConfig: ConfigType = {
   categoryName: ChatCategoryEnumName.CUSTOMCOMPONENTS,
   package: PackagesCategoryEnum.CUSTOMCOMPONENTS,
   chartFrame: ChartFrameEnum.COMMON,
-  image: 'photo.png'
+  image: 'RealTimeTraffic.png'
 }

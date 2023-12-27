@@ -7,7 +7,6 @@ export function getToken() {
     let queryStr = window.location.href
     queryStr = queryStr.split('?')[1]
     if(queryStr.indexOf('#') > -1) queryStr = queryStr.split('#')[0]
-    console.log(queryStr)
     let query:{[key:string]: string} = {}
     queryStr.split('&').forEach((item:string) => {
         query[item.split('=')[0]] = item.split('=')[1]
@@ -18,7 +17,6 @@ export function getToken() {
 export const publicInterface = async (paramType:string, interfaceType:string, paramData?:unknown) =>{
     try {
         const access_token = getToken()
-        console.log(access_token, window)
         const res = await http(RequestHttpEnum.POST)<any>(paramType, {
             access_token,
             type: interfaceType,

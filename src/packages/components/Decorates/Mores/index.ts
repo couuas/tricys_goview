@@ -8,12 +8,12 @@ import { PipelineHConfig } from './PipelineH/index'
 import { PipelineVConfig } from './PipelineV/index'
 
 export default [
-  NumberConfig,
-  FlipperNumberConfig,
+  // NumberConfig,
+  // FlipperNumberConfig,
   TimeCommonConfig,
-  CountDownConfig,
+  // CountDownConfig,
   ClockConfig,
-  FullScreenConfig,
-  PipelineHConfig,
-  PipelineVConfig
+  // FullScreenConfig,
+  // PipelineHConfig,
+  // PipelineVConfig
 ]

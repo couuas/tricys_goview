@@ -171,13 +171,13 @@ const btnList = [
     icon: renderIcon(BrowsersOutlineIcon),
     event: previewHandle
   },
-  {
-    key: 'release',
-    title: () => (release.value ? '已发布' : '发布'),
-    icon: renderIcon(SendIcon),
-    type: () => (release.value ? 'primary' : 'default'),
-    event: modelShowHandle
-  }
+  // {
+  //   key: 'release',
+  //   title: () => (release.value ? '已发布' : '发布'),
+  //   icon: renderIcon(SendIcon),
+  //   type: () => (release.value ? 'primary' : 'default'),
+  //   event: modelShowHandle
+  // }
 ]
 
 const comBtnList = computed(() => {
