@@ -190,8 +190,6 @@ const rangeStyle = computed(() => {
   }
 })
 
-console.log(chartEditStore.getComponentList)
-
 onMounted(() => {
   // 键盘事件
   useAddKeyboard()

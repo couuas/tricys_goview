@@ -93,7 +93,7 @@
     <n-image
       :object-fit="fit"
       preview-disabled
-      :src="option.dataset"
+      :src="background"
       :fallback-src="requireErrorImg()"
       :width="w"
       :height="h"
@@ -109,6 +109,7 @@ import { useChartDataFetch } from '@/hooks'
 import { CreateComponentType } from '@/packages/index.d'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import moment from 'moment'
+import background from '@/assets/customComponents/theme1/backgrond.jpg'
 
 const props = defineProps({
   chartConfig: {
@@ -165,31 +166,33 @@ const getStyle = (radius: number) => {
   }
 }
 
-// 编辑更新
-watch(
-  () => props.chartConfig.option.dataset,
-  async (newData: any) => {
-    try {
-      const img = await import(newData);
-      option.dataset = img.default
-    } catch(e) {
-      console.log(e)
-    }
-  },
-  {
-    immediate: true
-  }
-)
-
-// 预览更新
-useChartDataFetch(props.chartConfig, useChartEditStore, async (newData: any) => {
-  try {
-    const img = await import(newData);
-    option.dataset = img.default
-  } catch(e) {
-    console.log(e)
-  }
-})
+// // 编辑更新
+// watch(
+//   () => props.chartConfig.option.dataset,
+//   async (newData: any) => {
+//     try {
+//       // const img = await import(newData);
+//       // option.dataset = img.default
+//       option.dataset = newData
+//     } catch(e) {
+//       console.log(e)
+//     }
+//   },
+//   {
+//     immediate: true
+//   }
+// )
+//
+// // 预览更新
+// useChartDataFetch(props.chartConfig, useChartEditStore, async (newData: any) => {
+//   try {
+//     // const img = await import(newData);
+//     // option.dataset = img.default
+//     option.dataset = newData
+//   } catch(e) {
+//     console.log(e)
+//   }
+// })
 </script>
 
 <style lang="scss" scoped>
