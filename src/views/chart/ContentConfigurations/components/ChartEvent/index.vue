@@ -1,6 +1,6 @@
 <template>
   <!-- 事件配置 -->
-  <n-collapse v-if="isReady" class="go-mt-3" arrow-placement="right" :default-expanded-names="['1', '2']">
+  <n-collapse class="go-mt-3" arrow-placement="right" :default-expanded-names="['1', '2']">
     <n-text depth="3">
       组件 id：
       <n-text>{{ targetData.id }}</n-text>
@@ -38,7 +38,7 @@ const { chartEditStore } = useTargetData()
 const targetIndex = computed(() => chartEditStore.fetchTargetIndex())
 const list = computed(() => chartEditStore.getComponentList)
 let targetData:any = ref(list.value[targetIndex.value])
-const isReady = ref(false)
+// const isReady = ref(false)
 
 const init = () => {
   if(!targetData.value.customEvent) {
@@ -52,11 +52,11 @@ const init = () => {
 }
 init()
 watch(() => targetIndex.value, newIndex => {
-  isReady.value = false
+  // isReady.value = false
   targetData.value = list.value[newIndex]
   init()
   setTimeout(() => {
-    isReady.value = true
+    // isReady.value = true
   })
 })
 watch(() => list.value.length, () => {

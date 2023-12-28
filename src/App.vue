@@ -19,6 +19,27 @@ import { GoAppProvider } from '@/components/GoAppProvider'
 import { I18n } from '@/components/I18n'
 import { useSystemInit, useDarkThemeHook, useThemeOverridesHook, useCode, useLang } from '@/hooks'
 import { getToken } from '@/api/path'
+import { onMounted, onUnmounted } from 'vue'
+import { useRouterStore } from '@/store/modules/routerStore/routerStore'
+
+const routerStore = useRouterStore()
+let handleMessage = function(event:{data:string}) {
+  const {data}:{data:any} = event
+  if(data.page === 'customLargeScreen' && data.type === 'setCallByParent') {
+    routerStore.setCallByParent(data.callByParent)
+  }
+}
+onMounted(() => {
+  window.addEventListener('message', handleMessage);
+  let obj = {
+    page: 'customLargeScreen',
+    type: 'bindPostMessageEvent'
+  }
+  window.parent.postMessage(JSON.stringify(obj), '*');
+})
+onUnmounted(() => {
+  window.removeEventListener('message', handleMessage);
+})
 
 getToken()
 

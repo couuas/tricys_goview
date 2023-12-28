@@ -120,13 +120,12 @@ const props = defineProps({
 props.chartConfig.attr.w = 1920
 props.chartConfig.attr.h = 1080
 Object.assign(props.chartConfig.attr, {w: 1920, h: 1080, x: 0, y: 0})
-console.log(props.chartConfig)
 
 const { w, h } = toRefs(props.chartConfig.attr)
 const { dataset, fit, borderRadius } = toRefs(props.chartConfig.option)
 
 let date = ref(moment().format('yyyy-MM-DD'))
-const weeks = ['周一', '周二', '周三', '周四', '周五', '周六', '周天']
+const weeks = ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
 let time = ref(moment().format('HH:mm:ss ') + weeks[Number(moment().format('e'))])
 let timer: unknown
 onMounted(() => {
@@ -169,8 +168,13 @@ const getStyle = (radius: number) => {
 // 编辑更新
 watch(
   () => props.chartConfig.option.dataset,
-  (newData: any) => {
-    option.dataset = newData
+  async (newData: any) => {
+    try {
+      const img = await import(newData);
+      option.dataset = img.default
+    } catch(e) {
+      console.log(e)
+    }
   },
   {
     immediate: true
@@ -178,8 +182,13 @@ watch(
 )
 
 // 预览更新
-useChartDataFetch(props.chartConfig, useChartEditStore, (newData: any) => {
-  option.dataset = newData
+useChartDataFetch(props.chartConfig, useChartEditStore, async (newData: any) => {
+  try {
+    const img = await import(newData);
+    option.dataset = img.default
+  } catch(e) {
+    console.log(e)
+  }
 })
 </script>
 

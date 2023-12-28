@@ -219,7 +219,7 @@ const presetImageList = ref([] as presetImageData[])
 for (let i = 1; i <= 12; i++) {
   presetImageList.value.push({
     index: i,
-    // src: logoImg,
+    src: '',
     hueRotate: i * 30
   })
 }

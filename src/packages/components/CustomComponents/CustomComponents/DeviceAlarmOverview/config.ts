@@ -2,11 +2,11 @@ import { PublicConfigClass } from '@/packages/public'
 import { CreateComponentType } from '@/packages/index.d'
 import { DeviceAlarmOverviewConfig } from './index'
 import cloneDeep from 'lodash/cloneDeep'
-import logo from '@/assets/logo.png'
+// import logo from '@/assets/logo.png'
 
 export const option = {
   // 图片路径
-  dataset: logo,
+  dataset: '',
   // 适应方式
   fit: 'contain',
   // 圆角

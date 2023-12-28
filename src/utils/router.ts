@@ -7,6 +7,8 @@ import { StorageEnum } from '@/enums/storageEnum'
 import { clearLocalStorage, getLocalStorage, clearCookie } from './storage'
 import router from '@/router'
 import { logoutApi } from '@/api/path'
+import { useRouterStore } from '@/store/modules/routerStore/routerStore'
+import { onMounted } from 'vue'
 
 /**
  * * 根据名字跳转路由
@@ -69,7 +71,8 @@ export const routerTurnByPath = (
   if (query?.length) {
     fullPath = `${path}/${query.join('/')}`
   }
-  if (isCallByParent) {
+  const routerStore:any = useRouterStore()
+  if (routerStore && routerStore.getCallByParent) {
     // 获取父页面的 window 对象
     var parentWindow = window.parent;
     const message = {

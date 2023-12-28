@@ -6,12 +6,13 @@ import viteCompression from 'vite-plugin-compression'
 import { axiosPre } from './src/settings/httpSetting'
 import { viteMockServe } from 'vite-plugin-mock'
 import monacoEditorPlugin from 'vite-plugin-monaco-editor'
+import { proxyConfig } from './proxyConfig'
 
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir)
 }
 
-export default ({ mode }) => defineConfig({
+export default ({ mode } : { mode:any }) => defineConfig({
   base: process.env.NODE_ENV === 'production' ? './' : '/',
   // 路径重定向
   resolve: {
@@ -46,50 +47,7 @@ export default ({ mode }) => defineConfig({
     open: true,
     port: 3000,
     proxy: {
-      // 生产list页缩略图 开发时注释掉
-      '/svgConfig/customLargeScreen/data/file': {
-        // @ts-ignore
-        target: loadEnv(mode, process.cwd()).VITE_DEV_PATH,
-        changeOrigin: true,
-        rewrite: (path) => path.replace(new RegExp(`^/svgConfig/customLargeScreen`), ''),
-        ws: true,
-        secure: true,
-      },
-      // 生产打开 开发时注释掉
-      [axiosPre]: {
-        // @ts-ignore
-        target: loadEnv(mode, process.cwd()).VITE_DEV_PATH,
-        changeOrigin: true,
-        // rewrite: (path) => path.replace(new RegExp(`^${axiosPre}`), ''),
-        // rewrite: () => '',
-        ws: true,
-        secure: true,
-      },
-      // 开发
-      // '/dcim': {
-      //   // @ts-ignore
-      //   target: loadEnv(mode, process.cwd()).VITE_DEV_PATH,
-      //   changeOrigin: true,
-      //   ws: true,
-      //   secure: true,
-      // },
-      // // 开发首页缩略图
-      // '/data/file': {
-      //   // @ts-ignore
-      //   target: loadEnv(mode, process.cwd()).VITE_DEV_PATH,
-      //   changeOrigin: true,
-      //   ws: true,
-      //   secure: true,
-      // },
-      // // 开发 图片
-      // '/svgConfig/customLargeScreen': {
-      //   // @ts-ignore
-      //   target: loadEnv(mode, process.cwd()).VITE_DEV_PATH,
-      //   changeOrigin: true,
-      //   // rewrite: (path) => path.replace(new RegExp(`^/svgConfig/customLargeScreen`), ''),
-      //   ws: true,
-      //   secure: true,
-      // },
+      ...proxyConfig(mode)
     }
   },
   plugins: [
