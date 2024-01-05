@@ -95,6 +95,8 @@ export class PublicConfigClass implements PublicConfigType {
   public request = cloneDeep(requestConfig)
   // 数据过滤
   public filter: undefined | string = undefined
+  // 自定义数据 configData组件会用到
+  public customData = {}
   // 事件
   public events = {
     baseEvent: {

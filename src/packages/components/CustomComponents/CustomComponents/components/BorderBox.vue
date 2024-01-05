@@ -10,7 +10,9 @@
 </template>
 
 <script lang="ts" setup>
-const { title } = defineProps(['title'])
+import { toRefs } from 'vue'
+const props = defineProps(['title'])
+const { title } = toRefs(props)
 </script>
 
 <style lang="scss" scoped>
@@ -40,6 +42,7 @@ const { title } = defineProps(['title'])
   }
   .content{
     height: calc(100% - 40px);
+    box-sizing: border-box;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

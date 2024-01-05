@@ -27,6 +27,14 @@ const devProxy = (mode:any) => {
             ws: true,
             secure: true,
         },
+        // 开发
+        '/dynamic_report': {
+            // @ts-ignore
+            target: loadEnv(mode, process.cwd()).VITE_DEV_PATH,
+            changeOrigin: true,
+            ws: true,
+            secure: true,
+        },
     };
 }
 

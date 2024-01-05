@@ -60,7 +60,7 @@ import { useChartLayoutStore } from '@/store/modules/chartLayoutStore/chartLayou
 import { usePackagesStore } from '@/store/modules/packagesStore/packagesStore'
 import { componentInstall, loadingStart, loadingFinish, loadingError, JSONStringify, goDialog } from '@/utils'
 import { DragKeyEnum } from '@/enums/editPageEnum'
-import { createComponent } from '@/packages'
+import {createComponent, fetchConfigDataComponent} from '@/packages'
 import { ConfigType, CreateComponentType, PackagesCategoryEnum } from '@/packages/index.d'
 import { ChatCategoryEnum } from '@/packages/components/Photos/index.d'
 import { fetchConfigComponent, fetchChartComponent } from '@/packages/index'
@@ -99,6 +99,7 @@ const dragStartHandle = (e: DragEvent, item: ConfigType) => {
   // 动态注册图表组件
   componentInstall(item.chartKey, fetchChartComponent(item))
   componentInstall(item.conKey, fetchConfigComponent(item))
+  if(item.conDataKey) componentInstall(item.conDataKey, fetchConfigDataComponent(item))
   // 将配置项绑定到拖拽属性上
   e!.dataTransfer!.setData(DragKeyEnum.DRAG_KEY, JSONStringify(omit(item, ['image'])))
   // 修改状态
@@ -118,6 +119,7 @@ const dblclickHandle = async (item: ConfigType) => {
     // 动态注册图表组件
     componentInstall(item.chartKey, fetchChartComponent(item))
     componentInstall(item.conKey, fetchConfigComponent(item))
+    if(item.conDataKey) componentInstall(item.conDataKey, fetchConfigDataComponent(item))
     // 创建新图表组件
     let newComponent: CreateComponentType = await createComponent(item)
     if (item.redirectComponent) {

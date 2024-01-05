@@ -1,4 +1,4 @@
-import { h } from 'vue'
+import { h, onMounted, onUnmounted } from 'vue'
 import { NIcon } from 'naive-ui'
 import screenfull from 'screenfull'
 import throttle from 'lodash/throttle'
@@ -11,6 +11,7 @@ import { WinKeyboard } from '@/enums/editPageEnum'
 import { RequestHttpIntervalEnum, RequestParamsObjType } from '@/enums/httpEnum'
 import { CreateComponentType, CreateComponentGroupType } from '@/packages/index.d'
 import { excludeParseEventKeyList, excludeParseEventValueList } from '@/enums/eventEnum'
+import {useRouterStore} from "@/store/modules/routerStore/routerStore";
 
 /**
  * * 判断是否是开发环境
@@ -349,5 +350,47 @@ export const addWindowUnload = () => {
   // 返回销毁事件函数
   return () => {
     window.onbeforeunload = null
+  }
+}
+
+/**
+ * 向父页面发送消息
+ */
+export const postMessageToParent = (obj = {}) => {
+  const routerStore:any = useRouterStore()
+  if (routerStore && routerStore.getCallByParent) {
+    // 获取父页面的 window 对象
+    var parentWindow = window.parent;
+    const message = {
+      // 属于哪个页面
+      page: 'customLargeScreen',
+      // 属于什么类型
+      // type: 'goHome',
+      ...obj
+    }
+    parentWindow.postMessage(JSON.stringify(message), '*');
+    return
+  }
+}
+
+/**
+ * 从父页面接收消息
+ */
+export const useGetMessageByParent = () => {
+  const getMessageByParent = (type = '', cb = (e:any) => {}) => {
+    onMounted(() => {
+      window.addEventListener('message', cb);
+      let obj = {
+        page: 'customLargeScreen',
+        type
+      }
+      window.parent.postMessage(JSON.stringify(obj), '*');
+    })
+    onUnmounted(() => {
+      window.removeEventListener('message', cb);
+    })
+  }
+  return {
+    getMessageByParent
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <div :style="getStyle(borderRadius)">
-    <BorderBox title="当前设备告警概况">
+    <BorderBox :title="props.chartConfig.customData.title">
       <div class="item">
         <BareMetalServerIcon class="left"/>
         <div class="right">
@@ -42,6 +42,9 @@ import { BareMetalServer as BareMetalServerIcon } from '@vicons/carbon'
 import { SteeringWheel as SteeringWheelIcon } from '@vicons/tabler'
 import { publicInterface } from '@/api/path/business.api'
 import BorderBox from '../components/BorderBox.vue'
+import {selectTimeOptions} from "@/views/chart/ContentConfigurations/components/ChartData/index.d";
+import {RequestHttpIntervalEnum} from "@/enums/httpEnum";
+import {isPreview} from "@/utils";
 
 const props = defineProps({
   chartConfig: {
@@ -50,6 +53,8 @@ const props = defineProps({
   }
 })
 Object.assign(props.chartConfig.attr, { w: 380, h: 250 })
+Object.assign(props.chartConfig.request, { requestInterval: 15, requestIntervalUnit: RequestHttpIntervalEnum.SECOND })
+
 const { w, h } = toRefs(props.chartConfig.attr)
 const { dataset, fit, borderRadius } = toRefs(props.chartConfig.option)
 
@@ -96,11 +101,27 @@ const getData = () => {
 }
 
 let timer:unknown
+watch(() => [props.chartConfig.request.requestInterval, props.chartConfig.request.requestIntervalUnit].join('&&'), v => {
+  if(!isPreview()) return
+  if(props.chartConfig.request.requestInterval) {
+    if(timer) clearInterval(timer as number)
+    const obj = selectTimeOptions.find(_ => _.value === props.chartConfig.request.requestIntervalUnit) || {unit: 0}
+    const unit = obj.unit
+    const number = unit * props.chartConfig.request.requestInterval
+    timer = setInterval(() => {
+      getData()
+    }, number)
+  }
+})
 onMounted(() => {
   getData()
+  if(!isPreview()) return
+  const obj = selectTimeOptions.find(_ => _.value === props.chartConfig.request.requestIntervalUnit) || {unit: 0}
+  const unit = obj.unit
+  const number = unit * props.chartConfig.request.requestInterval!
   timer = setInterval(() => {
     getData()
-  }, 15000)
+  }, number)
 })
 onUnmounted(() => {
   clearInterval(timer as number)

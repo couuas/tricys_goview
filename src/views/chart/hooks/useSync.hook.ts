@@ -8,7 +8,7 @@ import { StylesSetting } from '@/components/Pages/ChartItemSetting'
 import { useSystemStore } from '@/store/modules/systemStore/systemStore'
 import { useChartLayoutStore } from '@/store/modules/chartLayoutStore/chartLayoutStore'
 import { ChartLayoutStoreEnum } from '@/store/modules/chartLayoutStore/chartLayoutStore.d'
-import { fetchChartComponent, fetchConfigComponent, createComponent } from '@/packages/index'
+import { fetchChartComponent, fetchConfigComponent, fetchConfigDataComponent, createComponent } from '@/packages/index'
 import { saveInterval } from '@/settings/designSetting'
 import throttle from 'lodash/throttle'
 // 接口状态
@@ -126,6 +126,7 @@ export const useSync = () => {
         if (!window['$vue'].component(target.chartConfig.chartKey)) {
           window['$vue'].component(target.chartConfig.chartKey, fetchChartComponent(target.chartConfig))
           window['$vue'].component(target.chartConfig.conKey, fetchConfigComponent(target.chartConfig))
+          window['$vue'].component(target.chartConfig.conDataKey, fetchConfigDataComponent(target.chartConfig))
         }
       }
 

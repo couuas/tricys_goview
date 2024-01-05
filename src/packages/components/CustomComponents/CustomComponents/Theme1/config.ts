@@ -18,4 +18,7 @@ export default class Config extends PublicConfigClass implements CreateComponent
   public key = Theme1Config.key
   public chartConfig = cloneDeep(Theme1Config)
   public option = cloneDeep(option)
+  public customData = cloneDeep({
+    title: '中国建设银行广东省分行中心机房监控系统',
+  })
 }

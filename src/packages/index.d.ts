@@ -22,6 +22,8 @@ export type ConfigType = {
   chartKey: string
   // 右侧设置面板组件 key
   conKey: string
+  // 右侧设置面板组件 key 数据tab
+  conDataKey?: string,
   // 标题
   title: string
   // 分类
@@ -139,6 +141,7 @@ export interface PublicConfigType {
     overFlowHidden?: boolean
   }
   filter?: string
+  customData?: { [key:string]: any },
   status: StatusType
   interactActions?: InteractActionsType[]
   events: {
@@ -198,7 +201,8 @@ export enum PackagesCategoryName {
 // 获取组件
 export enum FetchComFlagType {
   VIEW,
-  CONFIG
+  CONFIG,
+  CONFIGDATA
 }
 
 // 图表包类型

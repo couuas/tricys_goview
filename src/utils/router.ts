@@ -200,6 +200,20 @@ export const fetchRouteParamsLocation = () => {
  * @param confirm
  */
 export const goHome = () => {
+  // 跳回原系统
+  const routerStore:any = useRouterStore()
+  if (routerStore && routerStore.getCallByParent) {
+    // 获取父页面的 window 对象
+    var parentWindow = window.parent;
+    const message = {
+      // 属于哪个页面
+      page: 'customLargeScreen',
+      // 属于什么类型
+      type: 'goHome',
+    }
+    parentWindow.postMessage(JSON.stringify(message), '*');
+    return
+  }
   routerTurnByName(PageEnum.BASE_HOME_NAME)
 }
 

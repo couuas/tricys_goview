@@ -18,4 +18,8 @@ export default class Config extends PublicConfigClass implements CreateComponent
   public key = DeviceAlarmOverviewConfig.key
   public chartConfig = cloneDeep(DeviceAlarmOverviewConfig)
   public option = cloneDeep(option)
+  public customData = cloneDeep({
+    title: '当前设备告警概况',
+    showInterval: true,
+  })
 }

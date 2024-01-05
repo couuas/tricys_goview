@@ -18,4 +18,12 @@ export default class Config extends PublicConfigClass implements CreateComponent
   public key = ComprehensivePUEConfig.key
   public chartConfig = cloneDeep(ComprehensivePUEConfig)
   public option = cloneDeep(option)
+  public customData = cloneDeep({
+    title: '综合PUE',
+    id_1: null,
+    id_2: null,
+    id_3: null,
+    id_4: null,
+    showInterval: true,
+  })
 }

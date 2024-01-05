@@ -1,8 +1,8 @@
 import { PublicConfigClass } from '@/packages/public'
 import { CreateComponentType } from '@/packages/index.d'
-import { RealTimeTrafficConfig } from './index'
+import { RealTimeAlarmStatisticsConfig } from './index'
 import cloneDeep from 'lodash/cloneDeep'
-// import logo from '@/assets/logo.png'
+// import background from '@/assets/customComponents/theme1/backgrond.jpg'
 
 export const option = {
   // 图片路径
@@ -15,11 +15,11 @@ export const option = {
 
 export default class Config extends PublicConfigClass implements CreateComponentType
 {
-  public key = RealTimeTrafficConfig.key
-  public chartConfig = cloneDeep(RealTimeTrafficConfig)
+  public key = RealTimeAlarmStatisticsConfig.key
+  public chartConfig = cloneDeep(RealTimeAlarmStatisticsConfig)
   public option = cloneDeep(option)
   public customData = cloneDeep({
-    title: '采集流量实时监测',
+    title: '实时告警统计',
     showInterval: true,
   })
 }

@@ -48,6 +48,7 @@ $leftWidth: 100px;
     text-align: left;
     margin-top: 4px;
     margin-left: 10px;
+    margin-right: 4px;
     font-size: 12px;
   }
   .item-right {

@@ -11,6 +11,9 @@ import { PackagesCategoryEnum, PackagesType, ConfigType, FetchComFlagType } from
 const configModules: Record<string, { default: string }> = import.meta.glob('./components/**/config.vue', {
   eager: true
 })
+const configDataModules: Record<string, { default: string }> = import.meta.glob('./components/**/configData.vue', {
+  eager: true
+})
 const indexModules: Record<string, { default: string }> = import.meta.glob('./components/**/index.vue', {
   eager: true
 })
@@ -59,10 +62,15 @@ export const createComponent = async (targetData: ConfigType) => {
 /**
  * * 获取组件
  * @param {string} chartName 名称
- * @param {FetchComFlagType} flag 标识 0为展示组件, 1为配置组件
+ * @param {FetchComFlagType} flag 标识 0为展示组件, 1为配置组件 2为配置数据tab组件
  */
 const fetchComponent = (chartName: string, flag: FetchComFlagType) => {
-  const module = flag === FetchComFlagType.VIEW ? indexModules : configModules
+  let map = {
+    [FetchComFlagType.VIEW]: indexModules,
+    [FetchComFlagType.CONFIG]: configModules,
+    [FetchComFlagType.CONFIGDATA]: configDataModules,
+  }
+  const module = map[flag]
   for (const key in module) {
     const urlSplit = key.split('/')
     if (urlSplit[urlSplit.length - 2] === chartName) {
@@ -87,6 +95,15 @@ export const fetchChartComponent = (dropData: ConfigType) => {
 export const fetchConfigComponent = (dropData: ConfigType) => {
   const { key } = dropData
   return fetchComponent(key, FetchComFlagType.CONFIG)?.default
+}
+
+/**
+ * * 获取配置数据tab组件
+ * @param {ConfigType} dropData 配置项
+ */
+export const fetchConfigDataComponent = (dropData: ConfigType) => {
+  const { key } = dropData
+  return fetchComponent(key, FetchComFlagType.CONFIGDATA)?.default
 }
 
 /**

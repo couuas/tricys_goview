@@ -5,6 +5,8 @@ export const RealTimeTrafficConfig: ConfigType = {
   key: 'RealTimeTraffic',
   chartKey: 'VRealTimeTraffic',
   conKey: 'VCRealTimeTraffic',
+  // VCD开头
+  conDataKey: 'VCDRealTimeTraffic',
   title: '采集流量实时监测',
   category: ChatCategoryEnum.CUSTOMCOMPONENTS,
   categoryName: ChatCategoryEnumName.CUSTOMCOMPONENTS,

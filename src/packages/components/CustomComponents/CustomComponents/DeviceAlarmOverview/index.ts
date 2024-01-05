@@ -5,6 +5,7 @@ export const DeviceAlarmOverviewConfig: ConfigType = {
   key: 'DeviceAlarmOverview',
   chartKey: 'VDeviceAlarmOverview',
   conKey: 'VCDeviceAlarmOverview',
+  conDataKey: 'VCDDeviceAlarmOverview',
   title: '当前设备告警概况',
   category: ChatCategoryEnum.CUSTOMCOMPONENTS,
   categoryName: ChatCategoryEnumName.CUSTOMCOMPONENTS,

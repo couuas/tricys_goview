@@ -23,7 +23,7 @@
                 <path style="fill:url(#SVGID_2_);" d="M600,0l54.3,54.3c3.1,3.1,9.3,5.7,13.7,5.7h584c4.4,0,10.5-2.5,13.7-5.7L1320,0" />
               </g>
               <g>
-                <text transform="matrix(1 0 0 1 697.4991 43)" style="fill:#FFFFFF; font-family:'PingFang-SC-Bold'; font-size:30px;"></text>
+<!--                <text transform="matrix(1 0 0 1 697.4991 43)" style="fill:#FFFFFF; font-family:'PingFang-SC-Bold'; font-size:30px;text-align: center;"></text>-->
               </g>
               <g>
                 <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="770" y1="58" x2="1150" y2="58">
@@ -90,6 +90,7 @@
             </g>
         </g>
         </svg>
+    <div style="font: 30px PingFang-SC-Bold;color: #fff;width: 1920px;height: 60px;line-height: 60px;text-align: center;position: absolute;top: 0;">{{props.chartConfig.customData.title}}</div>
     <n-image
       :object-fit="fit"
       preview-disabled
@@ -110,6 +111,7 @@ import { CreateComponentType } from '@/packages/index.d'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import moment from 'moment'
 import background from '@/assets/customComponents/theme1/backgrond.jpg'
+import { isPreview } from '@/utils/router'
 
 const props = defineProps({
   chartConfig: {
@@ -130,6 +132,7 @@ const weeks = ['周一', '周二', '周三', '周四', '周五', '周六', '周�
 let time = ref(moment().format('HH:mm:ss ') + weeks[Number(moment().format('e'))])
 let timer: unknown
 onMounted(() => {
+  if(!isPreview()) return
   timer = setInterval(() => {
     date.value = moment().format('yyyy-MM-DD')
     time.value = moment().format('HH:mm:ss ') + weeks[Number(moment().format('e'))]

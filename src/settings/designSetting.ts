@@ -53,7 +53,7 @@ export const carouselInterval = 4000
 export const backgroundImageSize = 5
 
 // 预览展示方式
-export const previewScaleType = PreviewScaleEnum.FIT
+export const previewScaleType = PreviewScaleEnum.FULL
 
 // 编辑工作台同步到 JSON 的轮询间隔（5S）
 export const editToJsonInterval = 5000

@@ -1,12 +1,12 @@
 import { ConfigType, PackagesCategoryEnum, ChartFrameEnum } from '@/packages/index.d'
 import { ChatCategoryEnum,ChatCategoryEnumName } from '@/packages/components/CUSTOMCOMPONENTS/index.d'
 
-export const Theme1Config: ConfigType = {
-  key: 'Theme1',
-  chartKey: 'VTheme1',
-  conKey: 'VCTheme1',
-  conDataKey: 'VCDTheme1',
-  title: '背景1',
+export const RealTimeAlarmStatisticsConfig: ConfigType = {
+  key: 'RealTimeAlarmStatistics',
+  chartKey: 'VRealTimeAlarmStatistics',
+  conKey: 'VCRealTimeAlarmStatistics',
+  conDataKey: 'VCDRealTimeAlarmStatistics',
+  title: '实时告警统计',
   // category: ChatCategoryEnum.THEMES,
   // categoryName: ChatCategoryEnumName.THEMES,
   // package: PackagesCategoryEnum.THEMESANDLAYOUTS,
@@ -14,5 +14,5 @@ export const Theme1Config: ConfigType = {
   categoryName: ChatCategoryEnumName.CUSTOMCOMPONENTS,
   package: PackagesCategoryEnum.CUSTOMCOMPONENTS,
   chartFrame: ChartFrameEnum.COMMON,
-  image: 'theme1.png'
+  image: 'RealTimeAlarmStatistics.png'
 }
