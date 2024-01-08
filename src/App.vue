@@ -19,26 +19,27 @@ import { GoAppProvider } from '@/components/GoAppProvider'
 import { I18n } from '@/components/I18n'
 import { useSystemInit, useDarkThemeHook, useThemeOverridesHook, useCode, useLang } from '@/hooks'
 import { getToken } from '@/api/path'
-import { onMounted, onUnmounted } from 'vue'
 import { useRouterStore } from '@/store/modules/routerStore/routerStore'
+import { useOriginStore } from '@/store/modules/originStore/originStore'
+import { useGetMessageByParent } from '@/utils/utils'
+
+const {getMessageByParent} = useGetMessageByParent()
 
 const routerStore = useRouterStore()
-let handleMessage = function(event:{data:string}) {
-  const {data}:{data:any} = event
-  if(data.page === 'customLargeScreen' && data.type === 'setCallByParent') {
-    routerStore.setCallByParent(data.callByParent)
+getMessageByParent('setCallByParent', (e) => {
+  if(e.data.type === 'setCallByParent' && e.data.page === 'customLargeScreen') {
+    const {data}:{data:any} = e
+    if(data.page === 'customLargeScreen' && data.type === 'setCallByParent') {
+      routerStore.setCallByParent(data.callByParent)
+    }
   }
-}
-onMounted(() => {
-  window.addEventListener('message', handleMessage);
-  let obj = {
-    page: 'customLargeScreen',
-    type: 'bindPostMessageEvent'
-  }
-  window.parent.postMessage(JSON.stringify(obj), '*');
 })
-onUnmounted(() => {
-  window.removeEventListener('message', handleMessage);
+
+const originStore = useOriginStore()
+getMessageByParent('getStore', (e) => {
+  if(e.data.type === 'getStore' && e.data.page === 'customLargeScreen') {
+    originStore.setOriginStore(e.data.data, false)
+  }
 })
 
 getToken()

@@ -105,11 +105,17 @@ import {
   FilterEdit as FilterEditIcon,
   Laptop as LaptopIcon,
   AreaCustom as AreaCustomIcon,
+  Location as LocationIcon
 } from '@vicons/carbon'
 
 import {
   Apps20Regular as Apps20RegularIcon
 } from '@vicons/fluent'
+
+import {
+  AssignmentTurnedInRound as AssignmentTurnedInRoundIcon,
+  CheckCircleOutlined as CheckCircleOutlinedIcon
+} from '@vicons/material'
 
 const ionicons5 = {
   // 新增
@@ -311,6 +317,8 @@ const carbon = {
   LaptopIcon,
   // 自定义
   AreaCustomIcon,
+  // 地点
+  LocationIcon,
 }
 
 const fluent = {
@@ -318,10 +326,18 @@ const fluent = {
   Apps20RegularIcon
 }
 
+const material = {
+  // 批量确认
+  AssignmentTurnedInRoundIcon,
+  // 圆圈 勾
+  CheckCircleOutlinedIcon
+}
+
 // https://www.xicons.org/#/ 还有很多
 
 export const icon = {
   ionicons5,
   carbon,
-  fluent
+  fluent,
+  material
 }

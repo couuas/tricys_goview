@@ -22,7 +22,7 @@ const { title } = toRefs(props)
   background: rgba(65,150,255,.04);
   .title{
     position: relative;
-    padding-left: 20px;
+    padding: 0 20px;
     height: 38px;
     line-height: 38px;
     font-size: 16px;

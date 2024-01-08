@@ -45,7 +45,7 @@ const props = defineProps({
   }
 })
 Object.assign(props.chartConfig.attr, { w: 380, h: 250 })
-Object.assign(props.chartConfig.request, { requestInterval: 15, requestIntervalUnit: RequestHttpIntervalEnum.SECOND })
+if(!props.chartConfig.request.requestInterval) Object.assign(props.chartConfig.request, { requestInterval: 15, requestIntervalUnit: RequestHttpIntervalEnum.SECOND })
 
 const { w, h } = toRefs(props.chartConfig.attr)
 const { dataset, fit, borderRadius } = toRefs(props.chartConfig.option)
@@ -58,7 +58,7 @@ const getStyle = (radius: number) => {
 }
 
 const value = reactive([
-  {label: '实时PUE', value: '0.000'},
+  {label: '实时PUE', value: '1.000'},
   {label: '昨日PUE', value: '0.000'},
   {label: '上周PUE', value: '0.000'},
   {label: '上月PUE', value: '0.000'},
