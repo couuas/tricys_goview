@@ -356,22 +356,13 @@ export const addWindowUnload = () => {
 /**
  * 向父页面发送消息
  */
-// export const postMessageToParent = (obj = {}) => {
-//   const routerStore:any = useRouterStore()
-//   if (routerStore && routerStore.getCallByParent) {
-//     // 获取父页面的 window 对象
-//     var parentWindow = window.parent;
-//     const message = {
-//       // 属于哪个页面
-//       page: 'customLargeScreen',
-//       // 属于什么类型
-//       // type: 'goHome',
-//       ...obj
-//     }
-//     parentWindow.postMessage(JSON.stringify(message), '*');
-//     return
-//   }
-// }
+export const postMessageToParent = (obj = {}) => {
+  const message = {
+    page: 'customLargeScreen',
+    ...obj
+  }
+  window.parent.postMessage(JSON.stringify(message), '*');
+}
 
 /**
  * 从父页面发送并接收消息

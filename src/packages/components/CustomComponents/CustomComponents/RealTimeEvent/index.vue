@@ -1,18 +1,35 @@
 <template>
-  <BorderBox ref="refBorderBox" :title="props.chartConfig.customData.title" :select1="select1" :select2="select2" :style="getStyle(borderRadius)" style="overflow: visible">
+  <BorderBox
+    :title="props.chartConfig.customData.title"
+    :select1="select1"
+    @update:select1Value="v => select1.value = v"
+    :select2="select2"
+    @update:select2Value="v => select2.value = v"
+    :style="getStyle(borderRadius)"
+    @clickBatch="clickBatch"
+    v-model:checkAll="checkAll"
+    @jumpMore="jumpMore"
+    style="overflow: visible"
+  >
     <div class="itemBox">
-      <div class="item" v-for="(item, i) in tableData" :key="i">
-        <n-checkbox class="mr10" size="small"/>
-        <n-tag class="mr5" size="small" strong :color="{textColor: '#000', color: item.confirm_status === 'ok' ? '#4DCA59' : '#f5b442'}">{{ item.confirm_status === 'ok'?'已确认':'未确认' }}</n-tag>
-        <n-tag class="mr5" size="small" :color="{textColor: item.color1, borderColor: item.color1}">{{select1.options[item.level - 1].label}}</n-tag>
+      <div class="item" v-for="(item, i) in tableData" :key="i" @click="clickItem(i)">
+        <n-checkbox :disabled="item.checked" v-model:checked="item.checked" class="mr10" size="small" @click.stop/>
+        <n-tag class="mr5" size="small" strong :color="{textColor: '#000', color: item.confirm_status === 'ok' ? '#4DCA59' : '#f5b442'}">
+          {{ item.confirm_status === 'ok'?'已确认':'未确认' }}
+        </n-tag>
+        <n-tag class="mr5" size="small" :color="{textColor: item.color1, borderColor: item.color1}">
+          {{select1.options[item.level - 1].label}}
+        </n-tag>
         <div style="color: rgba(255, 255, 255, 0.82);">{{ item.content }}</div>
         <div style="flex: 1"></div>
         <div class="mr10" style="color: #B5BAC3;">{{ moment(item.generate_time).format('yyyy-MM-DD HH:mm:ss') }}</div>
-        <LocationIcon class="mr10" style="width: 20px;height: 20px;color: #4196ff;"/>
-        <CheckCircleOutlinedIcon v-if="item.confirm_status === 'not'" style="width: 20px;height: 20px;color: #4196ff;"/>
+        <LocationIcon @click.stop="jumpTo(item)" class="mr10" style="width: 20px;height: 20px;color: #4196ff;"/>
+        <CheckCircleOutlinedIcon @click.stop="clickSingle(item.id)" v-if="item.confirm_status === 'not'" style="width: 20px;height: 20px;color: #4196ff;"/>
         <div v-else style="width: 20px"></div>
       </div>
     </div>
+    <VModal v-model:show="modalObj.show" :data="modalObj.data" :select1Options="select1.options"/>
+    <VModalV1 v-model:show="modalV1Obj.show" :data="modalV1Obj.data" @confirm="confirm"/>
   </BorderBox>
 </template>
 
@@ -22,15 +39,18 @@ import { useChartDataFetch } from '@/hooks'
 import { CreateComponentType } from '@/packages/index.d'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { publicInterface } from '@/api/path/business.api'
-import BorderBox from '../components/BorderBoxV2.vue'
+import BorderBox from './BorderBoxV2.vue'
 import VChart from 'vue-echarts'
-import {isPreview} from '@/utils'
+import {isPreview, postMessageToParent} from '@/utils'
 import {graphic} from "echarts";
 import {cloneDeep} from 'lodash'
 import moment from "moment"
 import {selectTimeOptions} from "@/views/chart/ContentConfigurations/components/ChartData/index.d";
 import {RequestHttpIntervalEnum} from "@/enums/httpEnum";
 import {icon} from '@/plugins/icon'
+import VModal from './VModal.vue'
+import VModalV1 from './VModalV1.vue'
+import { useOriginStore } from '@/store/modules/originStore/originStore'
 
 const { LocationIcon } = icon.carbon
 const { CheckCircleOutlinedIcon } = icon.material
@@ -72,7 +92,12 @@ const select2 = reactive({
     { label: '未确认', value: 'not', number: 0, color: '#f5b442' },
   ]
 })
-type tableDataType = {
+
+watch(() => select1.value.join('&&') + select2.value.join('&&'), (v) => {
+  getData()
+})
+
+type tableDataItemType = {
   id: number,
   content: string,
   generate_time: string,
@@ -81,12 +106,55 @@ type tableDataType = {
   level: number,
   color1: string,
   color2: string,
-}[]
-let tableData:tableDataType = reactive([])
+  position: string,
+  device_name: string,
+  node_name: string,
+  confirm_people: string,
+  confirm_time: string,
+  reconfirmation_time_str: string,
+  serial_no: string,
+  remark: string,
+  [k:string]: any,
+}
+let tableData:tableDataItemType[] = reactive([])
+watch(() => tableData.map(_ => _.checked), (v:boolean[]) => {
+  if(!v.length) checkAll.value = false
+  else if(v.every(_ => _)) checkAll.value = true
+  else if(v.every(_ => !_)) checkAll.value = false
+})
+
 let checkAll = ref(false)
-const refBorderBox = ref(null)
+watch(() => checkAll.value, (v) => {
+  tableData.forEach(_ => _.checked = v)
+})
+
+const getNumber = () => {
+  publicInterface('/dcim/dems/devie_active_alarm', 'count_by_level', {}).then(res => {
+    if (res && JSON.stringify(res.data) !== '{}') {
+      select1.options.forEach((item, i) => {
+        item.number = res.data[`level${i+1}`]
+      })
+    }
+  })
+  const param = {
+    condition: {
+      id: null,
+      levels: select1.value,
+      space_complete_id: '',
+      append_space_to_content: 'complete',
+      recovery_statuss: ['not'],
+    }
+  }
+  publicInterface('/dcim/dems/devie_active_alarm', 'get_app_alarm_num_by_condition', param).then(res => {
+    if (res && res.data) {
+      select2.options[0].number = res.data['confrim_num']
+      select2.options[1].number = res.data['not_confirm_num']
+    }
+  })
+}
+
 const getData = () => {
-  console.log(refBorderBox.value)
+  getNumber()
   const queryModel = {
     condition: {
       id: null,
@@ -107,8 +175,10 @@ const getData = () => {
       return
     }
     if(res && res.data) {
+      res.data.item = res.data.item.filter((_: tableDataItemType) => _.level)
       const lastTableData = [...tableData]
-      let arr = res.data['item'].map((e:any) => ({
+      let arr:tableDataItemType[] = res.data['item'].map((e:any) => ({
+        ...e,
         id: e.id,
         content: e.content,
         generate_time: e.generate_time,
@@ -117,6 +187,14 @@ const getData = () => {
         confirm_status: e.confirm_status,
         color1: select1.options.find(_ => _.value === e.level)!.color,
         color2: select2.options.find(_ => _.value === e.confirm_status)!.color,
+        position: e.position,
+        device_name: e.device_name,
+        node_name: e?.point?.node_name,
+        confirm_people: e.confirm_people,
+        confirm_time: e.confirm_time,
+        reconfirmation_time_str: e.reconfirmation_time_str,
+        serial_no: e.serial_no,
+        remark: e.remark,
       }))
       if (checkAll.value) {
         arr = arr.map((e:any) => ({ ...e, checked: e.confirm_status !== 'ok' }))
@@ -128,19 +206,109 @@ const getData = () => {
           }
         })
       }
-      arr = arr.concat(Array(10).fill({}).map(_ => ({
-        id: 1234,
-        content: '1234',
-        generate_time: moment().format('x'),
-        level: 2,
-        checked: false,
-        confirm_status: 'ok',
-        color1: 'green',
-        color2: 'green',
-      })))
       tableData.splice(0, tableData.length, ...arr)
-      console.log(tableData)
     }
+  })
+}
+
+const modalObj = reactive({
+  show: false,
+  data: {}
+})
+const clickItem = (i:number) => {
+  const obj = tableData[i]
+  modalObj.show = true
+  Object.assign(modalObj, {
+    show: true,
+    data: obj
+  })
+}
+
+const originStore = useOriginStore()
+const user = originStore.getOriginStore.user.user
+const modalV1Obj = reactive({
+  show: false,
+  data: {
+    // confirm_people_id: user.id,
+    confirm_people: user.name,
+    is_misreport: false,
+    remark: '',
+    reconfirmation_time_str: null,
+  },
+  // batch 批量 single 单个
+  type: 'batch',
+  singleIds: [],
+})
+const clickBatch = () => {
+  if(!tableData.filter(_ => _.checked).length) {
+    window['$message'].warning('请先选择数据')
+    return
+  }
+  Object.assign(modalV1Obj, {
+    show: true,
+    data: {
+      // confirm_people_id: user.id,
+      confirm_people: user.name,
+      is_misreport: false,
+      remark: '',
+      reconfirmation_time_str: null,
+    },
+    type: 'batch',
+    singleIds: []
+  })
+}
+const clickSingle = (id: number) => {
+  Object.assign(modalV1Obj, {
+    show: true,
+    data: {
+      // confirm_people_id: user.id,
+      confirm_people: user.name,
+      is_misreport: false,
+      remark: '',
+      reconfirmation_time_str: null,
+    },
+    type: 'single',
+    singleIds: [id]
+  })
+}
+
+const confirm = () => {
+  const obj = {
+    id: null,
+    ids: modalV1Obj.type === 'batch' ? tableData.filter(_ => _.checked).map(_ => _.id) : modalV1Obj.singleIds,
+    confirm_status: "not",
+    ...modalV1Obj.data
+  }
+  publicInterface('/dcim/dems/devie_active_alarm', 'confirms', obj).then(res => {
+    window['$message'].success('操作成功')
+    checkAll.value = false
+    getData()
+  })
+}
+
+const jumpTo = (row:any) => {
+  if (row.space && row.space.space_type !== 'device') {
+    publicInterface('/dcim/space_page', 'get', { space_id: row.space_id, order: 'sort,id asc' }).then(res => {
+      if (res && res.data && res.data.length) {
+        postMessageToParent({
+          type: 'changeRouterV1',
+          url: `/dynamicRing/schematicDiagram/${res.data[0].id}`
+        })
+      }
+      else {
+        window['$message'].warning('所选节点没有配置页面')
+      }
+    })
+  }
+  else {
+    window['$message'].warning('所选节点没有配置页面')
+  }
+}
+
+const jumpMore = () => {
+  postMessageToParent({
+    type: 'changeRouterV1',
+    url: `/alarmManage/monitorAlarm`
   })
 }
 
@@ -198,6 +366,7 @@ onUnmounted(() => {
   flex-direction: column;
   overflow-y: auto;
   .item{
+    flex: none;
     height: 30px;
     display: flex;
     align-items: center;
@@ -205,6 +374,7 @@ onUnmounted(() => {
     padding: 0 10px;
     margin: 3px 0;
     background: rgba(65,150,255,.05);
+    cursor: pointer;
   }
 }
 </style>

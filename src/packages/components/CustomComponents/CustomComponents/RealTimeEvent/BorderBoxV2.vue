@@ -3,13 +3,15 @@
     <template #title>
       <div class="titleBox">
         <div class="mr10">{{title}}</div>
-        <n-checkbox v-model:checked="checkAll" size="small" class="mr10">全选</n-checkbox>
-        <n-button strong size="tiny" color="rgba(36,197,231,.5)" text-color="#fff" class="button">
-          <template #icon><AssignmentTurnedInRoundIcon/></template>
+        <n-checkbox :checked="checkAll" @update:checked="v => emit('update:checkAll', v)" size="small" class="mr10">全选</n-checkbox>
+        <n-button strong size="tiny" color="rgba(36,197,231,.5)" text-color="#fff" class="button" @click="clickBatch">
+          <template #icon>
+            <AssignmentTurnedInRoundIcon/>
+          </template>
           批量确认
         </n-button>
         <div style="flex: 1"></div>
-        <n-checkbox-group v-model:value="select1.value" class="mr10" size="small">
+        <n-checkbox-group :value="select1.value" @update:value="v => changeSelect1(v)" class="mr10" size="small">
           <n-space item-style="display: flex;" size="small">
             <n-checkbox :value="item.value" :label="item.label" v-for="(item, i) in select1.options" :key="i">
               <div :style="{color: item.color}" style="display: inline-block">{{item.label}}</div>
@@ -17,7 +19,7 @@
             </n-checkbox>
           </n-space>
         </n-checkbox-group>
-        <n-checkbox-group v-model:value="select2.value" class="mr10" size="small">
+        <n-checkbox-group :value="select2.value" @update:value="v => changeSelect2(v)"  class="mr10" size="small">
           <n-space item-style="display: flex;">
             <n-checkbox :value="item.value" :label="item.label" v-for="(item, i) in select2.options" :key="i">
               <div :style="{color: item.color}" style="display: inline-block">{{item.label}}</div>
@@ -25,7 +27,7 @@
             </n-checkbox>
           </n-space>
         </n-checkbox-group>
-        <div class="more">更多>></div>
+        <div class="more" @click="jumpMore">更多>></div>
       </div>
     </template>
     <template #default>
@@ -35,19 +37,33 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, reactive, toRefs } from 'vue'
-import BorderBox from './BorderBox.vue'
+import { ref, reactive, toRefs, defineEmits } from 'vue'
+import BorderBox from '../components/BorderBox.vue'
 import { icon } from '@/plugins/icon'
+import VModal from './VModalV1.vue'
 
 const { AssignmentTurnedInRoundIcon } = icon.material
 
 
-const props = defineProps(['title', 'select1', 'select2'])
+const props = defineProps(['title', 'select1', 'select2', 'checkAll'])
 
 const { select1, select2 } = toRefs(props)
 
-const checkAll = ref(false)
 
+const emit = defineEmits(['clickBatch', 'update:select1Value', 'update:select2Value', 'update:checkAll', 'jumpMore'])
+const clickBatch = () => {
+  emit('clickBatch')
+}
+
+const changeSelect1 = (v:number[]) => {
+  emit('update:select1Value', v)
+}
+const changeSelect2 = (v:number[]) => {
+  emit('update:select2Value', v)
+}
+const jumpMore = () => {
+  emit('jumpMore')
+}
 // const select1 = reactive({
 //   value: [1, 2],
 //   options: [
@@ -81,6 +97,7 @@ const checkAll = ref(false)
   display: flex;
   align-items: center;
   .more{
+    font-size: 14px;
     color: #409eff;
     cursor: pointer;
   }
