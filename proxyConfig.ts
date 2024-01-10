@@ -44,7 +44,7 @@ const prodProxy = (mode:any) => {
         // 生产list页缩略图 开发时注释掉
         '/svgConfig/customLargeScreen/data/file': {
             // @ts-ignore
-            target: loadEnv(mode, process.cwd()).VITE_DEV_PATH,
+            target: loadEnv(mode, process.cwd()).VITE_PRO_PATH,
             changeOrigin: true,
             rewrite: (path:any) => {
                 console.log(path.replace(new RegExp(`^/svgConfig/customLargeScreen/data/file`), '/data/file'))
