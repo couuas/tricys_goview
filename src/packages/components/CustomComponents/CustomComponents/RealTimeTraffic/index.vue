@@ -226,16 +226,17 @@ const option = reactive({
   series: [seriesItem]
 })
 
-const query = {
+
+const vChartRef = ref()
+const getData = () => {
+  const methodArr = 'handle'.split('_')
+  const query = {
     types: ['rec'],
     start_time: moment().subtract(10, 'm').format('YYYY-MM-DD HH:mm:ss'),
     end_time: moment().format('YYYY-MM-DD HH:mm:ss'),
     duration: 15,
     query_type: ''
-}
-const vChartRef = ref()
-const getData = () => {
-  const methodArr = 'handle'.split('_')
+  }
   query.types = [methodArr[0]]
   query.query_type = methodArr[1] || ''
   option.xAxis['data'] = []

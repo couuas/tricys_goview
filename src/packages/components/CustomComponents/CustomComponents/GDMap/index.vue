@@ -91,14 +91,15 @@
         </g>
       </g>
     </svg>
-    <img :src="gdMap.propValue" :style="{transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top"/>
+    <img v-show="showImg" @load="showImg = true" :src="gdMap.propValue" :style="{transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top"/>
     <div :style="{transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top">
       <svg
         v-for="(item, i) in point"
         :key="i"
         xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink"
-        style="position: absolute;outline: none;width: 22px;height: 22px;"
+        style="position: absolute;outline: none;width: 22px;height: 22px;cursor: pointer;"
+        @click="pointJump(item)"
         :style="{
           top: `${pxToPercentTop(item.style.top + 20, 911)}`,
           left: `${pxToPercentLeft(item.style.left - 220, 1400)}`,
@@ -131,12 +132,15 @@
 import { PropType, shallowReactive, watch, toRefs, reactive, onMounted, onUnmounted, nextTick, ref, computed } from 'vue'
 import { CreateComponentType } from '@/packages/index.d'
 import { publicInterface } from '@/api/path/business.api'
-import {isPreview} from '@/utils'
+import { isPreview } from '@/utils'
 import {selectTimeOptions} from "@/views/chart/ContentConfigurations/components/ChartData/index.d";
 import {RequestHttpIntervalEnum} from "@/enums/httpEnum";
 import { useOriginStore } from '@/store/modules/originStore/originStore'
 import moment from 'moment'
 import { debounce } from "lodash";
+import { postMessageToParent } from '@/utils/utils'
+
+const showImg = ref(false)
 
 const props = defineProps({
   chartConfig: {
@@ -221,9 +225,14 @@ const getData = () => {
           })
         }
       })
-
+      console.log(point)
     }
   })
+}
+
+const pointJump = (item:any) => {
+  console.log(item)
+  postMessageToParent({type: 'changeRouterV1', url: '/' + item.dataBind.skipPath})
 }
 
 let timer:unknown

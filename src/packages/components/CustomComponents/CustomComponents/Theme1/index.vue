@@ -1,6 +1,6 @@
 <template>
   <div :style="getStyle(borderRadius)" class="Theme1">
-    <div class="full-screen-btn" @click="toggleFullscreen">
+    <div id="fullscreenButton" class="full-screen-btn" @click="toggleFullscreen">
       <i class="iconfont icon-quanping full-screen" :title="showMoreMenuBts ? '全屏' : '退出全屏'"></i>
       {{ showMoreMenuBts ? '全屏' : '退出全屏' }}
     </div>
@@ -129,6 +129,36 @@ const weeks = ['周一', '周二', '周三', '周四', '周五', '周六', '周�
 let time = ref(moment().format('HH:mm:ss ') + weeks[Number(moment().format('e'))])
 let timer: unknown
 onMounted(() => {
+  // document.getElementById('fullscreenButton')!.addEventListener('click', function() {
+  //   showMoreMenuBts.value = !showMoreMenuBts.value
+  //   // 检查是否已经处于全屏模式
+  //   if (document.fullscreenElement ||
+  //     (document as any).webkitFullscreenElement ||
+  //     (document as any).mozFullScreenElement ||
+  //     (document as any).msFullscreenElement) {
+  //     // 当前处于全屏，尝试退出全屏
+  //     if (document.exitFullscreen) {
+  //       document.exitFullscreen();
+  //     } else if ((document as any).mozCancelFullScreen) { // Firefox
+  //       (document as any).mozCancelFullScreen();
+  //     } else if ((document as any).webkitExitFullscreen) { // Chrome, Safari and Opera
+  //       (document as any).webkitExitFullscreen();
+  //     } else if ((document as any).msExitFullscreen) { // IE/Edge
+  //       (document as any).msExitFullscreen();
+  //     }
+  //   } else {
+  //     // 当前非全屏，尝试进入全屏
+  //     if (document.documentElement.requestFullscreen) {
+  //       document.documentElement.requestFullscreen();
+  //     } else if ((document.documentElement as any).mozRequestFullScreen) { // Firefox
+  //       (document.documentElement as any).mozRequestFullScreen();
+  //     } else if ((document.documentElement as any).webkitRequestFullscreen) { // Chrome, Safari and Opera
+  //       (document.documentElement as any).webkitRequestFullscreen();
+  //     } else if ((document.documentElement as any).msRequestFullscreen) { // IE/Edge
+  //       (document.documentElement as any).msRequestFullscreen();
+  //     }
+  //   }
+  // });
   if(!isPreview()) return
   timer = setInterval(() => {
     date.value = moment().format('yyyy-MM-DD')
@@ -143,8 +173,9 @@ const showMoreMenuBts = ref(true)
 // 切换全屏函数
 function toggleFullscreen() {
   postMessageToParent({type: 'fullScreen'})
+
   // console.log(document.documentElement)
-  // showMoreMenuBts.value = !showMoreMenuBts.value
+  showMoreMenuBts.value = !showMoreMenuBts.value
   //
   // if (document.fullscreenElement) {
   //   // 如果当前已经是全屏状态，则退出全屏
