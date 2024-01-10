@@ -12,7 +12,7 @@
   </div>
   <div v-if="targetData && targetData.chartConfig.conDataKey">
     <component :is="targetData.chartConfig.conDataKey" :customData="targetData.customData" :request="targetData.request"></component>
-    <setting-item-box v-if="targetData.customData.showInterval" name="更新间隔" :alone="true">
+    <setting-item-box v-if="targetData?.customData?.showInterval" name="更新间隔" :alone="true">
       <n-input-group>
         <n-input-number
           v-model:value.trim="targetData.request.requestInterval"

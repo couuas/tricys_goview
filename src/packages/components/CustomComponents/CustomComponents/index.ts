@@ -5,6 +5,8 @@ import { RealTimeTrafficConfig } from './RealTimeTraffic'
 import { RealTimeAlarmStatisticsConfig } from './RealTimeAlarmStatistics'
 import { OverviewOfComputingNodesConfig } from './OverviewOfComputingNodes'
 import { RealTimeEventConfig } from './RealTimeEvent'
+import { GDMapConfig } from './GDMap'
+import { MonitorRealTimeEventsConfig } from './MonitorRealTimeEvents'
 
 export default [
     Theme1Config,
@@ -13,5 +15,7 @@ export default [
     RealTimeTrafficConfig,
     RealTimeAlarmStatisticsConfig,
     OverviewOfComputingNodesConfig,
-    RealTimeEventConfig
+    RealTimeEventConfig,
+    GDMapConfig,
+    MonitorRealTimeEventsConfig,
 ]

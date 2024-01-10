@@ -1,5 +1,5 @@
 <template>
-  <BorderBox :title="props.chartConfig.customData.title" :style="getStyle(borderRadius)" style="overflow: visible">
+  <BorderBox :title="chartConfig?.customData?.title" :style="getStyle(borderRadius)" style="overflow: visible">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 401 236" style="width: 100%;height: 100%">
       <defs>
         <linearGradient id="linear-gradient-compute-node" x1="99" y1="176" x2="99" y2="120" gradientUnits="userSpaceOnUse">
@@ -102,8 +102,10 @@ const props = defineProps({
     required: true
   }
 })
-Object.assign(props.chartConfig.attr, { w: 380, h: 250 })
-if(!props.chartConfig.request.requestInterval) Object.assign(props.chartConfig.request, { requestInterval: 15, requestIntervalUnit: RequestHttpIntervalEnum.SECOND })
+if(!isPreview()) {
+  Object.assign(props.chartConfig.attr, { w: 450, h: 300 })
+  Object.assign(props.chartConfig.request, { requestInterval: 15, requestIntervalUnit: RequestHttpIntervalEnum.SECOND })
+}
 
 const { w, h } = toRefs(props.chartConfig.attr)
 const { dataset, fit, borderRadius } = toRefs(props.chartConfig.option)

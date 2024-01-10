@@ -1,6 +1,6 @@
 import { PublicConfigClass } from '@/packages/public'
 import { CreateComponentType } from '@/packages/index.d'
-import { RealTimeEventConfig } from './index'
+import { MonitorRealTimeEventsConfig } from './index'
 import cloneDeep from 'lodash/cloneDeep'
 // import logo from '@/assets/logo.png'
 
@@ -15,12 +15,11 @@ export const option = {
 
 export default class Config extends PublicConfigClass implements CreateComponentType
 {
-  public key = RealTimeEventConfig.key
-  public chartConfig = cloneDeep(RealTimeEventConfig)
+  public key = MonitorRealTimeEventsConfig.key
+  public chartConfig = cloneDeep(MonitorRealTimeEventsConfig)
   public option = cloneDeep(option)
   public customData = cloneDeep({
-    title: '实时事件',
+    title: '自监控实时事件',
     showInterval: true,
-    showFilter: false,
   })
 }

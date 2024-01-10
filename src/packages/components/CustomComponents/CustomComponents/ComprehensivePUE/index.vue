@@ -1,13 +1,13 @@
 <template>
   <div :style="getStyle(borderRadius)" style="overflow: visible;">
-    <BorderBox :title="props.chartConfig.customData.title">
+    <BorderBox :title="chartConfig?.customData?.title">
       <div class="inner">
         <div class="left">
-          <VCircle :value="value" style="height: 100%"/>
+          <VCircle :value="value" style="height: 100%;width: 100%"/>
         </div>
         <div class="right">
           <div class="item" v-for="(item, i) in rightArr" :key="i">
-            <Svg v-if="i === 0" class="leftBox" style="position: absolute;width: 60px;height: 37%;"/>
+            <Svg v-if="i === 0" class="leftBox" style="position: absolute;width: 65px;height: 37%;"/>
             <v-chart class="leftBox" :option="item.option" :update-options="{ notMerge: true, replaceMerge: ['series'] }"/>
             <div class="rightBox">
               <div>{{item.label}}</div>
@@ -44,8 +44,10 @@ const props = defineProps({
     required: true
   }
 })
-Object.assign(props.chartConfig.attr, { w: 380, h: 250 })
-if(!props.chartConfig.request.requestInterval) Object.assign(props.chartConfig.request, { requestInterval: 15, requestIntervalUnit: RequestHttpIntervalEnum.SECOND })
+if(!isPreview()) {
+  Object.assign(props.chartConfig.attr, { w: 450, h: 300 })
+  Object.assign(props.chartConfig.request, { requestInterval: 15, requestIntervalUnit: RequestHttpIntervalEnum.SECOND })
+}
 
 const { w, h } = toRefs(props.chartConfig.attr)
 const { dataset, fit, borderRadius } = toRefs(props.chartConfig.option)
@@ -498,6 +500,7 @@ onUnmounted(() => {
   display: flex;
   .left{
     flex: 6;
+    min-width: 60%;
     .circle{
 
     }
@@ -510,20 +513,30 @@ onUnmounted(() => {
   .right{
     flex: 4;
     .item{
+      box-sizing: border-box;
+      height: 33.3%;
       display: flex;
       align-items: center;
       position: relative;
       padding: 5px 0;
       .leftBox{
-        height: 60px;
-        width: 60px;
+        height: 70px;
+        width: 70px;
       }
       .rightBox{
+        width: 66.6%;
+        height: 100%;
         color: #fff;
         width: calc(100% - 60px);
         font-size: 14px;
         font-weight: 500;
         line-height: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
       }
     }
   }

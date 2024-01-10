@@ -46,6 +46,8 @@ export type ConfigType = {
   icon?: string
   // 事件
   configEvents?: { [T: string]: Function }
+  // 自定义数据配置
+  customData?: { [T: string]: any }
 }
 
 // 数据请求

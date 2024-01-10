@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <img class="scaner" src="@/assets/customComponents/RealTimeAlarmStatistics/scanner.png" alt="">
-    <svg v-show="alarmLevels.length === 5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
+    <svg v-show="alarmLevelsLength === 5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
       <g>
         <g>
           <circle style="opacity:0.2;fill-rule:evenodd;clip-rule:evenodd;fill:#4196FF;" cx="100" cy="100" r="100" />
@@ -133,7 +133,7 @@
         </g>
       </g>
     </svg>
-    <svg v-show="alarmLevels.length === 4 || alarmLevels.length === 0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
+    <svg v-show="alarmLevelsLength === 4 || alarmLevelsLength === 0" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
       <defs>
         <radialGradient id="real_time_alarm_statistics_35" cx="100" cy="660" r="92" gradientTransform="matrix(1, 0, 0, -1, 0, 760)" gradientUnits="userSpaceOnUse">
           <stop offset="0.84" stop-color="#fff" stop-opacity="0.05" />
@@ -219,7 +219,7 @@
         <text transform="translate(124.59 88.89)" style="isolation:isolate;font-size:14px;fill:#fff;font-family:MicrosoftYaHei, Microsoft YaHei">{{ alarmMonitorData ? alarmMonitorData["secondary"] : 0 }}</text>
       </g>
     </svg>
-    <svg v-show="alarmLevels.length === 3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
+    <svg v-show="alarmLevelsLength === 3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
       <g>
         <g>
           <circle style="opacity:0.2;fill-rule:evenodd;clip-rule:evenodd;fill:#4196FF;" cx="100" cy="100" r="100" />
@@ -327,7 +327,7 @@
         </g>
       </g>
     </svg>
-    <svg v-show="alarmLevels.length === 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
+    <svg v-show="alarmLevelsLength === 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
       <g>
         <g>
           <circle style="opacity:0.2;fill-rule:evenodd;clip-rule:evenodd;fill:#4196FF;" cx="100" cy="100" r="100" />
@@ -423,7 +423,7 @@
         </g>
       </g>
     </svg>
-    <svg v-show="alarmLevels.length === 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
+    <svg v-show="alarmLevelsLength === 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
       <g>
         <g>
           <circle style="opacity:0.2;fill-rule:evenodd;clip-rule:evenodd;fill:#4196FF;" cx="100" cy="100" r="100" />
@@ -511,25 +511,41 @@
 </template>
 
 <script lang="ts" setup>
-import { toRefs } from 'vue'
+import { toRefs, computed } from 'vue'
 const props = defineProps(['urgentName', 'seriousName', 'importantName', 'commonName', 'eventName', 'alarmMonitorData', 'alarmLevels'])
 const { urgentName, seriousName, importantName, commonName, eventName, alarmMonitorData, alarmLevels } = toRefs(props)
+
+const alarmLevelsLength = computed(() => {
+  return alarmLevels!.value.length
+})
 </script>
 
 <style lang="scss" scoped>
 @keyframes rotate {
-  from { transform: scale(0.69) rotate(0);}
-  to { transform: scale(0.69) rotate(360deg);}
+  from { transform: translateY(-50%) scale(0.71) rotate(0)}
+  to { transform: translateY(-50%) scale(0.71) rotate(360deg) }
 }
 .box{
   position: relative;
-  .scaner{
+  height: 100%;
+  svg{
+    height: 100%;
+    width: 100%;
     position: absolute;
-    top: -1.5%;
-    left: -0.5%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+  .scaner{
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 50%;
     animation: rotate linear 5s infinite;
     width: 100%;
-    height: 100%;
+    z-index: 3;
+    //height: 100%;
   }
 }
 

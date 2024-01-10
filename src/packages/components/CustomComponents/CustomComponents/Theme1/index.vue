@@ -90,7 +90,7 @@
             </g>
         </g>
         </svg>
-    <div style="font: 30px PingFang-SC-Bold;color: #fff;width: 1920px;height: 60px;line-height: 60px;text-align: center;position: absolute;top: 0;">{{props.chartConfig.customData.title}}</div>
+    <div style="font: 30px PingFang-SC-Bold;color: #fff;width: 1920px;height: 60px;line-height: 60px;text-align: center;position: absolute;top: 0;">{{chartConfig?.customData?.title}}</div>
     <n-image
       :object-fit="fit"
       preview-disabled
@@ -104,14 +104,13 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, shallowReactive, watch, toRefs, onMounted, onUnmounted, ref } from 'vue'
+import { PropType, shallowReactive, watch, toRefs, onMounted, onUnmounted, ref, computed } from 'vue'
 import { requireErrorImg } from '@/utils'
-import { useChartDataFetch } from '@/hooks'
 import { CreateComponentType } from '@/packages/index.d'
-import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import moment from 'moment'
 import background from '@/assets/customComponents/theme1/backgrond.jpg'
 import { isPreview } from '@/utils/router'
+import { postMessageToParent } from "@/utils";
 
 const props = defineProps({
   chartConfig: {
@@ -120,9 +119,7 @@ const props = defineProps({
   }
 })
 
-props.chartConfig.attr.w = 1920
-props.chartConfig.attr.h = 1080
-Object.assign(props.chartConfig.attr, {w: 1920, h: 1080, x: 0, y: 0})
+if(!isPreview()) Object.assign(props.chartConfig.attr, {w: 1920, h: 1080, x: 0, y: 0})
 
 const { w, h } = toRefs(props.chartConfig.attr)
 const { dataset, fit, borderRadius } = toRefs(props.chartConfig.option)
@@ -145,17 +142,20 @@ onUnmounted(() => {
 const showMoreMenuBts = ref(true)
 // 切换全屏函数
 function toggleFullscreen() {
-  showMoreMenuBts.value = !showMoreMenuBts.value
-  if (document.fullscreenElement) {
-    // 如果当前已经是全屏状态，则退出全屏
-    document.exitFullscreen();
-  } else {
-    // 否则，进入全屏
-    document.documentElement.requestFullscreen()
-      .catch(err => {
-        console.error('Error attempting to enable full-screen mode:', err);
-      });
-  }
+  postMessageToParent({type: 'fullScreen'})
+  // console.log(document.documentElement)
+  // showMoreMenuBts.value = !showMoreMenuBts.value
+  //
+  // if (document.fullscreenElement) {
+  //   // 如果当前已经是全屏状态，则退出全屏
+  //   document.exitFullscreen();
+  // } else {
+  //   // 否则，进入全屏
+  //   document.documentElement.requestFullscreen()
+  //     .catch(err => {
+  //       console.error('Error attempting to enable full-screen mode:', err);
+  //     });
+  // }
 }
 
 const option = shallowReactive({
@@ -202,6 +202,7 @@ const getStyle = (radius: number) => {
 .Theme1{
   position: relative;
   .full-screen-btn {
+    z-index: 999;
     border: #4396fd 1px solid;
     border-radius: 3px;
     display: flex;

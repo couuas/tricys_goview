@@ -30,6 +30,9 @@ const { title } = toRefs(props)
     border-top: 1px solid rgba(65,150,255,.5);
     border-bottom: 1px solid rgba(65,150,255,.2);
     background: linear-gradient(90deg,rgba(65,150,255,.1) 0,rgba(65,150,255,0));
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
     &:after{
       content: '';
       height: 1px;
@@ -41,6 +44,9 @@ const { title } = toRefs(props)
     }
   }
   .content{
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
     height: calc(100% - 40px);
     box-sizing: border-box;
     display: flex;

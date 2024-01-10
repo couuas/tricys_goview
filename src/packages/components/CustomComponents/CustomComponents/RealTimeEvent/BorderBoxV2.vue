@@ -3,7 +3,7 @@
     <template #title>
       <div class="titleBox">
         <div class="mr10">{{title}}</div>
-        <n-checkbox :checked="checkAll" @update:checked="v => emit('update:checkAll', v)" size="small" class="mr10">全选</n-checkbox>
+        <n-checkbox :checked="checkAll" @update:checked="(v:boolean) => emit('update:checkAll', v)" size="small" class="mr10">全选</n-checkbox>
         <n-button strong size="tiny" color="rgba(36,197,231,.5)" text-color="#fff" class="button" @click="clickBatch">
           <template #icon>
             <AssignmentTurnedInRoundIcon/>
@@ -11,7 +11,7 @@
           批量确认
         </n-button>
         <div style="flex: 1"></div>
-        <n-checkbox-group :value="select1.value" @update:value="v => changeSelect1(v)" class="mr10" size="small">
+        <n-checkbox-group v-if="showFilter" :value="select1.value" @update:value="(v:[]) => changeSelect1(v)" class="mr10" size="small">
           <n-space item-style="display: flex;" size="small">
             <n-checkbox :value="item.value" :label="item.label" v-for="(item, i) in select1.options" :key="i">
               <div :style="{color: item.color}" style="display: inline-block">{{item.label}}</div>
@@ -19,7 +19,7 @@
             </n-checkbox>
           </n-space>
         </n-checkbox-group>
-        <n-checkbox-group :value="select2.value" @update:value="v => changeSelect2(v)"  class="mr10" size="small">
+        <n-checkbox-group v-if="showFilter" :value="select2.value" @update:value="(v:[]) => changeSelect2(v)"  class="mr10" size="small">
           <n-space item-style="display: flex;">
             <n-checkbox :value="item.value" :label="item.label" v-for="(item, i) in select2.options" :key="i">
               <div :style="{color: item.color}" style="display: inline-block">{{item.label}}</div>
@@ -40,12 +40,24 @@
 import { ref, reactive, toRefs, defineEmits } from 'vue'
 import BorderBox from '../components/BorderBox.vue'
 import { icon } from '@/plugins/icon'
-import VModal from './VModalV1.vue'
 
 const { AssignmentTurnedInRoundIcon } = icon.material
 
+interface propsType {
+  title: string,
+  select1: {
+    value: number[],
+    options: { label: string, value: number, number: number, color: string }[],
+  },
+  select2: {
+    value: string[],
+    options: { label: string, value: string, number: number, color: string }[],
+  },
+  checkAll: boolean,
+  showFilter: boolean,
+}
+const props = defineProps<propsType>()
 
-const props = defineProps(['title', 'select1', 'select2', 'checkAll'])
 
 const { select1, select2 } = toRefs(props)
 
@@ -92,6 +104,10 @@ const jumpMore = () => {
 .button{
   border: 1px solid #4196ff;
   //border-color: #4196ff;
+}
+.n-space{
+  flex-wrap: nowrap!important;
+  gap: 4px 2px!important;
 }
 .titleBox{
   display: flex;

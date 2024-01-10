@@ -1,6 +1,6 @@
 <template>
   <div :style="getStyle(borderRadius)" style="overflow: visible">
-    <BorderBox :title="props.chartConfig.customData.title">
+    <BorderBox :title="chartConfig?.customData?.title">
       <v-chart
         ref="vChartRef"
         :option="option"
@@ -18,15 +18,12 @@
 
 <script setup lang="ts">
 import { PropType, shallowReactive, watch, toRefs, reactive, onMounted, onUnmounted, nextTick, ref } from 'vue'
-import { useChartDataFetch } from '@/hooks'
 import { CreateComponentType } from '@/packages/index.d'
-import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { publicInterface } from '@/api/path/business.api'
 import BorderBox from '../components/BorderBox.vue'
 import VChart from 'vue-echarts'
 import {isPreview} from '@/utils'
 import {graphic} from "echarts";
-import {cloneDeep} from 'lodash'
 import moment from "moment"
 import {selectTimeOptions} from "@/views/chart/ContentConfigurations/components/ChartData/index.d";
 import {RequestHttpIntervalEnum} from "@/enums/httpEnum";
@@ -37,8 +34,10 @@ const props = defineProps({
     required: true
   }
 })
-Object.assign(props.chartConfig.attr, { w: 380, h: 250 })
-if(!props.chartConfig.request.requestInterval) Object.assign(props.chartConfig.request, { requestInterval: 15, requestIntervalUnit: RequestHttpIntervalEnum.SECOND })
+if(!isPreview()) {
+  Object.assign(props.chartConfig.attr, { w: 450, h: 300 })
+  Object.assign(props.chartConfig.request, { requestInterval: 15, requestIntervalUnit: RequestHttpIntervalEnum.SECOND })
+}
 
 const { w, h } = toRefs(props.chartConfig.attr)
 const { dataset, fit, borderRadius } = toRefs(props.chartConfig.option)

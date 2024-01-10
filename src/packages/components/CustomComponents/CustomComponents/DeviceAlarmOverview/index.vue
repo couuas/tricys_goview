@@ -1,6 +1,6 @@
 <template>
   <div :style="getStyle(borderRadius)">
-    <BorderBox :title="props.chartConfig.customData.title">
+    <BorderBox :title="chartConfig?.customData?.title">
       <div class="item">
         <BareMetalServerIcon class="left"/>
         <div class="right">
@@ -52,8 +52,10 @@ const props = defineProps({
     required: true
   }
 })
-Object.assign(props.chartConfig.attr, { w: 380, h: 250 })
-if(!props.chartConfig.request.requestInterval) Object.assign(props.chartConfig.request, { requestInterval: 15, requestIntervalUnit: RequestHttpIntervalEnum.SECOND })
+if(!isPreview()) {
+  Object.assign(props.chartConfig.attr, { w: 450, h: 300 })
+  Object.assign(props.chartConfig.request, { requestInterval: 15, requestIntervalUnit: RequestHttpIntervalEnum.SECOND })
+}
 
 const { w, h } = toRefs(props.chartConfig.attr)
 const { dataset, fit, borderRadius } = toRefs(props.chartConfig.option)
@@ -154,22 +156,33 @@ useChartDataFetch(props.chartConfig, useChartEditStore, (newData: any) => {
   justify-content: center;
   .left{
     color: #0ff;
-    height: 60px;
+    height: 50%;
+    width: 50%;
   }
   .right{
+    width: 50%;
+    height: 80%;
     margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     .label{
       color: #fff;
       height: 20px;
       line-height: 20px;
       font-size: 12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
     .value{
       color: #0ff;
       height: 20px;
       line-height: 20px;
       font-size: 20px;
-      margin-top: 8px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
   .leftRed{

@@ -1,32 +1,37 @@
 <template>
   <BorderBox
-    :title="props.chartConfig.customData.title"
+    :title="chartConfig?.customData?.title"
     :select1="select1"
     @update:select1Value="v => select1.value = v"
     :select2="select2"
     @update:select2Value="v => select2.value = v"
-    :style="getStyle(borderRadius)"
     @clickBatch="clickBatch"
     v-model:checkAll="checkAll"
     @jumpMore="jumpMore"
+    :showFilter="chartConfig?.customData?.showFilter"
+    :style="getStyle(borderRadius)"
     style="overflow: visible"
   >
-    <div class="itemBox">
-      <div class="item" v-for="(item, i) in tableData" :key="i" @click="clickItem(i)">
-        <n-checkbox :disabled="item.checked" v-model:checked="item.checked" class="mr10" size="small" @click.stop/>
+    <div v-if="tableData.length" class="itemBox">
+      <div  class="item" v-for="(item, i) in tableData" :key="i" @click="clickItem(i)">
+        <n-checkbox :disabled="item.confirm_status === 'ok'" v-model:checked="item.checked" class="mr10" size="small" @click.stop/>
         <n-tag class="mr5" size="small" strong :color="{textColor: '#000', color: item.confirm_status === 'ok' ? '#4DCA59' : '#f5b442'}">
           {{ item.confirm_status === 'ok'?'已确认':'未确认' }}
         </n-tag>
         <n-tag class="mr5" size="small" :color="{textColor: item.color1, borderColor: item.color1}">
           {{select1.options[item.level - 1].label}}
         </n-tag>
-        <div style="color: rgba(255, 255, 255, 0.82);">{{ item.content }}</div>
+        <div class="textEllipsis" style="color: rgba(255, 255, 255, 0.82);">{{ item.content }}</div>
         <div style="flex: 1"></div>
-        <div class="mr10" style="color: #B5BAC3;">{{ moment(item.generate_time).format('yyyy-MM-DD HH:mm:ss') }}</div>
+        <div class="mr10 textEllipsis" style="color: #B5BAC3;">{{ moment(item.generate_time).format('yyyy-MM-DD HH:mm:ss') }}</div>
         <LocationIcon @click.stop="jumpTo(item)" class="mr10" style="width: 20px;height: 20px;color: #4196ff;"/>
         <CheckCircleOutlinedIcon @click.stop="clickSingle(item.id)" v-if="item.confirm_status === 'not'" style="width: 20px;height: 20px;color: #4196ff;"/>
         <div v-else style="width: 20px"></div>
       </div>
+    </div>
+    <div class="emptyBox" v-else>
+      <img src="@/assets/images/exception/nodata.svg" style="width: 100%;height: 50%" alt="">
+      <div style="color: #fff;text-align: center">查询结果为空</div>
     </div>
     <VModal v-model:show="modalObj.show" :data="modalObj.data" :select1Options="select1.options"/>
     <VModalV1 v-model:show="modalV1Obj.show" :data="modalV1Obj.data" @confirm="confirm"/>
@@ -35,15 +40,10 @@
 
 <script setup lang="ts">
 import { PropType, shallowReactive, watch, toRefs, reactive, onMounted, onUnmounted, nextTick, ref } from 'vue'
-import { useChartDataFetch } from '@/hooks'
 import { CreateComponentType } from '@/packages/index.d'
-import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { publicInterface } from '@/api/path/business.api'
 import BorderBox from './BorderBoxV2.vue'
-import VChart from 'vue-echarts'
 import {isPreview, postMessageToParent} from '@/utils'
-import {graphic} from "echarts";
-import {cloneDeep} from 'lodash'
 import moment from "moment"
 import {selectTimeOptions} from "@/views/chart/ContentConfigurations/components/ChartData/index.d";
 import {RequestHttpIntervalEnum} from "@/enums/httpEnum";
@@ -61,8 +61,11 @@ const props = defineProps({
     required: true
   }
 })
-Object.assign(props.chartConfig.attr, { w: 1000, h: 250 })
-if(!props.chartConfig.request.requestInterval) Object.assign(props.chartConfig.request, { requestInterval: 15, requestIntervalUnit: RequestHttpIntervalEnum.SECOND })
+if(!isPreview()){
+  Object.assign(props.chartConfig.attr, { w: 950, h: 300 })
+  Object.assign(props.chartConfig.request, { requestInterval: 15, requestIntervalUnit: RequestHttpIntervalEnum.SECOND })
+}
+
 
 const { w, h } = toRefs(props.chartConfig.attr)
 const { dataset, fit, borderRadius } = toRefs(props.chartConfig.option)
@@ -276,7 +279,7 @@ const confirm = () => {
   const obj = {
     id: null,
     ids: modalV1Obj.type === 'batch' ? tableData.filter(_ => _.checked).map(_ => _.id) : modalV1Obj.singleIds,
-    confirm_status: "not",
+    confirm_status: "ok",
     ...modalV1Obj.data
   }
   publicInterface('/dcim/dems/devie_active_alarm', 'confirms', obj).then(res => {
@@ -359,6 +362,19 @@ onUnmounted(() => {
 .mr10{
   margin-right: 10px;
 }
+.textEllipsis{
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.emptyBox{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .itemBox{
   width: 100%;
   height: 100%;

@@ -1,6 +1,6 @@
 <template>
   <div :style="getStyle(borderRadius)">
-    <BorderBox :title="props.chartConfig.customData.title">
+    <BorderBox :title="chartConfig?.customData?.title">
       <v-chart
         ref="vChartRef"
         :option="option"
@@ -9,9 +9,9 @@
           replaceMerge: ['series', 'xAxis', 'yAxis']
         }"
         autoresize
-        style="overflow: visible;width: 50%"
+        style="overflow: visible;width: calc(50% - 10px);margin-right: 20px;"
       />
-      <div class="box-5-item" style="width: 50%">
+      <div class="box-5-item" style="width: calc(50% - 10px)">
         <SvgAll v-bind="nameObj"/>
       </div>
     </BorderBox>
@@ -37,8 +37,10 @@ const props = defineProps({
   }
 })
 
-Object.assign(props.chartConfig.attr, {w: 380, h: 250})
-if(!props.chartConfig.request.requestInterval) Object.assign(props.chartConfig.request, { requestInterval: 15, requestIntervalUnit: RequestHttpIntervalEnum.SECOND })
+if(!isPreview()) {
+  Object.assign(props.chartConfig.attr, {w: 450, h: 300})
+  Object.assign(props.chartConfig.request, { requestInterval: 15, requestIntervalUnit: RequestHttpIntervalEnum.SECOND })
+}
 
 const { w, h } = toRefs(props.chartConfig.attr)
 const { dataset, fit, borderRadius } = toRefs(props.chartConfig.option)
@@ -75,8 +77,8 @@ const originStore = useOriginStore()
 const systemConfig = originStore?.getOriginStore?.user?.systemConfig
 const systemConstant = originStore?.getOriginStore?.user?.systemConstant
 if (systemConfig['active_alarm_level']) {
-  for (let i = 0; i < Number(systemConfig['active_alarm_level']); i++) {
-    nameObj.alarmLevels.push(i + 1)
+  for (let i:number = 0; i < Number(systemConfig['active_alarm_level']); i++) {
+    (nameObj.alarmLevels as number[]).push(i + 1)
   }
 }
 
