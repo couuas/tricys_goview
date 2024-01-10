@@ -45,6 +45,7 @@ const prodProxy = (mode:any) => {
         '/svgConfig/customLargeScreen/data/file': {
             // @ts-ignore
             target: loadEnv(mode, process.cwd()).VITE_PRO_PATH,
+            // target: window.location.href,
             changeOrigin: true,
             rewrite: (path:any) => {
                 console.log(path.replace(new RegExp(`^/svgConfig/customLargeScreen/data/file`), '/data/file'))
