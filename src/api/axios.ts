@@ -22,7 +22,7 @@ export interface MyRequestInstance extends Axios {
 
 const axiosInstance = axios.create({
   // baseURL: `${import.meta.env.PROD ? import.meta.env.VITE_PRO_PATH : ''}${axiosPre}`,
-  baseURL: `${import.meta.env.PROD ? window.location.href : ''}${axiosPre}`,
+  baseURL: `${import.meta.env.PROD ? window.location.origin : ''}${axiosPre}`,
   timeout: ResultEnum.TIMEOUT
 }) as unknown as MyRequestInstance
 
