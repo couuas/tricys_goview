@@ -12,7 +12,7 @@ import { fetchChartComponent, fetchConfigComponent, fetchConfigDataComponent, cr
 import { saveInterval } from '@/settings/designSetting'
 import throttle from 'lodash/throttle'
 // 接口状态
-import { ResultEnum } from '@/enums/httpEnum'
+import { ResultEnum, ResultErrcode } from '@/enums/httpEnum'
 // 接口
 import { saveProjectApi, fetchProjectApi, uploadFile, updateProjectApi } from '@/api/path'
 // 画布枚举
@@ -339,17 +339,18 @@ export const useSync = () => {
       id: projectId,
       content: JSONStringify(chartEditStore.getStorageInfo() || {})
     }
-    const res= await saveProjectApi(params)
-
-    if (res && res.data) {
+    const res = await saveProjectApi(params)
+    if (res && res.errcode === ResultErrcode.SUCCESS) {
       // 成功状态
       setTimeout(() => {
         chartEditStore.setEditCanvas(EditCanvasTypeEnum.SAVE_STATUS, SyncEnum.SUCCESS)
+        window['$message'].success('保存成功！')
       }, 1000)
       return
     }
     // 失败状态
     chartEditStore.setEditCanvas(EditCanvasTypeEnum.SAVE_STATUS, SyncEnum.FAILURE)
+    window['$message'].warning('保存失败！')
   }, 3000)
 
   // * 定时处理

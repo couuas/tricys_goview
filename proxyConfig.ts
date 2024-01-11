@@ -39,6 +39,7 @@ const devProxy = (mode:any) => {
 }
 
 // 这里是生产环境的代理配置
+/*
 const prodProxy = (mode:any) => {
     return {
         // 生产list页缩略图 开发时注释掉
@@ -56,6 +57,7 @@ const prodProxy = (mode:any) => {
         },
     }
 }
+ */
 
 // 根据环境变量导出相应的配置
 export const proxyConfig = process.env.NODE_ENV === 'production' ? prodProxy : devProxy;

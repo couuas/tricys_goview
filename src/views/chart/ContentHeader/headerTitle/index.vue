@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import { ref, nextTick, computed, watchEffect } from 'vue'
-import { ResultEnum } from '@/enums/httpEnum'
+import { ResultErrcode } from '@/enums/httpEnum'
 import { fetchRouteParamsLocation, httpErrorHandle, setTitle } from '@/utils'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { ProjectInfoEnum, EditCanvasConfigEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
@@ -70,10 +70,10 @@ const handleBlur = async () => {
   focus.value = false
   chartEditStore.setProjectInfo(ProjectInfoEnum.PROJECT_NAME, title.value || '')
   const res = (await updateProjectApi({
-    id: fetchRouteParamsLocation(),
+    id: Number(fetchRouteParamsLocation()),
     projectName: title.value
   }))
-  if (res && res.code === ResultEnum.SUCCESS) {
+  if (res && res.errcode === ResultErrcode.SUCCESS) {
     dataSyncUpdate()
   } else {
     httpErrorHandle()

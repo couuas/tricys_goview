@@ -14,6 +14,9 @@ export enum ResultEnum {
   TOKEN_OVERDUE = 886,
   TIMEOUT = 60000,
 }
+export enum ResultErrcode {
+  SUCCESS = '00000'
+}
 
 // 数据相关
 export enum RequestDataTypeEnum {

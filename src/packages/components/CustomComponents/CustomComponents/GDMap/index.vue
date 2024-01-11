@@ -149,7 +149,7 @@ const props = defineProps({
   }
 })
 if(!isPreview()) {
-  Object.assign(props.chartConfig.attr, { w: 950, h: 620 })
+  Object.assign(props.chartConfig.attr, { w: 950, h: 820 })
   Object.assign(props.chartConfig.request, { requestInterval: 15, requestIntervalUnit: RequestHttpIntervalEnum.SECOND })
 }
 // Object.assign(props.chartConfig.attr, { w: 870, h: 560 })
@@ -191,11 +191,10 @@ const getData = () => {
   publicInterface('/dcim/space_page', 'get_one_no_permission', { id: props.chartConfig.customData!.mapId }).then(res => {
     if(res && res.data){
       const arr:[] = JSON.parse(res.data.canvas_data)
-      gdMap = arr.find((_:any) => _.component === 'Picture') || {}
+      for (const key in gdMap) delete gdMap[key]
       Object.assign(gdMap, arr.find((_:any) => _.component === 'Picture') || {})
       text.splice(0, text.length, ...arr.filter((_:any) => _.component === 'v-text'))
-      point.splice(0, text.length, ...arr.filter((_:any) => _.component === 'svg-shape'))
-
+      point.splice(0, point.length, ...arr.filter((_:any) => _.component === 'svg-shape'))
       const activeAlarmData = {
           levels: [],
           confirm_statuses: []
