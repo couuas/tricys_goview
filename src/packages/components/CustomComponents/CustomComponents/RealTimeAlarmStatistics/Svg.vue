@@ -1,6 +1,6 @@
 <template>
-  <div class="box">
-    <img class="scaner" src="@/assets/customComponents/RealTimeAlarmStatistics/scanner.png" alt="">
+  <div class="box" ref="box">
+    <img class="scaner" :style="{width: shorterSide, height: shorterSide}" src="@/assets/customComponents/RealTimeAlarmStatistics/scanner.png" alt="">
     <svg v-show="alarmLevelsLength === 5" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 200">
       <g>
         <g>
@@ -511,19 +511,34 @@
 </template>
 
 <script lang="ts" setup>
-import { toRefs, computed } from 'vue'
+import { toRefs, computed, onMounted, onUnmounted, ref } from 'vue'
+import { ResizeObserverELE } from '@/utils/aboutHtml2Canvas'
 const props = defineProps(['urgentName', 'seriousName', 'importantName', 'commonName', 'eventName', 'alarmMonitorData', 'alarmLevels'])
 const { urgentName, seriousName, importantName, commonName, eventName, alarmMonitorData, alarmLevels } = toRefs(props)
 
 const alarmLevelsLength = computed(() => {
   return alarmLevels!.value.length
 })
+
+let shorterSide = ref('50px')
+const box = ref(null)
+
+const observer = ResizeObserverELE((w, h) => {
+  shorterSide.value = `${w > h ? h : w}px`
+})
+
+onMounted(() => {
+  observer.observe(box.value!);
+})
+onUnmounted(() => {
+  observer.disconnect();
+})
 </script>
 
 <style lang="scss" scoped>
 @keyframes rotate {
-  from { transform: translateY(-50%) scale(0.71) rotate(0)}
-  to { transform: translateY(-50%) scale(0.71) rotate(360deg) }
+  from { transform: translate(-50%, -50%) scale(0.71) rotate(0)}
+  to { transform: translate(-50%, -50%) scale(0.71) rotate(360deg) }
 }
 .box{
   position: relative;
@@ -532,18 +547,19 @@ const alarmLevelsLength = computed(() => {
     height: 100%;
     width: 100%;
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    //top: 50%;
+    //transform: translateY(-50%);
     z-index: 2;
   }
   .scaner{
-    object-fit: contain;
+    // html2canvas不支持这个属性  解决方法:直接设置宽高
+    //object-fit: contain;
     height: 100%;
     width: 100%;
     position: absolute;
     top: 50%;
+    left: 50%;
     animation: rotate linear 5s infinite;
-    width: 100%;
     z-index: 3;
     //height: 100%;
   }

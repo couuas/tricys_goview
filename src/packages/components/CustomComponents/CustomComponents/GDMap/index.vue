@@ -91,31 +91,35 @@
         </g>
       </g>
     </svg>
-    <img v-show="showImg" @load="showImg = true" :src="gdMap.propValue" :style="{transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top"/>
+    <!-- img标签出来的图不完整 所以换background-url background-reapt object-fit: contain不支持 -->
+<!--    <img v-show="showImg" @load="showImg = true" :src="gdMap.propValue" :style="{transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top"/>-->
+    <div id="img" :style="{backgroundImage: `url(${gdMap.propValue})`, transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top"></div>
     <div :style="{transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top">
-      <svg
+      <div
         v-for="(item, i) in point"
         :key="i"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        style="position: absolute;outline: none;width: 22px;height: 22px;cursor: pointer;"
-        @click="pointJump(item)"
-        :style="{
-          top: `${pxToPercentTop(item.style.top + 20, 911)}`,
-          left: `${pxToPercentLeft(item.style.left - 220, 1400)}`,
-        }"
+        style="position: absolute;"
+        :style="{top: `${pxToPercentTop(item.style.top + 20, 911)}`,left: `${pxToPercentLeft(item.style.left - 230, 1400)}`,}"
       >
-        <g transform="translate(0, 0) scale(1, 1)">
-        <g>
-          <circle cx="11" cy="11" r="6.5" style="fill:#4dca59;opacity:0.5;isolation:isolate"></circle>
-          <path d="M11,5a6,6,0,1,1-6,6,6,6,0,0,1,6-6m0-1a7,7,0,1,0,7,7A7,7,0,0,0,11,4Z" style="fill:#4dca59"></path>
-          <g style="opacity:0.5">
-            <path d="M11,1A10,10,0,1,1,1,11,10,10,0,0,1,11,1m0-1A11,11,0,1,0,22,11,11,11,0,0,0,11,0Z" style="fill:#4dca59"></path>
+        <!-- svg加绝对定位时 四个方位都要写全 只写left top就不行 -->
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          @click="pointJump(item)"
+          style="cursor:pointer;outline: none;width: 22px;height: 22px;"
+        >
+          <g transform="translate(0, 0) scale(1, 1)">
+          <g>
+            <circle cx="11" cy="11" r="6.5" style="fill:#4dca59;opacity:0.5;isolation:isolate"></circle>
+            <path d="M11,5a6,6,0,1,1-6,6,6,6,0,0,1,6-6m0-1a7,7,0,1,0,7,7A7,7,0,0,0,11,4Z" style="fill:#4dca59"></path>
+            <g style="opacity:0.5">
+              <path d="M11,1A10,10,0,1,1,1,11,10,10,0,0,1,11,1m0-1A11,11,0,1,0,22,11,11,11,0,0,0,11,0Z" style="fill:#4dca59"></path>
+            </g>
+            <circle cx="11" cy="11" r="3" style="fill:#4dca59"></circle>
           </g>
-          <circle cx="11" cy="11" r="3" style="fill:#4dca59"></circle>
         </g>
-      </g>
-      </svg>
+        </svg>
+      </div>
       <div
         v-for="(item, i) in text"
         :key="i"
