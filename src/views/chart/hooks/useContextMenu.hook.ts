@@ -20,6 +20,7 @@ const {
   EyeOffOutlineIcon
 } = icon.ionicons5
 const { UpToTopIcon, DownToBottomIcon, PaintBrushIcon, Carbon3DSoftwareIcon, Carbon3DCursorIcon } = icon.carbon
+const { AlignSpaceEvenlyHorizontal20FilledIcon, AlignSpaceEvenlyVertical20FilledIcon } = icon.fluent
 
 const chartEditStore = useChartEditStore()
 
@@ -142,6 +143,12 @@ export const defaultMultiSelectOptions: MenuOptionsItemType[] = [
     key: MenuEnum.UN_GROUP,
     icon: renderIcon(Carbon3DCursorIcon),
     fnHandle: chartEditStore.setUnGroup
+  },
+  {
+    label: '水平对齐',
+    key: MenuEnum.H_ALIGN,
+    icon: renderIcon(AlignSpaceEvenlyHorizontal20FilledIcon),
+    fnHandle: chartEditStore.setHAlign
   }
 ]
 
@@ -198,7 +205,7 @@ const handleContextMenu = (
   while (target instanceof SVGElement) {
     target = target.parentNode
   }
-
+  console.log(targetInstance)
   chartEditStore.setTargetSelectChart(targetInstance && targetInstance.id)
 
   // 隐藏旧列表

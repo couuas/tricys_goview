@@ -134,12 +134,12 @@ const chartsDefaultTabList = [
     icon: ConstructIcon,
     render: ChartSetting
   },
-  // {
-  //   key: TabsEnum.CHART_ANIMATION,
-  //   title: '动画',
-  //   icon: LeafIcon,
-  //   render: ChartAnimation
-  // }
+  {
+    key: TabsEnum.CHART_ANIMATION,
+    title: '动画',
+    icon: LeafIcon,
+    render: ChartAnimation
+  }
 ]
 
 const chartsTabList = [

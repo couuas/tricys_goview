@@ -15,6 +15,12 @@ export const option = {
 
 export default class Config extends PublicConfigClass implements CreateComponentType
 {
+  constructor() {
+    super();
+    this.attr.w = 450
+    this.attr.h = 300
+    this.request.requestInterval = 15
+  }
   public key = RealTimeTrafficConfig.key
   public chartConfig = cloneDeep(RealTimeTrafficConfig)
   public option = cloneDeep(option)

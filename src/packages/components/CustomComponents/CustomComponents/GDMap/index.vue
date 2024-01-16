@@ -93,7 +93,9 @@
     </svg>
     <!-- img标签出来的图不完整 所以换background-url background-reapt object-fit: contain不支持 -->
 <!--    <img v-show="showImg" @load="showImg = true" :src="gdMap.propValue" :style="{transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top"/>-->
-    <div id="img" :style="{backgroundImage: `url(${gdMap.propValue})`, transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top"></div>
+<!--    <div id="img" :style="{backgroundImage: `url(${gdMap.propValue})`, transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top"></div>-->
+<!--    background-url出来的截图还是不行 会变大 用canvas可以-->
+    <canvas ref="canvas" width="870" height="560" :style="{transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top"></canvas>
     <div :style="{transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top">
       <div
         v-for="(item, i) in point"
@@ -134,6 +136,7 @@
 
 <script setup lang="ts">
 import { PropType, shallowReactive, watch, toRefs, reactive, onMounted, onUnmounted, nextTick, ref, computed } from 'vue'
+import type { Ref } from 'vue'
 import { CreateComponentType } from '@/packages/index.d'
 import { publicInterface } from '@/api/path/business.api'
 import { isPreview } from '@/utils'
@@ -152,10 +155,6 @@ const props = defineProps({
     required: true
   }
 })
-if(!isPreview()) {
-  Object.assign(props.chartConfig.attr, { w: 950, h: 820 })
-  Object.assign(props.chartConfig.request, { requestInterval: 15, requestIntervalUnit: RequestHttpIntervalEnum.SECOND })
-}
 // Object.assign(props.chartConfig.attr, { w: 870, h: 560 })
 
 const { w, h } = toRefs(props.chartConfig.attr)
@@ -190,6 +189,7 @@ const abnormalNumber = computed(() => point.filter(_ => _.color === '#f00').leng
 
 let safeDaysList = reactive(['0', '0', '0', '0', '0', '0'])
 
+const canvas = ref() as Ref<HTMLCanvasElement>
 const getData = () => {
   safeDaysList.splice(0, safeDaysList.length, ...(moment().diff(moment(systemConfig.overview_dglt_idc_operation_date), 'days') + 1).toString().padStart(6, '0').split(''))
   publicInterface('/dcim/space_page', 'get_one_no_permission', { id: props.chartConfig.customData!.mapId }).then(res => {
@@ -197,6 +197,14 @@ const getData = () => {
       const arr:[] = JSON.parse(res.data.canvas_data)
       for (const key in gdMap) delete gdMap[key]
       Object.assign(gdMap, arr.find((_:any) => _.component === 'Picture') || {})
+      if(canvas.value){
+        const ctx = canvas.value.getContext('2d');
+        const img = new Image();
+        img.onload = function() {
+          if(ctx) ctx.drawImage(img, 0, 0, canvas.value.width, canvas.value.height);
+        };
+        img.src = gdMap.propValue;
+      }
       text.splice(0, text.length, ...arr.filter((_:any) => _.component === 'v-text'))
       point.splice(0, point.length, ...arr.filter((_:any) => _.component === 'svg-shape'))
       const activeAlarmData = {
@@ -228,13 +236,11 @@ const getData = () => {
           })
         }
       })
-      console.log(point)
     }
   })
 }
 
 const pointJump = (item:any) => {
-  console.log(item)
   postMessageToParent({type: 'changeRouterV1', url: '/' + item.dataBind.skipPath})
 }
 

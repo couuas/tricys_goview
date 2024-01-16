@@ -15,6 +15,16 @@ export const option = {
 
 export default class Config extends PublicConfigClass implements CreateComponentType
 {
+  constructor() {
+    super();
+    this.attr = {
+      ...this.attr,
+      w: 1920,
+      h: 1080,
+      x: 0,
+      y: 0,
+    }
+  }
   public key = Theme1Config.key
   public chartConfig = cloneDeep(Theme1Config)
   public option = cloneDeep(option)

@@ -46,6 +46,12 @@ export enum MenuEnum {
   GROUP = 'group',
   // 解组
   UN_GROUP = 'unGroup',
+  // 水平对齐
+  H_ALIGN = 'hAlign',
+  // 垂直对齐
+  V_ALIGN = 'vAlign',
+  // 水平平均分布
+  // 垂直平均分布
   // 后退
   BACK = 'back',
   FORWORD = 'forward',

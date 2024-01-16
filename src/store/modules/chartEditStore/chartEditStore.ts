@@ -863,6 +863,16 @@ export const useChartEditStore = defineStore({
         loadingFinish()
       }
     },
+    // * 水平对齐
+    setHAlign(id: string[], isHistory = true) {
+      try {
+        const selectIds = this.idPreFormat(id) || this.getTargetChart.selectId
+        if (selectIds.length < 2) return
+        console.log(selectIds)
+      } catch(e) {
+        console.log(e)
+      }
+    },
     // * 锁定
     setLock(status: boolean = true, isHistory: boolean = true) {
       try {

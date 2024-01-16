@@ -102,10 +102,6 @@ const props = defineProps({
     required: true
   }
 })
-if(!isPreview()) {
-  Object.assign(props.chartConfig.attr, { w: 450, h: 300 })
-  Object.assign(props.chartConfig.request, { requestInterval: 15, requestIntervalUnit: RequestHttpIntervalEnum.SECOND })
-}
 
 const { w, h } = toRefs(props.chartConfig.attr)
 const { dataset, fit, borderRadius } = toRefs(props.chartConfig.option)

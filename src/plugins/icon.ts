@@ -109,7 +109,9 @@ import {
 } from '@vicons/carbon'
 
 import {
-  Apps20Regular as Apps20RegularIcon
+  Apps20Regular as Apps20RegularIcon,
+  AlignSpaceEvenlyHorizontal20Filled as AlignSpaceEvenlyHorizontal20FilledIcon,
+  AlignSpaceEvenlyVertical20Filled as AlignSpaceEvenlyVertical20FilledIcon
 } from '@vicons/fluent'
 
 import {
@@ -323,7 +325,9 @@ const carbon = {
 
 const fluent = {
   // 主题
-  Apps20RegularIcon
+  Apps20RegularIcon,
+  AlignSpaceEvenlyHorizontal20FilledIcon,
+  AlignSpaceEvenlyVertical20FilledIcon,
 }
 
 const material = {
