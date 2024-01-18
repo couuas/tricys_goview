@@ -3,14 +3,14 @@
   </setting-item-box>
   <setting-item-box name="启用数据" :alone="true">
     <n-space justify="start">
-      <n-switch v-model:value="targetData.commonData.enable" />
+      <n-switch v-model:value="commonData.enable" />
     </n-space>
   </setting-item-box>
   <setting-item-box name="时间" :alone="true">
-    <n-select v-model:value="targetData.commonData.dateType" :options="DateOptions" size="small"/>
+    <n-select v-model:value="commonData.dateType" :options="DateOptions" size="small"/>
   </setting-item-box>
   <setting-item-box name="统计方式" :alone="true">
-    <n-select multiple v-model:value="targetData.commonData.methods" :options="MethodsOptions" size="small" />
+    <n-select multiple v-model:value="commonData.methods" :options="MethodsOptions" size="small" />
   </setting-item-box>
   <setting-item-box name="测点ID" :alone="true">
     <n-space vertical>
@@ -28,7 +28,14 @@
           </template>
         </n-button>
       </n-space>
-      <n-input v-model:value="templateValue" @blur="handleBlur" @keydown.enter="handleBlur" placeholder="请输入测点ID" size="small" clearable/>
+      <n-space align="center" :wrap="false">
+        <n-input v-model:value="templateValue" placeholder="请输入测点ID" size="small" clearable/>
+        <n-button @click="handleAdd" circle size="tiny">
+          <template #icon>
+            <n-icon><AddIcon /></n-icon>
+          </template>
+        </n-button>
+      </n-space>
     </n-space>
   </setting-item-box>
   <setting-item-box name="更新间隔" :alone="true">
@@ -49,7 +56,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch, reactive, toRefs } from 'vue'
+import { ref, watch, reactive, toRefs, computed } from 'vue'
 import type { Ref } from 'vue'
 import moment from 'moment'
 import { SettingItemBox } from '@/components/Pages/ChartItemSetting'
@@ -60,83 +67,48 @@ import { icon } from '@/plugins/icon'
 import { commonDataType, RequestConfigType } from '@/store/modules/chartEditStore/chartEditStore.d'
 import { selectTimeOptions } from '../index.d'
 
-const { CloseIcon } = icon.ionicons5
+const { CloseIcon, AddIcon } = icon.ionicons5
 
 const { targetData } = useTargetData() as { targetData: Ref<{ commonData:  commonDataType, id: string, request: RequestConfigType }> }
 
-const templateValue = ref('')
+const commonData: Ref<commonDataType> = computed(() => targetData.value.commonData)
 
 type computeIdsItemType = {
   id: string,
   value: string
 }
 
-const { commonData } = toRefs(targetData.value) as { commonData: Ref<commonDataType> }
+const computeIds: computeIdsItemType[] = reactive([])
 
-let computeIds: computeIdsItemType[] = reactive(commonData.value.dems_device_points_uid.map((_: string) => {
-  return {
-    id: nanoid(),
-    value: _
-  }
-}))
+let templateValue = ref('')
 
-// 用targetData.value.commonData.dems_device_points_uid 不用commonData.value.dems_device_points_uid
-// commonData.value.dems_device_points_uid好像丢失了响应性 晚点在研究
-watch(() => targetData.value.id, () => {
-  if(!targetData.value.commonData) return
-  let arr = targetData.value.commonData.dems_device_points_uid.map((_: string) => {
+watch(() => [targetData.value?.id, commonData.value], () => {
+  templateValue.value = ''
+  let arr = commonData.value.dems_device_points_uid.map(item => {
     return {
       id: nanoid(),
-      value: _
+      value: item
     }
   })
   computeIds.splice(0, computeIds.length, ...arr)
-})
-
-watch(() => commonData.value.dems_device_points_uid, (v) => {
-  const length = commonData.value.dems_device_points_uid.length
-  if(length > computeIds.length) {
-    computeIds.push({
-      id: nanoid(),
-      value: v[length - 1]
-    })
-  }
-  else if(length < computeIds.length) {
-    for(let i = 0; i < computeIds.length; i++) {
-      if(i === computeIds.length - 1) {
-        computeIds.splice(-1)
-        break
-      }
-      else if(computeIds[i].value !== commonData.value.dems_device_points_uid[i]){
-        computeIds.splice(i, 1)
-        break
-      }
-    }
-  }
-  else {
-    computeIds.forEach((item, i) => {
-      item.value = commonData.value.dems_device_points_uid[i]
-    })
-  }
 }, {
-  deep: true
+  deep: true,
+  immediate: true
 })
 
-const handleBlur = () => {
-  if(targetData.value && commonData.value && templateValue.value) {
-    commonData.value.dems_device_points_uid.push(templateValue.value)
+const handleChange = (v: string, i: number) => {
+  targetData.value.commonData.dems_device_points_uid[i] = v
+}
+
+const handleAdd = () => {
+  if(templateValue.value) {
+    targetData.value.commonData.dems_device_points_uid.push(templateValue.value)
     templateValue.value = ''
   }
 }
 
-const handleChange = (v: string, i: number) => {
-  if(targetData.value && commonData.value) {
-    commonData.value.dems_device_points_uid[i] = v
-  }
-}
-
 const handleDelete = (i: number) => {
-  commonData.value.dems_device_points_uid.splice(i, 1)
+  targetData.value.commonData.dems_device_points_uid.splice(i, 1)
 }
 
 </script>

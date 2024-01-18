@@ -35,6 +35,7 @@ export const useChartCommonData = (
             // if (vChartRef.value) {
             //     setOption(vChartRef.value, { dataset: dataset })
             // }
+            if(!dataset.dimensions) return
             if(targetComponent.option){
                 let seriesItem = cloneDeep(targetComponent.option.series[0])
                 let series = []
@@ -105,7 +106,7 @@ export const useChartCommonData = (
                 if (res) {
                     try {
                         const { data } = res
-                        echartsUpdateHandle(data.length ? data[0] : { dimensions: [], source: [] })
+                        if(data.length) echartsUpdateHandle(data[0])
                     } catch (error) {
                         console.error(error)
                     }
