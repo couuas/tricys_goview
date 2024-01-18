@@ -17,7 +17,7 @@
       <n-space v-for="(item, i) in computeIds" :key="item.id" align="center" :wrap="false">
         <n-input
           :value="item.value"
-          @update:value="v => handleChange(v, i)"
+          @update:value="(v: string) => handleChange(v, i)"
           placeholder="请输入测点ID"
           size="small"
           clearable
@@ -57,12 +57,12 @@ import { useTargetData } from '../../hooks/useTargetData.hook'
 import { DateOptions, MethodsOptions } from './ChartDataPointHistory.d'
 import { nanoid } from 'nanoid'
 import { icon } from '@/plugins/icon'
-import { commonDataType } from '@/store/modules/chartEditStore/chartEditStore.d'
+import { commonDataType, RequestConfigType } from '@/store/modules/chartEditStore/chartEditStore.d'
 import { selectTimeOptions } from '../index.d'
 
 const { CloseIcon } = icon.ionicons5
 
-const { targetData } = useTargetData()
+const { targetData } = useTargetData() as { targetData: Ref<{ commonData:  commonDataType, id: string, request: RequestConfigType }> }
 
 const templateValue = ref('')
 
