@@ -36,7 +36,7 @@
       <n-tooltip placement="bottom" trigger="hover">
         <template #trigger>
           <div class="save-btn" >
-            <n-button size="small" type="primary" ghost @click="dataSyncUpdate()">
+            <n-button :loading="loading" size="small" type="primary" ghost @click="dataSyncUpdate()">
               <template #icon>
                 <n-icon>
                   <SaveIcon></SaveIcon>
@@ -52,7 +52,7 @@
 </template>
 
 <script setup lang="ts">
-import { toRefs, ref, Ref, reactive, computed } from 'vue'
+import { toRefs, Ref, reactive, computed, watch } from 'vue'
 import { renderIcon, goDialog, goHome } from '@/utils'
 import { icon } from '@/plugins'
 import { useRemoveKeyboard } from '../../hooks/useKeyboard.hook'
@@ -62,6 +62,7 @@ import { useChartHistoryStore } from '@/store/modules/chartHistoryStore/chartHis
 import { HistoryStackEnum } from '@/store/modules/chartHistoryStore/chartHistoryStore.d'
 import { useChartLayoutStore } from '@/store/modules/chartLayoutStore/chartLayoutStore'
 import { ChartLayoutStoreEnum } from '@/store/modules/chartLayoutStore/chartLayoutStore.d'
+import { SyncEnum } from "@/enums/editPageEnum";
 
 const { LayersIcon, BarChartIcon, PrismIcon, HomeIcon, ArrowBackIcon, ArrowForwardIcon } = icon.ionicons5
 const { SaveIcon } = icon.carbon
@@ -70,6 +71,11 @@ const { dataSyncUpdate } = useSync()
 const { getLayers, getCharts, getDetails } = toRefs(useChartLayoutStore())
 const chartEditStore = useChartEditStore()
 const chartHistoryStore = useChartHistoryStore()
+const { saveStatus } = toRefs(chartEditStore.getEditCanvas)
+
+const loading = computed(() => {
+  return saveStatus.value === SyncEnum.START
+})
 
 interface ItemType<T> {
   key: T

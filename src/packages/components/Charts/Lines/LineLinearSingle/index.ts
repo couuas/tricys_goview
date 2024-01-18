@@ -5,7 +5,7 @@ export const LineLinearSingleConfig: ConfigType = {
   key: 'LineLinearSingle',
   chartKey: 'VLineLinearSingle',
   conKey: 'VCLineLinearSingle',
-  title: '单折线渐变图',
+  title: '折线渐变图',
   category: ChatCategoryEnum.LINE,
   categoryName: ChatCategoryEnumName.LINE,
   package: PackagesCategoryEnum.CHARTS,

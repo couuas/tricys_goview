@@ -1,7 +1,7 @@
 <template>
   <!-- Echarts 全局设置 -->
   <global-setting :optionData="optionData"></global-setting>
-  <CollapseItem v-for="(item, index) in seriesList" :key="index" name="单折线面积图" :expanded="true">
+  <CollapseItem v-for="(item, index) in seriesList" :key="index" :name="`折线面积图-${index + 1}`" :expanded="true">
     <SettingItemBox name="线条">
       <SettingItem name="宽度">
         <n-input-number

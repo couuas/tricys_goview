@@ -15,7 +15,7 @@ import { mergeTheme } from '@/packages/public/chart'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { chartColorsSearch, defaultTheme } from '@/settings/chartThemes/index'
 import { DatasetComponent, GridComponent, TooltipComponent, LegendComponent } from 'echarts/components'
-import { useChartDataFetch } from '@/hooks'
+import {useChartCommonData, useChartDataFetch} from '@/hooks'
 import { isPreview, colorGradientCustomMerge} from '@/utils'
 
 const props = defineProps({
@@ -82,5 +82,7 @@ watch(
   }
 )
 
-const { vChartRef } = useChartDataFetch(props.chartConfig, useChartEditStore)
+// const { vChartRef } = useChartDataFetch(props.chartConfig, useChartEditStore)
+const { vChartRef } = useChartCommonData(props.chartConfig, useChartEditStore)
+
 </script>

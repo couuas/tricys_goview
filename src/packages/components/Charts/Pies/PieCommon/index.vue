@@ -20,7 +20,7 @@ import { CanvasRenderer } from 'echarts/renderers'
 import { PieChart } from 'echarts/charts'
 import { mergeTheme } from '@/packages/public/chart'
 import config, { includes } from './config'
-import { useChartDataFetch } from '@/hooks'
+import {useChartCommonData, useChartDataFetch} from '@/hooks'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { isPreview } from '@/utils'
 import { DatasetComponent, GridComponent, TooltipComponent, LegendComponent } from 'echarts/components'
@@ -133,12 +133,14 @@ watch(
   }
 )
 
-const { vChartRef } = useChartDataFetch(props.chartConfig, useChartEditStore, (newData: typeof dataJson) => {
-  clearPieInterval()
-  if (props.chartConfig.option.isCarousel) {
-    addPieInterval(newData)
-  }
-})
+// const { vChartRef } = useChartDataFetch(props.chartConfig, useChartEditStore, (newData: typeof dataJson) => {
+//   clearPieInterval()
+//   if (props.chartConfig.option.isCarousel) {
+//     addPieInterval(newData)
+//   }
+// })
+const { vChartRef } = useChartCommonData(props.chartConfig, useChartEditStore)
+
 
 onMounted(() => {
   seriesDataMaxLength = dataJson.source.length

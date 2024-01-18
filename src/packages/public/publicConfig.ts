@@ -1,5 +1,5 @@
 import { getUUID } from '@/utils'
-import { RequestConfigType } from '@/store/modules/chartEditStore/chartEditStore.d'
+import { RequestConfigType, commonDataType, DateTypeEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
 import { groupTitle } from '@/settings/designSetting'
 import { BaseEvent, EventLife } from '@/enums/eventEnum'
 import {
@@ -23,7 +23,7 @@ export const requestConfig: RequestConfigType = {
   requestDataType: RequestDataTypeEnum.STATIC,
   requestHttpType: RequestHttpEnum.GET,
   requestUrl: '',
-  requestInterval: undefined,
+  requestInterval: 15,
   requestIntervalUnit: RequestHttpIntervalEnum.SECOND,
   requestContentType: RequestContentTypeEnum.DEFAULT,
   requestParamsBodyType: RequestBodyEnum.NONE,
@@ -44,6 +44,13 @@ export const requestConfig: RequestConfigType = {
     enable: false,
     handler: ''
   }
+}
+
+const commonData: commonDataType = {
+  enable: false,
+  methods: [],
+  dems_device_points_uid: [],
+  dateType: DateTypeEnum.DAY
 }
 
 // 单实例类
@@ -95,6 +102,8 @@ export class PublicConfigClass implements PublicConfigType {
   public request = cloneDeep(requestConfig)
   // 数据过滤
   public filter: undefined | string = undefined
+  // 通用数据 与 自定义数据对应
+  public commonData = cloneDeep(commonData)
   // 自定义数据 configData组件会用到
   public customData = {}
   // 事件

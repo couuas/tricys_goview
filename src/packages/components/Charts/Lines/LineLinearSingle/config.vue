@@ -4,7 +4,7 @@
   <CollapseItem
     v-for="(item, index) in seriesList"
     :key="index"
-    :name="`样式`"
+    :name="`折线图-${index + 1}`"
     :expanded="true"
   >
     <SettingItemBox name="线条">
@@ -58,7 +58,7 @@
           v-model:value="item.lineStyle.shadowColor"
       ></n-color-picker>
       </SettingItem>
-      
+
     </SettingItemBox>
     <SettingItemBox name="设置">
      <SettingItem name="阴影">

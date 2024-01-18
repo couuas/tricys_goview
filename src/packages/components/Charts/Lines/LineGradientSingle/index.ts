@@ -5,7 +5,7 @@ export const LineGradientSingleConfig: ConfigType = {
   key: 'LineGradientSingle',
   chartKey: 'VLineGradientSingle',
   conKey: 'VCLineGradientSingle',
-  title: '单折线渐变面积图',
+  title: '折线渐变面积图',
   category: ChatCategoryEnum.LINE,
   categoryName: ChatCategoryEnumName.LINE,
   package: PackagesCategoryEnum.CHARTS,

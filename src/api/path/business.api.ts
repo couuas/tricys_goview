@@ -5,11 +5,12 @@ import { httpErrorHandle } from '@/utils'
 import moment from 'moment'
 
 export function getToken() {
+    // 为了开发时只单独展示goview 需要localStorage
     const storage_access_token = localStorage.getItem('access_token_obj')
     if(storage_access_token) {
         const obj = JSON.parse(storage_access_token)
         const { access_token, expiration } = obj
-        if(expiration >= moment().format('x')) return access_token
+        if(expiration >= Number(moment().format('x'))) return access_token
     }
     let queryStr = window.location.href
     queryStr = queryStr.split('?')[1]
@@ -20,7 +21,7 @@ export function getToken() {
     })
     const obj = {
         access_token: query.access_token,
-        expiration: 86400000 + moment().format('x')
+        expiration: 86400000 + Number(moment().format('x'))
     }
     if(query.access_token) localStorage.setItem('access_token_obj', JSON.stringify(obj))
     return query.access_token

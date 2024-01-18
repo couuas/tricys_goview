@@ -2,6 +2,7 @@ import { BaseEvent, EventLife, InteractEvents, InteractEventOn, InteractActionsT
 import type { GlobalThemeJsonType } from '@/settings/chartThemes/index'
 import type { RequestConfigType } from '@/store/modules/chartEditStore/chartEditStore.d'
 import {CustomComponentsList} from "@/packages/components/CustomComponents/index";
+import { commonDataType } from '@/store/modules/chartEditStore/chartEditStore.d'
 
 export enum ChartFrameEnum {
   // 支持 dataset 的 echarts 框架
@@ -143,7 +144,8 @@ export interface PublicConfigType {
     overFlowHidden?: boolean
   }
   filter?: string
-  customData?: { [key:string]: any },
+  commonData?: commonDataType
+  customData?: { [key: string]: any }
   status: StatusType
   interactActions?: InteractActionsType[]
   events: {

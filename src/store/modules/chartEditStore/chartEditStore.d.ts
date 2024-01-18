@@ -238,6 +238,26 @@ export interface RequestConfigType extends RequestPublicConfigType {
   }
 }
 
+export enum MethodsTypeEnum {
+  AVG = 'avg',
+  MIN = 'min',
+  MAX = 'max'
+}
+
+export enum DateTypeEnum {
+  DAY = 'day',
+  MONTH = 'month',
+  YEAR = 'year'
+}
+
+// 通用组件数据
+export interface commonDataType {
+  enable: boolean
+  methods: MethodsTypeEnum[]
+  dems_device_points_uid: string[]
+  dateType: DateTypeEnum
+}
+
 // Store 类型
 export interface ChartEditStoreType {
   [ChartEditStoreEnum.PROJECT_INFO]: ProjectInfoType
