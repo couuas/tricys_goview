@@ -199,6 +199,7 @@ const getData = () => {
       Object.assign(gdMap, arr.find((_:any) => _.component === 'Picture') || {})
       if(canvas.value){
         const ctx = canvas.value.getContext('2d');
+        ctx?.clearRect(0, 0, canvas.value.width, canvas.value.height);
         const img = new Image();
         img.onload = function() {
           if(ctx) ctx.drawImage(img, 0, 0, canvas.value.width, canvas.value.height);
