@@ -255,7 +255,9 @@ export enum CurrentSourceEnum {
   // 测点历史
   POINTHISTORY = 'pointHistory',
   // 能耗历史
-  ENERGYUSEHISTORY = 'energyUseHistory'
+  ENERGYUSEHISTORY = 'energyUseHistory',
+  // 记录值历史
+  RECORDVALUEHISTORY = 'recordValueHistory'
 }
 
 // 测点历史参数
@@ -269,7 +271,21 @@ export interface PointHistoryType {
 // 能耗历史参数
 export interface EnergyUseHistoryType {
   enable: boolean
-  strategy_ids: string[]
+  strategy_ids: (number | null)[]
+  dateType: DateTypeEnum
+}
+
+export enum PolicyTypeEnum {
+  AVG = 3,
+  MIN = 0,
+  MAX = 1
+}
+
+// 记录值历史
+export interface RecordValueHistoryType {
+  enable: boolean
+  policy: PolicyTypeEnum[]
+  strategy_ids: (number | null)[]
   dateType: DateTypeEnum
 }
 
@@ -278,6 +294,7 @@ export interface commonDataType {
   currentSource: CurrentSourceEnum,
   pointHistory: PointHistoryType,
   energyUseHistory: EnergyUseHistoryType,
+  recordValueHistory: RecordValueHistoryType
 }
 
 // Store 类型

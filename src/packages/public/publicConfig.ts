@@ -58,6 +58,12 @@ const commonData: commonDataType = {
     enable: false,
     strategy_ids: [],
     dateType: DateTypeEnum.DAY
+  },
+  recordValueHistory: {
+    enable: false,
+    policy: [],
+    strategy_ids: [],
+    dateType: DateTypeEnum.DAY
   }
 }
 

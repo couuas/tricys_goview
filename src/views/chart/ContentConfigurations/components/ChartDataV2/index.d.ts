@@ -124,4 +124,8 @@ export const sourceOptions: sourceOptionsItemType[] = [
     label: '能耗历史',
     value: CurrentSourceEnum.ENERGYUSEHISTORY
   },
+  {
+    label: '记录值历史',
+    value: CurrentSourceEnum.RECORDVALUEHISTORY
+  },
 ]

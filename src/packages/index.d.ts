@@ -144,7 +144,7 @@ export interface PublicConfigType {
     overFlowHidden?: boolean
   }
   filter?: string
-  commonData?: commonDataType
+  commonData: commonDataType
   customData?: { [key: string]: any }
   status: StatusType
   interactActions?: InteractActionsType[]

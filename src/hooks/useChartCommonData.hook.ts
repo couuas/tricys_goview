@@ -3,9 +3,12 @@ import { setOption } from "@/packages/public";
 import { ref, toRefs, watch } from "vue";
 import { CreateComponentType, ChartFrameEnum } from '@/packages/index.d'
 import { useChartEditStore } from "@/store/modules/chartEditStore/chartEditStore";
+import { CurrentSourceEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
 import { intervalUnitHandle, newFunctionHandle, isPreview } from "@/utils";
 import { cloneDeep } from 'lodash'
 import { handlePointHistory } from './commonDataComponents/usePointHistoryRes'
+import { handleEnergyUseHistory } from './commonDataComponents/useEnergyUseHistoryRes';
+import { handleRecordValueHistory } from './commonDataComponents/useRecordValueHistoryRes'
 import { ResultErrcode } from '@/enums/httpEnum'
 
 // 获取类型
@@ -73,11 +76,29 @@ export const useChartCommonData = (
             clearInterval(fetchInterval)
 
             const fetchFn = async () => {
-                const res = await handlePointHistory(targetComponent)
+                let res
+                switch (targetComponent.commonData?.currentSource) {
+                    case CurrentSourceEnum.POINTHISTORY:
+                        res = await handlePointHistory(targetComponent)
+                        break;
+                    case CurrentSourceEnum.ENERGYUSEHISTORY:
+                        res = await handleEnergyUseHistory(targetComponent)
+                        break;
+                    case CurrentSourceEnum.RECORDVALUEHISTORY:
+                        res = await handleRecordValueHistory(targetComponent)
+                        break;
+                    default:
+                        break;
+                }
                 if (res && res.errcode === ResultErrcode.SUCCESS) {
                     try {
                         const { data } = res
-                        if(data.length) echartsUpdateHandle(data[0])
+                        if(Object.prototype.toString.call(data) === '[object Array]') {
+                            if(data.length) echartsUpdateHandle(data[0])
+                        }
+                        else if(Object.prototype.toString.call(data) === '[object Object]'){
+                            echartsUpdateHandle(data)
+                        }
                     } catch (error) {
                         console.error(error)
                     }

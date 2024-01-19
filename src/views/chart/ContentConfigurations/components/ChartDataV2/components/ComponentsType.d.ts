@@ -1,4 +1,4 @@
-import { DateTypeEnum, MethodsTypeEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
+import { DateTypeEnum, MethodsTypeEnum, PolicyTypeEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
 
 type DateOptionsItemType = {
     label: string,
@@ -40,5 +40,25 @@ export const MethodsOptions: MethodsOptionsItemType[] = [
     {
         label: '最大值',
         value: MethodsTypeEnum.MAX
+    }
+]
+
+type PolicyOptionsItemType = {
+    label: string,
+    value: PolicyTypeEnum
+}
+
+export const PolicyOptions: PolicyOptionsItemType[] = [
+    {
+        label: '平均值',
+        value: PolicyTypeEnum.AVG
+    },
+    {
+        label: '最小值',
+        value: PolicyTypeEnum.MIN
+    },
+    {
+        label: '最大值',
+        value: PolicyTypeEnum.MAX
     }
 ]
