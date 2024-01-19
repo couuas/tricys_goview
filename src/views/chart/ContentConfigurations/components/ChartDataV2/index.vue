@@ -1,6 +1,10 @@
 <template>
   <div class="go-chart-configurations-data" v-if="targetData && !targetData.chartConfig.conDataKey">
-    <ChartDataPointHistory/>
+    <setting-item-box name="数据源" :alone="true">
+      <n-select v-model:value="targetData.commonData.currentSource" :options="sourceOptions" size="small"/>
+    </setting-item-box>
+    <PointHistory v-if="targetData.commonData.currentSource === CurrentSourceEnum.POINTHISTORY"/>
+    <EnergyUseHistory v-if="targetData.commonData.currentSource === CurrentSourceEnum.ENERGYUSEHISTORY"/>
   </div>
   <div v-if="targetData && targetData.chartConfig.conDataKey">
     <component :is="targetData.chartConfig.conDataKey" :customData="targetData.customData" :request="targetData.request"></component>
@@ -23,15 +27,18 @@
 </template>
 
 <script setup lang="ts">
-import ChartDataPointHistory from './components/ChartDataPointHistory.vue'
+import PointHistory from './components/PointHistory.vue'
+import EnergyUseHistory from './components/EnergyUseHistory.vue'
 import { computed } from 'vue'
 import { loadAsyncComponent } from '@/utils'
 import { SettingItemBox } from '@/components/Pages/ChartItemSetting'
 import { useTargetData } from '../hooks/useTargetData.hook'
-import { selectTypeOptions, selectTimeOptions } from '@/views/chart/ContentConfigurations/components/ChartData/index.d'
+import { sourceOptions, selectTimeOptions } from './index.d'
+import { CurrentSourceEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
 
 // const ChartDataStatic = loadAsyncComponent(() => import('./components/ChartDataStatic/index.vue'))
 
 const { targetData } = useTargetData()
+console.log(targetData)
 
 </script>

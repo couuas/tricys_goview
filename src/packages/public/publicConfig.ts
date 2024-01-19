@@ -1,5 +1,5 @@
 import { getUUID } from '@/utils'
-import { RequestConfigType, commonDataType, DateTypeEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
+import { RequestConfigType, commonDataType, CurrentSourceEnum, DateTypeEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
 import { groupTitle } from '@/settings/designSetting'
 import { BaseEvent, EventLife } from '@/enums/eventEnum'
 import {
@@ -47,10 +47,18 @@ export const requestConfig: RequestConfigType = {
 }
 
 const commonData: commonDataType = {
-  enable: false,
-  methods: [],
-  dems_device_points_uid: [],
-  dateType: DateTypeEnum.DAY
+  currentSource: CurrentSourceEnum.POINTHISTORY,
+  pointHistory: {
+    enable: false,
+    methods: [],
+    dems_device_points_uid: [],
+    dateType: DateTypeEnum.DAY
+  },
+  energyUseHistory: {
+    enable: false,
+    strategy_ids: [],
+    dateType: DateTypeEnum.DAY
+  }
 }
 
 // 单实例类

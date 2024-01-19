@@ -4,11 +4,9 @@ import { ref, toRefs, watch } from "vue";
 import { CreateComponentType, ChartFrameEnum } from '@/packages/index.d'
 import { useChartEditStore } from "@/store/modules/chartEditStore/chartEditStore";
 import { intervalUnitHandle, newFunctionHandle, isPreview } from "@/utils";
-import { publicInterface } from "@/api/path";
-import { DateTypeEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
-import moment from 'moment'
-import { commonDataType } from '@/store/modules/chartEditStore/chartEditStore.d'
 import { cloneDeep } from 'lodash'
+import { handlePointHistory } from './commonDataComponents/usePointHistoryRes'
+import { ResultErrcode } from '@/enums/httpEnum'
 
 // 获取类型
 type ChartEditStoreType = typeof useChartEditStore
@@ -75,41 +73,17 @@ export const useChartCommonData = (
             clearInterval(fetchInterval)
 
             const fetchFn = async () => {
-                let { methods, dems_device_points_uid, dateType, enable } = targetComponent.commonData as commonDataType
-                if(!enable) return
-                let start_time: string = '', end_time: string = '', duration: number = 0
-                const formatter = 'yyyy-MM-DD HH:mm:ss'
-                if(dateType === DateTypeEnum.DAY) {
-                    start_time = moment().subtract(1, 'd').format(formatter)
-                    end_time = moment().format(formatter)
-                    duration = 60 * 60
-                }
-                else if(dateType === DateTypeEnum.MONTH) {
-                    start_time = moment().subtract(1, 'M').format(formatter)
-                    end_time = moment().format(formatter)
-                    duration = 24 * 60 * 60
-                }
-                else if(dateType === DateTypeEnum.YEAR) {
-                    start_time = moment().subtract(1, 'y').format(formatter)
-                    end_time = moment().format(formatter)
-                    duration = 30 * 24 * 60 * 60
-                }
-
-                const query = {
-                    methods,
-                    dems_device_points_uid,
-                    start_time,
-                    end_time,
-                    duration,
-                }
-                const res = await publicInterface('/dcim/system/custom_large_screen', 'row_reports', query)
-                if (res) {
+                const res = await handlePointHistory(targetComponent)
+                if (res && res.errcode === ResultErrcode.SUCCESS) {
                     try {
                         const { data } = res
                         if(data.length) echartsUpdateHandle(data[0])
                     } catch (error) {
                         console.error(error)
                     }
+                }
+                else if(res && res.errmsg){
+                    window['$message'].warning(res.errmsg)
                 }
             }
             // 普通初始化与组件交互处理监听

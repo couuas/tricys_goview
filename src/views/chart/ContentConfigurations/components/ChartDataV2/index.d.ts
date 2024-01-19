@@ -1,4 +1,5 @@
 import { RequestHttpEnum, RequestHttpIntervalEnum, RequestDataTypeEnum, SelectHttpTimeNameObj } from '@/enums/httpEnum'
+import { CurrentSourceEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
 
 // 匹配结果
 export enum DataResultEnum {
@@ -106,5 +107,21 @@ export const selectTimeOptions: SelectHttpTimeType[] = [
     label: SelectHttpTimeNameObj[RequestHttpIntervalEnum.DAY],
     value: RequestHttpIntervalEnum.DAY,
     unit: 86400000,
+  },
+]
+
+export interface sourceOptionsItemType {
+  label: string,
+  value: CurrentSourceEnum,
+}
+// 通用组件数据源选项
+export const sourceOptions: sourceOptionsItemType[] = [
+  {
+    label: '测点历史',
+    value: CurrentSourceEnum.POINTHISTORY
+  },
+  {
+    label: '能耗历史',
+    value: CurrentSourceEnum.ENERGYUSEHISTORY
   },
 ]

@@ -250,12 +250,34 @@ export enum DateTypeEnum {
   YEAR = 'year'
 }
 
-// 通用组件数据
-export interface commonDataType {
+// common数据源选项
+export enum CurrentSourceEnum {
+  // 测点历史
+  POINTHISTORY = 'pointHistory',
+  // 能耗历史
+  ENERGYUSEHISTORY = 'energyUseHistory'
+}
+
+// 测点历史参数
+export interface PointHistoryType {
   enable: boolean
   methods: MethodsTypeEnum[]
   dems_device_points_uid: string[]
   dateType: DateTypeEnum
+}
+
+// 能耗历史参数
+export interface EnergyUseHistoryType {
+  enable: boolean
+  strategy_ids: string[]
+  dateType: DateTypeEnum
+}
+
+// 通用组件数据
+export interface commonDataType {
+  currentSource: CurrentSourceEnum,
+  pointHistory: PointHistoryType,
+  energyUseHistory: EnergyUseHistoryType,
 }
 
 // Store 类型

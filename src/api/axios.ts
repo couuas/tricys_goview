@@ -14,6 +14,7 @@ export interface MyResponseType<T> {
   message: string
   //  兼顾主系统
   errcode: string
+  errmsg: string
 }
 
 export interface MyRequestInstance extends Axios {

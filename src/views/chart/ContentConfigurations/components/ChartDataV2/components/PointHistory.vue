@@ -3,14 +3,14 @@
   </setting-item-box>
   <setting-item-box name="启用数据" :alone="true">
     <n-space justify="start">
-      <n-switch v-model:value="commonData.enable" />
+      <n-switch v-model:value="pointHistory.enable" />
     </n-space>
   </setting-item-box>
   <setting-item-box name="时间" :alone="true">
-    <n-select v-model:value="commonData.dateType" :options="DateOptions" size="small"/>
+    <n-select v-model:value="pointHistory.dateType" :options="DateOptions" size="small"/>
   </setting-item-box>
   <setting-item-box name="统计方式" :alone="true">
-    <n-select multiple v-model:value="commonData.methods" :options="MethodsOptions" size="small" />
+    <n-select multiple v-model:value="pointHistory.methods" :options="MethodsOptions" size="small" />
   </setting-item-box>
   <setting-item-box name="测点ID" :alone="true">
     <n-space vertical>
@@ -58,20 +58,20 @@
 <script lang="ts" setup>
 import { ref, watch, reactive, toRefs, computed } from 'vue'
 import type { Ref } from 'vue'
-import moment from 'moment'
 import { SettingItemBox } from '@/components/Pages/ChartItemSetting'
 import { useTargetData } from '../../hooks/useTargetData.hook'
-import { DateOptions, MethodsOptions } from './ChartDataPointHistory.d'
+import { DateOptions, MethodsOptions } from './PointHistory.d'
 import { nanoid } from 'nanoid'
 import { icon } from '@/plugins/icon'
-import { commonDataType, RequestConfigType } from '@/store/modules/chartEditStore/chartEditStore.d'
+import { commonDataType, RequestConfigType, PointHistoryType } from '@/store/modules/chartEditStore/chartEditStore.d'
 import { selectTimeOptions } from '../index.d'
 
 const { CloseIcon, AddIcon } = icon.ionicons5
 
-const { targetData } = useTargetData() as { targetData: Ref<{ commonData:  commonDataType, id: string, request: RequestConfigType }> }
+const { targetData } = useTargetData() as { targetData: Ref<{ commonData: commonDataType, id: string, request: RequestConfigType }> }
 
-const commonData: Ref<commonDataType> = computed(() => targetData.value.commonData)
+// const commonData: Ref<commonDataType> = computed(() => targetData.value.commonData)
+const pointHistory: Ref<PointHistoryType> = computed(() => targetData.value.commonData.pointHistory)
 
 type computeIdsItemType = {
   id: string,
@@ -82,9 +82,9 @@ const computeIds: computeIdsItemType[] = reactive([])
 
 let templateValue = ref('')
 
-watch(() => [targetData.value?.id, commonData.value], () => {
+watch(() => [targetData.value?.id, pointHistory.value.dems_device_points_uid], () => {
   templateValue.value = ''
-  let arr = commonData.value.dems_device_points_uid.map(item => {
+  let arr = pointHistory.value.dems_device_points_uid.map(item => {
     return {
       id: nanoid(),
       value: item
@@ -97,18 +97,18 @@ watch(() => [targetData.value?.id, commonData.value], () => {
 })
 
 const handleChange = (v: string, i: number) => {
-  targetData.value.commonData.dems_device_points_uid[i] = v
+  targetData.value.commonData.pointHistory.dems_device_points_uid[i] = v
 }
 
 const handleAdd = () => {
   if(templateValue.value) {
-    targetData.value.commonData.dems_device_points_uid.push(templateValue.value)
+    targetData.value.commonData.pointHistory.dems_device_points_uid.push(templateValue.value)
     templateValue.value = ''
   }
 }
 
 const handleDelete = (i: number) => {
-  targetData.value.commonData.dems_device_points_uid.splice(i, 1)
+  targetData.value.commonData.pointHistory.dems_device_points_uid.splice(i, 1)
 }
 
 </script>
