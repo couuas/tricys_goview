@@ -116,7 +116,8 @@ import {
 
 import {
   AssignmentTurnedInRound as AssignmentTurnedInRoundIcon,
-  CheckCircleOutlined as CheckCircleOutlinedIcon
+  CheckCircleOutlined as CheckCircleOutlinedIcon,
+  InsertPhotoSharp as InsertPhotoSharpIcon,
 } from '@vicons/material'
 
 const ionicons5 = {
@@ -334,7 +335,9 @@ const material = {
   // 批量确认
   AssignmentTurnedInRoundIcon,
   // 圆圈 勾
-  CheckCircleOutlinedIcon
+  CheckCircleOutlinedIcon,
+  // 背景图
+  InsertPhotoSharpIcon,
 }
 
 // https://www.xicons.org/#/ 还有很多

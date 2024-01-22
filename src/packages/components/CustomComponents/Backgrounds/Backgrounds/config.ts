@@ -1,14 +1,13 @@
 import { PublicConfigClass } from '@/packages/public'
 import { CreateComponentType } from '@/packages/index.d'
-import { Theme2Config } from './index'
+import { BackgroundsConfig } from './index'
 import cloneDeep from 'lodash/cloneDeep'
-// import background from '@/assets/customComponents/theme1/backgrond.jpg'
 
 export const option = {
-  // 图片路径
+  // 图片
   dataset: '',
   // 适应方式
-  fit: 'contain',
+  fit: 'fill',
   // 圆角
   borderRadius: 0
 }
@@ -25,10 +24,7 @@ export default class Config extends PublicConfigClass implements CreateComponent
       y: 0,
     }
   }
-  public key = Theme2Config.key
-  public chartConfig = cloneDeep(Theme2Config)
+  public key = BackgroundsConfig.key
+  public chartConfig = cloneDeep(BackgroundsConfig)
   public option = cloneDeep(option)
-  public customData = cloneDeep({
-    title: '',
-  })
 }

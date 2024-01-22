@@ -1,6 +1,4 @@
-import { Theme1Config } from './Theme1/index'
-import { Theme2Config } from './Theme2/index'
-import { Theme3Config } from './Theme3/index'
+// import { Theme1Config } from './Theme1/index'
 import { ComprehensivePUEConfig } from './ComprehensivePUE'
 import { DeviceAlarmOverviewConfig } from './DeviceAlarmOverview'
 import { RealTimeTrafficConfig } from './RealTimeTraffic'
@@ -11,9 +9,7 @@ import { GDMapConfig } from './GDMap'
 import { MonitorRealTimeEventsConfig } from './MonitorRealTimeEvents'
 
 export default [
-    Theme1Config,
-    Theme2Config,
-    Theme3Config,
+    // Theme1Config,
     ComprehensivePUEConfig,
     DeviceAlarmOverviewConfig,
     RealTimeTrafficConfig,

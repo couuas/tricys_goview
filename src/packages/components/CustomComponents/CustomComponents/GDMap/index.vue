@@ -1,5 +1,5 @@
 <template>
-  <div :style="getStyle(borderRadius)" class="box" style="overflow: visible;position: relative">
+  <div v-if="chartConfig.customData?.mapId" :style="getStyle(borderRadius)" class="box" style="overflow: visible;position: relative">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -92,10 +92,10 @@
       </g>
     </svg>
     <!-- img标签出来的图不完整 所以换background-url background-reapt object-fit: contain不支持 -->
-<!--    <img v-show="showImg" @load="showImg = true" :src="gdMap.propValue" :style="{transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top"/>-->
-<!--    <div id="img" :style="{backgroundImage: `url(${gdMap.propValue})`, transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top"></div>-->
+   <img v-show="showImg" @load="showImg = true" :src="gdMap.propValue" :style="{transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top"/>
+   <!-- <div id="img" :style="{backgroundImage: `url(${gdMap.propValue})`, transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top"></div> -->
 <!--    background-url出来的截图还是不行 会变大 用canvas可以-->
-    <canvas ref="canvas" width="870" height="560" :style="{transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top"></canvas>
+    <!-- <canvas ref="canvas" width="870" height="560" :style="{transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top"></canvas> -->
     <div :style="{transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top">
       <div
         v-for="(item, i) in point"
@@ -131,6 +131,10 @@
         {{item.propValue}}
       </div>
     </div>
+  </div>
+  <div style="display: flex;flex-direction: column;align-items: center;justify-content: center;" v-else>
+    <img src="@/assets/images/exception/nodata.svg" style="width: 100%;height: 30%" alt="">
+    <div style="color: #fff;text-align: center;font-size: 40px;">请输入地图ID</div>
   </div>
 </template>
 
@@ -192,20 +196,21 @@ let safeDaysList = reactive(['0', '0', '0', '0', '0', '0'])
 const canvas = ref() as Ref<HTMLCanvasElement>
 const getData = () => {
   safeDaysList.splice(0, safeDaysList.length, ...(moment().diff(moment(systemConfig.overview_dglt_idc_operation_date), 'days') + 1).toString().padStart(6, '0').split(''))
+  if(!props.chartConfig.customData!.mapId) return
   publicInterface('/dcim/space_page', 'get_one_no_permission', { id: props.chartConfig.customData!.mapId }).then(res => {
     if(res && res.data){
       const arr:[] = JSON.parse(res.data.canvas_data)
       for (const key in gdMap) delete gdMap[key]
       Object.assign(gdMap, arr.find((_:any) => _.component === 'Picture') || {})
-      if(canvas.value){
-        const ctx = canvas.value.getContext('2d');
-        ctx?.clearRect(0, 0, canvas.value.width, canvas.value.height);
-        const img = new Image();
-        img.onload = function() {
-          if(ctx) ctx.drawImage(img, 0, 0, canvas.value.width, canvas.value.height);
-        };
-        img.src = gdMap.propValue;
-      }
+      // if(canvas.value){
+      //   const ctx = canvas.value.getContext('2d');
+      //   ctx?.clearRect(0, 0, canvas.value.width, canvas.value.height);
+      //   const img = new Image();
+      //   img.onload = function() {
+      //     if(ctx) ctx.drawImage(img, 0, 0, canvas.value.width, canvas.value.height);
+      //   };
+      //   img.src = gdMap.propValue;
+      // }
       text.splice(0, text.length, ...arr.filter((_:any) => _.component === 'v-text'))
       point.splice(0, point.length, ...arr.filter((_:any) => _.component === 'svg-shape'))
       const activeAlarmData = {
@@ -260,7 +265,7 @@ watch(() => [props.chartConfig.request.requestInterval, props.chartConfig.reques
 })
 const fn = debounce(() => {
   getData()
-}, 200)
+}, 1000)
 watch(() => props.chartConfig.customData!.mapId, fn)
 
 onMounted(() => {

@@ -188,6 +188,7 @@ export enum PackagesCategoryEnum {
   DECORATES = 'Decorates',
   THEMESANDLAYOUTS = 'ThemesAndLayouts',
   CUSTOMCOMPONENTS = 'CustomComponents',
+  BACKGROUNDS = 'Backgrounds',
 }
 
 // 包分类名称
@@ -199,7 +200,8 @@ export enum PackagesCategoryName {
   ICONS = '图标',
   DECORATES = '小组件',
   THEMESANDLAYOUTS = '主题',
-  CUSTOMCOMPONENTS = '自定义组件',
+  CUSTOMCOMPONENTS = '自定义',
+  BACKGROUNDS = '背景',
 }
 
 // 获取组件

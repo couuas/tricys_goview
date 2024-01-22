@@ -36,7 +36,7 @@ export const useChartCommonData = (
             // if (vChartRef.value) {
             //     setOption(vChartRef.value, { dataset: dataset })
             // }
-            if(!dataset.dimensions) return
+            // if(!dataset.dimensions) return
             if(targetComponent.option){
                 let seriesItem = cloneDeep(targetComponent.option.series[0])
                 let series = []

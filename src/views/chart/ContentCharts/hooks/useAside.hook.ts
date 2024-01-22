@@ -9,6 +9,7 @@ import { ChartLayoutStoreEnum } from '@/store/modules/chartLayoutStore/chartLayo
 const { AirPlaneOutlineIcon, ImageIcon, BarChartIcon } = icon.ionicons5
 const { TableSplitIcon, RoadmapIcon, SpellCheckIcon, GraphicalDataFlowIcon, AreaCustomIcon } = icon.carbon
 const { Apps20RegularIcon } = icon.fluent
+const { InsertPhotoSharpIcon } = icon.material
 
 // 图表
 export type MenuOptionsType = {
@@ -50,6 +51,10 @@ const packagesListObj = {
   [PackagesCategoryEnum.CUSTOMCOMPONENTS]: {
     icon: renderIcon(AreaCustomIcon),
     label: PackagesCategoryName.CUSTOMCOMPONENTS
+  },
+  [PackagesCategoryEnum.BACKGROUNDS]: {
+    icon: renderIcon(InsertPhotoSharpIcon),
+    label: PackagesCategoryName.BACKGROUNDS
   }
 }
 
@@ -71,10 +76,10 @@ export const useAsideHook = () => {
       })
     }
     menuOptions.sort((a, b) => {
-      if(a.key === 'ThemesAndLayouts') return -1
-      else if(b.key === 'ThemesAndLayouts') return 1
-      if(a.key === 'CustomComponents') return -1
-      else if(b.key === 'CustomComponents') return 1
+      if(a.key === PackagesCategoryEnum.BACKGROUNDS) return -1
+      else if(b.key === PackagesCategoryEnum.BACKGROUNDS) return 1
+      if(a.key === PackagesCategoryEnum.CUSTOMCOMPONENTS) return -1
+      else if(b.key === PackagesCategoryEnum.CUSTOMCOMPONENTS) return 1
       else return 0
     })
   }
