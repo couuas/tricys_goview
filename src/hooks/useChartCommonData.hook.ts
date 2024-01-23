@@ -49,10 +49,9 @@ export const useChartCommonData = (
                 else {
                     series = [seriesItem]
                 }
-                Object.assign(targetComponent.option, {
-                    series,
-                    dataset,
-                })
+                if (vChartRef.value) {
+                    setOption(vChartRef.value, { series, dataset })
+                }
             }
         }
     }

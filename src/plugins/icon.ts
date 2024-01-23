@@ -118,6 +118,7 @@ import {
   AssignmentTurnedInRound as AssignmentTurnedInRoundIcon,
   CheckCircleOutlined as CheckCircleOutlinedIcon,
   InsertPhotoSharp as InsertPhotoSharpIcon,
+  AccessTimeFilled as AccessTimeFilledIcon,
 } from '@vicons/material'
 
 const ionicons5 = {
@@ -338,6 +339,8 @@ const material = {
   CheckCircleOutlinedIcon,
   // 背景图
   InsertPhotoSharpIcon,
+  // 时间
+  AccessTimeFilledIcon,
 }
 
 // https://www.xicons.org/#/ 还有很多

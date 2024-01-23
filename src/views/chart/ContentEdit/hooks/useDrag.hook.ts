@@ -35,6 +35,7 @@ export const dragHandle = async (e: DragEvent) => {
     let newComponent: CreateComponentType = await createComponent(dropData)
     if (dropData.redirectComponent) {
       dropData.dataset && (newComponent.option.dataset = dropData.dataset)
+      if(!newComponent.chartConfig.image && dropData.dataset) newComponent.chartConfig.image = dropData.dataset
       newComponent.chartConfig.title = dropData.title
       newComponent.chartConfig.chartFrame = dropData.chartFrame
     }

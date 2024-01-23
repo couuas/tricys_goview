@@ -55,7 +55,7 @@ import { SettingItemBox } from '@/components/Pages/ChartItemSetting'
 import { useTargetData } from '../hooks/useTargetData.hook'
 import { sourceOptions, selectTimeOptions } from './index.d'
 import { CurrentSourceEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
-import { PackagesCategoryEnum, CreateComponentType, CreateComponentGroupType } from '@/packages/index.d'
+import { PackagesCategoryEnum, CreateComponentType, CreateComponentGroupType, ChartFrameEnum } from '@/packages/index.d'
 
 
 // const ChartDataStatic = loadAsyncComponent(() => import('./components/ChartDataStatic/index.vue'))
@@ -70,9 +70,6 @@ const { targetData } = useTargetData() as { targetData: Ref<CreateComponentType 
 // 通用组件 自定义组件 静态组件
 
 const IsStatic = () => {
-  let arr = [
-      PackagesCategoryEnum.BACKGROUNDS
-  ]
-  return arr.some(_ => _ === targetData.value.chartConfig.category)
+  return targetData.value.chartConfig.chartFrame === ChartFrameEnum.STATIC
 }
 </script>

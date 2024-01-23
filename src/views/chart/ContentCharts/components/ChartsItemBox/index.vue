@@ -124,6 +124,7 @@ const dblclickHandle = async (item: ConfigType) => {
     let newComponent: CreateComponentType = await createComponent(item)
     if (item.redirectComponent) {
       item.dataset && (newComponent.option.dataset = item.dataset)
+      if(!newComponent.chartConfig.image && item.dataset) newComponent.chartConfig.image = item.dataset
       newComponent.chartConfig.title = item.title
       newComponent.chartConfig.chartFrame = item.chartFrame
     }
