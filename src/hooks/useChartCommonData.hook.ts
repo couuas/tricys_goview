@@ -40,7 +40,6 @@ export const useChartCommonData = (
             if(targetComponent.option){
                 let seriesItem = cloneDeep(targetComponent.option.series[0])
                 let series = []
-                targetComponent.option.series.splice(0)
                 if(dataset.dimensions.length - 1) {
                     for(let i = 0; i < dataset.dimensions.length - 1; i++) {
                         series.push(cloneDeep(seriesItem))
@@ -50,7 +49,7 @@ export const useChartCommonData = (
                     series = [seriesItem]
                 }
                 if (vChartRef.value) {
-                    setOption(vChartRef.value, { series, dataset })
+                    setOption(vChartRef.value, { series, dataset: dataset })
                 }
             }
         }
@@ -92,6 +91,7 @@ export const useChartCommonData = (
                 if (res && res.errcode === ResultErrcode.SUCCESS) {
                     try {
                         const { data } = res
+                        console.log(data)
                         if(Object.prototype.toString.call(data) === '[object Array]') {
                             if(data.length) echartsUpdateHandle(data[0])
                         }
