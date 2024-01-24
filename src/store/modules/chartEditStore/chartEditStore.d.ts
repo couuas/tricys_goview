@@ -257,7 +257,9 @@ export enum CurrentSourceEnum {
   // 能耗历史
   ENERGYUSEHISTORY = 'energyUseHistory',
   // 记录值历史
-  RECORDVALUEHISTORY = 'recordValueHistory'
+  RECORDVALUEHISTORY = 'recordValueHistory',
+  // 测点实时值
+  POINTREALTIME = 'pointRealTime'
 }
 
 // 测点历史参数
@@ -289,12 +291,21 @@ export interface RecordValueHistoryType {
   dateType: DateTypeEnum
 }
 
+export interface PointRealTimeType {
+  enable: boolean
+  point_uid: string[]
+  limit: number
+  with_device_name: boolean
+  space_complete_name_prefix: boolean
+}
+
 // 通用组件数据
 export interface commonDataType {
   currentSource: CurrentSourceEnum,
   pointHistory: PointHistoryType,
   energyUseHistory: EnergyUseHistoryType,
   recordValueHistory: RecordValueHistoryType
+  pointRealTime: PointRealTimeType
 }
 
 // Store 类型

@@ -11,11 +11,11 @@ import { MonitorRealTimeEventsConfig } from './MonitorRealTimeEvents'
 export default [
     // Theme1Config,
     ComprehensivePUEConfig,
-    DeviceAlarmOverviewConfig,
+    // DeviceAlarmOverviewConfig,
     RealTimeTrafficConfig,
-    RealTimeAlarmStatisticsConfig,
+    // RealTimeAlarmStatisticsConfig,
     OverviewOfComputingNodesConfig,
-    RealTimeEventConfig,
+    // RealTimeEventConfig,
     GDMapConfig,
     MonitorRealTimeEventsConfig,
 ]

@@ -5,7 +5,8 @@
     </setting-item-box>
     <PointHistory v-if="targetData.commonData.currentSource === CurrentSourceEnum.POINTHISTORY"/>
     <EnergyUseHistory v-else-if="targetData.commonData.currentSource === CurrentSourceEnum.ENERGYUSEHISTORY"/>
-    <RecordValueHistoryType v-else-if="targetData.commonData.currentSource === CurrentSourceEnum.RECORDVALUEHISTORY"/>
+    <RecordValueHistory v-else-if="targetData.commonData.currentSource === CurrentSourceEnum.RECORDVALUEHISTORY"/>
+    <PointRealTime v-else-if="targetData.commonData.currentSource === CurrentSourceEnum.POINTREALTIME"/>
     <setting-item-box name="更新间隔" :alone="true">
       <n-input-group>
         <n-input-number
@@ -48,7 +49,8 @@
 <script setup lang="ts">
 import PointHistory from './components/PointHistory.vue'
 import EnergyUseHistory from './components/EnergyUseHistory.vue'
-import RecordValueHistoryType from './components/RecordValueHistory.vue'
+import RecordValueHistory from './components/RecordValueHistory.vue'
+import PointRealTime from './components/PointRealTime.vue'
 import type { Ref } from 'vue'
 import { loadAsyncComponent } from '@/utils'
 import { SettingItemBox } from '@/components/Pages/ChartItemSetting'

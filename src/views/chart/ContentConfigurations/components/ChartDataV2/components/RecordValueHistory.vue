@@ -15,7 +15,7 @@
         <n-space v-for="(item, i) in computeIds" :key="item.id" align="center" :wrap="false">
           <n-input-number
             :value="item.value"
-            @update:value.trim="(v: number) => handleChange(v, i)"
+            @update:value="(v: number) => handleChange(v, i)"
             min="1"
             :show-button="false"
             placeholder="请输入报表ID"

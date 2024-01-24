@@ -64,6 +64,13 @@ const commonData: commonDataType = {
     policy: [],
     strategy_ids: [],
     dateType: DateTypeEnum.DAY
+  },
+  pointRealTime: {
+    enable: false,
+    point_uid: [],
+    limit: 10,
+    with_device_name: false,
+    space_complete_name_prefix: false,
   }
 }
 

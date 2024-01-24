@@ -9,6 +9,7 @@ import { cloneDeep } from 'lodash'
 import { handlePointHistory } from './commonDataComponents/usePointHistoryRes'
 import { handleEnergyUseHistory } from './commonDataComponents/useEnergyUseHistoryRes';
 import { handleRecordValueHistory } from './commonDataComponents/useRecordValueHistoryRes'
+import { handlePointRealTime } from './commonDataComponents/usePointRealTimeRes'
 import { ResultErrcode } from '@/enums/httpEnum'
 
 // 获取类型
@@ -85,13 +86,15 @@ export const useChartCommonData = (
                     case CurrentSourceEnum.RECORDVALUEHISTORY:
                         res = await handleRecordValueHistory(targetComponent)
                         break;
+                    case CurrentSourceEnum.POINTREALTIME:
+                        res = await handlePointRealTime(targetComponent)
+                        break;
                     default:
                         break;
                 }
                 if (res && res.errcode === ResultErrcode.SUCCESS) {
                     try {
                         const { data } = res
-                        console.log(data)
                         if(Object.prototype.toString.call(data) === '[object Array]') {
                             if(data.length) echartsUpdateHandle(data[0])
                         }

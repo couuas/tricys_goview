@@ -128,4 +128,8 @@ export const sourceOptions: sourceOptionsItemType[] = [
     label: '记录值历史',
     value: CurrentSourceEnum.RECORDVALUEHISTORY
   },
+  {
+    label: '测点实时值',
+    value: CurrentSourceEnum.POINTREALTIME
+  },
 ]
