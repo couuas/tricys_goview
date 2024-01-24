@@ -3,7 +3,7 @@
     <n-image
       :object-fit="fit"
       preview-disabled
-      :src="`/src/assets/images/chart/decorates/${dataset}`"
+      :src="imageInfo"
       :fallback-src="requireErrorImg()"
       :width="w"
       lazy
@@ -13,9 +13,10 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, toRefs } from 'vue'
+import { PropType, ref, toRefs } from 'vue'
 import { requireErrorImg } from '@/utils'
 import { CreateComponentType } from '@/packages/index.d'
+import { fetchImages } from "@/packages/index";
 
 const props = defineProps({
   chartConfig: {
@@ -26,6 +27,13 @@ const props = defineProps({
 
 const { w, h } = toRefs(props.chartConfig.attr)
 const { dataset, fit, borderRadius } = toRefs(props.chartConfig.option)
+
+let imageInfo = ref('')
+// 获取图片
+const fetchImageUrl = async () => {
+  imageInfo.value = await fetchImages(props.chartConfig.chartConfig)
+}
+fetchImageUrl()
 
 const getStyle = (radius: number) => {
   return {
