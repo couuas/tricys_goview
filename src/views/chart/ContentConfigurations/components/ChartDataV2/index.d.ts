@@ -110,26 +110,44 @@ export const selectTimeOptions: SelectHttpTimeType[] = [
   },
 ]
 
+export enum optionTypeEnum {
+  // 多个值
+  MULTIPLE = 'multiple',
+  // 单个值的数据源 环形图等
+  SINGLE = 'single'
+}
+
 export interface sourceOptionsItemType {
   label: string,
   value: CurrentSourceEnum,
+  type: optionTypeEnum
 }
+
 // 通用组件数据源选项
 export const sourceOptions: sourceOptionsItemType[] = [
   {
     label: '测点历史',
-    value: CurrentSourceEnum.POINTHISTORY
+    value: CurrentSourceEnum.POINTHISTORY,
+    type: optionTypeEnum.MULTIPLE,
   },
   {
     label: '能耗历史',
-    value: CurrentSourceEnum.ENERGYUSEHISTORY
+    value: CurrentSourceEnum.ENERGYUSEHISTORY,
+    type: optionTypeEnum.MULTIPLE,
   },
   {
     label: '记录值历史',
-    value: CurrentSourceEnum.RECORDVALUEHISTORY
+    value: CurrentSourceEnum.RECORDVALUEHISTORY,
+    type: optionTypeEnum.MULTIPLE,
   },
   {
     label: '测点实时值',
-    value: CurrentSourceEnum.POINTREALTIME
+    value: CurrentSourceEnum.POINTREALTIME,
+    type: optionTypeEnum.MULTIPLE,
+  },
+  {
+    label: '单测点实时值',
+    value: CurrentSourceEnum.SINGLEPOINT,
+    type: optionTypeEnum.SINGLE,
   },
 ]

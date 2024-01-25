@@ -2,19 +2,54 @@
   <!-- 遍历 seriesList -->
   <CollapseItem v-for="(item, index) in config.series" :key="index" :name="`圆环`" :expanded="true">
     <SettingItemBox name="数据">
-      <SettingItem name="数值">
-        <n-input-number v-model:value="config.dataset" :min="0" :max="1" :step="0.01" size="small" placeholder="数值">
-        </n-input-number>
+      <SettingItem>
+        <n-space>
+          <n-switch v-model:value="config.titleContrl.showPercent" size="small" />
+          <n-text>是否百分比</n-text>
+        </n-space>
       </SettingItem>
-    </SettingItemBox>
-    <!-- 中心标题 -->
-    <SettingItemBox v-if="config.title" name="标题">
+      <SettingItem v-if="!config.titleContrl.showPercent" name="最大值">
+        <n-input-number v-model:value="config.titleContrl.max" :min="0" :step="1" size="small" placeholder="请输入最大值"/>
+      </SettingItem>
+      <SettingItem v-if="!config.titleContrl.showPercent">
+        <n-space>
+          <n-switch v-model:value="config.titleContrl.showUnit" size="small" />
+          <n-text>展示单位</n-text>
+        </n-space>
+      </SettingItem>
       <SettingItem name="颜色">
         <n-color-picker size="small" :modes="['hex']" v-model:value="config.title.textStyle.color"></n-color-picker>
       </SettingItem>
       <SettingItem name="字体大小">
         <n-input-number
-          v-model:value="config.title.textStyle.fontSize"
+            v-model:value="config.title.textStyle.fontSize"
+            :min="0"
+            :step="1"
+            size="small"
+            placeholder="字体大小"
+        >
+        </n-input-number>
+      </SettingItem>
+    </SettingItemBox>
+    <SettingItemBox name="副标题">
+      <SettingItem>
+        <n-space>
+          <n-switch v-model:value="config.titleContrl.showSubText" size="small" />
+          <n-text>展示副标题</n-text>
+        </n-space>
+      </SettingItem>
+      <SettingItem>
+        <n-space>
+          <n-switch v-model:value="config.titleContrl.showSubTextUnit" size="small" />
+          <n-text>展示单位</n-text>
+        </n-space>
+      </SettingItem>
+      <SettingItem name="颜色">
+        <n-color-picker size="small" :modes="['hex']" v-model:value="config.title.subtextStyle.color"></n-color-picker>
+      </SettingItem>
+      <SettingItem name="字体大小">
+        <n-input-number
+          v-model:value="config.title.subtextStyle.fontSize"
           :min="0"
           :step="1"
           size="small"

@@ -259,7 +259,9 @@ export enum CurrentSourceEnum {
   // 记录值历史
   RECORDVALUEHISTORY = 'recordValueHistory',
   // 测点实时值
-  POINTREALTIME = 'pointRealTime'
+  POINTREALTIME = 'pointRealTime',
+  // 单测点实时值
+  SINGLEPOINT = 'singlePoint'
 }
 
 // 测点历史参数
@@ -283,7 +285,7 @@ export enum PolicyTypeEnum {
   MAX = 1
 }
 
-// 记录值历史
+// 记录值历史参数
 export interface RecordValueHistoryType {
   enable: boolean
   policy: PolicyTypeEnum[]
@@ -291,6 +293,7 @@ export interface RecordValueHistoryType {
   dateType: DateTypeEnum
 }
 
+// 测点实时值参数
 export interface PointRealTimeType {
   enable: boolean
   point_uid: string[]
@@ -299,13 +302,29 @@ export interface PointRealTimeType {
   space_complete_name_prefix: boolean
 }
 
+export interface resultType {
+  name: string
+  status: number | null
+  time: string
+  unit: string
+  value: number | null
+}
+
+// 单测点实时值
+export interface SinglePointType {
+  enable: boolean
+  pointId: string
+  result: resultType
+}
+
 // 通用组件数据
 export interface commonDataType {
-  currentSource: CurrentSourceEnum,
-  pointHistory: PointHistoryType,
-  energyUseHistory: EnergyUseHistoryType,
+  currentSource: CurrentSourceEnum
+  pointHistory: PointHistoryType
+  energyUseHistory: EnergyUseHistoryType
   recordValueHistory: RecordValueHistoryType
   pointRealTime: PointRealTimeType
+  singlePoint: SinglePointType
 }
 
 // Store 类型

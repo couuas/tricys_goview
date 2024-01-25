@@ -2,6 +2,7 @@ import { PublicConfigClass } from '@/packages/public'
 import { CreateComponentType } from '@/packages/index.d'
 import { TextCommonConfig } from './index'
 import cloneDeep from 'lodash/cloneDeep'
+import { CurrentSourceEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
 
 export enum WritingModeEnum {
   HORIZONTAL = '水平',
@@ -46,6 +47,10 @@ export const option = {
 }
 
 export default class Config extends PublicConfigClass implements CreateComponentType {
+  constructor() {
+    super();
+    this.commonData.currentSource = CurrentSourceEnum.SINGLEPOINT
+  }
   public key = TextCommonConfig.key
   public chartConfig = cloneDeep(TextCommonConfig)
   public option = cloneDeep(option)

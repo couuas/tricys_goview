@@ -9,6 +9,6 @@ export const TextCommonConfig: ConfigType = {
   category: ChatCategoryEnum.TEXT,
   categoryName: ChatCategoryEnumName.TEXT,
   package: PackagesCategoryEnum.INFORMATIONS,
-  chartFrame: ChartFrameEnum.COMMON,
+  chartFrame: ChartFrameEnum.STATIC,
   image: 'text_static.png'
 }

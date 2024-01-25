@@ -19,7 +19,7 @@
       <n-space v-for="(item, i) in computeIds" :key="item.id" align="center" :wrap="false">
         <n-input
             :value="item.value"
-            @update:value="(v: number) => handleChange(v, i)"
+            @update:value="(v: string) => handleChange(v, i)"
             placeholder="请输入测点ID"
             size="small"
             clearable

@@ -1,12 +1,20 @@
 <template>
-  <div v-if="!IsStatic() && !targetData.chartConfig.conDataKey" class="go-chart-configurations-data">
-    <setting-item-box name="数据源" :alone="true">
-      <n-select v-model:value="targetData.commonData.currentSource" :options="sourceOptions" size="small"/>
-    </setting-item-box>
-    <PointHistory v-if="targetData.commonData.currentSource === CurrentSourceEnum.POINTHISTORY"/>
-    <EnergyUseHistory v-else-if="targetData.commonData.currentSource === CurrentSourceEnum.ENERGYUSEHISTORY"/>
-    <RecordValueHistory v-else-if="targetData.commonData.currentSource === CurrentSourceEnum.RECORDVALUEHISTORY"/>
-    <PointRealTime v-else-if="targetData.commonData.currentSource === CurrentSourceEnum.POINTREALTIME"/>
+  <div v-if="!IsStatic && !targetData.chartConfig.conDataKey" class="go-chart-configurations-data">
+    <template v-if="!IsCommonSingle">
+      <setting-item-box name="数据源" :alone="true">
+        <n-select v-model:value="targetData.commonData.currentSource" :options="multipleSourceOptions" size="small"/>
+      </setting-item-box>
+      <PointHistory v-if="matchComponent(CurrentSourceEnum.POINTHISTORY)"/>
+      <EnergyUseHistory v-else-if="matchComponent(CurrentSourceEnum.ENERGYUSEHISTORY)"/>
+      <RecordValueHistory v-else-if="matchComponent(CurrentSourceEnum.RECORDVALUEHISTORY)"/>
+      <PointRealTime v-else-if="matchComponent(CurrentSourceEnum.POINTREALTIME)"/>
+    </template>
+    <template v-else-if="IsCommonSingle">
+      <setting-item-box name="数据源" :alone="true">
+        <n-select v-model:value="targetData.commonData.currentSource" :options="singleSourceOptions" size="small"/>
+      </setting-item-box>
+      <SinglePoint v-if="matchComponent(CurrentSourceEnum.SINGLEPOINT)"/>
+    </template>
     <setting-item-box name="更新间隔" :alone="true">
       <n-input-group>
         <n-input-number
@@ -23,7 +31,7 @@
       </n-input-group>
     </setting-item-box>
   </div>
-  <div v-else-if="!IsStatic() && targetData.chartConfig.conDataKey">
+  <div v-else-if="!IsStatic && targetData.chartConfig.conDataKey">
     <component :is="targetData.chartConfig.conDataKey" :customData="targetData.customData" :request="targetData.request"></component>
     <setting-item-box v-if="targetData?.customData?.showInterval" name="更新间隔" :alone="true">
       <n-input-group>
@@ -41,7 +49,7 @@
       </n-input-group>
     </setting-item-box>
   </div>
-  <div v-else-if="IsStatic()">
+  <div v-else-if="IsStatic">
     暂无数据
   </div>
 </template>
@@ -51,14 +59,19 @@ import PointHistory from './components/PointHistory.vue'
 import EnergyUseHistory from './components/EnergyUseHistory.vue'
 import RecordValueHistory from './components/RecordValueHistory.vue'
 import PointRealTime from './components/PointRealTime.vue'
+import SinglePoint from './components/SinglePoint.vue'
+import { computed } from 'vue'
 import type { Ref } from 'vue'
 import { loadAsyncComponent } from '@/utils'
 import { SettingItemBox } from '@/components/Pages/ChartItemSetting'
 import { useTargetData } from '../hooks/useTargetData.hook'
-import { sourceOptions, selectTimeOptions } from './index.d'
+import { sourceOptions, optionTypeEnum, selectTimeOptions } from './index.d'
 import { CurrentSourceEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
 import { PackagesCategoryEnum, CreateComponentType, CreateComponentGroupType, ChartFrameEnum } from '@/packages/index.d'
-
+import { PieCircleConfig } from '@/packages/components/Charts/Pies/PieCircle/index'
+import { TextBarrageConfig } from "@/packages/components/Informations/Texts/TextBarrage/index";
+import { TextCommonConfig } from "@/packages/components/Informations/Texts/TextCommon/index";
+import { TextGradientConfig } from "@/packages/components/Informations/Texts/TextGradient/index";
 
 // const ChartDataStatic = loadAsyncComponent(() => import('./components/ChartDataStatic/index.vue'))
 
@@ -70,8 +83,31 @@ const { targetData } = useTargetData() as { targetData: Ref<CreateComponentType 
 * 静态组件: 无数据
 * */
 // 通用组件 自定义组件 静态组件
-
-const IsStatic = () => {
+const IsStatic = computed(() => {
   return targetData.value.chartConfig.chartFrame === ChartFrameEnum.STATIC
+})
+
+/*
+* 通用组件再分为: 多个点的数据和 一个点的数据(用于圆环图等)
+ */
+const IsCommonSingle = computed(() => {
+  let singleCharArr = [
+    PieCircleConfig,
+    TextBarrageConfig,
+    TextCommonConfig,
+    TextGradientConfig,
+  ]
+  const { package:packageStr, category, key } = targetData.value.chartConfig
+  const flag = singleCharArr.some(_ => {
+    return _.package === packageStr && _.category === category && _.key === key
+  })
+  return flag
+})
+
+const multipleSourceOptions = sourceOptions.filter(_ => _.type === optionTypeEnum.MULTIPLE)
+const singleSourceOptions = sourceOptions.filter(_ => _.type === optionTypeEnum.SINGLE)
+
+const matchComponent = (name: string) => {
+  return targetData.value.commonData.currentSource === name
 }
 </script>

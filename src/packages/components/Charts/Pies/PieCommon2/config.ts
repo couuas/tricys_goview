@@ -1,5 +1,5 @@
 import { echartOptionProfixHandle, PublicConfigClass } from '@/packages/public'
-import { PieCommonConfig } from './index'
+import { PieCommon2Config } from './index'
 import { CreateComponentType } from '@/packages/index.d'
 import cloneDeep from 'lodash/cloneDeep'
 import dataJson from './data.json'
@@ -26,7 +26,7 @@ const otherConfig = {
 
 const option = {
   ...otherConfig,
-  type: 'normal',
+  type: 'rose',
   tooltip: {
     show: true,
     trigger: 'item'
@@ -69,9 +69,9 @@ const option = {
 }
 
 export default class Config extends PublicConfigClass implements CreateComponentType {
-  public key: string = PieCommonConfig.key
+  public key: string = PieCommon2Config.key
 
-  public chartConfig = cloneDeep(PieCommonConfig)
+  public chartConfig = cloneDeep(PieCommon2Config)
 
   // 图表配置项
   public option = echartOptionProfixHandle(option, includes)

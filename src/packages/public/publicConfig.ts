@@ -71,6 +71,17 @@ const commonData: commonDataType = {
     limit: 10,
     with_device_name: false,
     space_complete_name_prefix: false,
+  },
+  singlePoint: {
+    enable: false,
+    pointId: '',
+    result: {
+      name: '',
+      status: null,
+      time: '',
+      unit: '',
+      value: 0
+    }
   }
 }
 

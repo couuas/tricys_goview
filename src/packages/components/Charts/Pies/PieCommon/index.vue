@@ -103,7 +103,7 @@ watch(
   () => props.chartConfig.option.type,
   newData => {
     try {
-      if (newData === 'nomal') {
+      if (newData === 'normal') {
         props.chartConfig.option.series[0].radius = '70%'
         props.chartConfig.option.series[0].roseType = false
       } else if (newData === 'ring') {

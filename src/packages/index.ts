@@ -2,7 +2,7 @@ import { ChartList } from '@/packages/components/Charts/index'
 import { DecorateList } from '@/packages/components/Decorates/index'
 import { InformationList } from '@/packages/components/Informations/index'
 // import { TableList } from '@/packages/components/Tables/index'
-// import { PhotoList } from '@/packages/components/Photos/index'
+import { PhotoList } from '@/packages/components/Photos/index'
 import { IconList } from '@/packages/components/Icons/index'
 import { CustomComponentsList } from '@/packages/components/CustomComponents/index'
 import { PackagesCategoryEnum, PackagesType, ConfigType, FetchComFlagType } from '@/packages/index.d'
@@ -26,7 +26,7 @@ export let packagesList: PackagesType = {
   [PackagesCategoryEnum.INFORMATIONS]: InformationList,
   // [PackagesCategoryEnum.TABLES]: TableList,
   [PackagesCategoryEnum.DECORATES]: DecorateList,
-  // [PackagesCategoryEnum.PHOTOS]: PhotoList,
+  [PackagesCategoryEnum.PHOTOS]: PhotoList,
   [PackagesCategoryEnum.ICONS]: IconList,
   [PackagesCategoryEnum.CUSTOMCOMPONENTS]: CustomComponentsList,
 }

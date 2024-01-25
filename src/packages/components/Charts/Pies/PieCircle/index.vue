@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, reactive, watch } from 'vue'
+import { PropType, reactive, watch, ref } from 'vue'
 import VChart from 'vue-echarts'
 import { useCanvasInitOptions } from '@/hooks/useCanvasInitOptions.hook'
 import { use } from 'echarts/core'
@@ -11,7 +11,7 @@ import { CanvasRenderer } from 'echarts/renderers'
 import { PieChart } from 'echarts/charts'
 import { mergeTheme } from '@/packages/public/chart'
 import config, { includes } from './config'
-import { useChartDataFetch } from '@/hooks'
+import { useChartCommonData, useChartDataFetch } from '@/hooks'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { DatasetComponent, GridComponent, TooltipComponent, LegendComponent, TitleComponent } from 'echarts/components'
 
@@ -38,31 +38,76 @@ const option = reactive({
   value: {}
 })
 
+// const dataHandle = (newData: any) => {
+//   const d = parseFloat(`${newData}`) * 100
+//   let config = props.chartConfig.option
+//   config.title.text = `${+d.toFixed(2)}%`
+//   config.series[0].data[0].value[0] = d
+//   config.series[0].data[1].value[0] = 100 - d
+//   option.value = mergeTheme(props.chartConfig.option, props.themeSetting, includes)
+//   option.value = props.chartConfig.option
+// }
+
+// // 配置时
+// watch(
+//   () => props.chartConfig.option.dataset,
+//   newData => {
+//     try {
+//       dataHandle(newData)
+//     } catch (error) {
+//       console.log(error)
+//     }
+//   },
+//   {
+//     immediate: true,
+//     deep: false
+//   }
+// )
+
 const dataHandle = (newData: any) => {
-  const d = parseFloat(`${newData}`) * 100
+  const { name, unit, value } = newData
   let config = props.chartConfig.option
-  config.title.text = `${+d.toFixed(2)}%`
-  config.series[0].data[0].value[0] = d
-  config.series[0].data[1].value[0] = 100 - d
+  const { showPercent, showUnit, showSubText, showSubTextUnit, max } = config.titleContrl
+  config.title.subtext = showSubText ? name: ''
+  config.title.subtext += showSubTextUnit && unit ? showSubText ? '(a)'.replace('a', unit) : unit : ''
+  if(showPercent) {
+    config.title.text = `${value * 100}%`
+    config.series[0].data[0].value[0] = value <= 1 ? value * 100 : 100
+    config.series[0].data[1].value[0] = value <= 1 ? (1 - value) * 100 : 0
+  }
+  else {
+    config.title.text = `${value}${showUnit ? '(a)'.replace('a', unit) : ''}`
+    config.series[0].data[0].value[0] = value
+    config.series[0].data[1].value[0] = max - value
+  }
   option.value = mergeTheme(props.chartConfig.option, props.themeSetting, includes)
   option.value = props.chartConfig.option
 }
 
 // 配置时
 watch(
-  () => props.chartConfig.option.dataset,
+  () => props.chartConfig.commonData,
   newData => {
     try {
-      dataHandle(newData)
+      const data = newData[newData.currentSource]
+      dataHandle(data.result)
     } catch (error) {
       console.log(error)
     }
   },
   {
     immediate: true,
-    deep: false
+    deep: true
   }
 )
+watch(() => props.chartConfig.option.titleContrl, (v) => {
+  const commonData = props.chartConfig.commonData
+  const data = commonData[commonData.currentSource]
+  dataHandle(data.result)
+}, {
+  immediate: true,
+  deep: true,
+})
 
 // 预览时
 useChartDataFetch(props.chartConfig, useChartEditStore, (resData: number) => {
@@ -74,4 +119,6 @@ useChartDataFetch(props.chartConfig, useChartEditStore, (resData: number) => {
   // @ts-ignore
   option.value.series[0].data[1].value[0] = 100 - d
 })
+
+const { vChartRef } = useChartCommonData(props.chartConfig, useChartEditStore)
 </script>

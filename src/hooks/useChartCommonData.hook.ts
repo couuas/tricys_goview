@@ -10,6 +10,7 @@ import { handlePointHistory } from './commonDataComponents/usePointHistoryRes'
 import { handleEnergyUseHistory } from './commonDataComponents/useEnergyUseHistoryRes';
 import { handleRecordValueHistory } from './commonDataComponents/useRecordValueHistoryRes'
 import { handlePointRealTime } from './commonDataComponents/usePointRealTimeRes'
+import { handleSinglePoint } from './commonDataComponents/useSinglePointRes'
 import { ResultErrcode } from '@/enums/httpEnum'
 
 // 获取类型
@@ -39,23 +40,39 @@ export const useChartCommonData = (
             // }
             // if(!dataset.dimensions) return
             if(targetComponent.option){
-                let seriesItem = cloneDeep(targetComponent.option.series[0])
-                let series = []
-                if(dataset.dimensions.length - 1) {
-                    for(let i = 0; i < dataset.dimensions.length - 1; i++) {
-                        series.push(cloneDeep(seriesItem))
+                const SingleDataArr = [
+                    CurrentSourceEnum.SINGLEPOINT
+                ]
+                const currentSource = targetComponent.commonData?.currentSource
+                // 多个值的处理方式
+                if(SingleDataArr.every(_ => _ !== currentSource)) {
+                    let seriesItem = cloneDeep(targetComponent.option.series[0])
+                    let series = []
+                    if(dataset.dimensions.length - 1) {
+                        for(let i = 0; i < dataset.dimensions.length - 1; i++) {
+                            series.push(cloneDeep(seriesItem))
+                        }
+                    }
+                    else {
+                        series = [seriesItem]
+                    }
+                    if (vChartRef.value) {
+                        setOption(vChartRef.value, { series, dataset: dataset })
                     }
                 }
-                else {
-                    series = [seriesItem]
-                }
-                if (vChartRef.value) {
-                    setOption(vChartRef.value, { series, dataset: dataset })
+                else if(SingleDataArr.some(_ => _ === currentSource)) { // 单个值的处理
+                    if(targetComponent.commonData[currentSource]?.result) {
+                        stopWatch = true
+                        targetComponent.commonData[currentSource].result = dataset
+                        setTimeout(() => {
+                            stopWatch = false
+                        }, 500)
+                    }
                 }
             }
         }
     }
-
+    let stopWatch = false
     const requestIntervalFn = () => {
         const chartEditStore = useChartEditStore()
 
@@ -89,6 +106,9 @@ export const useChartCommonData = (
                     case CurrentSourceEnum.POINTREALTIME:
                         res = await handlePointRealTime(targetComponent)
                         break;
+                    case CurrentSourceEnum.SINGLEPOINT:
+                        res = await handleSinglePoint(targetComponent)
+                        break;
                     default:
                         break;
                 }
@@ -113,6 +133,7 @@ export const useChartCommonData = (
             watch(
                 () => targetComponent.commonData,
                 () => {
+                    if(stopWatch) return
                     fetchFn()
                 },
                 {
@@ -120,7 +141,6 @@ export const useChartCommonData = (
                     deep: true
                 }
             )
-
             // 定时时间
             const time = targetInterval && targetInterval.value ? targetInterval.value : globalRequestInterval.value
             // 单位

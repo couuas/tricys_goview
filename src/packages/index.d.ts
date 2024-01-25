@@ -1,7 +1,7 @@
 import { BaseEvent, EventLife, InteractEvents, InteractEventOn, InteractActionsType } from '@/enums/eventEnum'
 import type { GlobalThemeJsonType } from '@/settings/chartThemes/index'
 import type { RequestConfigType } from '@/store/modules/chartEditStore/chartEditStore.d'
-import {CustomComponentsList} from "@/packages/components/CustomComponents/index";
+import { CustomComponentsList } from "@/packages/components/CustomComponents/index";
 import { commonDataType } from '@/store/modules/chartEditStore/chartEditStore.d'
 
 export enum ChartFrameEnum {
@@ -47,8 +47,6 @@ export type ConfigType = {
   icon?: string
   // 事件
   configEvents?: { [T: string]: Function }
-  // 自定义数据配置
-  customData?: { [T: string]: any }
 }
 
 // 数据请求
@@ -216,7 +214,7 @@ export type PackagesType = {
   [PackagesCategoryEnum.CHARTS]: ConfigType[]
   [PackagesCategoryEnum.INFORMATIONS]: ConfigType[]
   // [PackagesCategoryEnum.TABLES]: ConfigType[]
-  // [PackagesCategoryEnum.PHOTOS]: ConfigType[]
+  [PackagesCategoryEnum.PHOTOS]: ConfigType[]
   [PackagesCategoryEnum.ICONS]: ConfigType[]
   [PackagesCategoryEnum.DECORATES]: ConfigType[]
   // [PackagesCategoryEnum.THEMESANDLAYOUTS]: ConfigType[]

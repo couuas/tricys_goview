@@ -2,11 +2,11 @@
   <!-- Echarts 全局设置 -->
   <global-setting :optionData="optionData"></global-setting>
   <CollapseItem name="饼图配置" :expanded="true">
-    <SettingItemBox name="类型">
-      <SettingItem>
-        <n-select v-model:value="optionData.type" size="small" :options="fontWeightOptions" />
-      </SettingItem>
-    </SettingItemBox>
+<!--    <SettingItemBox name="类型">-->
+<!--      <SettingItem>-->
+<!--        <n-select v-model:value="optionData.type" size="small" :options="fontWeightOptions" />-->
+<!--      </SettingItem>-->
+<!--    </SettingItemBox>-->
     <SettingItemBox name="动画" :alone="true">
       <SettingItem>
         <n-space>
