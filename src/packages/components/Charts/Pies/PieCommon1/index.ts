@@ -10,5 +10,5 @@ export const PieCommon1Config: ConfigType = {
   categoryName: ChatCategoryEnumName.PIE,
   package: PackagesCategoryEnum.CHARTS,
   chartFrame: ChartFrameEnum.ECHARTS,
-  image: 'pie.png'
+  image: 'PieCommon1.png'
 }

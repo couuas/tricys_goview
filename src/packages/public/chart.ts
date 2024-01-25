@@ -44,7 +44,5 @@ export const setOption = <T extends typeof VChart | undefined, D>(instance: T, d
   if (!instance) return
   const option = instance.getOption()
   option.dataset = null
-  instance.setOption(data, {
-    replaceMerge: ['series'],
-  })
+  instance.setOption(data)
 }

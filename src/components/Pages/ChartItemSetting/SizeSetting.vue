@@ -8,7 +8,7 @@
       placeholder="px"
     >
       <template #prefix>
-        <n-text depth="3">宽度</n-text>
+        <n-text depth="3">宽</n-text>
       </template>
     </n-input-number>
     <n-input-number
@@ -19,7 +19,7 @@
       placeholder="px"
     >
       <template #prefix>
-        <n-text depth="3">高度</n-text>
+        <n-text depth="3">高</n-text>
       </template>
     </n-input-number>
   </setting-item-box>

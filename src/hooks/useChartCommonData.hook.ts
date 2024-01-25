@@ -57,7 +57,11 @@ export const useChartCommonData = (
                         series = [seriesItem]
                     }
                     if (vChartRef.value) {
-                        setOption(vChartRef.value, { series, dataset: dataset })
+                        Object.assign(targetComponent.option, {
+                            series,
+                            dataset,
+                        })
+                        setOption(vChartRef.value, { series, dataset })
                     }
                 }
                 else if(SingleDataArr.some(_ => _ === currentSource)) { // 单个值的处理

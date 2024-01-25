@@ -38,7 +38,7 @@
       </n-space>
     </n-space>
   </setting-item-box>
-  <setting-item-box name="测点数量" :alone="true">
+  <setting-item-box name="类目数量" :alone="true">
     <n-input-number
       v-model:value="pointRealTime.limit"
       min="1"
