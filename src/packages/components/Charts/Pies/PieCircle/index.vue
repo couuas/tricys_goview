@@ -14,6 +14,8 @@ import config, { includes } from './config'
 import { useChartCommonData, useChartDataFetch } from '@/hooks'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { DatasetComponent, GridComponent, TooltipComponent, LegendComponent, TitleComponent } from 'echarts/components'
+import { resultType } from '@/store/modules/chartEditStore/chartEditStore.d'
+
 
 const props = defineProps({
   themeSetting: {
@@ -89,7 +91,7 @@ watch(
   () => props.chartConfig.commonData,
   newData => {
     try {
-      const data = newData[newData.currentSource]
+      const data = newData[newData.currentSource] as Object & { result: resultType }
       dataHandle(data.result)
     } catch (error) {
       console.log(error)
@@ -102,7 +104,7 @@ watch(
 )
 watch(() => props.chartConfig.option.titleContrl, (v) => {
   const commonData = props.chartConfig.commonData
-  const data = commonData[commonData.currentSource]
+  const data = commonData[commonData.currentSource] as Object & { result: resultType }
   dataHandle(data.result)
 }, {
   immediate: true,

@@ -3,7 +3,7 @@ import { setOption } from "@/packages/public";
 import { ref, toRefs, watch } from "vue";
 import { CreateComponentType, ChartFrameEnum } from '@/packages/index.d'
 import { useChartEditStore } from "@/store/modules/chartEditStore/chartEditStore";
-import { CurrentSourceEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
+import { CurrentSourceEnum, resultType } from '@/store/modules/chartEditStore/chartEditStore.d'
 import { intervalUnitHandle, newFunctionHandle, isPreview } from "@/utils";
 import { cloneDeep } from 'lodash'
 import { handlePointHistory } from './commonDataComponents/usePointHistoryRes'
@@ -61,13 +61,12 @@ export const useChartCommonData = (
                     }
                 }
                 else if(SingleDataArr.some(_ => _ === currentSource)) { // 单个值的处理
-                    if(targetComponent.commonData[currentSource]?.result) {
-                        stopWatch = true
-                        targetComponent.commonData[currentSource].result = dataset
-                        setTimeout(() => {
-                            stopWatch = false
-                        }, 500)
-                    }
+                    const targetObj = targetComponent.commonData[currentSource] as { result: resultType }
+                    stopWatch = true
+                    targetObj.result = dataset
+                    setTimeout(() => {
+                        stopWatch = false
+                    }, 500)
                 }
             }
         }

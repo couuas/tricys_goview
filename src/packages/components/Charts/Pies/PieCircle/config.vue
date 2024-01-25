@@ -134,6 +134,7 @@ const props = defineProps({
 })
 
 const config = computed(() => {
-  return props.optionData
-})
+  // 使用类型断言来告诉 TypeScript 编译器 title 总是存在
+  return props.optionData as GlobalThemeJsonType & { title: NonNullable<GlobalThemeJsonType['title']> };
+});
 </script>
