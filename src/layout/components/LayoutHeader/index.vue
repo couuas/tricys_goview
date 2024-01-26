@@ -40,24 +40,28 @@ const isProject = computed(() => {
 <style lang="scss" scoped>
 $min-width: 520px;
 @include go(header) {
+  width: 100vw;
   &-box {
     display: grid;
-    grid-template-columns: repeat(3, 33%);
+    grid-template-columns: $min-width 1fr $min-width;
     &.is-project {
       grid-template-columns: none;
     }
     .header-item {
       display: flex;
       align-items: center;
-      min-width: $min-width;
+      //min-width: $min-width;
       &.left {
         justify-content: start;
+        min-width: $min-width;
       }
       &.center {
         justify-content: center;
+        flex: 1;
       }
       &.right {
         justify-content: end;
+        min-width: $min-width;
       }
     }
     height: $--header-height;

@@ -111,16 +111,16 @@ watch(() => props.chartConfig.option.titleContrl, (v) => {
   deep: true,
 })
 
-// 预览时
-useChartDataFetch(props.chartConfig, useChartEditStore, (resData: number) => {
-  let d = parseFloat(`${resData}`) * 100
-  // @ts-ignore
-  option.value.title.text = `${+d.toFixed(2)}%`
-  // @ts-ignore
-  option.value.series[0].data[0].value[0] = d
-  // @ts-ignore
-  option.value.series[0].data[1].value[0] = 100 - d
-})
+// // 预览时
+// useChartDataFetch(props.chartConfig, useChartEditStore, (resData: number) => {
+//   let d = parseFloat(`${resData}`) * 100
+//   // @ts-ignore
+//   option.value.title.text = `${+d.toFixed(2)}%`
+//   // @ts-ignore
+//   option.value.series[0].data[0].value[0] = d
+//   // @ts-ignore
+//   option.value.series[0].data[1].value[0] = 100 - d
+// })
 
 const { vChartRef } = useChartCommonData(props.chartConfig, useChartEditStore)
 </script>

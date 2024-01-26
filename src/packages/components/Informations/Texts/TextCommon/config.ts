@@ -28,6 +28,7 @@ export const option = {
   link: '',
   linkHead: 'http://',
   dataset: '我是文本',
+  showUnit: false,
   fontSize: 20,
   fontColor: '#ffffff',
   paddingX: 10,

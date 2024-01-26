@@ -1,9 +1,9 @@
 <template>
-  <n-space>
+  <n-space :wrap="false">
     <n-icon size="20" :depth="3">
       <fish-icon></fish-icon>
     </n-icon>
-    <n-text @click="handleFocus">
+    <n-text class="text" @click="handleFocus">
       工作空间 -
       <n-button v-show="!focus" secondary size="tiny">
         <span class="title">
@@ -81,6 +81,11 @@ const handleBlur = async () => {
 }
 </script>
 <style lang="scss" scoped>
+.text{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 .title {
   padding-left: 5px;
   padding-right: 5px;

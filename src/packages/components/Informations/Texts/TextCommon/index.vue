@@ -1,18 +1,30 @@
 <template>
   <div class="go-text-box">
     <div class="content">
-      <span style="cursor: pointer; white-space: pre-wrap" v-if="link" @click="click">{{ option.dataset }}</span>
-      <span style="white-space: pre-wrap" v-else>{{ option.dataset }}</span>
+      <span
+        :style="{cursor: link ? 'pointer' : 'unset'}"
+        style="cursor: pointer; white-space: pre-wrap"
+        @click="link ? click : () => {}"
+      >
+        <template v-if="!dataEnable">
+          {{ option.dataset }}
+        </template>
+        <template v-else>
+          {{ dataValue }}{{ option.showUnit ? dataUnit : '' }}
+        </template>
+      </span>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { PropType, toRefs, shallowReactive, watch } from 'vue'
+import { PropType, toRefs, shallowReactive, watch, ref } from 'vue'
 import { CreateComponentType } from '@/packages/index.d'
 import { useChartDataFetch } from '@/hooks'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { option as configOption } from './config'
+import { useChartCommonData } from '@/hooks'
+import { resultType } from '@/store/modules/chartEditStore/chartEditStore.d'
 
 const props = defineProps({
   chartConfig: {
@@ -39,14 +51,16 @@ const {
 } = toRefs(props.chartConfig.option)
 
 const option = shallowReactive({
-  dataset: configOption.dataset
+  dataset: configOption.dataset,
+  showUnit: configOption.showUnit
 })
 
 // 手动更新
 watch(
-  () => props.chartConfig.option.dataset,
-  (newData: any) => {
+  [() => props.chartConfig.option.dataset, () => props.chartConfig.option.showUnit],
+  ([newData, newShowUnit]: [any, boolean]) => {
     option.dataset = newData
+    option.showUnit = newShowUnit
   },
   {
     immediate: true,
@@ -54,10 +68,33 @@ watch(
   }
 )
 
-// 预览更新
-useChartDataFetch(props.chartConfig, useChartEditStore, (newData: string) => {
-  option.dataset = newData
-})
+const dataEnable = ref()
+const dataValue = ref()
+const dataUnit = ref()
+watch(
+  () => props.chartConfig.commonData,
+  newData => {
+    try {
+      const data = newData[newData.currentSource] as Object & { enable: boolean, result: resultType }
+      dataEnable.value = data.enable
+      dataValue.value = data.result.value
+      dataUnit.value = data.result.unit
+    } catch (error) {
+      console.log(error)
+    }
+  },
+  {
+    immediate: true,
+    deep: true
+  }
+)
+
+// // 预览更新
+// useChartDataFetch(props.chartConfig, useChartEditStore, (newData: string) => {
+//   option.dataset = newData
+// })
+
+useChartCommonData(props.chartConfig, useChartEditStore)
 
 //打开链接
 const click = () => {
