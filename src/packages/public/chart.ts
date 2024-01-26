@@ -43,6 +43,7 @@ export const setData = (option: any, data: EchartsDataType) => {
 export const setOption = <T extends typeof VChart | undefined, D>(instance: T, data: D) => {
   if (!instance) return
   const option = instance.getOption()
+  if(!option) return
   option.dataset = null
   instance.setOption(data)
 }

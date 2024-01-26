@@ -21,9 +21,9 @@
         <n-tag class="mr5" size="small" :color="{textColor: item.color1, borderColor: item.color1}">
           {{select1.options[item.level - 1].label}}
         </n-tag>
-        <div class="textEllipsis" style="color: rgba(255, 255, 255, 0.82);">{{ item.content }}</div>
-        <div style="flex: 1"></div>
-        <div class="mr10 textEllipsis" style="color: #B5BAC3;">{{ moment(item.generate_time).format('yyyy-MM-DD HH:mm:ss') }}</div>
+        <div class="textEllipsis" style="color: rgba(255, 255, 255, 0.82);flex: 20;">{{ item.content }}</div>
+        <div style="flex: 1;"></div>
+        <div class="mr10 textEllipsis" style="color: #B5BAC3;width: 150px">{{ moment(item.generate_time).format('yyyy-MM-DD HH:mm:ss') }}</div>
         <LocationIcon @click.stop="jumpTo(item)" class="mr10" style="width: 20px;height: 20px;color: #4196ff;"/>
         <CheckCircleOutlinedIcon @click.stop="clickSingle(item.id)" v-if="item.confirm_status === 'not'" style="width: 20px;height: 20px;color: #4196ff;"/>
         <div v-else style="width: 20px"></div>
@@ -40,6 +40,7 @@
 
 <script setup lang="ts">
 import { PropType, shallowReactive, watch, toRefs, reactive, onMounted, onUnmounted, nextTick, ref } from 'vue'
+import type { Ref } from 'vue'
 import { CreateComponentType } from '@/packages/index.d'
 import { publicInterface } from '@/api/path/business.api'
 import BorderBox from './BorderBoxV2.vue'
@@ -72,28 +73,43 @@ const getStyle = (radius: number) => {
   }
 }
 
-const select1 = reactive({
-  value: [1, 2],
+interface Select1Type {
+  value: number[]
+  options: {
+    label: string
+    value: number
+    number: number
+    color: string
+  }[]
+}
+const select1: Select1Type = reactive({
+  value: [],
   options: [
-    { label: '严重', value: 1, number: 0, color: '#ff0000' },
-    { label: '主要', value: 2, number: 0, color: '#f43b42' },
-    { label: '次要', value: 3, number: 0, color: '#fc8358' },
-    { label: '警告', value: 4, number: 0, color: '#f8ca00' },
-    { label: '事件', value: 5, number: 0, color: '#4fbadb' },
+    // { label: '严重', value: 1, number: 0, color: '#ff0000' },
+    // { label: '主要', value: 2, number: 0, color: '#f43b42' },
+    // { label: '次要', value: 3, number: 0, color: '#fc8358' },
+    // { label: '警告', value: 4, number: 0, color: '#f8ca00' },
+    // { label: '事件', value: 5, number: 0, color: '#4fbadb' },
   ]
 })
 
-const select2 = reactive({
-  value: ['not'],
+interface Select2Type {
+  value: string[]
+  options: {
+    label: string
+    value: string
+    number: number
+    color: string
+  }[]
+}
+const select2:Select2Type = reactive({
+  value: [],
   options: [
     { label: '已确认', value: 'ok', number: 0, color: '#4DCA59' },
     { label: '未确认', value: 'not', number: 0, color: '#f5b442' },
   ]
 })
 
-watch(() => select1.value.join('&&') + select2.value.join('&&'), (v) => {
-  getData()
-})
 
 type tableDataItemType = {
   id: number,
@@ -129,8 +145,11 @@ watch(() => checkAll.value, (v) => {
 const getNumber = () => {
   const q = {
     space_complete_id: props.chartConfig.customData?.space_complete_id,
+    confirm_statuss: alarmConfirmStatus.value,
+    handle_statuss: alarmHandleStatuss.value,
+    recovery_statuss: alarmRecoveryStatus.value
   }
-  publicInterface('/dcim/dems/devie_active_alarm', 'count_by_level', q).then(res => {
+  publicInterface('/dcim/dems/devie_active_alarm', 'count_by_level_new', q).then(res => {
     if (res && JSON.stringify(res.data) !== '{}') {
       select1.options.forEach((item, i) => {
         item.number = res.data[`level${i+1}`]
@@ -143,7 +162,8 @@ const getNumber = () => {
       levels: select1.value,
       space_complete_id: props.chartConfig.customData?.space_complete_id,
       append_space_to_content: 'complete',
-      recovery_statuss: ['not'],
+      handle_statuss: alarmHandleStatuss.value,
+      recovery_statuss: alarmRecoveryStatus.value
     }
   }
   publicInterface('/dcim/dems/devie_active_alarm', 'get_app_alarm_num_by_condition', param).then(res => {
@@ -163,7 +183,8 @@ const getData = () => {
       confirm_statuss: select2.value,
       space_complete_id: props.chartConfig.customData?.space_complete_id,
       append_space_to_content: 'complete',
-      recovery_statuss: ['not'],
+      handle_statuss: alarmHandleStatuss.value,
+      recovery_statuss: alarmRecoveryStatus.value,
     },
     page: {
       page_size: 10,
@@ -227,6 +248,40 @@ const clickItem = (i:number) => {
 
 const originStore = useOriginStore()
 const user = originStore.getOriginStore.user.user
+const systemConstant = originStore.getOriginStore.user.systemConstant
+const systemConfig = originStore.getOriginStore.user.systemConfig
+
+if (systemConstant['warn_levels']) {
+  select1.options = systemConstant['warn_levels'].filter((item: any) => item.value !== '').map((item: any) => {
+    return { label: item.label, value: Number(item.value), number: 0, color: item.remark }
+  })
+}
+
+let alarmHandleStatuss: Ref<any[]> = ref([])
+let alarmRecoveryStatus: Ref<any[]> = ref([])
+let alarmConfirmStatus: Ref<any[]> = ref([])
+if(systemConfig) {
+  if (systemConfig['active_alarm_level']) {
+    for (let i = 0; i < Number(systemConfig['active_alarm_level']); i++) {
+      select1.value.push(i + 1)
+    }
+  }
+  if (systemConfig['active_alarm_handle_statuss']) {
+    alarmHandleStatuss.value = [...JSON.parse(systemConfig['active_alarm_handle_statuss'])]
+  }
+  if (systemConfig['active_alarm_recovery_status']) {
+    alarmRecoveryStatus.value = [...JSON.parse(systemConfig['active_alarm_recovery_status'])]
+  }
+  if (systemConfig['active_alarm_confirm_status']) {
+    alarmConfirmStatus.value = [...JSON.parse(systemConfig['active_alarm_confirm_status'])]
+    select2.value = alarmConfirmStatus.value.concat()
+  }
+}
+
+watch(() => select1.value.join('&&') + select2.value.join('&&'), (v) => {
+  getData()
+})
+
 const modalV1Obj = reactive({
   show: false,
   data: {

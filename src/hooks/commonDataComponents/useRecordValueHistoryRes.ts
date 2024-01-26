@@ -3,10 +3,16 @@ import { publicInterface } from "@/api/path";
 import { DateTypeEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
 import { commonDataType, RecordValueHistoryType } from '@/store/modules/chartEditStore/chartEditStore.d'
 import { CreateComponentType } from '@/packages/index.d'
+import { ResultErrcode } from "@/enums/httpEnum";
+import dataJson from "./data.json";
 
 export const handleRecordValueHistory = (targetComponent: CreateComponentType) => {
     let { policy, strategy_ids, dateType, enable } = (targetComponent.commonData as commonDataType).recordValueHistory as RecordValueHistoryType
-    if(!enable) return
+    if(!enable) return {
+        errcode: ResultErrcode.SUCCESS,
+        data: { ...dataJson },
+        errmsg: ''
+    }
     let start_time: string = '', end_time: string = '', duration: number = 0
     const formatter = 'yyyy-MM-DD HH:mm:ss'
     if(dateType === DateTypeEnum.DAY) {
