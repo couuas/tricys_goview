@@ -5,16 +5,47 @@
     name="水球"
     :expanded="true"
   >
-    <SettingItemBox name="内容">
-      <SettingItem name="数值">
-        <n-input-number
-          v-model:value="item.data[0]"
-          :min="0"
-          :step="0.01"
-          size="small"
-          placeholder="水球数值"
-        ></n-input-number>
+    <SettingItemBox name="数据">
+<!--      <SettingItem name="数值">-->
+<!--        <n-input-number-->
+<!--          v-model:value="item.data[0]"-->
+<!--          :min="0"-->
+<!--          :step="0.01"-->
+<!--          size="small"-->
+<!--          placeholder="水球数值"-->
+<!--        ></n-input-number>-->
+<!--      </SettingItem>-->
+      <SettingItem>
+        <n-space>
+          <n-switch v-model:value="item.data[0].config.showPercent" size="small" />
+          <n-text>是否百分比</n-text>
+        </n-space>
       </SettingItem>
+      <SettingItem v-if="!item.data[0].config.showPercent" name="最大值">
+        <n-input-number v-model:value="item.data[0].config.max" :min="0" :step="1" size="small" placeholder="请输入最大值"/>
+      </SettingItem>
+      <SettingItem v-if="!item.data[0].config.showPercent">
+        <n-space>
+          <n-switch v-model:value="item.data[0].config.showUnit" size="small" />
+          <n-text>展示单位</n-text>
+        </n-space>
+      </SettingItem>
+    </SettingItemBox>
+    <SettingItemBox name="副标题">
+      <SettingItem>
+        <n-space>
+          <n-switch v-model:value="item.data[0].config.showSubText" size="small" />
+          <n-text>展示副标题</n-text>
+        </n-space>
+      </SettingItem>
+      <SettingItem>
+        <n-space>
+          <n-switch v-model:value="item.data[0].config.showSubTextUnit" size="small" />
+          <n-text>展示单位</n-text>
+        </n-space>
+      </SettingItem>
+    </SettingItemBox>
+    <SettingItemBox name="样式">
       <SettingItem name="形状">
         <n-select v-model:value="item.shape" :options="shapes" placeholder="选择形状" />
       </SettingItem>
@@ -27,14 +58,14 @@
           size="small"
           :modes="['hex']"
           v-model:value="item.color[0].colorStops[0].color"
-      ></n-color-picker>
+        ></n-color-picker>
       </SettingItem>
       <SettingItem name="颜色2">
         <n-color-picker
           size="small"
           :modes="['hex']"
           v-model:value="item.color[0].colorStops[1].color"
-      ></n-color-picker>
+        ></n-color-picker>
       </SettingItem>
     </SettingItemBox>
     <SettingItemBox name="背景" :alone="true">

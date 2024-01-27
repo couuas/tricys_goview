@@ -11,6 +11,8 @@ import { handleEnergyUseHistory } from './commonDataComponents/useEnergyUseHisto
 import { handleRecordValueHistory } from './commonDataComponents/useRecordValueHistoryRes'
 import { handlePointRealTime } from './commonDataComponents/usePointRealTimeRes'
 import { handleSinglePoint } from './commonDataComponents/useSinglePointRes'
+import { handleMonthAlarmClass } from './commonDataComponents/useMonthAlarmClassRes'
+import { handleNoParam } from './commonDataComponents/useNoParamRes'
 import { ResultErrcode } from '@/enums/httpEnum'
 
 // 获取类型
@@ -112,7 +114,11 @@ export const useChartCommonData = (
                     case CurrentSourceEnum.SINGLEPOINT:
                         res = await handleSinglePoint(targetComponent)
                         break;
+                    case CurrentSourceEnum.MONTHALARMCLASS:
+                        res = await handleMonthAlarmClass(targetComponent)
+                        break;
                     default:
+                        res = await handleNoParam(targetComponent)
                         break;
                 }
                 if (res && res.errcode === ResultErrcode.SUCCESS) {

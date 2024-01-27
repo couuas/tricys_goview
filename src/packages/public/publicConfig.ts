@@ -72,6 +72,16 @@ const commonData: commonDataType = {
     with_device_name: false,
     space_complete_name_prefix: false,
   },
+  monthAlarmClass: {
+    enable: false,
+    confirm_statuses: ['ok', 'not'],
+    recovery_statuses: ['ok', 'not'],
+    levels: [1, 2, 3, 4],
+    space_complete_id: ''
+  },
+  deviceClass: {
+    enable: false
+  },
   singlePoint: {
     enable: false,
     pointId: '',

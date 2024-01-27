@@ -109,8 +109,11 @@ watch(
       } else if (newData === 'ring') {
         props.chartConfig.option.series[0].radius = ['40%', '65%']
         props.chartConfig.option.series[0].roseType = false
-      } else {
+      } else if (newData === 'rose') {
         props.chartConfig.option.series[0].radius = '70%'
+        props.chartConfig.option.series[0].roseType = true
+      } else if (newData === 'ringrose') {
+        props.chartConfig.option.series[0].radius = ['30%', '65%']
         props.chartConfig.option.series[0].roseType = true
       }
     } catch (error) {
@@ -130,6 +133,14 @@ watch(
       props.chartConfig.option.legend.show = true
       clearPieInterval()
     }
+  }
+)
+
+watch(
+  () => props.chartConfig.option.series.length,
+  (v) => {
+    if(v === 1) return
+    else props.chartConfig.option.series.splice(1)
   }
 )
 

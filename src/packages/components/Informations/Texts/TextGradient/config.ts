@@ -6,6 +6,7 @@ import { CurrentSourceEnum } from '@/store/modules/chartEditStore/chartEditStore
 
 export const option = {
   dataset: '我是渐变文本',
+  showUnit: false,
   size: 20,
   gradient: {
     from: '#0000FFFF',

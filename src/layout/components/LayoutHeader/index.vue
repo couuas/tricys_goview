@@ -38,12 +38,12 @@ const isProject = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-$min-width: 520px;
+$min-width: 380px;
 @include go(header) {
   width: 100vw;
   &-box {
     display: grid;
-    grid-template-columns: $min-width 1fr $min-width;
+    grid-template-columns: minmax($min-width, 2fr) 1fr minmax(80px, 2fr);
     &.is-project {
       grid-template-columns: none;
     }
@@ -61,7 +61,6 @@ $min-width: 520px;
       }
       &.right {
         justify-content: end;
-        min-width: $min-width;
       }
     }
     height: $--header-height;

@@ -8,6 +8,8 @@
       <EnergyUseHistory v-else-if="matchComponent(CurrentSourceEnum.ENERGYUSEHISTORY)"/>
       <RecordValueHistory v-else-if="matchComponent(CurrentSourceEnum.RECORDVALUEHISTORY)"/>
       <PointRealTime v-else-if="matchComponent(CurrentSourceEnum.POINTREALTIME)"/>
+      <MonthAlarmClass v-else-if="matchComponent(CurrentSourceEnum.MONTHALARMCLASS)"/>
+      <NoParam v-else/>
     </template>
     <template v-else-if="IsCommonSingle">
       <setting-item-box name="数据源" :alone="true">
@@ -60,6 +62,8 @@ import EnergyUseHistory from './components/EnergyUseHistory.vue'
 import RecordValueHistory from './components/RecordValueHistory.vue'
 import PointRealTime from './components/PointRealTime.vue'
 import SinglePoint from './components/SinglePoint.vue'
+import MonthAlarmClass from './components/MonthAlarmClass.vue'
+import NoParam from './components/NoParam.vue'
 import { computed } from 'vue'
 import type { Ref } from 'vue'
 import { loadAsyncComponent } from '@/utils'
@@ -72,6 +76,7 @@ import { PieCircleConfig } from '@/packages/components/Charts/Pies/PieCircle/ind
 import { TextBarrageConfig } from "@/packages/components/Informations/Texts/TextBarrage/index";
 import { TextCommonConfig } from "@/packages/components/Informations/Texts/TextCommon/index";
 import { TextGradientConfig } from "@/packages/components/Informations/Texts/TextGradient/index";
+import { WaterPoloConfig } from "@/packages/components/Charts/Mores/WaterPolo/index";
 
 // const ChartDataStatic = loadAsyncComponent(() => import('./components/ChartDataStatic/index.vue'))
 
@@ -96,6 +101,7 @@ const IsCommonSingle = computed(() => {
     TextBarrageConfig,
     TextCommonConfig,
     TextGradientConfig,
+    WaterPoloConfig,
   ]
   const { package:packageStr, category, key } = targetData.value.chartConfig
   const flag = singleCharArr.some(_ => {

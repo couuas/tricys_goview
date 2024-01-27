@@ -2,11 +2,11 @@
   <!-- Echarts 全局设置 -->
   <global-setting :optionData="optionData"></global-setting>
   <CollapseItem name="饼图配置" :expanded="true">
-<!--    <SettingItemBox name="类型">-->
-<!--      <SettingItem>-->
-<!--        <n-select v-model:value="optionData.type" size="small" :options="fontWeightOptions" />-->
-<!--      </SettingItem>-->
-<!--    </SettingItemBox>-->
+    <SettingItemBox name="类型" :alone="true">
+      <SettingItem>
+        <n-select v-model:value="optionData.type" size="small" :options="fontWeightOptions" />
+      </SettingItem>
+    </SettingItemBox>
     <SettingItemBox name="动画" :alone="true">
       <SettingItem>
         <n-space>
@@ -77,17 +77,21 @@ const props = defineProps({
   }
 })
 const fontWeightOptions = [
-  {
-    label: PieTypeEnum.NORMAL,
-    value: PieTypeObject[PieTypeEnum.NORMAL]
-  },
-  {
-    label: PieTypeEnum.RING,
-    value: PieTypeObject[PieTypeEnum.RING]
-  },
+  // {
+  //   label: PieTypeEnum.NORMAL,
+  //   value: PieTypeObject[PieTypeEnum.NORMAL]
+  // },
+  // {
+  //   label: PieTypeEnum.RING,
+  //   value: PieTypeObject[PieTypeEnum.RING]
+  // },
   {
     label: PieTypeEnum.ROSE,
     value: PieTypeObject[PieTypeEnum.ROSE]
+  },
+  {
+    label: PieTypeEnum.RINGROSE,
+    value: PieTypeObject[PieTypeEnum.RINGROSE]
   }
 ]
 

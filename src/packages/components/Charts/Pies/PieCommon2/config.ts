@@ -9,13 +9,15 @@ export const includes = ['legend']
 export enum PieTypeEnum {
   NORMAL = '常规图',
   RING = '环形图',
-  ROSE = '玫瑰图'
+  ROSE = '玫瑰图',
+  RINGROSE = '环形玫瑰图',
 }
 
 export const PieTypeObject = {
   [PieTypeEnum.NORMAL]: 'normal',
   [PieTypeEnum.RING]: 'ring',
-  [PieTypeEnum.ROSE]: 'rose'
+  [PieTypeEnum.ROSE]: 'rose',
+  [PieTypeEnum.RINGROSE]: 'ringrose',
 }
 
 // 其它配置
@@ -39,7 +41,7 @@ const option = {
     {
       type: 'pie',
       radius: ['40%', '65%'],
-      center: ['50%', '60%'],
+      center: ['50%', '50%'],
       roseType: false,
       avoidLabelOverlap: false,
       itemStyle: {

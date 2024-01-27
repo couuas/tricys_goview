@@ -261,7 +261,11 @@ export enum CurrentSourceEnum {
   // 测点实时值
   POINTREALTIME = 'pointRealTime',
   // 单测点实时值
-  SINGLEPOINT = 'singlePoint'
+  SINGLEPOINT = 'singlePoint',
+  // 设备分类统计
+  DEVICECLASS = 'deviceClass',
+  // 当月告警分类统计
+  MONTHALARMCLASS = 'monthAlarmClass'
 }
 
 // 测点历史参数
@@ -317,13 +321,32 @@ export interface SinglePointType {
   result: resultType
 }
 
+// 设备分类统计 无参数类型
+export interface NoParamsType {
+  enable: boolean
+}
+
+// 当月告警分类统计
+export interface MonthAlarmClassType {
+  enable: boolean
+  confirm_statuses: string[]
+  recovery_statuses: string[]
+  levels: number[]
+  space_complete_id: string
+}
+
 // 通用组件数据
 export interface commonDataType {
+  // 多数据
   currentSource: CurrentSourceEnum
   pointHistory: PointHistoryType
   energyUseHistory: EnergyUseHistoryType
   recordValueHistory: RecordValueHistoryType
   pointRealTime: PointRealTimeType
+  monthAlarmClass: MonthAlarmClassType
+  // 多数据无参数
+  deviceClass: NoParamsType
+  // 单数据
   singlePoint: SinglePointType
 }
 

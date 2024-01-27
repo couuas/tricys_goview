@@ -146,6 +146,16 @@ export const sourceOptions: sourceOptionsItemType[] = [
     type: optionTypeEnum.MULTIPLE,
   },
   {
+    label: '设备分类统计',
+    value: CurrentSourceEnum.DEVICECLASS,
+    type: optionTypeEnum.MULTIPLE,
+  },
+  {
+    label: '当月告警分类统计',
+    value: CurrentSourceEnum.MONTHALARMCLASS,
+    type: optionTypeEnum.MULTIPLE,
+  },
+  {
     label: '单测点实时值',
     value: CurrentSourceEnum.SINGLEPOINT,
     type: optionTypeEnum.SINGLE,

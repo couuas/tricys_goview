@@ -133,6 +133,14 @@ watch(
   }
 )
 
+watch(
+  () => props.chartConfig.option.series.length,
+  (v) => {
+    if(v === 1) return
+    else props.chartConfig.option.series.splice(1)
+  }
+)
+
 // const { vChartRef } = useChartDataFetch(props.chartConfig, useChartEditStore, (newData: typeof dataJson) => {
 //   clearPieInterval()
 //   if (props.chartConfig.option.isCarousel) {

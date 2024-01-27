@@ -1,9 +1,9 @@
 <template>
-  <v-chart :theme="themeColor" :init-options="initOptions" :option="option.value" autoresize> </v-chart>
+  <v-chart ref="vchart" :theme="themeColor" :init-options="initOptions" :option="option.value" autoresize> </v-chart>
 </template>
 
 <script setup lang="ts">
-import { PropType, reactive, watch, ref } from 'vue'
+import { PropType, reactive, watch } from 'vue'
 import VChart from 'vue-echarts'
 import { useCanvasInitOptions } from '@/hooks/useCanvasInitOptions.hook'
 import { use } from 'echarts/core'
@@ -85,6 +85,31 @@ const dataHandle = (newData: any) => {
   option.value = mergeTheme(props.chartConfig.option, props.themeSetting, includes)
   option.value = props.chartConfig.option
 }
+
+const computeTop = (h: number, fs1: number, fs2: number) => {
+  let str: string
+  if(h) {
+    str = (50 - (fs1 + fs2) * 100 / (2 * h)).toFixed(2) + '%'
+  }
+  else str = 'middle'
+  return str
+}
+
+watch(
+  [
+    () => props.chartConfig.attr.h,
+    () => props.chartConfig.option.title.textStyle.fontSize,
+    () => props.chartConfig.option.title.subtextStyle.fontSize,
+    () => props.chartConfig.option.titleContrl.showSubText,
+    () => props.chartConfig.option.titleContrl.showSubTextUnit,
+  ],
+  ([h, fs1, fs2, s1, s2]) => {
+    props.chartConfig.option.title.top = computeTop(h, fs1, s1 || s2 ? fs2 : 0)
+  },
+  {
+    immediate: true,
+    deep: true,
+})
 
 // 配置时
 watch(

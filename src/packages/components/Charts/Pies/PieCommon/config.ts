@@ -39,7 +39,7 @@ const option = {
     {
       type: 'pie',
       radius: ['40%', '65%'],
-      center: ['50%', '60%'],
+      center: ['50%', '50%'],
       roseType: false,
       avoidLabelOverlap: false,
       itemStyle: {

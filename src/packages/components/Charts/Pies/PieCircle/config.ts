@@ -34,7 +34,8 @@ const option = {
     subtextStyle: {
       color: "#56B9F8",
       fontSize: 30
-    }
+    },
+    top: 'middle',
   },
   series: [
     {
