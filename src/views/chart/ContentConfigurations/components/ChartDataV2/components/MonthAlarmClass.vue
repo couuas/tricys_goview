@@ -25,14 +25,14 @@ import {SettingItemBox} from '@/components/Pages/ChartItemSetting'
 import {useTargetData} from '../../hooks/useTargetData.hook'
 import {DateOptions, PolicyOptions} from './ComponentsType.d'
 import {icon} from '@/plugins/icon'
-import {commonDataType, RecordValueHistoryType} from '@/store/modules/chartEditStore/chartEditStore.d'
+import {commonDataType, MonthAlarmClassType} from '@/store/modules/chartEditStore/chartEditStore.d'
 
 const {CloseIcon, AddIcon} = icon.ionicons5
 
 const {targetData} = useTargetData() as { targetData: Ref<{ commonData: commonDataType, id: string }> }
 
 const target = computed(() => {
-  return targetData.value.commonData[targetData.value.commonData.currentSource]
+  return targetData.value.commonData[targetData.value.commonData.currentSource] as MonthAlarmClassType
 })
 
 // const recordValueHistory: Ref<RecordValueHistoryType> = computed(() => targetData.value.commonData.recordValueHistory)

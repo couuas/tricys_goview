@@ -335,6 +335,12 @@ export interface MonthAlarmClassType {
   space_complete_id: string
 }
 
+// 设备分类统计
+export interface DeviceClassType {
+  enable: boolean
+  space_complete_id: string
+}
+
 // 通用组件数据
 export interface commonDataType {
   // 多数据
@@ -345,7 +351,8 @@ export interface commonDataType {
   pointRealTime: PointRealTimeType
   monthAlarmClass: MonthAlarmClassType
   // 多数据无参数
-  deviceClass: NoParamsType
+  // 设备分类统计
+  deviceClass: DeviceClassType
   // 单数据
   singlePoint: SinglePointType
 }

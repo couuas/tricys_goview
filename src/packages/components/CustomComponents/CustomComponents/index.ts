@@ -4,6 +4,7 @@ import { RealTimeTrafficConfig } from './RealTimeTraffic'
 import { OverviewOfComputingNodesConfig } from './OverviewOfComputingNodes'
 import { GDMapConfig } from './GDMap'
 import { MonitorRealTimeEventsConfig } from './MonitorRealTimeEvents'
+import { DashboardConfig } from './Dashboard'
 
 export default [
     // Theme1Config,
@@ -12,4 +13,5 @@ export default [
     OverviewOfComputingNodesConfig,
     GDMapConfig,
     MonitorRealTimeEventsConfig,
+    DashboardConfig,
 ]

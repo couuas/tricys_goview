@@ -33,13 +33,37 @@
         <n-text depth="3">左</n-text>
       </template>
     </n-input-number>
+    <n-input-number
+      :value="marginBottom"
+      @update:value="v => handleUpdate('y', v)"
+      :min="0"
+      size="small"
+      placeholder="px"
+      style="margin-top: 5px;"
+    >
+      <template #prefix>
+        <n-text depth="3">下</n-text>
+      </template>
+    </n-input-number>
+    <n-input-number
+      :value="marginRight"
+      @update:value="v => handleUpdate('x', v)"
+      :min="0"
+      size="small"
+      placeholder="px"
+      style="margin-top: 5px;"
+    >
+      <template #prefix>
+        <n-text depth="3">右</n-text>
+      </template>
+    </n-input-number>
   </setting-item-box>
 </template>
 
 <script setup lang="ts">
-import { PropType } from 'vue'
+import { PropType, computed } from 'vue'
 import { PickCreateComponentType } from '@/packages/index.d'
-import { SettingItemBox } from '@/components/Pages/ChartItemSetting'
+import { SettingItemBox, SettingItem } from '@/components/Pages/ChartItemSetting'
 import { renderIcon } from '@/utils'
 import { icon } from '@/plugins/index'
 import { EditCanvasConfigType } from '@/store/modules/chartEditStore/chartEditStore.d'
@@ -123,6 +147,27 @@ const positonHandle = (key: string) => {
     case positionList[5]['key']:
       props.chartAttr.y = props.canvasConfig.height - props.chartAttr.h
       break
+  }
+}
+
+const marginBottom = computed(() => {
+  const { h, y } = props.chartAttr
+  const { height:canvasHeight } = props.canvasConfig
+  return canvasHeight - h - y
+})
+const marginRight = computed(() => {
+  const { w, x } = props.chartAttr
+  const { width:canvasWidth } = props.canvasConfig
+  return canvasWidth - w - x
+})
+const handleUpdate = (type: string, v: number) => {
+  const { w, h } = props.chartAttr
+  const { width:canvasWidth, height:canvasHeight } = props.canvasConfig
+  if(type === 'y') {
+    props.chartAttr.y = canvasHeight - h - v
+  }
+  else if(type === 'x') {
+    props.chartAttr.x = canvasWidth - w - v
   }
 }
 </script>

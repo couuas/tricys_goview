@@ -44,18 +44,18 @@ const packagesListObj = {
     icon: renderIcon(AirPlaneOutlineIcon),
     label: PackagesCategoryName.ICONS
   },
-  [PackagesCategoryEnum.THEMESANDLAYOUTS]: {
-    icon: renderIcon(Apps20RegularIcon),
-    label: PackagesCategoryName.THEMESANDLAYOUTS
-  },
+  // [PackagesCategoryEnum.THEMESANDLAYOUTS]: {
+  //   icon: renderIcon(Apps20RegularIcon),
+  //   label: PackagesCategoryName.THEMESANDLAYOUTS
+  // },
   [PackagesCategoryEnum.CUSTOMCOMPONENTS]: {
     icon: renderIcon(AreaCustomIcon),
     label: PackagesCategoryName.CUSTOMCOMPONENTS
   },
-  [PackagesCategoryEnum.BACKGROUNDS]: {
-    icon: renderIcon(InsertPhotoSharpIcon),
-    label: PackagesCategoryName.BACKGROUNDS
-  }
+  // [PackagesCategoryEnum.BACKGROUNDS]: {
+  //   icon: renderIcon(InsertPhotoSharpIcon),
+  //   label: PackagesCategoryName.BACKGROUNDS
+  // }
 }
 
 export const useAsideHook = () => {

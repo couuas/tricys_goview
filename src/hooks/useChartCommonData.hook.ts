@@ -12,6 +12,7 @@ import { handleRecordValueHistory } from './commonDataComponents/useRecordValueH
 import { handlePointRealTime } from './commonDataComponents/usePointRealTimeRes'
 import { handleSinglePoint } from './commonDataComponents/useSinglePointRes'
 import { handleMonthAlarmClass } from './commonDataComponents/useMonthAlarmClassRes'
+import { handleDeviceClass } from './commonDataComponents/useDeviceClassRes'
 import { handleNoParam } from './commonDataComponents/useNoParamRes'
 import { ResultErrcode } from '@/enums/httpEnum'
 
@@ -97,7 +98,7 @@ export const useChartCommonData = (
             clearInterval(fetchInterval)
 
             const fetchFn = async () => {
-                let res
+                let res, isMultiple = true
                 switch (targetComponent.commonData?.currentSource) {
                     case CurrentSourceEnum.POINTHISTORY:
                         res = await handlePointHistory(targetComponent)
@@ -113,29 +114,40 @@ export const useChartCommonData = (
                         break;
                     case CurrentSourceEnum.SINGLEPOINT:
                         res = await handleSinglePoint(targetComponent)
+                        isMultiple = false
                         break;
                     case CurrentSourceEnum.MONTHALARMCLASS:
                         res = await handleMonthAlarmClass(targetComponent)
                         break;
+                    case CurrentSourceEnum.DEVICECLASS:
+                        res = await handleDeviceClass(targetComponent)
+                        break;
                     default:
-                        res = await handleNoParam(targetComponent)
+                        // res = await handleNoParam(targetComponent)
                         break;
                 }
                 if (res && res.errcode === ResultErrcode.SUCCESS) {
                     try {
                         const { data } = res
-                        if(Object.prototype.toString.call(data) === '[object Array]') {
-                            if(data.length) echartsUpdateHandle(data[0])
+                        // 多值的
+                        if(isMultiple) {
+                            if(Object.prototype.toString.call(data) === '[object Array]') {
+                                if(data.length && data[0].dimensions && data[0].source) echartsUpdateHandle(data[0])
+                                else throw Error()
+                            }
+                            else if(Object.prototype.toString.call(data) === '[object Object]'){
+                                if(data.dimensions && data.source) echartsUpdateHandle(data)
+                                else throw Error()
+                            }
                         }
-                        else if(Object.prototype.toString.call(data) === '[object Object]'){
-                            echartsUpdateHandle(data)
+                        // 单值的
+                        else {
+                            if(data) echartsUpdateHandle(data)
+                            else throw Error()
                         }
                     } catch (error) {
-                        console.error(error)
+                        window['$message'].error('数据错误')
                     }
-                }
-                else if(res && res.errmsg){
-                    window['$message'].warning(res.errmsg)
                 }
             }
             // 普通初始化与组件交互处理监听

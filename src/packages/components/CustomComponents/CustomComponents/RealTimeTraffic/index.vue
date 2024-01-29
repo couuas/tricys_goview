@@ -6,8 +6,7 @@
         :option="option"
         :manual-update="false"
         :update-options="{
-          notMerge: true,
-          replaceMerge: ['series', 'xAxis']
+          replaceMerge: []
         }"
         autoresize
         style="overflow: visible"
@@ -235,22 +234,34 @@ const getData = () => {
   }
   query.types = [methodArr[0]]
   query.query_type = methodArr[1] || ''
-  option.xAxis['data'] = []
-  option.series[0]['data'] = []
+  // option.xAxis['data'] = []
+  // option.series[0]['data'] = []
 
   publicInterface('/dcim/dems/statistic', 'get_point_realtime_data_echarts', query).then((res:any) => {
     if (res && res.data && res.data['current']) {
       const data = res.data
-      option.xAxis['data'] = data['echarts'] && data['echarts']['xAxis'] && data['echarts']['xAxis']['data'] ? data['echarts']['xAxis']['data'].map((item:any) => {
-        const time = query.query_type === '' ? moment(item).format('YYYY-MM-DD HH:mm:ss') : query.query_type === 'day' ? moment(item).format('YYYY-MM-DD') : moment(item).format('YYYY-MM')
-        return time
-      }) : []
-      option.series[0]['data'] = data['echarts'] && data['echarts']['series'] && data['echarts']['series'][0] && data['echarts']['series'][0]['data'] ? data['echarts']['series'][0] && data['echarts']['series'][0]['data'] : []
-      if (query.query_type === '') {
-        option.tooltip.formatter = '{b}<br/>' + '速率(测点/s)' + '&nbsp;&nbsp;' + '{c}'
-      } else {
-        option.tooltip.formatter = '{b}<br/>' + '测点总数' + '&nbsp;&nbsp;' + '{c}'
-      }
+      // option.xAxis['data'] = data['echarts'] && data['echarts']['xAxis'] && data['echarts']['xAxis']['data'] ? data['echarts']['xAxis']['data'].map((item:any) => {
+      //   const time = query.query_type === '' ? moment(item).format('YYYY-MM-DD HH:mm:ss') : query.query_type === 'day' ? moment(item).format('YYYY-MM-DD') : moment(item).format('YYYY-MM')
+      //   return time
+      // }) : []
+      // option.series[0]['data'] = data['echarts'] && data['echarts']['series'] && data['echarts']['series'][0] && data['echarts']['series'][0]['data'] ? data['echarts']['series'][0] && data['echarts']['series'][0]['data'] : []
+      // if (query.query_type === '') {
+      //   option.tooltip.formatter = '{b}<br/>' + '速率(测点/s)' + '&nbsp;&nbsp;' + '{c}'
+      // } else {
+      //   option.tooltip.formatter = '{b}<br/>' + '测点总数' + '&nbsp;&nbsp;' + '{c}'
+      // }
+      nextTick(() => {
+        if(!vChartRef.value) return
+        let xAxisData = data['echarts'] && data['echarts']['xAxis'] && data['echarts']['xAxis']['data'] ? data['echarts']['xAxis']['data'].map((item:any) => {
+          const time = query.query_type === '' ? moment(item).format('YYYY-MM-DD HH:mm:ss') : query.query_type === 'day' ? moment(item).format('YYYY-MM-DD') : moment(item).format('YYYY-MM')
+          return time
+        }) : []
+        let series0Data = data['echarts'] && data['echarts']['series'] && data['echarts']['series'][0] && data['echarts']['series'][0]['data'] ? data['echarts']['series'][0] && data['echarts']['series'][0]['data'] : []
+        vChartRef.value.setOption({
+          xAxis: { data: xAxisData },
+          series: [{ data:series0Data }]
+        })
+      })
     }
   }).catch((e:unknown) => {
     console.log(e)

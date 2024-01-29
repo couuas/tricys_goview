@@ -80,7 +80,8 @@ const commonData: commonDataType = {
     space_complete_id: ''
   },
   deviceClass: {
-    enable: false
+    enable: false,
+    space_complete_id: ''
   },
   singlePoint: {
     enable: false,

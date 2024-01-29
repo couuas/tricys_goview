@@ -9,7 +9,7 @@
       <RecordValueHistory v-else-if="matchComponent(CurrentSourceEnum.RECORDVALUEHISTORY)"/>
       <PointRealTime v-else-if="matchComponent(CurrentSourceEnum.POINTREALTIME)"/>
       <MonthAlarmClass v-else-if="matchComponent(CurrentSourceEnum.MONTHALARMCLASS)"/>
-      <NoParam v-else/>
+      <DeviceClass v-else-if="matchComponent(CurrentSourceEnum.DEVICECLASS)"/>
     </template>
     <template v-else-if="IsCommonSingle">
       <setting-item-box name="数据源" :alone="true">
@@ -63,6 +63,7 @@ import RecordValueHistory from './components/RecordValueHistory.vue'
 import PointRealTime from './components/PointRealTime.vue'
 import SinglePoint from './components/SinglePoint.vue'
 import MonthAlarmClass from './components/MonthAlarmClass.vue'
+import DeviceClass from './components/DeviceClass.vue'
 import NoParam from './components/NoParam.vue'
 import { computed } from 'vue'
 import type { Ref } from 'vue'
@@ -77,7 +78,7 @@ import { TextBarrageConfig } from "@/packages/components/Informations/Texts/Text
 import { TextCommonConfig } from "@/packages/components/Informations/Texts/TextCommon/index";
 import { TextGradientConfig } from "@/packages/components/Informations/Texts/TextGradient/index";
 import { WaterPoloConfig } from "@/packages/components/Charts/Mores/WaterPolo/index";
-
+import { DashboardConfig } from '@/packages/components/CustomComponents/CustomComponents/Dashboard/index'
 // const ChartDataStatic = loadAsyncComponent(() => import('./components/ChartDataStatic/index.vue'))
 
 const { targetData } = useTargetData() as { targetData: Ref<CreateComponentType | CreateComponentGroupType> }
@@ -102,6 +103,7 @@ const IsCommonSingle = computed(() => {
     TextCommonConfig,
     TextGradientConfig,
     WaterPoloConfig,
+    DashboardConfig,
   ]
   const { package:packageStr, category, key } = targetData.value.chartConfig
   const flag = singleCharArr.some(_ => {
