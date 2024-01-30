@@ -146,7 +146,7 @@ export const useChartCommonData = (
                             else throw Error()
                         }
                     } catch (error) {
-                        window['$message'].error('数据错误')
+                        if(!isPreview()) window['$message'].error('数据错误')
                     }
                 }
             }

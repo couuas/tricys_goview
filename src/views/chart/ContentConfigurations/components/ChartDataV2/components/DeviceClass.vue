@@ -21,11 +21,11 @@ import {computed} from 'vue'
 import type {Ref} from 'vue'
 import {SettingItemBox} from '@/components/Pages/ChartItemSetting'
 import {useTargetData} from '../../hooks/useTargetData.hook'
-import {commonDataType} from '@/store/modules/chartEditStore/chartEditStore.d'
+import {commonDataType, DeviceClassType} from '@/store/modules/chartEditStore/chartEditStore.d'
 const {targetData} = useTargetData() as { targetData: Ref<{ commonData: commonDataType, id: string }> }
 
 const currentObj = computed(() => {
-  return targetData.value.commonData[targetData.value.commonData.currentSource]
+  return targetData.value.commonData[targetData.value.commonData.currentSource] as DeviceClassType
 })
 </script>
 

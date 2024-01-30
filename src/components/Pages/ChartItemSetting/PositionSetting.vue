@@ -35,7 +35,7 @@
     </n-input-number>
     <n-input-number
       :value="marginBottom"
-      @update:value="v => handleUpdate('y', v)"
+      @update:value="(v: number) => handleUpdate('y', v)"
       :min="0"
       size="small"
       placeholder="px"
@@ -47,7 +47,7 @@
     </n-input-number>
     <n-input-number
       :value="marginRight"
-      @update:value="v => handleUpdate('x', v)"
+      @update:value="(v: number) => handleUpdate('x', v)"
       :min="0"
       size="small"
       placeholder="px"
