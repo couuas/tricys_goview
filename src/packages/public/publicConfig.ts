@@ -1,5 +1,5 @@
 import { getUUID } from '@/utils'
-import { RequestConfigType, commonDataType, CurrentSourceEnum, DateTypeEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
+import { RequestConfigType, commonDataType, CustomEventType, CurrentSourceEnum, DateTypeEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
 import { groupTitle } from '@/settings/designSetting'
 import { BaseEvent, EventLife } from '@/enums/eventEnum'
 import {
@@ -96,6 +96,13 @@ const commonData: commonDataType = {
   }
 }
 
+const customEvent: CustomEventType = {
+  click: {
+    linkHead: 'http://',
+    link: ''
+  }
+}
+
 // 单实例类
 export class PublicConfigClass implements PublicConfigType {
   public id = getUUID()
@@ -149,7 +156,9 @@ export class PublicConfigClass implements PublicConfigType {
   public commonData = cloneDeep(commonData)
   // 自定义数据 configData组件会用到
   public customData = {}
-  // 事件
+  // 自定义事件
+  public customEvent = cloneDeep(customEvent)
+  // 事件 不用了
   public events = {
     baseEvent: {
       [BaseEvent.ON_CLICK]: undefined,

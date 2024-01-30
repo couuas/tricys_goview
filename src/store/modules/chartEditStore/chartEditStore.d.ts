@@ -357,6 +357,14 @@ export interface commonDataType {
   singlePoint: SinglePointType
 }
 
+// customEvent事件
+export interface CustomEventType {
+  click: {
+    linkHead: 'http://' | 'https://'
+    link: string
+  }
+}
+
 // Store 类型
 export interface ChartEditStoreType {
   [ChartEditStoreEnum.PROJECT_INFO]: ProjectInfoType

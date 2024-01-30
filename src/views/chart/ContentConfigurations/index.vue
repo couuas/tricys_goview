@@ -70,6 +70,7 @@ import { TabsEnum } from './index.d'
 import { useChartLayoutStore } from '@/store/modules/chartLayoutStore/chartLayoutStore'
 import { ChartLayoutStoreEnum } from '@/store/modules/chartLayoutStore/chartLayoutStore.d'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
+import { CreateComponentType, CreateComponentGroupType } from '@/packages/index.d'
 
 const { getDetails } = toRefs(useChartLayoutStore())
 const { setItem } = useChartLayoutStore()
@@ -101,10 +102,13 @@ const selectTarget = computed(() => {
   const selectId = chartEditStore.getTargetChart.selectId
   // 排除多个
   if (selectId.length !== 1) return undefined
-  const target = chartEditStore.componentList[chartEditStore.fetchTargetIndex()]
+  let target: CreateComponentType | CreateComponentGroupType = chartEditStore.componentList[chartEditStore.fetchTargetIndex()]
   if (target?.isGroup) {
-    // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-    tabsSelect.value = TabsEnum.CHART_SETTING
+    if(target.id !== selectId[0]) target = target.groupList!.find(_ => _.id === selectId[0])!
+    else {
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      tabsSelect.value = TabsEnum.CHART_SETTING
+    }
   }
   return target
 })

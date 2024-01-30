@@ -205,7 +205,7 @@ const handleContextMenu = (
   while (target instanceof SVGElement) {
     target = target.parentNode
   }
-  console.log(targetInstance)
+
   chartEditStore.setTargetSelectChart(targetInstance && targetInstance.id)
 
   // 隐藏旧列表
@@ -236,6 +236,7 @@ const handleContextMenu = (
       targetInstance
     )
   }
+  console.log(menuOptions.value)
   nextTick().then(() => {
     chartEditStore.setMousePosition(e.clientX, e.clientY)
     chartEditStore.setRightMenuShow(true)

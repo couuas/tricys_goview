@@ -92,10 +92,11 @@
       </g>
     </svg>
     <!-- img标签出来的图不完整 所以换background-url background-reapt object-fit: contain不支持 -->
-   <img v-show="showImg" @load="showImg = true" :src="gdMap.propValue" :style="{transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top"/>
+<!--   <img v-show="showImg" @load="showImg = true" :src="gdMap.propValue" :style="{transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top"/>-->
    <!-- <div id="img" :style="{backgroundImage: `url(${gdMap.propValue})`, transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top"></div> -->
 <!--    background-url出来的截图还是不行 会变大 用canvas可以-->
-    <!-- <canvas ref="canvas" width="870" height="560" :style="{transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top"></canvas> -->
+     <canvas ref="canvas" width="870" height="560" :style="{transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top"></canvas>
+<!--    用canvas也不行 只能截图单个地图 加别的好像就不行 有时可以有时不行?-->
     <div :style="{transform: `scale(${scale(w, 870)}, ${scale(h - 100,560)})`}" style="position: absolute;top: 100px;width: 870px;height: 560px;transform-origin: left top">
       <div
         v-for="(item, i) in point"
@@ -202,15 +203,15 @@ const getData = () => {
       const arr:[] = JSON.parse(res.data.canvas_data)
       for (const key in gdMap) delete gdMap[key]
       Object.assign(gdMap, arr.find((_:any) => _.component === 'Picture') || {})
-      // if(canvas.value){
-      //   const ctx = canvas.value.getContext('2d');
-      //   ctx?.clearRect(0, 0, canvas.value.width, canvas.value.height);
-      //   const img = new Image();
-      //   img.onload = function() {
-      //     if(ctx) ctx.drawImage(img, 0, 0, canvas.value.width, canvas.value.height);
-      //   };
-      //   img.src = gdMap.propValue;
-      // }
+      if(canvas.value){
+        const ctx = canvas.value.getContext('2d');
+        ctx?.clearRect(0, 0, canvas.value.width, canvas.value.height);
+        const img = new Image();
+        img.onload = function() {
+          if(ctx) ctx.drawImage(img, 0, 0, canvas.value.width, canvas.value.height);
+        };
+        img.src = gdMap.propValue;
+      }
       text.splice(0, text.length, ...arr.filter((_:any) => _.component === 'v-text'))
       point.splice(0, point.length, ...arr.filter((_:any) => _.component === 'svg-shape'))
       const activeAlarmData = {

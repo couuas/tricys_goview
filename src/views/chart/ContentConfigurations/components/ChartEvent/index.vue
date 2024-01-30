@@ -31,38 +31,38 @@ import { ChartEventAdvancedHandle } from './components/ChartEventAdvancedHandle'
 import { ChartEventBaseHandle } from './components/ChartEventBaseHandle'
 import { useTargetData } from '../hooks/useTargetData.hook'
 
-// const { targetData, chartEditStore } = useTargetData()
-// const showModal = ref(false)
+const { targetData, chartEditStore } = useTargetData()
+const showModal = ref(false)
 
-const { chartEditStore } = useTargetData()
-const targetIndex = computed(() => chartEditStore.fetchTargetIndex())
-const list = computed(() => chartEditStore.getComponentList)
-let targetData:any = ref(list.value[targetIndex.value])
+// const { chartEditStore } = useTargetData()
+// const targetIndex = computed(() => chartEditStore.fetchTargetIndex())
+// const list = computed(() => chartEditStore.getComponentList)
+// let targetData:any = ref(list.value[targetIndex.value])
 // const isReady = ref(false)
 
-const init = () => {
-  if(!targetData.value.customEvent) {
-    targetData.value.customEvent = {
-      click: {
-        linkHead: 'http://',
-        link: '',
-      }
-    }
-  }
-}
-init()
-watch(() => targetIndex.value, newIndex => {
-  // isReady.value = false
-  targetData.value = list.value[newIndex]
-  init()
-  setTimeout(() => {
-    // isReady.value = true
-  })
-})
-watch(() => list.value.length, () => {
-  targetData.value = list.value[targetIndex.value]
-  init()
-})
+// const init = () => {
+//   if(!targetData.value.customEvent) {
+//     targetData.value.customEvent = {
+//       click: {
+//         linkHead: 'http://',
+//         link: '',
+//       }
+//     }
+//   }
+// }
+// init()
+// watch(() => targetIndex.value, newIndex => {
+//   // isReady.value = false
+//   targetData.value = list.value[newIndex]
+//   init()
+//   setTimeout(() => {
+//     // isReady.value = true
+//   })
+// })
+// watch(() => list.value.length, () => {
+//   targetData.value = list.value[targetIndex.value]
+//   init()
+// })
 
 const linkHeadOptions = ['http://', 'https://'].map(_ => ({label: _, value: _}))
 

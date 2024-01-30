@@ -34,7 +34,7 @@
         :componentData="element"
         :layer-mode="layerMode"
         :isGroup="true"
-        @mousedown="mousedownHandle($event, element, componentGroupData.id)"
+        @mousedown="mousedownHandle($event, element)"
         @mouseenter="mouseenterHandle(element)"
         @mouseleave="mouseleaveHandle(element)"
         @contextmenu="handleContextMenu($event, componentGroupData, optionsHandle)"
@@ -78,7 +78,7 @@ const { FolderIcon, FolderOpenIcon } = icon.ionicons5
 const chartEditStore = useChartEditStore()
 const { handleContextMenu, onClickOutSide } = useContextMenu()
 
-const expend = ref(false)
+const expend = ref(true)
 
 // 颜色
 const themeColor = computed(() => {
