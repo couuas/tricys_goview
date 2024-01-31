@@ -17,7 +17,7 @@ import { mergeTheme } from '@/packages/public/chart'
 import { useChartDataFetch, useChartCommonData } from '@/hooks'
 import { CreateComponentType } from '@/packages/index.d'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
-import { isPreview } from '@/utils'
+import {isPreview, setTooltipPosition} from '@/utils'
 import { DatasetComponent, GridComponent, TooltipComponent, LegendComponent } from 'echarts/components'
 import isObject from 'lodash/isObject'
 import cloneDeep from 'lodash/cloneDeep'
@@ -36,6 +36,8 @@ const props = defineProps({
     required: true
   }
 })
+
+props.chartConfig.option.tooltip.position = setTooltipPosition(props.chartConfig.attr)
 
 const initOptions = useCanvasInitOptions(props.chartConfig.option, props.themeSetting)
 

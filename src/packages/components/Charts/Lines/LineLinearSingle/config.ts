@@ -7,6 +7,37 @@ import dataJson from './data.json'
 
 export const includes = ['legend', 'xAxis', 'yAxis', 'grid']
 
+export const seriesItem = {
+  type: 'line',
+  symbolSize: 0, //设定实心点的大小
+  smooth: true,
+  lineStyle: {
+    type: 'solid',
+    width: 3,
+    color: {
+      type: 'linear',
+      x: 0,
+      y: 0,
+      x2: 0,
+      y2: 1,
+      colorStops: [
+        {
+          offset: 0,
+          color: chartColorsSearch[defaultTheme][0] // 0% 处的颜色
+        },
+        {
+          offset: 1,
+          color: chartColorsSearch[defaultTheme][1] // 100% 处的颜色
+        }
+      ],
+      globalCoord: false // 缺省为 false
+    },
+    shadowColor: chartColorsSearch[defaultTheme][2],
+    shadowBlur: 10,
+    shadowOffsetY: 20
+  }
+}
+
 export const option = {
   tooltip: {
     show: true,
@@ -24,37 +55,7 @@ export const option = {
     type: 'value'
   },
   dataset: { ...dataJson },
-  series: [
-    {
-      type: 'line',
-      symbolSize: 5, //设定实心点的大小
-      lineStyle: {
-        type: 'solid',
-        width: 3,
-        color: {
-          type: 'linear',
-          x: 0,
-          y: 0,
-          x2: 0,
-          y2: 1,
-          colorStops: [
-            {
-              offset: 0,
-              color: chartColorsSearch[defaultTheme][0] // 0% 处的颜色
-            },
-            {
-              offset: 1,
-              color: chartColorsSearch[defaultTheme][1] // 100% 处的颜色
-            }
-          ],
-          globalCoord: false // 缺省为 false
-        },
-        shadowColor: chartColorsSearch[defaultTheme][2],
-        shadowBlur: 10,
-        shadowOffsetY: 20
-      }
-    }
-  ]
+  series: [seriesItem]
 }
 
 export default class Config extends PublicConfigClass implements CreateComponentType {

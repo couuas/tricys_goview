@@ -15,6 +15,7 @@ import { useChartCommonData, useChartDataFetch } from '@/hooks'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { DatasetComponent, GridComponent, TooltipComponent, LegendComponent, TitleComponent } from 'echarts/components'
 import { resultType } from '@/store/modules/chartEditStore/chartEditStore.d'
+import {setTooltipPosition} from "@/utils";
 
 
 const props = defineProps({
@@ -31,6 +32,8 @@ const props = defineProps({
     required: true
   }
 })
+
+props.chartConfig.option.tooltip.position = setTooltipPosition(props.chartConfig.attr)
 
 const initOptions = useCanvasInitOptions(props.chartConfig.option, props.themeSetting)
 

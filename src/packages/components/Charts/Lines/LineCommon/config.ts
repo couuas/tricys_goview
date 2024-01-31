@@ -13,7 +13,8 @@ export const seriesItem = {
     color: '#fff',
     fontSize: 12
   },
-  symbolSize: 5, //设定实心点的大小
+  symbolSize: 0, //设定实心点的大小
+  smooth: true,
   itemStyle: {
     color: null,
     borderRadius: 0

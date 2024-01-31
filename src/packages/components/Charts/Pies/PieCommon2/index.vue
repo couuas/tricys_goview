@@ -22,7 +22,7 @@ import { mergeTheme } from '@/packages/public/chart'
 import config, { includes } from './config'
 import {useChartCommonData, useChartDataFetch} from '@/hooks'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
-import { isPreview } from '@/utils'
+import {isPreview, setTooltipPosition} from '@/utils'
 import { DatasetComponent, GridComponent, TooltipComponent, LegendComponent } from 'echarts/components'
 import dataJson from './data.json'
 
@@ -40,6 +40,9 @@ const props = defineProps({
     required: true
   }
 })
+
+props.chartConfig.option.tooltip.position = setTooltipPosition(props.chartConfig.attr)
+
 const initOptions = useCanvasInitOptions(props.chartConfig.option, props.themeSetting)
 let seriesDataNum = -1
 let seriesDataMaxLength = 0

@@ -16,7 +16,7 @@ import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore
 import { chartColorsSearch, defaultTheme } from '@/settings/chartThemes/index'
 import { DatasetComponent, GridComponent, TooltipComponent, LegendComponent } from 'echarts/components'
 import {useChartCommonData, useChartDataFetch} from '@/hooks'
-import { isPreview, colorGradientCustomMerge } from '@/utils'
+import {isPreview, colorGradientCustomMerge, setTooltipPosition} from '@/utils'
 
 const props = defineProps({
   themeSetting: {
@@ -32,6 +32,8 @@ const props = defineProps({
     required: true
   }
 })
+
+props.chartConfig.option.tooltip.position = setTooltipPosition(props.chartConfig.attr)
 
 const initOptions = useCanvasInitOptions(props.chartConfig.option, props.themeSetting)
 

@@ -46,7 +46,7 @@ const { title } = toRefs(props)
   .content{
     white-space: nowrap;
     text-overflow: ellipsis;
-    overflow: hidden;
+    overflow: visible;
     height: calc(100% - 40px);
     box-sizing: border-box;
     display: flex;

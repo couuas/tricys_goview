@@ -21,7 +21,7 @@ import { CreateComponentType } from '@/packages/index.d'
 import { publicInterface } from '@/api/path/business.api'
 import BorderBox from '../components/BorderBox.vue'
 import VChart from 'vue-echarts'
-import {isPreview} from '@/utils'
+import {isPreview, setTooltipPosition} from '@/utils'
 import {graphic} from "echarts";
 import moment from "moment"
 import {selectTimeOptions} from "@/views/chart/ContentConfigurations/components/ChartData/index.d";
@@ -40,7 +40,7 @@ const { dataset, fit, borderRadius } = toRefs(props.chartConfig.option)
 const getStyle = (radius: number) => {
   return {
     borderRadius: `${radius}px`,
-    overflow: 'hidden'
+    overflow: 'visible'
   }
 }
 
@@ -136,7 +136,8 @@ const option = reactive({
   },
   tooltip: {
     trigger: 'axis',
-    formatter: null as null | string
+    formatter: null as null | string,
+    position: setTooltipPosition(props.chartConfig.attr)
   },
   dataZoom: [
     {

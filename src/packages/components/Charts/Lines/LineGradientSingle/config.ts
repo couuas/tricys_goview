@@ -8,6 +8,35 @@ import dataJson from './data.json'
 
 export const includes = ['legend', 'xAxis', 'yAxis', 'grid']
 
+export const seriesItem = {
+  type: 'line',
+  smooth: true,
+  symbolSize: 0, //设定实心点的大小
+  label: {
+    show: true,
+    position: 'top',
+    color: '#fff',
+    fontSize: 12
+  },
+  lineStyle: {
+    type: 'solid',
+    width: 3
+  },
+  areaStyle: {
+    opacity: 0.8,
+    color: new graphic.LinearGradient(0, 0, 0, 1, [
+      {
+        offset: 0,
+        color: chartColorsSearch[defaultTheme][3]
+      },
+      {
+        offset: 1,
+        color: 'rgba(0,0,0,0)'
+      }
+    ])
+  }
+}
+
 const options = {
   tooltip: {
     show: true,
@@ -25,36 +54,7 @@ const options = {
     type: 'value'
   },
   dataset: { ...dataJson },
-  series: [
-    {
-      type: 'line',
-      smooth: false,
-      symbolSize: 5, //设定实心点的大小
-      label: {
-        show: true,
-        position: 'top',
-        color: '#fff',
-        fontSize: 12
-      },
-      lineStyle: {
-        type: 'solid',
-        width: 3
-      },
-      areaStyle: {
-        opacity: 0.8,
-        color: new graphic.LinearGradient(0, 0, 0, 1, [
-          {
-            offset: 0,
-            color: chartColorsSearch[defaultTheme][3]
-          },
-          {
-            offset: 1,
-            color: 'rgba(0,0,0,0)'
-          }
-        ])
-      }
-    }
-  ]
+  series: [seriesItem]
 }
 
 export default class Config extends PublicConfigClass implements CreateComponentType {
