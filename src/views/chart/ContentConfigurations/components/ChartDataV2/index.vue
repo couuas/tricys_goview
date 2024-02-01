@@ -10,6 +10,7 @@
       <PointRealTime v-else-if="matchComponent(CurrentSourceEnum.POINTREALTIME)"/>
       <MonthAlarmClass v-else-if="matchComponent(CurrentSourceEnum.MONTHALARMCLASS)"/>
       <DeviceClass v-else-if="matchComponent(CurrentSourceEnum.DEVICECLASS)"/>
+      <PointTable v-else-if="matchComponent(CurrentSourceEnum.POINTTABLE)"/>
     </template>
     <template v-else-if="IsCommonSingle">
       <setting-item-box name="数据源" :alone="true">
@@ -64,6 +65,7 @@ import PointRealTime from './components/PointRealTime.vue'
 import SinglePoint from './components/SinglePoint.vue'
 import MonthAlarmClass from './components/MonthAlarmClass.vue'
 import DeviceClass from './components/DeviceClass.vue'
+import PointTable from './components/PointTable.vue'
 import NoParam from './components/NoParam.vue'
 import { computed } from 'vue'
 import type { Ref } from 'vue'

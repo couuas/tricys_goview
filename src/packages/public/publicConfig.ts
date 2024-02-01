@@ -83,6 +83,10 @@ const commonData: commonDataType = {
     enable: false,
     space_complete_id: ''
   },
+  pointTable: {
+    enable: false,
+    ids: []
+  },
   singlePoint: {
     enable: false,
     pointId: '',

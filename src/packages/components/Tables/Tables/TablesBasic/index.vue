@@ -11,6 +11,7 @@
       </template>
     </n-input>
     <n-data-table
+      style="box-sizing: border-box"
       :style="`
       width: ${w}px;
       height: ${h}px;
@@ -25,7 +26,7 @@
       :striped="option.style.striped === 'on'"
       :max-height="h"
       size="small"
-      :columns="option.dataset.dimensions"
+      :columns="columns"
       :data="filterData"
       :pagination="pagination"
     />
@@ -36,6 +37,9 @@
 import { computed, PropType, toRefs, watch, reactive, ref } from 'vue'
 import { CreateComponentType } from '@/packages/index.d'
 import { icon } from '@/plugins'
+import {useChartCommonData} from "@/hooks";
+import {useChartEditStore} from "@/store/modules/chartEditStore/chartEditStore";
+import { cloneDeep } from 'lodash'
 
 const props = defineProps({
   chartConfig: {
@@ -67,22 +71,48 @@ const { w, h } = toRefs(props.chartConfig.attr)
 
 const option = reactive({
   dataset: props.chartConfig.option.dataset,
-  style: props.chartConfig.option.style
+  style: props.chartConfig.option.style,
+  header: props.chartConfig.option.header
 })
 
 watch(
   () => props.chartConfig.option.dataset,
   (newData: any) => {
     option.dataset = newData
-    option?.dataset?.dimensions?.forEach((header: any) => {
-      header.align = align.value
-    })
+    option.header.value = newData.dimensions
+    console.log(newData.dimensions.toString(), option.header.options.map((_: {value: string}) => _.value).toString())
+    if(newData.dimensions.toString() === option.header.options.map((_: {value: string}) => _.value).toString()) return
+    option.header.options = newData.dimensions.map((_: string) => ({label: _, value: _}))
+    // option?.dataset?.dimensions?.forEach((header: any) => {
+    //   header.align = align.value
+    // })
   },
   {
     immediate: true,
     deep: true
   }
 )
+
+watch(() => props.chartConfig.option.header, v => {
+  option.header = v
+}, {
+  immediate: true,
+  deep: true
+})
+
+const columns = computed(() => {
+  let dimensions = option.header.options.filter((_: {label: string, value: string}) => option.header.value.includes(_.value))
+  dimensions = dimensions.map((_: {label: string, value: string}) => {
+    return {
+      title: _.label,
+      key: _.value,
+      align: align.value
+    }
+  })
+  return dimensions
+})
+
+useChartCommonData(props.chartConfig, useChartEditStore)
 </script>
 
 <style lang="scss" scoped>

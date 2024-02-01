@@ -265,7 +265,9 @@ export enum CurrentSourceEnum {
   // 设备分类统计
   DEVICECLASS = 'deviceClass',
   // 当月告警分类统计
-  MONTHALARMCLASS = 'monthAlarmClass'
+  MONTHALARMCLASS = 'monthAlarmClass',
+  // 测点表格
+  POINTTABLE = 'pointTable'
 }
 
 // 测点历史参数
@@ -341,6 +343,12 @@ export interface DeviceClassType {
   space_complete_id: string
 }
 
+// 测点表格值
+export interface PointTableType {
+  enable: boolean
+  ids: string[]
+}
+
 // 通用组件数据
 export interface commonDataType {
   // 多数据
@@ -350,6 +358,7 @@ export interface commonDataType {
   recordValueHistory: RecordValueHistoryType
   pointRealTime: PointRealTimeType
   monthAlarmClass: MonthAlarmClassType
+  pointTable: PointTableType
   // 多数据无参数
   // 设备分类统计
   deviceClass: DeviceClassType

@@ -13,6 +13,7 @@ import { handlePointRealTime } from './commonDataComponents/usePointRealTimeRes'
 import { handleSinglePoint } from './commonDataComponents/useSinglePointRes'
 import { handleMonthAlarmClass } from './commonDataComponents/useMonthAlarmClassRes'
 import { handleDeviceClass } from './commonDataComponents/useDeviceClassRes'
+import { handlePointTable } from "./commonDataComponents/usePointTableRes";
 import { handleNoParam } from './commonDataComponents/useNoParamRes'
 import { ResultErrcode } from '@/enums/httpEnum'
 
@@ -77,6 +78,9 @@ export const useChartCommonData = (
                 }
             }
         }
+        else if(chartFrame === ChartFrameEnum.COMMON) {
+            targetComponent.option.dataset = dataset
+        }
     }
     let stopWatch = false
     const requestIntervalFn = () => {
@@ -121,6 +125,9 @@ export const useChartCommonData = (
                         break;
                     case CurrentSourceEnum.DEVICECLASS:
                         res = await handleDeviceClass(targetComponent)
+                        break;
+                    case CurrentSourceEnum.POINTTABLE:
+                        res = await handlePointTable(targetComponent)
                         break;
                     default:
                         // res = await handleNoParam(targetComponent)

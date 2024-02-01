@@ -1,6 +1,19 @@
 <template>
   <collapse-item name="表格设置" :expanded="true">
     <n-tag type="primary">若配置无响应，请在预览页面查看效果</n-tag>
+    <setting-item-box name="表头" :alone="true">
+      <div class="rows" v-for="(row, i) in optionData.header.options" :key="i">
+        <div class="columns">{{ row.value }}</div>
+        <n-input class="columns" v-model:value="row.label" size="small"/>
+      </div>
+    </setting-item-box>
+    <setting-item-box name="展示列" :alone="true">
+      <n-select
+        v-model:value="optionData.header.value"
+        :options="optionData.header.options"
+        multiple
+      />
+    </setting-item-box>
     <setting-item-box :alone="true" name="对齐方式">
       <setting-item :alone="true">
         <n-select
@@ -16,19 +29,19 @@
     </setting-item-box>
     <setting-item-box :alone="false" name="分页设置">
       <setting-item name="默认页码" :alone="true">
-        <n-input-number v-model:value="optionData.pagination.page" size="small" placeholder="字体大小"></n-input-number>
+        <n-input-number v-model:value="optionData.pagination.page" :min="1" size="small" placeholder="字体大小"></n-input-number>
       </setting-item>
       <setting-item name="分页" :alone="true">
         <n-select v-model:value="optionData.pagination.pageSize" size="small" :options="page" />
       </setting-item>
     </setting-item-box>
-    <setting-item-box :alone="false" name="表格数据">
-      <SettingItem name="表头名称" class="form_name">
-        <div style="width: 260px">
-          <n-input v-model:value="header" size="small" placeholder="表头数据(英文','分割)"></n-input>
-        </div>
-      </SettingItem>
-    </setting-item-box>
+<!--    <setting-item-box :alone="false" name="表格数据">-->
+<!--      <SettingItem name="表头名称" class="form_name">-->
+<!--        <div style="width: 260px">-->
+<!--          <n-input v-model:value="header" size="small" placeholder="表头数据(英文','分割)"></n-input>-->
+<!--        </div>-->
+<!--      </SettingItem>-->
+<!--    </setting-item-box>-->
     <setting-item-box :alone="false" name="表格样式">
       <SettingItem name="显示边框" :alone="true">
         <n-select v-model:value="(optionData as any).style.border" size="small" :options="borderFlag" />
@@ -127,36 +140,54 @@ const props = defineProps({
   }
 })
 
-const header = ref()
-const median = ref<string[]>([])
-props.optionData.dataset.dimensions.forEach(item => {
-  median.value.push(item.title)
-})
+// const header = ref()
+// const median = ref<string[]>([])
+// props.optionData.dataset.dimensions.forEach(item => {
+//   median.value.push(item.title)
+// })
 
-//转string
-watch(
-  () => props.optionData,
-  () => {
-    median.value = []
-    props.optionData.dataset.dimensions.forEach(item => {
-      median.value.push(item.title)
-    })
-    header.value = median.value.toString()
-  },
-  {
-    deep: false,
-    immediate: true
-  }
-)
+// //转string
+// watch(
+//   () => props.optionData,
+//   () => {
+//     median.value = []
+//     props.optionData.dataset.dimensions.forEach(item => {
+//       median.value.push(item.title)
+//     })
+//     header.value = median.value.toString()
+//   },
+//   {
+//     deep: false,
+//     immediate: true
+//   }
+// )
 
 //更新columns
-watch([header], ([headerNew], [headerOld]) => {
-  if (headerNew !== headerOld) {
-    headerNew.split(',').forEach((item: string, index: number) => {
-      if (index + 1 <= props.optionData.dataset.dimensions.length) {
-        props.optionData.dataset.dimensions[index].title = headerNew.split(',')[index]
-      }
-    })
-  }
-})
+// watch([header], ([headerNew], [headerOld]) => {
+//   if (headerNew !== headerOld) {
+//     headerNew.split(',').forEach((item: string, index: number) => {
+//       if (index + 1 <= props.optionData.dataset.dimensions.length) {
+//         props.optionData.dataset.dimensions[index].title = headerNew.split(',')[index]
+//       }
+//     })
+//   }
+// })
 </script>
+
+<style lang="scss" scoped>
+.rows {
+  margin-bottom: 10px;
+  display: flex;
+  &:nth-last-child(1){
+    margin-bottom: 0;
+  }
+  .columns:nth-child(1) {
+    flex: none;
+    width: 40%;
+  }
+  .columns:nth-child(2) {
+    flex: none;
+    width: 60%;
+  }
+}
+</style>

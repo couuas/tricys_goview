@@ -7,21 +7,26 @@ import dataJson from './data.json'
 
 const { dimensions, source } = dataJson
 export const option = {
-  dataset: { dimensions, source },
+  dataset: { dimensions: [], source: [] },
+  // 展示列
+  header: {
+    value: [],
+    options: []
+  },
   pagination: {
     page: 1,
     pageSize: 5
   },
   align: 'center',
   style: {
-    border: 'on',
+    border: 'off',
     singleColumn: 'off',
     singleLine: 'off',
-    bottomBordered: 'on',
+    bottomBordered: 'off',
     striped: 'on',
     fontSize: 16,
     borderWidth: 0,
-    borderColor: 'black',
+    borderColor: 'rgba(0, 0, 0, 1)',
     borderStyle: 'solid'
   },
   inputShow: 'none'

@@ -156,6 +156,11 @@ export const sourceOptions: sourceOptionsItemType[] = [
     type: optionTypeEnum.MULTIPLE,
   },
   {
+    label: '测点表格值',
+    value: CurrentSourceEnum.POINTTABLE,
+    type: optionTypeEnum.MULTIPLE,
+  },
+  {
     label: '单测点实时值',
     value: CurrentSourceEnum.SINGLEPOINT,
     type: optionTypeEnum.SINGLE,
