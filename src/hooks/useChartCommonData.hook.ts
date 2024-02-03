@@ -29,6 +29,7 @@ type ChartEditStoreType = typeof useChartEditStore
 export const useChartCommonData = (
     targetComponent: CreateComponentType,
     useChartEditStore: ChartEditStoreType,
+    updateCallback?: (...args: any) => any
 ) => {
     const vChartRef = ref<typeof VChart | null>(null)
     let fetchInterval: any = 0
@@ -139,17 +140,29 @@ export const useChartCommonData = (
                         // 多值的
                         if(isMultiple) {
                             if(Object.prototype.toString.call(data) === '[object Array]') {
-                                if(data.length && data[0].dimensions && data[0].source) echartsUpdateHandle(data[0])
+                                if(data.length && data[0].dimensions && data[0].source) {
+                                    echartsUpdateHandle(data[0])
+                                    // 更新回调函数
+                                    if (updateCallback) updateCallback(data)
+                                }
                                 else throw Error()
                             }
                             else if(Object.prototype.toString.call(data) === '[object Object]'){
-                                if(data.dimensions && data.source) echartsUpdateHandle(data)
+                                if(data.dimensions && data.source) {
+                                    echartsUpdateHandle(data)
+                                    // 更新回调函数
+                                    if (updateCallback) updateCallback(data)
+                                }
                                 else throw Error()
                             }
                         }
                         // 单值的
                         else {
-                            if(data) echartsUpdateHandle(data)
+                            if(data) {
+                                echartsUpdateHandle(data)
+                                // 更新回调函数
+                                if (updateCallback) updateCallback(data)
+                            }
                             else throw Error()
                         }
                     } catch (error) {

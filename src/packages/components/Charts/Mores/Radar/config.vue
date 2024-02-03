@@ -94,12 +94,21 @@
           ></n-input-number>
         </SettingItem>
       </SettingItemBox>
+
+      <SettingItemBox :name="item.key" v-for="(item, i) in maxList" :key="i">
+        <SettingItem name="最小值">
+          <n-input-number :value="item.min" @update:value="v => handleUpdate(item.key, 'min', v)" size="small" :min="0"/>
+        </SettingItem>
+        <SettingItem name="最大值">
+          <n-input-number :value="item.max" @update:value="v => handleUpdate(item.key, 'max', v)" size="small" :min="0"/>
+        </SettingItem>
+      </SettingItemBox>
     </CollapseItem>
   </div>
 </template>
 
 <script setup lang="ts">
-import { PropType, computed, reactive } from 'vue'
+import { PropType, computed, reactive, ref } from 'vue'
 import { GlobalSetting, CollapseItem, SettingItemBox, SettingItem } from '@/components/Pages/ChartItemSetting'
 import { option, RadarShapeEnumList } from './config'
 import { GlobalThemeJsonType } from '@/settings/chartThemes/index'
@@ -141,5 +150,23 @@ const updateCenter1 = (value: number) => {
 // 百分比格式化 percent
 const sliderFormatTooltip = (v: number) => {
   return `${v}%`
+}
+
+let maxList = computed(() => {
+  let arr = props.optionData.dataset.source.map(_ => {
+    let nameKey = props.optionData.dataset.dimensions[0]
+    return {
+      key: _[nameKey],
+      // 报错 不知道问题在哪
+      max: props.optionData.maxMap[_[nameKey]].max,
+      min: props.optionData.maxMap[_[nameKey]].min
+    }
+  })
+  return arr
+})
+
+const handleUpdate = (k: string, type: string, v: string) => {
+  if(type === 'min') props.optionData.maxMap[k].min = v
+  else if(type === 'max') props.optionData.maxMap[k].max = v
 }
 </script>

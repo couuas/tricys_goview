@@ -2,16 +2,21 @@
   <collapse-item name="表格设置" :expanded="true">
     <n-tag type="primary">若配置无响应，请在预览页面查看效果</n-tag>
     <setting-item-box name="表头" :alone="true">
-      <div class="rows" v-for="(row, i) in optionData.header.options" :key="i">
-        <div class="columns">{{ row.value }}</div>
-        <n-input class="columns" v-model:value="row.label" size="small"/>
+      <div class="rows">
+        <div class="columns">字段</div>
+        <div class="columns">标题</div>
+      </div>
+      <div class="rows" v-for="(row: any, i) in optionData.header.options" :key="i">
+        <div class="columns">{{ row }}</div>
+        <n-input class="columns" v-model:value="optionData.header.map[row]" size="small"/>
       </div>
     </setting-item-box>
     <setting-item-box name="展示列" :alone="true">
       <n-select
         v-model:value="optionData.header.value"
-        :options="optionData.header.options"
+        :options="optionData.header.options.map(_ => ({label: optionData.header.map[_], value: _}))"
         multiple
+        size="small"
       />
     </setting-item-box>
     <setting-item-box :alone="true" name="对齐方式">
@@ -178,6 +183,8 @@ const props = defineProps({
 .rows {
   margin-bottom: 10px;
   display: flex;
+  height: 28px;
+  line-height: 28px;
   &:nth-last-child(1){
     margin-bottom: 0;
   }

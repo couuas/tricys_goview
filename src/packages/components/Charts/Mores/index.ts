@@ -10,7 +10,7 @@ import { GraphConfig } from './Graph/index'
 
 export default [
   // ProcessConfig,
-  // RadarConfig,
+  RadarConfig,
   // FunnelConfig,
   // HeatmapConfig,
   WaterPoloConfig,

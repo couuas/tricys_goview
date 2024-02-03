@@ -12,14 +12,25 @@ export const RadarShapeEnumList = [
   { label: '圆形', value: 'circle' }
 ]
 
+interface maxMapType {
+  [k: string]: {
+    max: number,
+    min: number
+  }
+}
+
 export const option = {
+  maxMap: {} as maxMapType,
   tooltip: {
     show: true
   },
   legend: {
-    data: dataJson.seriesData.map(i => i.name)
+    data: []
   },
-  dataset: { ...dataJson },
+  dataset: {
+    dimensions: [],
+    source: []
+  },
   radar: {
     shape: 'polygon',
     radius: ['0%', '60%'],
@@ -28,8 +39,8 @@ export const option = {
     splitLine: { show: true },
     axisName: { show: true, color: '#eee', fontSize: 12 },
     axisLine: { show: true },
-    axisTick: { show: true },
-    indicator: dataJson.radarIndicator
+    axisTick: { show: false },
+    indicator: []
   },
   series: [
     {
@@ -38,7 +49,7 @@ export const option = {
       areaStyle: {
         opacity: 0.1
       },
-      data: dataJson.seriesData
+      data: []
     }
   ]
 }

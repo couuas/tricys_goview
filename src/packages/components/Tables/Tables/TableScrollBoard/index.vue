@@ -50,10 +50,11 @@
 <script setup lang="ts">
 import { PropType, onUnmounted, reactive, toRefs, watch, onMounted } from 'vue'
 import { CreateComponentType } from '@/packages/index.d'
-import { useChartDataFetch } from '@/hooks'
+import {useChartCommonData, useChartDataFetch} from '@/hooks'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import merge from 'lodash/merge'
 import cloneDeep from 'lodash/cloneDeep'
+import { MapType } from './config'
 
 const props = defineProps({
   chartConfig: {
@@ -197,19 +198,29 @@ const mergeConfig = () => {
 }
 
 const calcHeaderData = () => {
-  let { header, index, indexHeader } = status.mergedConfig
-  if (!header.length) {
-    status.header = []
-    return
-  }
-  header = [...header]
-  if (index) header.unshift(indexHeader)
-  status.header = header
+  let { header, index, indexHeader, headerConfig, headerConfigMap } = status.mergedConfig
+  // if (!header.length) {
+  //   status.header = []
+  //   return
+  // }
+  // header = [...header]
+  // if (index) header.unshift(indexHeader)
+  // status.header = header
+  type ItemType = { show: boolean, header: string }
+  status.header = headerConfig.filter((_: ItemType) => _.show).map((_: ItemType) => _.header)
 }
 
 const calcRowsData = () => {
-  let { dataset, index, headerBGC, rowNum } = status.mergedConfig
-  if (index) {
+  let { dataset: datasetOrigin, index, headerBGC, rowNum } = status.mergedConfig
+  let { headerConfigMap, headerConfig } = status.mergedConfig
+  interface RowType { [k: string]: any }
+  let showCols = headerConfig.filter((_: MapType) => _.show && _.key !== '行号').map((_: MapType) => _.key)
+  let dataset = datasetOrigin.source.map((row: RowType) => {
+    return datasetOrigin.dimensions.filter((_: string) => showCols.includes(_)).map((key: string) => {
+      return row[key]
+    })
+  })
+  if (headerConfigMap['index'].show) {
     dataset = dataset.map((row: any, i: number) => {
       row = [...row]
       const indexTag = `<span class="index" style="background-color: ${headerBGC};border-radius: 3px;padding: 0px 3px;">${
@@ -232,17 +243,21 @@ const calcRowsData = () => {
 
 const calcWidths = () => {
   const { mergedConfig, rowsData } = status
-  const { columnWidth, header } = mergedConfig
-  const usedWidth = columnWidth.reduce((all: any, ws: number) => all + ws, 0)
-  let columnNum = 0
-  if (rowsData[0]) {
-    columnNum = (rowsData[0] as any).ceils.length
-  } else if (header.length) {
-    columnNum = header.length
-  }
-  const avgWidth = (w.value - usedWidth) / (columnNum - columnWidth.length)
-  const widths = new Array(columnNum).fill(avgWidth)
-  status.widths = merge(widths, columnWidth)
+  const { columnWidth, header, headerConfig } = mergedConfig
+  // const usedWidth = columnWidth.reduce((all: any, ws: number) => all + ws, 0)
+  // let columnNum = 0
+  // if (rowsData[0]) {
+  //   columnNum = (rowsData[0] as any).ceils.length
+  // } else if (header.length) {
+  //   columnNum = header.length
+  // }
+  // const avgWidth = (w.value - usedWidth) / (columnNum - columnWidth.length)
+  // const widths = new Array(columnNum).fill(avgWidth)
+  // status.widths = merge(widths, columnWidth)
+
+  type ItemType = {show: boolean, columnWidth: number}
+  let widths = headerConfig.filter((_: ItemType) => _.show).map((_: ItemType) => _.columnWidth)
+  status.widths = widths
 }
 
 const calcHeights = (onresize = false) => {
@@ -252,19 +267,22 @@ const calcHeights = (onresize = false) => {
   if (header.length) allHeight -= headerHeight
   const avgHeight = allHeight / rowNum
   status.avgHeight = avgHeight
-  if (!onresize) status.heights = new Array(dataset.length).fill(avgHeight)
+  if (!onresize) status.heights = new Array(dataset.source.length).fill(avgHeight)
 }
 
 const calcAligns = () => {
   const { header, mergedConfig } = status
+  const { headerConfig } = mergedConfig
 
-  const columnNum = header.length
+  // const columnNum = header.length
+  //
+  // let aligns = new Array(columnNum).fill('left')
+  //
+  // const { align } = mergedConfig
+  //
+  // status.aligns = merge(aligns, align)
 
-  let aligns = new Array(columnNum).fill('left')
-
-  const { align } = mergedConfig
-
-  status.aligns = merge(aligns, align)
+  status.aligns = headerConfig.map((_: any) => _.align)
 }
 
 const animation = async (start = false) => {
@@ -339,7 +357,12 @@ watch(
 )
 
 // 数据更新 (默认更新 dataset，若更新之后有其它操作，可添加回调函数)
-useChartDataFetch(props.chartConfig, useChartEditStore, (resData: any[]) => {
+// useChartDataFetch(props.chartConfig, useChartEditStore, (resData: any[]) => {
+//   props.chartConfig.option.dataset = resData
+//   onRestart()
+// })
+
+useChartCommonData(props.chartConfig, useChartEditStore, (resData: {}) => {
   props.chartConfig.option.dataset = resData
   onRestart()
 })

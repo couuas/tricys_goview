@@ -80,9 +80,12 @@ watch(
   (newData: any) => {
     option.dataset = newData
     option.header.value = newData.dimensions
-    console.log(newData.dimensions.toString(), option.header.options.map((_: {value: string}) => _.value).toString())
-    if(newData.dimensions.toString() === option.header.options.map((_: {value: string}) => _.value).toString()) return
-    option.header.options = newData.dimensions.map((_: string) => ({label: _, value: _}))
+    option.header.options = newData.dimensions
+    newData.dimensions.forEach((key: string) => {
+      if(!Object.prototype.hasOwnProperty.call(option.header.map, key)) option.header.map[key] = key
+    })
+    // if(newData.dimensions.toString() === option.header.options.map((_: {value: string}) => _.value).toString()) return
+    // option.header.options = newData.dimensions.map((_: string) => ({label: _, value: _}))
     // option?.dataset?.dimensions?.forEach((header: any) => {
     //   header.align = align.value
     // })
@@ -101,11 +104,11 @@ watch(() => props.chartConfig.option.header, v => {
 })
 
 const columns = computed(() => {
-  let dimensions = option.header.options.filter((_: {label: string, value: string}) => option.header.value.includes(_.value))
-  dimensions = dimensions.map((_: {label: string, value: string}) => {
+  let dimensions = option.header.options.filter((_: string) => option.header.value.includes(_))
+  dimensions = dimensions.map((_: string) => {
     return {
-      title: _.label,
-      key: _.value,
+      title: option.header.map[_],
+      key: _,
       align: align.value
     }
   })

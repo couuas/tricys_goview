@@ -11,7 +11,8 @@ export const option = {
   // 展示列
   header: {
     value: [],
-    options: []
+    options: [],
+    map: {},
   },
   pagination: {
     page: 1,
