@@ -7,6 +7,8 @@ import video from '@/assets/videos/earth.mp4'
 export const option = {
   // 视频路径
   dataset: video,
+  // 视频列表
+  datasetList: [],
   // 循环播放
   loop: true,
   // 静音
@@ -18,6 +20,11 @@ export const option = {
 }
 
 export default class Config extends PublicConfigClass implements CreateComponentType {
+  constructor() {
+    super();
+    this.styles.filterShow = true
+    this.styles.blendMode = 'screen'
+  }
   public key = VideoConfig.key
   public chartConfig = cloneDeep(VideoConfig)
   public option = cloneDeep(option)
