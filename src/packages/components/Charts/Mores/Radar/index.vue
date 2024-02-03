@@ -10,7 +10,7 @@ import dataJson from './data.json'
 import { use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'
 import { RadarChart } from 'echarts/charts'
-import { includes } from './config'
+import { includes, option as myOption  } from './config'
 import { mergeTheme, setOption } from '@/packages/public/chart'
 import {useChartCommonData, useChartDataFetch} from '@/hooks'
 import { CreateComponentType } from '@/packages/index.d'
@@ -28,7 +28,7 @@ const props = defineProps({
     required: true
   },
   chartConfig: {
-    type: Object as PropType<CreateComponentType>,
+    type: Object as PropType<CreateComponentType & { option: typeof myOption }>,
     required: true
   }
 })
@@ -73,9 +73,10 @@ const option = computed(() => {
 //   }
 // )
 
+type SourceItemType = { [k: string]: any }
 watch(() => props.chartConfig.option.dataset, (v) => {
   let { dimensions, source } = v
-  source.forEach(_ => {
+  source.forEach((_: SourceItemType) => {
     if(!Object.prototype.hasOwnProperty.call(props.chartConfig.option.maxMap, _[dimensions[0]])) {
       props.chartConfig.option.maxMap[_[dimensions[0]]] = {
         max: null,
@@ -83,17 +84,17 @@ watch(() => props.chartConfig.option.dataset, (v) => {
       }
     }
   })
-  props.chartConfig.option.radar.indicator = source.map(_ => {
+  props.chartConfig.option.radar.indicator = source.map((_: SourceItemType) => {
     return {
       name: _[dimensions[0]],
       max: props.chartConfig.option.maxMap[_[dimensions[0]]].max,
       min: props.chartConfig.option.maxMap[_[dimensions[0]]].min,
     }
   })
-  props.chartConfig.option.series[0].data = dimensions.slice(1).map(k => {
+  props.chartConfig.option.series[0].data = dimensions.slice(1).map((k: string) => {
     return {
       name: k,
-      value: source.map(_ => _[k])
+      value: source.map((_: SourceItemType) => _[k])
     }
   })
   props.chartConfig.option.legend.data = dimensions.slice(1)
@@ -102,9 +103,9 @@ watch(() => props.chartConfig.option.dataset, (v) => {
   deep: true
 })
 
-watch(() => props.chartConfig.option.maxMap, v => {
+watch(() => props.chartConfig.option.maxMap, () => {
   let { dimensions, source } = props.chartConfig.option.dataset
-  props.chartConfig.option.radar.indicator = source.map(_ => {
+  props.chartConfig.option.radar.indicator = source.map((_: SourceItemType) => {
     return {
       name: _[dimensions[0]],
       max: props.chartConfig.option.maxMap[_[dimensions[0]]].max,

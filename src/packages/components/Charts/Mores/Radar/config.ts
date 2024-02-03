@@ -14,7 +14,7 @@ export const RadarShapeEnumList = [
 
 interface maxMapType {
   [k: string]: {
-    max: number,
+    max: number | null,
     min: number
   }
 }
@@ -22,7 +22,8 @@ interface maxMapType {
 export const option = {
   maxMap: {} as maxMapType,
   tooltip: {
-    show: true
+    show: true,
+    position: ((point: number[], params:unknown, dom:unknown, rect:unknown, size: { contentSize: number[] }) => point),
   },
   legend: {
     data: []

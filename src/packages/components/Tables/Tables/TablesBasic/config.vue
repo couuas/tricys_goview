@@ -6,7 +6,7 @@
         <div class="columns">字段</div>
         <div class="columns">标题</div>
       </div>
-      <div class="rows" v-for="(row: any, i) in optionData.header.options" :key="i">
+      <div class="rows" v-for="(row, i) in optionData.header.options" :key="i">
         <div class="columns">{{ row }}</div>
         <n-input class="columns" v-model:value="optionData.header.map[row]" size="small"/>
       </div>

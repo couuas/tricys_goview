@@ -97,10 +97,10 @@
 
       <SettingItemBox :name="item.key" v-for="(item, i) in maxList" :key="i">
         <SettingItem name="最小值">
-          <n-input-number :value="item.min" @update:value="v => handleUpdate(item.key, 'min', v)" size="small" :min="0"/>
+          <n-input-number :value="item.min" @update:value="(v: number) => handleUpdate(item.key, 'min', v)" size="small" :min="0"/>
         </SettingItem>
         <SettingItem name="最大值">
-          <n-input-number :value="item.max" @update:value="v => handleUpdate(item.key, 'max', v)" size="small" :min="0"/>
+          <n-input-number :value="item.max" @update:value="(v: number) => handleUpdate(item.key, 'max', v)" size="small" :min="0"/>
         </SettingItem>
       </SettingItemBox>
     </CollapseItem>
@@ -152,8 +152,9 @@ const sliderFormatTooltip = (v: number) => {
   return `${v}%`
 }
 
+interface SourceItemType { [k: string]: any}
 let maxList = computed(() => {
-  let arr = props.optionData.dataset.source.map(_ => {
+  let arr = props.optionData.dataset.source.map((_:SourceItemType) => {
     let nameKey = props.optionData.dataset.dimensions[0]
     return {
       key: _[nameKey],
@@ -165,7 +166,7 @@ let maxList = computed(() => {
   return arr
 })
 
-const handleUpdate = (k: string, type: string, v: string) => {
+const handleUpdate = (k: string, type: string, v: number) => {
   if(type === 'min') props.optionData.maxMap[k].min = v
   else if(type === 'max') props.optionData.maxMap[k].max = v
 }
