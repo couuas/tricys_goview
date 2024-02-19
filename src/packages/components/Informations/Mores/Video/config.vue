@@ -4,15 +4,15 @@
   <collapse-item name="视频" expanded>
     <setting-item-box name="源" alone>
       <setting-item name="">
-        <n-select v-model:value="optionData.dataset" :options="datasetList" :render-option="renderOption"></n-select>
+        <n-select v-model:value="optionData.dataset" :options="datasetList" :render-option="renderOption" size="small"></n-select>
       </setting-item>
 <!--      <setting-item name="自定义源">-->
 <!--        <n-input v-model:value="optionData.dataset" size="small"></n-input>-->
 <!--      </setting-item>-->
     </setting-item-box>
     <setting-item-box name="混合模式" alone>
-      <setting-item name="">
-        <n-select v-model:value="chartStyles.blendMode" :options="BlendModeEnumList"></n-select>
+      <setting-item name="使用滤色选项可以去除黑色背景">
+        <n-select v-model:value="chartStyles.blendMode" :options="BlendModeEnumList" size="small"></n-select>
       </setting-item>
     </setting-item-box>
     <setting-item-box name="控制">
