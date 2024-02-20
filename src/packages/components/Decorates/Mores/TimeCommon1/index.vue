@@ -17,7 +17,7 @@ import { isPreview } from '@/utils/router'
 
 
 let date = ref(moment().format('yyyy-MM-DD'))
-const weeks = ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+const weeks = ['周日', '周一', '周二', '周三', '周四', '周五', '周六']
 let time = ref(moment().format('HH:mm:ss ') + weeks[Number(moment().format('e'))])
 let timer: any
 

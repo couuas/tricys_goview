@@ -107,7 +107,11 @@ const seriesList = computed(() => {
   return props.optionData.series
 })
 
-const allSeriesConfig: Ref<typeof seriesItem> = ref(cloneDeep(seriesItem))
+// const allSeriesConfig: Ref<typeof seriesItem> = ref(cloneDeep(seriesItem))
+
+const allSeriesConfig = computed(() => {
+  return props.optionData.allSeriesConfig
+})
 
 watch(() => allSeriesConfig.value, (v) => {
   seriesList.value.forEach((item: typeof seriesItem) => {

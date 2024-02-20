@@ -43,7 +43,8 @@ export const option = {
     type: 'value'
   },
   dataset: { ...dataJson },
-  series: [seriesItem, seriesItem]
+  series: [seriesItem, seriesItem],
+  allSeriesConfig: seriesItem
 }
 
 export default class Config extends PublicConfigClass implements CreateComponentType {

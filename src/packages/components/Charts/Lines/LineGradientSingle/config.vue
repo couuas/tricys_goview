@@ -126,10 +126,11 @@
 import { PropType, computed, ref, watch } from 'vue'
 import type { Ref } from 'vue'
 import { lineConf } from '@/packages/chartConfiguration/echarts/index'
-import { GlobalThemeJsonType } from '@/settings/chartThemes/index'
+import { chartColorsSearch, defaultTheme, GlobalThemeJsonType } from '@/settings/chartThemes/index'
 import { GlobalSetting, CollapseItem, SettingItemBox, SettingItem } from '@/components/Pages/ChartItemSetting'
 import { seriesItem } from "./config";
 import { cloneDeep } from "lodash";
+import { graphic } from "echarts/core";
 
 const props = defineProps({
   optionData: {
@@ -142,11 +143,30 @@ const seriesList = computed(() => {
   return props.optionData.series
 })
 
-const allSeriesConfig: Ref<typeof seriesItem> = ref(cloneDeep(seriesItem))
+// const allSeriesConfig: Ref<typeof seriesItem> = ref(cloneDeep(seriesItem))
+
+const allSeriesConfig = computed(() => {
+  return props.optionData.allSeriesConfig
+})
 
 watch(() => allSeriesConfig.value, (v) => {
-  seriesList.value.forEach((item: typeof seriesItem) => {
-    Object.assign(item, cloneDeep(v))
+  seriesList.value.forEach((item: typeof seriesItem, index: number) => {
+    const themeColor = chartColorsSearch[defaultTheme]
+    item.areaStyle.color = new graphic.LinearGradient(0, 0, 0, 1, [
+      {
+        offset: 0,
+        color: themeColor[(3 + index) % themeColor.length]
+      },
+      {
+        offset: 1,
+        color: 'rgba(0,0,0, 0)'
+      }
+    ])
+    Object.assign(item, cloneDeep(v), {
+      areaStyle: {
+        color: cloneDeep(item.areaStyle.color)
+      }
+    })
   })
 }, {
   deep: true,

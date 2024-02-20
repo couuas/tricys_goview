@@ -6,9 +6,11 @@
       <setting-item name="">
         <n-select v-model:value="optionData.dataset" :options="datasetList" :render-option="renderOption" size="small"></n-select>
       </setting-item>
-<!--      <setting-item name="自定义源">-->
-<!--        <n-input v-model:value="optionData.dataset" size="small"></n-input>-->
-<!--      </setting-item>-->
+    </setting-item-box>
+    <setting-item-box name="自定义源" alone>
+      <setting-item name="将会覆盖源选项">
+        <n-input v-model:value="optionData.datasetCustom" size="small"></n-input>
+      </setting-item>
     </setting-item-box>
     <setting-item-box name="混合模式" alone>
       <setting-item name="使用滤色选项可以去除黑色背景">

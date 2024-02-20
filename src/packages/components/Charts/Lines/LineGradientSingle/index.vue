@@ -80,6 +80,19 @@ watch(
 watch(
   () => props.chartConfig.option.dataset,
   () => {
+    const themeColor = colorGradientCustomMerge(chartEditStore.getEditCanvasConfig.chartCustomThemeColorInfo)[defaultTheme]
+    props.chartConfig.option.series.forEach((value: any, index: number) => {
+      value.areaStyle.color = new graphic.LinearGradient(0, 0, 0, 1, [
+        {
+          offset: 0,
+          color: themeColor[(3 + index) % themeColor.length]
+        },
+        {
+          offset: 1,
+          color: 'rgba(0,0,0, 0)'
+        }
+      ])
+    })
     option.value = props.chartConfig.option
   }
 )

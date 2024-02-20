@@ -3,6 +3,7 @@ import { ComprehensivePUEConfig } from './ComprehensivePUE'
 import { RealTimeTrafficConfig } from './RealTimeTraffic'
 import { OverviewOfComputingNodesConfig } from './OverviewOfComputingNodes'
 import { GDMapConfig } from './GDMap'
+import { EngineeringConfig } from './EngineeringConfig'
 import { MonitorRealTimeEventsConfig } from './MonitorRealTimeEvents'
 import { DashboardConfig } from './Dashboard'
 
@@ -12,6 +13,7 @@ export default [
     RealTimeTrafficConfig,
     OverviewOfComputingNodesConfig,
     GDMapConfig,
+    EngineeringConfig,
     MonitorRealTimeEventsConfig,
     DashboardConfig,
 ]
