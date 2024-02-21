@@ -282,6 +282,7 @@ const calcAligns = () => {
   //
   // status.aligns = merge(aligns, align)
 
+  type ItemType = {show: boolean, columnWidth: number}
   status.aligns = headerConfig.filter((_: ItemType) => _.show).map((_: any) => _.align)
 }
 
