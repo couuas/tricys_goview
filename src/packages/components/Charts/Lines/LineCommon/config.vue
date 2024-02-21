@@ -5,6 +5,11 @@
     <SettingItemBox name="" :alone="true">
       <n-text>修改此配置将覆盖全部折线配置</n-text>
     </SettingItemBox>
+    <SettingItemBox name="Y轴索引">
+      <setting-item>
+        <n-select v-model:value="allSeriesConfig.yAxisIndex" :options="yAxisIndexOptions" size="small" />
+      </setting-item>
+    </SettingItemBox>
     <SettingItemBox name="线条">
       <setting-item>
         <n-space>
@@ -63,6 +68,25 @@
     </setting-item-box>
   </CollapseItem>
   <CollapseItem v-for="(item, index) in seriesList" :key="index" :name="`折线图-${index + 1}`" :expanded="true">
+    <template #header>
+      <n-space align="center" :wrap="false">
+        <n-button v-if="index !== 0" @click="handleDelete(index)" circle size="tiny">
+          <template #icon>
+            <n-icon><CloseIcon /></n-icon>
+          </template>
+        </n-button>
+        <n-button v-if="index === seriesList.length - 1" @click="handleAdd" circle size="tiny">
+          <template #icon>
+            <n-icon><AddIcon /></n-icon>
+          </template>
+        </n-button>
+      </n-space>
+    </template>
+    <SettingItemBox name="Y轴索引">
+      <setting-item>
+        <n-select v-model:value="item.yAxisIndex" :options="yAxisIndexOptions" size="small" />
+      </setting-item>
+    </SettingItemBox>
     <SettingItemBox name="线条">
       <setting-item>
         <n-space>
@@ -130,6 +154,8 @@ import { GlobalThemeJsonType } from '@/settings/chartThemes/index'
 import { GlobalSetting, CollapseItem, SettingItemBox, SettingItem } from '@/components/Pages/ChartItemSetting'
 import { seriesItem } from './config'
 import { cloneDeep } from 'lodash'
+import { icon } from "@/plugins";
+const { CloseIcon, AddIcon } = icon.ionicons5
 
 const props = defineProps({
   optionData: {
@@ -148,13 +174,25 @@ const allSeriesConfig = computed(() => {
   return props.optionData.allSeriesConfig
 })
 
+const yAxisIndexOptions = [
+  { label: 'Y轴-1', value: 0 },
+  { label: 'Y轴-2', value: 1 },
+]
+
+const handleAdd = () => {
+  props.optionData.series.push(cloneDeep(seriesItem))
+}
+const handleDelete = (i: number) => {
+  props.optionData.series.splice(i, 1)
+}
+
 watch(() => allSeriesConfig.value, (v) => {
   seriesList.value.forEach((item: typeof seriesItem) => {
     Object.assign(item, cloneDeep(v))
   })
 }, {
   deep: true,
-  immediate: true
+  // immediate: true
 })
 
 watch(() => seriesList.value, (v) => {

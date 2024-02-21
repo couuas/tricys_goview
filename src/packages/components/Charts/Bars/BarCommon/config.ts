@@ -17,7 +17,8 @@ export const seriesItem = {
   itemStyle: {
     color: null,
     borderRadius: 2
-  }
+  },
+  yAxisIndex: 0
 }
 export const option = {
   tooltip: {
@@ -28,7 +29,7 @@ export const option = {
       type: 'shadow'
     }
   },
-xAxis: {
+  xAxis: {
     show: true,
     type: 'category'
   },

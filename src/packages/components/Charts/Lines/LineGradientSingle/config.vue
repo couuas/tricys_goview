@@ -5,6 +5,11 @@
     <SettingItemBox name="" :alone="true">
       <n-text>修改此配置将覆盖全部折线配置</n-text>
     </SettingItemBox>
+    <SettingItemBox name="Y轴索引">
+      <setting-item>
+        <n-select v-model:value="allSeriesConfig.yAxisIndex" :options="yAxisIndexOptions" size="small" />
+      </setting-item>
+    </SettingItemBox>
     <SettingItemBox name="线条">
       <setting-item>
         <n-space>
@@ -63,6 +68,25 @@
     </setting-item-box>
   </CollapseItem>
   <CollapseItem v-for="(item, index) in seriesList" :key="index" :name="`折线面积图-${index + 1}`" :expanded="true">
+    <template #header>
+      <n-space align="center" :wrap="false">
+        <n-button v-if="index !== 0" @click="handleDelete(index)" circle size="tiny">
+          <template #icon>
+            <n-icon><CloseIcon /></n-icon>
+          </template>
+        </n-button>
+        <n-button v-if="index === seriesList.length - 1" @click="handleAdd(index)" circle size="tiny">
+          <template #icon>
+            <n-icon><AddIcon /></n-icon>
+          </template>
+        </n-button>
+      </n-space>
+    </template>
+    <SettingItemBox name="Y轴索引">
+      <setting-item>
+        <n-select v-model:value="item.yAxisIndex" :options="yAxisIndexOptions" size="small" />
+      </setting-item>
+    </SettingItemBox>
     <SettingItemBox name="线条">
       <setting-item>
         <n-space>
@@ -126,11 +150,14 @@
 import { PropType, computed, ref, watch } from 'vue'
 import type { Ref } from 'vue'
 import { lineConf } from '@/packages/chartConfiguration/echarts/index'
-import { chartColorsSearch, defaultTheme, GlobalThemeJsonType } from '@/settings/chartThemes/index'
+import {chartColors, chartColorsSearch, defaultTheme, GlobalThemeJsonType} from '@/settings/chartThemes/index'
 import { GlobalSetting, CollapseItem, SettingItemBox, SettingItem } from '@/components/Pages/ChartItemSetting'
 import { seriesItem } from "./config";
 import { cloneDeep } from "lodash";
 import { graphic } from "echarts/core";
+import { icon } from "@/plugins";
+import {alpha} from "@/utils";
+const { CloseIcon, AddIcon } = icon.ionicons5
 
 const props = defineProps({
   optionData: {
@@ -149,13 +176,39 @@ const allSeriesConfig = computed(() => {
   return props.optionData.allSeriesConfig
 })
 
+const yAxisIndexOptions = [
+  { label: 'Y轴-1', value: 0 },
+  { label: 'Y轴-2', value: 1 },
+]
+
+const handleAdd = (i: number) => {
+  let item = cloneDeep(seriesItem)
+  // const themeColor = chartColorsSearch[defaultTheme]
+  const themeColor = chartColors[defaultTheme].color
+  item.areaStyle.color = new graphic.LinearGradient(0, 0, 0, 1, [
+    {
+      offset: 0,
+      color: alpha(themeColor[(i + 1) % themeColor.length], 0.5)
+    },
+    {
+      offset: 1,
+      color: 'rgba(0,0,0, 0)'
+    }
+  ])
+  props.optionData.series.push(item)
+}
+const handleDelete = (i: number) => {
+  props.optionData.series.splice(i, 1)
+}
+
 watch(() => allSeriesConfig.value, (v) => {
   seriesList.value.forEach((item: typeof seriesItem, index: number) => {
-    const themeColor = chartColorsSearch[defaultTheme]
+    // const themeColor = chartColorsSearch[defaultTheme]
+    const themeColor = chartColors[defaultTheme].color
     item.areaStyle.color = new graphic.LinearGradient(0, 0, 0, 1, [
       {
         offset: 0,
-        color: themeColor[(3 + index) % themeColor.length]
+        color: alpha(themeColor[index % themeColor.length], 0.5)
       },
       {
         offset: 1,
@@ -170,7 +223,7 @@ watch(() => allSeriesConfig.value, (v) => {
   })
 }, {
   deep: true,
-  immediate: true
+  // immediate: true
 })
 
 watch(() => seriesList.value, (v) => {

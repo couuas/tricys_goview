@@ -52,21 +52,21 @@ export const useChartCommonData = (
                 // 多个值的处理方式
                 if(SingleDataArr.every(_ => _ !== currentSource)) {
                     let seriesItem = cloneDeep(targetComponent.option.series[0])
-                    let series = []
-                    if(dataset.dimensions.length - 1) {
-                        for(let i = 0; i < dataset.dimensions.length - 1; i++) {
-                            series.push(cloneDeep(seriesItem))
-                        }
-                    }
-                    else {
-                        series = [seriesItem]
-                    }
+                    // let series = []
+                    // if(dataset.dimensions.length - 1) {
+                    //     for(let i = 0; i < dataset.dimensions.length - 1; i++) {
+                    //         series.push(cloneDeep(seriesItem))
+                    //     }
+                    // }
+                    // else {
+                    //     series = [seriesItem]
+                    // }
                     if (vChartRef.value) {
                         Object.assign(targetComponent.option, {
-                            series,
+                            // series,
                             dataset,
                         })
-                        setOption(vChartRef.value, { series, dataset })
+                        setOption(vChartRef.value, { dataset })
                     }
                 }
                 else if(SingleDataArr.some(_ => _ === currentSource)) { // 单个值的处理

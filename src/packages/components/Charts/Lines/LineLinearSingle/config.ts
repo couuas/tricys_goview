@@ -35,7 +35,8 @@ export const seriesItem = {
     shadowColor: chartColorsSearch[defaultTheme][2],
     shadowBlur: 10,
     shadowOffsetY: 20
-  }
+  },
+  yAxisIndex: 0
 }
 
 export const option = {

@@ -282,7 +282,7 @@ const calcAligns = () => {
   //
   // status.aligns = merge(aligns, align)
 
-  status.aligns = headerConfig.map((_: any) => _.align)
+  status.aligns = headerConfig.filter((_: ItemType) => _.show).map((_: any) => _.align)
 }
 
 const animation = async (start = false) => {

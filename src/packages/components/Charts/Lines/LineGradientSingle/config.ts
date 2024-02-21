@@ -34,7 +34,8 @@ export const seriesItem = {
         color: 'rgba(0,0,0,0)'
       }
     ])
-  }
+  },
+  yAxisIndex: 0
 }
 
 const options = {

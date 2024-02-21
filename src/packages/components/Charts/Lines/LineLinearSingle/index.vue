@@ -75,9 +75,27 @@ watch(
   () => props.chartConfig.option.dataset,
   () => {
     option.value = props.chartConfig.option
+    if (vChartRef.value) {
+      vChartRef.value.setOption(option.value, !isPreview())
+    }
   },
   {
     deep: false
+  }
+)
+
+watch(
+  () => props.chartConfig.option.series,
+  () => {
+    option.value = props.chartConfig.option
+    if (vChartRef.value) {
+      vChartRef.value.setOption(option.value, {
+        replaceMerge: ['series']
+      })
+    }
+  },
+  {
+    deep: true
   }
 )
 

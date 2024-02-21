@@ -17,7 +17,8 @@ export const seriesItem = {
   itemStyle: {
     color: null,
     borderRadius: 0
-  }
+  },
+  yAxisIndex: 0
 }
 export const option = {
   tooltip: {
@@ -32,10 +33,16 @@ export const option = {
     show: true,
     type: 'value'
   },
-  yAxis: {
-    show: true,
-    type: 'category'
-  },
+  yAxis: [
+    {
+      show: true,
+      type: 'category'
+    },
+    {
+      show: false,
+      type: 'category'
+    }
+  ],
   dataset: { ...dataJson },
   series: [seriesItem, seriesItem],
   allSeriesConfig: seriesItem

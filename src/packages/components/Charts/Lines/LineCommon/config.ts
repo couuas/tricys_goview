@@ -23,7 +23,8 @@ export const seriesItem = {
     type: 'solid',
     width: 3,
     color: null
-  }
+  },
+  yAxisIndex: 0
 }
 
 export const option = {
