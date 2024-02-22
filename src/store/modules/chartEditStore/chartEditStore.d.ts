@@ -267,7 +267,11 @@ export enum CurrentSourceEnum {
   // 当月告警分类统计
   MONTHALARMCLASS = 'monthAlarmClass',
   // 测点表格
-  POINTTABLE = 'pointTable'
+  POINTTABLE = 'pointTable',
+  // 手动输入
+  MANUALINPUT = 'manualInput',
+  // 手动输入(单值)
+  MANUALINPUTSINGLE = 'manualInputSingle',
 }
 
 // 测点历史参数
@@ -349,6 +353,23 @@ export interface PointTableType {
   ids: string[]
 }
 
+// 手动输入值
+export interface ManualInputType {
+  enable: boolean
+  dataset: {
+    dimensions: string[],
+    source: {
+      [k: string]: any
+    }
+  }
+}
+
+// 手动输入值(单值)
+export interface ManualInputSingleType {
+  enable: boolean
+  result: resultType
+}
+
 // 通用组件数据
 export interface commonDataType {
   // 多数据
@@ -364,6 +385,10 @@ export interface commonDataType {
   deviceClass: DeviceClassType
   // 单数据
   singlePoint: SinglePointType
+  // 手动输入
+  manualInput: ManualInputType
+  // 手动输入(单值)
+  manualInputSingle: ManualInputSingleType
 }
 
 // customEvent事件

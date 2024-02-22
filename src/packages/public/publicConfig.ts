@@ -2,6 +2,9 @@ import { getUUID } from '@/utils'
 import { RequestConfigType, commonDataType, CustomEventType, CurrentSourceEnum, DateTypeEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
 import { groupTitle } from '@/settings/designSetting'
 import { BaseEvent, EventLife } from '@/enums/eventEnum'
+import dataJson from '@/hooks/commonDataComponents/data.json'
+import singleDataJson from '@/hooks/commonDataComponents/singleData.json'
+
 import {
   RequestHttpEnum,
   RequestDataTypeEnum,
@@ -97,6 +100,14 @@ const commonData: commonDataType = {
       unit: '',
       value: 0
     }
+  },
+  manualInput: {
+    enable: false,
+    dataset: {...dataJson}
+  },
+  manualInputSingle: {
+    enable: false,
+    result: {...singleDataJson}
   }
 }
 

@@ -161,8 +161,18 @@ export const sourceOptions: sourceOptionsItemType[] = [
     type: optionTypeEnum.MULTIPLE,
   },
   {
+    label: '手动输入值',
+    value: CurrentSourceEnum.MANUALINPUT,
+    type: optionTypeEnum.MULTIPLE,
+  },
+  {
     label: '单测点实时值',
     value: CurrentSourceEnum.SINGLEPOINT,
+    type: optionTypeEnum.SINGLE,
+  },
+  {
+    label: '手动输入值(单值)',
+    value: CurrentSourceEnum.MANUALINPUTSINGLE,
     type: optionTypeEnum.SINGLE,
   },
 ]

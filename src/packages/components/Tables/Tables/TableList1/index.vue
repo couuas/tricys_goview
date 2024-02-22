@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <div ref="list" class="list" :style="{transform: `translateY(${translateY}px)`}">
-      <template v-if="isPointTable">
+      <template v-if="isTag">
         <div class="item" v-for="(item, i) in datasetSource" :key="i">
           <img class="img" :src="Snow">
           <div class="label">{{item.name}}</div>
@@ -79,8 +79,12 @@ const option = computed(() => props.chartConfig.option)
 
 const commonData = computed(() => props.chartConfig.commonData)
 
-const isPointTable = computed(() => {
-  return commonData.value.currentSource === CurrentSourceEnum.POINTTABLE
+// const isPointTable = computed(() => {
+//   return commonData.value.currentSource === CurrentSourceEnum.POINTTABLE
+// })
+
+const isTag = computed(() => {
+  return option.value.dataset.source.length && Object.prototype.hasOwnProperty.call(option.value.dataset.source[0], 'status')
 })
 
 const datasetDimensions = computed(() => {

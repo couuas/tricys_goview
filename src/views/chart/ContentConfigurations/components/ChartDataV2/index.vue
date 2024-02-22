@@ -11,14 +11,16 @@
       <MonthAlarmClass v-else-if="matchComponent(CurrentSourceEnum.MONTHALARMCLASS)"/>
       <DeviceClass v-else-if="matchComponent(CurrentSourceEnum.DEVICECLASS)"/>
       <PointTable v-else-if="matchComponent(CurrentSourceEnum.POINTTABLE)"/>
+      <ManualInput v-else-if="matchComponent(CurrentSourceEnum.MANUALINPUT)"/>
     </template>
     <template v-else-if="IsCommonSingle">
       <setting-item-box name="数据源" :alone="true">
         <n-select v-model:value="targetData.commonData.currentSource" :options="singleSourceOptions" size="small"/>
       </setting-item-box>
       <SinglePoint v-if="matchComponent(CurrentSourceEnum.SINGLEPOINT)"/>
+      <ManualInputSingle v-if="matchComponent(CurrentSourceEnum.MANUALINPUTSINGLE)"/>
     </template>
-    <setting-item-box name="更新间隔" :alone="true">
+    <setting-item-box v-if="!matchComponent(CurrentSourceEnum.MANUALINPUT)" name="更新间隔" :alone="true">
       <n-input-group>
         <n-input-number
           v-model:value.trim="targetData.request.requestInterval"
@@ -66,6 +68,8 @@ import SinglePoint from './components/SinglePoint.vue'
 import MonthAlarmClass from './components/MonthAlarmClass.vue'
 import DeviceClass from './components/DeviceClass.vue'
 import PointTable from './components/PointTable.vue'
+import ManualInput from './components/ManualInput.vue'
+import ManualInputSingle from './components/ManualInputSingle.vue'
 import NoParam from './components/NoParam.vue'
 import { computed } from 'vue'
 import type { Ref } from 'vue'

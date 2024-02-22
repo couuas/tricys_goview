@@ -15,6 +15,8 @@ import { handleMonthAlarmClass } from './commonDataComponents/useMonthAlarmClass
 import { handleDeviceClass } from './commonDataComponents/useDeviceClassRes'
 import { handlePointTable } from "./commonDataComponents/usePointTableRes";
 import { handleNoParam } from './commonDataComponents/useNoParamRes'
+import { handleManulInput } from './commonDataComponents/useManualInputRes'
+import { handleManulInputSingle } from './commonDataComponents/useManualInputSingleRes'
 import { ResultErrcode } from '@/enums/httpEnum'
 
 // 获取类型
@@ -46,7 +48,8 @@ export const useChartCommonData = (
             // if(!dataset.dimensions) return
             if(targetComponent.option){
                 const SingleDataArr = [
-                    CurrentSourceEnum.SINGLEPOINT
+                    CurrentSourceEnum.SINGLEPOINT,
+                    CurrentSourceEnum.MANUALINPUTSINGLE
                 ]
                 const currentSource = targetComponent.commonData?.currentSource
                 // 多个值的处理方式
@@ -130,6 +133,13 @@ export const useChartCommonData = (
                     case CurrentSourceEnum.POINTTABLE:
                         res = await handlePointTable(targetComponent)
                         break;
+                    case CurrentSourceEnum.MANUALINPUT:
+                        res = await handleManulInput(targetComponent)
+                        break;
+                    case CurrentSourceEnum.MANUALINPUTSINGLE:
+                        res = await handleManulInputSingle(targetComponent)
+                        isMultiple = false
+                        break;
                     default:
                         // res = await handleNoParam(targetComponent)
                         break;
@@ -163,9 +173,10 @@ export const useChartCommonData = (
                                 // 更新回调函数
                                 if (updateCallback) updateCallback(data)
                             }
-                            else throw Error()
+                            else throw Error('1234')
                         }
                     } catch (error) {
+                        console.log(error)
                         if(!isPreview()) window['$message'].error('数据错误')
                     }
                 }
