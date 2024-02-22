@@ -2,7 +2,7 @@
   <div class="go-text-box">
     <div class="content">
       <span
-        :style="{cursor: link ? 'pointer' : 'unset'}"
+        :style="{cursor: link ? 'pointer' : 'unset', color: option.showStatusColor ? computeColor(dataStatus).remark : ''}"
         style="cursor: pointer; white-space: pre-wrap"
         @click="link ? click : () => {}"
       >
@@ -25,6 +25,27 @@ import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore
 import { option as configOption } from './config'
 import { useChartCommonData } from '@/hooks'
 import { resultType } from '@/store/modules/chartEditStore/chartEditStore.d'
+import {useOriginStore} from "@/store/modules/originStore/originStore";
+
+const originStore = useOriginStore()
+const node_status = originStore?.getOriginStore?.user?.systemConstant?.node_status
+
+const computeColor = (status: number | undefined) => {
+  type ItemType = {
+    value: string,
+    remark: string,
+    label: string
+  }
+  if(node_status.length && typeof status === 'number') {
+    return node_status.find((_: ItemType) => _.value == status.toString())
+  }
+  else {
+    return {
+      remark: '#aaaaaa',
+      label: '无'
+    }
+  }
+}
 
 const props = defineProps({
   chartConfig: {
@@ -52,15 +73,17 @@ const {
 
 const option = shallowReactive({
   dataset: configOption.dataset,
-  showUnit: configOption.showUnit
+  showUnit: configOption.showUnit,
+  showStatusColor: configOption.showStatusColor
 })
 
 // 手动更新
 watch(
-  [() => props.chartConfig.option.dataset, () => props.chartConfig.option.showUnit],
-  ([newData, newShowUnit]: [any, boolean]) => {
+  [() => props.chartConfig.option.dataset, () => props.chartConfig.option.showUnit, () => props.chartConfig.option.showStatusColor],
+  ([newData, newShowUnit, showStatusColor]: [any, boolean, boolean]) => {
     option.dataset = newData
     option.showUnit = newShowUnit
+    option.showStatusColor = showStatusColor
   },
   {
     immediate: true,
@@ -71,6 +94,7 @@ watch(
 const dataEnable = ref()
 const dataValue = ref()
 const dataUnit = ref()
+const dataStatus = ref()
 watch(
   () => props.chartConfig.commonData,
   newData => {
@@ -79,6 +103,7 @@ watch(
       dataEnable.value = data.enable
       dataValue.value = data.result.value
       dataUnit.value = data.result.unit
+      dataStatus.value = data.result.status
     } catch (error) {
       console.log(error)
     }

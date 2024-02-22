@@ -29,6 +29,7 @@ export const option = {
   linkHead: 'http://',
   dataset: '我是文本',
   showUnit: false,
+  showStatusColor: false,
   fontSize: 20,
   fontColor: '#ffffff',
   paddingX: 10,

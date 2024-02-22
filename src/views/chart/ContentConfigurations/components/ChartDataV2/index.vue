@@ -81,6 +81,8 @@ import { TextCommonConfig } from "@/packages/components/Informations/Texts/TextC
 import { TextGradientConfig } from "@/packages/components/Informations/Texts/TextGradient/index";
 import { WaterPoloConfig } from "@/packages/components/Charts/Mores/WaterPolo/index";
 import { DashboardConfig } from '@/packages/components/CustomComponents/CustomComponents/Dashboard/index'
+import { BorderCustom2Config } from '@/packages/components/Decorates/Borders/BorderCustom2/index'
+
 // const ChartDataStatic = loadAsyncComponent(() => import('./components/ChartDataStatic/index.vue'))
 
 const { targetData } = useTargetData() as { targetData: Ref<CreateComponentType | CreateComponentGroupType> }
@@ -106,6 +108,7 @@ const IsCommonSingle = computed(() => {
     TextGradientConfig,
     WaterPoloConfig,
     DashboardConfig,
+    BorderCustom2Config,
   ]
   const { package:packageStr, category, key } = targetData.value.chartConfig
   const flag = singleCharArr.some(_ => {

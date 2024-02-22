@@ -35,6 +35,12 @@
       <setting-item name="颜色">
         <n-color-picker size="small" :modes="['hex']" v-model:value="optionData.fontColor"></n-color-picker>
       </setting-item>
+      <SettingItem>
+        <n-space>
+          <n-switch v-model:value="optionData.showStatusColor" size="small" />
+          <n-text>展示状态颜色,将覆盖原颜色</n-text>
+        </n-space>
+      </SettingItem>
       <setting-item name="字体大小">
         <n-input-number v-model:value="optionData.fontSize" size="small" placeholder="字体大小"></n-input-number>
       </setting-item>
