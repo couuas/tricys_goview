@@ -46,6 +46,9 @@ const handleMsg = (event: any) => {
         url: obj.path
       })
     }
+    else if(obj.type === 'loaded') {
+      sessionStorage.removeItem("pageLoadMethod")
+    }
   }
 }
 
