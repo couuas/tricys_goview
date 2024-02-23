@@ -10,14 +10,21 @@ export const option = {
   // fit: 'contain',
   // // 圆角
   // borderRadius: 0
+  left: 0,
+  top: 0,
+  scale: 1,
+  // 展示标题
+  isThereATitleComponet: true,
 }
 
 export default class Config extends PublicConfigClass implements CreateComponentType
 {
   constructor() {
     super();
-    this.attr.w = 960
-    this.attr.h = 540
+    this.attr.w = 1920
+    this.attr.h = 1080
+    this.attr.x = 0
+    this.attr.y = 0
   }
   public key = EngineeringConfig.key
   public chartConfig = cloneDeep(EngineeringConfig)

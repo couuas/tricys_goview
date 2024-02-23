@@ -1,6 +1,7 @@
 <template>
   <div v-if="chartConfig.customData.mapId" :style="{width: w, height: h}">
-    <iframe :src="url" width="1920" height="1080" style="transform-origin: left top" :style="{transform: handleScale}" frameborder="no" scrolling="no"></iframe>
+<!--    :style="{transform: handleScale}"-->
+    <iframe ref="iframe" :src="url" :width="w" :height="h" style="transform-origin: left top" frameborder="no" scrolling="no"></iframe>
   </div>
   <div style="display: flex;flex-direction: column;align-items: center;justify-content: center;" v-else>
     <img src="@/assets/images/exception/nodata.svg" style="width: 100%;height: 30%" alt="">
@@ -9,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, PropType, toRefs, onMounted, onUnmounted } from 'vue'
+import { computed, PropType, toRefs, onMounted, onUnmounted, ref, watch } from 'vue'
 import { CreateComponentType } from '@/packages/index.d'
 import { useOriginStore } from '@/store/modules/originStore/originStore'
 import { postMessageToParent } from '@/utils'
@@ -27,7 +28,6 @@ const originStore = useOriginStore()
 
 let url = computed(() => {
   // const account = originStore?.getOriginStore?.user?.user?.account
-  console.log(originStore.getOriginStore)
   const account = 'admin'
   const password = 'laimi@123'
   let origin = process.env.NODE_ENV === 'production' ? window.location.origin : 'http://192.168.0.42:9528'
@@ -35,6 +35,10 @@ let url = computed(() => {
   return str
 })
 
+const iframe = ref()
+const option = computed(() => {
+  return props.chartConfig.option
+})
 const handleMsg = (event: any) => {
   let origin = process.env.NODE_ENV === 'production' ? window.location.origin : 'http://192.168.0.42:9528'
   if (event.origin === origin) {
@@ -48,14 +52,61 @@ const handleMsg = (event: any) => {
     }
     else if(obj.type === 'loaded') {
       sessionStorage.removeItem("pageLoadMethod")
+      postMsgToChild({
+        type: 'setTop&Left&Scale',
+        top: option.value.top,
+        left: option.value.left,
+        scale: option.value.scale,
+        isThereATitleComponet: option.value.isThereATitleComponet
+      })
+    }
+    else if(obj.type === 'setWidthAndHeight') {
+      // iframeWidth.value = obj.width
+      // iframeHeight.value = obj.height
+    }
+    else if(obj.type === 'setIframe') {
+      postMsgToChild({
+        type: 'setTop&Left&Scale',
+        top: option.value.top,
+        left: option.value.left,
+        scale: option.value.scale,
+        isThereATitleComponet: option.value.isThereATitleComponet
+      })
     }
   }
 }
 
+const setIframeStr = computed(() => {
+  return [option.value.top, option.value.left, option.value.scale, option.value.isThereATitleComponet].join('&&')
+})
+
+watch(() => setIframeStr, () => {
+  postMsgToChild({
+    type: 'setTop&Left&Scale',
+    top: option.value.top,
+    left: option.value.left,
+    scale: option.value.scale,
+    isThereATitleComponet: option.value.isThereATitleComponet
+  })
+}, {
+  deep: true
+})
+
+const postMsgToChild = (obj: Object) => {
+  if(iframe.value) {
+    let origin = process.env.NODE_ENV === 'production' ? window.location.origin : 'http://192.168.0.42:9528'
+    iframe.value.contentWindow.postMessage(obj, origin);
+  }
+}
+
+const iframeWidth = ref(1920)
+const iframeHeight = ref(1080)
+
 const handleScale = computed(() => {
-  let x = w.value / 1920
-  let y = h.value / 1080
-  let str = `scale(${x}, ${y})`
+  let x = w.value / iframeWidth.value
+  let y = h.value / iframeHeight.value
+  // let str = `scale(${x}, ${y})`
+  let str = `scale(${1}, ${1})`
   return str
 })
 
