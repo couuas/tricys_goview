@@ -11,5 +11,5 @@ export const BorderCustom2Config: ConfigType = {
   categoryName: ChatCategoryEnumName.BORDER,
   package: PackagesCategoryEnum.DECORATES,
   chartFrame: ChartFrameEnum.COMMON,
-  image: 'BorderCustom1.png'
+  image: 'BorderCustom2.png'
 }
