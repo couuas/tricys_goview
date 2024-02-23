@@ -26,7 +26,9 @@ const { w, h } = toRefs(props.chartConfig.attr)
 const originStore = useOriginStore()
 
 let url = computed(() => {
-  const account = originStore?.getOriginStore?.user?.user?.account
+  // const account = originStore?.getOriginStore?.user?.user?.account
+  console.log(originStore.getOriginStore)
+  const account = 'admin'
   const password = 'laimi@123'
   let origin = process.env.NODE_ENV === 'production' ? window.location.origin : 'http://192.168.0.42:9528'
   let str = `${origin}/static/#/dynamicRing/schematicDiagram/${props.chartConfig.customData.mapId}?parentOrigin=${window.location.origin}&isIframe=true&account=${account}&password=${password}`
