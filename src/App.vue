@@ -25,7 +25,7 @@ import { useGetMessageByParent } from '@/utils/utils'
 
 const {getMessageByParent} = useGetMessageByParent()
 
-console.log(window.location.origin)
+// console.log(window.location.origin)
 const routerStore = useRouterStore()
 getMessageByParent('setCallByParent', (e) => {
   if(e.data.type === 'setCallByParent' && e.data.page === 'customLargeScreen') {

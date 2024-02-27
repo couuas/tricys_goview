@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, PropType, toRefs, onMounted, onUnmounted, ref, watch } from 'vue'
+import { computed, PropType, toRefs, onMounted, onUnmounted, ref, watch, defineEmits } from 'vue'
 import { CreateComponentType } from '@/packages/index.d'
 import { useOriginStore } from '@/store/modules/originStore/originStore'
 import { postMessageToParent } from '@/utils'
@@ -39,6 +39,9 @@ const iframe = ref()
 const option = computed(() => {
   return props.chartConfig.option
 })
+
+const emit = defineEmits(['changeZIndex'])
+
 const handleMsg = (event: any) => {
   let origin = process.env.NODE_ENV === 'production' ? window.location.origin : 'http://192.168.0.42:9528'
   if (event.origin === origin) {
@@ -72,6 +75,9 @@ const handleMsg = (event: any) => {
         scale: option.value.scale,
         isThereATitleComponet: option.value.isThereATitleComponet
       })
+    }
+    else if(obj.type === 'setZIndex') {
+      emit('changeZIndex', obj.zIndex)
     }
   }
 }

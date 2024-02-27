@@ -12,11 +12,11 @@
         <n-input v-model:value="optionData.datasetCustom" size="small"></n-input>
       </setting-item>
     </setting-item-box>
-    <setting-item-box name="混合模式" alone>
-      <setting-item name="使用滤色选项可以去除黑色背景">
-        <n-select v-model:value="chartStyles.blendMode" :options="BlendModeEnumList" size="small"></n-select>
-      </setting-item>
-    </setting-item-box>
+<!--    <setting-item-box name="混合模式" alone>-->
+<!--      <setting-item name="使用滤色选项可以去除黑色背景">-->
+<!--        <n-select v-model:value="chartStyles.blendMode" :options="BlendModeEnumList" size="small"></n-select>-->
+<!--      </setting-item>-->
+<!--    </setting-item-box>-->
     <setting-item-box name="控制">
       <setting-item>
         <n-checkbox v-model:checked="optionData.loop" size="small">循环播放</n-checkbox>

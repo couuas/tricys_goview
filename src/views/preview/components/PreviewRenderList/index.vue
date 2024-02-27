@@ -10,7 +10,8 @@
       ...getStatusStyle(item.status),
       ...getPreviewConfigStyle(item.preview),
       ...getBlendModeStyle(item.styles) as any,
-      ...getSizeStyle(item.attr)
+      ...getSizeStyle(item.attr),
+      zIndex: zIndexMap[item.id] ? zIndexMap[item.id] : ''
     }"
   >
     <!-- 分组 -->
@@ -20,6 +21,7 @@
       :groupIndex="index"
       :themeSetting="themeSetting"
       :themeColor="themeColor"
+      @changeZIndex="z => changeZIndex(item.id, z)"
     ></preview-render-group>
 
     <!-- 单组件 -->
@@ -35,13 +37,15 @@
         ...getFilterStyle(item.styles)
       }"
       v-on="bindEvent(item)"
+      @changeZIndex="z => changeZIndex(item.id, z)"
     ></component>
 <!--    v-on="useLifeHandler(item)"-->
   </div>
 </template>
 
 <script setup lang="ts">
-import { PropType, computed, onMounted } from 'vue'
+import { PropType, computed, onMounted, ref } from 'vue'
+import type { Ref } from 'vue'
 import { useChartDataPondFetch } from '@/hooks'
 import { ChartEditStorageType } from '../../index.d'
 import { PreviewRenderGroup } from '../PreviewRenderGroup/index'
@@ -75,6 +79,12 @@ const themeColor = computed(() => {
   const colorCustomMergeData = colorCustomMerge(chartEditStore.editCanvasConfig.chartCustomThemeColorInfo)
   return colorCustomMergeData[chartEditStore.editCanvasConfig.chartThemeColor]
 })
+
+// 设置zindex
+const zIndexMap: Ref<{ [k: string] : number | string | undefined }> = ref({})
+const changeZIndex = (id: string, z: number | string | undefined) => {
+  zIndexMap.value[id] = z
+}
 
 // 组件渲染结束初始化数据池
 clearMittDataPondMap()

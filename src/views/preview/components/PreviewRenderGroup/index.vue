@@ -15,7 +15,8 @@
       ...getComponentAttrStyle(item.attr, groupIndex),
       ...getStatusStyle(item.status),
       ...getPreviewConfigStyle(item.preview),
-      ...getBlendModeStyle(item.styles) as any
+      ...getBlendModeStyle(item.styles) as any,
+      zIndex: zIndexMap[item.id] ? zIndexMap[item.id] : ''
     }"
     >
       <component
@@ -30,13 +31,14 @@
           ...getTransformStyle(item.styles)
         }"
         v-on="useLifeHandler(item)"
+        @changeZIndex="z => changeZIndex(item.id, z)"
       ></component>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { PropType } from 'vue'
+import {PropType, ref, Ref} from 'vue'
 import { CreateComponentGroupType } from '@/packages/index.d'
 import { animationsClass, getFilterStyle, getTransformStyle, getBlendModeStyle } from '@/utils'
 import { getSizeStyle, getComponentAttrStyle, getStatusStyle, getPreviewConfigStyle } from '../../utils'
@@ -60,6 +62,15 @@ const props = defineProps({
     required: true
   }
 })
+
+const emit = defineEmits(['changeZIndex'])
+// 设置zindex
+const zIndexMap: Ref<{ [k: string] : number | string | undefined }> = ref({})
+
+const changeZIndex = (id: string, z: number | string | undefined) => {
+  zIndexMap.value[id] = z
+  emit('changeZIndex', z)
+}
 </script>
 
 <style lang="scss" scoped>
