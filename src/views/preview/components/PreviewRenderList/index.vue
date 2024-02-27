@@ -37,7 +37,7 @@
         ...getFilterStyle(item.styles)
       }"
       v-on="bindEvent(item)"
-      @changeZIndex="z => changeZIndex(item.id, z)"
+      @changeZIndex="(z: number | string | undefined) => changeZIndex(item.id, z)"
     ></component>
 <!--    v-on="useLifeHandler(item)"-->
   </div>

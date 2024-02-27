@@ -31,7 +31,7 @@
           ...getTransformStyle(item.styles)
         }"
         v-on="useLifeHandler(item)"
-        @changeZIndex="z => changeZIndex(item.id, z)"
+        @changeZIndex="(z: number | string | undefined) => changeZIndex(item.id, z)"
       ></component>
     </div>
   </div>

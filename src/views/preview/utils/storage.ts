@@ -26,7 +26,6 @@ export const getSessionStorageInfo = async () => {
       //   // 跳转未发布页
       //   return { isRelease: false }
       // }
-      console.log(content)
       const parseData = { ...JSONParse(content ? content : '{}'), id }
       const { editCanvasConfig, requestGlobalConfig, componentList } = parseData
       chartEditStore.editCanvasConfig = editCanvasConfig
