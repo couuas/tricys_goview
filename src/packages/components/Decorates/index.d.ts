@@ -3,7 +3,8 @@ export enum ChatCategoryEnum {
   DECORATE = 'Decorates',
   THREE = 'Three',
   MORE = 'Mores',
-  TOPBARS = 'TopBars'
+  TOPBARS = 'TopBars',
+  BASE = 'Base'
 }
 
 export enum ChatCategoryEnumName {
@@ -11,5 +12,6 @@ export enum ChatCategoryEnumName {
   DECORATE = '装饰',
   THREE = '三维',
   MORE = '更多',
-  TOPBARS = '顶栏'
+  TOPBARS = '顶栏',
+  BASE = '底座'
 }

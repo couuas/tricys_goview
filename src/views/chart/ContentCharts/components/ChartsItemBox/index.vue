@@ -128,8 +128,11 @@ const dblclickHandle = async (item: ConfigType) => {
       newComponent.chartConfig.title = item.title
       newComponent.chartConfig.chartFrame = item.chartFrame
     }
+    let isHead = false
+    let isHeadList = ['EngineeringConfig']
+    if(isHeadList.includes(newComponent.chartConfig.key)) isHead = true
     // 添加
-    chartEditStore.addComponentList(newComponent, false, true)
+    chartEditStore.addComponentList(newComponent, isHead, true)
     // 选中
     chartEditStore.setTargetSelectChart(newComponent.id)
     loadingFinish()

@@ -14,7 +14,7 @@ export const option = {
   top: 0,
   scale: 1,
   // 展示标题
-  isThereATitleComponet: true,
+  isThereATitleComponet: false,
 }
 
 export default class Config extends PublicConfigClass implements CreateComponentType
