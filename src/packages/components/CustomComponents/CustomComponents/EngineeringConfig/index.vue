@@ -31,7 +31,7 @@ let url = computed(() => {
   const account = 'admin'
   const password = 'laimi@123'
   let origin = process.env.NODE_ENV === 'production' ? window.location.origin : 'http://192.168.0.42:9528'
-  let str = `${origin}/static/#/dynamicRing/schematicDiagram/${props.chartConfig.customData.mapId}?parentOrigin=${window.location.origin}&isIframe=true&account=${account}&password=${password}`
+  let str = `${origin}/static/#/dynamicRing/schematicDiagram/${props.chartConfig.customData.mapId}?parentOrigin=${window.location.origin}&isScreenIframe=true&account=${account}&password=${password}`
   return str
 })
 
@@ -54,7 +54,7 @@ const handleMsg = (event: any) => {
       })
     }
     else if(obj.type === 'loaded') {
-      sessionStorage.removeItem("pageLoadMethod")
+      // sessionStorage.removeItem("pageLoadMethod")
       postMsgToChild({
         type: 'setTop&Left&Scale',
         top: option.value.top,

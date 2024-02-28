@@ -41,7 +41,7 @@
       </SettingItem>
     </SettingItemBox>
     <SettingItemBox name="提示" :alone="true">
-      <n-text>在预览页使用alt+滚轮进行缩放</n-text>
+      <n-text>在预览页可以使用 alt+'+' 或 alt+'-' 进行缩放</n-text>
     </SettingItemBox>
   </CollapseItem>
 </template>
