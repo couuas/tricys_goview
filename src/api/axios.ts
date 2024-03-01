@@ -55,10 +55,29 @@ axiosInstance.interceptors.response.use(
 
     const logOutCodeList = ['00004', '000012', '000013']
     if(logOutCodeList.some(_ => _ === errcode)) {
-      window['$message'].error(errmsg)
-      setTimeout(() => {
-        postMessageToParent({
-          type: 'logOut'
+      // window['$message'].error(errmsg)
+      // setTimeout(() => {
+      //   postMessageToParent({
+      //     type: 'logOut'
+      //   })
+      // })
+
+      // axios加载时 pinia还没加载好 要异步加载拿到pinia
+      import('@/store/modules/modalStore/modalStore').then(res => {
+        const modalStore = res.useModalStore()
+        modalStore.setModalStore({
+          showModal: true,
+          title: '提示',
+          content: errmsg,
+          positiveText: '重新登录',
+          positiveClick: () => {
+            modalStore.clear()
+            setTimeout(() => {
+              postMessageToParent({
+                type: 'logOut'
+              })
+            }, 500)
+          },
         })
       })
       return Promise.resolve(res.data)

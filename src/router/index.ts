@@ -11,7 +11,8 @@ const RootRoute: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Root',
-    redirect: PageEnum.BASE_HOME,
+    // redirect: PageEnum.BASE_HOME,
+    redirect: '/chart/preview/null',
     component: Layout,
     meta: {
       title: 'Root',

@@ -22,6 +22,7 @@ import { getToken } from '@/api/path'
 import { useRouterStore } from '@/store/modules/routerStore/routerStore'
 import { useOriginStore } from '@/store/modules/originStore/originStore'
 import { useGetMessageByParent } from '@/utils/utils'
+import router from '@/router'
 
 const {getMessageByParent} = useGetMessageByParent()
 
@@ -43,7 +44,13 @@ getMessageByParent('getStore', (e) => {
   }
 })
 
-getToken()
+getMessageByParent('loaded', (e) => {
+  if(e.data.type === 'changeRoute' && e.data.page === 'customLargeScreen') {
+    routerStore.setToken(e.data.token)
+    router.push(e.data.path ? e.data.path : '/chart/preview/null')
+  }
+})
+// getToken()
 
 // 暗黑主题
 const darkTheme = useDarkThemeHook()

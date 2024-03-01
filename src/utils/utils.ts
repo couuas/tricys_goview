@@ -294,7 +294,6 @@ export const JSONStringify = <T>(data: T) => {
 
 export const evalFn = (fn: string) => {
   var Fun = Function // 一个变量指向Function，防止前端编译工具报错
-  console.log(fn)
   return new Fun('return ' + fn)()
 }
 

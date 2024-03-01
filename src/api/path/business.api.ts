@@ -4,6 +4,7 @@ import { RequestHttpEnum } from "@/enums/httpEnum";
 import { httpErrorHandle } from '@/utils'
 import moment from 'moment'
 
+/*
 export function getToken() {
     // 为了开发时只单独展示goview 需要localStorage
     // const storage_access_token = localStorage.getItem('access_token_obj')
@@ -26,10 +27,26 @@ export function getToken() {
     // if(query.access_token) localStorage.setItem('access_token_obj', JSON.stringify(obj))
     return query.access_token
 }
+ */
+
+// 初次等待久一点 因为dom加载后才能获取父页面传来的token 才能存入store
+export async function getToken() {
+    return new Promise(resolve => {
+        let timer = setInterval(() => {
+            import('@/store/modules/routerStore/routerStore').then(res => {
+                let routerStore = res.useRouterStore()
+                if(routerStore.token) {
+                    clearInterval(timer)
+                    resolve(routerStore.token)
+                }
+            })
+        }, 100)
+    })
+}
 
 export const publicInterface = async (paramType:string, interfaceType:string, paramData?:unknown) =>{
     try {
-        const access_token = getToken()
+        const access_token = await getToken()
         const res = await http(RequestHttpEnum.POST)<any>(paramType, {
             access_token,
             type: interfaceType,

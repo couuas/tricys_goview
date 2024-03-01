@@ -7,4 +7,9 @@
       </keep-alive>
     </template>
   </router-view>
+  <VDialog/>
 </template>
+
+<script setup lang="ts">
+import VDialog from '@/components/VDialog/index.vue'
+</script>
