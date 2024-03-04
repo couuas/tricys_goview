@@ -47,7 +47,7 @@ getMessageByParent('getStore', (e) => {
 getMessageByParent('loaded', (e) => {
   if(e.data.type === 'changeRoute' && e.data.page === 'customLargeScreen') {
     routerStore.setToken(e.data.token)
-    router.push(e.data.path ? e.data.path : '/chart/preview/null')
+    router.replace(e.data.path ? e.data.path : '/chart/preview/null')
   }
 })
 // getToken()
