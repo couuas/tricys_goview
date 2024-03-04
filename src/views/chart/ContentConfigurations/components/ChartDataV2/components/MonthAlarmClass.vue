@@ -46,13 +46,13 @@ type computeIdsItemType = {
 const originStore = useOriginStore()
 
 const systemConstant = originStore.getOriginStore?.user?.systemConstant
-let options2
+type ItemType = {
+  label: string,
+  value: string,
+  remark: string
+}
+let options2: ItemType[] = []
 if(systemConstant.warn_levels) {
-  type ItemType = {
-    label: string,
-    value: string,
-    remark: string
-  }
   options2 = systemConstant['warn_levels'].filter((item: ItemType) => item.value !== '').map((item: any) => {
     return { label: item.label, value: Number(item.value), remark: item.remark }
   })

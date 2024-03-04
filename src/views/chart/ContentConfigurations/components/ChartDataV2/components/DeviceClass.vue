@@ -5,14 +5,12 @@
     </n-space>
   </setting-item-box>
   <setting-item-box name="空间ID" :alone="true">
-    <n-space justify="start">
-      <n-input
-        v-model:value="currentObj.space_complete_id"
-        size="small"
-        placeholder="请输入空间ID"
-        clearable
-      />
-    </n-space>
+    <n-input
+      v-model:value="currentObj.space_complete_id"
+      size="small"
+      placeholder="请输入空间ID"
+      clearable
+    />
   </setting-item-box>
 </template>
 
