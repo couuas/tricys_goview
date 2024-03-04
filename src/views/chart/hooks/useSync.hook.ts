@@ -126,7 +126,13 @@ export const useSync = () => {
       const intComponent = (target: CreateComponentType) => {
         if (!window['$vue'].component(target.chartConfig.chartKey)) {
           window['$vue'].component(target.chartConfig.chartKey, fetchChartComponent(target.chartConfig))
+          // window['$vue'].component(target.chartConfig.conKey, fetchConfigComponent(target.chartConfig))
+          // window['$vue'].component(target.chartConfig.conDataKey, fetchConfigDataComponent(target.chartConfig))
+        }
+        if (!window['$vue'].component(target.chartConfig.conKey)) {
           window['$vue'].component(target.chartConfig.conKey, fetchConfigComponent(target.chartConfig))
+        }
+        if (!window['$vue'].component(target.chartConfig.conDataKey)) {
           window['$vue'].component(target.chartConfig.conDataKey, fetchConfigDataComponent(target.chartConfig))
         }
       }

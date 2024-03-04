@@ -47,7 +47,8 @@ const handleMsg = (event: any) => {
   if (event.origin === origin) {
     // 处理来自子级页面的消息
     let obj = event.data
-    if(obj.type === 'changeRoute') {
+    if(obj.page !== 'engineering') return
+    if(obj.type === 'changeTopmostRoute') {
       postMessageToParent({
         type: 'changeRouterV1',
         url: obj.path
