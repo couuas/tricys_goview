@@ -94,6 +94,7 @@ const fontWeightOptions = [
 const labelFormatterOptions = [
   { label: '数据名', value: '{b}' },
   { label: '百分比', value: '{d}' },
-  { label: '列名:百分比', value: '{b}:{d}%' }
+  { label: '列名:百分比', value: '{b}:{d}%' },
+  { label: '列名:数值', value: '{b}:{@[1]}' },
 ]
 </script>

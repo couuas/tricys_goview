@@ -152,6 +152,26 @@ watch(
 // })
 const { vChartRef } = useChartCommonData(props.chartConfig, useChartEditStore)
 
+watch(
+  () => props.chartConfig.option.dataset,
+  (v) => {
+    v.source.forEach((item: {[k: string]: any}) => {
+      let k = v.dimensions[0]
+      let k1 = v.dimensions[1]
+      if(item[k].split(' ').length < 2) {
+        item[k] += ` ${item[k1]}`
+      }
+    })
+    if(vChartRef.value) {
+      vChartRef.value.setOption({
+        dataset: v
+      })
+    }
+  },
+  {
+    deep: true
+  }
+)
 
 onMounted(() => {
   seriesDataMaxLength = dataJson.source.length

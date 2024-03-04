@@ -29,7 +29,11 @@ const option = {
   type: 'ring',
   tooltip: {
     show: true,
-    trigger: 'item'
+    trigger: 'item',
+    formatter: (params: any) => {
+      let str = `${params.seriesName}<br/>${params.marker}${params.name}`
+      return str
+    }
   },
   legend: {
     show: true

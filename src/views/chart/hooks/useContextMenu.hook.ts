@@ -236,7 +236,6 @@ const handleContextMenu = (
       targetInstance
     )
   }
-  console.log(menuOptions.value)
   nextTick().then(() => {
     chartEditStore.setMousePosition(e.clientX, e.clientY)
     chartEditStore.setRightMenuShow(true)

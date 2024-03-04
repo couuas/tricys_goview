@@ -68,7 +68,7 @@
         </n-space>
       </SettingItem>
       <SettingItem name="字段">
-        <n-text style="height: 28px;line-height: 28px">{{item.key ? item.key : '--'}}</n-text>
+        <n-text style="height: 28px;line-height: 28px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden" :title="item.key ? item.key : '--'">{{item.key ? item.key : '--'}}</n-text>
       </SettingItem>
       <SettingItem name="标题">
         <n-input v-model:value="item.header" size="small" clearable/>

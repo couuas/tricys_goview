@@ -5,16 +5,17 @@
       v-if="status.header.length && status.mergedConfig"
       :style="`background-color: ${status.mergedConfig.headerBGC};`"
     >
+<!--      line-height: ${status.mergedConfig.headerHeight}px;-->
       <div
         class="header-item"
         v-for="(headerItem, i) in status.header"
         :key="`${headerItem}${i}`"
         :style="`
         height: ${status.mergedConfig.headerHeight}px;
-        line-height: ${status.mergedConfig.headerHeight}px;
         width: ${status.widths[i]}px;
       `"
         :align="status.aligns[i]"
+        :title="headerItem"
         v-html="headerItem"
       />
     </div>
@@ -390,11 +391,13 @@ onUnmounted(() => {
 
   .header {
     display: flex;
+    align-items: center;
     flex-direction: row;
     font-size: 15px;
 
     .header-item {
       transition: all 0.3s;
+      overflow: hidden;
     }
   }
 
@@ -406,6 +409,11 @@ onUnmounted(() => {
       font-size: 14px;
       transition: all 0.3s;
       overflow: hidden;
+      .ceil{
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
     }
   }
 }

@@ -39,6 +39,7 @@ import { CreateComponentType } from '@/packages/index.d'
 import { icon } from '@/plugins'
 import {useChartCommonData} from "@/hooks";
 import {useChartEditStore} from "@/store/modules/chartEditStore/chartEditStore";
+import { isPreview } from '@/utils'
 import { cloneDeep } from 'lodash'
 
 const props = defineProps({
@@ -79,7 +80,7 @@ watch(
   () => props.chartConfig.option.dataset,
   (newData: any) => {
     option.dataset = newData
-    option.header.value = newData.dimensions
+    if(!isPreview()) option.header.value = newData.dimensions
     option.header.options = newData.dimensions
     newData.dimensions.forEach((key: string) => {
       if(!Object.prototype.hasOwnProperty.call(option.header.map, key)) option.header.map[key] = key

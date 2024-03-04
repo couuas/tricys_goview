@@ -95,8 +95,13 @@ export const option = {
             const { name, value, unit, showValue } = param.data
 
             let str = ''
-            if(showPercent) str += `${showValue * 100}%`
-            else str += showUnit ? `${showValue}${unit}` : showValue
+            if(typeof showValue === 'number') {
+              if(showPercent) str += `${showValue * 100}%`
+              else str += showUnit ? `${showValue}${unit}` : showValue
+            }
+            else {
+              str += '--'
+            }
 
             str += '\n'
             if(showSubText) str += name

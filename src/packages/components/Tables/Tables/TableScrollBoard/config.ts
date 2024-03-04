@@ -36,7 +36,7 @@ export const option = {
   // align: [],
   rowNum: 5,
   waitTime: 2,
-  headerHeight: 35,
+  headerHeight: null,
   carousel: 'single',
   headerBGC: '#00BAFF',
   oddRowBGC: '#003B51',

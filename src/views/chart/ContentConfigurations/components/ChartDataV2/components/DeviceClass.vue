@@ -9,7 +9,7 @@
       <n-input
         v-model:value="currentObj.space_complete_id"
         size="small"
-        placeholder="请输入测点ID"
+        placeholder="请输入空间ID"
         clearable
       />
     </n-space>
