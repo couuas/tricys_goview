@@ -270,7 +270,6 @@ const clearColor = () => {
 // 自定义上传操作
 const customRequest = (options: UploadCustomRequestOptions) => {
   const { file } = options
-  console.log(file)
   nextTick(async () => {
     if (file.file) {
       // 修改名称

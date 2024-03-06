@@ -52,6 +52,9 @@ export const carouselInterval = 4000
 // 工作台大屏背景图片大小限制（5M）
 export const backgroundImageSize = 5
 
+// 工作台视频组件大小限制（500M）
+export const videoSize = 500
+
 // 预览展示方式
 export const previewScaleType = PreviewScaleEnum.SCROLL_Y
 

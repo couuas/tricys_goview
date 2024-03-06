@@ -6,7 +6,7 @@ import video from '@/assets/videos/earth.mp4'
 
 export const option = {
   // 视频路径
-  dataset: 'https://goviewpro.tos-cn-beijing.volces.com/charts-img-db/charts-img-db_id_17bwi76fzta800.mp4',
+  dataset: '',
   datasetCustom: '',
   // 视频列表
   datasetList: [],
