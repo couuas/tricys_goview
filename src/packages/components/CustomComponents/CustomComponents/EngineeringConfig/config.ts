@@ -16,7 +16,7 @@ export const option = {
   // 展示标题
   isThereATitleComponet: false,
   // 控制内层 使外层选中失效
-  enableInner: false
+  enableInner: true
 }
 
 export default class Config extends PublicConfigClass implements CreateComponentType
@@ -27,6 +27,8 @@ export default class Config extends PublicConfigClass implements CreateComponent
     this.attr.h = 1080
     this.attr.x = 0
     this.attr.y = 0
+    this.attr.isHeadInsert = true
+    this.attr.isFixedInit = true
   }
   public key = EngineeringConfig.key
   public chartConfig = cloneDeep(EngineeringConfig)

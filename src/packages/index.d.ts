@@ -118,7 +118,9 @@ export const BlendModeEnumList = [
 export interface PublicConfigType {
   id: string
   isGroup: boolean
-  attr: { x: number; y: number; w: number; h: number; zIndex: number; offsetX: number; offsetY: number }
+  // isHeadInsert 组件置底
+  // isFixedInit 组件初始时位置以x,y为准 不以鼠标位置为准
+  attr: { x: number; y: number; w: number; h: number; zIndex: number; offsetX: number; offsetY: number, isHeadInsert?: boolean, isFixedInit?: boolean }
   styles: {
     [FilterEnum.FILTERS_SHOW]: boolean
     [FilterEnum.OPACITY]: number

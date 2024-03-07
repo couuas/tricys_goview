@@ -1,9 +1,11 @@
 <template>
   <CollapseItem name="组态" :expanded="true">
     <SettingItemBox name="移动组态" :alone="true">
-      <n-space justify="start">
-        <n-switch v-model:value="optionData.enableInner" size="small"></n-switch>
-      </n-space>
+      <SettingItem name="开启后能移动组态，但无法选中组件，可以在左侧图层栏选中">
+        <n-space justify="start">
+          <n-switch v-model:value="optionData.enableInner" size="small"></n-switch>
+        </n-space>
+      </SettingItem>
     </SettingItemBox>
     <SettingItemBox name="标题">
       <SettingItem name="如果有标题将展示">
