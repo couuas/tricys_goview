@@ -1,5 +1,5 @@
 <template>
-  <div class="go-shape-box" :style="{pointerEvents}" :class="{ lock, hide }">
+  <div class="go-shape-box" :style="{pointerEvents: pointerEvents as any}" :class="{ lock, hide }">
     <slot :enableOuter="enableOuter"></slot>
     <!-- 锚点 -->
     <template v-if="!hiddenPoint">

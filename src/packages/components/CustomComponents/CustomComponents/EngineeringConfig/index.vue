@@ -1,7 +1,7 @@
 <template>
   <div v-if="chartConfig.customData.mapId" :style="{width: w, height: h}">
 <!--    :style="{transform: handleScale}"-->
-    <iframe ref="iframe" :src="url" :width="w" :height="h" :style="{pointerEvents: !isPreview() && option.enableInner ? 'auto' : ''}" style="transform-origin: left top" frameborder="no" scrolling="no"></iframe>
+    <iframe ref="iframe" :src="url" :width="w" :height="h" :style="{pointerEvents: (!isPreview() && option.enableInner ? 'auto' : '') as any}" style="transform-origin: left top" frameborder="no" scrolling="no"></iframe>
   </div>
   <div style="display: flex;flex-direction: column;align-items: center;justify-content: center;" v-else>
     <img src="@/assets/images/exception/nodata.svg" style="width: 100%;height: 30%" alt="">
