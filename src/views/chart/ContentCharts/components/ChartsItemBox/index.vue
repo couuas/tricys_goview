@@ -129,7 +129,7 @@ const dblclickHandle = async (item: ConfigType) => {
       newComponent.chartConfig.chartFrame = item.chartFrame
     }
     // 组件置底插入
-    let isHead = !!newComponent.chartConfig.isHeadInsert
+    let isHead = !!newComponent.attr.isHeadInsert
     // 添加
     chartEditStore.addComponentList(newComponent, isHead, true)
     // 选中

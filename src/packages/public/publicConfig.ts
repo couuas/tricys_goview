@@ -15,6 +15,7 @@ import {
 import {
   ChartFrameEnum,
   PublicConfigType,
+  PublicConfigAttrType,
   CreateComponentType,
   CreateComponentGroupType
 } from '@/packages/index.d'
@@ -123,7 +124,7 @@ export class PublicConfigClass implements PublicConfigType {
   public id = getUUID()
   public isGroup = false
   // 基本信息
-  public attr = { ...chartInitConfig, zIndex: -1 }
+  public attr = { ...chartInitConfig, zIndex: -1 } as PublicConfigAttrType
   // 基本样式
   public styles = {
     // 使用滤镜

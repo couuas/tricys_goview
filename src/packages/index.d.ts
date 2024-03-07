@@ -114,13 +114,17 @@ export const BlendModeEnumList = [
   { label: '亮度', value: 'luminosity' }
 ]
 
+export interface PublicConfigAttrType {
+  x: number; y: number; w: number; h: number; zIndex: number; offsetX: number; offsetY: number, isHeadInsert?: boolean, isFixedInit?: boolean
+}
+
 // 组件实例类
 export interface PublicConfigType {
   id: string
   isGroup: boolean
   // isHeadInsert 组件置底
   // isFixedInit 组件初始时位置以x,y为准 不以鼠标位置为准
-  attr: { x: number; y: number; w: number; h: number; zIndex: number; offsetX: number; offsetY: number, isHeadInsert?: boolean, isFixedInit?: boolean }
+  attr: PublicConfigAttrType
   styles: {
     [FilterEnum.FILTERS_SHOW]: boolean
     [FilterEnum.OPACITY]: number
