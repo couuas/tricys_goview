@@ -15,6 +15,8 @@ export const option = {
   scale: 1,
   // 展示标题
   isThereATitleComponet: false,
+  // 控制内层 使外层选中失效
+  enableInner: false
 }
 
 export default class Config extends PublicConfigClass implements CreateComponentType

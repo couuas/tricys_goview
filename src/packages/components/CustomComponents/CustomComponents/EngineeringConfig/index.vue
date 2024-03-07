@@ -1,7 +1,7 @@
 <template>
   <div v-if="chartConfig.customData.mapId" :style="{width: w, height: h}">
 <!--    :style="{transform: handleScale}"-->
-    <iframe ref="iframe" :src="url" :width="w" :height="h" style="transform-origin: left top" frameborder="no" scrolling="no"></iframe>
+    <iframe ref="iframe" :src="url" :width="w" :height="h" :style="{pointerEvents: !isPreview() && option.enableInner ? 'auto' : ''}" style="transform-origin: left top" frameborder="no" scrolling="no"></iframe>
   </div>
   <div style="display: flex;flex-direction: column;align-items: center;justify-content: center;" v-else>
     <img src="@/assets/images/exception/nodata.svg" style="width: 100%;height: 30%" alt="">
@@ -13,7 +13,7 @@
 import { computed, PropType, toRefs, onMounted, onUnmounted, ref, watch, defineEmits } from 'vue'
 import { CreateComponentType } from '@/packages/index.d'
 import { useOriginStore } from '@/store/modules/originStore/originStore'
-import { postMessageToParent } from '@/utils'
+import { postMessageToParent, isPreview } from '@/utils'
 
 const props = defineProps({
   chartConfig: {
@@ -40,7 +40,7 @@ const option = computed(() => {
   return props.chartConfig.option
 })
 
-const emit = defineEmits(['changeZIndex'])
+const emit = defineEmits(['changeZIndex', 'enableOuter'])
 
 const handleMsg = (event: any) => {
   let origin = process.env.NODE_ENV === 'production' ? window.location.origin : 'http://192.168.0.42:9528'
@@ -80,6 +80,18 @@ const handleMsg = (event: any) => {
     else if(obj.type === 'setZIndex') {
       emit('changeZIndex', obj.zIndex)
     }
+    else if(obj.type === 'setOption') {
+      if(obj.top) option.value.top = obj.top
+      if(obj.left) option.value.left = obj.left
+      if(obj.scale) option.value.scale = obj.scale
+      postMsgToChild({
+        type: 'setTop&Left&Scale',
+        top: option.value.top,
+        left: option.value.left,
+        scale: option.value.scale,
+        isThereATitleComponet: option.value.isThereATitleComponet
+      })
+    }
   }
 }
 
@@ -115,6 +127,14 @@ const handleScale = computed(() => {
   // let str = `scale(${x}, ${y})`
   let str = `scale(${1}, ${1})`
   return str
+})
+
+watch(() => option.value.enableInner, (v) => {
+  if(!isPreview()) {
+    emit('enableOuter', !v)
+  }
+}, {
+  immediate: true
 })
 
 onMounted(() => {

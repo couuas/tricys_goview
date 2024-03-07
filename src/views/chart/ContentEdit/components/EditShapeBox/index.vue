@@ -1,6 +1,6 @@
 <template>
-  <div class="go-shape-box" :class="{ lock, hide }">
-    <slot></slot>
+  <div class="go-shape-box" :style="{pointerEvents}" :class="{ lock, hide }">
+    <slot :enableOuter="enableOuter"></slot>
     <!-- 锚点 -->
     <template v-if="!hiddenPoint">
       <div
@@ -21,7 +21,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, PropType } from 'vue'
+import { computed, PropType, ref } from 'vue'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { EditCanvasTypeEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
 
@@ -80,6 +80,12 @@ const lock = computed(() => {
 const hide = computed(() => {
   return props.item.status.hide
 })
+
+let pointerEvents = ref('auto')
+// 设置忽略事件
+const enableOuter = (flag: boolean) => {
+  pointerEvents.value = flag ? 'auto' : 'none'
+}
 </script>
 
 <style lang="scss" scoped>

@@ -1,5 +1,10 @@
 <template>
   <CollapseItem name="组态" :expanded="true">
+    <SettingItemBox name="移动组态" :alone="true">
+      <n-space justify="start">
+        <n-switch v-model:value="optionData.enableInner" size="small"></n-switch>
+      </n-space>
+    </SettingItemBox>
     <SettingItemBox name="标题">
       <SettingItem name="如果有标题将展示">
         <n-space justify="start">
@@ -41,7 +46,7 @@
       </SettingItem>
     </SettingItemBox>
     <SettingItemBox name="提示" :alone="true">
-      <n-text>在预览页可以使用 alt+'+' 或 alt+'-' 进行缩放</n-text>
+      <n-text>可以使用 alt+'+' 或 alt+'-' 进行缩放</n-text>
     </SettingItemBox>
   </CollapseItem>
 </template>

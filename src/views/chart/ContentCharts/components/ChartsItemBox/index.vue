@@ -128,6 +128,7 @@ const dblclickHandle = async (item: ConfigType) => {
       newComponent.chartConfig.title = item.title
       newComponent.chartConfig.chartFrame = item.chartFrame
     }
+    // 组件置底插入
     let isHead = false
     let isHeadList = ['EngineeringConfig']
     if(isHeadList.includes(newComponent.chartConfig.key)) isHead = true
