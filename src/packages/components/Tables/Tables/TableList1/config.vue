@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType } from "vue/dist/vue";
+import { PropType } from "vue";
 import { option } from './config'
 import { CollapseItem, SettingItemBox, SettingItem } from '@/components/Pages/ChartItemSetting'
 
