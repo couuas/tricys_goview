@@ -3,27 +3,24 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '4dbfa0e79db1d9635efcea76c363842a1a379907'
-    oldFile: !uuid 'c234a7cdb1795f39dba3f2cec3adbc8dc36fb3ba'
-  /src/packages:
-    newFile: !uuid '86e38170156560e83fc7a67bbdbbd54fe9836643'
-    oldFile: !uuid '095b7b617cbb8c8b30eba3b207f0022d364515e7'
-  /src/packages/components:
-    newFile: !uuid '93e516e2d664c9c9842b88aa91e72d3ec8d92c18'
-    oldFile: !uuid '5d982c20e712430ec2f4179f2505c4c2bcd15e4e'
-  /src/packages/components/Informations:
-    newFile: !uuid 'e910d28c33528dfba63eb83399b492a7996ed5c4'
-    oldFile: !uuid '46399f36b496da712674e1acbff6d23d1aa1bc8c'
-  /src/packages/components/Informations/Mores:
-    newFile: !uuid '40291e2f6b574738c566037f7b5abf801a1fb38c'
-    oldFile: !uuid '594ad0d6f8569c6a85c60dbcdb3064114c8aee4e'
-  /src/packages/components/Informations/Mores/Video:
-    newFile: !uuid 'b91044969a6c5923b131f119554cddf29de38ba6'
-    oldFile: !uuid 'a4ac6a19467b0827408487d38c0c3a198755bf5e'
-  /src/packages/components/Informations/Mores/Video/index.vue:
-    newFile: !uuid '1726645aafec7c5744f9a77e66df17f278deb700'
-    oldFile: !uuid 'b184c83d251062fc3b07357aa737e659fc018c5c'
-gitCommitId: !uuid '85aa2d8283889cf0906e9e2875d5086190f8448e'
+    newFile: !uuid '757a99e31310f2a2f66cadc3fe33b95836dbe456'
+    oldFile: !uuid '4dbfa0e79db1d9635efcea76c363842a1a379907'
+  /src/views:
+    newFile: !uuid '878bdf7ede17878a10df79908087e7d2e38ca03d'
+    oldFile: !uuid 'b77efd2f219fab62f00b9169606395234870b431'
+  /src/views/chart:
+    newFile: !uuid '24f065ee12e0a5200eeeae7208fd3924c12401ec'
+    oldFile: !uuid '54e7a4f4e886bb9b8a9d1347d6a288b191eacfde'
+  /src/views/chart/ContentHeader:
+    newFile: !uuid '01235549f6aab0d6c2bb98a6556085913e510646'
+    oldFile: !uuid '64e0e08ff2be514aaf33d9f89b0a689f6bbf7b11'
+  /src/views/chart/ContentHeader/headerRightBtn:
+    newFile: !uuid '8d893f2c62a7d09b707279c1c9392c6191add9f5'
+    oldFile: !uuid '5dce039daa07f377af5aea8ee756ffec174f4332'
+  /src/views/chart/ContentHeader/headerRightBtn/index.vue:
+    newFile: !uuid '81bd24f443e6fbe5d24fc4b544b73a4614b7b09f'
+    oldFile: !uuid '324be5d6c9813f5dd6f7200924927d227137b34b'
+gitCommitId: !uuid '796c844df7968e3e3b1b0764d45cc7e7dea7e973'
 renames: {
   }
-revisionId: 1401
+revisionId: 1402
