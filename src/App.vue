@@ -23,6 +23,8 @@ import { useRouterStore } from '@/store/modules/routerStore/routerStore'
 import { useOriginStore } from '@/store/modules/originStore/originStore'
 import { useGetMessageByParent } from '@/utils/utils'
 import router from '@/router'
+import {useDesignStore} from "@/store/modules/designStore/designStore";
+import { AppThemeColorType } from '@/store/modules/designStore/designStore.d'
 
 const {getMessageByParent} = useGetMessageByParent()
 
@@ -41,6 +43,46 @@ const originStore = useOriginStore()
 getMessageByParent('getStore', (e) => {
   if(e.data.type === 'getStore' && e.data.page === 'customLargeScreen') {
     originStore.setOriginStore(e.data.data, false)
+    let map: { [k: string]: AppThemeColorType } = {
+      blueTheme: {
+        "CMYK": [75, 41, 0, 0],
+        "RGB": [65,150,255],
+        "hex": "#4196ff",
+        "name": "天蓝",
+        "pinyin": "tianlan"
+      },
+      greenTheme: {
+        "CMYK": [100, 0, 3, 17],
+        "RGB": [0,212,206],
+        "hex": "#00d4ce",
+        "name": "墨绿",
+        "pinyin": "molv"
+      },
+      simpleTheme: {
+        "CMYK": [0, 82, 70, 35],
+        "RGB": [167,30,50],
+        "hex": "#a71e32",
+        "name": "简约",
+        "pinyin": "jianyue"
+      },
+      whiteOrangeTheme: {
+        "CMYK": [0, 50, 100, 7],
+        "RGB": [238,119,0],
+        "hex": "#EE7700",
+        "name": "白橙",
+        "pinyin": "baicheng"
+      },
+      lightSkyBlueTheme: {
+        "CMYK": [99, 11, 0, 5],
+        "RGB": [3,216,243],
+        "hex": "#03D8F3",
+        "name": "亮天蓝色",
+        "pinyin": "liangtianlanse"
+      },
+    }
+    let theme = e.data.data.app.theme as string
+    const designStore = useDesignStore()
+    designStore.setAppColor(map[theme])
   }
 })
 
