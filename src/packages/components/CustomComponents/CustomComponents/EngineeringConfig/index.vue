@@ -14,6 +14,7 @@ import { computed, PropType, toRefs, onMounted, onUnmounted, ref, watch, defineE
 import { CreateComponentType } from '@/packages/index.d'
 import { useOriginStore } from '@/store/modules/originStore/originStore'
 import { postMessageToParent, isPreview } from '@/utils'
+import { useRouterStore } from '@/store/modules/routerStore/routerStore'
 
 const props = defineProps({
   chartConfig: {
@@ -26,12 +27,14 @@ const { w, h } = toRefs(props.chartConfig.attr)
 
 const originStore = useOriginStore()
 
+const routerStore = useRouterStore()
 let url = computed(() => {
   // const account = originStore?.getOriginStore?.user?.user?.account
   const account = 'admin'
   const password = 'laimi@123'
-  let origin = process.env.NODE_ENV === 'production' ? window.location.origin : 'http://192.168.0.42:9528'
-  let str = `${origin}/static/#/dynamicRing/schematicDiagram/${props.chartConfig.customData.mapId}?parentOrigin=${window.location.origin}&isScreenIframe=true&account=${account}&password=${password}`
+  let origin = process.env.NODE_ENV === 'production' ? window.location.origin : 'http://192.168.0.55:9528'
+  // let str = `${origin}/static/#/dynamicRing/schematicDiagram/${props.chartConfig.customData.mapId}?parentOrigin=${window.location.origin}&isScreenIframe=true&account=${account}&password=${password}`
+  let str = `${origin}/static/#/dynamicRing/schematicDiagram/${props.chartConfig.customData.mapId}?parentOrigin=${window.location.origin}&isScreenIframe=true&access_token=${routerStore.token}`
   return str
 })
 
@@ -43,7 +46,7 @@ const option = computed(() => {
 const emit = defineEmits(['changeZIndex', 'enableOuter'])
 
 const handleMsg = (event: any) => {
-  let origin = process.env.NODE_ENV === 'production' ? window.location.origin : 'http://192.168.0.42:9528'
+  let origin = process.env.NODE_ENV === 'production' ? window.location.origin : 'http://192.168.0.55:9528'
   if (event.origin === origin) {
     // 处理来自子级页面的消息
     let obj = event.data
@@ -113,7 +116,7 @@ watch(() => setIframeStr, () => {
 
 const postMsgToChild = (obj: Object) => {
   if(iframe.value) {
-    let origin = process.env.NODE_ENV === 'production' ? window.location.origin : 'http://192.168.0.42:9528'
+    let origin = process.env.NODE_ENV === 'production' ? window.location.origin : 'http://192.168.0.55:9528'
     iframe.value.contentWindow.postMessage(obj, origin);
   }
 }
