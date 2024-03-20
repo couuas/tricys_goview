@@ -27,8 +27,12 @@ export default class Config extends PublicConfigClass implements CreateComponent
     this.attr.h = 1080
     this.attr.x = 0
     this.attr.y = 0
-    this.attr.isHeadInsert = true
+    // 置底插入
+    // this.attr.isHeadInsert = true
+    // 初始时固定 拖拽组件会在鼠标处生成组件 此处为true就是固定位置以attr位置生成组件
     this.attr.isFixedInit = true
+    // 在自定义组件背景 前插入
+    this.attr.isAfterBGInsert = true
   }
   public key = EngineeringConfig.key
   public chartConfig = cloneDeep(EngineeringConfig)

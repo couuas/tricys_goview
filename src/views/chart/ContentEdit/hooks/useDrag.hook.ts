@@ -47,8 +47,8 @@ export const dragHandle = async (e: DragEvent) => {
       setComponentPosition(newComponent, e.offsetX - newComponent.attr.w / 2, e.offsetY - newComponent.attr.h / 2)
     }
 
-    let isHead = !!newComponent.attr.isHeadInsert
-    chartEditStore.addComponentList(newComponent, isHead, true)
+    // let isHead = !!newComponent.attr.isHeadInsert
+    chartEditStore.addComponentList(newComponent, false, true)
     chartEditStore.setTargetSelectChart(newComponent.id)
     loadingFinish()
   } catch (error) {

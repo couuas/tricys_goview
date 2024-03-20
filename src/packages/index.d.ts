@@ -115,7 +115,8 @@ export const BlendModeEnumList = [
 ]
 
 export interface PublicConfigAttrType {
-  x: number; y: number; w: number; h: number; zIndex: number; offsetX: number; offsetY: number, isHeadInsert?: boolean, isFixedInit?: boolean
+  x: number; y: number; w: number; h: number; zIndex: number; offsetX: number; offsetY: number, isHeadInsert?: boolean, isFixedInit?: boolean,
+  isAfterBGInsert?: boolean, isBeforeEngineerging?: boolean
 }
 
 // 组件实例类

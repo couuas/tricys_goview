@@ -320,6 +320,22 @@ export const useChartEditStore = defineStore({
       if (isHistory) {
         chartHistoryStore.createAddHistory([componentInstance])
       }
+      let isAfterBGInsert = !!componentInstance.attr.isAfterBGInsert
+      if(isAfterBGInsert) {
+        let index = this.componentList.length
+        this.componentList.forEach((item, i) => {
+          if(item.chartConfig.key === 'Backgrounds') index = i + 1
+        })
+        this.componentList.splice(index, 0, componentInstance)
+        return
+      }
+      let isBeforeEngineerging = !!componentInstance.attr.isBeforeEngineerging
+      if(isBeforeEngineerging) {
+        let index = this.componentList.findIndex(_ => _.chartConfig.key === 'EngineeringConfig')
+        index = index > -1 ? index : 0
+        this.componentList.splice(index, 0, componentInstance)
+        return
+      }
       if (isHead) {
         this.componentList.unshift(componentInstance)
         return

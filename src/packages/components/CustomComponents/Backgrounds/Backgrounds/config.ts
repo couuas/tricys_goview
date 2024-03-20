@@ -22,6 +22,8 @@ export default class Config extends PublicConfigClass implements CreateComponent
       h: 1080,
       x: 0,
       y: 0,
+      // 置于工程组态前插入
+      isBeforeEngineerging: true
     }
   }
   public key = BackgroundsConfig.key
