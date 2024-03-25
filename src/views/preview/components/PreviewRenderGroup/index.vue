@@ -4,6 +4,7 @@
     :style="{
       ...getSizeStyle(groupData.attr),
       ...getFilterStyle(groupData.styles),
+      ...fullScreenStyle
     }"
   >
     <div
@@ -16,7 +17,8 @@
       ...getStatusStyle(item.status),
       ...getPreviewConfigStyle(item.preview),
       ...getBlendModeStyle(item.styles) as any,
-      zIndex: zIndexMap[item.id] ? zIndexMap[item.id] : ''
+      zIndex: zIndexMap[item.id] ? zIndexMap[item.id] : '',
+      ...fullScreenStyle
     }"
     >
       <component
@@ -28,17 +30,21 @@
         :style="{
           ...getSizeStyle(item.attr),
           ...getFilterStyle(item.styles),
-          ...getTransformStyle(item.styles)
+          ...getTransformStyle(item.styles),
+          ...fullScreenStyle
         }"
+        :isGroup="true"
+        :groupAttr="groupData.attr"
         v-on="useLifeHandler(item)"
         @changeZIndex="(z: number | string | undefined) => changeZIndex(item.id, z)"
+        @fullScreen="fullScreen"
       ></component>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import {PropType, ref, Ref} from 'vue'
+import {PropType, ref, Ref, onMounted} from 'vue'
 import { CreateComponentGroupType } from '@/packages/index.d'
 import { animationsClass, getFilterStyle, getTransformStyle, getBlendModeStyle } from '@/utils'
 import { getSizeStyle, getComponentAttrStyle, getStatusStyle, getPreviewConfigStyle } from '../../utils'
@@ -63,13 +69,37 @@ const props = defineProps({
   }
 })
 
-const emit = defineEmits(['changeZIndex'])
+const emit = defineEmits(['changeZIndex', 'fullScreen'])
 // 设置zindex
 const zIndexMap: Ref<{ [k: string] : number | string | undefined }> = ref({})
 
 const changeZIndex = (id: string, z: number | string | undefined) => {
   zIndexMap.value[id] = z
   emit('changeZIndex', z)
+}
+
+const fullScreen = () => {
+  emit('fullScreen')
+  _fullScreen()
+}
+
+let ifFullScreen = ref(false)
+let fullScreenStyle = ref({})
+// 全屏功能 iframe网页组件有用到
+const _fullScreen = () => {
+  if(!ifFullScreen.value) {
+    ifFullScreen.value = true
+    fullScreenStyle.value = {
+      width: '100%',
+      height: '100%',
+      left: 0,
+      top: 0,
+    }
+  }
+  else {
+    ifFullScreen.value = false
+    fullScreenStyle.value = {}
+  }
 }
 </script>
 

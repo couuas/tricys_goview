@@ -11,7 +11,8 @@
       ...getPreviewConfigStyle(item.preview),
       ...getBlendModeStyle(item.styles) as any,
       ...getSizeStyle(item.attr),
-      zIndex: zIndexMap[item.id] ? zIndexMap[item.id] : ''
+      zIndex: zIndexMap[item.id] ? zIndexMap[item.id] : '',
+      ...fullScreenStyle,
     }"
   >
     <!-- 分组 -->
@@ -22,6 +23,7 @@
       :themeSetting="themeSetting"
       :themeColor="themeColor"
       @changeZIndex="z => changeZIndex(item.id, z)"
+      @fullScreen="fullScreen"
     ></preview-render-group>
 
     <!-- 单组件 -->
@@ -38,6 +40,7 @@
       }"
       v-on="bindEvent(item)"
       @changeZIndex="(z: number | string | undefined) => changeZIndex(item.id, z)"
+      @fullScreen="fullScreen"
     ></component>
 <!--    v-on="useLifeHandler(item)"-->
   </div>
@@ -84,6 +87,25 @@ const themeColor = computed(() => {
 const zIndexMap: Ref<{ [k: string] : number | string | undefined }> = ref({})
 const changeZIndex = (id: string, z: number | string | undefined) => {
   zIndexMap.value[id] = z
+}
+
+let ifFullScreen = ref(false)
+let fullScreenStyle = ref({})
+// 全屏功能 iframe网页组件有用到
+const fullScreen = () => {
+  if(!ifFullScreen.value) {
+    ifFullScreen.value = true
+    fullScreenStyle.value = {
+      left: 0,
+      top: 0,
+      width: '100%',
+      height: '100%'
+    }
+  }
+  else {
+    ifFullScreen.value = false
+    fullScreenStyle.value = {}
+  }
 }
 
 // 组件渲染结束初始化数据池

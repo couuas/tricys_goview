@@ -15,6 +15,9 @@
         ></n-input-number>
       </setting-item>
     </setting-item-box>
+    <SettingItemBox name="提示" alone>
+      <n-text>双击全屏按钮可以全屏，全屏按钮可以拖拽</n-text>
+    </SettingItemBox>
   </collapse-item>
 </template>
 
