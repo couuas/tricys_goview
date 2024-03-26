@@ -6,6 +6,7 @@ import { GDMapConfig } from './GDMap'
 import { EngineeringConfig } from './EngineeringConfig'
 import { MonitorRealTimeEventsConfig } from './MonitorRealTimeEvents'
 import { DashboardConfig } from './Dashboard'
+import { SystemRuntimeConfig } from './SystemRuntime'
 
 export default [
     // Theme1Config,
@@ -16,4 +17,5 @@ export default [
     EngineeringConfig,
     MonitorRealTimeEventsConfig,
     DashboardConfig,
+    SystemRuntimeConfig,
 ]

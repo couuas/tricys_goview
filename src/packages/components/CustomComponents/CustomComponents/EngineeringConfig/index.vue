@@ -32,7 +32,7 @@ let url = computed(() => {
   // const account = originStore?.getOriginStore?.user?.user?.account
   const account = 'admin'
   const password = 'laimi@123'
-  let origin = process.env.NODE_ENV === 'production' ? window.location.origin : 'http://192.168.0.55:9528'
+  let origin = process.env.NODE_ENV === 'production' ? window.location.origin : 'http://192.168.0.61:9528'
   // let str = `${origin}/static/#/dynamicRing/schematicDiagram/${props.chartConfig.customData.mapId}?parentOrigin=${window.location.origin}&isScreenIframe=true&account=${account}&password=${password}`
   let str = `${origin}/static/#/dynamicRing/schematicDiagram/${props.chartConfig.customData.mapId}?parentOrigin=${window.location.origin}&isScreenIframe=true&access_token=${routerStore.token}`
   return str
@@ -116,7 +116,7 @@ watch(() => setIframeStr, () => {
 
 const postMsgToChild = (obj: Object) => {
   if(iframe.value) {
-    let origin = process.env.NODE_ENV === 'production' ? window.location.origin : 'http://192.168.0.55:9528'
+    let origin = process.env.NODE_ENV === 'production' ? window.location.origin : 'http://192.168.0.61:9528'
     iframe.value.contentWindow.postMessage(obj, origin);
   }
 }
@@ -142,6 +142,15 @@ watch(() => option.value.enableInner, (v) => {
 
 onMounted(() => {
   window.addEventListener('message', handleMsg);
+  if(iframe.value) {
+    iframe.value.addEventListener('keydown', function(e: KeyboardEvent) {
+      if (e.key === 'F11') {
+        e.preventDefault();
+        // 可以在这里添加代码来告知用户 F11 已被禁用
+        console.log(1234)
+      }
+    }, false);
+  }
 })
 onUnmounted(() => {
   window.removeEventListener('message', handleMsg)
