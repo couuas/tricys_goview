@@ -2,13 +2,10 @@
 branches: {
   }
 fileChange:
-  /readme:
-    newFile: !uuid 'a29df13f0c9250b72f975b585325838556237bb1'
-    oldFile: !uuid 'bef77609eb8f59d86b7e4163b0107967e41a681f'
-  /readme/GoViewPro.png:
-    newFile: !uuid 'd09bde9554847198ead36b043a2c0d4e4647ab2c'
-    oldFile: !uuid '75ef89cf989eaf3104d6b59dad4e41a930c62f89'
-gitCommitId: !uuid '6880dc413632f3072d76750b8b0de3f797830956'
+  /README.md:
+    newFile: !uuid 'b87fc6fc02d6c96ac6a84796bb99404f312f72ae'
+    oldFile: !uuid '3d662ae0bfe7020b1c8cfe6b945ff3daf453041b'
+gitCommitId: !uuid '209f0eae419387f760892ba7d563e4fecaf884e2'
 renames: {
   }
-revisionId: 1404
+revisionId: 1405
