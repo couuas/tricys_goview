@@ -7,6 +7,7 @@ import { EngineeringConfig } from './EngineeringConfig'
 import { MonitorRealTimeEventsConfig } from './MonitorRealTimeEvents'
 import { DashboardConfig } from './Dashboard'
 import { SystemRuntimeConfig } from './SystemRuntime'
+import { VideoListConfig } from './VideoList'
 
 export default [
     // Theme1Config,
@@ -18,4 +19,5 @@ export default [
     MonitorRealTimeEventsConfig,
     DashboardConfig,
     SystemRuntimeConfig,
+    VideoListConfig,
 ]

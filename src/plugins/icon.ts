@@ -111,7 +111,8 @@ import {
 import {
   Apps20Regular as Apps20RegularIcon,
   AlignSpaceEvenlyHorizontal20Filled as AlignSpaceEvenlyHorizontal20FilledIcon,
-  AlignSpaceEvenlyVertical20Filled as AlignSpaceEvenlyVertical20FilledIcon
+  AlignSpaceEvenlyVertical20Filled as AlignSpaceEvenlyVertical20FilledIcon,
+  PlayCircle16Filled as PlayCircle16FilledIcon
 } from '@vicons/fluent'
 
 import {
@@ -330,6 +331,8 @@ const fluent = {
   Apps20RegularIcon,
   AlignSpaceEvenlyHorizontal20FilledIcon,
   AlignSpaceEvenlyVertical20FilledIcon,
+  // 播放
+  PlayCircle16FilledIcon,
 }
 
 const material = {
