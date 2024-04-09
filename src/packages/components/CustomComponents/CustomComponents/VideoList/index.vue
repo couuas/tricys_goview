@@ -84,8 +84,8 @@ const getData = () => {
   publicInterface('/dcim/runhe_ai/event', 'get_current_page', {}).then(res => {
     if (res && res.data) {
       list.value = res.data
-      if(!showDialog) {
-        openVideo(res.data[0])
+      if(!showDialog && isPreview()) {
+        openVideo(res.data[0] || {})
       }
     }
   })

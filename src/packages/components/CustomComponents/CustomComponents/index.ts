@@ -1,5 +1,6 @@
 // import { Theme1Config } from './Theme1/index'
 import { ComprehensivePUEConfig } from './ComprehensivePUE'
+import { ComprehensivePUEV2Config } from './ComprehensivePUEV2'
 import { RealTimeTrafficConfig } from './RealTimeTraffic'
 import { OverviewOfComputingNodesConfig } from './OverviewOfComputingNodes'
 import { GDMapConfig } from './GDMap'
@@ -12,6 +13,7 @@ import { VideoListConfig } from './VideoList'
 export default [
     // Theme1Config,
     ComprehensivePUEConfig,
+    ComprehensivePUEV2Config,
     RealTimeTrafficConfig,
     OverviewOfComputingNodesConfig,
     GDMapConfig,
