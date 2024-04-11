@@ -2,43 +2,16 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid 'f5759d8be7f52552fd2277c186f7da5331ebf728'
-    oldFile: !uuid 'f60fb670f2be23cd3344d00a371167b97e7cadcc'
-  /src/assets:
-    newFile: !uuid '5200bcc9df14c7f8dd1991efe3ff8cd117b3efbb'
-    oldFile: !uuid 'c1949256a5ed1721b117cc7570c80f80ed948492'
-  /src/assets/images:
-    newFile: !uuid '12756a6dec6584b456d0813e806ff1294d77c410'
-    oldFile: !uuid '0f65ee8942ddb3a65a596a66918f598a8fcd32ff'
-  /src/assets/images/chart:
-    newFile: !uuid 'cf189495c306d01cc2d8e1c88b8abe16bc306167'
-    oldFile: !uuid 'caa56bbb8ca4efc7050b7dc13193634e31edda73'
-  /src/assets/images/chart/informations:
-    newFile: !uuid 'e52c8ef20b6427e765e8a81605fcc1427c545e3b'
-    oldFile: !uuid '2cdf610b7475c6620fa4e485c685fdd43e8af794'
-  /src/assets/images/chart/informations/inputs_input.png:
-    newFile: !uuid 'f3778af35e8a2e86b2a9fb2cbe4455e03f8f3fac'
-    oldFile: null
-  /src/packages:
-    newFile: !uuid '8eadf1061f59ed2bb515ecc1d79d11c5828bb26b'
-    oldFile: !uuid '4d97d754f8e180edfd3440e8ad064098be391d5a'
-  /src/packages/components:
-    newFile: !uuid 'c66472d8b88f2663f38c9adcfb69166e05a8e543'
-    oldFile: !uuid '64aea92986d445b0f34670cab2ffad74a002167a'
-  /src/packages/components/Informations:
-    newFile: !uuid '40f3f94d78f1d78b988733468eaeb75fbc2fe184'
-    oldFile: !uuid 'e910d28c33528dfba63eb83399b492a7996ed5c4'
-  /src/packages/components/Informations/Inputs:
-    newFile: !uuid '5022042b45241f18ede3925c7267800839783865'
-    oldFile: !uuid 'de10541daaeb0cafed44f2b8affe8c7fbd4787aa'
-  /src/packages/components/Informations/Inputs/InputsInput:
-    newFile: !uuid 'ee86fe13998ade5390539f81d5513333a5b9a1bb'
-    oldFile: !uuid '836973332b63019a5e3eef72ddbcfb8e72ca514a'
-  /src/packages/components/Informations/Inputs/InputsInput/index.ts:
-    newFile: !uuid 'ac3ab47e5a4b3259c3ffd7d973e8735c354d5d09'
-    oldFile: !uuid '0828ea3581cb1f68dfdb421791c1113800804216'
-gitCommitId: !uuid '4bc811dbda51a57879625fd2835c7b27e072f494'
+  /readme:
+    newFile: !uuid '663f758bad89424f020fa7a29b134c9857ee2f3a'
+    oldFile: !uuid 'a29df13f0c9250b72f975b585325838556237bb1'
+  /readme/sponsors:
+    newFile: !uuid 'd601fbbc901db56611afc894e4f7273061695c99'
+    oldFile: !uuid 'd57c5497531d2190d0e8ddb3c6b46c97221f9c29'
+  /readme/sponsors/mdy-banner.png:
+    newFile: !uuid '70c452074d786f399e1558c1fef67db167f5b4a3'
+    oldFile: !uuid 'd594fbaa2e7dd3f9243975cbc76030109697638d'
+gitCommitId: !uuid 'fb6d773ebdce8c669debbbd0028398d7aef69f65'
 renames: {
   }
-revisionId: 1411
+revisionId: 1412
