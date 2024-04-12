@@ -224,9 +224,22 @@ const getVideos = (ids: number[]) => {
 }
 
 const showVideo = (obj: any) => {
+  let a: {[k: string]: '' | null | boolean} = {
+    ip: '',
+    port: null,
+    account: '',
+    password: '',
+    channel: '',
+    brand: '',
+    plugin: '',
+  }
+  for(let k in a) {
+    a[k] = obj[k]
+  }
+  a.showForce = true
   postMessageToParent({
     type: 'openVideoV2',
-    data: obj
+    data: a
   })
 }
 
