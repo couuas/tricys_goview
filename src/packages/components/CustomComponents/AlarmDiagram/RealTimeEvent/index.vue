@@ -25,7 +25,9 @@
         <div style="flex: 1;"></div>
         <div class="mr10 textEllipsis" style="color: #B5BAC3;width: 150px">{{ moment(item.generate_time).format('yyyy-MM-DD HH:mm:ss') }}</div>
         <LocationIcon @click.stop="jumpTo(item)" class="mr10" style="width: 20px;height: 20px;color: #4196ff;"/>
-        <CheckCircleOutlinedIcon @click.stop="clickSingle(item.id)" v-if="item.confirm_status === 'not'" style="width: 20px;height: 20px;color: #4196ff;"/>
+        <CheckCircleOutlinedIcon @click.stop="clickSingle(item.id)" v-if="item.confirm_status === 'not'" class="mr10" style="width: 20px;height: 20px;color: #4196ff;"/>
+        <div v-else class="mr10" style="width: 20px"></div>
+        <PlayCircle16FilledIcon v-if="alarmVideos[i]" @click.stop="showVideo(alarmVideos[i])" style="width: 20px;height: 20px;color: #4196ff;"/>
         <div v-else style="width: 20px"></div>
       </div>
     </div>
@@ -55,6 +57,7 @@ import { useOriginStore } from '@/store/modules/originStore/originStore'
 
 const { LocationIcon } = icon.carbon
 const { CheckCircleOutlinedIcon } = icon.material
+const { PlayCircle16FilledIcon } = icon.fluent
 
 const props = defineProps({
   chartConfig: {
@@ -174,6 +177,59 @@ const getNumber = () => {
   })
 }
 
+let alarmVideos = ref([])
+// let currentVideo: {[k: string]: '' | null} = reactive({
+//   ip: '',
+//   port: null,
+//   account: '',
+//   password: '',
+//   channel: '',
+//   brand: '',
+//   plugin: '',
+// })
+let currentVideo: any = ref(null)
+const getVideos = (ids: number[]) => {
+  if(ids.length) {
+    publicInterface('/dcim/video_monitor/other_device', 'get_alarm_device', {device_uids: ids.toString()}).then((res: any) => {
+      if(res.errcode !== '00000') return
+      let arr:any = []
+      ids.forEach(id => {
+        arr.push(res.data[id] ? res.data[id][0] : null)
+      })
+      alarmVideos.value = arr.concat()
+
+      let last = arr.find((_: any) => _)
+      if(!currentVideo.value && !last) return
+      let obj = currentVideo.value ? JSON.parse(JSON.stringify(currentVideo.value)) : {
+        ip: '',
+        port: null,
+        account: '',
+        password: '',
+        channel: '',
+        brand: '',
+        plugin: '',
+      }
+      if(last) {
+        for(let k in obj) {
+          obj[k] = last[k]
+        }
+      }
+      Object.assign(currentVideo, obj)
+      postMessageToParent({
+        type: 'openVideoV2',
+        data: obj
+      })
+    })
+  }
+}
+
+const showVideo = (obj: any) => {
+  postMessageToParent({
+    type: 'openVideoV2',
+    data: obj
+  })
+}
+
 const getData = () => {
   getNumber()
   const queryModel = {
@@ -218,6 +274,7 @@ const getData = () => {
         serial_no: e.serial_no,
         remark: e.remark,
       }))
+      getVideos(arr.map(_ => _.device.uid))
       if (checkAll.value) {
         arr = arr.map((e:any) => ({ ...e, checked: e.confirm_status !== 'ok' }))
       } else if (lastTableData.length) {

@@ -331,7 +331,7 @@ const fluent = {
   Apps20RegularIcon,
   AlignSpaceEvenlyHorizontal20FilledIcon,
   AlignSpaceEvenlyVertical20FilledIcon,
-  // 播放
+  // 视频播放
   PlayCircle16FilledIcon,
 }
 
