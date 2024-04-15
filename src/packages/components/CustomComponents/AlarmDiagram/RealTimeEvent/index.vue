@@ -27,7 +27,7 @@
         <LocationIcon @click.stop="jumpTo(item)" class="mr10" style="width: 20px;height: 20px;color: #4196ff;"/>
         <CheckCircleOutlinedIcon @click.stop="clickSingle(item.id)" v-if="item.confirm_status === 'not'" class="mr10" style="width: 20px;height: 20px;color: #4196ff;"/>
         <div v-else class="mr10" style="width: 20px"></div>
-        <PlayCircle16FilledIcon v-if="alarmVideos[i]" @click.stop="showVideo(alarmVideos[i])" style="width: 20px;height: 20px;color: #4196ff;"/>
+        <PlayCircle16FilledIcon v-if="alarmVideos[i]" @click.stop="showVideo(alarmVideos[i], item.id)" style="width: 20px;height: 20px;color: #4196ff;"/>
         <div v-else style="width: 20px"></div>
       </div>
     </div>
@@ -188,7 +188,7 @@ let alarmVideos = ref([])
 //   plugin: '',
 // })
 let currentVideo: any = ref(null)
-const getVideos = (ids: number[]) => {
+const getVideos = (ids: number[], alarmIds: number[]) => {
   if(ids.length) {
     publicInterface('/dcim/video_monitor/other_device', 'get_alarm_device', {device_uids: ids.toString()}).then((res: any) => {
       if(res.errcode !== '00000') return
@@ -198,7 +198,14 @@ const getVideos = (ids: number[]) => {
       })
       alarmVideos.value = arr.concat()
 
-      let last = arr.find((_: any) => _)
+      let index = 0, last:any = {}
+      for(let i = 0; i < arr.length; i++) {
+        if(arr[i]) {
+          last = arr[i]
+          index = i
+          break
+        }
+      }
       if(!currentVideo.value && !last) return
       let obj = currentVideo.value ? JSON.parse(JSON.stringify(currentVideo.value)) : {
         ip: '',
@@ -214,7 +221,9 @@ const getVideos = (ids: number[]) => {
           obj[k] = last[k]
         }
       }
+      obj.alarmId = alarmIds[index]
       Object.assign(currentVideo, obj)
+      obj.showForce = false
       postMessageToParent({
         type: 'openVideoV2',
         data: obj
@@ -223,8 +232,8 @@ const getVideos = (ids: number[]) => {
   }
 }
 
-const showVideo = (obj: any) => {
-  let a: {[k: string]: '' | null | boolean} = {
+const showVideo = (obj: any, id: number) => {
+  let a: {[k: string]: string | null | boolean} = {
     ip: '',
     port: null,
     account: '',
@@ -236,7 +245,9 @@ const showVideo = (obj: any) => {
   for(let k in a) {
     a[k] = obj[k]
   }
+  // 点击时强制打开
   a.showForce = true
+  a.alarmId = id
   postMessageToParent({
     type: 'openVideoV2',
     data: a
@@ -287,7 +298,7 @@ const getData = () => {
         serial_no: e.serial_no,
         remark: e.remark,
       }))
-      getVideos(arr.map(_ => _.device.uid))
+      getVideos(arr.map(_ => _.device.uid), arr.map(_ => _.id))
       if (checkAll.value) {
         arr = arr.map((e:any) => ({ ...e, checked: e.confirm_status !== 'ok' }))
       } else if (lastTableData.length) {
