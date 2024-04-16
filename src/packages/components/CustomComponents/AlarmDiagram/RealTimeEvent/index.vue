@@ -233,7 +233,7 @@ const getVideos = (ids: number[], alarmIds: number[]) => {
 }
 
 const showVideo = (obj: any, id: number) => {
-  let a: {[k: string]: string | null | boolean} = {
+  let a: {[k: string]: string | null | boolean | number} = {
     ip: '',
     port: null,
     account: '',
