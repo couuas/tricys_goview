@@ -27,7 +27,10 @@
         <LocationIcon @click.stop="jumpTo(item)" class="mr10" style="width: 20px;height: 20px;color: #4196ff;"/>
         <CheckCircleOutlinedIcon @click.stop="clickSingle(item.id)" v-if="item.confirm_status === 'not'" class="mr10" style="width: 20px;height: 20px;color: #4196ff;"/>
         <div v-else class="mr10" style="width: 20px"></div>
-        <PlayCircle16FilledIcon v-if="alarmVideos[i]" @click.stop="showVideo(alarmVideos[i], item.id)" style="width: 20px;height: 20px;color: #4196ff;"/>
+        <template v-if="alarmVideos[i]">
+          <SpinnerIcon v-if="showLoading && currentVideo.alarmId === item.id" class="rotate" style="width: 18px;height: 18px;color: #4196ff;"/>
+          <PlayCircle16FilledIcon v-else @click.stop="showVideo(alarmVideos[i], item.id)" style="width: 20px;height: 20px;color: #4196ff;"/>
+        </template>
         <div v-else style="width: 20px"></div>
       </div>
     </div>
@@ -46,7 +49,7 @@ import type { Ref } from 'vue'
 import { CreateComponentType } from '@/packages/index.d'
 import { publicInterface } from '@/api/path/business.api'
 import BorderBox from './BorderBoxV2.vue'
-import {isPreview, postMessageToParent} from '@/utils'
+import {isPreview, postMessageToParent, useGetMessageByParent} from '@/utils'
 import moment from "moment"
 import {selectTimeOptions} from "@/views/chart/ContentConfigurations/components/ChartData/index.d";
 import {RequestHttpIntervalEnum} from "@/enums/httpEnum";
@@ -58,6 +61,7 @@ import { useOriginStore } from '@/store/modules/originStore/originStore'
 const { LocationIcon } = icon.carbon
 const { CheckCircleOutlinedIcon } = icon.material
 const { PlayCircle16FilledIcon } = icon.fluent
+const { SpinnerIcon } = icon.fa
 
 const props = defineProps({
   chartConfig: {
@@ -232,6 +236,13 @@ const getVideos = (ids: number[], alarmIds: number[]) => {
   }
 }
 
+const showLoading = ref(false)
+const {getMessageByParent} = useGetMessageByParent()
+getMessageByParent('', (e) => {
+  if(e.data.type === 'openVideoV2_closeLoading' && e.data.page === 'customLargeScreen') {
+    showLoading.value = false
+  }
+})
 const showVideo = (obj: any, id: number) => {
   let a: {[k: string]: string | null | boolean | number} = {
     ip: '',
@@ -248,6 +259,8 @@ const showVideo = (obj: any, id: number) => {
   // 点击时强制打开
   a.showForce = true
   a.alarmId = id
+  currentVideo.value = a
+  showLoading.value = true
   postMessageToParent({
     type: 'openVideoV2',
     data: a
@@ -490,6 +503,20 @@ onUnmounted(() => {
 </script>
 
 <style lang="scss" scoped>
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 应用动画到目标元素 */
+.rotate {
+  animation: rotate 1s linear infinite;
+}
+
 .mr5{
   margin-right: 5px;
 }

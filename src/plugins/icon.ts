@@ -122,6 +122,10 @@ import {
   AccessTimeFilled as AccessTimeFilledIcon,
 } from '@vicons/material'
 
+import {
+  Spinner as SpinnerIcon
+} from '@vicons/fa'
+
 const ionicons5 = {
   // 新增
   AddIcon,
@@ -346,11 +350,16 @@ const material = {
   AccessTimeFilledIcon,
 }
 
+const fa = {
+  SpinnerIcon
+}
+
 // https://www.xicons.org/#/ 还有很多
 
 export const icon = {
   ionicons5,
   carbon,
   fluent,
-  material
+  material,
+  fa
 }
