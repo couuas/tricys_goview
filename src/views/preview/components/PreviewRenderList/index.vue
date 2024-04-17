@@ -36,7 +36,8 @@
       :themeColor="themeColor"
       :style="{
         ...getSizeStyle(item.attr),
-        ...getFilterStyle(item.styles)
+        ...getFilterStyle(item.styles),
+        overflow: 'hidden'
       }"
       v-on="bindEvent(item)"
       @changeZIndex="(z: number | string | undefined) => changeZIndex(item.id, z)"

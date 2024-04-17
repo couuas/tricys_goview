@@ -99,6 +99,17 @@ export const option = {
               if(showPercent) str += `${showValue * 100}%`
               else str += showUnit ? `${showValue}${unit}` : showValue
             }
+            else if(typeof showValue === 'string') {
+              let v = Number(showValue)
+              if(!isNaN(v)) {
+                if(showPercent) str += `${v * 100}%`
+                else str += showUnit ? `${v}${unit}` : v
+              }
+              else {
+                if(showPercent) str += 'NaN%'
+                else str += showUnit ? `${showValue}${unit}` : showValue
+              }
+            }
             else {
               str += '--'
             }

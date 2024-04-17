@@ -56,6 +56,7 @@ import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore
 import merge from 'lodash/merge'
 import cloneDeep from 'lodash/cloneDeep'
 import { MapType } from './config'
+import { useOriginStore } from "@/store/modules/originStore/originStore";
 
 const props = defineProps({
   chartConfig: {
@@ -211,6 +212,30 @@ const calcHeaderData = () => {
   status.header = headerConfig.filter((_: ItemType) => _.show).map((_: ItemType) => _.header)
 }
 
+const colorToRgba = (sHex: any, alpha = 0.1) => {
+  // 十六进制颜色值的正则表达式
+  const reg = /^#([0-9a-fA-f]{3}|[0-9a-fA-f]{6})$/
+  /* 16进制颜色转为RGB格式 */
+  let sColor = sHex.toLowerCase()
+  if (sColor && reg.test(sColor)) {
+    if (sColor.length === 4) {
+      let sColorNew = '#'
+      for (let i = 1; i < 4; i += 1) {
+        sColorNew += sColor.slice(i, i + 1).concat(sColor.slice(i, i + 1))
+      }
+      sColor = sColorNew
+    }
+    //  处理六位的颜色值
+    const sColorChange = []
+    for (let i = 1; i < 7; i += 2) {
+      sColorChange.push(parseInt('0x' + sColor.slice(i, i + 2)))
+    }
+    return 'rgba(' + sColorChange.join(',') + ',' + alpha + ')'
+  } else {
+    return sColor
+  }
+}
+const originStore = useOriginStore()
 const calcRowsData = () => {
   let { dataset: datasetOrigin, index, headerBGC, rowNum } = status.mergedConfig
   let { headerConfigMap, headerConfig } = status.mergedConfig
@@ -237,7 +262,23 @@ const calcRowsData = () => {
     dataset = [...dataset, ...dataset]
   }
   dataset = dataset.map((d: any, i: number) => ({ ...d, scroll: i }))
-
+  if(props.chartConfig.commonData.currentSource === 'pointTable') {
+    let statusOption = originStore.getOriginStore.user.systemConstant.node_status || []
+    let keys = headerConfig.filter((_: MapType) => _.show).map((_: MapType) => _.key)
+    let statusIndex = keys.findIndex((_: string) => _ === 'status')
+    if(statusIndex > -1) {
+      dataset.forEach((item: {ceils: string[]}) => {
+        if(statusIndex <= item.ceils.length) {
+          let v = item.ceils[statusIndex]
+          let obj = statusOption.find((_: any) => _.value === v.toString()) || {label: ''}
+          if(obj.remark) {
+            item.ceils[statusIndex] = `<span style="background: ${colorToRgba(obj.remark)};color: ${obj.remark};border: 1px solid ${obj.remark};border-radius: 4px;padding: 2px 8px;font-size: 12px;">${obj.label}</span>`
+          }
+          else item.ceils[statusIndex] = obj.label
+        }
+      })
+    }
+  }
   status.rowsData = dataset
   status.rows = dataset
 }
