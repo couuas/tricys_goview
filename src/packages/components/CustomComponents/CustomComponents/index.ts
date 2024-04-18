@@ -9,6 +9,7 @@ import { MonitorRealTimeEventsConfig } from './MonitorRealTimeEvents'
 import { DashboardConfig } from './Dashboard'
 import { SystemRuntimeConfig } from './SystemRuntime'
 import { VideoListConfig } from './VideoList'
+import { AirConditioningTableConfig } from './AirConditioningTable'
 
 export default [
     // Theme1Config,
@@ -22,4 +23,5 @@ export default [
     DashboardConfig,
     SystemRuntimeConfig,
     VideoListConfig,
+    AirConditioningTableConfig,
 ]

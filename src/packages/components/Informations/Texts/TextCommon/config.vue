@@ -14,20 +14,20 @@
         </n-space>
       </SettingItem>
     </setting-item-box>
-    <setting-item-box name="链接" :alone="true">
-      <setting-item>
-        <n-input-group>
-          <n-select
-            v-model:value="optionData.linkHead"
-            size="small"
-            :style="{ width: '80%' }"
-            :options="linkHeadOptions"
-          />
-          <n-input v-model:value="optionData.link" size="small"></n-input>
-          <n-button :disabled="!optionData.link" secondary size="small" @click="handleLinkClick">跳转</n-button>
-        </n-input-group>
-      </setting-item>
-    </setting-item-box>
+<!--    <setting-item-box name="链接" :alone="true">-->
+<!--      <setting-item>-->
+<!--        <n-input-group>-->
+<!--          <n-select-->
+<!--            v-model:value="optionData.linkHead"-->
+<!--            size="small"-->
+<!--            :style="{ width: '80%' }"-->
+<!--            :options="linkHeadOptions"-->
+<!--          />-->
+<!--          <n-input v-model:value="optionData.link" size="small"></n-input>-->
+<!--          <n-button :disabled="!optionData.link" secondary size="small" @click="handleLinkClick">跳转</n-button>-->
+<!--        </n-input-group>-->
+<!--      </setting-item>-->
+<!--    </setting-item-box>-->
   </collapse-item>
 
   <collapse-item name="样式" :expanded="true">

@@ -115,7 +115,8 @@ const commonData: commonDataType = {
 const customEvent: CustomEventType = {
   click: {
     linkHead: 'http://',
-    link: ''
+    link: '',
+    isBlank: false
   }
 }
 

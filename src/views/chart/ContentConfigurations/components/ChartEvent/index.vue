@@ -10,7 +10,7 @@
 <!--    <chart-event-advanced-handle></chart-event-advanced-handle>-->
     <div style="display: flex;align-items:center;margin-top: 10px">
       <div style="margin-right: 10px;width: 60px;">链接</div>
-      <n-input-group>
+      <n-input-group style="width: calc(100% - 70px)">
         <n-select
           v-model:value="targetData.customEvent.click.linkHead"
           size="small"
@@ -21,6 +21,10 @@
         <n-button :disabled="!targetData.customEvent.click.link" secondary size="small" @click="handleClick">跳转</n-button>
       </n-input-group>
     </div>
+    <div style="display: flex;align-items:center;margin-top: 10px">
+      <div style="margin-right: 10px;width: 60px;">新开页面</div>
+      <n-switch size="small" v-model:value="targetData.customEvent.click.isBlank"/>
+    </div>
   </n-collapse>
 </template>
 
@@ -30,6 +34,7 @@ import { ChartEventInteraction } from './components/ChartEventInteraction'
 import { ChartEventAdvancedHandle } from './components/ChartEventAdvancedHandle'
 import { ChartEventBaseHandle } from './components/ChartEventBaseHandle'
 import { useTargetData } from '../hooks/useTargetData.hook'
+import { postMessageToParent } from "@/utils";
 
 const { targetData, chartEditStore } = useTargetData()
 const showModal = ref(false)
@@ -70,6 +75,14 @@ const finallyLink = computed(() => {
   return targetData.value.customEvent.click.linkHead + (targetData.value as any).customEvent.click.link
 })
 const handleClick = () => {
-  window.open(finallyLink.value)
+  if(targetData.value.customEvent.click.isBlank) postMessageToParent({
+    type: 'windowOpen',
+    url: finallyLink.value,
+    openNew: true
+  })
+  else postMessageToParent({
+    type: 'windowOpen',
+    url: finallyLink.value,
+  })
 }
 </script>

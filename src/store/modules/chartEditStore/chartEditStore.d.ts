@@ -396,6 +396,7 @@ export interface CustomEventType {
   click: {
     linkHead: 'http://' | 'https://'
     link: string
+    isBlank: boolean
   }
 }
 
