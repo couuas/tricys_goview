@@ -1,10 +1,20 @@
+import {postMessageToParent} from "@/utils";
+
 const bindEvent = (item:any) => {
     let obj = {}
     if(item?.customEvent?.click) {
-        let {linkHead, link} = item.customEvent.click
+        let {linkHead, link, isBlank} = item.customEvent.click
         obj = {
             click: () => {
-                if(link) window.open(`${linkHead}${link}`)
+                if(isBlank) postMessageToParent({
+                    type: 'windowOpen',
+                    url: `${linkHead}${link}`,
+                    openNew: true
+                })
+                else postMessageToParent({
+                    type: 'windowOpen',
+                    url: `${linkHead}${link}`,
+                })
             }
         }
     }

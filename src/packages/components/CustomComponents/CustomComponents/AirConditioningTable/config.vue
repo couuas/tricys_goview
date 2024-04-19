@@ -7,8 +7,8 @@
           <n-switch v-model:value="it.show" size="small"/>
         </n-space>
       </setting-item>
-      <setting-item name="字段名 对应设备测点名称">
-        <n-input v-model:value="it.key"/>
+      <setting-item name="正则表达式 匹配测点名称 如/功率/" v-if="i !== 0">
+        <n-input v-model:value="it.reg"/>
       </setting-item>
       <setting-item name="列名">
         <n-input v-model:value="it.title"/>

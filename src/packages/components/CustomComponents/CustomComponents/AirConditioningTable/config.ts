@@ -14,9 +14,9 @@ export const option = {
   // 展示列
   header: {
     columns: [
-      {key: 'node_name', title: '设备名', unit: '', show: true, width: 'auto', align: 'left', ellipsis: true},
-      {key: '空调功率', title: '空调功率', unit: 'kW', show: true, width: 'auto', align: 'left', ellipsis: true},
-      {key: '用电量', title: '用电量', unit: 'kWh', show: true, width: 'auto', align: 'left', ellipsis: true},
+      {key: 'node_name', reg: '', title: '设备名', unit: '', show: true, width: 'auto', align: 'left', ellipsis: true},
+      {key: 'col1', reg: '/功率/', title: '空调功率', unit: 'kW', show: true, width: 'auto', align: 'left', ellipsis: true},
+      {key: 'col2', reg: '/用电量/', title: '用电量', unit: 'kWh', show: true, width: 'auto', align: 'left', ellipsis: true},
     ],
     // value: [],
     // options: [],
