@@ -35,10 +35,11 @@
         }"
         :isGroup="true"
         :groupAttr="groupData.attr"
-        v-on="useLifeHandler(item)"
         @changeZIndex="(z: number | string | undefined) => changeZIndex(item.id, z)"
         @fullScreen="fullScreen"
+        v-on="bindEvent(item)"
       ></component>
+<!--        v-on="useLifeHandler(item)"-->
     </div>
   </div>
 </template>
@@ -49,6 +50,7 @@ import { CreateComponentGroupType } from '@/packages/index.d'
 import { animationsClass, getFilterStyle, getTransformStyle, getBlendModeStyle } from '@/utils'
 import { getSizeStyle, getComponentAttrStyle, getStatusStyle, getPreviewConfigStyle } from '../../utils'
 import { useLifeHandler } from '@/hooks'
+import { useCustomEvent } from '../../hooks/useCustomEvent.hook'
 
 const props = defineProps({
   groupData: {
@@ -101,6 +103,7 @@ const _fullScreen = () => {
     fullScreenStyle.value = {}
   }
 }
+const { bindEvent } = useCustomEvent()
 </script>
 
 <style lang="scss" scoped>
