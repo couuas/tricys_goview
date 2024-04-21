@@ -1,4 +1,30 @@
 <template>
+  <setting-item-box name="启用数据" :alone="true">
+    <n-space align="start">
+      <n-switch v-model:value="customData.enable" size="small"/>
+    </n-space>
+  </setting-item-box>
+  <setting-item-box name="第二列">
+    <setting-item name="标题">
+      <n-input v-model:value="customData.col1Title" style="height: 28px;" size="small"></n-input>
+    </setting-item>
+  </setting-item-box>
+  <setting-item-box name="第二列">
+    <setting-item name="标题">
+      <n-input v-model:value="customData.col2Title" style="height: 28px;" size="small"></n-input>
+    </setting-item>
+    <setting-item name="测点编码">
+      <n-input v-model:value="customData.col2Code" style="height: 28px;" size="small"></n-input>
+    </setting-item>
+  </setting-item-box>
+  <setting-item-box name="第三列">
+    <setting-item name="标题">
+      <n-input v-model:value="customData.col3Title" style="height: 28px;" size="small"></n-input>
+    </setting-item>
+    <setting-item name="测点编码">
+      <n-input v-model:value="customData.col3Code" style="height: 28px;" size="small"></n-input>
+    </setting-item>
+  </setting-item-box>
   <setting-item-box name="设备UID" :alone="true">
     <n-space vertical>
       <n-space v-for="(item, i) in computeIds" :key="i" align="center" :wrap="false">
@@ -28,20 +54,20 @@
 <script lang="ts" setup>
 import { SettingItemBox, SettingItem } from '@/components/Pages/ChartItemSetting'
 import { reactive, watch, toRefs, ToRefs } from 'vue';
-import {customData as cd} from './config'
+import {CustomDataType} from './config'
 import {icon} from "@/plugins";
 
 const props = defineProps(['customData', 'request'])
 const { CloseIcon, AddIcon } = icon.ionicons5
 
 type computeIdsItemType = {
-  id: string,
+  id: string
   value: string
 }
 
 const computeIds: computeIdsItemType[] = reactive([])
 
-const {customData} = toRefs(props) as ToRefs<{customData: typeof cd}>
+const {customData} = toRefs(props) as ToRefs<{customData: CustomDataType}>
 
 watch(() => customData.value.ids, () => {
   if(!customData.value.ids.length) customData.value.ids.push('')

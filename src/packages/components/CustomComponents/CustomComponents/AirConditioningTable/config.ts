@@ -4,8 +4,21 @@ import { CreateComponentType } from '@/packages/index.d'
 import { chartInitConfig } from '@/settings/designSetting'
 import { AirConditioningTableConfig } from './index'
 
-export const customData = {
+export type CustomDataType = {
+  enable: boolean
+  ids: string[]
+  showInterval: boolean
+  [key: string]: boolean | string | string[]
+}
+
+export const customData: CustomDataType = {
+  enable: false,
   ids: [] as string[],
+  col1Title: '设备名',
+  col2Code: '',
+  col2Title: '空调功率',
+  col3Code: '',
+  col3Title: '用电量',
   showInterval: true
 }
 
@@ -14,9 +27,9 @@ export const option = {
   // 展示列
   header: {
     columns: [
-      {key: 'node_name', reg: '', title: '设备名', unit: '', show: true, width: 'auto', align: 'left', ellipsis: true},
-      {key: 'col1', reg: '/功率/', title: '空调功率', unit: 'kW', show: true, width: 'auto', align: 'left', ellipsis: true},
-      {key: 'col2', reg: '/用电量/', title: '用电量', unit: 'kWh', show: true, width: 'auto', align: 'left', ellipsis: true},
+      {key: 'col1', title: '设备名', unit: '', show: true, width: 'auto', align: 'left', ellipsis: true},
+      {key: 'col2', title: '空调功率', unit: 'kW', show: true, width: 'auto', align: 'left', ellipsis: true},
+      {key: 'col3', title: '用电量', unit: 'kWh', show: true, width: 'auto', align: 'left', ellipsis: true},
     ],
     // value: [],
     // options: [],

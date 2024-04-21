@@ -46,7 +46,7 @@ import { cloneDeep } from 'lodash'
 import {publicInterface} from "@/api/path";
 import { useOriginStore } from '@/store/modules/originStore/originStore'
 import {selectTimeOptions} from "@/views/chart/ContentConfigurations/components/ChartData/index.d";
-import {customData as cd} from './config'
+import {CustomDataType} from './config'
 
 const props = defineProps({
   chartConfig: {
@@ -78,58 +78,62 @@ watch(() => props.chartConfig.option.header, v => {
   deep: true
 })
 
-let originData:any = ref([])
+let originData:any = ref({})
 
 const customData = computed(() => {
-  return props.chartConfig.customData as typeof cd
+  return props.chartConfig.customData as CustomDataType
 })
 
 let data = computed(() => {
   let arr:any = []
-  // if(!Object.keys(originData.value).length) return arr
-  // customData.value.ids.forEach((id: string) => {
-  //   let obj: any = {}
-  //   option.header.columns.forEach((col: any, i: number) => {
-  //     if(i === 0) {
-  //       obj[col.key] = originData.value[id]?.[col.key]
-  //     }
-  //     else {
-  //       let o = originData.value[id] ? originData.value[id] : null
-  //       if(o) {
-  //         let arr = [
-  //           ...Object.values(o.aic),
-  //           ...Object.values(o.aoc),
-  //           ...Object.values(o.dic),
-  //           ...Object.values(o.doc),
-  //         ]
-  //         let t:any = arr.find((_: any) => _.node_name === col.key) || {}
-  //         obj[col.key] = t.value
-  //       }
-  //       else obj[col.key] = undefined
-  //     }
-  //   })
-  //   arr.push(obj)
-  // })
-  if(!originData.value.length) return arr
-  customData.value.ids.forEach((id, i) => {
-    let target = originData.value[i]
+  if(!Object.keys(originData.value).length) return arr
+  customData.value.ids.forEach((id: string) => {
     let obj: any = {}
-    option.header.columns.forEach((col: any, ci:number) => {
-      if(ci === 0) {
-        obj[col.key] = target.node_name
+    option.header.columns.forEach((col: any, i: number) => {
+      if(col.key === 'col1') {
+        obj[col.key] = originData.value[id]?.node_name
       }
       else {
-        const pattern = col.reg.slice(1, -1);  // 移除开始和结束的斜杠
-        let t = {node_value: ''}
-        if(pattern) {
-          const regex = new RegExp(pattern);
-          t = target.children.find((_: any) => regex.test(_.node_name)) || {}
+        let o = originData.value[id] ? originData.value[id] : null
+        if(o) {
+          let points:any = []
+          let keys = ['aic', 'aoc', 'dic', 'doc']
+          keys.forEach(k => {
+            Object.keys(o[k]).forEach(kk => {
+              points.push({
+                __node_code: kk,
+                ...o[k][kk]
+              })
+            })
+          })
+          let t:any = points.find((_: any) => _.__node_code === customData.value[`${col.key}Code`]) || {}
+          obj[col.key] = t.value
         }
-        obj[col.key] = t.node_value
+        else obj[col.key] = undefined
       }
     })
     arr.push(obj)
   })
+  // if(!originData.value.length) return arr
+  // customData.value.ids.forEach((id, i) => {
+  //   let target = originData.value[i]
+  //   let obj: any = {}
+  //   option.header.columns.forEach((col: any, ci:number) => {
+  //     if(ci === 0) {
+  //       obj[col.key] = target.node_name
+  //     }
+  //     else {
+  //       const pattern = col.reg.slice(1, -1);  // 移除开始和结束的斜杠
+  //       let t = {node_value: ''}
+  //       if(pattern) {
+  //         const regex = new RegExp(pattern);
+  //         t = target.children.find((_: any) => regex.test(_.node_name)) || {}
+  //       }
+  //       obj[col.key] = t.node_value
+  //     }
+  //   })
+  //   arr.push(obj)
+  // })
   return arr
 })
 
@@ -146,8 +150,11 @@ const filterData = computed(() => {
 
 
 const columns = computed(() => {
-  let arr = option.header.columns.filter((_: any) => _.show).map((item: any) => {
+  let arr = option.header.columns.filter((_: any) => _.show).map((item: any, i: number) => {
     let obj = item
+    if(item.key === 'col1') item.title = customData.value.col1Title
+    else if(item.key === 'col2') item.title = customData.value.col2Title
+    else if(item.key === 'col3') item.title = customData.value.col3Title
     obj.render = (row: any) => {
       if(row[item.key] !== null && row[item.key] !== undefined) return row[item.key] + (item.unit ? item.unit : '')
       else return '--'
@@ -173,67 +180,68 @@ if (systemConfig['active_alarm_confirm_status']) {
 
 const getData = () => {
   if(!customData.value.ids.filter((_: string) => _).length) {
-    originData.value = []
+    originData.value = {}
     return
   }
   let params = {
     confirm_statuses,
     levels,
     device: customData.value.ids.map((id: string) => {
-      return {dataType: 'point-title', dems_device_uid: id, is_all_point: true, points: []}
+      return {dataType: 'point-title', dems_device_uid: id, is_all_point: false, points: [customData.value.col2Code, customData.value.col3Code]}
     })
   }
   publicInterface('/dcim/dems/device_point', 'cinterface_realtime_data_get_by_uid_no_err_v2', params).then(res => {
     if (res && res.data) {
-      let arr = customData.value.ids.map((id: string) => {
-        let obj = {
-          node_name: res.data[id] ? res.data[id].node_name : '',
-          uid: id
-        }
-        return obj
-      })
-      getDataChild(arr)
+      originData.value = res.data
+      // let arr = customData.value.ids.map((id: string) => {
+      //   let obj = {
+      //     node_name: res.data[id] ? res.data[id].node_name : '',
+      //     uid: id
+      //   }
+      //   return obj
+      // })
+      // getDataChild(arr)
     }
   })
 }
 
-const getDataChild = (parents: any) => {
-  let params = {
-    "condition": {
-      "dems_device_uid": '',
-      "node_name": "",
-      "signal_id": "",
-      "node_status": null,
-      "data_type": "",
-      "dems_device_template_id": null,
-      "is_major_paramenter": "",
-      "is_show": true,
-      "open_driver": true
-    },
-    "page": {
-      "page_size": 99999,
-      "page_number": 1
-    }
-  }
-  let arr = customData.value.ids.map(_ => {
-    let p = cloneDeep(params)
-    p.condition.dems_device_uid = _
-    return publicInterface('/dcim/dems/device_point', 'get_page', p)
-  })
-  Promise.all(arr).then(res => {
-    let data = res.map(item => {
-      if(item && item.errcode === '00000') return item.data.item || []
-      else return []
-    })
-    data.forEach((item, i) => {
-      parents[i].children = item
-    })
-    originData.value = parents
-  })
-}
+// const getDataChild = (parents: any) => {
+//   let params = {
+//     "condition": {
+//       "dems_device_uid": '',
+//       "node_name": "",
+//       "signal_id": "",
+//       "node_status": null,
+//       "data_type": "",
+//       "dems_device_template_id": null,
+//       "is_major_paramenter": "",
+//       "is_show": true,
+//       "open_driver": true
+//     },
+//     "page": {
+//       "page_size": 99999,
+//       "page_number": 1
+//     }
+//   }
+//   let arr = customData.value.ids.map(_ => {
+//     let p = cloneDeep(params)
+//     p.condition.dems_device_uid = _
+//     return publicInterface('/dcim/dems/device_point', 'get_page', p)
+//   })
+//   Promise.all(arr).then(res => {
+//     let data = res.map(item => {
+//       if(item && item.errcode === '00000') return item.data.item || []
+//       else return []
+//     })
+//     data.forEach((item, i) => {
+//       parents[i].children = item
+//     })
+//     originData.value = parents
+//   })
+// }
 
-watch(() => customData.value.ids, () => {
-  getData()
+watch(() => [customData.value.enable, customData.value.col2Code, customData.value.col3Code, customData.value.ids.join('&&')].toString(), () => {
+  if(customData.value.enable) getData()
 }, {
   immediate: true,
   deep: true

@@ -7,12 +7,12 @@
           <n-switch v-model:value="it.show" size="small"/>
         </n-space>
       </setting-item>
-      <setting-item name="正则表达式 匹配测点名称 如/功率/" v-if="i !== 0">
-        <n-input v-model:value="it.reg"/>
-      </setting-item>
-      <setting-item name="列名">
-        <n-input v-model:value="it.title"/>
-      </setting-item>
+<!--      <setting-item name="正则表达式 匹配测点名称 如/功率/" v-if="i !== 0">-->
+<!--        <n-input v-model:value="it.reg"/>-->
+<!--      </setting-item>-->
+<!--      <setting-item name="列名">-->
+<!--        <n-input v-model:value="it.title"/>-->
+<!--      </setting-item>-->
       <setting-item name="单位">
         <n-input v-model:value="it.unit"/>
       </setting-item>
