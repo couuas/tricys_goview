@@ -144,6 +144,25 @@ watch(
   }
 )
 
+watch(() => props.chartConfig.option.legendShowValue, v => {
+  if(v) {
+    let k1 = props.chartConfig.option.dataset?.dimensions?.[0] || ''
+    let k2 = props.chartConfig.option.dataset?.dimensions?.[1] || ''
+    props.chartConfig.option.legend.formatter = (name: string) => {
+      let arr = props.chartConfig.option.dataset?.source || []
+      let obj = arr.find((_: any) => _[k1] === name) || {}
+      return `${name} ${obj[k2]}`
+    }
+  }
+  else {
+    props.chartConfig.option.legend.formatter = (name: string) => {
+      return name
+    }
+  }
+}, {
+  immediate: true
+})
+
 // const { vChartRef } = useChartDataFetch(props.chartConfig, useChartEditStore, (newData: typeof dataJson) => {
 //   clearPieInterval()
 //   if (props.chartConfig.option.isCarousel) {

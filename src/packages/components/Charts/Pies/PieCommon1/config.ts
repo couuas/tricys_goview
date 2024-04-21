@@ -22,6 +22,7 @@ export const PieTypeObject = {
 const otherConfig = {
   // 轮播动画
   isCarousel: false,
+  legendShowValue: false,
 }
 
 const option = {
@@ -30,13 +31,16 @@ const option = {
   tooltip: {
     show: true,
     trigger: 'item',
-    formatter: (params: any) => {
-      let str = `${params.seriesName}<br/>${params.marker}${params.name}`
-      return str
-    }
+    // formatter: (params: any) => {
+    //   let str = `${params.seriesName}<br/>${params.marker}${params.name}`
+    //   return str
+    // }
   },
   legend: {
-    show: true
+    show: true,
+    formatter: (name: string) => {
+      return name
+    }
   },
   dataset: { ...dataJson },
   series: [

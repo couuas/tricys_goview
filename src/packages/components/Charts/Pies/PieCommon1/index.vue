@@ -155,13 +155,13 @@ const { vChartRef } = useChartCommonData(props.chartConfig, useChartEditStore)
 watch(
   () => props.chartConfig.option.dataset,
   (v) => {
-    v.source.forEach((item: {[k: string]: any}) => {
-      let k = v.dimensions[0]
-      let k1 = v.dimensions[1]
-      if(item[k].split(' ').length < 2) {
-        item[k] += ` ${item[k1]}`
-      }
-    })
+    // v.source.forEach((item: {[k: string]: any}) => {
+    //   let k = v.dimensions[0]
+    //   let k1 = v.dimensions[1]
+    //   if(item[k].split(' ').length < 2) {
+    //     item[k] += ` ${item[k1]}`
+    //   }
+    // })
     if(vChartRef.value) {
       vChartRef.value.setOption({
         dataset: v
@@ -172,6 +172,24 @@ watch(
     deep: true
   }
 )
+watch(() => props.chartConfig.option.legendShowValue, v => {
+  if(v) {
+    let k1 = props.chartConfig.option.dataset?.dimensions?.[0] || ''
+    let k2 = props.chartConfig.option.dataset?.dimensions?.[1] || ''
+    props.chartConfig.option.legend.formatter = (name: string) => {
+      let arr = props.chartConfig.option.dataset?.source || []
+      let obj = arr.find((_: any) => _[k1] === name) || {}
+      return `${name} ${obj[k2]}`
+    }
+  }
+  else {
+    props.chartConfig.option.legend.formatter = (name: string) => {
+      return name
+    }
+  }
+}, {
+  immediate: true
+})
 
 onMounted(() => {
   seriesDataMaxLength = dataJson.source.length

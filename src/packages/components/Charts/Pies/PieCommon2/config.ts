@@ -24,6 +24,7 @@ export const PieTypeObject = {
 const otherConfig = {
   // 轮播动画
   isCarousel: false,
+  legendShowValue: false,
 }
 
 const option = {
@@ -34,7 +35,10 @@ const option = {
     trigger: 'item'
   },
   legend: {
-    show: true
+    show: true,
+    formatter: (name: string) => {
+      return name
+    }
   },
   dataset: { ...dataJson },
   series: [
