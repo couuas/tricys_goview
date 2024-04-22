@@ -41,6 +41,8 @@ import {useChartCommonData} from "@/hooks";
 import {useChartEditStore} from "@/store/modules/chartEditStore/chartEditStore";
 import { isPreview } from '@/utils'
 import { cloneDeep } from 'lodash'
+import {useOriginStore} from "@/store/modules/originStore/originStore";
+import { h as vueH, defineComponent } from 'vue'
 
 const props = defineProps({
   chartConfig: {
@@ -104,6 +106,31 @@ watch(() => props.chartConfig.option.header, v => {
   deep: true
 })
 
+const colorToRgba = (sHex: any, alpha = 0.1) => {
+  // 十六进制颜色值的正则表达式
+  const reg = /^#([0-9a-fA-f]{3}|[0-9a-fA-f]{6})$/
+  /* 16进制颜色转为RGB格式 */
+  let sColor = sHex.toLowerCase()
+  if (sColor && reg.test(sColor)) {
+    if (sColor.length === 4) {
+      let sColorNew = '#'
+      for (let i = 1; i < 4; i += 1) {
+        sColorNew += sColor.slice(i, i + 1).concat(sColor.slice(i, i + 1))
+      }
+      sColor = sColorNew
+    }
+    //  处理六位的颜色值
+    const sColorChange = []
+    for (let i = 1; i < 7; i += 2) {
+      sColorChange.push(parseInt('0x' + sColor.slice(i, i + 2)))
+    }
+    return 'rgba(' + sColorChange.join(',') + ',' + alpha + ')'
+  } else {
+    return sColor
+  }
+}
+const originStore = useOriginStore()
+
 const columns = computed(() => {
   let dimensions = option.header.options.filter((_: string) => option.header.value.includes(_))
   dimensions = dimensions.map((_: string) => {
@@ -113,6 +140,25 @@ const columns = computed(() => {
       align: align.value
     }
   })
+  if(props.chartConfig.commonData.currentSource === 'pointTable') {
+    let statusOption = originStore.getOriginStore.user.systemConstant.node_status || []
+    let statusIndex = dimensions.map((_: any) => _.key).findIndex((_: string) => _ === 'status')
+    if(statusIndex > -1) {
+      let k = dimensions[statusIndex].key
+      dimensions[statusIndex].render = (row: any) =>{
+        let obj = statusOption.find((_: any) => _.value === row[k].toString()) || {label: ''}
+        return vueH(
+          'Span',
+          {
+            style: `background: ${colorToRgba(obj.remark)};color: ${obj.remark};border: 1px solid ${obj.remark};border-radius: 4px;padding: 2px 8px;font-size: 12px;`
+          },
+          {
+            default: () => obj.label
+          }
+        )
+      }
+    }
+  }
   return dimensions
 })
 
