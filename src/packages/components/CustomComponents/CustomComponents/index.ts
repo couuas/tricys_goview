@@ -1,6 +1,6 @@
 // import { Theme1Config } from './Theme1/index'
 import { ComprehensivePUEConfig } from './ComprehensivePUE'
-import { ComprehensivePUEV2Config } from './ComprehensivePUEV2'
+import { ComprehensivePUEV3Config } from './ComprehensivePUEV3'
 import { RealTimeTrafficConfig } from './RealTimeTraffic'
 import { OverviewOfComputingNodesConfig } from './OverviewOfComputingNodes'
 import { GDMapConfig } from './GDMap'
@@ -14,7 +14,7 @@ import { AirConditioningTableConfig } from './AirConditioningTable'
 export default [
     // Theme1Config,
     ComprehensivePUEConfig,
-    ComprehensivePUEV2Config,
+    ComprehensivePUEV3Config,
     RealTimeTrafficConfig,
     OverviewOfComputingNodesConfig,
     GDMapConfig,
