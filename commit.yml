@@ -3,27 +3,15 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '7d14c3cd6d5de41a23b37ec654c6bc037f956f0a'
-    oldFile: !uuid 'c5b2a21f123078c8efbb152fda0a0c11d41ea27e'
-  /src/views:
-    newFile: !uuid '205b54ad1f08e70345cd8b70e1da26880e6d7fd6'
-    oldFile: !uuid '267169b8bbeea5b127706393a279070935e809d9'
-  /src/views/chart:
-    newFile: !uuid 'aa7b5b8589365583b58352f6ce2556d2be9dc618'
-    oldFile: !uuid '13b6719020154230e3796fe76ae8bf474081c716'
-  /src/views/chart/ContentCharts:
-    newFile: !uuid '0e5561a5177da3936b3e242df730b6144118e585'
-    oldFile: !uuid '0b4048c5b8207514dd9a4b5865b91ae42f8a79d4'
-  /src/views/chart/ContentCharts/components:
-    newFile: !uuid '5e91251f32ea7d6248202c8e71ae5a9ba9a5ac7f'
-    oldFile: !uuid '65dad4c3d5d41874fe28a73a2cc52d6d892229d1'
-  /src/views/chart/ContentCharts/components/ChartsItemBox:
-    newFile: !uuid 'f344e9c4d1d640f56e4aeb44a6ff5c0be58389a4'
-    oldFile: !uuid 'fb4fe80c9f234de7305ad0c7e13aca559a8fd97d'
-  /src/views/chart/ContentCharts/components/ChartsItemBox/index.vue:
-    newFile: !uuid '227892b97b6863a80b6771e46cb65584ff680dd0'
-    oldFile: !uuid 'f3f96e39be246458787e630cbcbb9b78f33b9453'
-gitCommitId: !uuid 'badb35ee7aff802685caf401e9664e411468d7e6'
+    newFile: !uuid '8d158960ccb62562415598724646931b96eeab5d'
+    oldFile: !uuid '7d14c3cd6d5de41a23b37ec654c6bc037f956f0a'
+  /src/hooks:
+    newFile: !uuid '737a3794db5f13e861e6f9b351bda2d53b3ca5c9'
+    oldFile: !uuid 'a3364ada09f36f9c8f542cddd58ca040104945bd'
+  /src/hooks/useChartDataFetch.hook.ts:
+    newFile: !uuid '9b1a56376c99865175d9099e66279a753593bae7'
+    oldFile: !uuid '3976dc5d3bdb56b3c5094e50facaa74218d8e9b4'
+gitCommitId: !uuid '922faec4d0d43f0d8793a6a2fc63271887a8bc58'
 renames: {
   }
-revisionId: 1414
+revisionId: 1415
