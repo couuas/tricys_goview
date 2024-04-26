@@ -3,21 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid '4cbec357f1c2141a9ad25454867bc86ec123cd56'
-    oldFile: !uuid '8d158960ccb62562415598724646931b96eeab5d'
-  /src/store:
-    newFile: !uuid '3a281257d5fac8f0fcc26cb9c17120b6d8c4f5e3'
-    oldFile: !uuid '440e6e6e94f7ce79f7e94f9a056353c6869d5bbb'
-  /src/store/modules:
-    newFile: !uuid 'f426e0ff2041dcc36344841acceba37d12245346'
-    oldFile: !uuid 'c655ddce4884ece7a425061d3c08578d0665eaaa'
-  /src/store/modules/chartEditStore:
-    newFile: !uuid '38d88c1cd28a8a405ded5e79d6add8b76f904518'
-    oldFile: !uuid 'cf6ac3db2278086417cabbfebf6cf166fb471661'
-  /src/store/modules/chartEditStore/chartEditStore.ts:
-    newFile: !uuid '0c96f111c1bdcab4a98ce1fcfd94675e03a363be'
-    oldFile: !uuid '0b37bb6a984528f704c49779824de3bc14d9602b'
-gitCommitId: !uuid '2f77159e02385e2b90add6afaeb71fcafa0b03c9'
+    newFile: !uuid 'bd1e0b6364ee088bc313b9f122b5f12664967626'
+    oldFile: !uuid '4cbec357f1c2141a9ad25454867bc86ec123cd56'
+  /src/packages:
+    newFile: !uuid 'fd7483711694f00b6f7c8a0c1af8b4388ddb19f7'
+    oldFile: !uuid '8eadf1061f59ed2bb515ecc1d79d11c5828bb26b'
+  /src/packages/components:
+    newFile: !uuid '86a6346530fd10c81d788d09a638a0e6d4ac425a'
+    oldFile: !uuid 'c66472d8b88f2663f38c9adcfb69166e05a8e543'
+  /src/packages/components/Charts:
+    newFile: !uuid 'ada76dc7380b366e9f1e708a1a1d75213b439da3'
+    oldFile: !uuid '589583dab85b8750f9ce8b316031ec45e104d513'
+  /src/packages/components/Charts/Bars:
+    newFile: !uuid 'fb92ae5882fcefafb4ee7a780edece5bcc50d3ce'
+    oldFile: !uuid '64a75d8f3a71d1eb9b8c9360e3cccb2a21021246'
+  /src/packages/components/Charts/Bars/BarLine:
+    newFile: !uuid '507875e05e0e7adc5c53290dd659140fda90a858'
+    oldFile: !uuid '66db4560c860eb4e48fa8653684edeb00361f2a2'
+  /src/packages/components/Charts/Bars/BarLine/config.ts:
+    newFile: !uuid 'ea34b4ba37217e27eb41a40967442b7d44439e32'
+    oldFile: !uuid '4c6c18059d63351cff474dddfc2da29463d1309c'
+gitCommitId: !uuid 'd37a3926418f45dd0b61eb67e3cced8813fde22a'
 renames: {
   }
-revisionId: 1416
+revisionId: 1417
