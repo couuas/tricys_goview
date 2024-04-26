@@ -2,28 +2,10 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid 'bd1e0b6364ee088bc313b9f122b5f12664967626'
-    oldFile: !uuid '4cbec357f1c2141a9ad25454867bc86ec123cd56'
-  /src/packages:
-    newFile: !uuid 'fd7483711694f00b6f7c8a0c1af8b4388ddb19f7'
-    oldFile: !uuid '8eadf1061f59ed2bb515ecc1d79d11c5828bb26b'
-  /src/packages/components:
-    newFile: !uuid '86a6346530fd10c81d788d09a638a0e6d4ac425a'
-    oldFile: !uuid 'c66472d8b88f2663f38c9adcfb69166e05a8e543'
-  /src/packages/components/Charts:
-    newFile: !uuid 'ada76dc7380b366e9f1e708a1a1d75213b439da3'
-    oldFile: !uuid '589583dab85b8750f9ce8b316031ec45e104d513'
-  /src/packages/components/Charts/Bars:
-    newFile: !uuid 'fb92ae5882fcefafb4ee7a780edece5bcc50d3ce'
-    oldFile: !uuid '64a75d8f3a71d1eb9b8c9360e3cccb2a21021246'
-  /src/packages/components/Charts/Bars/BarLine:
-    newFile: !uuid '507875e05e0e7adc5c53290dd659140fda90a858'
-    oldFile: !uuid '66db4560c860eb4e48fa8653684edeb00361f2a2'
-  /src/packages/components/Charts/Bars/BarLine/config.ts:
-    newFile: !uuid 'ea34b4ba37217e27eb41a40967442b7d44439e32'
-    oldFile: !uuid '4c6c18059d63351cff474dddfc2da29463d1309c'
-gitCommitId: !uuid 'd37a3926418f45dd0b61eb67e3cced8813fde22a'
+  /index.html:
+    newFile: !uuid '91784b06f0e98abb26a3af5f7a1363f8e756bc6c'
+    oldFile: !uuid '49904d92ad1155d6ca94354f03388c84bbde857e'
+gitCommitId: !uuid 'f6d2c1fc52174114035d9716d7966841df24270b'
 renames: {
   }
-revisionId: 1417
+revisionId: 1418
