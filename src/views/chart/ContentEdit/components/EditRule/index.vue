@@ -225,7 +225,8 @@ watch(
 onMounted(() => {
   if ($app.value) {
     $app.value.addEventListener('wheel', handleWheel, { passive: false })
-    canvasPosCenter()
+    // canvasPosCenter()
+    chartLayoutStore.setItem(ChartLayoutStoreEnum.RE_POSITION_CANVAS, true)
   }
 })
 
