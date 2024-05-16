@@ -3,18 +3,9 @@ branches: {
   }
 fileChange:
   /README.md:
-    newFile: !uuid 'ce3d6f96f1fc3ae73863e36d4836caaec43ff3e5'
-    oldFile: !uuid 'b87fc6fc02d6c96ac6a84796bb99404f312f72ae'
-  /readme:
-    newFile: !uuid '8a3147a2145c24e5d955bc0b7b5dc8ada176880f'
-    oldFile: !uuid '663f758bad89424f020fa7a29b134c9857ee2f3a'
-  /readme/sponsors:
-    newFile: !uuid 'd41af946058b691445c007a0ef6a1bb74fa37dc4'
-    oldFile: !uuid 'd601fbbc901db56611afc894e4f7273061695c99'
-  /readme/sponsors/xingyun-banner.png:
-    newFile: !uuid 'f446a7d97035626f4a8b02a0d64b2afba8a946f1'
-    oldFile: null
-gitCommitId: !uuid '64bd106e1317aefba3069f51801c493b9410cf83'
+    newFile: !uuid '55fe6069e7142375239204c4d7c98fd597606cae'
+    oldFile: !uuid 'ce3d6f96f1fc3ae73863e36d4836caaec43ff3e5'
+gitCommitId: !uuid 'b6cddbe8db2e51d3a76f5a7197cbdd698bdadbe7'
 renames: {
   }
-revisionId: 1420
+revisionId: 1421
