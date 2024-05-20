@@ -2,9 +2,9 @@
   <BorderBox
     :title="chartConfig?.customData?.title"
     :select1="select1"
-    @update:select1Value="v => select1.value = v"
+    @update:select1Value="(v:any) => select1.value = v"
     :select2="select2"
-    @update:select2Value="v => select2.value = v"
+    @update:select2Value="(v:any) => select2.value = v"
     @clickBatch="clickBatch"
     v-model:checkAll="checkAll"
     @jumpMore="jumpMore"
