@@ -2,9 +2,9 @@
   <BorderBox
     :title="chartConfig?.customData?.title"
     :select1="select1"
-    @update:select1Value="v => select1.value = v"
+    @update:select1Value="(v:any) => select1.value = v"
     :select2="select2"
-    @update:select2Value="v => select2.value = v"
+    @update:select2Value="(v:any) => select2.value = v"
     @clickBatch="clickBatch"
     v-model:checkAll="checkAll"
     @jumpMore="jumpMore"
@@ -191,14 +191,16 @@ let alarmVideos = ref([])
 //   brand: '',
 //   plugin: '',
 // })
-let currentVideo: any = ref(null)
+let currentVideo: any = ref({})
 const getVideos = (ids: number[], alarmIds: number[]) => {
   if(ids.length) {
     publicInterface('/dcim/video_monitor/other_device', 'get_alarm_device', {device_uids: ids.toString()}).then((res: any) => {
       if(res.errcode !== '00000') return
       let arr:any = []
       ids.forEach(id => {
-        arr.push(res.data[id] ? res.data[id][0] : null)
+        if(typeof id === 'number') {
+          arr.push(res.data[id] ? res.data[id][0] : null)
+        }
       })
       alarmVideos.value = arr.concat()
 
@@ -210,8 +212,8 @@ const getVideos = (ids: number[], alarmIds: number[]) => {
           break
         }
       }
-      if(!currentVideo.value && !last) return
-      let obj = currentVideo.value ? JSON.parse(JSON.stringify(currentVideo.value)) : {
+      if(JSON.stringify(currentVideo.value) === '{}' && !last) return
+      let obj = JSON.stringify(currentVideo.value) !== '{}' ? JSON.parse(JSON.stringify(currentVideo.value)) : {
         ip: '',
         port: null,
         account: '',
@@ -226,7 +228,7 @@ const getVideos = (ids: number[], alarmIds: number[]) => {
         }
       }
       obj.alarmId = alarmIds[index]
-      Object.assign(currentVideo, obj)
+      currentVideo.value = obj
       obj.showForce = false
       postMessageToParent({
         type: 'openVideoV2',
@@ -311,7 +313,7 @@ const getData = () => {
         serial_no: e.serial_no,
         remark: e.remark,
       }))
-      getVideos(arr.map(_ => _.device.uid), arr.map(_ => _.id))
+      getVideos(arr.map(_ => _.device?.uid), arr.map(_ => _.id))
       if (checkAll.value) {
         arr = arr.map((e:any) => ({ ...e, checked: e.confirm_status !== 'ok' }))
       } else if (lastTableData.length) {

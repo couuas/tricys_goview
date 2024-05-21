@@ -22,7 +22,7 @@
       :groupIndex="index"
       :themeSetting="themeSetting"
       :themeColor="themeColor"
-      @changeZIndex="z => changeZIndex(item.id, z)"
+      @changeZIndex="(z:any) => changeZIndex(item.id, z)"
       @fullScreen="fullScreen"
     ></preview-render-group>
 

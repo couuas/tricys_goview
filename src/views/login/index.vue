@@ -17,10 +17,11 @@
     </div>
     <layout-header>
       <template #left></template>
-      <template #right>
+      <!-- 报错注掉右插槽 -->
+      <!-- <template #right>
         <go-lang-select></go-lang-select>
         <go-theme-select></go-theme-select>
-      </template>
+      </template> -->
     </layout-header>
     <div class="go-login">
       <div class="go-login-carousel">
