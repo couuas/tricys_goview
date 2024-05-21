@@ -10,6 +10,7 @@ import { DashboardConfig } from './Dashboard'
 import { SystemRuntimeConfig } from './SystemRuntime'
 import { VideoListConfig } from './VideoList'
 import { AirConditioningTableConfig } from './AirConditioningTable'
+import { SiteStatisticsConfig } from './SiteStatistics'
 
 export default [
     // Theme1Config,
@@ -24,4 +25,5 @@ export default [
     SystemRuntimeConfig,
     VideoListConfig,
     AirConditioningTableConfig,
+    SiteStatisticsConfig,
 ]

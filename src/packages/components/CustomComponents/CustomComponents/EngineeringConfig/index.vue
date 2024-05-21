@@ -32,7 +32,7 @@ let url = computed(() => {
   // const account = originStore?.getOriginStore?.user?.user?.account
   const account = 'admin'
   const password = 'laimi@123'
-  let origin = process.env.NODE_ENV === 'production' ? window.location.origin : 'http://192.168.0.61:9528'
+  let origin = process.env.NODE_ENV === 'production' ? window.location.origin : 'http://localhost:9528'
   // let str = `${origin}/static/#/dynamicRing/schematicDiagram/${props.chartConfig.customData.mapId}?parentOrigin=${window.location.origin}&isScreenIframe=true&account=${account}&password=${password}`
   let str = `${origin}/static/#/dynamicRing/schematicDiagram/${props.chartConfig.customData.mapId}?parentOrigin=${window.location.origin}&isScreenIframe=true&access_token=${routerStore.token}`
   return str
