@@ -4,9 +4,37 @@
   <CollapseItem
     v-for="(item, index) in seriesList"
     :key="index"
-    :name="`${item.type == 'bar' ? '柱状图' : '折线图'}`"
+    :name="`${item.type == 'bar' ? `柱状图-${index + 1}` : `折线图-${index + 1}`}`"
     :expanded="true"
   >
+    <template #header>
+      <n-space align="center" :wrap="false">
+        <n-button v-if="index !== 0" @click="handleDelete(index)" circle size="tiny">
+          <template #icon>
+            <n-icon><CloseIcon /></n-icon>
+          </template>
+        </n-button>
+        <n-dropdown v-if="index === seriesList.length - 1" trigger="hover" :options="options" @select="handleSelect">
+          <n-button circle size="tiny">
+            <template #icon>
+              <n-icon><AddIcon /></n-icon>
+            </template>
+          </n-button>
+        </n-dropdown>
+      </n-space>
+    </template>
+    <SettingItemBox name="类型">
+      <setting-item name="">
+        <n-select
+          :value="item.type"
+          :options="[
+            { label: '柱状图', value: 'bar' },
+            { label: '折线图', value: 'line' },
+          ]"
+          :onUpdate:value="(v:string) => changeType(v, index)"
+        />
+      </setting-item>
+    </SettingItemBox>
     <SettingItemBox name="图形" v-if="item.type == 'bar'">
       <SettingItem name="宽度">
         <n-input-number
@@ -75,10 +103,14 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, computed } from 'vue'
+import { PropType, computed, ref, watch } from 'vue'
 import { GlobalSetting, CollapseItem, SettingItemBox, SettingItem } from '@/components/Pages/ChartItemSetting'
 import { lineConf } from '@/packages/chartConfiguration/echarts'
 import { GlobalThemeJsonType } from '@/settings/chartThemes'
+import {barSeriesItem, lineSeriesItem} from './config'
+import {cloneDeep} from "lodash";
+import {icon} from "@/plugins";
+const { CloseIcon, AddIcon } = icon.ionicons5
 
 const props = defineProps({
   optionData: {
@@ -87,7 +119,32 @@ const props = defineProps({
   }
 })
 
+const options = ref([
+  {
+    label: '柱状图',
+    key: 'bar',
+  },
+  {
+    label: '折线图',
+    key: 'line'
+  },
+])
+
+const handleSelect = (key: string) => {
+  handleAdd(key === 'bar' ? cloneDeep(barSeriesItem) : cloneDeep(lineSeriesItem))
+}
+
 const seriesList = computed(() => {
   return props.optionData.series
 })
+
+const handleAdd = (seriesItem: any) => {
+  props.optionData.series.push(cloneDeep(seriesItem))
+}
+const handleDelete = (i: number) => {
+  props.optionData.series.splice(i, 1)
+}
+const changeType = (type: string, i: number) => {
+  props.optionData.series[i] = type === 'bar' ? cloneDeep(barSeriesItem) : cloneDeep(lineSeriesItem)
+}
 </script>

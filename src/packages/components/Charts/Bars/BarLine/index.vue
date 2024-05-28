@@ -19,7 +19,7 @@ import { CanvasRenderer } from 'echarts/renderers'
 import { BarChart, LineChart } from 'echarts/charts'
 import config, { includes, barSeriesItem, lineSeriesItem } from './config'
 import { mergeTheme } from '@/packages/public/chart'
-import { useChartDataFetch } from '@/hooks'
+import {useChartCommonData, useChartDataFetch} from '@/hooks'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { isPreview } from '@/utils'
 import { DatasetComponent, GridComponent, TooltipComponent, LegendComponent } from 'echarts/components'
@@ -49,25 +49,26 @@ const option = computed(() => {
   return mergeTheme(props.chartConfig.option, props.themeSetting, includes)
 })
 
-watch(
-  () => props.chartConfig.option.dataset,
-  (newData, oldData) => {
-    if (newData.dimensions.length !== oldData.dimensions.length) {
-      const seriesArr = []
-      for (let i = 0; i < newData.dimensions.length - 1; i++) {
-        seriesArr.push(barSeriesItem, lineSeriesItem)
-      }
-      replaceMergeArr.value = ['series']
-      props.chartConfig.option.series = seriesArr
-      nextTick(() => {
-        replaceMergeArr.value = []
-      })
-    }
-  },
-  {
-    deep: false
-  }
-)
+// watch(
+//   () => props.chartConfig.option.dataset,
+//   (newData, oldData) => {
+//     if (newData.dimensions.length !== oldData.dimensions.length) {
+//       const seriesArr = []
+//       for (let i = 0; i < newData.dimensions.length - 1; i++) {
+//         seriesArr.push(barSeriesItem, lineSeriesItem)
+//       }
+//       replaceMergeArr.value = ['series']
+//       props.chartConfig.option.series = seriesArr
+//       nextTick(() => {
+//         replaceMergeArr.value = []
+//       })
+//     }
+//   },
+//   {
+//     deep: false
+//   }
+// )
 
-const { vChartRef } = useChartDataFetch(props.chartConfig, useChartEditStore)
+// const { vChartRef } = useChartDataFetch(props.chartConfig, useChartEditStore)
+const { vChartRef } = useChartCommonData(props.chartConfig, useChartEditStore)
 </script>
