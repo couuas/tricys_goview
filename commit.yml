@@ -2,31 +2,19 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid '00c92166c48c0f22db40541886cea0db61f4512a'
-    oldFile: !uuid '3c4f0df33b7bc3b38eeac8626eed57f0aa1a76ea'
-  /src/utils:
-    newFile: !uuid '37b6ee8f454f58693d5adb8e8e29a4585b166645'
-    oldFile: !uuid 'a681fa6307c5b20820e8e6501f7eadafec948517'
-  /src/utils/utils.ts:
-    newFile: !uuid '70cf7be9a01da349434ba41941ae09e2a76c4d99'
-    oldFile: !uuid '70a68cb3f2cd76e207c902e5930386ded612a814'
-  /src/views:
-    newFile: !uuid 'b559e52ff859df928b53c758cd0df46cd48ac0be'
-    oldFile: !uuid '98819054d8d9a7ec48811232a37b1f2d8c7f2542'
-  /src/views/preview:
-    newFile: !uuid 'e3acd7a12dcb9c1d42da738cb367cb9800bc5902'
-    oldFile: !uuid '7ede04a4060ab02008232517d054e59475e33624'
-  /src/views/preview/components:
-    newFile: !uuid '6420b8b0f207cf1d62b9dc4e58ef1b1f7fd9cdac'
-    oldFile: !uuid '5217115a6b8b23f0504a04b1bab2734e6085d1cd'
-  /src/views/preview/components/PreviewRenderList:
-    newFile: !uuid 'e239e46903083d65106d3795593a02c23def0c40'
-    oldFile: !uuid '5716dd95929e637753fc5fdb3a4cc45cfa18774a'
-  /src/views/preview/components/PreviewRenderList/index.vue:
-    newFile: !uuid 'af1e710a665b9d114c5777caeb79f62893140d47'
-    oldFile: !uuid 'd22be72d1c360b104bffb82edde853d5f11ab106'
-gitCommitId: !uuid 'cb89d78630765a5f45833de3e7646e55abcc62e3'
+  /README.md:
+    newFile: !uuid '5574cc534e4eaae4181cc5afebdf2e14f30d3c8f'
+    oldFile: !uuid 'bf839aa017ae0f53dadf85932b5d2a7defa41a02'
+  /readme:
+    newFile: !uuid 'b3dba95fbf4ef8898daf9bfdaecdd1cedfb9222f'
+    oldFile: !uuid 'cd17dbe080336b471fb995dd09a979d29b2420d9'
+  /readme/sponsors:
+    newFile: !uuid '985d1636540d77c075cfae06d8371ec76f25be1f'
+    oldFile: !uuid 'd41af946058b691445c007a0ef6a1bb74fa37dc4'
+  /readme/sponsors/chengdan-banner.png:
+    newFile: !uuid '2710bd2de77015989959dfbcef59bb13da0d7af8'
+    oldFile: null
+gitCommitId: !uuid '7fc9beb46274fa22d41971201adaaec008161f9f'
 renames: {
   }
-revisionId: 1425
+revisionId: 1426
