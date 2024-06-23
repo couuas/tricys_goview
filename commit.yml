@@ -3,18 +3,9 @@ branches: {
   }
 fileChange:
   /README.md:
-    newFile: !uuid '5574cc534e4eaae4181cc5afebdf2e14f30d3c8f'
-    oldFile: !uuid 'bf839aa017ae0f53dadf85932b5d2a7defa41a02'
-  /readme:
-    newFile: !uuid 'b3dba95fbf4ef8898daf9bfdaecdd1cedfb9222f'
-    oldFile: !uuid 'cd17dbe080336b471fb995dd09a979d29b2420d9'
-  /readme/sponsors:
-    newFile: !uuid '985d1636540d77c075cfae06d8371ec76f25be1f'
-    oldFile: !uuid 'd41af946058b691445c007a0ef6a1bb74fa37dc4'
-  /readme/sponsors/chengdan-banner.png:
-    newFile: !uuid '2710bd2de77015989959dfbcef59bb13da0d7af8'
-    oldFile: null
-gitCommitId: !uuid '7fc9beb46274fa22d41971201adaaec008161f9f'
+    newFile: !uuid '9a6449b680d8570ec532a9f431a10ba0e43be593'
+    oldFile: !uuid '5574cc534e4eaae4181cc5afebdf2e14f30d3c8f'
+gitCommitId: !uuid '297b0e27f0117fe21941f3f32097bca9b0dc74e3'
 renames: {
   }
-revisionId: 1426
+revisionId: 1427
