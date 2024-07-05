@@ -88,7 +88,12 @@ getMessageByParent('getStore', (e) => {
 
 getMessageByParent('loaded', (e) => {
   if(e.data.type === 'changeRoute' && e.data.page === 'customLargeScreen') {
-    routerStore.setToken(e.data.token)
+    if(import.meta.env.MODE === 'production') {
+      routerStore.setToken(e.data.token)
+    }
+    else {
+      routerStore.setToken(import.meta.env.VITE_DEV_TOKEN)
+    }
     router.replace(e.data.path ? e.data.path : '/chart/preview/null')
   }
 })

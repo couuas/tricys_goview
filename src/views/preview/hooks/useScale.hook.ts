@@ -139,13 +139,13 @@ export const useScale = (localStorageInfo: ChartEditStorageType) => {
   // 屏幕适配
   onMounted(fn)
 
-  watch(() => localStorageInfo.editCanvasConfig, (v) => {
-    width.value = v.width
-    height.value = v.height
-    fn()
-  }, {
-    deep: true
-  })
+  // watch(() => localStorageInfo.editCanvasConfig, (v) => {
+  //   width.value = v.width
+  //   height.value = v.height
+  //   fn()
+  // }, {
+  //   deep: true
+  // })
 
   return {
     entityRef,

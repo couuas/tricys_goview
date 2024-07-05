@@ -46,7 +46,14 @@ export async function getToken() {
 
 export const publicInterface = async (paramType:string, interfaceType:string, paramData?:unknown) =>{
     try {
-        const access_token = await getToken()
+        let access_token = ''
+        if(import.meta.env.MODE === 'production') {
+            access_token = await getToken() as string
+        }
+        else {
+            console.log(import.meta.env, 777)
+            access_token = import.meta.env.VITE_DEV_TOKEN
+        }
         const res = await http(RequestHttpEnum.POST)<any>(paramType, {
             access_token,
             type: interfaceType,
