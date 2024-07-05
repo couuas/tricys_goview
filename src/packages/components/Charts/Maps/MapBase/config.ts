@@ -53,13 +53,13 @@ export const option = {
       type: 'effectScatter',
       coordinateSystem: 'geo',
       symbolSize: 4,
-      legendHoverLink: true,
+      legendHoverLink: false,
       showEffectOn: 'render',
-      rippleEffect: {
-        scale: 6,
-        color: '#FFFFFF',
-        brushType: 'fill'
-      },
+      // rippleEffect: {
+      //   scale: 6,
+      //   color: '#FFFFFF',
+      //   brushType: 'fill'
+      // },
       tooltip: {
         show: true,
         backgroundColor: 'rgba(0,0,0,.6)',
@@ -78,8 +78,9 @@ export const option = {
         textShadowBlur: 10,
         textBorderWidth: 0,
         color: '#FFFFFF',
-        show: true
+        show: false
       },
+      symbol: 'none',
       itemStyle: {
         color: '#FFFFFF',
         borderColor: 'rgba(225,255,255,2)',
@@ -110,7 +111,7 @@ export const option = {
         }
       },
       label: {
-        show: false,
+        show: true,
         color: '#FFFFFF',
         fontSize: 12
       },
@@ -121,13 +122,13 @@ export const option = {
           fontSize: 12
         },
         itemStyle: {
-          areaColor: '#389BB7',
-          shadowColor: '#389BB7',
+          areaColor: '#4196FF',
+          shadowColor: '#1C58EE54',
           borderWidth: 1
         }
       },
       itemStyle: {
-        borderColor: '#93EBF8',
+        borderColor: '#00DEFFFF',
         borderWidth: 1,
         areaColor: {
           type: 'radial',
@@ -152,32 +153,39 @@ export const option = {
         shadowBlur: 10
       }
     },
-    {
-      type: 'lines',
-      zlevel: 2,
-      effect: {
-        show: true,
-        period: 4, //箭头指向速度，值越小速度越快
-        trailLength: 0.4, //特效尾迹长度[0,1]值越大，尾迹越长重
-        symbol: 'arrow', //箭头图标
-        symbolSize: 7 //图标大小
-      },
-      lineStyle: {
-        normal: {
-          color: '#4fb6d2',
-          width: 1, //线条宽度
-          opacity: 0.1, //尾迹线条透明度
-          curveness: 0.3 //尾迹线条曲直度
-        }
-      },
-      data: []
-    }
+    // {
+    //   type: 'lines',
+    //   zlevel: 2,
+    //   effect: {
+    //     show: true,
+    //     period: 4, //箭头指向速度，值越小速度越快
+    //     trailLength: 0.4, //特效尾迹长度[0,1]值越大，尾迹越长重
+    //     symbol: 'arrow', //箭头图标
+    //     symbolSize: 7 //图标大小
+    //   },
+    //   lineStyle: {
+    //     normal: {
+    //       color: '#4fb6d2',
+    //       width: 1, //线条宽度
+    //       opacity: 0.1, //尾迹线条透明度
+    //       curveness: 0.3 //尾迹线条曲直度
+    //     }
+    //   },
+    //   data: []
+    // }
   ]
 }
+
+export const customData = {
+  // k: 名字 v: 数值
+  dataMap: '{}'
+}
+
 export const MapDefaultConfig = { ...option }
 export default class Config extends PublicConfigClass implements CreateComponentType {
   public key: string = MapBaseConfig.key
   public attr = { ...chartInitConfig, w: 750, h: 800, zIndex: -1 }
   public chartConfig = cloneDeep(MapBaseConfig)
   public option = echartOptionProfixHandle(option, includes)
+  public customData = cloneDeep(customData)
 }

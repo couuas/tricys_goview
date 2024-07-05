@@ -81,7 +81,7 @@
       </SettingItem>
     </SettingItemBox>
 
-    <SettingItemBox name="悬浮 （预览可见）">
+    <SettingItemBox name="悬浮（预览可见）">
       <SettingItem name="禁用">
         <n-space>
           <n-switch v-model:value="seriesList[1].emphasis.disabled" size="small"></n-switch>
@@ -194,47 +194,47 @@
       </SettingItem>
     </SettingItemBox>
   </CollapseItem>
-  <CollapseItem name="标记" :expanded="true">
-    <SettingItemBox name="样式">
-      <SettingItem name="大小">
-        <n-input-number v-model:value="seriesList[0].symbolSize" size="small" :min="0"></n-input-number>
-      </SettingItem>
-      <SettingItem name="颜色">
-        <n-color-picker size="small" :modes="['hex']" v-model:value="seriesList[0].itemStyle.color"></n-color-picker>
-      </SettingItem>
-    </SettingItemBox>
+<!--  <CollapseItem name="标记" :expanded="true">-->
+<!--    <SettingItemBox name="样式">-->
+<!--      <SettingItem name="大小">-->
+<!--        <n-input-number v-model:value="seriesList[0].symbolSize" size="small" :min="0"></n-input-number>-->
+<!--      </SettingItem>-->
+<!--      <SettingItem name="颜色">-->
+<!--        <n-color-picker size="small" :modes="['hex']" v-model:value="seriesList[0].itemStyle.color"></n-color-picker>-->
+<!--      </SettingItem>-->
+<!--    </SettingItemBox>-->
 
-    <SettingItemBox name="文本">
-      <SettingItem name="显示">
-        <n-space>
-          <n-switch v-model:value="seriesList[0].label.show" size="small"></n-switch>
-        </n-space>
-      </SettingItem>
-      <SettingItem name="字体大小">
-        <n-input-number v-model:value="seriesList[0].label.fontSize" size="small" :min="0"></n-input-number>
-      </SettingItem>
-      <SettingItem name="字体颜色">
-        <n-color-picker size="small" :modes="['hex']" v-model:value="seriesList[0].label.color"></n-color-picker>
-      </SettingItem>
-    </SettingItemBox>
+<!--    <SettingItemBox name="文本">-->
+<!--      <SettingItem name="显示">-->
+<!--        <n-space>-->
+<!--          <n-switch v-model:value="seriesList[0].label.show" size="small"></n-switch>-->
+<!--        </n-space>-->
+<!--      </SettingItem>-->
+<!--      <SettingItem name="字体大小">-->
+<!--        <n-input-number v-model:value="seriesList[0].label.fontSize" size="small" :min="0"></n-input-number>-->
+<!--      </SettingItem>-->
+<!--      <SettingItem name="字体颜色">-->
+<!--        <n-color-picker size="small" :modes="['hex']" v-model:value="seriesList[0].label.color"></n-color-picker>-->
+<!--      </SettingItem>-->
+<!--    </SettingItemBox>-->
 
-    <SettingItemBox name="涟漪">
-      <SettingItem name="涟漪大小">
-        <n-input-number
-          v-model:value="seriesList[0].rippleEffect.scale"
-          :min="1"
-          size="small"
-          placeholder="请输入涟漪大小"
-        ></n-input-number>
-      </SettingItem>
-      <SettingItem name="涟漪颜色">
-        <n-color-picker size="small" :modes="['hex']" v-model:value="seriesList[0].rippleEffect.color"></n-color-picker>
-      </SettingItem>
-      <SettingItem name="涟漪的绘制方式">
-        <n-select size="small" v-model:value="seriesList[0].rippleEffect.brushType" :options="rippleEffectOptions" />
-      </SettingItem>
-    </SettingItemBox>
-  </CollapseItem>
+<!--    <SettingItemBox name="涟漪">-->
+<!--      <SettingItem name="涟漪大小">-->
+<!--        <n-input-number-->
+<!--          v-model:value="seriesList[0].rippleEffect.scale"-->
+<!--          :min="1"-->
+<!--          size="small"-->
+<!--          placeholder="请输入涟漪大小"-->
+<!--        ></n-input-number>-->
+<!--      </SettingItem>-->
+<!--      <SettingItem name="涟漪颜色">-->
+<!--        <n-color-picker size="small" :modes="['hex']" v-model:value="seriesList[0].rippleEffect.color"></n-color-picker>-->
+<!--      </SettingItem>-->
+<!--      <SettingItem name="涟漪的绘制方式">-->
+<!--        <n-select size="small" v-model:value="seriesList[0].rippleEffect.brushType" :options="rippleEffectOptions" />-->
+<!--      </SettingItem>-->
+<!--    </SettingItemBox>-->
+<!--  </CollapseItem>-->
 
   <CollapseItem v-if="seriesList[2]" name="飞线" :expanded="true">
     <SettingItemBox name="箭头">

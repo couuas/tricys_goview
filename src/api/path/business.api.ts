@@ -51,7 +51,6 @@ export const publicInterface = async (paramType:string, interfaceType:string, pa
             access_token = await getToken() as string
         }
         else {
-            console.log(import.meta.env, 777)
             access_token = import.meta.env.VITE_DEV_TOKEN
         }
         const res = await http(RequestHttpEnum.POST)<any>(paramType, {

@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, reactive, watch, ref, nextTick, toRefs } from 'vue'
+import { PropType, reactive, watch, ref, nextTick, toRefs, computed, Ref } from 'vue'
 import config, { includes } from './config'
 import VChart from 'vue-echarts'
 import { icon } from '@/plugins'
@@ -43,6 +43,7 @@ import { isPreview } from '@/utils'
 import mapJsonWithoutHainanIsLands from './mapWithoutHainanIsLands.json'
 import mapChinaJson from './mapGeojson/china.json'
 import { DatasetComponent, GridComponent, TooltipComponent, GeoComponent, VisualMapComponent } from 'echarts/components'
+import { customData as customDataConfig } from './config'
 
 const props = defineProps({
   themeSetting: {
@@ -57,6 +58,10 @@ const props = defineProps({
     type: Object as PropType<config>,
     required: true
   }
+})
+
+const customData: Ref<typeof customDataConfig> = computed(() => {
+  return props.chartConfig.customData as typeof customDataConfig
 })
 
 const { ArrowBackIcon } = icon.ionicons5
@@ -79,6 +84,16 @@ use([
 const option = reactive({
   value: mergeTheme(props.chartConfig.option, props.themeSetting, includes)
 })
+
+props.chartConfig.option.series[1].tooltip.formatter = (v: any) => {
+  let obj = JSON.parse(customData.value.dataMap)
+  let value: any
+  if(obj && JSON.stringify(obj) !== '{}') value = obj[v.name] || '-'
+  else value = v.value
+  let str = `<div style="display: flex;align-items: center"><span style="margin-right: 20px;">${v.name}</span><span>${value}</span></div>`
+  return str
+}
+
 const vChartRef = ref<typeof VChart>()
 
 //动态获取json注册地图

@@ -13,6 +13,7 @@ import { VideoListConfig } from './VideoList'
 import { AirConditioningTableConfig } from './AirConditioningTable'
 import { SiteStatisticsConfig } from './SiteStatistics'
 import { PowerCapacityConfig } from './PowerCapacity'
+import { ElectricityConsumptionConfig } from './ElectricityConsumption'
 
 export default [
     // Theme1Config,
@@ -30,4 +31,5 @@ export default [
     AirConditioningTableConfig,
     SiteStatisticsConfig,
     PowerCapacityConfig,
+    ElectricityConsumptionConfig,
 ]
