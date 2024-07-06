@@ -185,6 +185,7 @@ onUnmounted(() => {
     }
   }
   .bottomBox{
+    overflow: auto;
     display: flex;
     flex-wrap: wrap;
     height: calc(100% - 20px);

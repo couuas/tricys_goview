@@ -12,8 +12,8 @@
             </div>
             <v-chart class="leftBox" :option="item.option" autoresize :update-options="{ notMerge: true, replaceMerge: ['series'] }"/>
             <div class="rightBox">
-              <div>{{item.label}}</div>
-              <div>{{item.unit}}</div>
+              <div>{{item.label}} {{item.unit}}</div>
+<!--              <div>{{item.unit}}</div>-->
               <div>{{item.value}}</div>
             </div>
           </div>
@@ -516,6 +516,7 @@ onUnmounted(() => {
   width: 100%;
   height: 100%;
   display: flex;
+  overflow-y: auto;
   .left{
     flex: 6;
     min-width: 60%;
@@ -554,9 +555,9 @@ onUnmounted(() => {
         justify-content: center;
         white-space: nowrap;
         text-overflow: ellipsis;
-        overflow: hidden;
+        //overflow: hidden;
         & > div:nth-child(2) {
-          margin: 5px 0;
+          //margin: 5px 0;
         }
       }
     }
