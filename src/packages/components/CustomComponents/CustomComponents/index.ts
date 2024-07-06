@@ -14,6 +14,8 @@ import { AirConditioningTableConfig } from './AirConditioningTable'
 import { SiteStatisticsConfig } from './SiteStatistics'
 import { PowerCapacityConfig } from './PowerCapacity'
 import { ElectricityConsumptionConfig } from './ElectricityConsumption'
+import { DeviceRunningStateConfig } from './DeviceRunningState'
+import { TemperatureTop10Config } from './TemperatureTop10'
 
 export default [
     // Theme1Config,
@@ -32,4 +34,6 @@ export default [
     SiteStatisticsConfig,
     PowerCapacityConfig,
     ElectricityConsumptionConfig,
+    DeviceRunningStateConfig,
+    TemperatureTop10Config,
 ]
