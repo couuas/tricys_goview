@@ -6,6 +6,7 @@ const bindEvent = (item:any) => {
         let {linkHead, link, isBlank} = item.customEvent.click
         obj = {
             click: () => {
+                if(!link) return
                 if(isBlank) postMessageToParent({
                     type: 'windowOpen',
                     url: `${linkHead}${link}`,

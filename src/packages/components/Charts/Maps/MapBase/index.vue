@@ -296,7 +296,7 @@ watch(() => customData.value.dataMap, () => {
   let obj = dataMap.value as any
   props.chartConfig.option.series[1].tooltip.formatter = (v: any) => {
     let value: any
-    if(obj && JSON.stringify(obj) !== '{}') value = obj[v.name].value || '-'
+    if(JSON.stringify(obj) !== '{}') value = obj[v.name]?.value || '-'
     else value = !isNaN(v.value) ? v.value : '-'
     let str = `<div style="display: flex;align-items: center"><span style="margin-right: 20px;">${v.name}</span><span>${value}</span></div>`
     return str

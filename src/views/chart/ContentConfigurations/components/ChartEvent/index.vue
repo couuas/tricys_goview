@@ -75,6 +75,7 @@ const finallyLink = computed(() => {
   return targetData.value.customEvent.click.linkHead + (targetData.value as any).customEvent.click.link
 })
 const handleClick = () => {
+  if(!finallyLink.value) return
   if(targetData.value.customEvent.click.isBlank) postMessageToParent({
     type: 'windowOpen',
     url: finallyLink.value,
