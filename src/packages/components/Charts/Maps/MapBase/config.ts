@@ -53,15 +53,16 @@ export const option = {
       type: 'effectScatter',
       coordinateSystem: 'geo',
       symbolSize: 4,
-      legendHoverLink: false,
+      legendHoverLink: true,
       showEffectOn: 'render',
-      // rippleEffect: {
-      //   scale: 6,
-      //   color: '#FFFFFF',
-      //   brushType: 'fill'
-      // },
+      rippleEffect: {
+        scale: 6,
+        // color: '#FFFFFF',
+        // color: '#4dca59',
+        brushType: 'fill',
+      },
       tooltip: {
-        show: true,
+        show: false,
         backgroundColor: 'rgba(0,0,0,.6)',
         borderColor: 'rgba(147, 235, 248, .8)',
         textStyle: {
@@ -78,13 +79,13 @@ export const option = {
         textShadowBlur: 10,
         textBorderWidth: 0,
         color: '#FFFFFF',
-        show: false
+        show: true
       },
-      symbol: 'none',
+      // symbol: 'none',
       itemStyle: {
         color: '#FFFFFF',
         borderColor: 'rgba(225,255,255,2)',
-        borderWidth: 4,
+        borderWidth: 0,
         shadowColor: '#E1FFFF',
         shadowBlur: 10
       },
@@ -111,7 +112,7 @@ export const option = {
         }
       },
       label: {
-        show: true,
+        show: false,
         color: '#FFFFFF',
         fontSize: 12
       },
@@ -119,7 +120,8 @@ export const option = {
         disabled: false,
         label: {
           color: '#FFFFFF',
-          fontSize: 12
+          fontSize: 12,
+          show: false,
         },
         itemStyle: {
           areaColor: '#4196FF',
@@ -178,7 +180,8 @@ export const option = {
 
 export const customData = {
   // k: 名字 v: 数值
-  dataMap: '{}'
+  dataMap: '{}',
+  showInterval: true,
 }
 
 export const MapDefaultConfig = { ...option }
