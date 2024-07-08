@@ -189,22 +189,22 @@ const registerMapInitAsync = async () => {
 registerMapInitAsync()
 
 const handleClickMap = (e: any) => {
-  let obj = JSON.parse(customData.value.dataMap)
+  let obj = dataMap.value as any
   if(obj && JSON.stringify(obj) !== '{}') {
-    let path = obj[e.name].skipPath
+    let path = obj[e.name]?.skipPath
     if(path) openWeb(path)
   }
 }
 
-// onMounted(() => {
-//   if(vChartRef.value) {
-//     vChartRef.value.chart.on('click', 'series.map', handleClickMap)
-//   }
-// })
-//
-// onUnmounted(() => {
-//   if(vChartRef.value) vChartRef.value.chart.off('click', 'series.map', handleClickMap)
-// })
+onMounted(() => {
+  if(vChartRef.value) {
+    vChartRef.value.chart.on('click', 'series.map', handleClickMap)
+  }
+})
+
+onUnmounted(() => {
+  if(vChartRef.value) vChartRef.value.chart.off('click', 'series.map', handleClickMap)
+})
 
 const openWeb = (url: string) => {
   postMessageToParent({
