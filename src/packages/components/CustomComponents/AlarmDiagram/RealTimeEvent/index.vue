@@ -195,7 +195,8 @@ let currentVideo: any = ref({})
 const getVideos = (ids: number[], alarmIds: number[]) => {
   if(ids.length) {
     publicInterface('/dcim/video_monitor/other_device', 'get_alarm_device', {device_uids: ids.toString()}).then((res: any) => {
-      if(res.errcode !== '00000') return
+      // if(res.errcode !== '00000') return
+      if(!res?.data) return
       let arr:any = []
       ids.forEach(id => {
         if(typeof id === 'number') {

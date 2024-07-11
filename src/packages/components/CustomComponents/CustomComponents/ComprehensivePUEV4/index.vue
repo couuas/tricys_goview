@@ -3,7 +3,7 @@
     <BorderBox :title="customData?.title">
       <div class="inner">
         <div class="left">
-          <VCircle :value="value" style="height: 100%;width: 100%"/>
+          <VCircle :value="circleArr" style="height: 100%;width: 100%"/>
         </div>
         <div class="right">
           <div class="item" v-for="(item, i) in rightArr" :key="i">
@@ -12,7 +12,7 @@
             </div>
             <v-chart class="leftBox" :option="item.option" autoresize :update-options="{ notMerge: true, replaceMerge: ['series'] }"/>
             <div class="rightBox">
-              <div>{{item.label}} {{item.unit}}</div>
+              <div>{{item.label}}</div>
 <!--              <div>{{item.unit}}</div>-->
               <div>{{item.value}}</div>
             </div>
@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, shallowReactive, watch, toRefs, reactive, onMounted, onUnmounted, computed } from 'vue'
+import { PropType, shallowReactive, watch, toRefs, reactive, onMounted, onUnmounted, ref, computed } from 'vue'
 import type { Ref } from 'vue'
 import { customData as customDataConfig } from './config'
 import { useChartDataFetch } from '@/hooks'
@@ -63,18 +63,28 @@ const customData: Ref<typeof customDataConfig> = computed(() => {
   return props.chartConfig.customData as typeof customDataConfig
 })
 
-const values = reactive(['1.000', '0.000', '0.000', '0.000'])
-const value = computed(() => {
-  let arr = []
-  arr.push({label: customData.value.circle.title, id: customData.value.circle.id, value: values[0]})
-  customData.value.leftBottom.forEach((item, i) => {
-    arr.push({label: item.title, id: item.id, value: values[i + 1]})
-  })
+// 左1 中123 右123
+const dataArr = ref([1, 0, 0, 0, 0, 0, 0])
+
+const circleArr = computed(() => {
+  let arr = [
+    { label: customData.value.circle.title, value: formatNumber(dataArr.value[0]) },
+    { label: customData.value.center.title1, value: formatNumber(dataArr.value[1]) },
+    { label: customData.value.center.title2, value: formatNumber(dataArr.value[2]) },
+    { label: customData.value.center.title3, value: formatNumber(dataArr.value[3]) },
+  ]
   return arr
 })
-const getPointData = (id: string) => {
-  return publicInterface('/dcim/system/custom_large_screen', 'get_point_value', id)
-}
+
+const rightArr = computed(() => {
+  let arr = [
+    { label: customData.value.right.title1, value: formatNumber(dataArr.value[4]), option: option1.value },
+    { label: customData.value.right.title2, value: formatNumber(dataArr.value[5]), option: option2.value },
+    { label: customData.value.right.title3, value: formatNumber(dataArr.value[6]), option: option3.value },
+  ]
+  return arr
+})
+
 const formatNumber = (num: number) => {
   // 使用 toFixed(3) 将数字转换为三位小数
   const formattedNum = num.toFixed(3);
@@ -85,27 +95,8 @@ const formatNumber = (num: number) => {
   const result = parts.join('.');
   return result;
 }
-watch(() => value.value.map(_ => _.id).toString(), async (v, o) => {
-  if(v === o) return
-  let diffIndex = -1
-  let ids = v.split(',')
-  let oIds = o.split(',')
-  ids.forEach((id, i) => {
-    if(id !== oIds[i]) diffIndex = i
-  })
-  let id = ids[diffIndex]
-  if(id !== null && id !== '') {
-    let res = await getPointData(id) as any
-    if(res.errcode === '00000') {
-      values[diffIndex] = formatNumber(Number(res.data.value))
-    }
-  }
-  else {
-    values[diffIndex] = diffIndex === 0 ? '1.000' : '0.000'
-  }
-})
 
-const option1 = {
+const option1 = ref({
   title: [],
   grid: {
     top: '0%',
@@ -191,8 +182,8 @@ const option1 = {
       barGap: '-100%', // 两环重叠
       z: 1
     }]
-}
-const option2 = {
+})
+const option2 = ref({
   title: [
     {
       text: '0',
@@ -297,8 +288,8 @@ const option2 = {
       barGap: '-100%', // 两环重叠
       z: 1
     }]
-}
-const option3 = {
+})
+const option3 = ref({
   title: [
     {
       text: '0',
@@ -403,86 +394,116 @@ const option3 = {
       barGap: '-100%', // 两环重叠
       z: 1
     }]
+})
+
+const getLeftData = async () => {
+  dataArr.value[0] = 1
+  if(customData.value.id) {
+    const params = {
+      duration: 3, // 2，查询日报；3，查询月报；4，年报
+      start_time: moment().subtract(1, 'days').startOf('day').format('yyyy-MM-DD HH:mm:ss'),
+      end_time: moment().startOf('day').format('yyyy-MM-DD HH:mm:ss'),
+      strategy_ids: [Number(customData.value.id)]
+    }
+    let res = await publicInterface('/dynamic_report/err', 'err', params)
+    if(res && res.data) {
+      const resData = res.data.tables.data
+      let field0DataLength = resData.length // 二期
+      let field0Total = 0
+      if (parseFloat(resData[0]['field0']) > 0) {
+        // 大于0的值才计入平均
+        field0Total += parseFloat(resData[0]['field0'])
+      } else {
+        // 异常值剔除出平均值计算
+        field0DataLength--
+      }
+      // 24小时正常数据取平均
+      if (field0DataLength > 0) {
+        // this.building_one_day_pue = (parseFloat(field1Total / field1DataLength)).toFixed(2) // 四舍五入保留2位小数
+        dataArr.value[0] = field0Total / field0DataLength
+      } else {
+        dataArr.value[0] = 0
+      }
+    }
+  }
 }
-const values1 = reactive([0, 0, 0])
-const options = reactive([option1, option2, option3])
-const rightArr = computed(() => {
-  let arr: {label: string, unit: string, id: string | null, value: number, option: any}[] = []
-  customData.value.right.forEach((item, i) => {
-    arr.push({
-      label: item.title,
-      unit: item.unit,
-      id: item.id,
-      value: values1[i],
-      option: options[i]
-    })
-  })
-  return arr
-})
 
-watch(() => rightArr.value.map(_ => _.id).toString(), async (v, o) => {
-  if(v === o) return
-  let diffIndex = -1
-  let ids = v.split(',')
-  let oIds = o.split(',')
-  ids.forEach((id, i) => {
-    if(id !== oIds[i]) diffIndex = i
-  })
-  let id = ids[diffIndex]
-  if(id !== null && id !== '') {
-    let res = await getPointData(id) as any
-    if(res.errcode === '00000') {
-      values1[diffIndex] = Number(res.data.value)
+const getCenterData = async () => {
+  dataArr.value[2] = 0
+  dataArr.value[3] = 0
+  if(customData.value.id) {
+    const params = {
+      strategy_ids: [Number(customData.value.id)]
+    }
+    let res = await publicInterface('/dynamic_report/err', 'pue_dashboard', params)
+    if(res && res.data && res.data.length) {
+      dataArr.value[2] = Number(res.data[0].week_avg_pue)
+      dataArr.value[3] = Number(res.data[0].month_avg_pue)
     }
   }
-  else {
-    values1[diffIndex] = 0
-  }
-})
-
-
-const getData = () => {
-  let ids = value.value.map(_ => _.id) as (string | null)[]
-  ids = ids.concat(rightArr.value.map(_ => _.id))
-  ids.forEach((id, i) => {
-    if(id !== null && id !== '') {
-      getPointData(id).then((res: any) => {
-        if(res.errcode === '00000') {
-          if (i < 4) values[i] = formatNumber(Number(res.data.value))
-          else values1[i - 4] = res.data.value
-        }
-      })
-    }
-    else {
-      if (i < 4) values[i] = i === 0 ? '1.000' : '0.000'
-      else values1[i - 4] = 0
-    }
-  })
 }
-let timer:unknown
-watch(() => values1, () => {
-  if(values1[0] !== 0 && values1[1] !== 0) {
-    let percent = ((values1[1] / values1[0]) * 100).toFixed(0)
-    options[1].series[0].data[0].value = Number(percent)
-    options[1].title[0].text = percent
+
+const getRightData = async () => {
+  // 设置默认值
+  dataArr.value[1] = 0
+  dataArr.value[4] = 0
+  dataArr.value[5] = 0
+  dataArr.value[6] = 0
+  option2.value.series[0].data[0].value = 0
+  option2.value.title[0].text = '0'
+  option3.value.series[0].data[0].value = 0
+  option3.value.title[0].text = '0'
+
+  let item = {
+    time_out: 60,
+    fmt: 2,
+    abs: true
   }
-  else {
-    options[1].series[0].data[0].value = 0
-    options[1].title[0].text = '0'
+  let params = [
+    { ...item, calculation: customData.value.right.calculation1, name: 'a' },
+    { ...item, calculation: customData.value.right.calculation2, name: 'b' },
+  ]
+  let res = await publicInterface('/dcim/dems/device_point', 'get_value_by_point_uid_calculation', params)
+  if(res && res.data) {
+    res.data = res.data.map(Number)
+    dataArr.value[4] = res.data[0]
+    dataArr.value[5] = res.data[1]
+    let percent5 = 0, percent6 = 0
+    if(res.data[0] !== 0) {
+      percent5 = res.data[1] / res.data[0]
+      percent6 = 1 - percent5
+      dataArr.value[1] = res.data[0] / res.data[1]
+    }
+    else dataArr.value[1] = 0
+    dataArr.value[6] = res.data[0] - res.data[1]
+
+    option2.value.series[0].data[0].value = 100 * percent5
+    option2.value.title[0].text = (100 * percent5).toFixed(0)
+    option3.value.series[0].data[0].value = 100 * percent6
+    option3.value.title[0].text = (100 * percent6).toFixed(0)
   }
-  if(values1[0] !== 0 && values1[2] !== 0) {
-    let percent = ((values1[2] / values1[0]) * 100).toFixed(0)
-    options[2].series[0].data[0].value = Number(percent)
-    options[2].title[0].text = percent
+}
+
+
+const getData = async () => {
+  if(!customData.value.enable) {
+    dataArr.value = [1, 0, 0, 0, 0, 0, 0]
+    option2.value.series[0].data[0].value = 0
+    option2.value.title[0].text = '0'
+    option3.value.series[0].data[0].value = 0
+    option3.value.title[0].text = '0'
+    return
   }
-  else {
-    options[2].series[0].data[0].value = 0
-    options[2].title[0].text = '0'
-  }
-}, {
-  deep: true
+  getLeftData()
+  getCenterData()
+  getRightData()
+}
+
+watch(() => customData.value.enable, () => {
+  getData()
 })
 
+let timer: unknown
 watch(() => [props.chartConfig.request.requestInterval, props.chartConfig.request.requestIntervalUnit].join('&&'), v => {
   if(!isPreview()) return
   if(props.chartConfig.request.requestInterval) {
@@ -517,6 +538,7 @@ onUnmounted(() => {
   height: 100%;
   display: flex;
   overflow-y: auto;
+  overflow-x: hidden;
   .left{
     flex: 6;
     min-width: 60%;

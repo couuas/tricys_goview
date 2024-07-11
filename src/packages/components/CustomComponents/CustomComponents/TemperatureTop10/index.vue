@@ -131,11 +131,11 @@ onUnmounted(() => {
       display: flex;
       background: rgba(65, 150, 255, 0.08);
       color: #999;
-      height: 20px;
-      line-height: 20px;
-      font-size: 12px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 14px;
       padding-left: 10px;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
       &:nth-last-child(1) {
         margin-bottom: 0;
       }
@@ -153,7 +153,7 @@ onUnmounted(() => {
         }
         &:nth-child(3) {
           flex: none;
-          width: 80px;
+          width: 90px;
         }
       }
       .col1{
@@ -163,7 +163,7 @@ onUnmounted(() => {
         &:nth-child(3) {
           color: rgb(0, 255, 255);
           .value{
-            width: 49px;
+            width: 59px;
           }
         }
       }

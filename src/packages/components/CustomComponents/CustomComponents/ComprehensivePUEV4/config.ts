@@ -14,41 +14,23 @@ export const option = {
 }
 export const customData = {
   title: '综合PUE',
+  enable: false,
+  id: null,
   circle: {
-    title: '实时PUE',
-    id: null
+    title: '昨日PUE',
   },
-  leftBottom: [
-    {
-      title: '昨日PUE',
-      id: null
-    },
-    {
-      title: '上周PUE',
-      id: null
-    },
-    {
-      title: '上月PUE',
-      id: null
-    }
-  ],
-  right: [
-    {
-      title: '总市电负载',
-      unit: '(kWh)',
-      id: null
-    },
-    {
-      title: 'IT用电负载',
-      unit: '(kWh)',
-      id: null
-    },
-    {
-      title: '其他负载',
-      unit: '(kWh)',
-      id: null
-    }
-  ],
+  center: {
+    title1: '实时PUE',
+    title2: '上周PUE',
+    title3: '上月PUE',
+  },
+  right: {
+    title1: '总功率(kWh)',
+    calculation1: '',
+    title2: 'IT功率(kW)',
+    calculation2: '',
+    title3: '其他功率(kW)',
+  },
   showInterval: true,
 }
 

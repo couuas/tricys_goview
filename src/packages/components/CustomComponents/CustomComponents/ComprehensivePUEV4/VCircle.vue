@@ -247,27 +247,18 @@
             <circle cx="102" cy="80" r="2" style="fill:#091c38" />
           </g>
         </g>
-  <!--      <rect x="72" y="186" width="60" height="10" style="fill:url(#linear-gradient-pue-2)" />-->
-  <!--      <text transform="translate(81 189.89)" style="font-size:12px;fill:#fff;font-family:PingFang-SC-Regular, PingFang SC-Regular">{{value[1].label}}</text>-->
-  <!--      <text transform="translate(82 221)" style="font-size:20px;fill:#4dca59;font-family:PingFang-SC-Bold, PingFang SC-Bold;font-weight:700">{{ value[1].value }}</text>-->
-  <!--      <rect y="186" width="60" height="10" style="fill:url(#linear-gradient-pue-3)" />-->
-  <!--      <text transform="translate(9 189.89)" style="font-size:12px;fill:#fff;font-family:PingFang-SC-Regular, PingFang SC-Regular">{{value[2].label}}</text>-->
-  <!--      <text transform="translate(10 221)" style="font-size:20px;fill:#4dca59;font-family:PingFang-SC-Bold, PingFang SC-Bold;font-weight:700">{{ value[2].value }}</text>-->
-  <!--      <rect x="144" y="186" width="60" height="10" style="fill:url(#linear-gradient-pue-4)" />-->
-  <!--      <text transform="translate(153 189.89)" style="font-size:12px;fill:#fff;font-family:PingFang-SC-Regular, PingFang SC-Regular">{{value[3].label}}</text>-->
-  <!--      <text transform="translate(154 221)" style="font-size:20px;fill:#4dca59;font-family:PingFang-SC-Bold, PingFang SC-Bold;font-weight:700">{{ value[3].value }}</text>-->
       </g>
     </svg>
     <div class="sideBox">
       <div class="item">
         <div class="rect"></div>
-        <div class="label">{{value[2].label}}</div>
-        <div class="value">{{value[2].value}}</div>
+        <div class="label">{{value[1].label}}</div>
+        <div class="value">{{value[1].value}}</div>
       </div>
       <div class="item">
         <div class="rect"></div>
-        <div class="label">{{value[1].label}}</div>
-        <div class="value">{{value[1].value}}</div>
+        <div class="label">{{value[2].label}}</div>
+        <div class="value">{{value[2].value}}</div>
       </div>
       <div class="item">
         <div class="rect"></div>
