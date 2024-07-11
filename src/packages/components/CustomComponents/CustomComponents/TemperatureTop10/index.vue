@@ -80,7 +80,6 @@ const getData = () => {
   publicInterface('/dcim/dems/device_point', 'temp_list_dashboard', params).then((res: any) => {
     if (res.data && res.data.length) {
       data.value = res.data.slice(0, 10)
-      console.log(data.value, 777)
     }
   })
 }

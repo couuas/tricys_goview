@@ -32,13 +32,13 @@
     <setting-item name="标题1">
       <n-input v-model:value="props.customData.right.title1" size="small" placeholder="请输入"/>
     </setting-item>
-    <setting-item name="公式1">
+    <setting-item name="测点计算公式1">
       <n-input v-model:value="props.customData.right.calculation1" size="small" placeholder="请输入"/>
     </setting-item>
     <setting-item name="标题2">
       <n-input v-model:value="props.customData.right.title2" size="small" placeholder="请输入"/>
     </setting-item>
-    <setting-item name="公式2">
+    <setting-item name="测点计算公式2">
       <n-input v-model:value="props.customData.right.calculation2" size="small" placeholder="请输入"/>
     </setting-item>
     <setting-item name="标题3">

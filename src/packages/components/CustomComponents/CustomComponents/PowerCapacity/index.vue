@@ -2,26 +2,28 @@
   <div style="overflow: visible;">
     <BorderBox :title="customData?.title">
       <div class="box">
-        <div class="item" v-for="(it, i) in data" :key="i">
-          <div class="row1">
-            <div class="name">{{it.name}}</div>
-            <div style="flex: 1;"></div>
-            <div class="label">{{it.label}}</div>
-            <div class="value">{{it.value}}</div>
-          </div>
-          <div class="row2">
-            <div class="rect1"></div>
-            <div class="rect" :style="{width: toPercent(it.value1, it.value)}"></div>
-            <div class="label">{{it.label1}}</div>
-            <div class="value">{{toPercent(it.value1, it.value)}}({{typeof it.value1 === 'number' ? it.value1 : '--'}})</div>
-          </div>
-          <div class="row3">
-            <div class="col" v-for="(c, ci) in it.floor" :key="ci">
-              <div class="label">{{c.label}}</div>
-              <div class="value">{{typeof c.value === 'number' ? c.value : '--'}}</div>
+        <template v-for="(it, i) in data" :key="i">
+          <div class="item" v-if="it.show">
+            <div class="row1">
+              <div class="name">{{it.name}}</div>
+              <div style="flex: 1;"></div>
+              <div class="label">{{it.label}}</div>
+              <div class="value">{{it.value}}</div>
+            </div>
+            <div class="row2">
+              <div class="rect1"></div>
+              <div class="rect" :style="{width: toPercent(it.value1, it.value)}"></div>
+              <div class="label">{{it.label1}}</div>
+              <div class="value">{{toPercent(it.value1, it.value)}}({{typeof it.value1 === 'number' ? it.value1 : '--'}})</div>
+            </div>
+            <div class="row3">
+              <div class="col" v-for="(c, ci) in it.floor" :key="ci">
+                <div class="label">{{c.label}}</div>
+                <div class="value">{{typeof c.value === 'number' ? c.value : '--'}}</div>
+              </div>
             </div>
           </div>
-        </div>
+        </template>
       </div>
     </BorderBox>
   </div>
@@ -56,14 +58,14 @@ onMounted(() => {
 })
 
 const resetData = () => {
-  let obj1 = cloneDeep(customData.value.topBox) as any
-  obj1.value1 = null
-  obj1.floor = obj1.floor.map((_: any) => ({..._, value: null}))
-
-  let obj2 = cloneDeep(customData.value.bottomBox) as any
-  obj2.value1 = null
-  obj2.floor = obj2.floor.map((_: any) => ({..._, value: null}))
-  return [obj1, obj2]
+  let arr = customData.value.arr.map((it: any, index: number) => {
+    let o = cloneDeep(it)
+    o.value1 = null
+    o.name1 = `${index}_0`
+    o.floor = o.floor.map((_: any, i: number) => ({..._, name: `${index}_${i + 1}`, value: null}))
+    return o
+  })
+  return arr
 }
 
 const getData = () => {
@@ -75,18 +77,17 @@ const getData = () => {
     abs: true
   }
   data.value.forEach((item, i) => {
+    if(!item.show) return
     let o = {...obj} as any
     o.calculation = item.calculation
-    if(item.name1) o.name = item.name1
-    if(item.upper_limit !== 0) o.upper_limit = item.upper_limit
+    o.name = item.name1
     paramsMap[params.length] = {dataIndex: i, floorIndex: null}
     params.push(o)
 
     item.floor.forEach((cIt: any, ci: number) => {
       let a = {...obj} as any
       a.calculation = cIt.calculation
-      if(cIt.name) a.name = cIt.name
-      if(cIt.upper_limit !== 0) a.upper_limit = cIt.upper_limit
+      a.name = cIt.name
       paramsMap[params.length] = {dataIndex: i, floorIndex: ci}
       params.push(a)
     })
@@ -104,8 +105,9 @@ const getData = () => {
   })
 }
 
-watch([() => customData.value.topBox, () => customData.value.bottomBox, () => customData.value.enable], () => {
+watch([() => customData.value.arr, () => customData.value.enable], () => {
   data.value = resetData()
+  console.log(data.value)
   if(customData.value.enable) getData()
 }, {
   deep: true

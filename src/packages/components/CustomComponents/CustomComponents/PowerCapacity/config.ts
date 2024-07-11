@@ -8,23 +8,24 @@ export const option = {}
 export const customData = {
   title: '功率容量',
   enable: false,
-  topBox: {
-    name: '一号楼', label: '设计容量', value: 20000, label1: '已使用', calculation: '', name1: '', upper_limit: 0, floor: [
-      {label: '1F', calculation: '', name: '', upper_limit: 0},
-      {label: '2F', calculation: '', name: '', upper_limit: 0},
-      {label: '3F', calculation: '', name: '', upper_limit: 0},
-      {label: '4F', calculation: '', name: '', upper_limit: 0},
-    ]
-  },
-  bottomBox: {
-    name: '二号楼', label: '设计容量', value: 20000, label1: '已使用', calculation: '', name1: '', upper_limit: 0, floor: [
-      {label: '1F', calculation: '', name: '', upper_limit: 0},
-      {label: '2F', calculation: '', name: '', upper_limit: 0},
-      {label: '3F', calculation: '', name: '', upper_limit: 0},
-      {label: '4F', calculation: '', name: '', upper_limit: 0},
-      {label: '5F', calculation: '', name: '', upper_limit: 0},
-    ]
-  },
+  arr: [
+    {
+      name: '一号楼', show: true, label: '设计容量', value: 20000, label1: '已使用', calculation: '', floor: [
+        { label: '1F', calculation: '' },
+        { label: '2F', calculation: '' },
+        { label: '3F', calculation: '' },
+        { label: '4F', calculation: '' },
+      ]
+    },
+    {
+      name: '二号楼', show: true, label: '设计容量', value: 20000, label1: '已使用', calculation: '', floor: [
+        { label: '1F', calculation: '' },
+        { label: '2F', calculation: '' },
+        { label: '3F', calculation: '' },
+        { label: '4F', calculation: '' },
+      ]
+    }
+  ],
   showInterval: true,
 }
 
