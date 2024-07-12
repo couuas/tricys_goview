@@ -5,4 +5,4 @@ import { VideoConfig } from './Video/index'
 import { WordCloudConfig } from './WordCloud/index'
 
 // export default [VideoConfig]
-export default [IframeConfig]
+export default [IframeConfig, VideoConfig]

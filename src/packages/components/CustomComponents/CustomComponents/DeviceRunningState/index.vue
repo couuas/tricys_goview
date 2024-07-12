@@ -62,8 +62,8 @@ const deepGetAllDeviceCodes = (treeData: any):any => {
 }
 
 let systemDatas:Ref<any> = ref([])
-const originStore = useOriginStore()
-const systemConfig = originStore.getOriginStore.user.systemConfig
+// const originStore = useOriginStore()
+// const systemConfig = originStore.getOriginStore.user.systemConfig
 
 const getData = async() => {
   try {
@@ -100,15 +100,15 @@ const getData = async() => {
         space_complete_id: '',
         device_codes: systemDatas.value.map((e: any) => e.device_code)
       }
-      publicInterface('/dcim/dems/device', 'count_num_and_alarm_num_by_type', params).then((res: any) => {
-        if (res.data && res.data.length) {
-          for (const i in res.data) {
-            const item = systemDatas.value.find((e: any) => e.device_code === res.data[i].device_code)
+      publicInterface('/dcim/dems/device', 'count_num_and_alarm_num_by_type', params).then((res1: any) => {
+        if (res1.data && res1.data.length) {
+          for (const i in res1.data) {
+            const item = systemDatas.value.find((e: any) => e.device_code === res1.data[i].device_code)
             if (item) {
-              item.all = res.data[i].all
-              item.online_num = res.data[i].all - res.data[i].alarm_num - res.data[i].offline_num
-              item.alarm_num = res.data[i].alarm_num
-              item.offline_num = res.data[i].offline_num
+              item.all = res1.data[i].all
+              item.online_num = res1.data[i].all - res1.data[i].alarm_num - res1.data[i].offline_num
+              item.alarm_num = res1.data[i].alarm_num
+              item.offline_num = res1.data[i].offline_num
             }
           }
         }

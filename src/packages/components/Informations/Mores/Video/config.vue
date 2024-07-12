@@ -14,16 +14,21 @@
         </n-upload>
       </setting-item>
     </setting-item-box>
-    <setting-item-box name="源" alone>
-      <setting-item name="">
-        <n-select v-model:value="optionData.dataset" :options="datasetList" :render-option="renderOption" size="small"></n-select>
-      </setting-item>
-    </setting-item-box>
-    <setting-item-box name="自定义源" alone>
-      <setting-item name="将会覆盖源选项">
-        <n-input v-model:value="optionData.datasetCustom" size="small"></n-input>
-      </setting-item>
-    </setting-item-box>
+<!--    <setting-item-box name="源" alone>-->
+<!--      <setting-item name="">-->
+<!--        <n-select v-model:value="optionData.dataset" :options="datasetList" :render-option="renderOption" size="small"></n-select>-->
+<!--      </setting-item>-->
+<!--    </setting-item-box>-->
+        <setting-item-box name="源" alone>
+          <setting-item name="">
+            <n-input v-model:value="optionData.dataset" size="small"></n-input>
+          </setting-item>
+        </setting-item-box>
+<!--    <setting-item-box name="自定义源" alone>-->
+<!--      <setting-item name="将会覆盖源选项">-->
+<!--        <n-input v-model:value="optionData.datasetCustom" size="small"></n-input>-->
+<!--      </setting-item>-->
+<!--    </setting-item-box>-->
     <setting-item-box name="控制">
       <setting-item>
         <n-checkbox v-model:checked="optionData.loop" size="small">循环播放</n-checkbox>
