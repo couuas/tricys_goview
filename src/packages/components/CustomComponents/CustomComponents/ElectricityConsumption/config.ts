@@ -9,11 +9,11 @@ export const customData = {
   title: '近7日用电量',
   title1: '当月用电量',
   title2: '年用电量',
-  barId1: null,
-  barId2: null,
-  barName1: '1号楼',
-  barName2: '2号楼',
   enable: false,
+  arr: [
+    {id: null, name: '1号楼'},
+    {id: null, name: '2号楼'},
+  ],
   showInterval: true,
 }
 

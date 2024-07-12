@@ -56,52 +56,41 @@ let title = computed(() => {
   return v
 })
 
-let buildingOne7DaysData: Ref<number[]> = ref([])
-let buildingTen7DaysData: Ref<number[]> = ref([])
+let weekData: Ref<any> = ref({})
 const getWeekData = (i: number) => {
   let params = {
-    strategy_ids: [(customData.value as any)[`barId${i + 1}`]]
+    strategy_ids: [customData.value.arr[i].id]
   }
   publicInterface('/dynamic_report/manager', 'query_err_report_by_one', params).then((res: any) => {
     if (res.data) {
-      if (i === 0) {
-        buildingOne7DaysData.value = res.data.map((e: any) => parseFloat(e.value).toFixed(2))
-      } else {
-        buildingTen7DaysData.value = res.data.map((e: any) => parseFloat(e.value).toFixed(2))
-      }
+      weekData.value[i] = res.data.map((e: any) => parseFloat(e.value).toFixed(2))
     } else {
-      if (i === 0) {
-        buildingOne7DaysData.value = [0, 0, 0, 0, 0, 0, 0]
-      } else {
-        buildingTen7DaysData.value = [0, 0, 0, 0, 0, 0, 0]
-      }
+      weekData.value[i] = [0, 0, 0, 0, 0, 0, 0]
     }
     handleChart()
   })
 }
 
+let monthData: Ref<any> = ref([])
 const getMonthData = (duration: number, start_time: string, end_time: string) => {
   const params = {
     duration, // 2，查询日报；3，查询月报；4，年报
     start_time,
     end_time,
-    strategy_ids: [customData.value.barId1, customData.value.barId2],
+    strategy_ids: customData.value.arr.map(_ => _.id),
   }
   publicInterface('/dynamic_report/err', 'err', params).then((res: any) => {
     if (res.data && res.data.tables) {
       const data = res.data.tables.data
-      buildingOne7DaysData.value = data.map((e: any) => {
-        if (e.field0) {
-          return e.field0
-        } else {
-          return 0
-        }
-      })
-      buildingTen7DaysData.value = data.map((e: any) => {
-        if (e.field1) {
-          return e.field1
-        } else {
-          return 0
+      monthData.value = customData.value.arr.map((item, i) => {
+        return {
+          name: item.name,
+          value: data.map((e: any) => {
+            if(e[`field${i}`]) {
+              return e[`field${i}`]
+            }
+            else return 0
+          })
         }
       })
     }
@@ -112,12 +101,21 @@ const getMonthData = (duration: number, start_time: string, end_time: string) =>
 let echart6Options:Ref<any> = ref({})
 const vChartRef = ref()
 const handleChart = () => {
+  // x轴数据
   let dateList:any = []
+  let data: any = []
   if (radio.value.value === '周') {
     for (let i = 7; i > 0; i--) {
       dateList.push(moment().subtract(i, 'day').startOf('day').format('M月D日'))
     }
-  } else if (radio.value.value === '月') {
+    data = customData.value.arr.map((item, i) => {
+      return {
+        name: item.name,
+        value: weekData.value[i],
+      }
+    })
+  }
+  else if (radio.value.value === '月') {
     const startDate = moment().startOf('month').format('yyyy-MM-DD HH:mm:ss')
     const endDate = moment().endOf('month').subtract(1, 'day').format('yyyy-MM-DD HH:mm:ss')
     dateList.push(startDate)
@@ -128,11 +126,26 @@ const handleChart = () => {
       addNum++
     }
     dateList = dateList.map((e: any) => moment(e).format('M月D日'))
-  } else if (radio.value.value === '年') {
-    dateList = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+    data = monthData.value
   }
+  else if (radio.value.value === '年') {
+    dateList = ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月']
+    data = monthData.value
+  }
+  let color = [
+    ['rgba(73, 146, 255, .3)', 'rgba(73, 146, 255, 1)'],
+    ['rgba(124, 255, 178, .1)', 'rgba(124, 255, 178, 1)'],
+    ['rgba(253, 221, 96, .3)', 'rgba(253, 221, 96, 1)'],
+    ['rgba(255, 110, 118, .3)', 'rgba(255, 110, 118, 1)'],
+    ['rgba(88, 217, 249, .3)', 'rgba(88, 217, 249, 1)'],
+    ['rgba(5, 192, 145, .3)', 'rgba(5, 192, 145, 1)'],
+    ['rgba(255, 138, 69, .3)', 'rgba(255, 138, 69, 1)'],
+    ['rgba(141, 72, 227, .3)', 'rgba(141, 72, 227, 1)'],
+    ['rgba(221, 121, 255, .3)', 'rgba(221, 121, 255, 1)']
+  ]
+
   echart6Options.value = {
-    color: ['#00ffff', '#395bf0'],
+    color: color.map(_ => _[1]),
     tooltip: {
       trigger: 'axis',
       axisPointer: { // 坐标轴指示器，坐标轴触发有效
@@ -149,7 +162,7 @@ const handleChart = () => {
       textStyle: {
         color: '#fff'
       },
-      data: [customData.value.barName1, customData.value.barName2]
+      data: customData.value.arr.map(_ => _.name)
     },
     grid: {
       top: '25%',
@@ -214,9 +227,9 @@ const handleChart = () => {
         data: dateList
       }
     ],
-    series: [
-      {
-        name: customData.value.barName1,
+    series: data.map((_: any, i: number) => {
+      return {
+        name: _.name,
         type: 'bar',
         // xAxisIndex: 1,
         zlevel: 1,
@@ -232,11 +245,11 @@ const handleChart = () => {
                 colorStops: [
                   {
                     offset: 0,
-                    color: 'rgba(0, 246, 249, .3)'
+                    color: color[i][0]
                   },
                   {
                     offset: 1,
-                    color: 'rgba(0, 246, 249, 1)'
+                    color: color[i][1]
                   }
                 ]
               }
@@ -244,40 +257,9 @@ const handleChart = () => {
           }
         },
         barWidth: '20%',
-        data: buildingOne7DaysData.value
-      },
-      {
-        name: customData.value.barName2,
-        type: 'bar',
-        // xAxisIndex: 1,
-        zlevel: 1,
-        itemStyle: {
-          normal: {
-            color: () => {
-              return {
-                type: 'linear',
-                x: 0,
-                y: 1,
-                x2: 0,
-                y2: 0,
-                colorStops: [
-                  {
-                    offset: 0,
-                    color: 'rgba(63, 146, 250, .3)'
-                  },
-                  {
-                    offset: 1,
-                    color: 'rgba(63, 146, 250, 1)'
-                  }
-                ]
-              }
-            }
-          }
-        },
-        barWidth: '20%',
-        data: buildingTen7DaysData.value
+        data: _.value
       }
-    ],
+    }),
     dataZoom: [
       {
         show: true,
@@ -320,8 +302,9 @@ const getData = () => {
   let v = radio.value.value
   if(customData.value.enable) {
     if(v === '周') {
-      getWeekData(0)
-      getWeekData(1)
+      customData.value.arr.forEach((item, i) => {
+        getWeekData(i)
+      })
     }
     else if(v === '月') {
       getMonthData(3, moment().startOf('month').format('yyyy-MM-DD HH:mm:ss'), moment().endOf('month').format('yyyy-MM-DD HH:mm:ss'))
@@ -333,7 +316,8 @@ const getData = () => {
 }
 
 watch(() => radio.value.value, getData)
-watch(() => customData.value.enable, getData)
+watch([() => customData.value.enable, () => customData.value.arr.map(_ => _.id)], getData, { deep: true })
+watch(() => customData.value.arr.map(_ => _.name), handleChart, { deep: true })
 
 let timer:unknown
 watch(() => [props.chartConfig.request.requestInterval, props.chartConfig.request.requestIntervalUnit].join('&&'), v => {

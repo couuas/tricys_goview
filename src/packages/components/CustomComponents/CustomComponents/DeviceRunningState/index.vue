@@ -81,11 +81,16 @@ const getData = async() => {
           offline_num: 0
         }
       })
-      if (systemConfig.dglt_device_status_type_config && systemConfig.dglt_device_status_type_config !== '[]') {
+      let config: any = []
+      try {
+        config = JSON.parse(customData.value.config)
+      } catch (e) {
+        console.log(e)
+      }
+      if (config && config.length) {
         // 如果配置了展示的设备分类（不配置默认全部）
         systemDatas.value = systemDatas.value.filter((e: any) => {
-          const dglt_device_status_type_config = JSON.parse(systemConfig.dglt_device_status_type_config)
-          return dglt_device_status_type_config.find((v: any) => v.code === e.device_code)
+          return config.find((v: any) => v.code === e.device_code)
         })
       }
       const params = {
@@ -120,6 +125,8 @@ const openDialog = (item: any) => {
     data: item
   })
 }
+
+watch(() => customData.value.config, getData)
 
 let timer:unknown
 watch(() => [props.chartConfig.request.requestInterval, props.chartConfig.request.requestIntervalUnit].join('&&'), v => {
