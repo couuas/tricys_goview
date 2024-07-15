@@ -73,8 +73,8 @@ const jumpToMachineRoom = (row: any) => {
   }
 }
 
-const toTwoDecimalPlaces = (num: number) => {
-  return parseFloat(num.toFixed(2));
+const toTwoDecimalPlaces = (num: number, digit = 0) => {
+  return parseFloat(num.toFixed(digit));
 }
 
 const getData = () => {
