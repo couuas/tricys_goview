@@ -146,6 +146,7 @@ onUnmounted(() => {
         display: flex;
         margin-left: 10px;
         align-items: center;
+        padding-left: 5px;
         .rect {
             position: absolute;
             top: 0;
