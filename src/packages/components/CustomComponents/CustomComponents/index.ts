@@ -16,6 +16,8 @@ import { PowerCapacityConfig } from './PowerCapacity'
 import { ElectricityConsumptionConfig } from './ElectricityConsumption'
 import { DeviceRunningStateConfig } from './DeviceRunningState'
 import { TemperatureTop10Config } from './TemperatureTop10'
+import { PositionConfig } from './Position'
+import { JumpBtnConfig } from './JumpBtn'
 
 export default [
     // Theme1Config,
@@ -36,4 +38,6 @@ export default [
     ElectricityConsumptionConfig,
     DeviceRunningStateConfig,
     TemperatureTop10Config,
+    PositionConfig,
+    JumpBtnConfig,
 ]
