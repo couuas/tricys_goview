@@ -1,6 +1,7 @@
 <template>
     <div class="floorBox">
-        <div class="floor" :class="[errorClassName]" @click.stop="jump"><div class="rect"></div>{{ customData.label }}</div>
+        <div v-if="customData.jumpEnable" class="floor" :class="[errorClassName]" @click.stop="jump"><div class="rect"></div>{{ customData.label }}</div>
+        <div v-else class="floor" :class="[errorClassName]"><div class="rect"></div>{{ customData.label }}</div>
     </div>
 </template>
 

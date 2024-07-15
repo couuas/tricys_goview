@@ -7,6 +7,7 @@ import cloneDeep from 'lodash/cloneDeep'
 export const option = {}
 export const customData = {
   label: '1号楼',
+  jumpEnable: true,
   id: null,
   id1: null,
   showInterval: true,

@@ -14,6 +14,11 @@
             <n-input-number v-model:value="props.customData.id1" size="small" placeholder="请输入"/>
         </setting-item>
     </setting-item-box>
+    <setting-item-box name="开启跳转" alone>
+        <n-space>
+            <n-switch v-model:value="props.customData.jumpEnable" size="small"/>
+        </n-space>
+    </setting-item-box>
 </template>
 
 <script lang="ts" setup>
