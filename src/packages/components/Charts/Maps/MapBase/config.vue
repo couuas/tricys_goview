@@ -2,6 +2,16 @@
   <!-- Echarts 全局设置 -->
   <global-setting :optionData="optionData"></global-setting>
   <CollapseItem name="地图" :expanded="true">
+    <SettingItemBox name="允许缩放">
+      <n-space>
+        <n-switch v-model:value="optionData.canScroll" size="small"/>
+      </n-space>
+    </SettingItemBox>
+    <SettingItemBox name="允许拖拽">
+      <n-space>
+        <n-switch v-model:value="optionData.canDrag" size="small"/>
+      </n-space>
+    </SettingItemBox>
     <SettingItemBox name="地图区域">
       <SettingItem name="默认中国">
         <n-select

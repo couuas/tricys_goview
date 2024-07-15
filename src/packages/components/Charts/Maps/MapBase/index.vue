@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div ref="box" :style="{scale}" style="position: absolute">
     <div class="back-icon" v-if="(enter && levelHistory.length !== 0) || (enter && !isPreview())" @click="backLevel">
       <n-icon :color="backColor" :size="backSize * 1.1">
         <ArrowBackIcon />
@@ -304,6 +304,113 @@ watch(() => customData.value.dataMap, () => {
   getData()
 }, {
   immediate: true
+})
+
+let scale = ref(1)
+const handleWheel = (event: any) => {
+  // 阻止默认行为（例如页面滚动）
+  event.preventDefault();
+  if(!option.value.canScroll) return
+  // 检查滚动方向
+  if (event.deltaY < 0) {
+    scale.value = Math.min(3, scale.value + 0.1)
+  }
+  else {
+    scale.value = Math.max(0.1, scale.value - 0.1)
+  }
+}
+
+// 查找父元素，确保父元素的类名为 .go-preview-scale
+function findParentWithClass(element: any, className: string) {
+  // 当前元素的父元素
+  let parent = element.parentElement;
+  // 遍历父元素链，直到找到匹配的类名或到达文档根元素
+  while (parent && !parent.classList.contains(className)) {
+    parent = parent.parentElement;
+  }
+  // 返回找到的父元素，或者 null 如果没有匹配的父元素
+  return parent;
+}
+
+const getScaleXY = (v: string) => {
+  // 定义正则表达式来匹配 scale 函数中的两个数字
+  const regex = /scale\((\d*\.?\d+),\s*(\d*\.?\d+)\)/;
+
+  // 使用正则表达式匹配并提取数字
+  const matches = v.match(regex);
+
+  if (matches) {
+    const scaleX = parseFloat(matches[1]);
+    const scaleY = parseFloat(matches[2]);
+    return [scaleX, scaleY]
+  } else {
+    return [1, 1]
+  }
+}
+
+let offsetX:number, offsetY:number
+let left:number, top:number
+let isDragging = ref(false)
+const box = ref()
+const handleMousedown = (event: any) => {
+  if(box.value) {
+    let el = box.value
+    isDragging.value = true;
+
+    offsetX = event.clientX
+    offsetY = event.clientY
+    left = el.style.left.replace('px', '') * 1 || 0
+    top = el.style.top.replace('px', '') * 1 || 0
+
+    // 添加鼠标移动和松开事件监听器
+    document.addEventListener('mousemove', handleMousemove)
+    document.addEventListener('mouseup', handleMouseup)
+  }
+}
+
+// 当鼠标移动时触发
+const handleMousemove = (event: any) => {
+  if(!option.value.canDrag) return
+  if (!isDragging.value) return;
+  if(box.value){
+    let parent = findParentWithClass(box.value, 'go-preview-scale')
+    let [scaleX, scaleY] = getScaleXY(parent.style.transform)
+    let el = box.value
+
+
+    // 计算元素的新位置
+    const x = left + (event.clientX - offsetX) / scaleX
+    const y = top + (event.clientY - offsetY) / scaleY
+    // 更新元素的位置
+    el.style.left = `${x}px`;
+    el.style.top = `${y}px`;
+  }
+}
+
+// 当鼠标松开时触发
+const handleMouseup = (event: any) => {
+  if(!option.value.canDrag) return
+  isDragging.value = false;
+
+  // 移除鼠标移动和松开事件监听器
+  document.removeEventListener('mousemove', handleMousemove);
+  document.removeEventListener('mouseup', handleMouseup);
+}
+
+onMounted(() => {
+  nextTick(() => {
+    if(vChartRef.value) {
+      vChartRef.value.$el.addEventListener('wheel', handleWheel, { passive: false })
+    }
+    if(box.value) {
+      box.value.addEventListener('mousedown', handleMousedown)
+    }
+  })
+})
+
+onUnmounted(() => {
+  vChartRef?.value?.$el?.removeEventListener('wheel', handleWheel, { passive: false })
+  box?.value?.removeEventListener('mousedown', handleMousedown)
 })
 
 // //监听 dataset 数据发生变化

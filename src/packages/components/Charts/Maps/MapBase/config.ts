@@ -8,6 +8,8 @@ import dataJson from './data.json'
 export const includes = []
 
 export const option = {
+  canScroll: true,
+  canDrag: true,
   dataset: dataJson,
   mapRegion: {
     adcode: 'china',
