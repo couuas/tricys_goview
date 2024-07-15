@@ -10,7 +10,12 @@
   </setting-item-box>
   <setting-item-box name="启用数据">
     <n-space>
-      <n-switch v-model:value="props.customData.enable" />
+      <n-switch v-model:value="props.customData.enable" size="small"/>
+    </n-space>
+  </setting-item-box>
+  <setting-item-box name="开启演示模式">
+    <n-space>
+      <n-switch v-model:value="props.customData.demonstration" size="small"/>
     </n-space>
   </setting-item-box>
   <setting-item-box v-for="(it, i) in props.customData.arr" :key="i" :name="`柱状图-${i + 1}`">

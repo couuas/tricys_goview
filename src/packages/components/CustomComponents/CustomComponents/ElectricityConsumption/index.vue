@@ -298,8 +298,49 @@ const handleChart = () => {
   }
 }
 
+const toTwoDecimalPlaces = (num: number) => {
+  return parseFloat(num.toFixed(2));
+}
+
 const getData = () => {
   let v = radio.value.value
+  if(customData.value.demonstration) {
+    if(v === '周') {
+      customData.value.arr.forEach((_, i) => {
+        let base = Math.random() * 14000
+        weekData.value[i] = Array(7).fill('').map(() => {
+          return toTwoDecimalPlaces(base + Math.random() * 2000)
+        })
+      })
+      handleChart()
+    }
+    else if(v === '月') {
+      monthData.value = customData.value.arr.map(_ => {
+        let base = Math.random() * 14000
+        return {
+          name: _.name,
+          value: Array((moment().daysInMonth() as any) * 1).fill('').map(() => {
+            return toTwoDecimalPlaces(base + Math.random() * 2000)
+          })
+        }
+      })
+      handleChart()
+    }
+    else if(v === '年') {
+      monthData.value = customData.value.arr.map(_ => {
+        let base = Math.random() * 14000
+        return {
+          name: _.name,
+          value: Array(12).fill('').map(() => {
+            return toTwoDecimalPlaces(base + Math.random() * 2000)
+          })
+        }
+      })
+      handleChart()
+      handleChart()
+    }
+    return
+  }
   if(customData.value.enable) {
     if(v === '周') {
       customData.value.arr.forEach((item, i) => {
@@ -315,6 +356,7 @@ const getData = () => {
   }
 }
 
+watch(() => customData.value.demonstration, getData)
 watch(() => radio.value.value, getData)
 watch([() => customData.value.enable, () => customData.value.arr.map(_ => _.id)], getData, { deep: true })
 watch(() => customData.value.arr.map(_ => _.name), handleChart, { deep: true })

@@ -73,6 +73,10 @@ const jumpToMachineRoom = (row: any) => {
   }
 }
 
+const toTwoDecimalPlaces = (num: number) => {
+  return parseFloat(num.toFixed(2));
+}
+
 const getData = () => {
   const params = {
     signal_ids: customData.value.ids.split(',')
@@ -80,9 +84,20 @@ const getData = () => {
   publicInterface('/dcim/dems/device_point', 'temp_list_dashboard', params).then((res: any) => {
     if (res.data && res.data.length) {
       data.value = res.data.slice(0, 10)
+      if(customData.value.demonstration) {
+        data.value = data.value.map((item: any) => {
+          if(!item?.dems_device_point?.node_value) {
+            if(!item.dems_device_point) item.dems_device_point = {}
+            item.dems_device_point.node_value = toTwoDecimalPlaces(25 + Math.random() * 10)
+          }
+          return item
+        })
+      }
     }
   })
 }
+
+watch(() => customData.value.demonstration, getData)
 
 let timer:unknown
 watch(() => [props.chartConfig.request.requestInterval, props.chartConfig.request.requestIntervalUnit].join('&&'), v => {

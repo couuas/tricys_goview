@@ -253,17 +253,17 @@
       <div class="item">
         <div class="rect"></div>
         <div class="label">{{value[1].label}}</div>
-        <div class="value">{{value[1].value}}</div>
+        <div class="value" :style="{color: getColor(value[1].value)}">{{value[1].value}}</div>
       </div>
       <div class="item">
         <div class="rect"></div>
         <div class="label">{{value[2].label}}</div>
-        <div class="value">{{value[2].value}}</div>
+        <div class="value" :style="{color: getColor(value[2].value)}">{{value[2].value}}</div>
       </div>
       <div class="item">
         <div class="rect"></div>
         <div class="label">{{value[3].label}}</div>
-        <div class="value">{{value[3].value}}</div>
+        <div class="value" :style="{color: getColor(value[3].value)}">{{value[3].value}}</div>
       </div>
     </div>
     <div class="split"></div>
@@ -276,6 +276,18 @@ import { toRefs, ref } from 'vue'
 type ItemType = { label: string, value: number }
 type ValueType = ItemType[]
 const { value } = defineProps(['value']) as { value: ValueType }
+
+const getColor = (pue: number) => {
+  let color = '#4dca59'
+  if (pue >= 0 && pue < 1.7) {
+    color = '#4dca59'
+  } else if (pue >= 1.7 && pue < 2.2) {
+    color = '#e3bb26'
+  } else if (pue >= 2.2) {
+    color = '#d73f40'
+  }
+  return color
+}
 
 const color = ref('#4dca59')
 const getRotate = (horizontal:string, data:number) => {

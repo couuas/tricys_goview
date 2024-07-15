@@ -7,6 +7,11 @@
       <n-switch v-model:value="props.customData.enable" size="small"/>
     </n-space>
   </setting-item-box>
+  <setting-item-box name="开启演示模式">
+    <n-space>
+      <n-switch v-model:value="props.customData.demonstration" size="small"/>
+    </n-space>
+  </setting-item-box>
   <setting-item-box name="报表ID" alone>
     <setting-item name="控制左边和中间的ID">
       <n-input v-model:value="props.customData.id" size="small" placeholder="请输入"/>

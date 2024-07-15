@@ -10,6 +10,7 @@ export const customData = {
   title1: '当月用电量',
   title2: '年用电量',
   enable: false,
+  demonstration: false,
   arr: [
     {id: null, name: '1号楼'},
     {id: null, name: '2号楼'},

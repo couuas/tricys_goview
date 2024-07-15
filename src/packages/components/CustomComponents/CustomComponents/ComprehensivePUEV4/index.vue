@@ -397,7 +397,7 @@ const option3 = ref({
 })
 
 const getLeftData = async () => {
-  dataArr.value[0] = 1
+  // dataArr.value[0] = 1
   if(customData.value.id) {
     const params = {
       duration: 3, // 2，查询日报；3，查询月报；4，年报
@@ -429,8 +429,8 @@ const getLeftData = async () => {
 }
 
 const getCenterData = async () => {
-  dataArr.value[2] = 0
-  dataArr.value[3] = 0
+  // dataArr.value[2] = 0
+  // dataArr.value[3] = 0
   if(customData.value.id) {
     const params = {
       strategy_ids: [Number(customData.value.id)]
@@ -445,14 +445,14 @@ const getCenterData = async () => {
 
 const getRightData = async () => {
   // 设置默认值
-  dataArr.value[1] = 0
-  dataArr.value[4] = 0
-  dataArr.value[5] = 0
-  dataArr.value[6] = 0
-  option2.value.series[0].data[0].value = 0
-  option2.value.title[0].text = '0'
-  option3.value.series[0].data[0].value = 0
-  option3.value.title[0].text = '0'
+  // dataArr.value[1] = 0
+  // dataArr.value[4] = 0
+  // dataArr.value[5] = 0
+  // dataArr.value[6] = 0
+  // option2.value.series[0].data[0].value = 0
+  // option2.value.title[0].text = '0'
+  // option3.value.series[0].data[0].value = 0
+  // option3.value.title[0].text = '0'
 
   let item = {
     time_out: 60,
@@ -484,8 +484,31 @@ const getRightData = async () => {
   }
 }
 
+const toTwoDecimalPlaces = (num:number) => {
+  return parseFloat(num.toFixed(2));
+}
+
+const resetData = () => {
+  let a = toTwoDecimalPlaces(1 + Math.random() * 0.6)
+  let b = toTwoDecimalPlaces(1 + Math.random() * 0.6)
+  let c = toTwoDecimalPlaces(1 + Math.random() * 0.6)
+  let d = toTwoDecimalPlaces(1 + Math.random() * 0.6)
+  let e = toTwoDecimalPlaces(Math.random() * 5000)
+  let f = toTwoDecimalPlaces(e * (0.8 + Math.random() * 0.1))
+  let g = e - f
+
+  dataArr.value = [a, b, c, d, e, f, g]
+  option2.value.series[0].data[0].value = toTwoDecimalPlaces(f * 100 / e)
+  option2.value.title[0].text = toTwoDecimalPlaces(f * 100 / e) + ''
+  option3.value.series[0].data[0].value = toTwoDecimalPlaces(g * 100/ e)
+  option3.value.title[0].text = toTwoDecimalPlaces(g * 100 / e) + ''
+}
 
 const getData = async () => {
+  if(customData.value.demonstration) {
+    resetData()
+    return
+  }
   if(!customData.value.enable) {
     dataArr.value = [1, 0, 0, 0, 0, 0, 0]
     option2.value.series[0].data[0].value = 0
@@ -500,6 +523,10 @@ const getData = async () => {
 }
 
 watch(() => customData.value.enable, () => {
+  getData()
+})
+
+watch(() => customData.value.demonstration, () => {
   getData()
 })
 

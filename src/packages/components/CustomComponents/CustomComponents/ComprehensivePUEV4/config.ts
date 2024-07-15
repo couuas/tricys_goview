@@ -15,6 +15,7 @@ export const option = {
 export const customData = {
   title: '综合PUE',
   enable: false,
+  demonstration: false,
   id: null,
   circle: {
     title: '昨日PUE',

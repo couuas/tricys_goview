@@ -8,6 +8,7 @@ export const option = {}
 export const customData = {
   title: '区域温度TOP10',
   ids: '',
+  demonstration: false,
   showInterval: true,
 }
 
