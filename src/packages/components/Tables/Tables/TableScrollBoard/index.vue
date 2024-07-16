@@ -271,6 +271,7 @@ const calcRowsData = () => {
         if(statusIndex <= item.ceils.length) {
           let v = item.ceils[statusIndex]
           let obj = statusOption.find((_: any) => _.value === v.toString()) || {label: ''}
+          console.log(obj)
           if(obj.remark) {
             item.ceils[statusIndex] = `<span style="background: ${colorToRgba(obj.remark)};color: ${obj.remark};border: 1px solid ${obj.remark};border-radius: 4px;padding: 2px 8px;font-size: 12px;">${obj.label}</span>`
           }

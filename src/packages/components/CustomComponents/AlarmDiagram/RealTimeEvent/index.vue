@@ -38,8 +38,8 @@
       <img src="@/assets/images/exception/nodata.svg" style="width: 100%;height: 50%" alt="">
       <div style="color: #fff;text-align: center">查询结果为空</div>
     </div>
-    <VModal v-model:show="modalObj.show" :data="modalObj.data" :select1Options="select1.options"/>
-    <VModalV1 v-model:show="modalV1Obj.show" :data="modalV1Obj.data" @confirm="confirm"/>
+<!--    <VModal v-model:show="modalObj.show" :data="modalObj.data" :select1Options="select1.options"/>-->
+<!--    <VModalV1 v-model:show="modalV1Obj.show" :data="modalV1Obj.data" @confirm="confirm"/>-->
   </BorderBox>
 </template>
 
@@ -328,17 +328,23 @@ const getData = () => {
   })
 }
 
-const modalObj = reactive({
-  show: false,
-  data: {}
-})
+// const modalObj = reactive({
+//   show: false,
+//   data: {}
+// })
 const clickItem = (i:number) => {
-  const obj = tableData[i]
-  modalObj.show = true
-  Object.assign(modalObj, {
-    show: true,
-    data: obj
+  postMessageToParent({
+    type: 'openRealTimeEventDetail',
+    currentAlarm: tableData[i],
   })
+
+  // 自己写的详情
+  // const obj = tableData[i]
+  // modalObj.show = true
+  // Object.assign(modalObj, {
+  //   show: true,
+  //   data: obj
+  // })
 }
 
 const originStore = useOriginStore()
@@ -377,65 +383,86 @@ watch(() => select1.value.join('&&') + select2.value.join('&&'), (v) => {
   getData()
 })
 
-const modalV1Obj = reactive({
-  show: false,
-  data: {
-    // confirm_people_id: user.id,
-    confirm_people: user.name,
-    is_misreport: false,
-    remark: '',
-    reconfirmation_time_str: null,
-  },
-  // batch 批量 single 单个
-  type: 'batch',
-  singleIds: [],
-})
+// const modalV1Obj = reactive({
+//   show: false,
+//   data: {
+//     // confirm_people_id: user.id,
+//     confirm_people: user.name,
+//     is_misreport: false,
+//     remark: '',
+//     reconfirmation_time_str: null,
+//   },
+//   // batch 批量 single 单个
+//   type: 'batch',
+//   singleIds: [],
+// })
 const clickBatch = () => {
   if(!tableData.filter(_ => _.checked).length) {
     window['$message'].warning('请先选择数据')
     return
   }
-  Object.assign(modalV1Obj, {
-    show: true,
-    data: {
-      // confirm_people_id: user.id,
-      confirm_people: user.name,
-      is_misreport: false,
-      remark: '',
-      reconfirmation_time_str: null,
-    },
-    type: 'batch',
-    singleIds: []
+  let selectIds = tableData.filter(_ => _.checked && _.confirm_status !== 'ok').map(_ => _.id)
+  if(!selectIds.length) return
+  postMessageToParent({
+    type: 'openRealTimeEventDialog',
+    multipleConfirm: true,
+    selectIds,
   })
-}
-const clickSingle = (id: number) => {
-  Object.assign(modalV1Obj, {
-    show: true,
-    data: {
-      // confirm_people_id: user.id,
-      confirm_people: user.name,
-      is_misreport: false,
-      remark: '',
-      reconfirmation_time_str: null,
-    },
-    type: 'single',
-    singleIds: [id]
-  })
+  // Object.assign(modalV1Obj, {
+  //   show: true,
+  //   data: {
+  //     // confirm_people_id: user.id,
+  //     confirm_people: user.name,
+  //     is_misreport: false,
+  //     remark: '',
+  //     reconfirmation_time_str: null,
+  //   },
+  //   type: 'batch',
+  //   singleIds: []
+  // })
 }
 
-const confirm = () => {
-  const obj = {
-    id: null,
-    ids: modalV1Obj.type === 'batch' ? tableData.filter(_ => _.checked).map(_ => _.id) : modalV1Obj.singleIds,
-    confirm_status: "ok",
-    ...modalV1Obj.data
-  }
-  publicInterface('/dcim/dems/devie_active_alarm', 'confirms', obj).then(res => {
-    window['$message'].success('操作成功')
-    checkAll.value = false
+getMessageByParent('', (e) => {
+  if(e.data.type === 'openRealTimeEventDialog_confirmed' && e.data.page === 'customLargeScreen') {
+    console.log('openRealTimeEventDialog_confirmed')
     getData()
+  }
+})
+const clickSingle = (id: number) => {
+  postMessageToParent({
+    type: 'openRealTimeEventDialog',
+    multipleConfirm: false,
+    selectIds: [id],
   })
+
+  // 自己写的弹窗
+  // Object.assign(modalV1Obj, {
+  //   show: true,
+  //   data: {
+  //     // confirm_people_id: user.id,
+  //     confirm_people: user.name,
+  //     is_misreport: false,
+  //     remark: '',
+  //     reconfirmation_time_str: null,
+  //   },
+  //   type: 'single',
+  //   singleIds: [id]
+  // })
 }
+
+// const confirm = () => {
+//   const obj = {
+//     id: null,
+//     ids: modalV1Obj.type === 'batch' ? tableData.filter(_ => _.checked).map(_ => _.id) : modalV1Obj.singleIds,
+//     confirm_status: "ok",
+//     ...modalV1Obj.data
+//   }
+//   publicInterface('/dcim/dems/devie_active_alarm', 'confirms', obj).then(res => {
+//     window['$message'].success('操作成功')
+//     checkAll.value = false
+//     getData()
+//   })
+// }
 
 const jumpTo = (row:any) => {
   if (row.space && row.space.space_type !== 'device') {
