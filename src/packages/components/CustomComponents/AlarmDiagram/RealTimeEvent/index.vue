@@ -199,9 +199,7 @@ const getVideos = (ids: number[], alarmIds: number[]) => {
       if(!res?.data) return
       let arr:any = []
       ids.forEach(id => {
-        if(typeof id === 'number') {
-          arr.push(res.data[id] ? res.data[id][0] : null)
-        }
+        if(id) arr.push(res.data[id] ? res.data[id][0] : null)
       })
       alarmVideos.value = arr.concat()
 
