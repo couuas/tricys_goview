@@ -92,6 +92,15 @@ const getData = async() => {
         systemDatas.value = systemDatas.value.filter((e: any) => {
           return config.find((v: any) => v.code === e.device_code)
         })
+        let map:any = {}
+        config.forEach((item: any, i: number) => {
+          map[item.code] = i
+        })
+        systemDatas.value.sort((a: any, b: any) => {
+          let ai = map[a.device_code]
+          let bi = map[b.device_code]
+          return ai - bi
+        })
       }
       const params = {
         levels: [1, 2, 3],
