@@ -143,28 +143,31 @@ const alignOption = [
 // const headerConfigMap: Ref<{ [k: string]: any }> = ref(props.optionData.headerConfigMap)
 // const headerConfig: Ref<any[]> = ref(props.optionData.headerConfig)
 
-const { headerConfigMap, headerConfig } = toRefs(props.optionData) as ToRefs<{ headerConfigMap: { [k: string] : MapType }, headerConfig: MapType[] }>
+const headerConfigMap = computed(() => props.optionData.headerConfigMap)
+const headerConfig = computed(() => props.optionData.headerConfig)
 
-watch(() => props.optionData.dataset, (v) => {
-  v.dimensions.forEach((k: string) => {
-    // 初始化
-    if(!Object.prototype.hasOwnProperty.call(headerConfigMap.value, k)) {
-      headerConfigMap.value[k] = {
-        show: true,
-        key: k,
-        header: k,
-        align: AlignEnum.LEFT,
-        columnWidth: 100
-      }
-    }
-    headerConfig.value = v.dimensions.map((k: string) => {
-      return headerConfigMap.value[k]
-    })
-    headerConfig.value.unshift(headerConfigMap.value['index'])
-  })
-}, {
-  immediate: true,
-  deep: true
-})
+// const { headerConfigMap, headerConfig } = toRefs(props.optionData) as ToRefs<{ headerConfigMap: { [k: string] : MapType }, headerConfig: MapType[] }>
+//
+// watch(() => props.optionData.dataset, (v) => {
+//   v.dimensions.forEach((k: string) => {
+//     // 初始化
+//     if(!Object.prototype.hasOwnProperty.call(headerConfigMap.value, k)) {
+//       headerConfigMap.value[k] = {
+//         show: true,
+//         key: k,
+//         header: k,
+//         align: AlignEnum.LEFT,
+//         columnWidth: 100
+//       }
+//     }
+//     headerConfig.value = v.dimensions.map((k: string) => {
+//       return headerConfigMap.value[k]
+//     })
+//     headerConfig.value.unshift(headerConfigMap.value['index'])
+//   })
+// }, {
+//   immediate: true,
+//   deep: true
+// })
 
 </script>

@@ -49,13 +49,12 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, onUnmounted, reactive, toRefs, watch, onMounted } from 'vue'
+import { PropType, onUnmounted, reactive, toRefs, watch, onMounted, ref } from 'vue'
 import { CreateComponentType } from '@/packages/index.d'
 import {useChartCommonData, useChartDataFetch} from '@/hooks'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
-import merge from 'lodash/merge'
-import cloneDeep from 'lodash/cloneDeep'
-import { MapType } from './config'
+import { merge, cloneDeep, debounce } from 'lodash'
+import { MapType, AlignEnum } from './config'
 import { useOriginStore } from "@/store/modules/originStore/originStore";
 
 const props = defineProps({
@@ -267,19 +266,37 @@ const calcRowsData = () => {
     let keys = headerConfig.filter((_: MapType) => _.show).map((_: MapType) => _.key)
     let statusIndex = keys.findIndex((_: string) => _ === 'status')
     if(statusIndex > -1) {
-      dataset.forEach((item: {ceils: string[]}) => {
-        if(statusIndex <= item.ceils.length) {
-          let v = item.ceils[statusIndex]
-          let obj = statusOption.find((_: any) => _.value === v.toString()) || {label: ''}
-          console.log(obj)
-          if(obj.remark) {
-            item.ceils[statusIndex] = `<span style="background: ${colorToRgba(obj.remark)};color: ${obj.remark};border: 1px solid ${obj.remark};border-radius: 4px;padding: 2px 8px;font-size: 12px;">${obj.label}</span>`
-          }
-          else item.ceils[statusIndex] = obj.label
+      dataset = dataset.map((item: any, i: number) => {
+        let v:any = item.ceils[statusIndex]
+        let obj = statusOption.find((_: any) => _.value === v.toString()) || {label: ''}
+        let newValue = ''
+        if(obj.remark) {
+          newValue = `<span style="background: ${colorToRgba(obj.remark)};color: ${obj.remark};border: 1px solid ${obj.remark};border-radius: 4px;padding: 2px 8px;font-size: 12px;">${obj.label}</span>`
         }
+        else newValue = obj.label
+        return { ...item, ceils: [...item.ceils.slice(0, statusIndex), newValue, ...item.ceils.slice(statusIndex + 1)]}
       })
     }
   }
+
+  // if(props.chartConfig.commonData.currentSource === 'pointTable') {
+  //   let statusOption = originStore.getOriginStore.user.systemConstant.node_status || []
+  //   let keys = headerConfig.filter((_: MapType) => _.show).map((_: MapType) => _.key)
+  //   let statusIndex = keys.findIndex((_: string) => _ === 'status')
+  //   if(statusIndex > -1) {
+  //     dataset.forEach((item: {ceils: string[]}) => {
+  //       if(statusIndex <= item.ceils.length) {
+  //         let v = item.ceils[statusIndex]
+  //         let obj = statusOption.find((_: any) => _.value === v.toString()) || {label: ''}
+  //         console.log(obj.remark)
+  //         if(obj.remark) {
+  //           item.ceils[statusIndex] = `<span style="background: ${colorToRgba(obj.remark)};color: ${obj.remark};border: 1px solid ${obj.remark};border-radius: 4px;padding: 2px 8px;font-size: 12px;">${obj.label}</span>`
+  //         }
+  //         else item.ceils[statusIndex] = obj.label
+  //       }
+  //     })
+  //   }
+  // }
   status.rowsData = dataset
   status.rows = dataset
 }
@@ -367,7 +384,7 @@ const stopAnimation = () => {
   clearTimeout(status.animationHandler)
 }
 
-const onRestart = async () => {
+const onRestart = debounce(async() => {
   try {
     if (!status.mergedConfig) return
     stopAnimation()
@@ -375,7 +392,7 @@ const onRestart = async () => {
   } catch (error) {
     console.log(error)
   }
-}
+}, 200)
 
 watch(
   () => w.value,
@@ -406,8 +423,30 @@ watch(
 //   onRestart()
 // })
 
-useChartCommonData(props.chartConfig, useChartEditStore, (resData: {}) => {
-  props.chartConfig.option.dataset = resData
+const fn = (v: any) => {
+  v.dimensions.forEach((k: string, index: number) => {
+    // 初始化
+    if(!Object.prototype.hasOwnProperty.call(props.chartConfig.option.headerConfigMap, k)) {
+      props.chartConfig.option.headerConfigMap[k] = {
+        show: true,
+        key: k,
+        header: k,
+        align: AlignEnum.LEFT,
+        columnWidth: 100
+      }
+    }
+    props.chartConfig.option.headerConfig = v.dimensions.map((k: string) => {
+      return props.chartConfig.option.headerConfigMap[k]
+    })
+    props.chartConfig.option.headerConfig.unshift(props.chartConfig.option.headerConfigMap['index'])
+  })
+}
+
+let resData = {}
+useChartCommonData(props.chartConfig, useChartEditStore, (res: any) => {
+  resData = res
+  fn(res)
+  props.chartConfig.option.dataset = res
   onRestart()
 })
 
