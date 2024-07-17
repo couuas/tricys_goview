@@ -52,6 +52,7 @@ export const requestConfig: RequestConfigType = {
 
 const commonData: commonDataType = {
   currentSource: CurrentSourceEnum.POINTHISTORY,
+  dataLength: null,
   pointHistory: {
     enable: false,
     methods: [],

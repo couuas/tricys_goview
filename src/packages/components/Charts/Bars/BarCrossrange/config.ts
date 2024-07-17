@@ -31,7 +31,8 @@ export const option = {
   },
   xAxis: {
     show: true,
-    type: 'value'
+    type: 'value',
+    min: null
   },
   yAxis: [
     {

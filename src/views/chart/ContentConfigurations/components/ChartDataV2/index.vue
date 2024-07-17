@@ -20,6 +20,9 @@
       <SinglePoint v-if="matchComponent(CurrentSourceEnum.SINGLEPOINT)"/>
       <ManualInputSingle v-if="matchComponent(CurrentSourceEnum.MANUALINPUTSINGLE)"/>
     </template>
+    <setting-item-box name="数据量" :alone="true">
+      <n-input-number v-model:value="targetData.commonData.dataLength" size="small"/>
+    </setting-item-box>
     <setting-item-box v-if="!matchComponent(CurrentSourceEnum.MANUALINPUT)" name="更新间隔" :alone="true">
       <n-input-group>
         <n-input-number

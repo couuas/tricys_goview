@@ -158,6 +158,11 @@
         ></n-select>
       </setting-item>
     </setting-item-box>
+    <setting-item-box name="最小值" alone v-if="xAxis.type === 'value'">
+      <setting-item name="">
+        <n-input-number v-model:value="xAxis.min" size="small"/>
+      </setting-item>
+    </setting-item-box>
   </collapse-item>
 
   <template v-for="(yAxis, i) in yAxisArr" :key="i">
@@ -249,6 +254,11 @@
             size="small"
             :options="axisConfig.splitLint.lineStyle.type"
           ></n-select>
+        </setting-item>
+      </setting-item-box>
+      <setting-item-box name="最小值" alone v-if="yAxis.type === 'value'">
+        <setting-item name="">
+          <n-input-number v-model:value="yAxis.min" size="small"/>
         </setting-item>
       </setting-item-box>
     </collapse-item>
@@ -375,6 +385,7 @@ const xAxis = computed(() => {
 })
 
 const yAxisArr = computed(() => {
+  console.log(props.optionData.yAxis)
   return props.optionData.yAxis
 })
 

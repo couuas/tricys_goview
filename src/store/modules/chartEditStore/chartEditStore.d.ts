@@ -374,6 +374,7 @@ export interface ManualInputSingleType {
 export interface commonDataType {
   // 多数据
   currentSource: CurrentSourceEnum
+  dataLength: number | null
   pointHistory: PointHistoryType
   energyUseHistory: EnergyUseHistoryType
   recordValueHistory: RecordValueHistoryType

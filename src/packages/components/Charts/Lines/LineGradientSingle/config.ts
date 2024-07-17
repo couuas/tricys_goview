@@ -50,10 +50,18 @@ const options = {
     show: true,
     type: 'category'
   },
-  yAxis: {
-    show: true,
-    type: 'value'
-  },
+  yAxis: [
+    {
+      show: true,
+      type: 'value',
+      min: null
+    },
+    {
+      show: false,
+      type: 'value',
+      min: null
+    }
+  ],
   dataset: { ...dataJson },
   series: [seriesItem],
   allSeriesConfig: seriesItem

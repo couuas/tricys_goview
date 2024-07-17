@@ -143,8 +143,8 @@ const alignOption = [
 // const headerConfigMap: Ref<{ [k: string]: any }> = ref(props.optionData.headerConfigMap)
 // const headerConfig: Ref<any[]> = ref(props.optionData.headerConfig)
 
-const headerConfigMap = computed(() => props.optionData.headerConfigMap)
-const headerConfig = computed(() => props.optionData.headerConfig)
+const headerConfigMap:Ref<any> = computed(() => props.optionData.headerConfigMap)
+const headerConfig:Ref<any> = computed(() => props.optionData.headerConfig)
 
 // const { headerConfigMap, headerConfig } = toRefs(props.optionData) as ToRefs<{ headerConfigMap: { [k: string] : MapType }, headerConfig: MapType[] }>
 //

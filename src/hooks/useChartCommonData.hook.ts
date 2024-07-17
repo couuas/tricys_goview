@@ -151,6 +151,9 @@ export const useChartCommonData = (
                         if(isMultiple) {
                             if(Object.prototype.toString.call(data) === '[object Array]') {
                                 if(data.length && data[0].dimensions && data[0].source) {
+                                    if(typeof targetComponent.commonData.dataLength === 'number') {
+                                        data[0].source = data[0].source.slice(0, targetComponent.commonData.dataLength)
+                                    }
                                     echartsUpdateHandle(data[0])
                                     // 更新回调函数
                                     if (updateCallback) updateCallback(data)
@@ -159,6 +162,9 @@ export const useChartCommonData = (
                             }
                             else if(Object.prototype.toString.call(data) === '[object Object]'){
                                 if(data.dimensions && data.source) {
+                                    if(typeof targetComponent.commonData.dataLength === 'number') {
+                                        data.source = data.source.slice(0, targetComponent.commonData.dataLength)
+                                    }
                                     echartsUpdateHandle(data)
                                     // 更新回调函数
                                     if (updateCallback) updateCallback(data)
