@@ -193,10 +193,8 @@ onMounted(() => {
   @include background-image('background-point');
 
   @include goId('chart-edit-content') {
-    overflow: hidden;
+   // overflow: hidden;
     @extend .go-transition;
-    @include fetch-theme('box-shadow');
-
     .edit-content-chart {
       position: absolute;
       overflow: hidden;

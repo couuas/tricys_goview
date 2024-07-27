@@ -106,7 +106,6 @@ const selectHandle = (v: number) => {
   selectInstRef.value?.blur()
   if (v === 0) {
     chartLayoutStore.setItemUnHandle(ChartLayoutStoreEnum.RE_POSITION_CANVAS, true)
-    chartEditStore.computedScale()
     return
   }
   chartEditStore.setScale(v / 100)
@@ -125,6 +124,7 @@ const sliderFormatTooltip = (v: string) => `${v}%`
 
 // 拖动处理
 const sliderHandle = (v: number) => {
+  //  chartEditStore.setEditCanvas(EditCanvasTypeEnum.SCALE, value);
   chartEditStore.setScale(v / 100)
 }
 

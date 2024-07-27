@@ -39,7 +39,6 @@ export const useChartEditStore = defineStore({
     // 画布属性
     editCanvas: {
       // 编辑区域 Dom
-      editLayoutDom: null,
       editContentDom: null,
       // 偏移量
       offset: 20,
@@ -138,6 +137,9 @@ export const useChartEditStore = defineStore({
     componentList: []
   }),
   getters: {
+    gettCanvasScale(): number {
+      return this.editCanvas.scale
+    },
     getMousePosition(): MousePositionType {
       return this.mousePosition
     },
@@ -372,13 +374,6 @@ export const useChartEditStore = defineStore({
       if (index < 1 && index > this.getComponentList.length) return
       this.componentList[index] = newData
     },
-    // * 设置页面样式属性
-    setPageStyle<T extends keyof CSSStyleDeclaration>(key: T, value: any): void {
-      const dom = this.getEditCanvas.editContentDom
-      if (dom) {
-        dom.style[key] = value
-      }
-    },
     // * 移动组件列表层级位置到两端
     setBothEnds(isEnd = false, isHistory = true): void {
       try {
@@ -527,7 +522,7 @@ export const useChartEditStore = defineStore({
           e.id = getUUID()
           // 分组列表生成新 id
           if (e.isGroup) {
-            (e as CreateComponentGroupType).groupList.forEach((item: CreateComponentType) => {
+            ;(e as CreateComponentGroupType).groupList.forEach((item: CreateComponentType) => {
               item.id = getUUID()
             })
           }
@@ -933,53 +928,7 @@ export const useChartEditStore = defineStore({
     setShow(isHistory: boolean = true) {
       this.setHide(false, isHistory)
     },
-    // ----------------
-    // * 设置页面大小
-    setPageSize(scale: number): void {
-      this.setPageStyle('height', `${this.editCanvasConfig.height * scale}px`)
-      this.setPageStyle('width', `${this.editCanvasConfig.width * scale}px`)
-    },
-    // * 计算缩放
-    computedScale() {
-      if (this.getEditCanvas.editLayoutDom) {
-        // 现有展示区域
-        const width = this.getEditCanvas.editLayoutDom.clientWidth - this.getEditCanvas.offset * 2 - 5
-        const height = this.getEditCanvas.editLayoutDom.clientHeight - this.getEditCanvas.offset * 4
 
-        // 用户设定大小
-        const editCanvasWidth = this.editCanvasConfig.width
-        const editCanvasHeight = this.editCanvasConfig.height
-
-        // 需保持的比例
-        const baseProportion = parseFloat((editCanvasWidth / editCanvasHeight).toFixed(5))
-        const currentRate = parseFloat((width / height).toFixed(5))
-
-        if (currentRate > baseProportion) {
-          // 表示更宽
-          const scaleWidth = parseFloat(((height * baseProportion) / editCanvasWidth).toFixed(5))
-          this.setScale(scaleWidth > 1 ? 1 : scaleWidth)
-        } else {
-          // 表示更高
-          const scaleHeight = parseFloat((width / baseProportion / editCanvasHeight).toFixed(5))
-          this.setScale(scaleHeight > 1 ? 1 : scaleHeight)
-        }
-      } else {
-        window['$message'].warning('请先创建画布，再进行缩放')
-      }
-    },
-    // * 监听缩放
-    listenerScale(): Function {
-      const resize = debounce(this.computedScale, 200)
-      // 默认执行一次
-      resize()
-      // 开始监听
-      window.addEventListener('resize', resize)
-      // 销毁函数
-      const remove = () => {
-        window.removeEventListener('resize', resize)
-      }
-      return remove
-    },
     /**
      * * 设置缩放
      * @param scale 0~1 number 缩放比例;
@@ -987,9 +936,9 @@ export const useChartEditStore = defineStore({
      */
     setScale(scale: number, force = false): void {
       if (!this.getEditCanvas.lockScale || force) {
-        this.setPageSize(scale)
         this.getEditCanvas.userScale = scale
         this.getEditCanvas.scale = scale
+        console.log(scale, '5555555555')
       }
     }
   }

@@ -34,12 +34,8 @@ const size = computed(() => {
 })
 
 const rangeStyle = computed(() => {
-  // 缩放
-  const scale = {
-    transform: `scale(${getEditCanvas.value.scale})`
-  }
   // @ts-ignore
-  return { ...useSizeStyle(size.value), ...scale }
+  return { ...useSizeStyle(size.value) }
 })
 
 // 模态层
@@ -55,7 +51,9 @@ const rangeModelStyle = computed(() => {
   position: relative;
   transform-origin: left top;
   background-size: cover;
+  border-radius: 10px;
   overflow: hidden;
+  @include fetch-theme('box-shadow');
   @include fetch-border-color('hover-border-color');
   @include fetch-bg-color('background-color2');
   @include go(edit-range-model) {
