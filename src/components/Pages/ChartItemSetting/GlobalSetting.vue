@@ -158,7 +158,7 @@
         ></n-select>
       </setting-item>
     </setting-item-box>
-    <setting-item-box name="最小值" alone v-if="xAxis.type === 'value'">
+    <setting-item-box name="最小值" alone v-if="'min' in xAxis">
       <setting-item name="">
         <n-input-number v-model:value="xAxis.min" size="small"/>
       </setting-item>
@@ -256,7 +256,7 @@
           ></n-select>
         </setting-item>
       </setting-item-box>
-      <setting-item-box name="最小值" alone v-if="yAxis.type === 'value'">
+      <setting-item-box name="最小值" alone v-if="'min' in yAxis">
         <setting-item name="">
           <n-input-number v-model:value="yAxis.min" size="small"/>
         </setting-item>
@@ -348,7 +348,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, computed, watch } from 'vue'
+import { PropType, computed, watch, Ref } from 'vue'
 import { GlobalThemeJsonType } from '@/settings/chartThemes/index'
 import { axisConfig, legendConfig } from '@/packages/chartConfiguration/echarts/index'
 import { CollapseItem, SettingItemBox, SettingItem, GlobalSettingPosition } from '@/components/Pages/ChartItemSetting'
@@ -380,12 +380,11 @@ const title = computed(() => {
   return props.optionData.title
 })
 
-const xAxis = computed(() => {
+const xAxis: Ref<any> = computed(() => {
   return props.optionData.xAxis
 })
 
-const yAxisArr = computed(() => {
-  console.log(props.optionData.yAxis)
+const yAxisArr: Ref<any> = computed(() => {
   return props.optionData.yAxis
 })
 

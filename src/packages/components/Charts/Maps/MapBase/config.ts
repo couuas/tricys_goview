@@ -51,6 +51,7 @@ export const option = {
   },
   series: [
     {
+      animation: false,
       name: '',
       type: 'effectScatter',
       coordinateSystem: 'geo',

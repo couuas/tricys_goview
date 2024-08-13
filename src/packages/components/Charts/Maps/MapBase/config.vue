@@ -206,6 +206,11 @@
   </CollapseItem>
   <CollapseItem name="标记" :expanded="true">
     <SettingItemBox name="样式">
+      <SettingItem name="开启动画">
+        <n-space>
+          <n-switch v-model:value="seriesList[0].animation" size="small"></n-switch>
+        </n-space>
+      </SettingItem>
       <SettingItem name="大小">
         <n-input-number v-model:value="seriesList[0].symbolSize" size="small" :min="0"></n-input-number>
       </SettingItem>
