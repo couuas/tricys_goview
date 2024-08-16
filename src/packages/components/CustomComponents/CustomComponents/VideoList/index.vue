@@ -121,9 +121,9 @@ onUnmounted(() => {
 
 
 // 预览更新
-useChartDataFetch(props.chartConfig, useChartEditStore, (newData: any) => {
-  option.dataset = newData
-})
+// useChartDataFetch(props.chartConfig, useChartEditStore, (newData: any) => {
+//   option.dataset = newData
+// })
 </script>
 
 <style lang="scss" scoped>
