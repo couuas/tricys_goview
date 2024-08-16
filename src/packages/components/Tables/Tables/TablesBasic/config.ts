@@ -11,8 +11,8 @@ export const option = {
   // 展示列
   header: {
     value: [],
-    options: [],
-    map: {},
+    options: [] as any[],
+    map:{} as any,
   },
   pagination: {
     page: 1,
@@ -28,9 +28,13 @@ export const option = {
     fontSize: 16,
     borderWidth: 0,
     borderColor: 'rgba(0, 0, 0, 1)',
-    borderStyle: 'solid'
+    borderStyle: 'solid',
+   
   },
-  inputShow: 'none'
+  inputShow: 'none',
+  isPagination:true,
+  isBackgroundColor:true,
+
 }
 
 export default class Config extends PublicConfigClass implements CreateComponentType {

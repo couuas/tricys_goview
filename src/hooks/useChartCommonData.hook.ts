@@ -13,11 +13,15 @@ import { handlePointRealTime } from './commonDataComponents/usePointRealTimeRes'
 import { handleSinglePoint } from './commonDataComponents/useSinglePointRes'
 import { handleMonthAlarmClass } from './commonDataComponents/useMonthAlarmClassRes'
 import { handleDeviceClass } from './commonDataComponents/useDeviceClassRes'
+import { handleAssetsClass } from './commonDataComponents/useAssetsClassRes'
+import { handleAreaDevCountClass } from './commonDataComponents/useAreaDevCountRes'
 import { handlePointTable } from "./commonDataComponents/usePointTableRes";
+import { handleCategoryBrandCountTable } from "./commonDataComponents/useCategoryBrandCountTableRes";
 import { handleNoParam } from './commonDataComponents/useNoParamRes'
 import { handleManulInput } from './commonDataComponents/useManualInputRes'
 import { handleManulInputSingle } from './commonDataComponents/useManualInputSingleRes'
 import { ResultErrcode } from '@/enums/httpEnum'
+import { logDark } from 'naive-ui';
 
 // 获取类型
 type ChartEditStoreType = typeof useChartEditStore
@@ -46,6 +50,7 @@ export const useChartCommonData = (
             //     setOption(vChartRef.value, { dataset: dataset })
             // }
             // if(!dataset.dimensions) return
+            console.log(targetComponent,'targetComponent')
             if(targetComponent.option){
                 const SingleDataArr = [
                     CurrentSourceEnum.SINGLEPOINT,
@@ -130,8 +135,17 @@ export const useChartCommonData = (
                     case CurrentSourceEnum.DEVICECLASS:
                         res = await handleDeviceClass(targetComponent)
                         break;
+                    case CurrentSourceEnum.ASSETSCLASS:
+                        res = await handleAssetsClass(targetComponent)
+                        break;
+                    case CurrentSourceEnum.AREADEVCOUNT:
+                        res = await handleAreaDevCountClass(targetComponent)
+                        break;
                     case CurrentSourceEnum.POINTTABLE:
                         res = await handlePointTable(targetComponent)
+                        break;
+                    case CurrentSourceEnum.CATEGORYBRANDCOUNTTABLE:
+                        res = await handleCategoryBrandCountTable(targetComponent)
                         break;
                     case CurrentSourceEnum.MANUALINPUT:
                         res = await handleManulInput(targetComponent)
@@ -146,6 +160,8 @@ export const useChartCommonData = (
                 }
                 if (res && res.errcode === ResultErrcode.SUCCESS) {
                     try {
+                console.log(res,'res--fetchFn')
+
                         const { data } = res
                         // 多值的
                         if(isMultiple) {
@@ -161,6 +177,8 @@ export const useChartCommonData = (
                                 else throw Error()
                             }
                             else if(Object.prototype.toString.call(data) === '[object Object]'){
+                                console.log(data,'data');
+                                
                                 if(data.dimensions && data.source) {
                                     if(typeof targetComponent.commonData.dataLength === 'number') {
                                         data.source = data.source.slice(0, targetComponent.commonData.dataLength)

@@ -1,5 +1,7 @@
 <template>
-  <div class="go-tables-basic">
+  <div class="go-tables-basic" 
+  :class="{'go-custom-data-table':isBackgroundColor}"
+  >
     <n-input
       v-model:value="inputData"
       placeholder="请输入信息"
@@ -11,7 +13,7 @@
       </template>
     </n-input>
     <n-data-table
-      style="box-sizing: border-box"
+      style="box-sizing: border-box;"
       :style="`
       width: ${w}px;
       height: ${h}px;
@@ -28,7 +30,7 @@
       size="small"
       :columns="columns"
       :data="filterData"
-      :pagination="pagination"
+      :pagination="isPagination?pagination:false"
     />
   </div>
 </template>
@@ -64,7 +66,7 @@ const filterData = computed(() => {
   })
 })
 
-const { align, pagination, inputShow } = toRefs(props.chartConfig.option)
+const { align, pagination, inputShow,isPagination,isBackgroundColor } = toRefs(props.chartConfig.option)
 
 pagination.value.onChange = (page: number) => {
   pagination.value.page = page
@@ -161,8 +163,9 @@ const columns = computed(() => {
   }
   return dimensions
 })
-
 useChartCommonData(props.chartConfig, useChartEditStore)
+console.log(props.chartConfig,'chartConfig')
+
 </script>
 
 <style lang="scss" scoped>
@@ -171,5 +174,20 @@ useChartCommonData(props.chartConfig, useChartEditStore)
   flex-direction: column;
   gap: 15px;
   align-items: flex-end;
+}
+:deep(.n-data-table-td) {
+  background-color:#1A1D25;
+}
+:deep(.n-data-table-th) {
+  background-color:#1A1D25;
+}
+@include go('custom-data-table'){
+  background-color: #1A1D25;
+  :deep(.n-data-table-td) {
+  background-color:#1A1D25;
+}
+  :deep(.n-data-table-th) {
+  background-color:#1A1D25;
+}
 }
 </style>

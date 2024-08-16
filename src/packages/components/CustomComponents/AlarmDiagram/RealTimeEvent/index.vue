@@ -279,6 +279,8 @@ const getData = () => {
       append_space_to_content: 'complete',
       handle_statuss: alarmHandleStatuss.value,
       recovery_statuss: alarmRecoveryStatus.value,
+      dems_device_point_signal_ids: props.chartConfig.customData?.dems_device_point_signal_ids.split(','),
+
     },
     page: {
       page_size: 10,

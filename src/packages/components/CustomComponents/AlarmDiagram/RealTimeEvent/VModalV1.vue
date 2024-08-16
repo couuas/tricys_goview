@@ -54,7 +54,7 @@
     </div>
     <div class="footer">
       <div style="flex: 1;"></div>
-      <n-button @click="submitCallback" type="info" size="small" style="margin-right: 5px;color: #fff;">确认</n-button>
+      <n-button @click="submitCallback" type="warning" size="small" style="margin-right: 5px;color: #fff;">确认</n-button>
       <n-button size="small" @click="close">取消</n-button>
     </div>
   </n-modal>

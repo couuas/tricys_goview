@@ -18,6 +18,9 @@ import { DeviceRunningStateConfig } from './DeviceRunningState'
 import { TemperatureTop10Config } from './TemperatureTop10'
 import { PositionConfig } from './Position'
 import { JumpBtnConfig } from './JumpBtn'
+import { ClassifiedStatistic } from './ClassifiedStatistic'
+import { RoomTemperature } from './RoomTemperature'
+import { Overview } from './Overview'
 
 export default [
     // Theme1Config,
@@ -40,4 +43,7 @@ export default [
     TemperatureTop10Config,
     PositionConfig,
     JumpBtnConfig,
+    ClassifiedStatistic,
+    RoomTemperature,
+    Overview
 ]

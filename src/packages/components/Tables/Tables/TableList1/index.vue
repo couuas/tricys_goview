@@ -76,7 +76,7 @@ const roll = debounce(() => {
 }, 200)
 
 const option = computed(() => props.chartConfig.option)
-
+console.log(props.chartConfig,'props.chartConfig')
 const commonData = computed(() => props.chartConfig.commonData)
 
 // const isPointTable = computed(() => {
@@ -90,6 +90,7 @@ const isTag = computed(() => {
 const datasetDimensions = computed(() => {
   return option.value.dataset.dimensions
 })
+console.log(datasetDimensions,'datasetDimensions')
 const datasetSource = computed(() => {
   return option.value.dataset.source
 })

@@ -88,9 +88,17 @@ const commonData: commonDataType = {
     enable: false,
     space_complete_id: ''
   },
+  assetsClass: {
+    enable: false,
+    dataSource: ''
+  },
   pointTable: {
     enable: false,
     ids: []
+  },
+  categoryBrandCountTable: {
+    enable: false,
+    currentSource:'',
   },
   singlePoint: {
     enable: false,

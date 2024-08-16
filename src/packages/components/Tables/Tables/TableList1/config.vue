@@ -9,14 +9,15 @@
           placeholder="请输入轮播时间"
         ></n-input-number>
       </SettingItem>
+      
     </SettingItemBox>
+   
   </CollapseItem>
 </template>
 
 <script setup lang="ts">
-import { PropType } from "vue";
-import { option } from './config'
-import { CollapseItem, SettingItemBox, SettingItem } from '@/components/Pages/ChartItemSetting'
+import { PropType,Ref ,computed} from "vue";
+import { option,AlignEnum } from './config'
 
 
 const props = defineProps({
@@ -25,6 +26,7 @@ const props = defineProps({
     required: true
   }
 })
+  
 
 </script>
 

@@ -264,10 +264,16 @@ export enum CurrentSourceEnum {
   SINGLEPOINT = 'singlePoint',
   // 设备分类统计
   DEVICECLASS = 'deviceClass',
+  // 设备分类统计
+  ASSETSCLASS = 'assetsClass',
+  // 区域设备个数
+  AREADEVCOUNT = 'areaDevCount',
   // 当月告警分类统计
   MONTHALARMCLASS = 'monthAlarmClass',
   // 测点表格
   POINTTABLE = 'pointTable',
+  // 测点表格
+  CATEGORYBRANDCOUNTTABLE = 'categoryBrandCountTable',
   // 手动输入
   MANUALINPUT = 'manualInput',
   // 手动输入(单值)
@@ -346,11 +352,24 @@ export interface DeviceClassType {
   enable: boolean
   space_complete_id: string
 }
+// 统计
+export interface AssetsClassType {
+  enable: boolean
+  dataSource: string
+}
+export interface AreaDevCountType {
+  enable: boolean
+  dataSource: string
+}
 
 // 测点表格值
 export interface PointTableType {
   enable: boolean
   ids: string[]
+}
+export interface CategoryBrandCountTableType {
+  enable: boolean
+  currentSource: string
 }
 
 // 手动输入值
@@ -381,9 +400,12 @@ export interface commonDataType {
   pointRealTime: PointRealTimeType
   monthAlarmClass: MonthAlarmClassType
   pointTable: PointTableType
+  categoryBrandCountTable: CategoryBrandCountTableType
   // 多数据无参数
   // 设备分类统计
   deviceClass: DeviceClassType
+  assetsClass: AssetsClassType
+  areaDevCount: AreaDevCountType
   // 单数据
   singlePoint: SinglePointType
   // 手动输入

@@ -4,11 +4,26 @@
     <setting-item-box name="表头" :alone="true">
       <div class="rows">
         <div class="columns">字段</div>
-        <div class="columns">标题</div>
+        <div class="columns ">标题 </div>
+        
       </div>
       <div class="rows" v-for="(row, i) in optionData.header.options" :key="i">
         <div class="columns">{{ row }}</div>
-        <n-input class="columns" v-model:value="optionData.header.map[row]" size="small"/>
+        <div class="columns">   
+          <n-input class="columns" style="width: 100px;" v-model:value="optionData.header.map[row]" size="small"/>  
+          <n-button @click="handleDelete(i)" circle size="tiny">
+          <template #icon>
+            <n-icon><RemoveIcon /></n-icon>
+          </template>
+        </n-button>
+        <n-button  @click="handleAdd(i)" circle size="tiny">
+          <template #icon>
+            <n-icon><AddIcon /></n-icon>
+          </template>
+        </n-button>
+      </div>
+         
+       
       </div>
     </setting-item-box>
     <setting-item-box name="展示列" :alone="true">
@@ -51,6 +66,12 @@
       <SettingItem name="显示边框" :alone="true">
         <n-select v-model:value="(optionData as any).style.border" size="small" :options="borderFlag" />
       </SettingItem>
+      <SettingItem name="显示分页" :alone="true">
+        <n-select v-model:value="optionData.isPagination" size="small" :options="isPaginationFlag" />
+      </SettingItem>
+      <SettingItem name="显示背景色" :alone="true">
+        <n-select v-model:value="optionData.isBackgroundColor" size="small" :options="isBackgroundColorFlag" />
+      </SettingItem>
       <SettingItem name="底部边框" :alone="true">
         <n-select
           v-model:value="(optionData as any).style.bottomBordered"
@@ -86,21 +107,82 @@
       <setting-item name="边框颜色" :alone="true">
         <n-color-picker size="small" :modes="['rgb']" v-model:value="optionData.style.borderColor"></n-color-picker>
       </setting-item>
+      
       <setting-item name="边框样式" :alone="true">
         <n-select v-model:value="optionData.style.borderStyle" size="small" :options="borderStyleFlag" />
       </setting-item>
       <SettingItem name="表格搜索（前端静态搜索）" :alone="true">
         <n-select v-model:value="optionData.inputShow" size="small" :options="inputSelect" />
       </SettingItem>
+    
     </setting-item-box>
   </collapse-item>
+ 
+  <n-modal
+    :show="show"
+    preset="dialog"
+    title=""
+    :show-icon="false"
+    @close="close"
+    @esc="close"
+    style="width: 500px"
+  >
+  <!-- <n-input class="columns" style="width: 100px;" v-model:value="headerMap.key" size="small"/>  
+  <n-input class="columns" style="width: 100px;" v-model:value="headerMap.value" size="small"/>   -->
+  <n-list  class="go-system-setting">
+      <template #header>
+        <n-space justify="space-between">
+          <n-h3 class="go-mb-0">添加标题</n-h3>
+          <n-icon size="20" class="go-cursor-pointer" @click="close">
+            <close-icon></close-icon>
+          </n-icon>
+        </n-space>
+      </template>
+
+      <n-list-item >
+        <n-space  :size="40">
+          <n-space>
+            <n-text class="item-left">字段</n-text>
+          </n-space>
+          <n-space>
+            <n-input class="columns" style="width: 100%;" v-model:value="headerMap.key" size="small"/>  
+          </n-space>
+        </n-space>
+      </n-list-item>
+      <n-list-item >
+        <n-space  :size="40">
+          <n-space>
+            <n-text class="item-left">标题</n-text>
+          </n-space>
+          <n-space>
+            <n-input class="columns" style="width: 100%;" v-model:value="headerMap.value" size="small"/>  
+          </n-space>
+        </n-space>
+      </n-list-item>
+    </n-list>
+  <!-- <div class="footer">
+      <div style="flex: 1;"></div>
+      <n-button @click="submitCallback" type="info" size="small" style="margin-right: 5px;color: #fff;">确认</n-button>
+      <n-button size="small" @click="close">取消</n-button>
+    </div> -->
+    <template #action>
+      <n-button @click="submitCallback" type="info" size="small" style="margin-right: 5px;color: #fff;">确认</n-button>
+      <n-button size="small" @click="close">取消</n-button>
+    </template>
+  </n-modal>
 </template>
 
 <script setup lang="ts">
 import { PropType, watch, ref } from 'vue'
+import type { Ref } from 'vue'
+import { icon } from '@/plugins/icon'
+const { RemoveIcon, AddIcon } = icon.ionicons5
+
 import { option } from './config'
 import { CollapseItem, SettingItemBox, SettingItem } from '@/components/Pages/ChartItemSetting'
+import { commonDataType, PointHistoryType } from '@/store/modules/chartEditStore/chartEditStore.d'
 
+import {useTargetData} from '@/views/chart/ContentConfigurations/components/hooks/useTargetData.hook'
 const page = [
   { label: '2', value: 2 },
   { label: '5', value: 5 },
@@ -111,6 +193,14 @@ const page = [
 const borderFlag = [
   { label: '显示', value: 'on' },
   { label: '不显示', value: 'off' }
+]
+const isPaginationFlag = [
+  { label: '显示', value: true },
+  { label: '不显示', value: false }
+]
+const isBackgroundColorFlag = [
+  { label: '显示', value: true },
+  { label: '不显示', value: false }
 ]
 const columnFlag = [
   { label: '显示', value: 'off' },
@@ -145,38 +235,49 @@ const props = defineProps({
   }
 })
 
-// const header = ref()
-// const median = ref<string[]>([])
-// props.optionData.dataset.dimensions.forEach(item => {
-//   median.value.push(item.title)
-// })
+const { targetData } = useTargetData() as { targetData: Ref<{ commonData: commonDataType, id: string }> }
+const currentIndex = ref(0)
+const handleAdd = (i:number) => {
+  show.value = true
+  currentIndex.value = i
+  // targetData.value?.option.dataset.dimensions.push('')
 
-// //转string
-// watch(
-//   () => props.optionData,
-//   () => {
-//     median.value = []
-//     props.optionData.dataset.dimensions.forEach(item => {
-//       median.value.push(item.title)
-//     })
-//     header.value = median.value.toString()
-//   },
-//   {
-//     deep: false,
-//     immediate: true
-//   }
-// )
+}
 
-//更新columns
-// watch([header], ([headerNew], [headerOld]) => {
-//   if (headerNew !== headerOld) {
-//     headerNew.split(',').forEach((item: string, index: number) => {
-//       if (index + 1 <= props.optionData.dataset.dimensions.length) {
-//         props.optionData.dataset.dimensions[index].title = headerNew.split(',')[index]
-//       }
-//     })
-//   }
-// })
+const handleDelete = (i: number) => {
+  // targetData.value.commonData.pointHistory.dems_device_points_uid.splice(i, 1)
+  console.log(props.optionData.header,'targetData_delete')
+  // targetData.value?.option.dataset.dimensions.push('')
+  props.optionData.header.options.splice(i, 1,)
+
+
+}
+
+const show = ref(false)
+const headerMap = ref<any>({
+  key: '',
+  value: ''
+})
+const emit = defineEmits(['close', 'update:show'])
+
+const close = () => {
+  emit('close')
+  updateShow(false)
+  show.value = false
+
+}
+const submitCallback = ()=>{
+  console.log(headerMap.value,'headerMap')
+  props.optionData.header.options.splice(currentIndex.value+1, 0, headerMap.value.key)
+  props.optionData.header.map[headerMap.value.key] = headerMap.value.value
+  console.log(props.optionData,'props.optionData.header')
+  close()
+
+  
+}
+const updateShow = (flag:boolean) => {
+  emit('update:show', flag)
+}
 </script>
 
 <style lang="scss" scoped>
@@ -185,6 +286,11 @@ const props = defineProps({
   display: flex;
   height: 28px;
   line-height: 28px;
+  .columns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
   &:nth-last-child(1){
     margin-bottom: 0;
   }

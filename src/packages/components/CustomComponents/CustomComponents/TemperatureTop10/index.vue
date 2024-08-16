@@ -4,16 +4,16 @@
       <div class="contentBox">
         <div class="row">
           <div class="col">排序</div>
-          <div class="col">区域设备</div>
-          <div class="col">实时温度</div>
+          <div class="col">{{customData.colName1}}</div>
+          <div class="col">{{customData.colName2}}</div>
         </div>
         <div class="row" v-for="(it, i) in data" :key="i">
           <div class="col col1">{{i + 1}}</div>
-          <div class="col col1" :title="`${it.space_complete_name}/${it.node_name}`">
-            {{ getAreaName(it.space_complete_name) }}<span v-if="getAreaName(it.space_complete_name)">/</span>{{ it.node_name }}
+          <div class="col col1" :title="it.label">
+            {{ it.label }}
           </div>
           <div class="col col1">
-            <div class="value">{{it.dems_device_point.node_value}}</div>
+            <div class="value">{{it.value}}°C</div>
             <LocationIcon @click.stop="jumpToMachineRoom(it)" class="icon" style="margin-left: 5px;cursor: pointer;width: 16px;height: 16px;color: #4196ff;"/>
           </div>
         </div>
@@ -81,20 +81,33 @@ const getData = () => {
   const params = {
     signal_ids: customData.value.ids.split(',')
   }
-  publicInterface('/dcim/dems/device_point', 'temp_list_dashboard', params).then((res: any) => {
+  const queryType = customData.value.queryTypeOptions.find(item=>item.value === customData.value.queryType)!.value
+    publicInterface('/dcim/dems/device_point', customData.value.queryTypeOptions.find(item=>item.value === customData.value.queryType)!.value, params).then((res: any) => {
     if (res.data && res.data.length) {
       data.value = res.data.slice(0, 10)
+      data.value = data.value.map((item: any)=>{
+        if(queryType==='temp_list_dashboard'){
+          item.label = `${getAreaName(item.space_complete_name)}/${item.node_name}`
+          item.value  = item.dems_device_point.node_value
+        }else{
+item.label = item.space.label
+item.space_id = item.space.id
+        }
+        item.space_type = item?.space?.space_type
+
+        return item
+      })
       if(customData.value.demonstration) {
         data.value = data.value.map((item: any) => {
-          if(!item?.dems_device_point?.node_value) {
-            if(!item.dems_device_point) item.dems_device_point = {}
-            item.dems_device_point.node_value = toTwoDecimalPlaces(25 + Math.random() * 10)
+          if(!item?.value) {
+            item.value = toTwoDecimalPlaces(25 + Math.random() * 10)
           }
           return item
         })
       }
     }
   })
+ 
 }
 
 watch(() => customData.value.demonstration, getData)

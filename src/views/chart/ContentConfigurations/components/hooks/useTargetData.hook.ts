@@ -10,7 +10,7 @@ export const useTargetData = () => {
     const targetIndex = chartEditStore.fetchTargetIndex()
     // 分组时 判断是不是分组里的组件
     const selectId = chartEditStore.getTargetChart.selectId[0]
-    if(list[targetIndex].isGroup && list[targetIndex].id !== selectId) {
+    if(list[targetIndex]&&list[targetIndex].isGroup && list[targetIndex].id !== selectId) {
       return list[targetIndex].groupList!.find(_ => _.id === selectId)!
     }
     return list[targetIndex]

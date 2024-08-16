@@ -10,8 +10,11 @@
       <PointRealTime v-else-if="matchComponent(CurrentSourceEnum.POINTREALTIME)"/>
       <MonthAlarmClass v-else-if="matchComponent(CurrentSourceEnum.MONTHALARMCLASS)"/>
       <DeviceClass v-else-if="matchComponent(CurrentSourceEnum.DEVICECLASS)"/>
+      <AssetsClass v-else-if="matchComponent(CurrentSourceEnum.ASSETSCLASS)"/>
       <PointTable v-else-if="matchComponent(CurrentSourceEnum.POINTTABLE)"/>
+      <CategoryBrandCountTable v-else-if="matchComponent(CurrentSourceEnum.CATEGORYBRANDCOUNTTABLE)"/>
       <ManualInput v-else-if="matchComponent(CurrentSourceEnum.MANUALINPUT)"/>
+   
     </template>
     <template v-else-if="IsCommonSingle">
       <setting-item-box name="数据源" :alone="true">
@@ -69,8 +72,10 @@ import RecordValueHistory from './components/RecordValueHistory.vue'
 import PointRealTime from './components/PointRealTime.vue'
 import SinglePoint from './components/SinglePoint.vue'
 import MonthAlarmClass from './components/MonthAlarmClass.vue'
+import AssetsClass from './components/AssetsClass.vue'
 import DeviceClass from './components/DeviceClass.vue'
 import PointTable from './components/PointTable.vue'
+import CategoryBrandCountTable from './components/CategoryBrandCountTable.vue'
 import ManualInput from './components/ManualInput.vue'
 import ManualInputSingle from './components/ManualInputSingle.vue'
 import NoParam from './components/NoParam.vue'
@@ -128,6 +133,7 @@ const multipleSourceOptions = sourceOptions.filter(_ => _.type === optionTypeEnu
 const singleSourceOptions = sourceOptions.filter(_ => _.type === optionTypeEnum.SINGLE)
 
 const matchComponent = (name: string) => {
+  console.log(name,'name---')
   return targetData.value.commonData.currentSource === name
 }
 </script>

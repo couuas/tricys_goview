@@ -5,6 +5,9 @@
   <setting-item-box name="空间ID" :alone="true">
     <n-input v-model:value="props.customData.space_complete_id" size="small" placeholder="请输入空间ID"/>
   </setting-item-box>
+  <setting-item-box name="温湿度测点ID(英文逗号隔开)" :alone="true">
+    <n-input v-model:value="props.customData.dems_device_point_signal_ids" size="small" placeholder="请输入温湿度测点ID(英文逗号隔开)"/>
+  </setting-item-box>
   <setting-item-box name="显示筛选条件" :alone="true">
     <n-radio-group v-model:value="props.customData.showFilter" size="small" style="margin-top: 2px">
       <n-radio :value="true">是</n-radio>

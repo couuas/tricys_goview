@@ -3,8 +3,13 @@ import { CreateComponentType } from '@/packages/index.d'
 import { TableList1Config } from './index'
 import cloneDeep from 'lodash/cloneDeep'
 // import logo from '@/assets/logo.png'
-
+export enum AlignEnum {
+  LEFT = 'left',
+  CENTER = 'center',
+  RIGHT = 'right',
+}
 export const option = {
+
   // // 图片路径
   // dataset: '',
   // // 适应方式
@@ -12,7 +17,7 @@ export const option = {
   // // 圆角
   // borderRadius: 0
   dataset: {
-    "dimensions": [],
+    "dimensions": ['分类名','top1','top2','top3'],
     "source": []
   },
   timeout: 3000

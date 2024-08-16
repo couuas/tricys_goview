@@ -151,6 +151,16 @@ export const sourceOptions: sourceOptionsItemType[] = [
     type: optionTypeEnum.MULTIPLE,
   },
   {
+    label: '分类统计',
+    value: CurrentSourceEnum.ASSETSCLASS,
+    type: optionTypeEnum.MULTIPLE,
+  },
+  {
+    label: '区域设备个数',
+    value: CurrentSourceEnum.AREADEVCOUNT,
+    type: optionTypeEnum.MULTIPLE,
+  },
+  {
     label: '当月告警分类统计',
     value: CurrentSourceEnum.MONTHALARMCLASS,
     type: optionTypeEnum.MULTIPLE,
@@ -158,6 +168,11 @@ export const sourceOptions: sourceOptionsItemType[] = [
   {
     label: '测点表格值',
     value: CurrentSourceEnum.POINTTABLE,
+    type: optionTypeEnum.MULTIPLE,
+  },
+  {
+    label: '分类品牌表格值',
+    value: CurrentSourceEnum.CATEGORYBRANDCOUNTTABLE,
     type: optionTypeEnum.MULTIPLE,
   },
   {

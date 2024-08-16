@@ -44,6 +44,7 @@ const props = defineProps({
 props.chartConfig.option.tooltip.position = setTooltipPosition(props.chartConfig.attr)
 
 const initOptions = useCanvasInitOptions(props.chartConfig.option, props.themeSetting)
+console.log(initOptions,'initOptions')
 let seriesDataNum = -1
 let seriesDataMaxLength = 0
 let intervalInstance: any = null
@@ -53,6 +54,7 @@ use([DatasetComponent, CanvasRenderer, PieChart, GridComponent, TooltipComponent
 const option = computed(() => {
   return mergeTheme(props.chartConfig.option, props.themeSetting, includes)
 })
+console.log(option,'option')
 
 // 会重新选择需要选中和展示的数据
 const handleSeriesData = () => {
