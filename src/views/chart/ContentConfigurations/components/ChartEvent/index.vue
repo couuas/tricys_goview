@@ -69,21 +69,24 @@ const showModal = ref(false)
 //   init()
 // })
 
-const linkHeadOptions = ['http://', 'https://'].map(_ => ({label: _, value: _}))
+const linkHeadOptions = ['http://', 'https://', '/'].map(_ => ({label: _, value: _}))
 
 const finallyLink = computed(() => {
   return targetData.value.customEvent.click.linkHead + (targetData.value as any).customEvent.click.link
 })
 const handleClick = () => {
   if(!finallyLink.value) return
+  let isRelativePath = targetData.value.customEvent.click.linkHead === '/'
   if(targetData.value.customEvent.click.isBlank) postMessageToParent({
     type: 'windowOpen',
     url: finallyLink.value,
-    openNew: true
+    openNew: true,
+    isRelativePath
   })
   else postMessageToParent({
     type: 'windowOpen',
     url: finallyLink.value,
+    isRelativePath
   })
 }
 </script>
