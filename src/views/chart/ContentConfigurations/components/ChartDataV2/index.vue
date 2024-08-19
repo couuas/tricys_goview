@@ -11,6 +11,8 @@
       <MonthAlarmClass v-else-if="matchComponent(CurrentSourceEnum.MONTHALARMCLASS)"/>
       <DeviceClass v-else-if="matchComponent(CurrentSourceEnum.DEVICECLASS)"/>
       <AssetsClass v-else-if="matchComponent(CurrentSourceEnum.ASSETSCLASS)"/>
+      <CompanyTempTop v-else-if="matchComponent(CurrentSourceEnum.COMPANYTEMPTOP)"/>
+      <AlarmTrend v-else-if="matchComponent(CurrentSourceEnum.ALARMTREND)"/>
       <PointTable v-else-if="matchComponent(CurrentSourceEnum.POINTTABLE)"/>
       <CategoryBrandCountTable v-else-if="matchComponent(CurrentSourceEnum.CATEGORYBRANDCOUNTTABLE)"/>
       <ManualInput v-else-if="matchComponent(CurrentSourceEnum.MANUALINPUT)"/>
@@ -73,6 +75,8 @@ import PointRealTime from './components/PointRealTime.vue'
 import SinglePoint from './components/SinglePoint.vue'
 import MonthAlarmClass from './components/MonthAlarmClass.vue'
 import AssetsClass from './components/AssetsClass.vue'
+import CompanyTempTop from './components/CompanyTempTop.vue'
+import AlarmTrend from './components/AlarmTrend.vue'
 import DeviceClass from './components/DeviceClass.vue'
 import PointTable from './components/PointTable.vue'
 import CategoryBrandCountTable from './components/CategoryBrandCountTable.vue'

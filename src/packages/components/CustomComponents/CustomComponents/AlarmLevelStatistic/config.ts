@@ -1,8 +1,8 @@
 import { PublicConfigClass } from '@/packages/public'
 import { CreateComponentType } from '@/packages/index.d'
-import { RealTimeAlarmStatisticsConfig } from './index'
+import { AlarmLevelStatistic } from './index'
 import cloneDeep from 'lodash/cloneDeep'
-// import background from '@/assets/customComponents/theme1/backgrond.jpg'
+// import logo from '@/assets/logo.png'
 
 export const option = {
   // 图片路径
@@ -21,15 +21,18 @@ export default class Config extends PublicConfigClass implements CreateComponent
     this.attr.h = 300
     this.request.requestInterval = 15
   }
-  public key = RealTimeAlarmStatisticsConfig.key
-  public chartConfig = cloneDeep(RealTimeAlarmStatisticsConfig)
+  public key = AlarmLevelStatistic.key
+  public chartConfig = cloneDeep(AlarmLevelStatistic)
   public option = cloneDeep(option)
   public customData = cloneDeep({
-    title: '实时告警统计',
+    title: '告警数统计',
     showInterval: true,
-    space_complete_id: '',
-    confirm_statuss:[],
-     signal_ids:'',
-    
+    currentSource:'level',
+    // 告警确认状态
+    alarmConfirmStatus:'',
+    // 告警恢复状态
+    alarmRecoveryStatus:'',
+    signal_ids:'',
+    space_complete_id:''
   })
 }

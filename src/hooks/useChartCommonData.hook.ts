@@ -14,6 +14,8 @@ import { handleSinglePoint } from './commonDataComponents/useSinglePointRes'
 import { handleMonthAlarmClass } from './commonDataComponents/useMonthAlarmClassRes'
 import { handleDeviceClass } from './commonDataComponents/useDeviceClassRes'
 import { handleAssetsClass } from './commonDataComponents/useAssetsClassRes'
+import { handleCompanyTempTop } from './commonDataComponents/useCompanyTempTopRes'
+import { handleAlarmTrend } from './commonDataComponents/useAlarmTrendRes'
 import { handleAreaDevCountClass } from './commonDataComponents/useAreaDevCountRes'
 import { handlePointTable } from "./commonDataComponents/usePointTableRes";
 import { handleCategoryBrandCountTable } from "./commonDataComponents/useCategoryBrandCountTableRes";
@@ -138,6 +140,12 @@ export const useChartCommonData = (
                     case CurrentSourceEnum.ASSETSCLASS:
                         res = await handleAssetsClass(targetComponent)
                         break;
+                    case CurrentSourceEnum.COMPANYTEMPTOP:
+                        res = await handleCompanyTempTop(targetComponent)
+                        break;
+                    case CurrentSourceEnum.ALARMTREND:
+                        res = await handleAlarmTrend(targetComponent)
+                        break;
                     case CurrentSourceEnum.AREADEVCOUNT:
                         res = await handleAreaDevCountClass(targetComponent)
                         break;
@@ -177,7 +185,7 @@ export const useChartCommonData = (
                                 else throw Error()
                             }
                             else if(Object.prototype.toString.call(data) === '[object Object]'){
-                                console.log(data,'data');
+                                console.log(data,'data_isMultiple');
                                 
                                 if(data.dimensions && data.source) {
                                     if(typeof targetComponent.commonData.dataLength === 'number') {

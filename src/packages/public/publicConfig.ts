@@ -92,6 +92,15 @@ const commonData: commonDataType = {
     enable: false,
     dataSource: ''
   },
+  companyTempTop: {
+    enable: false,
+    signal_ids:'131240020010',
+    space_complete_id: '.7.9.70.'
+  },
+  alarmTrend: {
+    enable: false,
+    signal_ids:'131240020010',
+  },
   pointTable: {
     enable: false,
     ids: []

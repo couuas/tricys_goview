@@ -156,6 +156,16 @@ export const sourceOptions: sourceOptionsItemType[] = [
     type: optionTypeEnum.MULTIPLE,
   },
   {
+    label: '局房温度Top10',
+    value: CurrentSourceEnum.COMPANYTEMPTOP,
+    type: optionTypeEnum.MULTIPLE,
+  },
+  {
+    label: '告警趋势',
+    value: CurrentSourceEnum.ALARMTREND,
+    type: optionTypeEnum.MULTIPLE,
+  },
+  {
     label: '区域设备个数',
     value: CurrentSourceEnum.AREADEVCOUNT,
     type: optionTypeEnum.MULTIPLE,

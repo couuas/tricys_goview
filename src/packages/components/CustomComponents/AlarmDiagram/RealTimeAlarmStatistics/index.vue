@@ -90,7 +90,7 @@ nameObj.commonColor = systemConstant['warn_levels'].find((item:any) => item.valu
 nameObj.eventColor = systemConstant['warn_levels'].find((item:any) => item.value === '5') ? systemConstant['warn_levels'].find((item:any) => item.value === '5')['remark'] : '#4fbadb'
 
 const getData = () => {
-  const confirm_statuss = systemConfig?.['active_alarm_confirm_status'] ? [...JSON.parse(systemConfig['active_alarm_confirm_status'])] : []
+  const confirm_statuss =props.chartConfig.customData?.confirm_statuss.length?props.chartConfig.customData?.confirm_statuss.length: systemConfig?.['active_alarm_confirm_status'] ? [...JSON.parse(systemConfig['active_alarm_confirm_status'])] : []
   const param = {
     confirm_statuss,
     space_complete_id: props.chartConfig.customData?.space_complete_id

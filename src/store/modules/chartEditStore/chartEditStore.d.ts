@@ -266,6 +266,10 @@ export enum CurrentSourceEnum {
   DEVICECLASS = 'deviceClass',
   // 设备分类统计
   ASSETSCLASS = 'assetsClass',
+  // 局房温度Top10
+  COMPANYTEMPTOP = 'companyTempTop',
+  // 局房温度Top10
+  ALARMTREND = 'alarmTrend',
   // 区域设备个数
   AREADEVCOUNT = 'areaDevCount',
   // 当月告警分类统计
@@ -357,6 +361,22 @@ export interface AssetsClassType {
   enable: boolean
   dataSource: string
 }
+// 局房温度Top10
+export interface CompanyTempTopType {
+  enable: boolean
+  space_complete_id: string,
+  signal_ids:string
+
+}
+// 告警趋势
+export interface AlarmTrendType {
+  enable: boolean
+  signal_ids:string
+  alarmConfirmStatus:string
+  alarmRecoveryStatus:string
+  level:string
+
+}
 export interface AreaDevCountType {
   enable: boolean
   dataSource: string
@@ -405,6 +425,8 @@ export interface commonDataType {
   // 设备分类统计
   deviceClass: DeviceClassType
   assetsClass: AssetsClassType
+  companyTempTop: CompanyTempTopType
+  alarmTrend: AlarmTrendType
   areaDevCount: AreaDevCountType
   // 单数据
   singlePoint: SinglePointType

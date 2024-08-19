@@ -19,6 +19,7 @@ import { TemperatureTop10Config } from './TemperatureTop10'
 import { PositionConfig } from './Position'
 import { JumpBtnConfig } from './JumpBtn'
 import { ClassifiedStatistic } from './ClassifiedStatistic'
+import { AlarmLevelStatistic } from './AlarmLevelStatistic'
 import { RoomTemperature } from './RoomTemperature'
 import { Overview } from './Overview'
 
@@ -44,6 +45,7 @@ export default [
     PositionConfig,
     JumpBtnConfig,
     ClassifiedStatistic,
+    AlarmLevelStatistic,
     RoomTemperature,
     Overview
 ]
