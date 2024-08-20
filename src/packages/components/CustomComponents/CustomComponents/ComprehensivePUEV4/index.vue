@@ -504,9 +504,29 @@ const resetData = () => {
   option3.value.title[0].text = toTwoDecimalPlaces(g * 100 / e) + ''
 }
 
+const resetData1 = () => {
+  let a = customData.value.circle.value
+  let b = customData.value.center.value1
+  let c = customData.value.center.value2
+  let d = customData.value.center.value3
+  let e = customData.value.right.value1
+  let f = customData.value.right.value2
+  let g = customData.value.right.value3
+
+  dataArr.value = [a, b, c, d, e, f, g]
+  option2.value.series[0].data[0].value = toTwoDecimalPlaces(f * 100 / e)
+  option2.value.title[0].text = toTwoDecimalPlaces(f * 100 / e) + ''
+  option3.value.series[0].data[0].value = toTwoDecimalPlaces(g * 100/ e)
+  option3.value.title[0].text = toTwoDecimalPlaces(g * 100 / e) + ''
+}
+
 const getData = async () => {
   if(customData.value.demonstration) {
     resetData()
+    return
+  }
+  if(customData.value.manual) {
+    resetData1()
     return
   }
   if(!customData.value.enable) {
@@ -528,6 +548,21 @@ watch(() => customData.value.enable, () => {
 
 watch(() => customData.value.demonstration, () => {
   getData()
+})
+
+watch([
+  () => customData.value.manual,
+  () => customData.value.circle.value,
+  () => customData.value.center.value1,
+  () => customData.value.center.value2,
+  () => customData.value.center.value3,
+  () => customData.value.right.value1,
+  () => customData.value.right.value2,
+  () => customData.value.right.value3,
+], () => {
+  getData()
+}, {
+  deep: true
 })
 
 let timer: unknown
