@@ -488,14 +488,31 @@ const toTwoDecimalPlaces = (num:number) => {
   return parseFloat(num.toFixed(2));
 }
 
+// const resetData = () => {
+//   let a = toTwoDecimalPlaces(1 + Math.random() * 0.6)
+//   let b = toTwoDecimalPlaces(1 + Math.random() * 0.6)
+//   let c = toTwoDecimalPlaces(1 + Math.random() * 0.6)
+//   let d = toTwoDecimalPlaces(1 + Math.random() * 0.6)
+//   let e = toTwoDecimalPlaces(Math.random() * 5000)
+//   let f = toTwoDecimalPlaces(e * (0.8 + Math.random() * 0.1))
+//   let g = e - f
+//
+//   dataArr.value = [a, b, c, d, e, f, g]
+//   option2.value.series[0].data[0].value = toTwoDecimalPlaces(f * 100 / e)
+//   option2.value.title[0].text = toTwoDecimalPlaces(f * 100 / e) + ''
+//   option3.value.series[0].data[0].value = toTwoDecimalPlaces(g * 100/ e)
+//   option3.value.title[0].text = toTwoDecimalPlaces(g * 100 / e) + ''
+// }
 const resetData = () => {
+  let random = 0.8 + Math.random() * 0.2
+
   let a = toTwoDecimalPlaces(1 + Math.random() * 0.6)
-  let b = toTwoDecimalPlaces(1 + Math.random() * 0.6)
   let c = toTwoDecimalPlaces(1 + Math.random() * 0.6)
   let d = toTwoDecimalPlaces(1 + Math.random() * 0.6)
-  let e = toTwoDecimalPlaces(Math.random() * 5000)
-  let f = toTwoDecimalPlaces(e * (0.8 + Math.random() * 0.1))
-  let g = e - f
+  let f = 1152 * 4 * random
+  let g = 277 * 4 * random
+  let e = f + g
+  let b = e / f
 
   dataArr.value = [a, b, c, d, e, f, g]
   option2.value.series[0].data[0].value = toTwoDecimalPlaces(f * 100 / e)
