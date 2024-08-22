@@ -10,7 +10,7 @@ export const handleAreaDevCountClass =async (targetComponent: CreateComponentTyp
 //   item.encode = { y:index===0? 'dev_count':'it_dev_count', x: 'space' }
 //  })
  const queryParams = {
-  space_complete_id:obj.space_complete_id,
+  space_complete_id:obj?.space_complete_id||null,
   space_type:'station'
  }
   // 处理数据
