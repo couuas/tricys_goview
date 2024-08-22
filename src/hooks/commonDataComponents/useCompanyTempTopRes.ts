@@ -5,7 +5,7 @@ import { CompanyTempTopType } from '@/store/modules/chartEditStore/chartEditStor
 import dataJson from "./data.json";
 
 export const handleCompanyTempTop =async (targetComponent: CreateComponentType) => {
-  console.log(targetComponent.commonData,'targetComponent.commonData');
+  console.log(targetComponent,'targetComponent.commonData');
   
   const obj = targetComponent.commonData[targetComponent.commonData.currentSource] as CompanyTempTopType
   let { enable, space_complete_id, signal_ids} = obj

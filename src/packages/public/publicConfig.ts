@@ -52,7 +52,17 @@ export const requestConfig: RequestConfigType = {
 
 const commonData: commonDataType = {
   currentSource: CurrentSourceEnum.POINTHISTORY,
+  queryParams:{},
   dataLength: null,
+  areaDevCount: {
+    enable: false,
+    dataSource: '',
+    space_complete_id:''
+  },
+  assetsClass: {
+    enable: false,
+    dataSource: ''
+  },
   pointHistory: {
     enable: false,
     methods: [],
@@ -88,10 +98,7 @@ const commonData: commonDataType = {
     enable: false,
     space_complete_id: ''
   },
-  assetsClass: {
-    enable: false,
-    dataSource: ''
-  },
+  
   companyTempTop: {
     enable: false,
     signal_ids:'131240020010',
@@ -100,6 +107,9 @@ const commonData: commonDataType = {
   alarmTrend: {
     enable: false,
     signal_ids:'131240020010',
+    alarmConfirmStatus:['ok','not'],
+    alarmRecoveryStatus:['ok','not'],
+    level:[1, 2, 3, 4, 5]
   },
   pointTable: {
     enable: false,

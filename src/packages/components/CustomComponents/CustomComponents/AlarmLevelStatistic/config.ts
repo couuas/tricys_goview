@@ -25,14 +25,14 @@ export default class Config extends PublicConfigClass implements CreateComponent
   public chartConfig = cloneDeep(AlarmLevelStatistic)
   public option = cloneDeep(option)
   public customData = cloneDeep({
-    title: '告警数统计',
+    title: '告警等级数统计',
     showInterval: true,
     currentSource:'level',
     // 告警确认状态
-    alarmConfirmStatus:'',
+    alarmConfirmStatus:['ok','not'],
     // 告警恢复状态
-    alarmRecoveryStatus:'',
-    signal_ids:'',
-    space_complete_id:''
+    alarmRecoveryStatus:['ok','not'],
+    signal_ids:'131240020010',
+    // space_complete_id:''
   })
 }

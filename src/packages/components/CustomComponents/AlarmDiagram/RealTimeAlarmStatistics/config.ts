@@ -28,8 +28,8 @@ export default class Config extends PublicConfigClass implements CreateComponent
     title: '实时告警统计',
     showInterval: true,
     space_complete_id: '',
-    confirm_statuss:[],
-     signal_ids:'',
+    confirm_statuss:['ok','not'],
+     signal_ids:'131240020010',
     
   })
 }

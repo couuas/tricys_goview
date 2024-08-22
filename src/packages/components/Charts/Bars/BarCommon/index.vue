@@ -1,12 +1,18 @@
 <template>
-  <v-chart ref="vChartRef" :init-options="initOptions" :theme="themeColor" :option="option" :manual-update="isPreview()"
-    :update-options="{
-      replaceMerge: replaceMergeArr
-    }" autoresize></v-chart>
+  <v-chart 
+  ref="vChartRef" 
+  :init-options="initOptions" 
+  :theme="themeColor" 
+  :option="option" 
+  :manual-update="isPreview()"
+  :update-options="{replaceMerge: replaceMergeArr}" 
+  autoresize 
+  >
+  </v-chart>
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick, computed, watch, PropType } from 'vue'
+import { ref, nextTick, computed, watch, PropType,onMounted } from 'vue'
 import VChart from 'vue-echarts'
 import { useCanvasInitOptions } from '@/hooks/useCanvasInitOptions.hook'
 import { use } from 'echarts/core'
@@ -21,7 +27,10 @@ import {isPreview, setTooltipPosition} from '@/utils'
 import { DatasetComponent, GridComponent, TooltipComponent, LegendComponent } from 'echarts/components'
 import isObject from 'lodash/isObject'
 import cloneDeep from 'lodash/cloneDeep'
+import {useGlobalQueryParamsStore} from '@/store/modules/globalQueryParamsStore/globalQueryParamsStore'
+const chartEditStore = useChartEditStore()
 
+const globalQueryParamsStore = useGlobalQueryParamsStore()
 const props = defineProps({
   themeSetting: {
     type: Object,
@@ -38,7 +47,6 @@ const props = defineProps({
 })
 
 props.chartConfig.option.tooltip.position = setTooltipPosition(props.chartConfig.attr)
-
 const initOptions = useCanvasInitOptions(props.chartConfig.option, props.themeSetting)
 
 use([DatasetComponent, CanvasRenderer, BarChart, GridComponent, TooltipComponent, LegendComponent])
@@ -47,6 +55,36 @@ const replaceMergeArr = ref<string[]>()
 
 const option = computed(() => {
   return mergeTheme(props.chartConfig.option, props.themeSetting, includes)
+})
+// 控制所有柱状图的点击事件
+const chartPEvents = (e:any)=>{
+  console.log(e,'e_chartPEvents'),
+console.log(props.chartConfig,'chartConfig1')
+switch (props.chartConfig.commonData.currentSource) {
+  case "areaDevCount":
+  globalQueryParamsStore.setGlobalQueryParams({
+    space_complete_id : e.data.complete_id
+  })
+  console.log(chartEditStore.getComponentList,'chartEditStore')
+  // 没有统一更新数据的方法，只能尝试改变它的更新时间，促使watch触发请求方法
+  chartEditStore.getComponentList.forEach(component=>{
+    component.request.requestInterval = 15
+    useChartCommonData(component, useChartEditStore)
+
+  })
+ 
+console.log(globalQueryParamsStore.getGlobalQueryParams,'chartConfig2')
+  
+    break;
+
+  default:
+    break;
+}
+}
+onMounted(() => {
+  if(vChartRef.value) {
+    vChartRef.value.chart.on('click', chartPEvents)
+  }
 })
 
 // dataset 无法变更条数的补丁

@@ -283,6 +283,23 @@
       <setting-item name="y轴">
         <n-select v-model:value="legend.y" size="small" :options="legendConfig.lengendY" />
       </setting-item>
+      <setting-item name="上">
+        <n-input-number
+      v-model:value="legend.top"
+      :min="0"
+      size="small"
+      placeholder="px"
+    />
+      </setting-item>
+      <setting-item name="右">
+        <n-input-number
+      v-model:value="legend.right"
+      :min="0"
+      size="small"
+      placeholder="px"
+    />
+      </setting-item>
+      
     </setting-item-box>
     <setting-item-box name="图例信息">
       <setting-item name="方向">
@@ -300,6 +317,20 @@
         <n-input-number v-model:value="legend.itemHeight" :min="1" size="small"></n-input-number>
       </setting-item>
     </setting-item-box>
+  </collapse-item>
+  <collapse-item v-if="dataZoom" name="滚动条">
+    <template #header>
+      <n-switch v-model:value="dataZoom.show" size="small"></n-switch>
+    </template>
+    <setting-item-box name="样式">
+      <!-- <setting-item name="颜色">
+        <n-color-picker size="small" v-model:value="dataZoom.backgroundColor"></n-color-picker>
+      </setting-item> -->
+      <setting-item name="展示个数">
+        <n-input-number v-model:value="dataZoom.endValue" :min="1" size="small"></n-input-number>
+      </setting-item>
+    </setting-item-box>
+   
   </collapse-item>
 
   <collapse-item v-if="visualMap" name="视觉映射">
@@ -390,6 +421,9 @@ const yAxisArr: Ref<any> = computed(() => {
 
 const legend = computed(() => {
   return props.optionData.legend
+})
+const dataZoom = computed(() => {
+  return props.optionData.dataZoom
 })
 
 const grid = computed(() => {

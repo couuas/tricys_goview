@@ -6,9 +6,13 @@
       <div class="img">
         <img v-if="props.chartConfig?.customData?.currentSource==='IT'" src="@/assets/images/chart/decorates/Base1.png" alt="">
         <img v-else src="@/assets/images/chart/decorates/Base2.png" alt="">
+        <div class="value">
+          {{Object.values(item)[0]}}
+         
+        </div>
       </div>
       <div class="value">
-        {{Object.keys(item)[0]}}<span class="count">{{Object.values(item)[0]}}</span>台
+        {{Object.keys(item)[0]}}
       </div>
     </div>
     </div>
@@ -29,7 +33,8 @@ import {cloneDeep} from 'lodash'
 import moment from "moment"
 import {selectTimeOptions} from "@/views/chart/ContentConfigurations/components/ChartData/index.d";
 import {RequestHttpIntervalEnum} from "@/enums/httpEnum";
-
+import {useGlobalQueryParamsStore} from '@/store/modules/globalQueryParamsStore/globalQueryParamsStore'
+const globalQueryParamsStore = useGlobalQueryParamsStore()
 const props = defineProps({
   chartConfig: {
     type: Object as PropType<CreateComponentType>,
@@ -47,13 +52,14 @@ const getStyle = (radius: number) => {
     overflow: 'hidden'
   }
 }
-console.log(props.chartConfig,'chartConfig');
 
 let type_count:any = ref([])
+const queryParams = {
+  ...globalQueryParamsStore.getGlobalQueryParams
+}
 const getData = () => {
   if(props.chartConfig?.customData?.currentSource==='IT'){
-    publicInterface('/dcim/asset', 'get_asset_overview_page_info_new', {}).then(res => {
-    console.log(res,'res----')
+    publicInterface('/dcim/asset', 'get_asset_overview_page_info_new', queryParams).then(res => {
     if (res && res.data) {
       type_count.value = res.data.type_count
       // for (const key in computeNodeData) {
@@ -62,8 +68,7 @@ const getData = () => {
     }
   })
   }else{
-    publicInterface('/dcim/dems/device', 'get_dev_category_count', {}).then(res => {
-    console.log(res,'res----')
+    publicInterface('/dcim/dems/device', 'get_dev_category_count', queryParams).then(res => {
     if (res && res.data) {
       type_count.value = res.data.map((item:any)=>{
         return {
@@ -147,11 +152,24 @@ onUnmounted(() => {
   overflow: auto;
   color:#fff;
   .img{
+    position: relative;
   width: 100px;
   height: 100px;
   img{
     width: 100%;
     height: 100%;
+  }
+  .value{
+    position: absolute;
+    width: 100%;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    white-space: pre-wrap;
+    text-align: center;
+    font-size: 17px;
+
+
   }
 }
 }

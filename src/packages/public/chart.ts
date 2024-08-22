@@ -12,6 +12,7 @@ import type VChart from 'vue-echarts'
  * @returns object
  */
 export const mergeTheme = <T, U>(option: T, themeSetting: U, includes: string[]) => {
+  
   return (option = merge({}, pick(themeSetting, includes), option))
 }
 

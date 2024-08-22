@@ -13,6 +13,7 @@ export const option = {
   dataset: dataJson,
   mapRegion: {
     adcode: 'china',
+    province: '',
     showHainanIsLands: true,
     enter: false,
     backSize: 20,
@@ -185,6 +186,7 @@ export const customData = {
   // k: 名字 v: 数值
   dataMap: '{}',
   showInterval: true,
+  devList:[]
 }
 
 export const MapDefaultConfig = { ...option }

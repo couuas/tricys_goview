@@ -372,14 +372,15 @@ export interface CompanyTempTopType {
 export interface AlarmTrendType {
   enable: boolean
   signal_ids:string
-  alarmConfirmStatus:string
-  alarmRecoveryStatus:string
-  level:string
+  alarmConfirmStatus:string[]
+  alarmRecoveryStatus:string[]
+  level:number[]
 
 }
 export interface AreaDevCountType {
   enable: boolean
   dataSource: string
+  space_complete_id:string
 }
 
 // 测点表格值
@@ -413,6 +414,8 @@ export interface ManualInputSingleType {
 export interface commonDataType {
   // 多数据
   currentSource: CurrentSourceEnum
+  // 公共接口参数
+  queryParams:any
   dataLength: number | null
   pointHistory: PointHistoryType
   energyUseHistory: EnergyUseHistoryType

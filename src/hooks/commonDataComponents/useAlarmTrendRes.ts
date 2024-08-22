@@ -3,9 +3,10 @@ import { CreateComponentType } from '@/packages/index.d'
 import { ResultErrcode } from "@/enums/httpEnum";
 import { AlarmTrendType } from '@/store/modules/chartEditStore/chartEditStore.d'
 import dataJson from "./data.json";
-
+import {useGlobalQueryParamsStore} from '@/store/modules/globalQueryParamsStore/globalQueryParamsStore'
 export const handleAlarmTrend =async (targetComponent: CreateComponentType) => {
   console.log(targetComponent.commonData,'targetComponent.commonData');
+const globalQueryParamsStore = useGlobalQueryParamsStore()
   
   const obj = targetComponent.commonData[targetComponent.commonData.currentSource] as AlarmTrendType
   let { enable,  signal_ids,alarmConfirmStatus,alarmRecoveryStatus,level} = obj
@@ -15,10 +16,10 @@ export const handleAlarmTrend =async (targetComponent: CreateComponentType) => {
     errmsg: ''
   }
   const queryParams = {
-    signal_ids,
-    alarmConfirmStatus:alarmConfirmStatus.length ? alarmConfirmStatus.split(',') : [],
-    alarmRecoveryStatus:alarmRecoveryStatus.length ? alarmRecoveryStatus.split(',') : [],
-    level:level.length ? alarmRecoveryStatus.split(',') : []
+    signal_ids:signal_ids.length?signal_ids.split(','):[],
+    alarmConfirmStatus,
+    alarmRecoveryStatus,
+    level
   }
 
  const res = await publicInterface('/dcim/dems/devie_history_alarm', 'trend_chart', queryParams)

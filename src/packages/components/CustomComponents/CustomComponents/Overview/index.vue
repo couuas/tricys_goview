@@ -30,7 +30,8 @@ import {cloneDeep} from 'lodash'
 import moment from "moment"
 import {selectTimeOptions} from "@/views/chart/ContentConfigurations/components/ChartData/index.d";
 import {RequestHttpIntervalEnum} from "@/enums/httpEnum";
-
+import {useGlobalQueryParamsStore} from '@/store/modules/globalQueryParamsStore/globalQueryParamsStore'
+const globalQueryParamsStore = useGlobalQueryParamsStore()
 const props = defineProps({
   chartConfig: {
     type: Object as PropType<CreateComponentType>,
@@ -48,13 +49,13 @@ const getStyle = (radius: number) => {
     overflow: 'hidden'
   }
 }
-console.log(props.chartConfig,'chartConfig');
 let type_count:any = ref([])
-
+const queryParams = {
+  ...globalQueryParamsStore.getGlobalQueryParams
+}
 const getData = () => {
   if(props.chartConfig?.customData?.currentSource==='IT'){
-    publicInterface('/dcim/asset', 'get_asset_overview_page_info_new', {}).then(res => {
-    console.log(res,'res----')
+    publicInterface('/dcim/asset', 'get_asset_overview_page_info_new', queryParams).then(res => {
  
     if (res && res.data) {
       let commonBrands =  res.data.type_count.reduce((prev:any, curr:any) => {
@@ -80,8 +81,7 @@ const getData = () => {
     }
   })
   }else{
-    publicInterface('/dcim/dems/device', 'get_dev_category_count', {}).then(res => {
-    console.log(res,'res----')
+    publicInterface('/dcim/dems/device', 'get_dev_category_count', queryParams).then(res => {
     if (res && res.data) {
       const commonBrands:any = res.data.reduce((prev:any, curr:any) => {
     return curr.count > prev.count ? curr : prev;
@@ -104,7 +104,6 @@ const getData = () => {
     }
   })
   }
-  console.log(type_count.value,`type_count_${props.chartConfig?.customData?.currentSource}`)
   
 }
 let timer:unknown

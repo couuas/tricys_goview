@@ -20,6 +20,7 @@ import { PositionConfig } from './Position'
 import { JumpBtnConfig } from './JumpBtn'
 import { ClassifiedStatistic } from './ClassifiedStatistic'
 import { AlarmLevelStatistic } from './AlarmLevelStatistic'
+import { AlarmTrend } from './AlarmTrend'
 import { RoomTemperature } from './RoomTemperature'
 import { Overview } from './Overview'
 
@@ -46,6 +47,7 @@ export default [
     JumpBtnConfig,
     ClassifiedStatistic,
     AlarmLevelStatistic,
+    AlarmTrend,
     RoomTemperature,
     Overview
 ]

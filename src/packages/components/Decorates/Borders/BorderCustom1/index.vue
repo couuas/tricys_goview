@@ -25,7 +25,6 @@ const { dataset, fit, borderRadius } = toRefs(props.chartConfig.option)
 const option = shallowReactive({
   dataset: ''
 })
-
 const getStyle = (radius: number) => {
   return {
     borderRadius: `${radius}px`,

@@ -480,12 +480,15 @@ tab.value = flag
  
 }
 console.log(props.chartConfig,'chartConfig');
+console.log(customData.value,'customData')
 
-let type_count:any = ref([])
-const alarmConfirmStatus = customData.value.alarmConfirmStatus.length ? customData.value.alarmConfirmStatus.split(',') : []
-const alarmRecoveryStatus = customData.value.alarmRecoveryStatus.length ? customData.value.alarmRecoveryStatus.split(',') : []
 const getData = () => {
-  publicInterface('/dcim/dems/devie_history_alarm', 'alarm_statistical_by_time', {alarmConfirmStatus,alarmRecoveryStatus}).then((res:any) => {
+  const params = {
+  signal_ids:customData.value.signal_ids.length?customData.value.signal_ids.split(','):[],
+  alarmConfirmStatus:customData.value.alarmConfirmStatus.length ? customData.value.alarmConfirmStatus : [],
+  alarmRecoveryStatus : customData.value.alarmRecoveryStatus.length ? customData.value.alarmRecoveryStatus : []
+}
+  publicInterface('/dcim/dems/devie_history_alarm', 'alarm_statistical_by_time', params).then((res:any) => {
         if (res.data) {
           alarmData.value = res.data
       console.log(alarmData.value,'getData_alarmLevel')
@@ -510,13 +513,18 @@ watch(() => [props.chartConfig.request.requestInterval, props.chartConfig.reques
   }
 })
 
-watch(()=>props.chartConfig?.customData?.currentSource,()=>{
+// 计算属性，用于拼接并排除 title
+const watchedProperties = computed(() => {
+      return `${customData.value.alarmConfirmStatus.join(',')}-${customData.value.alarmRecoveryStatus.join(',')}-${customData.value.signal_ids}`;
+    });
+watch(
+      watchedProperties,
+      (newVal, oldVal) => {
+        getData()
+      },
+      { deep: true,  }
+    );
 
-  console.log(props.chartConfig?.customData?.currentSource,'chartConfig');
-getData()
-  // 根据currentSource去获取对应 参数
-  
-})
 onMounted(() => {
   nextTick(() => {
 

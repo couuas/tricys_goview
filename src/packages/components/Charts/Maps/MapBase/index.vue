@@ -39,6 +39,8 @@ import { CanvasRenderer } from 'echarts/renderers'
 import { useChartDataFetch } from '@/hooks'
 import { mergeTheme, setOption } from '@/packages/public/chart'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
+import {  useChartCommonData } from '@/hooks'
+
 import {isPreview, postMessageToParent} from '@/utils'
 import mapJsonWithoutHainanIsLands from './mapWithoutHainanIsLands.json'
 import mapChinaJson from './mapGeojson/china.json'
@@ -152,17 +154,24 @@ const updateMapFn = (data: any) => {
     let obj = (dataMap.value as any)[it.properties.name] || {}
     return {
       name: it.properties.name,
+      adcode: it.properties.adcode,
+      
       value: it.properties.center ? it.properties.center.concat(50) : [],
       itemStyle: {
         color: colorMap.value[obj.roomId] || '#4dca59',
       }
     }
   })
+  console.log(props.chartConfig.option.series[0].data,'props.chartConfig.option.series[0].data')
 }
 
 //动态获取json注册地图
 const getGeojson = (regionId: string) => {
   return new Promise<boolean>(resolve => {
+    console.log(regionId,'regionId')
+    if(regionId==='440600'){
+      get_area_dev_count()
+    }
     import(`./mapGeojson/${regionId}.json`).then(data => {
       currentMap.value = data.default
       registerMap(regionId, { geoJSON: data.default as any, specialAreas: {} })
@@ -171,16 +180,27 @@ const getGeojson = (regionId: string) => {
     })
   })
 }
-
+const get_area_dev_count =async ()=>{
+  const res  = await publicInterface('/dcim/dems/device','get_area_dev_count', {space_type:'county'})
+  customData.value.devList = res?.data
+}
 //异步时先注册空的 保证初始化不报错
-registerMap(`${props.chartConfig.option.mapRegion.adcode}`, { geoJSON: {} as any, specialAreas: {} })
+if(props.chartConfig.option.mapRegion.province){
+  registerMap(`${props.chartConfig.option.mapRegion.province}`, { geoJSON: {} as any, specialAreas: {} })
+
+}else{
+  registerMap(`${props.chartConfig.option.mapRegion.adcode}`, { geoJSON: {} as any, specialAreas: {} })
+
+}
 
 // 进行更换初始化地图 如果为china 单独处理
 const registerMapInitAsync = async () => {
   await nextTick()
   const adCode = `${props.chartConfig.option.mapRegion.adcode}`
+  const province = `${props.chartConfig.option.mapRegion.province}`
   if (adCode !== 'china') {
-    await getGeojson(adCode)
+
+    await getGeojson(province?province:adCode)
   } else {
     await hainanLandsHandle(props.chartConfig.option.mapRegion.showHainanIsLands)
   }
@@ -220,25 +240,7 @@ const vEchartsSetOption = () => {
   setOption(vChartRef.value, props.chartConfig.option)
 }
 
-// 更新数据处理
-const dataSetHandle = async (dataset: any) => {
-  props.chartConfig.option.series.forEach((item: any) => {
-    // if (item.type === 'effectScatter' && dataset.point) item.data = dataset.point
-    if (item.type === 'lines' && dataset.line) {
-      item.data = dataset.line.map((it: any) => {
-        return {
-          ...it,
-          lineStyle: {
-            color: props.chartConfig.option.series[2].lineStyle.normal.color
-          }
-        }
-      })
-    } else if (item.type === 'map' && dataset.map) item.data = dataset.map
-  })
-  if (dataset.pieces) props.chartConfig.option.visualMap.pieces = dataset.pieces
 
-  isPreview() && vEchartsSetOption()
-}
 // 处理海南群岛
 const hainanLandsHandle = async (newData: boolean) => {
   if (newData) {
@@ -250,6 +252,29 @@ const hainanLandsHandle = async (newData: boolean) => {
 
 // 点击区域
 const chartPEvents = (e: any) => {
+  console.log(e,'e')
+  console.log(props.chartConfig.option,'props.chartConfig.option.series[1]')
+  if(props.chartConfig.option.mapRegion.province===440600){
+   const county  =  currentMap.value.features.find((item:any)=>item.properties.name===e.name)
+if(county){
+ const space_complete:any = customData.value.devList.find((item:any)=>{
+    if(item.space.extend_column_string.length){
+
+     return JSON.parse(item.space.extend_column_string).county_code===`${county.properties.adcode}`
+    }
+  })
+
+  const chartEditStore = useChartEditStore()
+  chartEditStore.getComponentList.forEach(component=>{
+    if(component.commonData.currentSource==='areaDevCount'){
+      component.commonData['areaDevCount'].space_complete_id = space_complete?space_complete?.space.complete_id:null 
+        //  useChartCommonData(component, useChartEditStore)
+    }
+
+  })
+}
+    console.log(county,'county')
+    }
   if (e.seriesType !== 'map') return
   if (!props.chartConfig.option.mapRegion.enter) {
     return
@@ -295,6 +320,10 @@ onMounted(() => {
 watch(() => customData.value.dataMap, () => {
   let obj = dataMap.value as any
   props.chartConfig.option.series[1].tooltip.formatter = (v: any) => {
+    // if(props.chartConfig.option.mapRegion.province===440600){
+    //   let str = `<div style="display: flex;align-items: center"><span style="margin-right: 20px;">${v.name}</span><span>${1111}</span></div>`
+    //   return str
+    // }
     let value: any
     if(JSON.stringify(obj) !== '{}') value = obj[v.name]?.value || '-'
     else value = !isNaN(v.value) ? v.value : '-'
@@ -413,30 +442,7 @@ onUnmounted(() => {
   box?.value?.removeEventListener('mousedown', handleMousedown)
 })
 
-// //监听 dataset 数据发生变化
-// watch(
-//   () => props.chartConfig.option.dataset,
-//   newData => {
-//     dataSetHandle(newData)
-//   },
-//   {
-//     immediate: true,
-//     deep: false
-//   }
-// )
 
-// 监听线的颜色
-// if (props.chartConfig.option.series[2] && !isPreview()) {
-//   watch(
-//     () => props.chartConfig.option.series[2].lineStyle.normal.color,
-//     () => {
-//       dataSetHandle(props.chartConfig.option.dataset)
-//     },
-//     {
-//       deep: false
-//     }
-//   )
-// }
 
 //监听是否显示南海群岛
 if (!isPreview()) {
@@ -458,6 +464,20 @@ if (!isPreview()) {
 //监听地图展示区域发生变化
 watch(
   () => `${props.chartConfig.option.mapRegion.adcode}`,
+  newData => {
+    try {
+      checkOrMap(newData)
+    } catch (error) {
+      console.log(error)
+    }
+  },
+  {
+    deep: false
+  }
+)
+//监听地图展示区域发生变化
+watch(
+  () => `${props.chartConfig.option.mapRegion.province}`,
   newData => {
     try {
       checkOrMap(newData)
@@ -499,10 +519,7 @@ onMounted(() => {
 onUnmounted(() => {
   if(timer) clearInterval(timer as number)
 })
-// 预览
-// useChartDataFetch(props.chartConfig, useChartEditStore, (newData: any) => {
-//   dataSetHandle(newData)
-// })
+
 </script>
 
 <style scope lang="scss">

@@ -19,7 +19,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, watch, toRefs, reactive, onMounted, onUnmounted, nextTick, ref } from 'vue'
+import { PropType, watch, toRefs, reactive, onMounted, onUnmounted, nextTick, ref ,Ref,computed} from 'vue'
 import {isPreview} from '@/utils'
 import { CreateComponentType } from '@/packages/index.d'
 import BorderBox from '../components/BorderBox.vue'
@@ -29,6 +29,7 @@ import { useOriginStore } from '@/store/modules/originStore/originStore'
 import { publicInterface } from '@/api/path/business.api'
 import {selectTimeOptions} from "@/views/chart/ContentConfigurations/components/ChartData/index.d";
 import VChart from 'vue-echarts'
+import { customData as customDataConfig } from './config'
 
 const props = defineProps({
   chartConfig: {
@@ -36,9 +37,9 @@ const props = defineProps({
     required: true
   }
 })
-
-const { w, h } = toRefs(props.chartConfig.attr)
-const { dataset, fit, borderRadius } = toRefs(props.chartConfig.option)
+const customData: Ref<typeof customDataConfig> = computed(() => {
+  return props.chartConfig.customData as typeof customDataConfig
+})
 
 const getStyle = (radius: number) => {
   return {
@@ -90,9 +91,10 @@ nameObj.commonColor = systemConstant['warn_levels'].find((item:any) => item.valu
 nameObj.eventColor = systemConstant['warn_levels'].find((item:any) => item.value === '5') ? systemConstant['warn_levels'].find((item:any) => item.value === '5')['remark'] : '#4fbadb'
 
 const getData = () => {
-  const confirm_statuss =props.chartConfig.customData?.confirm_statuss.length?props.chartConfig.customData?.confirm_statuss.length: systemConfig?.['active_alarm_confirm_status'] ? [...JSON.parse(systemConfig['active_alarm_confirm_status'])] : []
+  const confirm_statuss =props.chartConfig.customData?.confirm_statuss.length?props.chartConfig.customData?.confirm_statuss: systemConfig?.['active_alarm_confirm_status'] ? [...JSON.parse(systemConfig['active_alarm_confirm_status'])] : []
   const param = {
     confirm_statuss,
+    signal_ids:props.chartConfig.customData?.signal_ids.length?props.chartConfig.customData?.signal_ids.split(','):[],
     space_complete_id: props.chartConfig.customData?.space_complete_id
   }
 
@@ -303,7 +305,17 @@ watch(() => [props.chartConfig.request.requestInterval, props.chartConfig.reques
     }, number)
   }
 })
-
+// 计算属性，用于拼接并排除 title
+const watchedProperties = computed(() => {
+      return `${customData.value.confirm_statuss.join(',')}-${customData.value.signal_ids}`;
+    });
+watch(
+      watchedProperties,
+      (newVal, oldVal) => {
+        getData()
+      },
+      { deep: true,  }
+    );
 onMounted(() => {
   nextTick(() => {
     getData()

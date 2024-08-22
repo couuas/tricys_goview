@@ -22,7 +22,17 @@
           label-field="name"
         />
       </SettingItem>
+      <SettingItem name="省市区" v-if="mapRegion.adcode!=='china'">
+        <n-select
+          size="small"
+          v-model:value="mapRegion.province"
+          :options="provinceOptions"
+          value-field="adcode"
+          label-field="name"
+        />
+      </SettingItem>
     </SettingItemBox>
+   
 
     <SettingItemBox name="区域颜色">
       <SettingItem name="0%处颜色">
@@ -294,7 +304,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, computed } from 'vue'
+import { PropType, computed,watch } from 'vue'
 import { CollapseItem, SettingItemBox, SettingItem } from '@/components/Pages/ChartItemSetting'
 import { GlobalThemeJsonType } from '@/settings/chartThemes/index'
 import { GlobalSetting } from '@/components/Pages/ChartItemSetting'
@@ -305,6 +315,12 @@ const mapRegionOptions = ref([
   {
     adcode: 'china',
     name: '中国'
+  }
+])
+const provinceOptions = ref([
+  {
+    adcode: '',
+    name: ''
   }
 ])
 
@@ -325,15 +341,19 @@ const props = defineProps({
     required: true
   }
 })
-
-const initMapRegionOptions = () => {
-  mapChinaJson.features.forEach((element: any) => {
+const getMapOptionsByMapJson = (mapJson:any,origin:any)=>{
+  mapJson.features.forEach((element: any) => {
     if (element.properties.name) {
-      mapRegionOptions.value.push({ ...element.properties })
+      origin.push({ ...element.properties })
     }
   })
 }
+const initMapRegionOptions = () => {
+  getMapOptionsByMapJson(mapChinaJson,mapRegionOptions.value)
+ 
+}
 initMapRegionOptions()
+
 
 const seriesList = computed(() => {
   return props.optionData.series
@@ -341,5 +361,16 @@ const seriesList = computed(() => {
 
 const mapRegion = computed(() => {
   return props.optionData.mapRegion
+})
+watch(()=>mapRegion.value.adcode,(code:string)=>{
+  // 清空
+  provinceOptions.value = []
+  mapRegion.value.province = ''
+  import(`./mapGeojson/${code}.json`).then((data:any) => {
+    console.log(data,'data_data')
+    getMapOptionsByMapJson(data,provinceOptions.value)
+    console.log(provinceOptions.value,'provinceOptions.value')
+      
+    })
 })
 </script>

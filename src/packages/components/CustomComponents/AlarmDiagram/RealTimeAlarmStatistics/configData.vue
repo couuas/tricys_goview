@@ -11,14 +11,17 @@
   
   <setting-item-box name="告警确认状态" :alone="true">
     <n-select v-model:value="props.customData.confirm_statuss" multiple :options="confirmStatusOption" size="small"/>
-
   </setting-item-box>
 </template>
 
 <script lang="ts" setup>
 import { SettingItemBox } from '@/components/Pages/ChartItemSetting'
+import { useOriginStore } from '@/store/modules/originStore/originStore'
 
 const props = defineProps(['customData', 'request'])
+const originStore = useOriginStore()
+const systemConstant = originStore?.getOriginStore?.user?.systemConstant
+
 const confirmStatusOption =  [
         { label: '已确认', value: 'ok' },
         { label: '未确认', value: 'not' }

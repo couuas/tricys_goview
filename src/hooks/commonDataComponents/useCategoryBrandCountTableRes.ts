@@ -5,7 +5,7 @@ import { commonDataType, CategoryBrandCountTableType } from '@/store/modules/cha
 import { CreateComponentType } from '@/packages/index.d'
 import { ResultErrcode } from '@/enums/httpEnum'
 import dataJson from './data.json'
-
+import {useGlobalQueryParamsStore} from '@/store/modules/globalQueryParamsStore/globalQueryParamsStore'
 export const handleCategoryBrandCountTable =async (targetComponent: CreateComponentType) => {
     let { currentSource, enable } = (targetComponent.commonData as commonDataType).categoryBrandCountTable as CategoryBrandCountTableType
     if(!enable) return {
@@ -13,9 +13,13 @@ export const handleCategoryBrandCountTable =async (targetComponent: CreateCompon
         data: { ...dataJson },
         errmsg: ''
     }
+const globalQueryParamsStore = useGlobalQueryParamsStore()
+
     console.log(currentSource,'currentSource');
-    
-    const res = await publicInterface(currentSource==='IT'?'/dcim/asset':'/dcim/dems/device',currentSource==='IT'?'get_category_brand_count': 'get_dev_category_brand_count', {})
+    const queryParams = {
+             ...globalQueryParamsStore.getGlobalQueryParams
+    }
+    const res = await publicInterface(currentSource==='IT'?'/dcim/asset':'/dcim/dems/device',currentSource==='IT'?'get_category_brand_count': 'get_dev_category_brand_count', queryParams)
     const top = ['TOP1','TOP2','TOP3']
     
     res!.data = {

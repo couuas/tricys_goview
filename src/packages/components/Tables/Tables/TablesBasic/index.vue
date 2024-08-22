@@ -13,6 +13,7 @@
       </template>
     </n-input>
     <n-data-table
+    :class="{'customDataTable':isBackgroundColor}"
       style="box-sizing: border-box;"
       :style="`
       width: ${w}px;
@@ -164,7 +165,6 @@ const columns = computed(() => {
   return dimensions
 })
 useChartCommonData(props.chartConfig, useChartEditStore)
-console.log(props.chartConfig,'chartConfig')
 
 </script>
 
@@ -175,19 +175,18 @@ console.log(props.chartConfig,'chartConfig')
   gap: 15px;
   align-items: flex-end;
 }
-:deep(.n-data-table-td) {
-  background-color:#1A1D25;
+:deep(td) {
+  background-color:red;
 }
 :deep(.n-data-table-th) {
   background-color:#1A1D25;
 }
-@include go('custom-data-table'){
-  background-color: #1A1D25;
-  :deep(.n-data-table-td) {
-  background-color:#1A1D25;
+.customDataTable{
+  :deep(td) {
+  background-color:rgba(65, 150, 255, 0.05);
 }
-  :deep(.n-data-table-th) {
-  background-color:#1A1D25;
-}
+//   :deep(th) {
+//   background-color:rgba(65, 150, 255, 0.05);
+// }
 }
 </style>

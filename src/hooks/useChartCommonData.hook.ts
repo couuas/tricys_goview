@@ -48,11 +48,7 @@ export const useChartCommonData = (
     // eCharts 组件配合 vChart 库更新方式
     const echartsUpdateHandle = (dataset: any) => {
         if (chartFrame === ChartFrameEnum.ECHARTS) {
-            // if (vChartRef.value) {
-            //     setOption(vChartRef.value, { dataset: dataset })
-            // }
-            // if(!dataset.dimensions) return
-            console.log(targetComponent,'targetComponent')
+           
             if(targetComponent.option){
                 const SingleDataArr = [
                     CurrentSourceEnum.SINGLEPOINT,
@@ -168,7 +164,6 @@ export const useChartCommonData = (
                 }
                 if (res && res.errcode === ResultErrcode.SUCCESS) {
                     try {
-                console.log(res,'res--fetchFn')
 
                         const { data } = res
                         // 多值的
@@ -185,7 +180,6 @@ export const useChartCommonData = (
                                 else throw Error()
                             }
                             else if(Object.prototype.toString.call(data) === '[object Object]'){
-                                console.log(data,'data_isMultiple');
                                 
                                 if(data.dimensions && data.source) {
                                     if(typeof targetComponent.commonData.dataLength === 'number') {
@@ -231,6 +225,7 @@ export const useChartCommonData = (
             const unit = targetInterval && targetInterval.value ? targetUnit.value : globalUnit.value
             // 开启轮询
             if (time) {
+                
                 fetchInterval = setInterval(fetchFn, intervalUnitHandle(time, unit))
             } else {
                 fetchFn()

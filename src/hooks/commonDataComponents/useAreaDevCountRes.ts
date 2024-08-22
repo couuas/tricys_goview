@@ -6,13 +6,15 @@ import dataJson from "./data.json";
 
 export const handleAreaDevCountClass =async (targetComponent: CreateComponentType) => {
   const obj = targetComponent.commonData[targetComponent.commonData.currentSource] as AreaDevCountType
- console.log(targetComponent,'targetComponent_targetComponent');
 //  targetComponent?.option.series.forEach((item,index)=>{
 //   item.encode = { y:index===0? 'dev_count':'it_dev_count', x: 'space' }
 //  })
- 
+ const queryParams = {
+  space_complete_id:obj.space_complete_id,
+  space_type:'station'
+ }
   // 处理数据
-  const res  = await publicInterface('/dcim/dems/device','get_area_dev_count', {})
+  const res  = await publicInterface('/dcim/dems/device','get_area_dev_count', queryParams)
   res!.data = {
   //  dimensions: res?.data.brand_count.map((item: {})=>Object.keys(item).join('')),
    dimensions: ['区域','配电设备总数','IT设备总数'],
@@ -22,6 +24,7 @@ export const handleAreaDevCountClass =async (targetComponent: CreateComponentTyp
     
       '配电设备总数':item?.dev_count,
       'IT设备总数':item?.it_dev_count,
+      complete_id:item?.space?.complete_id
     }
    })
   }
