@@ -23,7 +23,7 @@ export const handleCompanyTempTop =async (targetComponent: CreateComponentType) 
        dimensions: ['名称','温度值'],
        source:res?.data.map((item: any)=>{
         return {
-          '名称':`${item.node_name}-${item.dems_device_point.node_name}`,
+          '名称':`${item.node_name}`,
           '温度值':item.dems_device_point.node_value,
         }
        })

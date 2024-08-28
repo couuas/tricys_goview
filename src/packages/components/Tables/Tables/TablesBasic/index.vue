@@ -21,7 +21,10 @@
       font-size: ${option.style.fontSize}px;
       border-width: ${option.style.border === 'on' ? option.style.borderWidth : 0}px;
       border-color: ${option.style.borderColor};
-      border-style: ${option.style.borderStyle}`"
+      border-style: ${option.style.borderStyle};
+      
+      `
+      "
       :bordered="option.style.border === 'on'"
       :single-column="option.style.singleColumn === 'on'"
       :single-line="option.style.singleLine === 'on'"
@@ -176,7 +179,8 @@ useChartCommonData(props.chartConfig, useChartEditStore)
   align-items: flex-end;
 }
 :deep(td) {
-  background-color:red;
+  text-align: left !important;
+  // padding-left: 10px;
 }
 :deep(.n-data-table-th) {
   background-color:#1A1D25;
