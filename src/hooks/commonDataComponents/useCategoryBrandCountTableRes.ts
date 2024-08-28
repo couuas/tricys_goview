@@ -14,14 +14,11 @@ export const handleCategoryBrandCountTable =async (targetComponent: CreateCompon
         errmsg: ''
     }
 const globalQueryParamsStore = useGlobalQueryParamsStore()
-
-    console.log(currentSource,'currentSource');
     const queryParams = {
              ...globalQueryParamsStore.getGlobalQueryParams
     }
     const res = await publicInterface(currentSource==='IT'?'/dcim/asset':'/dcim/dems/device',currentSource==='IT'?'get_category_brand_count': 'get_dev_category_brand_count', queryParams)
     const top = ['TOP1','TOP2','TOP3']
-    
     res!.data = {
          dimensions: ['分类名',...top],
          source:res?.data.map((item: any)=>{

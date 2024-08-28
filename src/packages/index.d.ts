@@ -166,7 +166,8 @@ export interface PublicConfigType {
       [InteractEvents.INTERACT_COMPONENT_ID]: string | undefined
       [InteractEvents.INTERACT_FN]: { [name: string]: string }
     }[]
-  }
+  },
+  $ref
 }
 
 export interface CreateComponentType extends PublicConfigType, requestConfig {

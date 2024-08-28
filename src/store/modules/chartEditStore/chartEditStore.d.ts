@@ -214,6 +214,8 @@ export interface RequestGlobalConfigType extends RequestPublicConfigType {
 
 // 单个图表请求配置
 export interface RequestConfigType extends RequestPublicConfigType {
+  // 是否立即执行
+  immediate?:boolean
   // 所选全局数据池的对应 id
   requestDataPondId?: string
   // 组件定制轮询时间

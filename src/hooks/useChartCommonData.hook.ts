@@ -1,6 +1,6 @@
 import type VChart from 'vue-echarts'
 import { setOption } from "@/packages/public";
-import { ref, toRefs, watch } from "vue";
+import { ref, toRefs, watch,getCurrentInstance } from "vue";
 import { CreateComponentType, ChartFrameEnum } from '@/packages/index.d'
 import { useChartEditStore } from "@/store/modules/chartEditStore/chartEditStore";
 import { CurrentSourceEnum, resultType } from '@/store/modules/chartEditStore/chartEditStore.d'
@@ -24,6 +24,8 @@ import { handleManulInput } from './commonDataComponents/useManualInputRes'
 import { handleManulInputSingle } from './commonDataComponents/useManualInputSingleRes'
 import { ResultErrcode } from '@/enums/httpEnum'
 import { logDark } from 'naive-ui';
+import { fetchChartComponent } from '@/packages';
+
 
 // 获取类型
 type ChartEditStoreType = typeof useChartEditStore
@@ -61,18 +63,34 @@ export const useChartCommonData = (
                     // let series = []
                     // if(dataset.dimensions.length - 1) {
                     //     for(let i = 0; i < dataset.dimensions.length - 1; i++) {
-                    //         series.push(cloneDeep(seriesItem))
+                //         series.push(cloneDeep(seriesItem))
                     //     }
                     // }
                     // else {
                     //     series = [seriesItem]
                     // }
+                     // 获取当前组件实例
+
+  
+
                     if (vChartRef.value) {
+                        // 缓存组件的实例后续更新用得上
+                        const instanceMap = new Map()
+                        // 存储构造函数引用,如果直接使用vChartRef.value的话会报错，因为json序列化无法对构造函数进行处理，先将它放到map中等使用的时候再获取
+                        instanceMap.set('$ref', vChartRef.value);
+                        targetComponent.$ref = instanceMap
                         Object.assign(targetComponent.option, {
                             // series,
                             dataset,
                         })
                         setOption(vChartRef.value, { dataset })
+                    }else{
+                        Object.assign(targetComponent.option, {
+                            // series,
+                            dataset,
+                        })
+                        const instance = targetComponent?.$ref?.get('$ref')
+                        setOption(instance, { dataset })
                     }
                 }
                 else if(SingleDataArr.some(_ => _ === currentSource)) { // 单个值的处理
@@ -135,9 +153,12 @@ export const useChartCommonData = (
                         break;
                     case CurrentSourceEnum.ASSETSCLASS:
                         res = await handleAssetsClass(targetComponent)
+
                         break;
                     case CurrentSourceEnum.COMPANYTEMPTOP:
                         res = await handleCompanyTempTop(targetComponent)
+                        console.log(res,'res',targetComponent,'触发了吗')
+                        
                         break;
                     case CurrentSourceEnum.ALARMTREND:
                         res = await handleAlarmTrend(targetComponent)

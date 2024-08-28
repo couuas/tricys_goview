@@ -150,11 +150,13 @@ watch(() => checkAll.value, (v) => {
 })
 
 const getNumber = () => {
+  console.log(props.chartConfig.customData?.dems_device_point_signal_ids,'props.chartConfig.customData?.dems_device_point_signal_ids')
   const q = {
     space_complete_id: props.chartConfig.customData?.space_complete_id,
     confirm_statuss: alarmConfirmStatus.value,
     handle_statuss: alarmHandleStatuss.value,
-    recovery_statuss: alarmRecoveryStatus.value
+    recovery_statuss: alarmRecoveryStatus.value,
+    dems_device_point_signal_ids: props.chartConfig.customData?.dems_device_point_signal_ids.split(','),
   }
   publicInterface('/dcim/dems/devie_active_alarm', 'count_by_level_new', q).then(res => {
     if (res && JSON.stringify(res.data) !== '{}') {

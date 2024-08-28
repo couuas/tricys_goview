@@ -19,31 +19,35 @@ const globalQueryParamsStore = useGlobalQueryParamsStore()
   }
   // 处理数据
   if(dataSource==='IT'){
-    
     const res  = await publicInterface('/dcim/asset','get_asset_overview_page_info_new', query)
     res!.data = {
     //  dimensions: res?.data.brand_count.map((item: {})=>Object.keys(item).join('')),
      dimensions: ['品牌','data'],
-     source:res?.data.brand_count.slice(0,8).map((item: {})=>{
+     source:res?.data?.brand_count.slice(0,7).map((item: {})=>{
       return {
         '品牌':Object.keys(item)[0],
         data:Object.values(item)[0],
       }
      })
     }
+    console.log(res,'调用了吗')
+
     return res
   }else{
     const res  = await  publicInterface('/dcim/dems/device','get_dev_brand_count', query)
+
     res!.data = {
       //  dimensions: res?.data.brand_count.map((item: {})=>Object.keys(item).join('')),
        dimensions: ['品牌','data'],
-       source:res?.data.slice(0,8).map((item: any)=>{
+       source:res?.data.slice(0,7).map((item: any)=>{
         return {
           '品牌':item.name,
           data:item.count,
         }
        })
       }
+    console.log(res,'调用了吗1')
+
       return res
   }
 }

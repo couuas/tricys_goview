@@ -14,9 +14,10 @@ export const handleCompanyTempTop =async (targetComponent: CreateComponentType) 
     data: { ...dataJson },
     errmsg: ''
   }
- const res = await publicInterface('/dcim/dems/device_point', 'temp_list_dashboard', {signal_ids:[signal_ids],space_complete_id})
+ const res:any = await publicInterface('/dcim/dems/device_point', 'temp_list_dashboard', {signal_ids:[signal_ids],space_complete_id})
+ console.log(res,'res_handleCompanyTempTop');
+
     if (res && res.data) {
-    console.log(res,'res_handleCompanyTempTop');
     res.data = {
       //  dimensions: res?.data.brand_count.map((item: {})=>Object.keys(item).join('')),
        dimensions: ['名称','温度值'],
@@ -26,6 +27,14 @@ export const handleCompanyTempTop =async (targetComponent: CreateComponentType) 
           '温度值':item.dems_device_point.node_value,
         }
        })
+      }
+      return res
+    }else{
+      // 后端没有给errcode,前端重置
+      res.errcode = '00000'
+      res.data = {
+        dimensions:[],
+        source:[]
       }
       return res
     }

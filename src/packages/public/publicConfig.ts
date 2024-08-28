@@ -24,11 +24,12 @@ import cloneDeep from 'lodash/cloneDeep'
 
 // 请求基础属性
 export const requestConfig: RequestConfigType = {
+  immediate:false,
   requestDataType: RequestDataTypeEnum.STATIC,
   requestHttpType: RequestHttpEnum.GET,
   requestUrl: '',
   requestInterval: 15,
-  requestIntervalUnit: RequestHttpIntervalEnum.SECOND,
+  requestIntervalUnit: RequestHttpIntervalEnum.HOUR,
   requestContentType: RequestContentTypeEnum.DEFAULT,
   requestParamsBodyType: RequestBodyEnum.NONE,
   requestSQLContent: {

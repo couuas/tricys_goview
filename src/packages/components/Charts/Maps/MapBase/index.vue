@@ -162,7 +162,6 @@ const updateMapFn = (data: any) => {
       }
     }
   })
-  console.log(props.chartConfig.option.series[0].data,'props.chartConfig.option.series[0].data')
 }
 
 //动态获取json注册地图

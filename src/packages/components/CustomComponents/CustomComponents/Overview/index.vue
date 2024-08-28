@@ -3,7 +3,8 @@
    
     <div class="overview" v-for="item in type_count" :key="item">
       <div class="img">
-        <img src="@/assets/images/chart/decorates/Base7.png" alt="">
+        <img v-if="props.chartConfig?.customData?.currentSource==='IT'" src="@/assets/images/chart/decorates/Base1.png" alt="">
+        <img v-else src="@/assets/images/chart/decorates/Base4.png" alt="">
         <div class="value">
           {{item.value}}
          
@@ -55,14 +56,16 @@ const queryParams = {
 }
 const getData = () => {
   if(props.chartConfig?.customData?.currentSource==='IT'){
-    publicInterface('/dcim/asset', 'get_asset_overview_page_info_new', queryParams).then(res => {
+    publicInterface('/dcim/asset', 'get_asset_overview_page_info_new', {
+  ...globalQueryParamsStore.getGlobalQueryParams
+}).then(res => {
  
     if (res && res.data) {
-      let commonBrands =  res.data.type_count.reduce((prev:any, curr:any) => {
+      let commonBrands =  res.data.type_count?.reduce((prev:any, curr:any) => {
     const prevValue:any = Object.values(prev)[0];
     const currValue:any = Object.values(curr)[0];
     return currValue > prevValue ? curr : prev;
-});
+},{});
       let obj = [
       {
         label:'设备总数',
@@ -81,11 +84,13 @@ const getData = () => {
     }
   })
   }else{
-    publicInterface('/dcim/dems/device', 'get_dev_category_count', queryParams).then(res => {
+    publicInterface('/dcim/dems/device', 'get_dev_category_count', {
+  ...globalQueryParamsStore.getGlobalQueryParams
+}).then(res => {
     if (res && res.data) {
-      const commonBrands:any = res.data.reduce((prev:any, curr:any) => {
+      const commonBrands:any = res?.data?.reduce((prev:any, curr:any) => {
     return curr.count > prev.count ? curr : prev;
-});
+},{});
       let obj = [
       {
         label:'设备总数',
@@ -107,7 +112,9 @@ const getData = () => {
   
 }
 let timer:unknown
+console.log([props.chartConfig.request.requestInterval, props.chartConfig.request.requestIntervalUnit].join('&&'),'[props.chartConfig.request.requestInterval, props.chartConfig.request.requestIntervalUnit]_overview')
 watch(() => [props.chartConfig.request.requestInterval, props.chartConfig.request.requestIntervalUnit].join('&&'), v => {
+  console.log(v,'overview_v')
   if(!isPreview()) return
   console.log(props,'props')
   
@@ -120,15 +127,25 @@ watch(() => [props.chartConfig.request.requestInterval, props.chartConfig.reques
       getData()
     }, number)
   }
+},{
+  deep:true,
 })
 
 watch(()=>props.chartConfig?.customData?.currentSource,()=>{
 
-console.log(props.chartConfig?.customData?.currentSource,'chartConfig');
 getData()
 // 根据currentSource去获取对应 参数
 
 })
+watch(()=>props.chartConfig?.request?.immediate,(v)=>{
+
+if(!v)return
+getData()
+props.chartConfig.request.immediate = false
+// 根据currentSource去获取对应 参数
+
+})
+
 onMounted(() => {
   nextTick(() => {
 
@@ -177,6 +194,7 @@ onUnmounted(() => {
     transform: translate(-50%,-50%);
     white-space: pre-wrap;
     text-align: center;
+    font-size: 20px;
 
   }
   

@@ -65,15 +65,17 @@ switch (props.chartConfig.commonData.currentSource) {
   globalQueryParamsStore.setGlobalQueryParams({
     space_complete_id : e.data.complete_id
   })
-  console.log(chartEditStore.getComponentList,'chartEditStore')
+  console.log(chartEditStore.getComponentList,'chartEditStore_getComponentList')
   // 没有统一更新数据的方法，只能尝试改变它的更新时间，促使watch触发请求方法
   chartEditStore.getComponentList.forEach(component=>{
-    component.request.requestInterval = 15
+    // component.request.requestInterval = 10
+    // component.request.requestInterval = 15
+    component.request.immediate = true
+
     useChartCommonData(component, useChartEditStore)
 
   })
  
-console.log(globalQueryParamsStore.getGlobalQueryParams,'chartConfig2')
   
     break;
 

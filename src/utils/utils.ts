@@ -275,11 +275,15 @@ export const setKeyboardDressShow = (keyCode?: number) => {
  * @param data
  */
 export const JSONStringify = <T>(data: T) => {
+  console.log(data,'data')
   return JSON.stringify(
     data,
     (key, val) => {
       // 处理函数丢失问题
       if (typeof val === 'function') {
+      console.log(key,'key')
+      console.log(val,'val')
+
         return `${val}`
       }
       // 处理 undefined 丢失问题

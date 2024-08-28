@@ -5,7 +5,7 @@
       <div class="classify" v-for="item in type_count" :key="item">
       <div class="img">
         <img v-if="props.chartConfig?.customData?.currentSource==='IT'" src="@/assets/images/chart/decorates/Base1.png" alt="">
-        <img v-else src="@/assets/images/chart/decorates/Base2.png" alt="">
+        <img v-else src="@/assets/images/chart/decorates/Base4.png" alt="">
         <div class="value">
           {{Object.values(item)[0]}}
          
@@ -59,7 +59,9 @@ const queryParams = {
 }
 const getData = () => {
   if(props.chartConfig?.customData?.currentSource==='IT'){
-    publicInterface('/dcim/asset', 'get_asset_overview_page_info_new', queryParams).then(res => {
+    publicInterface('/dcim/asset', 'get_asset_overview_page_info_new', {
+  ...globalQueryParamsStore.getGlobalQueryParams
+}).then(res => {
     if (res && res.data) {
       type_count.value = res.data.type_count
       // for (const key in computeNodeData) {
@@ -68,7 +70,9 @@ const getData = () => {
     }
   })
   }else{
-    publicInterface('/dcim/dems/device', 'get_dev_category_count', queryParams).then(res => {
+    publicInterface('/dcim/dems/device', 'get_dev_category_count', {
+  ...globalQueryParamsStore.getGlobalQueryParams
+}).then(res => {
     if (res && res.data) {
       type_count.value = res.data.map((item:any)=>{
         return {
@@ -104,7 +108,14 @@ watch(()=>props.chartConfig?.customData?.currentSource,()=>{
   console.log(props.chartConfig?.customData?.currentSource,'chartConfig');
 getData()
   // 根据currentSource去获取对应 参数
-  
+})
+watch(()=>props.chartConfig?.request?.immediate,(v)=>{
+
+if(!v)return
+getData()
+props.chartConfig.request.immediate = false
+// 根据currentSource去获取对应 参数
+
 })
 onMounted(() => {
   nextTick(() => {
@@ -167,14 +178,14 @@ onUnmounted(() => {
     transform: translate(-50%,-50%);
     white-space: pre-wrap;
     text-align: center;
-    font-size: 17px;
+    font-size: 20px;
 
 
   }
 }
 }
 .count{
-    font-size: 17px;
+    font-size: 20px;
     padding: 0 5px;
     font-family: LESLIE;
     font-size: 20px;
