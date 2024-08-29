@@ -29,7 +29,7 @@ export const requestConfig: RequestConfigType = {
   requestHttpType: RequestHttpEnum.GET,
   requestUrl: '',
   requestInterval: 15,
-  requestIntervalUnit: RequestHttpIntervalEnum.HOUR,
+  requestIntervalUnit: RequestHttpIntervalEnum.SECOND,
   requestContentType: RequestContentTypeEnum.DEFAULT,
   requestParamsBodyType: RequestBodyEnum.NONE,
   requestSQLContent: {
