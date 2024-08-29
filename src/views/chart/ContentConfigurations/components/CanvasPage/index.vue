@@ -8,7 +8,6 @@
           v-model:value="canvasConfig.width"
           :disabled="editCanvas.lockScale"
           :validator="validator"
-          @update:value="changeSizeHandle"
         ></n-input-number>
       </n-form-item>
       <n-form-item label="高度">
@@ -17,7 +16,6 @@
           v-model:value="canvasConfig.height"
           :disabled="editCanvas.lockScale"
           :validator="validator"
-          @update:value="changeSizeHandle"
         ></n-input-number>
       </n-form-item>
     </n-form>
@@ -212,10 +210,7 @@ watch(
 // 画布尺寸规则
 const validator = (x: number) => x > 50
 
-// 修改尺寸
-const changeSizeHandle = () => {
-  chartEditStore.computedScale()
-}
+
 
 // 上传图片前置处理
 //@ts-ignore

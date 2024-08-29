@@ -58,7 +58,6 @@ export const useChartLayoutStore = defineStore({
     setItem<T extends keyof ChartLayoutType, K extends ChartLayoutType[T]>(
       key: T,
       value: K,
-      computedScale = true
     ): void {
       this.$patch(state => {
         state[key] = value
@@ -67,12 +66,6 @@ export const useChartLayoutStore = defineStore({
       setLocalStorage(GO_CHART_LAYOUT_STORE, this.$state)
       // 这里需要标记重置画布位置
       this.rePositionCanvas = true;
-      // 重新计算拖拽区域缩放比例
-      if (computedScale) {
-        setTimeout(() => {
-          chartEditStore.computedScale()
-        }, 500)
-      }
     },
     setItemUnHandle<T extends keyof ChartLayoutType, K extends ChartLayoutType[T]>(key: T, value: K): void {
       this.$patch(state => {

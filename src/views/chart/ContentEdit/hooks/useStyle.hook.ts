@@ -3,7 +3,7 @@ import { PickCreateComponentType } from '@/packages/index.d'
 type AttrType = PickCreateComponentType<'attr'>
 
 export const useComponentStyle = (attr: AttrType, index: number) => {
-  if(!attr) return {}
+  if (!attr) return {}
   const componentStyle = {
     zIndex: index + 1,
     left: `${attr.x}px`,
@@ -13,10 +13,10 @@ export const useComponentStyle = (attr: AttrType, index: number) => {
 }
 
 export const useSizeStyle = (attr: AttrType, scale?: number) => {
-  if(!attr) return {}
+  if (!attr) return {}
   return {
-    width: `${scale ? scale * attr.w : attr.w}px`,
-    height: `${scale ? scale * attr.h : attr.h}px`
+    width: `${attr.w}px`,
+    height: `${attr.h}px`
   }
 }
 
