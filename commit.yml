@@ -2,58 +2,10 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid '7c6ca7927962f204175638c6b1ade04172618bb4'
-    oldFile: !uuid 'a8aa4a00bcc93143cd41ab9ec97b02622f622e40'
-  /src/assets:
-    newFile: !uuid '703d39b8cd9bd16c1ae666565a0c5871ff853fef'
-    oldFile: !uuid '5200bcc9df14c7f8dd1991efe3ff8cd117b3efbb'
-  /src/assets/images:
-    newFile: !uuid '62e0d6a34399dab2e100063e3687ba5be369a4a5'
-    oldFile: !uuid '12756a6dec6584b456d0813e806ff1294d77c410'
-  /src/assets/images/tips:
-    newFile: !uuid 'ea14f2fa365fdec28a9ceaf9b8369977ab07c97b'
-    oldFile: !uuid 'f70e65e97f1affa2f88d0ad481200f262dc6f540'
-  /src/assets/images/tips/Integral-activity.png:
-    newFile: !uuid '2f97281523dffee1b230a7370269d97a3a85d6bb'
-    oldFile: null
-  /src/plugins:
-    newFile: !uuid 'af1caddbee16dee25780db1c28abba905560571b'
-    oldFile: !uuid 'effee82bd4b62ece048ea7cd10734a0189a17fe7'
-  /src/plugins/icon.ts:
-    newFile: !uuid '6d31a1f43d5f4ad056b5b072bdc80589327c1376'
-    oldFile: !uuid '22a149c804b4d4b10cda0d216ba543f3a8a566a5'
-  /src/utils:
-    newFile: !uuid '61270f7e00460dbcaee9634ed424bd6fb3100034'
-    oldFile: !uuid '37b6ee8f454f58693d5adb8e8e29a4585b166645'
-  /src/utils/utils.ts:
-    newFile: !uuid '48bef70cfeee1cdfaf99aeca1d861bfc10b3cf5e'
-    oldFile: !uuid '70cf7be9a01da349434ba41941ae09e2a76c4d99'
-  /src/views:
-    newFile: !uuid '12c574801e41659d302445d7d2b5af6fed984004'
-    oldFile: !uuid '79c9f565bd5034ad748ee73f99fe7b81eedc2709'
-  /src/views/project:
-    newFile: !uuid '4e09296f10304716fd0d162504265475f85fd770'
-    oldFile: !uuid '7bdc4226fd18b4aebf00e9131b03d76fbf23460c'
-  /src/views/project/layout:
-    newFile: !uuid 'cf137355396bf105c5924e1c498beeea3117f9c5'
-    oldFile: !uuid 'e73a4a00bc7334f15e8add2a685100e330e4daea'
-  /src/views/project/layout/components:
-    newFile: !uuid '696532986574a03789f29fb7627c856cc32417eb'
-    oldFile: !uuid '4f8cb652d02ea2448bcc260275893d66868645c9'
-  /src/views/project/layout/components/ProjectLayoutAsideFooter:
-    newFile: !uuid 'da3f37b6c3cd3ff0d88fafb4f5ac457723e7c17a'
-    oldFile: !uuid '2011d47897e6cbf35cc674905e7fa6dccdad9e78'
-  /src/views/project/layout/components/ProjectLayoutAsideFooter/index.vue:
-    newFile: !uuid 'a67931e6193280075659f80b4890dee6eecc23ac'
-    oldFile: !uuid '731796c14b96f8f9f6f1a3282d9a8c081becbf57'
-  /src/views/project/templateMarket:
-    newFile: !uuid '9bb0560c93270ab6f940d5a8670503c38da8fafd'
-    oldFile: !uuid '2420d16ddc5aad1208e7b0daca07c8b363ae3a4f'
-  /src/views/project/templateMarket/index.vue:
-    newFile: !uuid '71b8b5c31214fbd2bf7f5d90486ec81a989c21bb'
-    oldFile: !uuid 'feede8541c6002a64d8acea27d5921e179a3dff9'
-gitCommitId: !uuid '84db46cc4387bf9169234b271ad6d6c76c77aa5c'
+  /README.md:
+    newFile: !uuid 'd25128f15be4bd1a313b90025b3c6f63a3915bc6'
+    oldFile: !uuid '22f145f3eaa8398210ff7390e7a619af2914ded0'
+gitCommitId: !uuid '4455b7472624d5d8f673b8f7ee721e380667b8c3'
 renames: {
   }
-revisionId: 1433
+revisionId: 1434
