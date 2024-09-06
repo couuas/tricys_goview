@@ -5,7 +5,7 @@
   <setting-item-box name="空间ID" :alone="true">
     <n-input v-model:value="props.customData.space_complete_id" size="small" placeholder="请输入空间ID"/>
   </setting-item-box>
-  <setting-item-box name="测点ID" :alone="true">
+  <setting-item-box name="测点编码" :alone="true">
     <n-input v-model:value="props.customData.signal_ids" size="small" placeholder="请输入"/>
   </setting-item-box>
   

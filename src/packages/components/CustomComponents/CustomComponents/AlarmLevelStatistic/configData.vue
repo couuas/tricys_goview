@@ -3,7 +3,7 @@
     <setting-item-box name="标题" :alone="true">
       <n-input v-model:value="props.customData.title" size="small" placeholder="请输入"/>
     </setting-item-box>
-    <setting-item-box name="测点ID(双引号包裹内容+英文逗号隔开)" :alone="true">
+    <setting-item-box name="测点编码(双引号包裹内容+英文逗号隔开)" :alone="true">
     <n-input v-model:value="props.customData.signal_ids" size="small" placeholder="请输入"/>
   </setting-item-box>
   <!-- <setting-item-box name="空间ID" :alone="true">

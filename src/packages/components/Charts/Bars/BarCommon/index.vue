@@ -1,18 +1,18 @@
 <template>
-  <v-chart 
-  ref="vChartRef" 
-  :init-options="initOptions" 
-  :theme="themeColor" 
-  :option="option" 
-  :manual-update="isPreview()"
-  :update-options="{replaceMerge: replaceMergeArr}" 
-  autoresize 
+  <v-chart
+    ref="vChartRef"
+    :init-options="initOptions"
+    :theme="themeColor"
+    :option="option"
+    :manual-update="isPreview()"
+    :update-options="{ replaceMerge: replaceMergeArr }"
+    autoresize
   >
   </v-chart>
 </template>
 
 <script setup lang="ts">
-import { ref, nextTick, computed, watch, PropType,onMounted } from 'vue'
+import { ref, nextTick, computed, watch, PropType, onMounted } from 'vue'
 import VChart from 'vue-echarts'
 import { useCanvasInitOptions } from '@/hooks/useCanvasInitOptions.hook'
 import { use } from 'echarts/core'
@@ -23,11 +23,11 @@ import { mergeTheme } from '@/packages/public/chart'
 import { useChartDataFetch, useChartCommonData } from '@/hooks'
 import { CreateComponentType } from '@/packages/index.d'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
-import {isPreview, setTooltipPosition} from '@/utils'
+import { isPreview, setTooltipPosition } from '@/utils'
 import { DatasetComponent, GridComponent, TooltipComponent, LegendComponent } from 'echarts/components'
 import isObject from 'lodash/isObject'
 import cloneDeep from 'lodash/cloneDeep'
-import {useGlobalQueryParamsStore} from '@/store/modules/globalQueryParamsStore/globalQueryParamsStore'
+import { useGlobalQueryParamsStore } from '@/store/modules/globalQueryParamsStore/globalQueryParamsStore'
 const chartEditStore = useChartEditStore()
 
 const globalQueryParamsStore = useGlobalQueryParamsStore()
@@ -57,34 +57,39 @@ const option = computed(() => {
   return mergeTheme(props.chartConfig.option, props.themeSetting, includes)
 })
 // 控制所有柱状图的点击事件
-const chartPEvents = (e:any)=>{
-  console.log(e,'e_chartPEvents'),
-console.log(props.chartConfig,'chartConfig1')
-switch (props.chartConfig.commonData.currentSource) {
-  case "areaDevCount":
-  globalQueryParamsStore.setGlobalQueryParams({
-    space_complete_id : e.data.complete_id
-  })
-  console.log(chartEditStore.getComponentList,'chartEditStore_getComponentList')
-  // 没有统一更新数据的方法，只能尝试改变它的更新时间，促使watch触发请求方法
-  chartEditStore.getComponentList.forEach(component=>{
-    // component.request.requestInterval = 10
-    // component.request.requestInterval = 15
-    component.request.immediate = true
+const chartPEvents = (e: any) => {
+  console.log(e, 'e_chartPEvents'), console.log(props.chartConfig, 'chartConfig1')
+  switch (props.chartConfig.commonData.currentSource) {
+    case 'areaDevCount':
+      // 设置公共查询条件
+      globalQueryParamsStore.setGlobalQueryParams({
+        space_complete_id: e.data.complete_id
+      })
+      // props.chartConfig.option.series[0].forEach(item=>{
 
-    useChartCommonData(component, useChartEditStore)
+      // })
 
-  })
- 
-  
-    break;
+      console.log(chartEditStore.getComponentList, 'chartEditStore_getComponentList')
+      // 没有统一更新数据的方法，只能尝试改变它的更新时间，促使watch触发请求方法
+      chartEditStore.getComponentList.forEach(component => {
+        // component.request.requestInterval = 10
+        // component.request.requestInterval = 15
+        if (component.chartConfig.key === 'TextCommon' && component.option.spaceName) {
+          component.option.dataset = `当前：${e.data.complete_name}`
+        }
+        component.request.immediate = true
 
-  default:
-    break;
-}
+        useChartCommonData(component, useChartEditStore)
+      })
+
+      break
+
+    default:
+      break
+  }
 }
 onMounted(() => {
-  if(vChartRef.value) {
+  if (vChartRef.value) {
     vChartRef.value.chart.on('click', chartPEvents)
   }
 })

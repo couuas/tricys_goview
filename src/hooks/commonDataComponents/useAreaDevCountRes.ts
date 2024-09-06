@@ -3,14 +3,20 @@ import { CreateComponentType } from '@/packages/index.d'
 import { ResultErrcode } from "@/enums/httpEnum";
 import { AreaDevCountType } from '@/store/modules/chartEditStore/chartEditStore.d'
 import dataJson from "./data.json";
+import {useGlobalQueryParamsStore} from '@/store/modules/globalQueryParamsStore/globalQueryParamsStore'
 
 export const handleAreaDevCountClass =async (targetComponent: CreateComponentType) => {
+const globalQueryParamsStore = useGlobalQueryParamsStore()
+
   const obj = targetComponent.commonData[targetComponent.commonData.currentSource] as AreaDevCountType
 //  targetComponent?.option.series.forEach((item,index)=>{
 //   item.encode = { y:index===0? 'dev_count':'it_dev_count', x: 'space' }
 //  })
  const queryParams = {
-  space_complete_id:obj?.space_complete_id||null,
+  device_codes: obj.device_codes?.length
+  ? obj.device_codes.split(',')
+  : [],
+  ...globalQueryParamsStore.getAreaDevCountQueryParams,
   space_type:'station'
  }
   // 处理数据
@@ -24,7 +30,8 @@ export const handleAreaDevCountClass =async (targetComponent: CreateComponentTyp
     
       '配电设备总数':item?.dev_count,
       'IT设备总数':item?.it_dev_count,
-      complete_id:item?.space?.complete_id
+      complete_id:item?.space?.complete_id,
+      complete_name:item?.space.complete_name
     }
    })
   }

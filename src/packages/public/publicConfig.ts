@@ -24,6 +24,7 @@ import cloneDeep from 'lodash/cloneDeep'
 
 // 请求基础属性
 export const requestConfig: RequestConfigType = {
+  fetchInterval:null,
   immediate:false,
   requestDataType: RequestDataTypeEnum.STATIC,
   requestHttpType: RequestHttpEnum.GET,
@@ -58,11 +59,13 @@ const commonData: commonDataType = {
   areaDevCount: {
     enable: false,
     dataSource: '',
-    space_complete_id:''
+    space_complete_id:'',
+    device_codes:''
   },
   assetsClass: {
     enable: false,
-    dataSource: ''
+    dataSource: '',
+    device_codes:''
   },
   pointHistory: {
     enable: false,
@@ -103,7 +106,8 @@ const commonData: commonDataType = {
   companyTempTop: {
     enable: false,
     signal_ids:'131240020010',
-    space_complete_id: '.7.9.70.'
+    space_complete_id: '.7.9.70.',
+    spaceLevel: 2,
   },
   alarmTrend: {
     enable: false,
@@ -119,6 +123,7 @@ const commonData: commonDataType = {
   categoryBrandCountTable: {
     enable: false,
     currentSource:'',
+    device_codes:''
   },
   singlePoint: {
     enable: false,

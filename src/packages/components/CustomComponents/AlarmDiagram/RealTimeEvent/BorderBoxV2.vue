@@ -3,8 +3,8 @@
     <template #title>
       <div class="titleBox">
         <div class="mr10">{{title}}</div>
-        <n-checkbox :checked="checkAll" @update:checked="(v:boolean) => emit('update:checkAll', v)" size="small" class="mr10">全选</n-checkbox>
-        <n-button strong size="tiny" color="rgba(36,197,231,.5)" text-color="#fff" class="button" @click="clickBatch">
+        <n-checkbox :checked="checkAll" @update:checked="(v:boolean) => emit('update:checkAll', v)" size="small" >全选</n-checkbox>
+        <n-button strong size="tiny" color="rgba(36,197,231,.5)" text-color="#fff" class="button " @click="clickBatch">
           <template #icon>
             <AssignmentTurnedInRoundIcon/>
           </template>
@@ -19,7 +19,7 @@
             </n-checkbox>
           </n-space>
         </n-checkbox-group>
-        <n-checkbox-group v-if="showFilter" :value="select2.value" @update:value="(v:[]) => changeSelect2(v)"  class="mr10" size="small">
+        <n-checkbox-group v-if="showFilter" :value="select2.value" @update:value="(v:[]) => changeSelect2(v)"   size="small">
           <n-space item-style="display: flex;">
             <n-checkbox :value="item.value" :label="item.label" v-for="(item, i) in select2.options" :key="i">
               <div :style="{color: item.color}" style="display: inline-block">{{item.label}}</div>
@@ -117,5 +117,8 @@ const jumpMore = () => {
     color: #409eff;
     cursor: pointer;
   }
+}
+:deep(.n-checkbox__label){
+  padding:0 6px;
 }
 </style>

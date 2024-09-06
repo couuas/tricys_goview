@@ -81,6 +81,7 @@ const option = shallowReactive({
 watch(
   [() => props.chartConfig.option.dataset, () => props.chartConfig.option.showUnit, () => props.chartConfig.option.showStatusColor],
   ([newData, newShowUnit, showStatusColor]: [any, boolean, boolean]) => {
+    console.log(newData,'newData_watch')
     option.dataset = newData
     option.showUnit = newShowUnit
     option.showStatusColor = showStatusColor

@@ -214,6 +214,8 @@ export interface RequestGlobalConfigType extends RequestPublicConfigType {
 
 // 单个图表请求配置
 export interface RequestConfigType extends RequestPublicConfigType {
+  // 请求的定时器
+  fetchInterval?:any
   // 是否立即执行
   immediate?:boolean
   // 所选全局数据池的对应 id
@@ -362,12 +364,14 @@ export interface DeviceClassType {
 export interface AssetsClassType {
   enable: boolean
   dataSource: string
+  device_codes:string
 }
 // 局房温度Top10
 export interface CompanyTempTopType {
   enable: boolean
-  space_complete_id: string,
+  space_complete_id: string
   signal_ids:string
+  spaceLevel:number
 
 }
 // 告警趋势
@@ -383,6 +387,7 @@ export interface AreaDevCountType {
   enable: boolean
   dataSource: string
   space_complete_id:string
+  device_codes:string
 }
 
 // 测点表格值
@@ -393,6 +398,7 @@ export interface PointTableType {
 export interface CategoryBrandCountTableType {
   enable: boolean
   currentSource: string
+  device_codes:string
 }
 
 // 手动输入值

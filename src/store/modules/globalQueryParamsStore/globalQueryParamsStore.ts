@@ -4,11 +4,15 @@ import { cloneDeep } from 'lodash'
 export const useGlobalQueryParamsStore = defineStore({
     id: 'useGlobalQueryParamsStore',
     state: () => ({
-        queryParams: {}
+        queryParams: {},
+        areaDevCountQueryParams:{}
     }),
     getters: {
         getGlobalQueryParams():{[k:string]: any} {
             return this.queryParams
+        },
+        getAreaDevCountQueryParams():{[k:string]: any} {
+            return this.areaDevCountQueryParams
         }
     },
     actions: {
@@ -19,6 +23,15 @@ export const useGlobalQueryParamsStore = defineStore({
             else {
                 Object.assign(this.queryParams, queryParams)
             }
-        }
+        },
+        setAreaDevCountQueryParams(areaDevCountQueryParams: {[k:string]: any}, merge: boolean = true) {
+            if(merge) {
+                this.areaDevCountQueryParams = cloneDeep(areaDevCountQueryParams)
+            }
+            else {
+                Object.assign(this.areaDevCountQueryParams, areaDevCountQueryParams)
+            }
+        },
+       
     }
 })

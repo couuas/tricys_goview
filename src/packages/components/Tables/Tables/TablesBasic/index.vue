@@ -180,14 +180,21 @@ useChartCommonData(props.chartConfig, useChartEditStore)
 }
 :deep(td) {
   text-align: left !important;
+  padding-left:16px;
+
   // padding-left: 10px;
 }
 :deep(.n-data-table-th) {
   background-color:#1A1D25;
+  text-align: left !important;
+  padding-left:16px;
+  
 }
 .customDataTable{
   :deep(td) {
   background-color:rgba(65, 150, 255, 0.05);
+  padding-left:16px;
+
 }
 //   :deep(th) {
 //   background-color:rgba(65, 150, 255, 0.05);

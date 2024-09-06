@@ -7,12 +7,19 @@
       <SettingItem>
         <n-text :depth="3">开启数据时，将会覆盖此文本</n-text>
       </SettingItem>
-      <SettingItem>
+      <setting-item>
         <n-space>
           <n-switch v-model:value="optionData.showUnit" size="small" />
           <n-text>展示单位</n-text>
         </n-space>
-      </SettingItem>
+        
+      </setting-item>
+      <setting-item>
+        <n-space>
+          <n-switch v-model:value="optionData.spaceName" size="small" />
+          <n-text>空间标识</n-text>
+        </n-space>
+      </setting-item>
     </setting-item-box>
 <!--    <setting-item-box name="链接" :alone="true">-->
 <!--      <setting-item>-->

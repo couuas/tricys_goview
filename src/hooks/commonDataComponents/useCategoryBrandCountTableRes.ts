@@ -7,7 +7,7 @@ import { ResultErrcode } from '@/enums/httpEnum'
 import dataJson from './data.json'
 import {useGlobalQueryParamsStore} from '@/store/modules/globalQueryParamsStore/globalQueryParamsStore'
 export const handleCategoryBrandCountTable =async (targetComponent: CreateComponentType) => {
-    let { currentSource, enable } = (targetComponent.commonData as commonDataType).categoryBrandCountTable as CategoryBrandCountTableType
+    let { currentSource, enable,device_codes } = (targetComponent.commonData as commonDataType).categoryBrandCountTable as CategoryBrandCountTableType
     if(!enable) return {
         errcode: ResultErrcode.SUCCESS,
         data: { ...dataJson },
@@ -15,6 +15,9 @@ export const handleCategoryBrandCountTable =async (targetComponent: CreateCompon
     }
 const globalQueryParamsStore = useGlobalQueryParamsStore()
     const queryParams = {
+        device_codes:device_codes?.length
+        ? device_codes.split(',')
+        : [],
              ...globalQueryParamsStore.getGlobalQueryParams
     }
     const res = await publicInterface(currentSource==='IT'?'/dcim/asset':'/dcim/dems/device',currentSource==='IT'?'get_category_brand_count': 'get_dev_category_brand_count', queryParams)

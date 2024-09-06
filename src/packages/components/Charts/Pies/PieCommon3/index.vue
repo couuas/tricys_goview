@@ -53,6 +53,9 @@ use([DatasetComponent, CanvasRenderer, PieChart, GridComponent, TooltipComponent
 const option = computed(() => {
   return mergeTheme(props.chartConfig.option, props.themeSetting, includes)
 })
+props.chartConfig.option.legend.top='10'
+props.chartConfig.option.legend.left='60%'
+
 
 // 会重新选择需要选中和展示的数据
 const handleSeriesData = () => {

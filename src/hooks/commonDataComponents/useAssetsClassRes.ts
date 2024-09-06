@@ -8,13 +8,16 @@ export const handleAssetsClass =async (targetComponent: CreateComponentType) => 
 const globalQueryParamsStore = useGlobalQueryParamsStore()
 
   const obj = targetComponent.commonData[targetComponent.commonData.currentSource] as AssetsClassType
-  let { enable, dataSource } = obj
+  let { enable, dataSource,device_codes } = obj
   if(!enable) return {
     errcode: ResultErrcode.SUCCESS,
     data: { ...dataJson },
     errmsg: ''
   }
   const query = {
+    device_codes:device_codes?.length
+    ? device_codes.split(',')
+    : [],
     ...globalQueryParamsStore.getGlobalQueryParams
   }
   // 处理数据
@@ -23,14 +26,13 @@ const globalQueryParamsStore = useGlobalQueryParamsStore()
     res!.data = {
     //  dimensions: res?.data.brand_count.map((item: {})=>Object.keys(item).join('')),
      dimensions: ['品牌','data'],
-     source:res?.data?.brand_count.slice(0,7).map((item: {})=>{
+     source:res?.data?.brand_count? res?.data?.brand_count.map((item: {})=>{
       return {
-        '品牌':Object.keys(item)[0],
+        '品牌':Object.keys(item)[0]||'未知品牌',
         data:Object.values(item)[0],
       }
-     })
+     }):[{'品牌':'品牌',data:'0'}]
     }
-    console.log(res,'调用了吗')
 
     return res
   }else{
@@ -39,14 +41,15 @@ const globalQueryParamsStore = useGlobalQueryParamsStore()
     res!.data = {
       //  dimensions: res?.data.brand_count.map((item: {})=>Object.keys(item).join('')),
        dimensions: ['品牌','data'],
-       source:res?.data.slice(0,7).map((item: any)=>{
+       source:res!.data.length? res?.data.map((item: any)=>{
         return {
-          '品牌':item.name,
-          data:item.count,
+          '品牌':item?.name||'未知品牌',
+          data:item?.count||'0',
         }
-       })
+       }):[{'品牌':'品牌',data:'0'}]
       }
-    console.log(res,'调用了吗1')
+    console.log(res,'调用了吗11')
+
 
       return res
   }

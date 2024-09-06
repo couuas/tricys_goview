@@ -10,13 +10,13 @@
   <setting-item-box name="统计方式" :alone="true">
     <n-select multiple v-model:value="pointHistory.methods" :options="MethodsOptions" size="small" />
   </setting-item-box>
-  <setting-item-box name="测点ID" :alone="true">
+  <setting-item-box name="测点编码" :alone="true">
     <n-space vertical>
       <n-space v-for="(item, i) in computeIds" :key="item.id" align="center" :wrap="false">
         <n-input
           :value="item.value"
           @update:value="(v: string) => handleChange(v, i)"
-          placeholder="请输入测点ID"
+          placeholder="请输入测点编码"
           size="small"
           clearable
         />

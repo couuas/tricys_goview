@@ -13,33 +13,59 @@
     style="overflow: visible"
   >
     <div v-if="tableData.length" class="itemBox">
-      <div  class="item" v-for="(item, i) in tableData" :key="i" @click="clickItem(i)">
-        <n-checkbox :disabled="item.confirm_status === 'ok'" v-model:checked="item.checked" class="mr10" size="small" @click.stop/>
-        <n-tag class="mr5" size="small" strong :color="{textColor: '#000', color: item.confirm_status === 'ok' ? '#4DCA59' : '#f5b442'}">
-          {{ item.confirm_status === 'ok'?'已确认':'未确认' }}
+      <div class="item" v-for="(item, i) in tableData" :key="i" @click="clickItem(i)">
+        <n-checkbox
+          :disabled="item.confirm_status === 'ok'"
+          v-model:checked="item.checked"
+          class="mr10"
+          size="small"
+          @click.stop
+        />
+        <n-tag
+          class="mr5"
+          size="small"
+          strong
+          :color="{ textColor: '#000', color: item.confirm_status === 'ok' ? '#4DCA59' : '#f5b442' }"
+        >
+          {{ item.confirm_status === 'ok' ? '已确认' : '未确认' }}
         </n-tag>
-        <n-tag class="mr5" size="small" :color="{textColor: item.color1, borderColor: item.color1}">
-          {{select1.options[item.level - 1].label}}
+        <n-tag class="mr5" size="small" :color="{ textColor: item.color1, borderColor: item.color1 }">
+          {{ select1.options[item.level - 1].label }}
         </n-tag>
-        <div class="textEllipsis" style="color: rgba(255, 255, 255, 0.82);flex: 20;">{{ item.content }}</div>
-        <div style="flex: 1;"></div>
-        <div class="mr10 textEllipsis" style="color: #B5BAC3;width: 150px">{{ moment(item.generate_time).format('yyyy-MM-DD HH:mm:ss') }}</div>
-        <LocationIcon @click.stop="jumpTo(item)" class="mr10" style="width: 20px;height: 20px;color: #4196ff;"/>
-        <CheckCircleOutlinedIcon @click.stop="clickSingle(item.id)" v-if="item.confirm_status === 'not'" class="mr10" style="width: 20px;height: 20px;color: #4196ff;"/>
+        <div class="textEllipsis" style="color: rgba(255, 255, 255, 0.82); flex: 20">{{ item.content }}</div>
+        <div style="flex: 1"></div>
+        <div class="mr10 textEllipsis" style="color: #b5bac3; width: 150px">
+          {{ moment(item.generate_time).format('yyyy-MM-DD HH:mm:ss') }}
+        </div>
+        <LocationIcon @click.stop="jumpTo(item)" class="mr10" style="width: 20px; height: 20px; color: #4196ff" />
+        <CheckCircleOutlinedIcon
+          @click.stop="clickSingle(item.id)"
+          v-if="item.confirm_status === 'not'"
+          class="mr10"
+          style="width: 20px; height: 20px; color: #4196ff"
+        />
         <div v-else class="mr10" style="width: 20px"></div>
         <template v-if="alarmVideos[i]">
-          <SpinnerIcon v-if="showLoading && currentVideo.alarmId === item.id" class="rotate" style="width: 18px;height: 18px;color: #4196ff;"/>
-          <PlayCircle16FilledIcon v-else @click.stop="showVideo(alarmVideos[i], item.id)" style="width: 20px;height: 20px;color: #4196ff;"/>
+          <SpinnerIcon
+            v-if="showLoading && currentVideo.alarmId === item.id"
+            class="rotate"
+            style="width: 18px; height: 18px; color: #4196ff"
+          />
+          <PlayCircle16FilledIcon
+            v-else
+            @click.stop="showVideo(alarmVideos[i], item.id)"
+            style="width: 20px; height: 20px; color: #4196ff"
+          />
         </template>
         <div v-else style="width: 20px"></div>
       </div>
     </div>
     <div class="emptyBox" v-else>
-      <img src="@/assets/images/exception/nodata.svg" style="width: 100%;height: 50%" alt="">
-      <div style="color: #fff;text-align: center">查询结果为空</div>
+      <img src="@/assets/images/exception/nodata.svg" style="width: 100%; height: 50%" alt="" />
+      <div style="color: #fff; text-align: center">查询结果为空</div>
     </div>
-<!--    <VModal v-model:show="modalObj.show" :data="modalObj.data" :select1Options="select1.options"/>-->
-<!--    <VModalV1 v-model:show="modalV1Obj.show" :data="modalV1Obj.data" @confirm="confirm"/>-->
+    <!--    <VModal v-model:show="modalObj.show" :data="modalObj.data" :select1Options="select1.options"/>-->
+    <!--    <VModalV1 v-model:show="modalV1Obj.show" :data="modalV1Obj.data" @confirm="confirm"/>-->
   </BorderBox>
 </template>
 
@@ -49,11 +75,11 @@ import type { Ref } from 'vue'
 import { CreateComponentType } from '@/packages/index.d'
 import { publicInterface } from '@/api/path/business.api'
 import BorderBox from './BorderBoxV2.vue'
-import {isPreview, postMessageToParent, useGetMessageByParent} from '@/utils'
-import moment from "moment"
-import {selectTimeOptions} from "@/views/chart/ContentConfigurations/components/ChartData/index.d";
-import {RequestHttpIntervalEnum} from "@/enums/httpEnum";
-import {icon} from '@/plugins/icon'
+import { isPreview, postMessageToParent, useGetMessageByParent } from '@/utils'
+import moment from 'moment'
+import { selectTimeOptions } from '@/views/chart/ContentConfigurations/components/ChartData/index.d'
+import { RequestHttpIntervalEnum } from '@/enums/httpEnum'
+import { icon } from '@/plugins/icon'
 import VModal from './VModal.vue'
 import VModalV1 from './VModalV1.vue'
 import { useOriginStore } from '@/store/modules/originStore/originStore'
@@ -109,59 +135,64 @@ interface Select2Type {
     color: string
   }[]
 }
-const select2:Select2Type = reactive({
+const select2: Select2Type = reactive({
   value: [],
   options: [
     { label: '已确认', value: 'ok', number: 0, color: '#4DCA59' },
-    { label: '未确认', value: 'not', number: 0, color: '#f5b442' },
+    { label: '未确认', value: 'not', number: 0, color: '#f5b442' }
   ]
 })
 
-
 type tableDataItemType = {
-  id: number,
-  content: string,
-  generate_time: string,
-  checked: boolean,
-  confirm_status: 'ok' | 'not',
-  level: number,
-  color1: string,
-  color2: string,
-  position: string,
-  device_name: string,
-  node_name: string,
-  confirm_people: string,
-  confirm_time: string,
-  reconfirmation_time_str: string,
-  serial_no: string,
-  remark: string,
-  [k:string]: any,
+  id: number
+  content: string
+  generate_time: string
+  checked: boolean
+  confirm_status: 'ok' | 'not'
+  level: number
+  color1: string
+  color2: string
+  position: string
+  device_name: string
+  node_name: string
+  confirm_people: string
+  confirm_time: string
+  reconfirmation_time_str: string
+  serial_no: string
+  remark: string
+  [k: string]: any
 }
-let tableData:tableDataItemType[] = reactive([])
-watch(() => tableData.map(_ => _.checked), (v:boolean[]) => {
-  if(!v.length) checkAll.value = false
-  else if(v.every(_ => _)) checkAll.value = true
-  else if(v.every(_ => !_)) checkAll.value = false
-})
+let tableData: tableDataItemType[] = reactive([])
+watch(
+  () => tableData.map(_ => _.checked),
+  (v: boolean[]) => {
+    if (!v.length) checkAll.value = false
+    else if (v.every(_ => _)) checkAll.value = true
+    else if (v.every(_ => !_)) checkAll.value = false
+  }
+)
 
 let checkAll = ref(false)
-watch(() => checkAll.value, (v) => {
-  tableData.forEach(_ => _.checked = v)
-})
+watch(
+  () => checkAll.value,
+  v => {
+    tableData.forEach(_ => (_.checked = v))
+  }
+)
 
 const getNumber = () => {
-  console.log(props.chartConfig.customData?.dems_device_point_signal_ids,'props.chartConfig.customData?.dems_device_point_signal_ids')
+ 
   const q = {
     space_complete_id: props.chartConfig.customData?.space_complete_id,
     confirm_statuss: alarmConfirmStatus.value,
     handle_statuss: alarmHandleStatuss.value,
     recovery_statuss: alarmRecoveryStatus.value,
-    dems_device_point_signal_ids: props.chartConfig.customData?.dems_device_point_signal_ids.split(','),
+    signal_ids: props.chartConfig.customData?.dems_device_point_signal_ids.split(',')
   }
   publicInterface('/dcim/dems/devie_active_alarm', 'count_by_level_new', q).then(res => {
     if (res && JSON.stringify(res.data) !== '{}') {
       select1.options.forEach((item, i) => {
-        item.number = res.data[`level${i+1}`]
+        item.number = res.data[`level${i + 1}`]
       })
     }
   })
@@ -172,7 +203,8 @@ const getNumber = () => {
       space_complete_id: props.chartConfig.customData?.space_complete_id,
       append_space_to_content: 'complete',
       handle_statuss: alarmHandleStatuss.value,
-      recovery_statuss: alarmRecoveryStatus.value
+      recovery_statuss: alarmRecoveryStatus.value,
+      dems_device_point_signal_ids: props.chartConfig.customData?.dems_device_point_signal_ids.split(',')
     }
   }
   publicInterface('/dcim/dems/devie_active_alarm', 'get_app_alarm_num_by_condition', param).then(res => {
@@ -195,68 +227,74 @@ let alarmVideos = ref([])
 // })
 let currentVideo: any = ref({})
 const getVideos = (ids: number[], alarmIds: number[]) => {
-  if(ids.length) {
-    publicInterface('/dcim/video_monitor/other_device', 'get_alarm_device', {device_uids: ids.toString()}).then((res: any) => {
-      // if(res.errcode !== '00000') return
-      if(!res?.data) return
-      let arr:any = []
-      ids.forEach(id => {
-        arr.push(res.data[id] ? res.data[id][0] : null)
-      })
-      alarmVideos.value = arr.concat()
+  if (ids.length) {
+    publicInterface('/dcim/video_monitor/other_device', 'get_alarm_device', { device_uids: ids.toString() }).then(
+      (res: any) => {
+        // if(res.errcode !== '00000') return
+        if (!res?.data) return
+        let arr: any = []
+        ids.forEach(id => {
+          arr.push(res.data[id] ? res.data[id][0] : null)
+        })
+        alarmVideos.value = arr.concat()
 
-      let index = 0, last:any = {}
-      for(let i = 0; i < arr.length; i++) {
-        if(arr[i]) {
-          last = arr[i]
-          index = i
-          break
+        let index = 0,
+          last: any = {}
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i]) {
+            last = arr[i]
+            index = i
+            break
+          }
         }
-      }
-      if(JSON.stringify(currentVideo.value) === '{}' && !last) return
-      let obj = JSON.stringify(currentVideo.value) !== '{}' ? JSON.parse(JSON.stringify(currentVideo.value)) : {
-        ip: '',
-        port: null,
-        account: '',
-        password: '',
-        channel: '',
-        brand: '',
-        plugin: '',
-      }
-      if(last) {
-        for(let k in obj) {
-          obj[k] = last[k]
+        if (JSON.stringify(currentVideo.value) === '{}' && !last) return
+        let obj =
+          JSON.stringify(currentVideo.value) !== '{}'
+            ? JSON.parse(JSON.stringify(currentVideo.value))
+            : {
+                ip: '',
+                port: null,
+                account: '',
+                password: '',
+                channel: '',
+                brand: '',
+                plugin: ''
+              }
+        if (last) {
+          for (let k in obj) {
+            obj[k] = last[k]
+          }
         }
+        obj.alarmId = alarmIds[index]
+        currentVideo.value = obj
+        obj.showForce = false
+        postMessageToParent({
+          type: 'openVideoV2',
+          data: obj
+        })
       }
-      obj.alarmId = alarmIds[index]
-      currentVideo.value = obj
-      obj.showForce = false
-      postMessageToParent({
-        type: 'openVideoV2',
-        data: obj
-      })
-    })
+    )
   }
 }
 
 const showLoading = ref(false)
-const {getMessageByParent} = useGetMessageByParent()
-getMessageByParent('', (e) => {
-  if(e.data.type === 'openVideoV2_closeLoading' && e.data.page === 'customLargeScreen') {
+const { getMessageByParent } = useGetMessageByParent()
+getMessageByParent('', e => {
+  if (e.data.type === 'openVideoV2_closeLoading' && e.data.page === 'customLargeScreen') {
     showLoading.value = false
   }
 })
 const showVideo = (obj: any, id: number) => {
-  let a: {[k: string]: string | null | boolean | number} = {
+  let a: { [k: string]: string | null | boolean | number } = {
     ip: '',
     port: null,
     account: '',
     password: '',
     channel: '',
     brand: '',
-    plugin: '',
+    plugin: ''
   }
-  for(let k in a) {
+  for (let k in a) {
     a[k] = obj[k]
   }
   // 点击时强制打开
@@ -281,8 +319,7 @@ const getData = () => {
       append_space_to_content: 'complete',
       handle_statuss: alarmHandleStatuss.value,
       recovery_statuss: alarmRecoveryStatus.value,
-      dems_device_point_signal_ids: props.chartConfig.customData?.dems_device_point_signal_ids.split(','),
-
+      dems_device_point_signal_ids: props.chartConfig.customData?.dems_device_point_signal_ids.split(',')
     },
     page: {
       page_size: 10,
@@ -290,14 +327,14 @@ const getData = () => {
     }
   }
   publicInterface('/dcim/dems/devie_active_alarm', 'get_page', queryModel).then(res => {
-    if(res && !res.data) {
+    if (res && !res.data) {
       tableData.splice(0)
       return
     }
-    if(res && res.data) {
+    if (res && res.data) {
       res.data.item = res.data.item.filter((_: tableDataItemType) => _.level)
       const lastTableData = [...tableData]
-      let arr:tableDataItemType[] = res.data['item'].map((e:any) => ({
+      let arr: tableDataItemType[] = res.data['item'].map((e: any) => ({
         ...e,
         id: e.id,
         content: e.content,
@@ -314,11 +351,14 @@ const getData = () => {
         confirm_time: e.confirm_time,
         reconfirmation_time_str: e.reconfirmation_time_str,
         serial_no: e.serial_no,
-        remark: e.remark,
+        remark: e.remark
       }))
-      getVideos(arr.map(_ => _.device?.uid), arr.map(_ => _.id))
+      getVideos(
+        arr.map(_ => _.device?.uid),
+        arr.map(_ => _.id)
+      )
       if (checkAll.value) {
-        arr = arr.map((e:any) => ({ ...e, checked: e.confirm_status !== 'ok' }))
+        arr = arr.map((e: any) => ({ ...e, checked: e.confirm_status !== 'ok' }))
       } else if (lastTableData.length) {
         arr.map(e => {
           const lastIndex = lastTableData.findIndex(item => item.id === e.id)
@@ -336,10 +376,10 @@ const getData = () => {
 //   show: false,
 //   data: {}
 // })
-const clickItem = (i:number) => {
+const clickItem = (i: number) => {
   postMessageToParent({
     type: 'openRealTimeEventDetail',
-    currentAlarm: tableData[i],
+    currentAlarm: tableData[i]
   })
 
   // 自己写的详情
@@ -357,15 +397,17 @@ const systemConstant = originStore.getOriginStore.user.systemConstant
 const systemConfig = originStore.getOriginStore.user.systemConfig
 
 if (systemConstant['warn_levels']) {
-  select1.options = systemConstant['warn_levels'].filter((item: any) => item.value !== '').map((item: any) => {
-    return { label: item.label, value: Number(item.value), number: 0, color: item.remark }
-  })
+  select1.options = systemConstant['warn_levels']
+    .filter((item: any) => item.value !== '')
+    .map((item: any) => {
+      return { label: item.label, value: Number(item.value), number: 0, color: item.remark }
+    })
 }
 
 let alarmHandleStatuss: Ref<any[]> = ref([])
 let alarmRecoveryStatus: Ref<any[]> = ref([])
 let alarmConfirmStatus: Ref<any[]> = ref([])
-if(systemConfig) {
+if (systemConfig) {
   if (systemConfig['active_alarm_level']) {
     for (let i = 0; i < Number(systemConfig['active_alarm_level']); i++) {
       select1.value.push(i + 1)
@@ -383,9 +425,12 @@ if(systemConfig) {
   }
 }
 
-watch(() => select1.value.join('&&') + select2.value.join('&&'), (v) => {
-  getData()
-})
+watch(
+  () => select1.value.join('&&') + select2.value.join('&&'),
+  v => {
+    getData()
+  }
+)
 
 // const modalV1Obj = reactive({
 //   show: false,
@@ -401,16 +446,16 @@ watch(() => select1.value.join('&&') + select2.value.join('&&'), (v) => {
 //   singleIds: [],
 // })
 const clickBatch = () => {
-  if(!tableData.filter(_ => _.checked).length) {
+  if (!tableData.filter(_ => _.checked).length) {
     window['$message'].warning('请先选择数据')
     return
   }
   let selectIds = tableData.filter(_ => _.checked && _.confirm_status !== 'ok').map(_ => _.id)
-  if(!selectIds.length) return
+  if (!selectIds.length) return
   postMessageToParent({
     type: 'openRealTimeEventDialog',
     multipleConfirm: true,
-    selectIds,
+    selectIds
   })
   // Object.assign(modalV1Obj, {
   //   show: true,
@@ -426,8 +471,8 @@ const clickBatch = () => {
   // })
 }
 
-getMessageByParent('', (e) => {
-  if(e.data.type === 'openRealTimeEventDialog_confirmed' && e.data.page === 'customLargeScreen') {
+getMessageByParent('', e => {
+  if (e.data.type === 'openRealTimeEventDialog_confirmed' && e.data.page === 'customLargeScreen') {
     console.log('openRealTimeEventDialog_confirmed')
     getData()
   }
@@ -436,7 +481,7 @@ const clickSingle = (id: number) => {
   postMessageToParent({
     type: 'openRealTimeEventDialog',
     multipleConfirm: false,
-    selectIds: [id],
+    selectIds: [id]
   })
 
   // 自己写的弹窗
@@ -468,7 +513,7 @@ const clickSingle = (id: number) => {
 //   })
 // }
 
-const jumpTo = (row:any) => {
+const jumpTo = (row: any) => {
   if (row.space && row.space.space_type !== 'device') {
     publicInterface('/dcim/space_page', 'get', { space_id: row.space_id, order: 'sort,id asc' }).then(res => {
       if (res && res.data && res.data.length) {
@@ -476,13 +521,11 @@ const jumpTo = (row:any) => {
           type: 'changeRouterV1',
           url: `/dynamicRing/schematicDiagram/${res.data[0].id}`
         })
-      }
-      else {
+      } else {
         window['$message'].warning('所选节点没有配置页面')
       }
     })
-  }
-  else {
+  } else {
     window['$message'].warning('所选节点没有配置页面')
   }
 }
@@ -490,29 +533,39 @@ const jumpTo = (row:any) => {
 const jumpMore = () => {
   postMessageToParent({
     type: 'changeRouterV1',
-    url: `/alarmManage/monitorAlarm`
+    url: `/alarmManage/monitorAlarm`,
+    query:{dems_device_point_signal_ids:props.chartConfig.customData?.dems_device_point_signal_ids}
+
   })
 }
 
-let timer:unknown
-watch(() => [props.chartConfig.request.requestInterval, props.chartConfig.request.requestIntervalUnit, props.chartConfig.customData?.space_complete_id].join('&&'), v => {
-  if(!isPreview()) return
-  if(props.chartConfig.request.requestInterval) {
-    if(timer) clearInterval(timer as number)
-    const obj = selectTimeOptions.find(_ => _.value === props.chartConfig.request.requestIntervalUnit) || {unit: 0}
-    const unit = obj.unit
-    const number = unit * props.chartConfig.request.requestInterval
-    timer = setInterval(() => {
-      getData()
-    }, number)
+let timer: unknown
+watch(
+  () =>
+    [
+      props.chartConfig.request.requestInterval,
+      props.chartConfig.request.requestIntervalUnit,
+      props.chartConfig.customData?.space_complete_id
+    ].join('&&'),
+  v => {
+    if (!isPreview()) return
+    if (props.chartConfig.request.requestInterval) {
+      if (timer) clearInterval(timer as number)
+      const obj = selectTimeOptions.find(_ => _.value === props.chartConfig.request.requestIntervalUnit) || { unit: 0 }
+      const unit = obj.unit
+      const number = unit * props.chartConfig.request.requestInterval
+      timer = setInterval(() => {
+        getData()
+      }, number)
+    }
   }
-})
+)
 onMounted(() => {
   nextTick(() => {
     getData()
   })
-  if(!isPreview()) return
-  const obj = selectTimeOptions.find(_ => _.value === props.chartConfig.request.requestIntervalUnit) || {unit: 0}
+  if (!isPreview()) return
+  const obj = selectTimeOptions.find(_ => _.value === props.chartConfig.request.requestIntervalUnit) || { unit: 0 }
   const unit = obj.unit
   const number = unit * props.chartConfig.request.requestInterval!
   timer = setInterval(() => {
@@ -549,18 +602,18 @@ onUnmounted(() => {
   animation: rotate 1s linear infinite;
 }
 
-.mr5{
+.mr5 {
   margin-right: 5px;
 }
-.mr10{
+.mr10 {
   margin-right: 10px;
 }
-.textEllipsis{
+.textEllipsis {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-.emptyBox{
+.emptyBox {
   height: 100%;
   width: 100%;
   display: flex;
@@ -568,13 +621,13 @@ onUnmounted(() => {
   justify-content: center;
 }
 
-.itemBox{
+.itemBox {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  .item{
+  .item {
     flex: none;
     height: 30px;
     display: flex;
@@ -582,7 +635,7 @@ onUnmounted(() => {
     justify-content: center;
     padding: 0 10px;
     margin: 3px 0;
-    background: rgba(65,150,255,.05);
+    background: rgba(65, 150, 255, 0.05);
     cursor: pointer;
   }
 }

@@ -36,6 +36,7 @@ export const option = {
   paddingY: 10,
   textAlign: 'center', // 水平对齐方式
   fontWeight: 'normal',
+  spaceName:false,
 
   // 边框
   borderWidth: 0,

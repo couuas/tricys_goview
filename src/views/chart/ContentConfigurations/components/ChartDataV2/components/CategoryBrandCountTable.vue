@@ -3,12 +3,17 @@
     <n-space justify="start">
       <n-switch v-model:value="categoryBrandCountTable.enable" />
     </n-space>
-    
   </setting-item-box>
   <setting-item-box name="数据源" :alone="true">
-        <n-select v-model:value="categoryBrandCountTable.currentSource" :options="multipleSourceOptions" size="small"/>
-      </setting-item-box>
-
+    <n-select v-model:value="categoryBrandCountTable.currentSource" :options="multipleSourceOptions" size="small" />
+  </setting-item-box>
+  <setting-item-box
+    v-if="categoryBrandCountTable.currentSource === 'device'"
+    name="分类编码（多个编码使用英文逗号分隔）"
+    :alone="true"
+  >
+    <n-input v-model:value="categoryBrandCountTable.device_codes" size="small" placeholder="请输入" />
+  </setting-item-box>
 </template>
 
 <script lang="ts" setup>
@@ -21,19 +26,20 @@ import { commonDataType, CategoryBrandCountTableType } from '@/store/modules/cha
 
 const { CloseIcon, AddIcon } = icon.ionicons5
 
-const { targetData } = useTargetData() as { targetData: Ref<{ commonData: commonDataType, id: string }> }
+const { targetData } = useTargetData() as { targetData: Ref<{ commonData: commonDataType; id: string }> }
 
-const categoryBrandCountTable: Ref<CategoryBrandCountTableType> = computed(() => targetData.value.commonData.categoryBrandCountTable)
-  const multipleSourceOptions = [
+const categoryBrandCountTable: Ref<CategoryBrandCountTableType> = computed(
+  () => targetData.value.commonData.categoryBrandCountTable
+)
+const multipleSourceOptions = [
   {
-    label: '配电设备',
-    value:'device'
+    label: '动环设备',
+    value: 'device'
   },
   {
     label: 'IT设备',
-    value:'IT'
-  },
-
+    value: 'IT'
+  }
 ]
 // type computeIdsItemType = {
 //   id: string,
@@ -67,9 +73,6 @@ const categoryBrandCountTable: Ref<CategoryBrandCountTableType> = computed(() =>
 // const handleDelete = (i: number) => {
 //   targetData.value.commonData.pointTable.ids.splice(i, 1)
 // }
-
 </script>
 
-<style lang="scss" scoped>
-
-</style>
+<style lang="scss" scoped></style>

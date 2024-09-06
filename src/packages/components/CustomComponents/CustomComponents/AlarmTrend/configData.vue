@@ -3,7 +3,7 @@
     <n-input v-model:value="props.customData.title" size="small" placeholder="请输入"/>
   </setting-item-box>
  
-  <setting-item-box name="测点ID" :alone="true">
+  <setting-item-box name="测点编码" :alone="true">
     <n-input v-model:value="props.customData.signal_ids" size="small" placeholder="请输入"/>
   </setting-item-box>
   <setting-item-box name="告警确认状态" :alone="true">

@@ -4,10 +4,10 @@
       <n-switch v-model:value="singlePoint.enable"/>
     </n-space>
   </setting-item-box>
-  <setting-item-box name="测点ID" :alone="true">
+  <setting-item-box name="测点编码" :alone="true">
     <n-input
       v-model:value="singlePoint.pointId"
-      placeholder="请输入测点ID"
+      placeholder="请输入测点编码"
       size="small"
       clearable
     />

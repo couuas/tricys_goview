@@ -23,8 +23,6 @@ import { handleNoParam } from './commonDataComponents/useNoParamRes'
 import { handleManulInput } from './commonDataComponents/useManualInputRes'
 import { handleManulInputSingle } from './commonDataComponents/useManualInputSingleRes'
 import { ResultErrcode } from '@/enums/httpEnum'
-import { logDark } from 'naive-ui';
-import { fetchChartComponent } from '@/packages';
 
 
 // 获取类型
@@ -42,7 +40,8 @@ export const useChartCommonData = (
     updateCallback?: (...args: any) => any
 ) => {
     const vChartRef = ref<typeof VChart | null>(null)
-    let fetchInterval: any = 0
+    // 如果用下方的变量每次执行都会新增一个定时器， 但清除的得是targetComponent里面的定时器
+    // let fetchInterval: any = null
 
     // 组件类型
     const { chartFrame } = targetComponent.chartConfig
@@ -77,7 +76,8 @@ export const useChartCommonData = (
                         // 缓存组件的实例后续更新用得上
                         const instanceMap = new Map()
                         // 存储构造函数引用,如果直接使用vChartRef.value的话会报错，因为json序列化无法对构造函数进行处理，先将它放到map中等使用的时候再获取
-                        instanceMap.set('$ref', vChartRef.value);
+                        const mapGetOption = {getOption:vChartRef.value.getOption,setOption:vChartRef.value.setOption}
+                        instanceMap.set('$ref',mapGetOption);
                         targetComponent.$ref = instanceMap
                         Object.assign(targetComponent.option, {
                             // series,
@@ -124,7 +124,8 @@ export const useChartCommonData = (
         } = toRefs(targetComponent.request)
 
         try {
-            clearInterval(fetchInterval)
+            clearInterval(targetComponent.request.fetchInterval)
+            console.log(targetComponent.request.fetchInterval,'fetchInterval_fetchInterval')
 
             const fetchFn = async () => {
                 let res, isMultiple = true
@@ -157,7 +158,7 @@ export const useChartCommonData = (
                         break;
                     case CurrentSourceEnum.COMPANYTEMPTOP:
                         res = await handleCompanyTempTop(targetComponent)
-                        console.log(res,'res',targetComponent,'触发了吗')
+                        console.log(res,'res_触发了吗')
                         
                         break;
                     case CurrentSourceEnum.ALARMTREND:
@@ -247,7 +248,7 @@ export const useChartCommonData = (
             // 开启轮询
             if (time) {
                 
-                fetchInterval = setInterval(fetchFn, intervalUnitHandle(time, unit))
+                targetComponent.request.fetchInterval = setInterval(fetchFn, intervalUnitHandle(time, unit))
             } else {
                 fetchFn()
             }
@@ -257,7 +258,7 @@ export const useChartCommonData = (
     }
     requestIntervalFn()
     if(!isPreview()) {
-        clearInterval(fetchInterval)
+        clearInterval(targetComponent.request.fetchInterval)
     }
     return { vChartRef }
 }
