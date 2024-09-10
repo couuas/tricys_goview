@@ -12,17 +12,11 @@ export const customData = {
     {
       name: '一号楼', show: true, label: '设计容量', value: 20000, label1: '已使用', calculation: '', floor: [
         { label: '1F', calculation: '' },
-        { label: '2F', calculation: '' },
-        { label: '3F', calculation: '' },
-        { label: '4F', calculation: '' },
       ]
     },
     {
       name: '二号楼', show: true, label: '设计容量', value: 20000, label1: '已使用', calculation: '', floor: [
         { label: '1F', calculation: '' },
-        { label: '2F', calculation: '' },
-        { label: '3F', calculation: '' },
-        { label: '4F', calculation: '' },
       ]
     }
   ],

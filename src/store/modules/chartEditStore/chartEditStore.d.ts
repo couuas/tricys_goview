@@ -450,7 +450,7 @@ export interface commonDataType {
 // customEvent事件
 export interface CustomEventType {
   click: {
-    linkHead: 'http://' | 'https://'
+    linkHead: 'http://' | 'https://' | '/'
     link: string
     isBlank: boolean
   }

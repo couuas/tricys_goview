@@ -7,14 +7,17 @@ const bindEvent = (item:any) => {
         obj = {
             click: () => {
                 if(!link) return
+                let isRelativePath = linkHead === '/'
                 if(isBlank) postMessageToParent({
                     type: 'windowOpen',
                     url: `${linkHead}${link}`,
-                    openNew: true
+                    openNew: true,
+                    isRelativePath
                 })
                 else postMessageToParent({
                     type: 'windowOpen',
                     url: `${linkHead}${link}`,
+                    isRelativePath
                 })
             }
         }
