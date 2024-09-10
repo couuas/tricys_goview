@@ -102,7 +102,7 @@ function importJSON() {
 }
 
 // 同步数据编辑页
-window.opener.addEventListener(SavePageEnum.CHART, (e: any) => {
+window?.opener?.addEventListener(SavePageEnum.CHART, (e: any) => {
   window['$message'].success('正在进行更新...')
   setSessionStorage(StorageEnum.GO_CHART_STORAGE_LIST, [e.detail])
   content.value = JSONStringify(e.detail)

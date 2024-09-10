@@ -70,6 +70,7 @@ import { TabsEnum } from './index.d'
 import { useChartLayoutStore } from '@/store/modules/chartLayoutStore/chartLayoutStore'
 import { ChartLayoutStoreEnum } from '@/store/modules/chartLayoutStore/chartLayoutStore.d'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
+import { CreateComponentType, CreateComponentGroupType } from '@/packages/index.d'
 
 const { getDetails } = toRefs(useChartLayoutStore())
 const { setItem } = useChartLayoutStore()
@@ -80,7 +81,7 @@ const { ConstructIcon, FlashIcon, DesktopOutlineIcon, LeafIcon, RocketIcon } = i
 const ContentEdit = loadAsyncComponent(() => import('../ContentEdit/index.vue'))
 const CanvasPage = loadAsyncComponent(() => import('./components/CanvasPage/index.vue'))
 const ChartSetting = loadAsyncComponent(() => import('./components/ChartSetting/index.vue'))
-const ChartData = loadAsyncComponent(() => import('./components/ChartData/index.vue'))
+const ChartData = loadAsyncComponent(() => import('./components/ChartDataV2/index.vue'))
 const ChartEvent = loadAsyncComponent(() => import('./components/ChartEvent/index.vue'))
 const ChartAnimation = loadAsyncComponent(() => import('./components/ChartAnimation/index.vue'))
 
@@ -101,10 +102,13 @@ const selectTarget = computed(() => {
   const selectId = chartEditStore.getTargetChart.selectId
   // 排除多个
   if (selectId.length !== 1) return undefined
-  const target = chartEditStore.componentList[chartEditStore.fetchTargetIndex()]
+  let target: CreateComponentType | CreateComponentGroupType = chartEditStore.componentList[chartEditStore.fetchTargetIndex()]
   if (target?.isGroup) {
-    // eslint-disable-next-line vue/no-side-effects-in-computed-properties
-    tabsSelect.value = TabsEnum.CHART_SETTING
+    if(target.id !== selectId[0]) target = target.groupList!.find(_ => _.id === selectId[0])!
+    else {
+      // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+      tabsSelect.value = TabsEnum.CHART_SETTING
+    }
   }
   return target
 })

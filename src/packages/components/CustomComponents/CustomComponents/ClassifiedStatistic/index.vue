@@ -1,0 +1,234 @@
+<template>
+  <BorderBox :title="chartConfig?.customData?.title" :style="getStyle(borderRadius)" style="overflow: auto">
+    <div class="container" v-if="type_count.length">
+      <div class="classify" v-for="item in type_count" :key="item">
+        <div class="img">
+          <img
+            v-if="props.chartConfig?.customData?.currentSource === 'IT'"
+            src="@/assets/images/chart/decorates/Base1.png"
+            alt=""
+          />
+          <img v-else src="@/assets/images/chart/decorates/Base4.png" alt="" />
+          <div class="value">
+            {{ Object.values(item)[0] }}
+          </div>
+        </div>
+        <div class="value">
+          {{ Object.keys(item)[0] || '未知分类' }}
+        </div>
+      </div>
+    </div>
+    <!-- 无数据 -->
+    <div v-else class="no-data go-flex-center">
+      <img :src="noData" alt="暂无数据" />
+      <n-text :depth="3">暂无数据</n-text>
+    </div>
+  </BorderBox>
+</template>
+
+<script setup lang="ts">
+import {
+  PropType,
+  shallowReactive,
+  watch,
+  toRefs,
+  reactive,
+  onMounted,
+  onUnmounted,
+  nextTick,
+  ref,
+  computed,
+  Ref
+} from 'vue'
+import { useChartDataFetch } from '@/hooks'
+import { CreateComponentType } from '@/packages/index.d'
+import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
+import { publicInterface } from '@/api/path/business.api'
+import BorderBox from '../components/BorderBox.vue'
+import VChart from 'vue-echarts'
+import { isPreview } from '@/utils'
+import { graphic } from 'echarts'
+import { cloneDeep } from 'lodash'
+import moment from 'moment'
+import { selectTimeOptions } from '@/views/chart/ContentConfigurations/components/ChartData/index.d'
+import { RequestHttpIntervalEnum } from '@/enums/httpEnum'
+import { useGlobalQueryParamsStore } from '@/store/modules/globalQueryParamsStore/globalQueryParamsStore'
+import { customData as customDataConfig } from './config'
+import noData from '@/assets/images/canvas/noData.png'
+
+const globalQueryParamsStore = useGlobalQueryParamsStore()
+const props = defineProps({
+  chartConfig: {
+    type: Object as PropType<CreateComponentType>,
+    required: true
+  }
+})
+const { w, h } = toRefs(props.chartConfig.attr)
+const { dataset, fit, borderRadius } = toRefs(props.chartConfig.option)
+const customData: Ref<typeof customDataConfig> = computed(() => {
+  return props.chartConfig.customData as typeof customDataConfig
+})
+const getStyle = (radius: number) => {
+  return {
+    borderRadius: `${radius}px`,
+    overflow: 'hidden'
+  }
+}
+
+let type_count: any = ref([])
+const queryParams = {
+  ...globalQueryParamsStore.getGlobalQueryParams
+}
+const getData = () => {
+  if (props.chartConfig?.customData?.currentSource === 'IT') {
+    publicInterface('/dcim/asset', 'get_asset_overview_page_info_new', {
+      ...globalQueryParamsStore.getGlobalQueryParams
+    }).then(res => {
+      if (res && res.data) {
+        type_count.value = res?.data?.type_count||[]
+        // for (const key in computeNodeData) {
+        //   computeNodeData[key] = res.data[key]
+        // }
+      }
+    })
+  } else {
+    publicInterface('/dcim/dems/device', 'get_dev_category_count', {
+      device_codes: customData.value.device_codes?.length ? customData.value.device_codes.split(',') : [],
+      ...globalQueryParamsStore.getGlobalQueryParams
+    }).then(res => {
+      if (res && res.data) {
+        type_count.value = res.data.map((item: any) => {
+          return {
+            [item.name]: item.count
+          }
+        })
+        // for (const key in computeNodeData) {
+        //   computeNodeData[key] = res.data[key]
+        // }
+      }
+    })
+  }
+}
+let timer: unknown
+console.log(
+  props.chartConfig.request.requestInterval,
+  'props.chartConfig.request.requestInterval_props.chartConfig.request.requestInterval'
+)
+watch(
+  () => [props.chartConfig.request.requestInterval, props.chartConfig.request.requestIntervalUnit].join('&&'),
+  v => {
+    if (!isPreview()) return
+    console.log(props, 'props')
+
+    if (props.chartConfig.request.requestInterval) {
+      startInterval()
+    }
+  }
+)
+
+watch(
+  () => props.chartConfig?.customData?.currentSource,
+  () => {
+    console.log(props.chartConfig?.customData?.currentSource, 'chartConfig')
+    getData()
+    // 根据currentSource去获取对应 参数
+  }
+)
+watch(
+  () => props.chartConfig?.request?.immediate,
+  v => {
+    if (!v) return
+    getData()
+    startInterval()
+
+    props.chartConfig.request.immediate = false
+
+    // 根据currentSource去获取对应 参数
+  }
+)
+const startInterval = () => {
+  if (!isPreview()) return
+  if (timer) clearInterval(timer as number)
+  const obj = selectTimeOptions.find(_ => _.value === props.chartConfig.request.requestIntervalUnit) || { unit: 0 }
+  const unit = obj.unit
+  const number = unit * props.chartConfig.request.requestInterval!
+  timer = setInterval(() => {
+    console.log('class_setInterval')
+    nextTick(() => {
+      getData()
+    })
+  }, number)
+}
+onMounted(() => {
+  getData()
+  startInterval()
+})
+onUnmounted(() => {
+  clearInterval(timer as number)
+})
+
+// const option = shallowReactive({
+//   dataset: ''
+// })
+// // 预览更新
+// useChartDataFetch(props.chartConfig, useChartEditStore, (newData: any) => {
+//   option.dataset = newData
+// })
+</script>
+
+<style lang="scss" scoped>
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: auto;
+}
+.classify {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 33%;
+  overflow: auto;
+  color: #fff;
+  .img {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    .value {
+      position: absolute;
+      width: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: pre-wrap;
+      text-align: center;
+      font-size: 20px;
+    }
+  }
+}
+.count {
+  font-size: 20px;
+  padding: 0 5px;
+  font-family: LESLIE;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0em;
+  font-variation-settings: 'opsz' auto;
+  color: #4196ff;
+}
+.no-data {
+  flex-direction: column;
+  width: 100%;
+  img {
+    width: 120px;
+  }
+}
+</style>

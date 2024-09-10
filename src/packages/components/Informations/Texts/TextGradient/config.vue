@@ -4,6 +4,15 @@
       <setting-item>
         <n-input v-model:value="optionData.dataset" type="textarea" size="small"></n-input>
       </setting-item>
+      <SettingItem>
+        <n-text :depth="3">开启数据时，将会覆盖此文本</n-text>
+      </SettingItem>
+      <SettingItem>
+        <n-space>
+          <n-switch v-model:value="optionData.showUnit" size="small" />
+          <n-text>展示单位</n-text>
+        </n-space>
+      </SettingItem>
     </setting-item-box>
   </collapse-item>
   <collapse-item name="样式" :expanded="true">

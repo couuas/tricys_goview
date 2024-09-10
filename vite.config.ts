@@ -6,12 +6,13 @@ import viteCompression from 'vite-plugin-compression'
 import { axiosPre } from './src/settings/httpSetting'
 import { viteMockServe } from 'vite-plugin-mock'
 import monacoEditorPlugin from 'vite-plugin-monaco-editor'
+import { proxyConfig } from './proxyConfig'
 
 function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir)
 }
 
-export default ({ mode }) => defineConfig({
+export default ({ mode } : { mode:any }) => defineConfig({
   base: process.env.NODE_ENV === 'production' ? './' : '/',
   // 路径重定向
   resolve: {
@@ -22,6 +23,10 @@ export default ({ mode }) => defineConfig({
       },
       {
         find: '@',
+        replacement: pathResolve('src')
+      },
+      {
+        find: '~@',
         replacement: pathResolve('src')
       },
       {
@@ -46,13 +51,7 @@ export default ({ mode }) => defineConfig({
     open: true,
     port: 3000,
     proxy: {
-      [axiosPre]: {
-        // @ts-ignore
-        target: loadEnv(mode, process.cwd()).VITE_DEV_PATH,
-        changeOrigin: true,
-        ws: true,
-        secure: true,
-      }
+      ...proxyConfig(mode)
     }
   },
   plugins: [
@@ -88,7 +87,7 @@ export default ({ mode }) => defineConfig({
     })
   ],
   build: {
-    target: 'es2015',
+    target: 'es2020', // babel打包转译报错
     outDir: OUTPUT_DIR,
     // minify: 'terser', // 如果需要用terser混淆，可打开这两行
     // terserOptions: terserOptions,

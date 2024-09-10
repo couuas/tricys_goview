@@ -60,7 +60,7 @@ import { useChartLayoutStore } from '@/store/modules/chartLayoutStore/chartLayou
 import { usePackagesStore } from '@/store/modules/packagesStore/packagesStore'
 import { componentInstall, loadingStart, loadingFinish, loadingError, JSONStringify, goDialog } from '@/utils'
 import { DragKeyEnum } from '@/enums/editPageEnum'
-import { createComponent } from '@/packages'
+import {createComponent, fetchConfigDataComponent} from '@/packages'
 import { ConfigType, CreateComponentType, PackagesCategoryEnum } from '@/packages/index.d'
 import { ChatCategoryEnum } from '@/packages/components/Photos/index.d'
 import { fetchConfigComponent, fetchChartComponent } from '@/packages/index'
@@ -99,6 +99,7 @@ const dragStartHandle = (e: DragEvent, item: ConfigType) => {
   // 动态注册图表组件
   componentInstall(item.chartKey, fetchChartComponent(item))
   componentInstall(item.conKey, fetchConfigComponent(item))
+  if(item.conDataKey) componentInstall(item.conDataKey, fetchConfigDataComponent(item))
   // 将配置项绑定到拖拽属性上
   e!.dataTransfer!.setData(DragKeyEnum.DRAG_KEY, JSONStringify(omit(item, ['image'])))
   // 修改状态
@@ -118,19 +119,24 @@ const dblclickHandle = async (item: ConfigType) => {
     // 动态注册图表组件
     componentInstall(item.chartKey, fetchChartComponent(item))
     componentInstall(item.conKey, fetchConfigComponent(item))
+    if(item.conDataKey) componentInstall(item.conDataKey, fetchConfigDataComponent(item))
     // 创建新图表组件
     let newComponent: CreateComponentType = await createComponent(item)
     if (item.redirectComponent) {
       item.dataset && (newComponent.option.dataset = item.dataset)
+      if(!newComponent.chartConfig.image && item.dataset) newComponent.chartConfig.image = item.dataset
       newComponent.chartConfig.title = item.title
       newComponent.chartConfig.chartFrame = item.chartFrame
     }
+    // 组件置底插入
+    // let isHead = !!newComponent.attr.isHeadInsert
     // 添加
     chartEditStore.addComponentList(newComponent, false, true)
     // 选中
     chartEditStore.setTargetSelectChart(newComponent.id)
     loadingFinish()
   } catch (error) {
+    console.log(error)
     loadingError()
     window['$message'].warning(`图表正在研发中, 敬请期待...`)
   }

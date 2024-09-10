@@ -103,8 +103,28 @@ import {
   Carbon3DSoftware as Carbon3DSoftwareIcon,
   Filter as FilterIcon,
   FilterEdit as FilterEditIcon,
-  Laptop as LaptopIcon
+  Laptop as LaptopIcon,
+  AreaCustom as AreaCustomIcon,
+  Location as LocationIcon
 } from '@vicons/carbon'
+
+import {
+  Apps20Regular as Apps20RegularIcon,
+  AlignSpaceEvenlyHorizontal20Filled as AlignSpaceEvenlyHorizontal20FilledIcon,
+  AlignSpaceEvenlyVertical20Filled as AlignSpaceEvenlyVertical20FilledIcon,
+  PlayCircle16Filled as PlayCircle16FilledIcon
+} from '@vicons/fluent'
+
+import {
+  AssignmentTurnedInRound as AssignmentTurnedInRoundIcon,
+  CheckCircleOutlined as CheckCircleOutlinedIcon,
+  InsertPhotoSharp as InsertPhotoSharpIcon,
+  AccessTimeFilled as AccessTimeFilledIcon,
+} from '@vicons/material'
+
+import {
+  Spinner as SpinnerIcon
+} from '@vicons/fa'
 
 const ionicons5 = {
   // 新增
@@ -303,12 +323,43 @@ const carbon = {
   FilterIcon,
   FilterEditIcon,
   // 图层
-  LaptopIcon
+  LaptopIcon,
+  // 自定义
+  AreaCustomIcon,
+  // 地点
+  LocationIcon,
+}
+
+const fluent = {
+  // 主题
+  Apps20RegularIcon,
+  AlignSpaceEvenlyHorizontal20FilledIcon,
+  AlignSpaceEvenlyVertical20FilledIcon,
+  // 视频播放
+  PlayCircle16FilledIcon,
+}
+
+const material = {
+  // 批量确认
+  AssignmentTurnedInRoundIcon,
+  // 圆圈 勾
+  CheckCircleOutlinedIcon,
+  // 背景图
+  InsertPhotoSharpIcon,
+  // 时间
+  AccessTimeFilledIcon,
+}
+
+const fa = {
+  SpinnerIcon
 }
 
 // https://www.xicons.org/#/ 还有很多
 
 export const icon = {
   ionicons5,
-  carbon
+  carbon,
+  fluent,
+  material,
+  fa
 }

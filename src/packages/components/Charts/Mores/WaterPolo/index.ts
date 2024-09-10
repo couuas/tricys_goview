@@ -9,6 +9,6 @@ export const WaterPoloConfig: ConfigType = {
   category: ChatCategoryEnum.MORE,
   categoryName: ChatCategoryEnumName.MORE,
   package: PackagesCategoryEnum.CHARTS,
-  chartFrame: ChartFrameEnum.COMMON,
+  chartFrame: ChartFrameEnum.ECHARTS,
   image: 'water_WaterPolo.png'
 }

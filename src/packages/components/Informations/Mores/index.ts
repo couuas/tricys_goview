@@ -4,4 +4,5 @@ import { IframeConfig } from './Iframe/index'
 import { VideoConfig } from './Video/index'
 import { WordCloudConfig } from './WordCloud/index'
 
-export default [ImageConfig, ImageCarouselConfig, VideoConfig, IframeConfig, WordCloudConfig]
+// export default [VideoConfig]
+export default [IframeConfig, VideoConfig]

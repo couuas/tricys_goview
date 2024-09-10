@@ -2,6 +2,7 @@ import { echartOptionProfixHandle, PublicConfigClass } from '@/packages/public'
 import { PieCircleConfig } from './index'
 import { CreateComponentType } from '@/packages/index.d'
 import cloneDeep from 'lodash/cloneDeep'
+import { CurrentSourceEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
 
 export const includes = []
 
@@ -14,6 +15,13 @@ const option = {
     show: true,
   },
   dataset: 0.25,
+  titleContrl: {
+    showPercent: false,
+    showUnit: false,
+    showSubText: true,
+    showSubTextUnit: true,
+    max: 100,
+  },
   title: {
     text: 25 + "%",
     x: "center",
@@ -21,7 +29,13 @@ const option = {
     textStyle: {
       color: "#56B9F8",
       fontSize: 30
-    }
+    },
+    subtext: '',
+    subtextStyle: {
+      color: "#56B9F8",
+      fontSize: 30
+    },
+    top: 'middle',
   },
   series: [
     {
@@ -56,6 +70,10 @@ const option = {
 }
 
 export default class Config extends PublicConfigClass implements CreateComponentType {
+  constructor() {
+    super();
+    this.commonData.currentSource = CurrentSourceEnum.SINGLEPOINT
+  }
   public key: string = PieCircleConfig.key
 
   public chartConfig = cloneDeep(PieCircleConfig)

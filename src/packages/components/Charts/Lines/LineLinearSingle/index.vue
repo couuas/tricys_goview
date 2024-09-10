@@ -15,8 +15,8 @@ import { mergeTheme } from '@/packages/public/chart'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { chartColorsSearch, defaultTheme } from '@/settings/chartThemes/index'
 import { DatasetComponent, GridComponent, TooltipComponent, LegendComponent } from 'echarts/components'
-import { useChartDataFetch } from '@/hooks'
-import { isPreview, colorGradientCustomMerge } from '@/utils'
+import {useChartCommonData, useChartDataFetch} from '@/hooks'
+import {isPreview, colorGradientCustomMerge, setTooltipPosition} from '@/utils'
 
 const props = defineProps({
   themeSetting: {
@@ -32,6 +32,8 @@ const props = defineProps({
     required: true
   }
 })
+
+props.chartConfig.option.tooltip.position = setTooltipPosition(props.chartConfig.attr)
 
 const initOptions = useCanvasInitOptions(props.chartConfig.option, props.themeSetting)
 
@@ -73,13 +75,31 @@ watch(
   () => props.chartConfig.option.dataset,
   () => {
     option.value = props.chartConfig.option
+    if (vChartRef.value) {
+      vChartRef.value.setOption(option.value, !isPreview())
+    }
   },
   {
     deep: false
   }
 )
 
-const { vChartRef } = useChartDataFetch(props.chartConfig, useChartEditStore, (newData: any) => {
-  props.chartConfig.option.dataset = newData
-})
+watch(
+  () => props.chartConfig.option.series,
+  () => {
+    option.value = props.chartConfig.option
+    if (vChartRef.value) {
+      vChartRef.value.setOption(option.value, {
+        replaceMerge: ['series']
+      })
+    }
+  },
+  {
+    deep: true
+  }
+)
+
+// const { vChartRef } = useChartDataFetch(props.chartConfig, useChartEditStore)
+const { vChartRef } = useChartCommonData(props.chartConfig, useChartEditStore)
+
 </script>

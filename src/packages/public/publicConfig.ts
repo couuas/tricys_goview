@@ -1,7 +1,10 @@
 import { getUUID } from '@/utils'
-import { RequestConfigType } from '@/store/modules/chartEditStore/chartEditStore.d'
+import { RequestConfigType, commonDataType, CustomEventType, CurrentSourceEnum, DateTypeEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
 import { groupTitle } from '@/settings/designSetting'
 import { BaseEvent, EventLife } from '@/enums/eventEnum'
+import dataJson from '@/hooks/commonDataComponents/data.json'
+import singleDataJson from '@/hooks/commonDataComponents/singleData.json'
+
 import {
   RequestHttpEnum,
   RequestDataTypeEnum,
@@ -12,6 +15,7 @@ import {
 import {
   ChartFrameEnum,
   PublicConfigType,
+  PublicConfigAttrType,
   CreateComponentType,
   CreateComponentGroupType
 } from '@/packages/index.d'
@@ -20,10 +24,12 @@ import cloneDeep from 'lodash/cloneDeep'
 
 // 请求基础属性
 export const requestConfig: RequestConfigType = {
+  fetchInterval:null,
+  immediate:false,
   requestDataType: RequestDataTypeEnum.STATIC,
   requestHttpType: RequestHttpEnum.GET,
   requestUrl: '',
-  requestInterval: undefined,
+  requestInterval: 15,
   requestIntervalUnit: RequestHttpIntervalEnum.SECOND,
   requestContentType: RequestContentTypeEnum.DEFAULT,
   requestParamsBodyType: RequestBodyEnum.NONE,
@@ -39,6 +45,112 @@ export const requestConfig: RequestConfigType = {
     },
     Header: {},
     Params: {}
+  },
+  requestBodyJSONPre: {
+    enable: false,
+    handler: ''
+  }
+}
+
+const commonData: commonDataType = {
+  currentSource: CurrentSourceEnum.POINTHISTORY,
+  queryParams:{},
+  dataLength: null,
+  areaDevCount: {
+    enable: false,
+    dataSource: '',
+    space_complete_id:'',
+    device_codes:''
+  },
+  assetsClass: {
+    enable: false,
+    dataSource: '',
+    device_codes:''
+  },
+  pointHistory: {
+    enable: false,
+    methods: [],
+    dems_device_points_uid: [],
+    dateType: DateTypeEnum.DAY
+  },
+  energyUseHistory: {
+    enable: false,
+    strategy_ids: [],
+    dateType: DateTypeEnum.DAY
+  },
+  recordValueHistory: {
+    enable: false,
+    policy: [],
+    strategy_ids: [],
+    dateType: DateTypeEnum.DAY
+  },
+  pointRealTime: {
+    enable: false,
+    point_uid: [],
+    limit: 10,
+    with_device_name: false,
+    space_complete_name_prefix: false,
+  },
+  monthAlarmClass: {
+    enable: false,
+    confirm_statuses: ['ok', 'not'],
+    recovery_statuses: ['ok', 'not'],
+    levels: [1, 2, 3, 4],
+    space_complete_id: ''
+  },
+  deviceClass: {
+    enable: false,
+    space_complete_id: ''
+  },
+  
+  companyTempTop: {
+    enable: false,
+    signal_ids:'131240020010',
+    space_complete_id: '.7.9.70.',
+    spaceLevel: 2,
+  },
+  alarmTrend: {
+    enable: false,
+    signal_ids:'131240020010',
+    alarmConfirmStatus:['ok','not'],
+    alarmRecoveryStatus:['ok','not'],
+    level:[1, 2, 3, 4, 5]
+  },
+  pointTable: {
+    enable: false,
+    ids: []
+  },
+  categoryBrandCountTable: {
+    enable: false,
+    currentSource:'',
+    device_codes:''
+  },
+  singlePoint: {
+    enable: false,
+    pointId: '',
+    result: {
+      name: '',
+      status: null,
+      time: '',
+      unit: '',
+      value: 0
+    }
+  },
+  manualInput: {
+    enable: false,
+    dataset: {...dataJson}
+  },
+  manualInputSingle: {
+    enable: false,
+    result: {...singleDataJson}
+  }
+}
+
+const customEvent: CustomEventType = {
+  click: {
+    linkHead: 'http://',
+    link: '',
+    isBlank: false
   }
 }
 
@@ -47,7 +159,7 @@ export class PublicConfigClass implements PublicConfigType {
   public id = getUUID()
   public isGroup = false
   // 基本信息
-  public attr = { ...chartInitConfig, zIndex: -1 }
+  public attr = { ...chartInitConfig, zIndex: -1 } as PublicConfigAttrType
   // 基本样式
   public styles = {
     // 使用滤镜
@@ -90,8 +202,14 @@ export class PublicConfigClass implements PublicConfigType {
   // 请求
   public request = cloneDeep(requestConfig)
   // 数据过滤
-  public filter = undefined
-  // 事件
+  public filter: undefined | string = undefined
+  // 通用数据 与 自定义数据对应
+  public commonData = cloneDeep(commonData)
+  // 自定义数据 configData组件会用到
+  public customData = {}
+  // 自定义事件
+  public customEvent = cloneDeep(customEvent)
+  // 事件 不用了
   public events = {
     baseEvent: {
       [BaseEvent.ON_CLICK]: undefined,

@@ -35,11 +35,19 @@ export const dragHandle = async (e: DragEvent) => {
     let newComponent: CreateComponentType = await createComponent(dropData)
     if (dropData.redirectComponent) {
       dropData.dataset && (newComponent.option.dataset = dropData.dataset)
+      if(!newComponent.chartConfig.image && dropData.dataset) newComponent.chartConfig.image = dropData.dataset
       newComponent.chartConfig.title = dropData.title
       newComponent.chartConfig.chartFrame = dropData.chartFrame
     }
 
-    setComponentPosition(newComponent, e.offsetX - newComponent.attr.w / 2, e.offsetY - newComponent.attr.h / 2)
+    if(newComponent.attr.isFixedInit) {
+      setComponentPosition(newComponent, newComponent.attr.x, newComponent.attr.y)
+    }
+    else {
+      setComponentPosition(newComponent, e.offsetX - newComponent.attr.w / 2, e.offsetY - newComponent.attr.h / 2)
+    }
+
+    // let isHead = !!newComponent.attr.isHeadInsert
     chartEditStore.addComponentList(newComponent, false, true)
     chartEditStore.setTargetSelectChart(newComponent.id)
     loadingFinish()

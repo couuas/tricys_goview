@@ -130,7 +130,7 @@ export type EditCanvasConfigType = {
   // 图表主题颜色
   [EditCanvasConfigEnum.CHART_THEME_COLOR]: ChartColorsNameType
   // 自定义图表主题颜色
-  [EditCanvasConfigEnum.CHART_CUSTOM_THEME_COLOR_INFO]?: CustomColorsType[] 
+  [EditCanvasConfigEnum.CHART_CUSTOM_THEME_COLOR_INFO]?: CustomColorsType[]
   // 图表全局配置
   [EditCanvasConfigEnum.CHART_THEME_SETTING]: GlobalThemeJsonType
   // 图表主题颜色
@@ -214,6 +214,10 @@ export interface RequestGlobalConfigType extends RequestPublicConfigType {
 
 // 单个图表请求配置
 export interface RequestConfigType extends RequestPublicConfigType {
+  // 请求的定时器
+  fetchInterval?:any
+  // 是否立即执行
+  immediate?:boolean
   // 所选全局数据池的对应 id
   requestDataPondId?: string
   // 组件定制轮询时间
@@ -231,6 +235,224 @@ export interface RequestConfigType extends RequestPublicConfigType {
   // SQL 请求对象
   requestSQLContent: {
     sql: string
+  }
+  requestBodyJSONPre: {
+    enable: boolean
+    handler: string
+  }
+}
+
+export enum MethodsTypeEnum {
+  AVG = 'avg',
+  MIN = 'min',
+  MAX = 'max'
+}
+
+export enum DateTypeEnum {
+  DAY = 'day',
+  MONTH = 'month',
+  YEAR = 'year'
+}
+
+// common数据源选项
+export enum CurrentSourceEnum {
+  // 测点历史
+  POINTHISTORY = 'pointHistory',
+  // 能耗历史
+  ENERGYUSEHISTORY = 'energyUseHistory',
+  // 记录值历史
+  RECORDVALUEHISTORY = 'recordValueHistory',
+  // 测点实时值
+  POINTREALTIME = 'pointRealTime',
+  // 单测点实时值
+  SINGLEPOINT = 'singlePoint',
+  // 设备分类统计
+  DEVICECLASS = 'deviceClass',
+  // 设备分类统计
+  ASSETSCLASS = 'assetsClass',
+  // 局房温度Top10
+  COMPANYTEMPTOP = 'companyTempTop',
+  // 局房温度Top10
+  ALARMTREND = 'alarmTrend',
+  // 区域设备个数
+  AREADEVCOUNT = 'areaDevCount',
+  // 当月告警分类统计
+  MONTHALARMCLASS = 'monthAlarmClass',
+  // 测点表格
+  POINTTABLE = 'pointTable',
+  // 测点表格
+  CATEGORYBRANDCOUNTTABLE = 'categoryBrandCountTable',
+  // 手动输入
+  MANUALINPUT = 'manualInput',
+  // 手动输入(单值)
+  MANUALINPUTSINGLE = 'manualInputSingle',
+}
+
+// 测点历史参数
+export interface PointHistoryType {
+  enable: boolean
+  methods: MethodsTypeEnum[]
+  dems_device_points_uid: string[]
+  dateType: DateTypeEnum
+}
+
+// 能耗历史参数
+export interface EnergyUseHistoryType {
+  enable: boolean
+  strategy_ids: (number | null)[]
+  dateType: DateTypeEnum
+}
+
+export enum PolicyTypeEnum {
+  AVG = 3,
+  MIN = 0,
+  MAX = 1
+}
+
+// 记录值历史参数
+export interface RecordValueHistoryType {
+  enable: boolean
+  policy: PolicyTypeEnum[]
+  strategy_ids: (number | null)[]
+  dateType: DateTypeEnum
+}
+
+// 测点实时值参数
+export interface PointRealTimeType {
+  enable: boolean
+  point_uid: string[]
+  limit: number
+  with_device_name: boolean
+  space_complete_name_prefix: boolean
+}
+
+export interface resultType {
+  name: string
+  status: number | null
+  time: string
+  unit: string
+  value: number | null
+}
+
+// 单测点实时值
+export interface SinglePointType {
+  enable: boolean
+  pointId: string
+  result: resultType
+}
+
+// 设备分类统计 无参数类型
+export interface NoParamsType {
+  enable: boolean
+}
+
+// 当月告警分类统计
+export interface MonthAlarmClassType {
+  enable: boolean
+  confirm_statuses: string[]
+  recovery_statuses: string[]
+  levels: number[]
+  space_complete_id: string
+}
+
+// 设备分类统计
+export interface DeviceClassType {
+  enable: boolean
+  space_complete_id: string
+}
+// 统计
+export interface AssetsClassType {
+  enable: boolean
+  dataSource: string
+  device_codes:string
+}
+// 局房温度Top10
+export interface CompanyTempTopType {
+  enable: boolean
+  space_complete_id: string
+  signal_ids:string
+  spaceLevel:number
+
+}
+// 告警趋势
+export interface AlarmTrendType {
+  enable: boolean
+  signal_ids:string
+  alarmConfirmStatus:string[]
+  alarmRecoveryStatus:string[]
+  level:number[]
+
+}
+export interface AreaDevCountType {
+  enable: boolean
+  dataSource: string
+  space_complete_id:string
+  device_codes:string
+}
+
+// 测点表格值
+export interface PointTableType {
+  enable: boolean
+  ids: string[]
+}
+export interface CategoryBrandCountTableType {
+  enable: boolean
+  currentSource: string
+  device_codes:string
+}
+
+// 手动输入值
+export interface ManualInputType {
+  enable: boolean
+  dataset: {
+    dimensions: string[],
+    source: {
+      [k: string]: any
+    }
+  }
+}
+
+// 手动输入值(单值)
+export interface ManualInputSingleType {
+  enable: boolean
+  result: resultType
+}
+
+// 通用组件数据
+export interface commonDataType {
+  // 多数据
+  currentSource: CurrentSourceEnum
+  // 公共接口参数
+  queryParams:any
+  dataLength: number | null
+  pointHistory: PointHistoryType
+  energyUseHistory: EnergyUseHistoryType
+  recordValueHistory: RecordValueHistoryType
+  pointRealTime: PointRealTimeType
+  monthAlarmClass: MonthAlarmClassType
+  pointTable: PointTableType
+  categoryBrandCountTable: CategoryBrandCountTableType
+  // 多数据无参数
+  // 设备分类统计
+  deviceClass: DeviceClassType
+  assetsClass: AssetsClassType
+  companyTempTop: CompanyTempTopType
+  alarmTrend: AlarmTrendType
+  areaDevCount: AreaDevCountType
+  // 单数据
+  singlePoint: SinglePointType
+  // 手动输入
+  manualInput: ManualInputType
+  // 手动输入(单值)
+  manualInputSingle: ManualInputSingleType
+}
+
+// customEvent事件
+export interface CustomEventType {
+  click: {
+    linkHead: 'http://' | 'https://' | '/'
+    link: string
+    isBlank: boolean
   }
 }
 

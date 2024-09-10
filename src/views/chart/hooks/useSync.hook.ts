@@ -8,11 +8,11 @@ import { StylesSetting } from '@/components/Pages/ChartItemSetting'
 import { useSystemStore } from '@/store/modules/systemStore/systemStore'
 import { useChartLayoutStore } from '@/store/modules/chartLayoutStore/chartLayoutStore'
 import { ChartLayoutStoreEnum } from '@/store/modules/chartLayoutStore/chartLayoutStore.d'
-import { fetchChartComponent, fetchConfigComponent, createComponent } from '@/packages/index'
+import { fetchChartComponent, fetchConfigComponent, fetchConfigDataComponent, createComponent } from '@/packages/index'
 import { saveInterval } from '@/settings/designSetting'
 import throttle from 'lodash/throttle'
 // 接口状态
-import { ResultEnum } from '@/enums/httpEnum'
+import { ResultEnum, ResultErrcode } from '@/enums/httpEnum'
 // 接口
 import { saveProjectApi, fetchProjectApi, uploadFile, updateProjectApi } from '@/api/path'
 // 画布枚举
@@ -110,6 +110,7 @@ export const useSync = () => {
    * @returns
    */
   const updateComponent = async (projectData: ChartEditStorage, isReplace = false, changeId = false) => {
+    if (!projectData) return
     if (isReplace) {
       // 清除列表
       chartEditStore.componentList = []
@@ -125,7 +126,14 @@ export const useSync = () => {
       const intComponent = (target: CreateComponentType) => {
         if (!window['$vue'].component(target.chartConfig.chartKey)) {
           window['$vue'].component(target.chartConfig.chartKey, fetchChartComponent(target.chartConfig))
+          // window['$vue'].component(target.chartConfig.conKey, fetchConfigComponent(target.chartConfig))
+          // window['$vue'].component(target.chartConfig.conDataKey, fetchConfigDataComponent(target.chartConfig))
+        }
+        if (!window['$vue'].component(target.chartConfig.conKey)) {
           window['$vue'].component(target.chartConfig.conKey, fetchConfigComponent(target.chartConfig))
+        }
+        if (!window['$vue'].component(target.chartConfig.conDataKey)) {
+          window['$vue'].component(target.chartConfig.conDataKey, fetchConfigDataComponent(target.chartConfig))
         }
       }
 
@@ -250,13 +258,24 @@ export const useSync = () => {
     chartEditStore.componentList = []
     chartEditStore.setEditCanvas(EditCanvasTypeEnum.SAVE_STATUS, SyncEnum.START)
     try {
-      const res = await fetchProjectApi({ projectId: fetchRouteParamsLocation() })
-      if (res && res.code === ResultEnum.SUCCESS) {
+      const res = await fetchProjectApi({ id: Number(fetchRouteParamsLocation()) })
+      if (res && res.errcode === ResultErrcode.SUCCESS) {
+        // type dataType = {
+        //   id: string
+        //   projectName: string,
+        //   indexImage: string,
+        //   remarks: string,
+        //   state: number,
+        //   content: string,
+        // }
         if (res.data) {
-          updateStoreInfo(res.data)
+          updateStoreInfo(res.data as any)
+          for(let k in res.data){
+            res.data[k] = res.data[k] ? res.data[k] : null
+          }
           // 更新全局数据
-          await updateComponent(JSONParse(res.data.content))
-          return
+          await updateComponent(JSONParse((res.data as any).content))
+          // return
         }else {
           chartEditStore.setProjectInfo(ProjectInfoEnum.PROJECT_ID, fetchRouteParamsLocation())
         }
@@ -267,6 +286,7 @@ export const useSync = () => {
       }
       chartEditStore.setEditCanvas(EditCanvasTypeEnum.SAVE_STATUS, SyncEnum.FAILURE)
     } catch (error) {
+      console.log(error)
       chartEditStore.setEditCanvas(EditCanvasTypeEnum.SAVE_STATUS, SyncEnum.FAILURE)
       httpErrorHandle()
     }
@@ -298,19 +318,19 @@ export const useSync = () => {
 
         // 上传预览图
         let uploadParams = new FormData()
-        uploadParams.append('object', base64toFile(canvasImage.toDataURL(), `${fetchRouteParamsLocation()}_index_preview.png`))
+        uploadParams.append('files', base64toFile(canvasImage.toDataURL(), `${fetchRouteParamsLocation()}_index_preview.png`))
         const uploadRes = await uploadFile(uploadParams)
         // 保存预览图
-        if(uploadRes && uploadRes.code === ResultEnum.SUCCESS) {
-          if (uploadRes.data.fileurl) {
+        if(uploadRes && uploadRes.data) {
+          if (uploadRes.data.length) {
             await updateProjectApi({
-              id: fetchRouteParamsLocation(),
-              indexImage: `${uploadRes.data.fileurl}`
+              id: Number(fetchRouteParamsLocation()),
+              indexImage: `${uploadRes.data[0]}`
             })
           } else {
             await updateProjectApi({
-              id: fetchRouteParamsLocation(),
-              indexImage: `${systemStore.getFetchInfo.OSSUrl}${uploadRes.data.fileName}`
+              id: Number(fetchRouteParamsLocation()),
+              indexImage: `${systemStore.getFetchInfo.OSSUrl}${uploadRes.data[0]}`
             })
           }
         }
@@ -320,20 +340,25 @@ export const useSync = () => {
     }
 
     // 保存数据
-    let params = new FormData()
-    params.append('projectId', projectId)
-    params.append('content', JSONStringify(chartEditStore.getStorageInfo() || {}))
-    const res= await saveProjectApi(params)
-
-    if (res && res.code === ResultEnum.SUCCESS) {
+    // let params = new FormData()
+    // params.append('projectId', projectId)
+    // params.append('content', JSONStringify(chartEditStore.getStorageInfo() || {}))
+    const params = {
+      id: projectId,
+      content: JSONStringify(chartEditStore.getStorageInfo() || {})
+    }
+    const res = await saveProjectApi(params)
+    if (res && res.errcode === ResultErrcode.SUCCESS) {
       // 成功状态
       setTimeout(() => {
         chartEditStore.setEditCanvas(EditCanvasTypeEnum.SAVE_STATUS, SyncEnum.SUCCESS)
+        window['$message'].success('保存成功！')
       }, 1000)
       return
     }
     // 失败状态
     chartEditStore.setEditCanvas(EditCanvasTypeEnum.SAVE_STATUS, SyncEnum.FAILURE)
+    window['$message'].warning('保存失败！')
   }, 3000)
 
   // * 定时处理

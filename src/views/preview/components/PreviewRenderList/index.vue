@@ -11,7 +11,9 @@
       ...getStatusStyle(item.status),
       ...getPreviewConfigStyle(item.preview),
       ...getBlendModeStyle(item.styles) as any,
-      ...getSizeStyle(item.attr)
+      ...getSizeStyle(item.attr),
+      zIndex: zIndexMap[item.id] ? zIndexMap[item.id] : '',
+      ...fullScreenStyle,
     }"
   >
     <!-- 分组 -->
@@ -21,6 +23,8 @@
       :groupIndex="index"
       :themeSetting="themeSetting"
       :themeColor="themeColor"
+      @changeZIndex="(z:any) => changeZIndex(item.id, z)"
+      @fullScreen="fullScreen"
     ></preview-render-group>
 
     <!-- 单组件 -->
@@ -31,17 +35,22 @@
       :chartConfig="item"
       :themeSetting="themeSetting"
       :themeColor="themeColor"
-      :style="{ 
+      :style="{
         ...getSizeStyle(item.attr),
-        ...getFilterStyle(item.styles)
+        ...getFilterStyle(item.styles),
+        overflow: 'hidden'
       }"
-      v-on="useLifeHandler(item)"
+      v-on="bindEvent(item)"
+      @changeZIndex="(z: number | string | undefined) => changeZIndex(item.id, z)"
+      @fullScreen="fullScreen"
     ></component>
+<!--    v-on="useLifeHandler(item)"-->
   </div>
 </template>
 
 <script setup lang="ts">
-import { PropType, computed, onMounted } from 'vue'
+import { PropType, computed, onMounted, ref } from 'vue'
+import type { Ref } from 'vue'
 import { useChartDataPondFetch } from '@/hooks'
 import { ChartEditStorageType } from '../../index.d'
 import { PreviewRenderGroup } from '../PreviewRenderGroup/index'
@@ -51,6 +60,7 @@ import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore
 import { animationsClass, getFilterStyle, getTransformStyle, getBlendModeStyle, colorCustomMerge } from '@/utils'
 import { getSizeStyle, getComponentAttrStyle, getStatusStyle, getPreviewConfigStyle } from '../../utils'
 import { useLifeHandler } from '@/hooks'
+import { useCustomEvent } from '../../hooks/useCustomEvent.hook'
 
 // 初始化数据池
 const { initDataPond, clearMittDataPondMap } = useChartDataPondFetch()
@@ -75,11 +85,38 @@ const themeColor = computed(() => {
   return colorCustomMergeData[chartEditStore.editCanvasConfig.chartThemeColor]
 })
 
+// 设置zindex
+const zIndexMap: Ref<{ [k: string] : number | string | undefined }> = ref({})
+const changeZIndex = (id: string, z: number | string | undefined) => {
+  zIndexMap.value[id] = z
+}
+
+let ifFullScreen = ref(false)
+let fullScreenStyle = ref({})
+// 全屏功能 iframe网页组件有用到
+const fullScreen = () => {
+  if(!ifFullScreen.value) {
+    ifFullScreen.value = true
+    fullScreenStyle.value = {
+      left: 0,
+      top: 0,
+      width: '100%',
+      height: '100%'
+    }
+  }
+  else {
+    ifFullScreen.value = false
+    fullScreenStyle.value = {}
+  }
+}
+
 // 组件渲染结束初始化数据池
 clearMittDataPondMap()
 onMounted(() => {
   initDataPond(useChartEditStore)
 })
+
+const { bindEvent } = useCustomEvent()
 </script>
 
 <style lang="scss" scoped>

@@ -1,4 +1,4 @@
-import { ref, provide, onMounted, onUnmounted } from 'vue'
+import { ref, provide, onMounted, onUnmounted, watch } from 'vue'
 import { usePreviewFitScale, usePreviewScrollYScale, usePreviewScrollXScale, usePreviewFullScale } from '@/hooks/index'
 import type { ChartEditStorageType } from '../index.d'
 import { PreviewScaleEnum } from '@/enums/styleEnum'
@@ -56,87 +56,96 @@ export const useScale = (localStorageInfo: ChartEditStorageType) => {
     scaleRef.value = { ...scale }
   }
 
-  // 屏幕适配
-  onMounted(() => {
+  let fn = () => {
     switch (localStorageInfo.editCanvasConfig.previewScaleType) {
       case PreviewScaleEnum.FIT:
         ;(() => {
-          const { calcRate, windowResize, unWindowResize } = usePreviewFitScale(
-            width.value as number,
-            height.value as number,
-            previewRef.value,
-            updateScaleRef
-          )
-          calcRate()
-          windowResize()
-          useAddWheelHandle(unWindowResize)
-          onUnmounted(() => {
-            unWindowResize()
-          })
-        })()
+        const { calcRate, windowResize, unWindowResize } = usePreviewFitScale(
+          width.value as number,
+          height.value as number,
+          previewRef.value,
+          updateScaleRef
+        )
+        calcRate()
+        windowResize()
+        useAddWheelHandle(unWindowResize)
+        onUnmounted(() => {
+          unWindowResize()
+        })
+      })()
         break
       case PreviewScaleEnum.SCROLL_Y:
         ;(() => {
-          const { calcRate, windowResize, unWindowResize } = usePreviewScrollYScale(
-            width.value as number,
-            height.value as number,
-            previewRef.value,
-            scale => {
-              const dom = entityRef.value
-              dom.style.width = `${width.value * scale.width}px`
-              dom.style.height = `${height.value * scale.height}px`
-              updateScaleRef(scale)
-            }
-          )
-          calcRate()
-          windowResize()
-          useAddWheelHandle(unWindowResize)
-          onUnmounted(() => {
-            unWindowResize()
-          })
-        })()
+        const { calcRate, windowResize, unWindowResize } = usePreviewScrollYScale(
+          width.value as number,
+          height.value as number,
+          previewRef.value,
+          scale => {
+            const dom = entityRef.value
+            dom.style.width = `${width.value * scale.width}px`
+            dom.style.height = `${height.value * scale.height}px`
+            updateScaleRef(scale)
+          }
+        )
+        calcRate()
+        windowResize()
+        useAddWheelHandle(unWindowResize)
+        onUnmounted(() => {
+          unWindowResize()
+        })
+      })()
 
         break
       case PreviewScaleEnum.SCROLL_X:
         ;(() => {
-          const { calcRate, windowResize, unWindowResize } = usePreviewScrollXScale(
-            width.value as number,
-            height.value as number,
-            previewRef.value,
-            scale => {
-              const dom = entityRef.value
-              dom.style.width = `${width.value * scale.width}px`
-              dom.style.height = `${height.value * scale.height}px`
-              updateScaleRef(scale)
-            }
-          )
-          calcRate()
-          windowResize()
-          useAddWheelHandle(unWindowResize)
-          onUnmounted(() => {
-            unWindowResize()
-          })
-        })()
+        const { calcRate, windowResize, unWindowResize } = usePreviewScrollXScale(
+          width.value as number,
+          height.value as number,
+          previewRef.value,
+          scale => {
+            const dom = entityRef.value
+            dom.style.width = `${width.value * scale.width}px`
+            dom.style.height = `${height.value * scale.height}px`
+            updateScaleRef(scale)
+          }
+        )
+        calcRate()
+        windowResize()
+        useAddWheelHandle(unWindowResize)
+        onUnmounted(() => {
+          unWindowResize()
+        })
+      })()
 
         break
       case PreviewScaleEnum.FULL:
         ;(() => {
-          const { calcRate, windowResize, unWindowResize } = usePreviewFullScale(
-            width.value as number,
-            height.value as number,
-            previewRef.value,
-            updateScaleRef
-          )
-          calcRate()
-          windowResize()
-          useAddWheelHandle(unWindowResize)
-          onUnmounted(() => {
-            unWindowResize()
-          })
-        })()
+        const { calcRate, windowResize, unWindowResize } = usePreviewFullScale(
+          width.value as number,
+          height.value as number,
+          previewRef.value,
+          updateScaleRef
+        )
+        calcRate()
+        windowResize()
+        useAddWheelHandle(unWindowResize)
+        onUnmounted(() => {
+          unWindowResize()
+        })
+      })()
         break
     }
-  })
+  }
+  // 屏幕适配
+  onMounted(fn)
+
+  // watch(() => localStorageInfo.editCanvasConfig, (v) => {
+  //   width.value = v.width
+  //   height.value = v.height
+  //   fn()
+  // }, {
+  //   deep: true
+  // })
 
   return {
     entityRef,

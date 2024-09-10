@@ -20,9 +20,9 @@ import { CanvasRenderer } from 'echarts/renderers'
 import { PieChart } from 'echarts/charts'
 import { mergeTheme } from '@/packages/public/chart'
 import config, { includes } from './config'
-import { useChartDataFetch } from '@/hooks'
+import {useChartCommonData, useChartDataFetch} from '@/hooks'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
-import { isPreview } from '@/utils'
+import {isPreview, setTooltipPosition} from '@/utils'
 import { DatasetComponent, GridComponent, TooltipComponent, LegendComponent } from 'echarts/components'
 import dataJson from './data.json'
 
@@ -40,7 +40,11 @@ const props = defineProps({
     required: true
   }
 })
+
+props.chartConfig.option.tooltip.position = setTooltipPosition(props.chartConfig.attr)
+
 const initOptions = useCanvasInitOptions(props.chartConfig.option, props.themeSetting)
+console.log(initOptions,'initOptions')
 let seriesDataNum = -1
 let seriesDataMaxLength = 0
 let intervalInstance: any = null
@@ -50,6 +54,7 @@ use([DatasetComponent, CanvasRenderer, PieChart, GridComponent, TooltipComponent
 const option = computed(() => {
   return mergeTheme(props.chartConfig.option, props.themeSetting, includes)
 })
+console.log(option,'option')
 
 // 会重新选择需要选中和展示的数据
 const handleSeriesData = () => {
@@ -103,7 +108,7 @@ watch(
   () => props.chartConfig.option.type,
   newData => {
     try {
-      if (newData === 'nomal') {
+      if (newData === 'normal') {
         props.chartConfig.option.series[0].radius = '70%'
         props.chartConfig.option.series[0].roseType = false
       } else if (newData === 'ring') {
@@ -133,12 +138,41 @@ watch(
   }
 )
 
-const { vChartRef } = useChartDataFetch(props.chartConfig, useChartEditStore, (newData: typeof dataJson) => {
-  clearPieInterval()
-  if (props.chartConfig.option.isCarousel) {
-    addPieInterval(newData)
+watch(
+  () => props.chartConfig.option.series.length,
+  (v) => {
+    if(v === 1) return
+    else props.chartConfig.option.series.splice(1)
   }
+)
+
+watch(() => props.chartConfig.option.legendShowValue, v => {
+  if(v) {
+    let k1 = props.chartConfig.option.dataset?.dimensions?.[0] || ''
+    let k2 = props.chartConfig.option.dataset?.dimensions?.[1] || ''
+    props.chartConfig.option.legend.formatter = (name: string) => {
+      let arr = props.chartConfig.option.dataset?.source || []
+      let obj = arr.find((_: any) => _[k1] === name) || {}
+      return `${name} ${obj[k2]}`
+    }
+  }
+  else {
+    props.chartConfig.option.legend.formatter = (name: string) => {
+      return name
+    }
+  }
+}, {
+  immediate: true
 })
+
+// const { vChartRef } = useChartDataFetch(props.chartConfig, useChartEditStore, (newData: typeof dataJson) => {
+//   clearPieInterval()
+//   if (props.chartConfig.option.isCarousel) {
+//     addPieInterval(newData)
+//   }
+// })
+const { vChartRef } = useChartCommonData(props.chartConfig, useChartEditStore)
+
 
 onMounted(() => {
   seriesDataMaxLength = dataJson.source.length

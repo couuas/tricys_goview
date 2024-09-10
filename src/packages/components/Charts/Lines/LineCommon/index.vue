@@ -22,8 +22,8 @@ import { LineChart } from 'echarts/charts'
 import config, { includes, seriesItem } from './config'
 import { mergeTheme } from '@/packages/public/chart'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
-import { useChartDataFetch } from '@/hooks'
-import { isPreview } from '@/utils'
+import {useChartCommonData, useChartDataFetch} from '@/hooks'
+import { isPreview, setTooltipPosition } from '@/utils'
 import { DatasetComponent, GridComponent, TooltipComponent, LegendComponent } from 'echarts/components'
 import isObject from 'lodash/isObject'
 
@@ -42,6 +42,8 @@ const props = defineProps({
   }
 })
 
+props.chartConfig.option.tooltip.position = setTooltipPosition(props.chartConfig.attr)
+
 const initOptions = useCanvasInitOptions(props.chartConfig.option, props.themeSetting)
 
 use([DatasetComponent, CanvasRenderer, LineChart, GridComponent, TooltipComponent, LegendComponent])
@@ -53,32 +55,32 @@ const option = computed(() => {
 })
 
 // dataset 无法变更条数的补丁
-watch(
-  () => props.chartConfig.option.dataset,
-  (newData: { dimensions: any }, oldData) => {
-    try {
-      if (!isObject(newData) || !('dimensions' in newData)) return
-      if (Array.isArray(newData?.dimensions)) {
-        const seriesArr = []
-        for (let i = 0; i < newData.dimensions.length - 1; i++) {
-          seriesArr.push(seriesItem)
-        }
-        replaceMergeArr.value = ['series']
-        props.chartConfig.option.series = seriesArr
-        nextTick(() => {
-          replaceMergeArr.value = []
-        })
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  },
-  {
-    deep: false
-  }
-)
+// watch(
+//   () => props.chartConfig.option.dataset,
+//   (newData: { dimensions: any }, oldData) => {
+//     try {
+//       if (!isObject(newData) || !('dimensions' in newData)) return
+//       if (Array.isArray(newData?.dimensions)) {
+//         const seriesArr = []
+//         for (let i = 0; i < newData.dimensions.length - 1; i++) {
+//           seriesArr.push(seriesItem)
+//         }
+//         replaceMergeArr.value = ['series']
+//         props.chartConfig.option.series = seriesArr
+//         nextTick(() => {
+//           replaceMergeArr.value = []
+//         })
+//       }
+//     } catch (error) {
+//       console.log(error)
+//     }
+//   },
+//   {
+//     deep: false
+//   }
+// )
 
-const { vChartRef } = useChartDataFetch(props.chartConfig, useChartEditStore, (newData: any) => {
-  props.chartConfig.option.dataset = newData
-})
+// const { vChartRef } = useChartDataFetch(props.chartConfig, useChartEditStore)
+const { vChartRef } = useChartCommonData(props.chartConfig, useChartEditStore)
+
 </script>

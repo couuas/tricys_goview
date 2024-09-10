@@ -82,24 +82,29 @@ export interface SelectHttpTimeType {
   label: string
   value: RequestHttpIntervalEnum
   disabled?: boolean
+  unit: number
 }
 
 // 时间选项
 export const selectTimeOptions: SelectHttpTimeType[] = [
   {
     label: SelectHttpTimeNameObj[RequestHttpIntervalEnum.SECOND],
-    value: RequestHttpIntervalEnum.SECOND
+    value: RequestHttpIntervalEnum.SECOND,
+    unit: 1000,
   },
   {
     label: SelectHttpTimeNameObj[RequestHttpIntervalEnum.MINUTE],
-    value: RequestHttpIntervalEnum.MINUTE
+    value: RequestHttpIntervalEnum.MINUTE,
+    unit: 60000,
   },
   {
     label: SelectHttpTimeNameObj[RequestHttpIntervalEnum.HOUR],
-    value: RequestHttpIntervalEnum.HOUR
+    value: RequestHttpIntervalEnum.HOUR,
+    unit: 3600000,
   },
   {
     label: SelectHttpTimeNameObj[RequestHttpIntervalEnum.DAY],
-    value: RequestHttpIntervalEnum.DAY
+    value: RequestHttpIntervalEnum.DAY,
+    unit: 86400000,
   },
 ]

@@ -9,6 +9,6 @@ export const TextBarrageConfig: ConfigType = {
   category: ChatCategoryEnum.TEXT,
   categoryName: ChatCategoryEnumName.TEXT,
   package: PackagesCategoryEnum.INFORMATIONS,
-  chartFrame: ChartFrameEnum.COMMON,
+  chartFrame: ChartFrameEnum.ECHARTS,
   image: 'text_barrage.png'
 }

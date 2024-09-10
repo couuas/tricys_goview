@@ -7,24 +7,34 @@ import dataJson from './data.json'
 
 const { dimensions, source } = dataJson
 export const option = {
-  dataset: { dimensions, source },
+  dataset: { dimensions: [], source: [] },
+  // 展示列
+  header: {
+    value: [],
+    options: [] as any[],
+    map:{} as any,
+  },
   pagination: {
     page: 1,
     pageSize: 5
   },
   align: 'center',
   style: {
-    border: 'on',
+    border: 'off',
     singleColumn: 'off',
     singleLine: 'off',
-    bottomBordered: 'on',
+    bottomBordered: 'off',
     striped: 'on',
     fontSize: 16,
     borderWidth: 0,
-    borderColor: 'black',
-    borderStyle: 'solid'
+    borderColor: 'rgba(0, 0, 0, 1)',
+    borderStyle: 'solid',
+   
   },
-  inputShow: 'none'
+  inputShow: 'none',
+  isPagination:true,
+  isBackgroundColor:true,
+
 }
 
 export default class Config extends PublicConfigClass implements CreateComponentType {

@@ -13,7 +13,7 @@ export enum PieTypeEnum {
 }
 
 export const PieTypeObject = {
-  [PieTypeEnum.NORMAL]: 'nomal',
+  [PieTypeEnum.NORMAL]: 'normal',
   [PieTypeEnum.RING]: 'ring',
   [PieTypeEnum.ROSE]: 'rose'
 }
@@ -22,24 +22,28 @@ export const PieTypeObject = {
 const otherConfig = {
   // 轮播动画
   isCarousel: false,
+  legendShowValue: false,
 }
 
 const option = {
   ...otherConfig,
-  type: 'ring',
+  type: 'normal',
   tooltip: {
     show: true,
     trigger: 'item'
   },
   legend: {
-    show: true
+    show: true,
+    formatter: (name: string) => {
+      return name
+    }
   },
   dataset: { ...dataJson },
   series: [
     {
       type: 'pie',
       radius: ['40%', '65%'],
-      center: ['50%', '60%'],
+      center: ['50%', '50%'],
       roseType: false,
       avoidLabelOverlap: false,
       itemStyle: {

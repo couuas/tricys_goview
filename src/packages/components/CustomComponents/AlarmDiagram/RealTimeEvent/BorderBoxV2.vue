@@ -1,0 +1,124 @@
+<template>
+  <BorderBox>
+    <template #title>
+      <div class="titleBox">
+        <div class="mr10">{{title}}</div>
+        <n-checkbox :checked="checkAll" @update:checked="(v:boolean) => emit('update:checkAll', v)" size="small" >全选</n-checkbox>
+        <n-button strong size="tiny" color="rgba(36,197,231,.5)" text-color="#fff" class="button " @click="clickBatch">
+          <template #icon>
+            <AssignmentTurnedInRoundIcon/>
+          </template>
+          批量确认
+        </n-button>
+        <div style="flex: 1"></div>
+        <n-checkbox-group v-if="showFilter" :value="select1.value" @update:value="(v:[]) => changeSelect1(v)" class="mr10" size="small">
+          <n-space item-style="display: flex;" size="small">
+            <n-checkbox :value="item.value" :label="item.label" v-for="(item, i) in select1.options" :key="i">
+              <div :style="{color: item.color}" style="display: inline-block">{{item.label}}</div>
+              <div style="display: inline-block">({{item.number}})</div>
+            </n-checkbox>
+          </n-space>
+        </n-checkbox-group>
+        <n-checkbox-group v-if="showFilter" :value="select2.value" @update:value="(v:[]) => changeSelect2(v)"   size="small">
+          <n-space item-style="display: flex;">
+            <n-checkbox :value="item.value" :label="item.label" v-for="(item, i) in select2.options" :key="i">
+              <div :style="{color: item.color}" style="display: inline-block">{{item.label}}</div>
+              <div style="display: inline-block">({{item.number}})</div>
+            </n-checkbox>
+          </n-space>
+        </n-checkbox-group>
+        <div class="more" @click="jumpMore">更多>></div>
+      </div>
+    </template>
+    <template #default>
+      <slot></slot>
+    </template>
+  </BorderBox>
+</template>
+
+<script lang="ts" setup>
+import { ref, reactive, toRefs, defineEmits } from 'vue'
+import BorderBox from '../components/BorderBox.vue'
+import { icon } from '@/plugins/icon'
+
+const { AssignmentTurnedInRoundIcon } = icon.material
+
+interface propsType {
+  title: string,
+  select1: {
+    value: number[],
+    options: { label: string, value: number, number: number, color: string }[],
+  },
+  select2: {
+    value: string[],
+    options: { label: string, value: string, number: number, color: string }[],
+  },
+  checkAll: boolean,
+  showFilter: boolean,
+}
+const props = defineProps<propsType>()
+
+
+const { select1, select2 } = toRefs(props)
+
+
+const emit = defineEmits(['clickBatch', 'update:select1Value', 'update:select2Value', 'update:checkAll', 'jumpMore'])
+const clickBatch = () => {
+  emit('clickBatch')
+}
+
+const changeSelect1 = (v:number[]) => {
+  emit('update:select1Value', v)
+}
+const changeSelect2 = (v:number[]) => {
+  emit('update:select2Value', v)
+}
+const jumpMore = () => {
+  emit('jumpMore')
+}
+// const select1 = reactive({
+//   value: [1, 2],
+//   options: [
+//     { label: '严重', value: 1, number: 0, color: '#ff0000' },
+//     { label: '主要', value: 2, number: 0, color: '#f43b42' },
+//     { label: '次要', value: 3, number: 0, color: '#fc8358' },
+//     { label: '警告', value: 4, number: 0, color: '#f8ca00' },
+//     { label: '事件', value: 5, number: 0, color: '#4fbadb' },
+//   ]
+// })
+//
+// const select2 = reactive({
+//   value: [],
+//   options: [
+//     { label: '已确认', value: 'ok', number: 0, color: '#4DCA59' },
+//     { label: '未确认', value: 'not', number: 0, color: '#f5b442' },
+//   ]
+// })
+
+</script>
+
+<style lang="scss" scoped>
+.mr10{
+  margin-right: 10px;
+}
+.button{
+  border: 1px solid #4196ff;
+  //border-color: #4196ff;
+}
+.n-space{
+  flex-wrap: nowrap!important;
+  gap: 4px 2px!important;
+}
+.titleBox{
+  display: flex;
+  align-items: center;
+  .more{
+    font-size: 14px;
+    color: #409eff;
+    cursor: pointer;
+  }
+}
+:deep(.n-checkbox__label){
+  padding:0 6px;
+}
+</style>

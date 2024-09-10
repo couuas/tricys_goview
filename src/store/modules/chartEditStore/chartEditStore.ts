@@ -341,6 +341,22 @@ export const useChartEditStore = defineStore({
       if (isHistory) {
         chartHistoryStore.createAddHistory([componentInstance])
       }
+      let isAfterBGInsert = !!componentInstance.attr.isAfterBGInsert
+      if(isAfterBGInsert) {
+        let index = this.componentList.length
+        this.componentList.forEach((item, i) => {
+          if(item.chartConfig.key === 'Backgrounds') index = i + 1
+        })
+        this.componentList.splice(index, 0, componentInstance)
+        return
+      }
+      let isBeforeEngineerging = !!componentInstance.attr.isBeforeEngineerging
+      if(isBeforeEngineerging) {
+        let index = this.componentList.findIndex(_ => _.chartConfig.key === 'EngineeringConfig')
+        index = index > -1 ? index : 0
+        this.componentList.splice(index, 0, componentInstance)
+        return
+      }
       if (isHead) {
         this.componentList.unshift(componentInstance)
         return
@@ -890,6 +906,16 @@ export const useChartEditStore = defineStore({
         console.log(error)
         window['$message'].error('解除分组失败，请联系管理员')
         loadingFinish()
+      }
+    },
+    // * 水平对齐
+    setHAlign(id: string[], isHistory = true) {
+      try {
+        const selectIds = this.idPreFormat(id) || this.getTargetChart.selectId
+        if (selectIds.length < 2) return
+        console.log(selectIds)
+      } catch(e) {
+        console.log(e)
       }
     },
     // * 锁定

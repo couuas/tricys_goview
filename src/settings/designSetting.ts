@@ -6,7 +6,7 @@ import designColor from './designColor.json'
 export const lang = LangEnum.ZH
 
 // 水印文字
-export const watermarkText = "GoView 低代码平台"
+export const watermarkText = ""
 
 // 分组名称
 export const groupTitle = "分组"
@@ -52,8 +52,11 @@ export const carouselInterval = 4000
 // 工作台大屏背景图片大小限制（5M）
 export const backgroundImageSize = 5
 
+// 工作台视频组件大小限制（500M）
+export const videoSize = 500
+
 // 预览展示方式
-export const previewScaleType = PreviewScaleEnum.FIT
+export const previewScaleType = PreviewScaleEnum.SCROLL_Y
 
 // 编辑工作台同步到 JSON 的轮询间隔（5S）
 export const editToJsonInterval = 5000

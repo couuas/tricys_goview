@@ -1,7 +1,9 @@
 import Borders from './Borders'
+import TopBars from './TopBars'
+import Base from './Base'
 import Decorates from './Decorates'
-import FlowChart from './FlowChart'
-import Three from './Three'
+// import Three from './Three'
 import Mores from './Mores'
 
-export const DecorateList = [...Borders, ...Decorates,...FlowChart, ...Three, ...Mores]
+// export const DecorateList = [...Borders, ...Decorates, ...Three, ...Mores]
+export const DecorateList = [...Borders, ...TopBars, ...Base, ...Decorates, ...Mores]

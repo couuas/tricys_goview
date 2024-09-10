@@ -4,29 +4,36 @@
   <CollapseItem
     v-for="(item, index) in seriesList"
     :key="index"
-    :name="`系列${index + 1}`"
+    :name="`${item.type == 'bar' ? `柱状图-${index + 1}` : `折线图-${index + 1}`}`"
     :expanded="true"
   >
     <template #header>
-      <n-text class="go-fs-13" depth="3">
-        {{ item.type == 'bar' ? '「柱状图」' : '「折线图」' }}
-      </n-text>
+      <n-space align="center" :wrap="false">
+        <n-button v-if="index !== 0" @click="handleDelete(index)" circle size="tiny">
+          <template #icon>
+            <n-icon><CloseIcon /></n-icon>
+          </template>
+        </n-button>
+        <n-dropdown v-if="index === seriesList.length - 1" trigger="hover" :options="options" @select="handleSelect">
+          <n-button circle size="tiny">
+            <template #icon>
+              <n-icon><AddIcon /></n-icon>
+            </template>
+          </n-button>
+        </n-dropdown>
+      </n-space>
     </template>
     <SettingItemBox name="类型">
-      <SettingItem name="宽度">
+      <setting-item name="">
         <n-select
           :value="item.type"
-          size="small"
           :options="[
             { label: '柱状图', value: 'bar' },
-            { label: '折线图', value: 'line' }
+            { label: '折线图', value: 'line' },
           ]"
-          @update:value="(value: any) => {
-            updateHandle(item, value)
-          }"
+          :onUpdate:value="(v:string) => changeType(v, index)"
         />
-      </SettingItem>
- 
+      </setting-item>
     </SettingItemBox>
     <SettingItemBox name="图形" v-if="item.type == 'bar'">
       <SettingItem name="宽度">
@@ -102,18 +109,14 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, computed, toRaw } from 'vue'
-import { merge, cloneDeep } from 'lodash';
-
-import GlobalSetting from '@/components/Pages/ChartItemSetting/GlobalSetting.vue'
-import CollapseItem from '@/components/Pages/ChartItemSetting/CollapseItem.vue'
-import SettingItemBox from '@/components/Pages/ChartItemSetting/SettingItemBox.vue'
-import SettingItem from '@/components/Pages/ChartItemSetting/SettingItem.vue'
-
+import { PropType, computed, ref, watch } from 'vue'
+import { GlobalSetting, CollapseItem, SettingItemBox, SettingItem } from '@/components/Pages/ChartItemSetting'
 import { lineConf } from '@/packages/chartConfiguration/echarts'
 import { GlobalThemeJsonType } from '@/settings/chartThemes'
-import { barSeriesItem, lineSeriesItem } from './config'
-
+import {barSeriesItem, lineSeriesItem} from './config'
+import {cloneDeep} from "lodash";
+import {icon} from "@/plugins";
+const { CloseIcon, AddIcon } = icon.ionicons5
 
 const props = defineProps({
   optionData: {
@@ -122,17 +125,32 @@ const props = defineProps({
   }
 })
 
+const options = ref([
+  {
+    label: '柱状图',
+    key: 'bar',
+  },
+  {
+    label: '折线图',
+    key: 'line'
+  },
+])
+
+const handleSelect = (key: string) => {
+  handleAdd(key === 'bar' ? cloneDeep(barSeriesItem) : cloneDeep(lineSeriesItem))
+}
+
 const seriesList = computed(() => {
   return props.optionData.series
 })
 
-const updateHandle = (item:any, value:string) => {
-  const _label = cloneDeep(toRaw(item.label))
-  lineSeriesItem.label = _label
-  if (value === 'line') {
-    merge(item, lineSeriesItem)
-  } else {
-    merge(item, barSeriesItem)
-  }
+const handleAdd = (seriesItem: any) => {
+  props.optionData.series.push(cloneDeep(seriesItem))
+}
+const handleDelete = (i: number) => {
+  props.optionData.series.splice(i, 1)
+}
+const changeType = (type: string, i: number) => {
+  props.optionData.series[i] = type === 'bar' ? cloneDeep(barSeriesItem) : cloneDeep(lineSeriesItem)
 }
 </script>

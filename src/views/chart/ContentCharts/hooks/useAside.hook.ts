@@ -7,7 +7,9 @@ import { usePackagesStore } from '@/store/modules/packagesStore/packagesStore'
 import { ChartLayoutStoreEnum } from '@/store/modules/chartLayoutStore/chartLayoutStore.d'
 // 图标
 const { AirPlaneOutlineIcon, ImageIcon, BarChartIcon } = icon.ionicons5
-const { TableSplitIcon, RoadmapIcon, SpellCheckIcon, GraphicalDataFlowIcon } = icon.carbon
+const { TableSplitIcon, RoadmapIcon, SpellCheckIcon, GraphicalDataFlowIcon, AreaCustomIcon } = icon.carbon
+const { Apps20RegularIcon } = icon.fluent
+const { InsertPhotoSharpIcon } = icon.material
 
 // 图表
 export type MenuOptionsType = {
@@ -41,7 +43,19 @@ const packagesListObj = {
   [PackagesCategoryEnum.ICONS]: {
     icon: renderIcon(AirPlaneOutlineIcon),
     label: PackagesCategoryName.ICONS
-  }
+  },
+  // [PackagesCategoryEnum.THEMESANDLAYOUTS]: {
+  //   icon: renderIcon(Apps20RegularIcon),
+  //   label: PackagesCategoryName.THEMESANDLAYOUTS
+  // },
+  [PackagesCategoryEnum.CUSTOMCOMPONENTS]: {
+    icon: renderIcon(AreaCustomIcon),
+    label: PackagesCategoryName.CUSTOMCOMPONENTS
+  },
+  // [PackagesCategoryEnum.BACKGROUNDS]: {
+  //   icon: renderIcon(InsertPhotoSharpIcon),
+  //   label: PackagesCategoryName.BACKGROUNDS
+  // }
 }
 
 export const useAsideHook = () => {
@@ -61,6 +75,13 @@ export const useAsideHook = () => {
         list: packagesStore.getPackagesList[val]
       })
     }
+    menuOptions.sort((a, b) => {
+      if(a.key === PackagesCategoryEnum.BACKGROUNDS) return -1
+      else if(b.key === PackagesCategoryEnum.BACKGROUNDS) return 1
+      if(a.key === PackagesCategoryEnum.CUSTOMCOMPONENTS) return -1
+      else if(b.key === PackagesCategoryEnum.CUSTOMCOMPONENTS) return 1
+      else return 0
+    })
   }
   handlePackagesList()
 

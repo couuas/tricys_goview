@@ -5,7 +5,7 @@
         <project-layout-sider></project-layout-sider>
       </n-space>
       <n-layout>
-        <layout-header-pro></layout-header-pro>
+<!--        <layout-header-pro></layout-header-pro>-->
         <n-layout
           id="go-project-content-top"
           class="content-top"
@@ -27,22 +27,23 @@
 import { ProjectLayoutSider } from './layout/components/ProjectLayoutSider'
 import { LayoutHeaderPro } from '@/layout/components/LayoutHeaderPro'
 import { LayoutTransitionMain } from '@/layout/components/LayoutTransitionMain/index'
-import { goDialog } from '@/utils'
+// import { goDialog } from '@/utils'
 
-// 提示
-goDialog({
-  message: '不要在官方后端上发布任何私密数据，任何人都看得到并进行删除！！！！',
-  isMaskClosable: true,
-  closeNegativeText: true,
-  transformOrigin: 'center',
-  onPositiveCallback: () => {}
-})
+// // 提示
+// goDialog({
+//   message: '不要在官方后端上发布任何私密数据，任何人都看得到并进行删除！！！！',
+//   isMaskClosable: true,
+//   closeNegativeText: true,
+//   transformOrigin: 'center',
+//   onPositiveCallback: () => {}
+// })
 </script>
 
 <style lang="scss" scoped>
 @include go(project) {
   .content-top {
-    top: $--header-height;
+    //top: $--header-height;
+    top: 0;
     margin-top: 1px;
   }
 }

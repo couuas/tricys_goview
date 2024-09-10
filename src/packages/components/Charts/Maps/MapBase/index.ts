@@ -5,6 +5,7 @@ export const MapBaseConfig: ConfigType = {
     key: 'MapBase',
     chartKey: 'VMapBase',
     conKey: 'VCMapBase',
+    conDataKey: 'VCDMapBase',
     title: '地图(可选省份)',
     category: ChatCategoryEnum.MAP,
     categoryName: ChatCategoryEnumName.MAP,

@@ -158,99 +158,111 @@
         ></n-select>
       </setting-item>
     </setting-item-box>
+    <setting-item-box name="最小值" alone v-if="'min' in xAxis">
+      <setting-item name="">
+        <n-input-number v-model:value="xAxis.min" size="small"/>
+      </setting-item>
+    </setting-item-box>
   </collapse-item>
 
-  <collapse-item v-if="yAxis" name="Y轴">
-    <template #header>
-      <n-switch v-model:value="yAxis.show" size="small"></n-switch>
-    </template>
-    <setting-item-box name="单位">
-      <setting-item name="名称">
-        <n-input v-model:value="yAxis.name" size="small"></n-input>
-      </setting-item>
-      <setting-item name="颜色">
-        <n-color-picker size="small" v-model:value="yAxis.nameTextStyle.color"></n-color-picker>
-      </setting-item>
-      <setting-item name="大小">
-        <n-input-number v-model:value="yAxis.nameTextStyle.fontSize" :min="8" size="small"></n-input-number>
-      </setting-item>
-      <setting-item name="偏移量">
-        <n-input-number v-model:value="yAxis.nameGap" :min="5" size="small"></n-input-number>
-      </setting-item>
-    </setting-item-box>
-    <setting-item-box name="标签">
-      <setting-item name="展示">
-        <n-space>
-          <n-switch v-model:value="yAxis.axisLabel.show" size="small"></n-switch>
-        </n-space>
-      </setting-item>
-      <setting-item name="颜色">
-        <n-color-picker size="small" v-model:value="yAxis.axisLabel.color"></n-color-picker>
-      </setting-item>
-      <setting-item name="大小">
-        <n-input-number v-model:value="yAxis.axisLabel.fontSize" :min="8" size="small"></n-input-number>
-      </setting-item>
-      <setting-item name="偏移量">
-        <n-input-number v-model:value="yAxis.axisLabel.rotate" :min="-90" :max="90" size="small"></n-input-number>
-      </setting-item>
-    </setting-item-box>
-    <setting-item-box name="轴线">
-      <setting-item name="展示">
-        <n-space>
-          <n-switch v-model:value="yAxis.axisLine.show" size="small"></n-switch>
-        </n-space>
-      </setting-item>
-      <setting-item name="颜色">
-        <n-color-picker v-model:value="yAxis.axisLine.lineStyle.color" size="small"></n-color-picker>
-      </setting-item>
-      <setting-item name="粗细">
-        <n-input-number v-model:value="yAxis.axisLine.lineStyle.width" :min="1" size="small"></n-input-number>
-      </setting-item>
-      <setting-item name="位置">
-        <n-select v-model:value="yAxis.position" size="small" :options="axisConfig.yposition"></n-select>
-      </setting-item>
-      <setting-item name="对齐零">
-        <n-space>
-          <n-switch v-model:value="yAxis.axisLine.onZero" size="small"></n-switch>
-        </n-space>
-      </setting-item>
-      <setting-item name="反向">
-        <n-space>
-          <n-switch v-model:value="yAxis.inverse" size="small"></n-switch>
-        </n-space>
-      </setting-item>
-    </setting-item-box>
-    <setting-item-box name="刻度">
-      <setting-item name="展示">
-        <n-space>
-          <n-switch v-model:value="yAxis.axisTick.show" size="small"></n-switch>
-        </n-space>
-      </setting-item>
-      <setting-item name="长度">
-        <n-input-number v-model:value="yAxis.axisTick.length" :min="1" size="small"></n-input-number>
-      </setting-item>
-    </setting-item-box>
-    <setting-item-box name="分割线">
-      <setting-item name="展示">
-        <n-space>
-          <n-switch v-model:value="yAxis.splitLine.show" size="small"></n-switch>
-        </n-space>
-      </setting-item>
-      <setting-item name="颜色">
-        <n-color-picker v-model:value="yAxis.splitLine.lineStyle.color" size="small"></n-color-picker>
-      </setting-item>
-      <setting-item name="粗细">
-        <n-input-number v-model:value="yAxis.splitLine.lineStyle.width" :min="1" size="small"></n-input-number>
-      </setting-item>
-      <setting-item name="类型">
-        <n-select
-          v-model:value="yAxis.splitLine.lineStyle.type"
-          size="small"
-          :options="axisConfig.splitLint.lineStyle.type"
-        ></n-select>
-      </setting-item>
-    </setting-item-box>
-  </collapse-item>
+  <template v-for="(yAxis, i) in yAxisArr" :key="i">
+    <collapse-item v-if="yAxis" :name="`Y轴-${i + 1}`">
+      <template #header>
+        <n-switch v-model:value="yAxis.show" size="small"></n-switch>
+      </template>
+      <setting-item-box name="单位">
+        <setting-item name="名称">
+          <n-input v-model:value="yAxis.name" size="small"></n-input>
+        </setting-item>
+        <setting-item name="颜色">
+          <n-color-picker size="small" v-model:value="yAxis.nameTextStyle.color"></n-color-picker>
+        </setting-item>
+        <setting-item name="大小">
+          <n-input-number v-model:value="yAxis.nameTextStyle.fontSize" :min="8" size="small"></n-input-number>
+        </setting-item>
+        <setting-item name="偏移量">
+          <n-input-number v-model:value="yAxis.nameGap" :min="5" size="small"></n-input-number>
+        </setting-item>
+      </setting-item-box>
+      <setting-item-box name="标签">
+        <setting-item name="展示">
+          <n-space>
+            <n-switch v-model:value="yAxis.axisLabel.show" size="small"></n-switch>
+          </n-space>
+        </setting-item>
+        <setting-item name="颜色">
+          <n-color-picker size="small" v-model:value="yAxis.axisLabel.color"></n-color-picker>
+        </setting-item>
+        <setting-item name="大小">
+          <n-input-number v-model:value="yAxis.axisLabel.fontSize" :min="8" size="small"></n-input-number>
+        </setting-item>
+        <setting-item name="偏移量">
+          <n-input-number v-model:value="yAxis.axisLabel.rotate" :min="-90" :max="90" size="small"></n-input-number>
+        </setting-item>
+      </setting-item-box>
+      <setting-item-box name="轴线">
+        <setting-item name="展示">
+          <n-space>
+            <n-switch v-model:value="yAxis.axisLine.show" size="small"></n-switch>
+          </n-space>
+        </setting-item>
+        <setting-item name="颜色">
+          <n-color-picker v-model:value="yAxis.axisLine.lineStyle.color" size="small"></n-color-picker>
+        </setting-item>
+        <setting-item name="粗细">
+          <n-input-number v-model:value="yAxis.axisLine.lineStyle.width" :min="1" size="small"></n-input-number>
+        </setting-item>
+        <setting-item name="位置">
+          <n-select v-model:value="yAxis.position" size="small" :options="axisConfig.yposition"></n-select>
+        </setting-item>
+        <setting-item name="对齐零">
+          <n-space>
+            <n-switch v-model:value="yAxis.axisLine.onZero" size="small"></n-switch>
+          </n-space>
+        </setting-item>
+        <setting-item name="反向">
+          <n-space>
+            <n-switch v-model:value="yAxis.inverse" size="small"></n-switch>
+          </n-space>
+        </setting-item>
+      </setting-item-box>
+      <setting-item-box name="刻度">
+        <setting-item name="展示">
+          <n-space>
+            <n-switch v-model:value="yAxis.axisTick.show" size="small"></n-switch>
+          </n-space>
+        </setting-item>
+        <setting-item name="长度">
+          <n-input-number v-model:value="yAxis.axisTick.length" :min="1" size="small"></n-input-number>
+        </setting-item>
+      </setting-item-box>
+      <setting-item-box name="分割线">
+        <setting-item name="展示">
+          <n-space>
+            <n-switch v-model:value="yAxis.splitLine.show" size="small"></n-switch>
+          </n-space>
+        </setting-item>
+        <setting-item name="颜色">
+          <n-color-picker v-model:value="yAxis.splitLine.lineStyle.color" size="small"></n-color-picker>
+        </setting-item>
+        <setting-item name="粗细">
+          <n-input-number v-model:value="yAxis.splitLine.lineStyle.width" :min="1" size="small"></n-input-number>
+        </setting-item>
+        <setting-item name="类型">
+          <n-select
+            v-model:value="yAxis.splitLine.lineStyle.type"
+            size="small"
+            :options="axisConfig.splitLint.lineStyle.type"
+          ></n-select>
+        </setting-item>
+      </setting-item-box>
+      <setting-item-box name="最小值" alone v-if="'min' in yAxis">
+        <setting-item name="">
+          <n-input-number v-model:value="yAxis.min" size="small"/>
+        </setting-item>
+      </setting-item-box>
+    </collapse-item>
+  </template>
 
   <collapse-item v-if="legend" name="图例">
     <template #header>
@@ -271,6 +283,23 @@
       <setting-item name="y轴">
         <n-select v-model:value="legend.y" size="small" :options="legendConfig.lengendY" />
       </setting-item>
+      <setting-item name="上">
+        <n-input-number
+      v-model:value="legend.top"
+      :min="0"
+      size="small"
+      placeholder="px"
+    />
+      </setting-item>
+      <setting-item name="右">
+        <n-input-number
+      v-model:value="legend.right"
+      :min="0"
+      size="small"
+      placeholder="px"
+    />
+      </setting-item>
+      
     </setting-item-box>
     <setting-item-box name="图例信息">
       <setting-item name="方向">
@@ -288,6 +317,20 @@
         <n-input-number v-model:value="legend.itemHeight" :min="1" size="small"></n-input-number>
       </setting-item>
     </setting-item-box>
+  </collapse-item>
+  <collapse-item v-if="dataZoom" name="滚动条">
+    <template #header>
+      <n-switch v-model:value="dataZoom.show" size="small"></n-switch>
+    </template>
+    <setting-item-box name="样式">
+      <!-- <setting-item name="颜色">
+        <n-color-picker size="small" v-model:value="dataZoom.backgroundColor"></n-color-picker>
+      </setting-item> -->
+      <setting-item name="展示个数">
+        <n-input-number v-model:value="dataZoom.endValue" :min="1" size="small"></n-input-number>
+      </setting-item>
+    </setting-item-box>
+   
   </collapse-item>
 
   <collapse-item v-if="visualMap" name="视觉映射">
@@ -336,7 +379,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, computed, watch } from 'vue'
+import { PropType, computed, watch, Ref } from 'vue'
 import { GlobalThemeJsonType } from '@/settings/chartThemes/index'
 import { axisConfig, legendConfig } from '@/packages/chartConfiguration/echarts/index'
 import { CollapseItem, SettingItemBox, SettingItem, GlobalSettingPosition } from '@/components/Pages/ChartItemSetting'
@@ -368,16 +411,19 @@ const title = computed(() => {
   return props.optionData.title
 })
 
-const xAxis = computed(() => {
+const xAxis: Ref<any> = computed(() => {
   return props.optionData.xAxis
 })
 
-const yAxis = computed(() => {
+const yAxisArr: Ref<any> = computed(() => {
   return props.optionData.yAxis
 })
 
 const legend = computed(() => {
   return props.optionData.legend
+})
+const dataZoom = computed(() => {
+  return props.optionData.dataZoom
 })
 
 const grid = computed(() => {

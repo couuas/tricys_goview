@@ -3,6 +3,7 @@ import { CreateComponentType } from '@/packages/index.d'
 import { TextBarrageConfig } from './index'
 import { chartInitConfig } from '@/settings/designSetting'
 import cloneDeep from 'lodash/cloneDeep'
+import { CurrentSourceEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
 
 export enum FontWeightEnum {
   NORMAL = '常规',
@@ -16,6 +17,7 @@ export const FontWeightObject = {
 
 export const option = {
   dataset: '让数字化看得见',
+  showUnit: false,
   fontSize: 32,
   fontColor: '#ffffff',
   fontWeight: 'normal',
@@ -34,6 +36,10 @@ export const option = {
 }
 
 export default class Config extends PublicConfigClass implements CreateComponentType {
+  constructor() {
+    super();
+    this.commonData.currentSource = CurrentSourceEnum.SINGLEPOINT
+  }
   public key = TextBarrageConfig.key
   public attr = { ...chartInitConfig, w: 500, h: 70, zIndex: -1 }
   public chartConfig = cloneDeep(TextBarrageConfig)

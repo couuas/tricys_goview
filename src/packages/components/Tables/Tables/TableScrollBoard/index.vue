@@ -5,16 +5,17 @@
       v-if="status.header.length && status.mergedConfig"
       :style="`background-color: ${status.mergedConfig.headerBGC};`"
     >
+<!--      line-height: ${status.mergedConfig.headerHeight}px;-->
       <div
         class="header-item"
         v-for="(headerItem, i) in status.header"
         :key="`${headerItem}${i}`"
         :style="`
         height: ${status.mergedConfig.headerHeight}px;
-        line-height: ${status.mergedConfig.headerHeight}px;
         width: ${status.widths[i]}px;
       `"
         :align="status.aligns[i]"
+        :title="headerItem"
         v-html="headerItem"
       />
     </div>
@@ -48,12 +49,13 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, onUnmounted, reactive, toRefs, watch, onMounted } from 'vue'
+import { PropType, onUnmounted, reactive, toRefs, watch, onMounted, ref } from 'vue'
 import { CreateComponentType } from '@/packages/index.d'
-import { useChartDataFetch } from '@/hooks'
+import {useChartCommonData, useChartDataFetch} from '@/hooks'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
-import merge from 'lodash/merge'
-import cloneDeep from 'lodash/cloneDeep'
+import { merge, cloneDeep, debounce } from 'lodash'
+import { MapType, AlignEnum } from './config'
+import { useOriginStore } from "@/store/modules/originStore/originStore";
 
 const props = defineProps({
   chartConfig: {
@@ -197,19 +199,53 @@ const mergeConfig = () => {
 }
 
 const calcHeaderData = () => {
-  let { header, index, indexHeader } = status.mergedConfig
-  if (!header.length) {
-    status.header = []
-    return
-  }
-  header = [...header]
-  if (index) header.unshift(indexHeader)
-  status.header = header
+  let { header, index, indexHeader, headerConfig, headerConfigMap } = status.mergedConfig
+  // if (!header.length) {
+  //   status.header = []
+  //   return
+  // }
+  // header = [...header]
+  // if (index) header.unshift(indexHeader)
+  // status.header = header
+  type ItemType = { show: boolean, header: string }
+  status.header = headerConfig.filter((_: ItemType) => _.show).map((_: ItemType) => _.header)
 }
 
+const colorToRgba = (sHex: any, alpha = 0.1) => {
+  // 十六进制颜色值的正则表达式
+  const reg = /^#([0-9a-fA-f]{3}|[0-9a-fA-f]{6})$/
+  /* 16进制颜色转为RGB格式 */
+  let sColor = sHex.toLowerCase()
+  if (sColor && reg.test(sColor)) {
+    if (sColor.length === 4) {
+      let sColorNew = '#'
+      for (let i = 1; i < 4; i += 1) {
+        sColorNew += sColor.slice(i, i + 1).concat(sColor.slice(i, i + 1))
+      }
+      sColor = sColorNew
+    }
+    //  处理六位的颜色值
+    const sColorChange = []
+    for (let i = 1; i < 7; i += 2) {
+      sColorChange.push(parseInt('0x' + sColor.slice(i, i + 2)))
+    }
+    return 'rgba(' + sColorChange.join(',') + ',' + alpha + ')'
+  } else {
+    return sColor
+  }
+}
+const originStore = useOriginStore()
 const calcRowsData = () => {
-  let { dataset, index, headerBGC, rowNum } = status.mergedConfig
-  if (index) {
+  let { dataset: datasetOrigin, index, headerBGC, rowNum } = status.mergedConfig
+  let { headerConfigMap, headerConfig } = status.mergedConfig
+  interface RowType { [k: string]: any }
+  let showCols = headerConfig.filter((_: MapType) => _.show && _.key !== '行号').map((_: MapType) => _.key)
+  let dataset = datasetOrigin.source.map((row: RowType) => {
+    return datasetOrigin.dimensions.filter((_: string) => showCols.includes(_)).map((key: string) => {
+      return row[key]
+    })
+  })
+  if (headerConfigMap['index'].show) {
     dataset = dataset.map((row: any, i: number) => {
       row = [...row]
       const indexTag = `<span class="index" style="background-color: ${headerBGC};border-radius: 3px;padding: 0px 3px;">${
@@ -225,24 +261,63 @@ const calcRowsData = () => {
     dataset = [...dataset, ...dataset]
   }
   dataset = dataset.map((d: any, i: number) => ({ ...d, scroll: i }))
+  if(props.chartConfig.commonData.currentSource === 'pointTable') {
+    let statusOption = originStore.getOriginStore.user.systemConstant.node_status || []
+    let keys = headerConfig.filter((_: MapType) => _.show).map((_: MapType) => _.key)
+    let statusIndex = keys.findIndex((_: string) => _ === 'status')
+    if(statusIndex > -1) {
+      dataset = dataset.map((item: any, i: number) => {
+        let v:any = item.ceils[statusIndex]
+        let obj = statusOption.find((_: any) => _.value === v.toString()) || {label: ''}
+        let newValue = ''
+        if(obj.remark) {
+          newValue = `<span style="background: ${colorToRgba(obj.remark)};color: ${obj.remark};border: 1px solid ${obj.remark};border-radius: 4px;padding: 2px 8px;font-size: 12px;">${obj.label}</span>`
+        }
+        else newValue = obj.label
+        return { ...item, ceils: [...item.ceils.slice(0, statusIndex), newValue, ...item.ceils.slice(statusIndex + 1)]}
+      })
+    }
+  }
 
+  // if(props.chartConfig.commonData.currentSource === 'pointTable') {
+  //   let statusOption = originStore.getOriginStore.user.systemConstant.node_status || []
+  //   let keys = headerConfig.filter((_: MapType) => _.show).map((_: MapType) => _.key)
+  //   let statusIndex = keys.findIndex((_: string) => _ === 'status')
+  //   if(statusIndex > -1) {
+  //     dataset.forEach((item: {ceils: string[]}) => {
+  //       if(statusIndex <= item.ceils.length) {
+  //         let v = item.ceils[statusIndex]
+  //         let obj = statusOption.find((_: any) => _.value === v.toString()) || {label: ''}
+  //         console.log(obj.remark)
+  //         if(obj.remark) {
+  //           item.ceils[statusIndex] = `<span style="background: ${colorToRgba(obj.remark)};color: ${obj.remark};border: 1px solid ${obj.remark};border-radius: 4px;padding: 2px 8px;font-size: 12px;">${obj.label}</span>`
+  //         }
+  //         else item.ceils[statusIndex] = obj.label
+  //       }
+  //     })
+  //   }
+  // }
   status.rowsData = dataset
   status.rows = dataset
 }
 
 const calcWidths = () => {
   const { mergedConfig, rowsData } = status
-  const { columnWidth, header } = mergedConfig
-  const usedWidth = columnWidth.reduce((all: any, ws: number) => all + ws, 0)
-  let columnNum = 0
-  if (rowsData[0]) {
-    columnNum = (rowsData[0] as any).ceils.length
-  } else if (header.length) {
-    columnNum = header.length
-  }
-  const avgWidth = (w.value - usedWidth) / (columnNum - columnWidth.length)
-  const widths = new Array(columnNum).fill(avgWidth)
-  status.widths = merge(widths, columnWidth)
+  const { columnWidth, header, headerConfig } = mergedConfig
+  // const usedWidth = columnWidth.reduce((all: any, ws: number) => all + ws, 0)
+  // let columnNum = 0
+  // if (rowsData[0]) {
+  //   columnNum = (rowsData[0] as any).ceils.length
+  // } else if (header.length) {
+  //   columnNum = header.length
+  // }
+  // const avgWidth = (w.value - usedWidth) / (columnNum - columnWidth.length)
+  // const widths = new Array(columnNum).fill(avgWidth)
+  // status.widths = merge(widths, columnWidth)
+
+  type ItemType = {show: boolean, columnWidth: number}
+  let widths = headerConfig.filter((_: ItemType) => _.show).map((_: ItemType) => _.columnWidth)
+  status.widths = widths
 }
 
 const calcHeights = (onresize = false) => {
@@ -252,19 +327,23 @@ const calcHeights = (onresize = false) => {
   if (header.length) allHeight -= headerHeight
   const avgHeight = allHeight / rowNum
   status.avgHeight = avgHeight
-  if (!onresize) status.heights = new Array(dataset.length).fill(avgHeight)
+  if (!onresize) status.heights = new Array(dataset.source.length).fill(avgHeight)
 }
 
 const calcAligns = () => {
   const { header, mergedConfig } = status
+  const { headerConfig } = mergedConfig
 
-  const columnNum = header.length
+  // const columnNum = header.length
+  //
+  // let aligns = new Array(columnNum).fill('left')
+  //
+  // const { align } = mergedConfig
+  //
+  // status.aligns = merge(aligns, align)
 
-  let aligns = new Array(columnNum).fill('left')
-
-  const { align } = mergedConfig
-
-  status.aligns = merge(aligns, align)
+  type ItemType = {show: boolean, columnWidth: number}
+  status.aligns = headerConfig.filter((_: ItemType) => _.show).map((_: any) => _.align)
 }
 
 const animation = async (start = false) => {
@@ -305,7 +384,7 @@ const stopAnimation = () => {
   clearTimeout(status.animationHandler)
 }
 
-const onRestart = async () => {
+const onRestart = debounce(async() => {
   try {
     if (!status.mergedConfig) return
     stopAnimation()
@@ -313,7 +392,7 @@ const onRestart = async () => {
   } catch (error) {
     console.log(error)
   }
-}
+}, 200)
 
 watch(
   () => w.value,
@@ -339,8 +418,35 @@ watch(
 )
 
 // 数据更新 (默认更新 dataset，若更新之后有其它操作，可添加回调函数)
-useChartDataFetch(props.chartConfig, useChartEditStore, (resData: any[]) => {
-  props.chartConfig.option.dataset = resData
+// useChartDataFetch(props.chartConfig, useChartEditStore, (resData: any[]) => {
+//   props.chartConfig.option.dataset = resData
+//   onRestart()
+// })
+
+const fn = (v: any) => {
+  v.dimensions.forEach((k: string, index: number) => {
+    // 初始化
+    if(!Object.prototype.hasOwnProperty.call(props.chartConfig.option.headerConfigMap, k)) {
+      props.chartConfig.option.headerConfigMap[k] = {
+        show: true,
+        key: k,
+        header: k,
+        align: AlignEnum.LEFT,
+        columnWidth: 100
+      }
+    }
+    props.chartConfig.option.headerConfig = v.dimensions.map((k: string) => {
+      return props.chartConfig.option.headerConfigMap[k]
+    })
+    props.chartConfig.option.headerConfig.unshift(props.chartConfig.option.headerConfigMap['index'])
+  })
+}
+
+let resData = {}
+useChartCommonData(props.chartConfig, useChartEditStore, (res: any) => {
+  resData = res
+  fn(res)
+  props.chartConfig.option.dataset = res
   onRestart()
 })
 
@@ -366,11 +472,13 @@ onUnmounted(() => {
 
   .header {
     display: flex;
+    align-items: center;
     flex-direction: row;
     font-size: 15px;
 
     .header-item {
       transition: all 0.3s;
+      overflow: hidden;
     }
   }
 
@@ -382,6 +490,11 @@ onUnmounted(() => {
       font-size: 14px;
       transition: all 0.3s;
       overflow: hidden;
+      .ceil{
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
     }
   }
 }

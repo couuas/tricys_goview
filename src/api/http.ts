@@ -8,6 +8,8 @@ import {
   RequestParamsObjType
 } from '@/enums/httpEnum'
 import type { RequestGlobalConfigType, RequestConfigType } from '@/store/modules/chartEditStore/chartEditStore.d'
+import moment from "moment";
+import {getToken} from "@/api/path";
 
 export const get = <T = any>(url: string, params?: object) => {
   return axiosInstance<T>({
@@ -139,7 +141,9 @@ export const customizeHttp = (targetParams: RequestConfigType, globalParams: Req
     // SQL 请求对象
     requestSQLContent,
     // 请求内容 params / cookie / header / body: 同 requestParamsBodyType
-    requestParams: targetRequestParams
+    requestParams: targetRequestParams,
+    // 请求参数body-json预处理
+    requestBodyJSONPre
   } = targetParams
 
   // 静态排除
@@ -172,9 +176,21 @@ export const customizeHttp = (targetParams: RequestConfigType, globalParams: Req
     case RequestBodyEnum.JSON:
       headers['Content-Type'] = ContentTypeEnum.JSON
       //json对象也能使用'javasctipt:'来动态拼接参数
-      data = translateStr(targetRequestParams.Body['json'])
-      if(typeof data === 'string')  data = JSON.parse(data)
-      // json 赋值给 data
+      if(requestBodyJSONPre.enable) {
+        const fn = new Function('global', requestBodyJSONPre.handler)
+        const global = {
+          moment,
+          getToken
+        }
+        const res = fn(global)
+        // @ts-ignore
+        data = JSON.stringify(res, null, 2)
+      }
+      else {
+        data = translateStr(targetRequestParams.Body['json'])
+        if(typeof data === 'string')  data = JSON.parse(data)
+        // json 赋值给 data
+      }
       break
 
     case RequestBodyEnum.XML:

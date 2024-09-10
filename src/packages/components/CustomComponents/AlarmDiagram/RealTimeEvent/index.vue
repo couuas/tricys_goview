@@ -1,0 +1,642 @@
+<template>
+  <BorderBox
+    :title="chartConfig?.customData?.title"
+    :select1="select1"
+    @update:select1Value="(v:any) => select1.value = v"
+    :select2="select2"
+    @update:select2Value="(v:any) => select2.value = v"
+    @clickBatch="clickBatch"
+    v-model:checkAll="checkAll"
+    @jumpMore="jumpMore"
+    :showFilter="chartConfig?.customData?.showFilter"
+    :style="getStyle(borderRadius)"
+    style="overflow: visible"
+  >
+    <div v-if="tableData.length" class="itemBox">
+      <div class="item" v-for="(item, i) in tableData" :key="i" @click="clickItem(i)">
+        <n-checkbox
+          :disabled="item.confirm_status === 'ok'"
+          v-model:checked="item.checked"
+          class="mr10"
+          size="small"
+          @click.stop
+        />
+        <n-tag
+          class="mr5"
+          size="small"
+          strong
+          :color="{ textColor: '#000', color: item.confirm_status === 'ok' ? '#4DCA59' : '#f5b442' }"
+        >
+          {{ item.confirm_status === 'ok' ? '已确认' : '未确认' }}
+        </n-tag>
+        <n-tag class="mr5" size="small" :color="{ textColor: item.color1, borderColor: item.color1 }">
+          {{ select1.options[item.level - 1].label }}
+        </n-tag>
+        <div class="textEllipsis" style="color: rgba(255, 255, 255, 0.82); flex: 20">{{ item.content }}</div>
+        <div style="flex: 1"></div>
+        <div class="mr10 textEllipsis" style="color: #b5bac3; width: 150px">
+          {{ moment(item.generate_time).format('yyyy-MM-DD HH:mm:ss') }}
+        </div>
+        <LocationIcon @click.stop="jumpTo(item)" class="mr10" style="width: 20px; height: 20px; color: #4196ff" />
+        <CheckCircleOutlinedIcon
+          @click.stop="clickSingle(item.id)"
+          v-if="item.confirm_status === 'not'"
+          class="mr10"
+          style="width: 20px; height: 20px; color: #4196ff"
+        />
+        <div v-else class="mr10" style="width: 20px"></div>
+        <template v-if="alarmVideos[i]">
+          <SpinnerIcon
+            v-if="showLoading && currentVideo.alarmId === item.id"
+            class="rotate"
+            style="width: 18px; height: 18px; color: #4196ff"
+          />
+          <PlayCircle16FilledIcon
+            v-else
+            @click.stop="showVideo(alarmVideos[i], item.id)"
+            style="width: 20px; height: 20px; color: #4196ff"
+          />
+        </template>
+        <div v-else style="width: 20px"></div>
+      </div>
+    </div>
+    <div class="emptyBox" v-else>
+      <img src="@/assets/images/exception/nodata.svg" style="width: 100%; height: 50%" alt="" />
+      <div style="color: #fff; text-align: center">查询结果为空</div>
+    </div>
+    <!--    <VModal v-model:show="modalObj.show" :data="modalObj.data" :select1Options="select1.options"/>-->
+    <!--    <VModalV1 v-model:show="modalV1Obj.show" :data="modalV1Obj.data" @confirm="confirm"/>-->
+  </BorderBox>
+</template>
+
+<script setup lang="ts">
+import { PropType, shallowReactive, watch, toRefs, reactive, onMounted, onUnmounted, nextTick, ref } from 'vue'
+import type { Ref } from 'vue'
+import { CreateComponentType } from '@/packages/index.d'
+import { publicInterface } from '@/api/path/business.api'
+import BorderBox from './BorderBoxV2.vue'
+import { isPreview, postMessageToParent, useGetMessageByParent } from '@/utils'
+import moment from 'moment'
+import { selectTimeOptions } from '@/views/chart/ContentConfigurations/components/ChartData/index.d'
+import { RequestHttpIntervalEnum } from '@/enums/httpEnum'
+import { icon } from '@/plugins/icon'
+import VModal from './VModal.vue'
+import VModalV1 from './VModalV1.vue'
+import { useOriginStore } from '@/store/modules/originStore/originStore'
+
+const { LocationIcon } = icon.carbon
+const { CheckCircleOutlinedIcon } = icon.material
+const { PlayCircle16FilledIcon } = icon.fluent
+const { SpinnerIcon } = icon.fa
+
+const props = defineProps({
+  chartConfig: {
+    type: Object as PropType<CreateComponentType>,
+    required: true
+  }
+})
+
+const { w, h } = toRefs(props.chartConfig.attr)
+const { dataset, fit, borderRadius } = toRefs(props.chartConfig.option)
+
+const getStyle = (radius: number) => {
+  return {
+    borderRadius: `${radius}px`,
+    overflow: 'hidden'
+  }
+}
+
+interface Select1Type {
+  value: number[]
+  options: {
+    label: string
+    value: number
+    number: number
+    color: string
+  }[]
+}
+const select1: Select1Type = reactive({
+  value: [],
+  options: [
+    // { label: '严重', value: 1, number: 0, color: '#ff0000' },
+    // { label: '主要', value: 2, number: 0, color: '#f43b42' },
+    // { label: '次要', value: 3, number: 0, color: '#fc8358' },
+    // { label: '警告', value: 4, number: 0, color: '#f8ca00' },
+    // { label: '事件', value: 5, number: 0, color: '#4fbadb' },
+  ]
+})
+
+interface Select2Type {
+  value: string[]
+  options: {
+    label: string
+    value: string
+    number: number
+    color: string
+  }[]
+}
+const select2: Select2Type = reactive({
+  value: [],
+  options: [
+    { label: '已确认', value: 'ok', number: 0, color: '#4DCA59' },
+    { label: '未确认', value: 'not', number: 0, color: '#f5b442' }
+  ]
+})
+
+type tableDataItemType = {
+  id: number
+  content: string
+  generate_time: string
+  checked: boolean
+  confirm_status: 'ok' | 'not'
+  level: number
+  color1: string
+  color2: string
+  position: string
+  device_name: string
+  node_name: string
+  confirm_people: string
+  confirm_time: string
+  reconfirmation_time_str: string
+  serial_no: string
+  remark: string
+  [k: string]: any
+}
+let tableData: tableDataItemType[] = reactive([])
+watch(
+  () => tableData.map(_ => _.checked),
+  (v: boolean[]) => {
+    if (!v.length) checkAll.value = false
+    else if (v.every(_ => _)) checkAll.value = true
+    else if (v.every(_ => !_)) checkAll.value = false
+  }
+)
+
+let checkAll = ref(false)
+watch(
+  () => checkAll.value,
+  v => {
+    tableData.forEach(_ => (_.checked = v))
+  }
+)
+
+const getNumber = () => {
+ 
+  const q = {
+    space_complete_id: props.chartConfig.customData?.space_complete_id,
+    confirm_statuss: alarmConfirmStatus.value,
+    handle_statuss: alarmHandleStatuss.value,
+    recovery_statuss: alarmRecoveryStatus.value,
+    signal_ids: props.chartConfig.customData?.dems_device_point_signal_ids.split(',')
+  }
+  publicInterface('/dcim/dems/devie_active_alarm', 'count_by_level_new', q).then(res => {
+    if (res && JSON.stringify(res.data) !== '{}') {
+      select1.options.forEach((item, i) => {
+        item.number = res.data[`level${i + 1}`]
+      })
+    }
+  })
+  const param = {
+    condition: {
+      id: null,
+      levels: select1.value,
+      space_complete_id: props.chartConfig.customData?.space_complete_id,
+      append_space_to_content: 'complete',
+      handle_statuss: alarmHandleStatuss.value,
+      recovery_statuss: alarmRecoveryStatus.value,
+      dems_device_point_signal_ids: props.chartConfig.customData?.dems_device_point_signal_ids.split(',')
+    }
+  }
+  publicInterface('/dcim/dems/devie_active_alarm', 'get_app_alarm_num_by_condition', param).then(res => {
+    if (res && res.data) {
+      select2.options[0].number = res.data['confrim_num']
+      select2.options[1].number = res.data['not_confirm_num']
+    }
+  })
+}
+
+let alarmVideos = ref([])
+// let currentVideo: {[k: string]: '' | null} = reactive({
+//   ip: '',
+//   port: null,
+//   account: '',
+//   password: '',
+//   channel: '',
+//   brand: '',
+//   plugin: '',
+// })
+let currentVideo: any = ref({})
+const getVideos = (ids: number[], alarmIds: number[]) => {
+  if (ids.length) {
+    publicInterface('/dcim/video_monitor/other_device', 'get_alarm_device', { device_uids: ids.toString() }).then(
+      (res: any) => {
+        // if(res.errcode !== '00000') return
+        if (!res?.data) return
+        let arr: any = []
+        ids.forEach(id => {
+          arr.push(res.data[id] ? res.data[id][0] : null)
+        })
+        alarmVideos.value = arr.concat()
+
+        let index = 0,
+          last: any = {}
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i]) {
+            last = arr[i]
+            index = i
+            break
+          }
+        }
+        if (JSON.stringify(currentVideo.value) === '{}' && !last) return
+        let obj =
+          JSON.stringify(currentVideo.value) !== '{}'
+            ? JSON.parse(JSON.stringify(currentVideo.value))
+            : {
+                ip: '',
+                port: null,
+                account: '',
+                password: '',
+                channel: '',
+                brand: '',
+                plugin: ''
+              }
+        if (last) {
+          for (let k in obj) {
+            obj[k] = last[k]
+          }
+        }
+        obj.alarmId = alarmIds[index]
+        currentVideo.value = obj
+        obj.showForce = false
+        postMessageToParent({
+          type: 'openVideoV2',
+          data: obj
+        })
+      }
+    )
+  }
+}
+
+const showLoading = ref(false)
+const { getMessageByParent } = useGetMessageByParent()
+getMessageByParent('', e => {
+  if (e.data.type === 'openVideoV2_closeLoading' && e.data.page === 'customLargeScreen') {
+    showLoading.value = false
+  }
+})
+const showVideo = (obj: any, id: number) => {
+  let a: { [k: string]: string | null | boolean | number } = {
+    ip: '',
+    port: null,
+    account: '',
+    password: '',
+    channel: '',
+    brand: '',
+    plugin: ''
+  }
+  for (let k in a) {
+    a[k] = obj[k]
+  }
+  // 点击时强制打开
+  a.showForce = true
+  a.alarmId = id
+  currentVideo.value = a
+  showLoading.value = true
+  postMessageToParent({
+    type: 'openVideoV2',
+    data: a
+  })
+}
+
+const getData = () => {
+  getNumber()
+  const queryModel = {
+    condition: {
+      id: null,
+      levels: select1.value,
+      confirm_statuss: select2.value,
+      space_complete_id: props.chartConfig.customData?.space_complete_id,
+      append_space_to_content: 'complete',
+      handle_statuss: alarmHandleStatuss.value,
+      recovery_statuss: alarmRecoveryStatus.value,
+      dems_device_point_signal_ids: props.chartConfig.customData?.dems_device_point_signal_ids.split(',')
+    },
+    page: {
+      page_size: 10,
+      page_number: 1
+    }
+  }
+  publicInterface('/dcim/dems/devie_active_alarm', 'get_page', queryModel).then(res => {
+    if (res && !res.data) {
+      tableData.splice(0)
+      return
+    }
+    if (res && res.data) {
+      res.data.item = res.data.item.filter((_: tableDataItemType) => _.level)
+      const lastTableData = [...tableData]
+      let arr: tableDataItemType[] = res.data['item'].map((e: any) => ({
+        ...e,
+        id: e.id,
+        content: e.content,
+        generate_time: e.generate_time,
+        level: e.level,
+        checked: false,
+        confirm_status: e.confirm_status,
+        color1: select1.options.find(_ => _.value === e.level)!.color,
+        color2: select2.options.find(_ => _.value === e.confirm_status)!.color,
+        position: e.position,
+        device_name: e.device_name,
+        node_name: e?.point?.node_name,
+        confirm_people: e.confirm_people,
+        confirm_time: e.confirm_time,
+        reconfirmation_time_str: e.reconfirmation_time_str,
+        serial_no: e.serial_no,
+        remark: e.remark
+      }))
+      getVideos(
+        arr.map(_ => _.device?.uid),
+        arr.map(_ => _.id)
+      )
+      if (checkAll.value) {
+        arr = arr.map((e: any) => ({ ...e, checked: e.confirm_status !== 'ok' }))
+      } else if (lastTableData.length) {
+        arr.map(e => {
+          const lastIndex = lastTableData.findIndex(item => item.id === e.id)
+          if (lastIndex !== -1) {
+            e.checked = lastTableData[lastIndex].checked
+          }
+        })
+      }
+      tableData.splice(0, tableData.length, ...arr)
+    }
+  })
+}
+
+// const modalObj = reactive({
+//   show: false,
+//   data: {}
+// })
+const clickItem = (i: number) => {
+  postMessageToParent({
+    type: 'openRealTimeEventDetail',
+    currentAlarm: tableData[i]
+  })
+
+  // 自己写的详情
+  // const obj = tableData[i]
+  // modalObj.show = true
+  // Object.assign(modalObj, {
+  //   show: true,
+  //   data: obj
+  // })
+}
+
+const originStore = useOriginStore()
+const user = originStore.getOriginStore.user.user
+const systemConstant = originStore.getOriginStore.user.systemConstant
+const systemConfig = originStore.getOriginStore.user.systemConfig
+
+if (systemConstant['warn_levels']) {
+  select1.options = systemConstant['warn_levels']
+    .filter((item: any) => item.value !== '')
+    .map((item: any) => {
+      return { label: item.label, value: Number(item.value), number: 0, color: item.remark }
+    })
+}
+
+let alarmHandleStatuss: Ref<any[]> = ref([])
+let alarmRecoveryStatus: Ref<any[]> = ref([])
+let alarmConfirmStatus: Ref<any[]> = ref([])
+if (systemConfig) {
+  if (systemConfig['active_alarm_level']) {
+    for (let i = 0; i < Number(systemConfig['active_alarm_level']); i++) {
+      select1.value.push(i + 1)
+    }
+  }
+  if (systemConfig['active_alarm_handle_statuss']) {
+    alarmHandleStatuss.value = [...JSON.parse(systemConfig['active_alarm_handle_statuss'])]
+  }
+  if (systemConfig['active_alarm_recovery_status']) {
+    alarmRecoveryStatus.value = [...JSON.parse(systemConfig['active_alarm_recovery_status'])]
+  }
+  if (systemConfig['active_alarm_confirm_status']) {
+    alarmConfirmStatus.value = [...JSON.parse(systemConfig['active_alarm_confirm_status'])]
+    select2.value = alarmConfirmStatus.value.concat()
+  }
+}
+
+watch(
+  () => select1.value.join('&&') + select2.value.join('&&'),
+  v => {
+    getData()
+  }
+)
+
+// const modalV1Obj = reactive({
+//   show: false,
+//   data: {
+//     // confirm_people_id: user.id,
+//     confirm_people: user.name,
+//     is_misreport: false,
+//     remark: '',
+//     reconfirmation_time_str: null,
+//   },
+//   // batch 批量 single 单个
+//   type: 'batch',
+//   singleIds: [],
+// })
+const clickBatch = () => {
+  if (!tableData.filter(_ => _.checked).length) {
+    window['$message'].warning('请先选择数据')
+    return
+  }
+  let selectIds = tableData.filter(_ => _.checked && _.confirm_status !== 'ok').map(_ => _.id)
+  if (!selectIds.length) return
+  postMessageToParent({
+    type: 'openRealTimeEventDialog',
+    multipleConfirm: true,
+    selectIds
+  })
+  // Object.assign(modalV1Obj, {
+  //   show: true,
+  //   data: {
+  //     // confirm_people_id: user.id,
+  //     confirm_people: user.name,
+  //     is_misreport: false,
+  //     remark: '',
+  //     reconfirmation_time_str: null,
+  //   },
+  //   type: 'batch',
+  //   singleIds: []
+  // })
+}
+
+getMessageByParent('', e => {
+  if (e.data.type === 'openRealTimeEventDialog_confirmed' && e.data.page === 'customLargeScreen') {
+    console.log('openRealTimeEventDialog_confirmed')
+    getData()
+  }
+})
+const clickSingle = (id: number) => {
+  postMessageToParent({
+    type: 'openRealTimeEventDialog',
+    multipleConfirm: false,
+    selectIds: [id]
+  })
+
+  // 自己写的弹窗
+  // Object.assign(modalV1Obj, {
+  //   show: true,
+  //   data: {
+  //     // confirm_people_id: user.id,
+  //     confirm_people: user.name,
+  //     is_misreport: false,
+  //     remark: '',
+  //     reconfirmation_time_str: null,
+  //   },
+  //   type: 'single',
+  //   singleIds: [id]
+  // })
+}
+
+// const confirm = () => {
+//   const obj = {
+//     id: null,
+//     ids: modalV1Obj.type === 'batch' ? tableData.filter(_ => _.checked).map(_ => _.id) : modalV1Obj.singleIds,
+//     confirm_status: "ok",
+//     ...modalV1Obj.data
+//   }
+//   publicInterface('/dcim/dems/devie_active_alarm', 'confirms', obj).then(res => {
+//     window['$message'].success('操作成功')
+//     checkAll.value = false
+//     getData()
+//   })
+// }
+
+const jumpTo = (row: any) => {
+  if (row.space && row.space.space_type !== 'device') {
+    publicInterface('/dcim/space_page', 'get', { space_id: row.space_id, order: 'sort,id asc' }).then(res => {
+      if (res && res.data && res.data.length) {
+        postMessageToParent({
+          type: 'changeRouterV1',
+          url: `/dynamicRing/schematicDiagram/${res.data[0].id}`
+        })
+      } else {
+        window['$message'].warning('所选节点没有配置页面')
+      }
+    })
+  } else {
+    window['$message'].warning('所选节点没有配置页面')
+  }
+}
+
+const jumpMore = () => {
+  postMessageToParent({
+    type: 'changeRouterV1',
+    url: `/alarmManage/monitorAlarm`,
+    query:{dems_device_point_signal_ids:props.chartConfig.customData?.dems_device_point_signal_ids}
+
+  })
+}
+
+let timer: unknown
+watch(
+  () =>
+    [
+      props.chartConfig.request.requestInterval,
+      props.chartConfig.request.requestIntervalUnit,
+      props.chartConfig.customData?.space_complete_id
+    ].join('&&'),
+  v => {
+    if (!isPreview()) return
+    if (props.chartConfig.request.requestInterval) {
+      if (timer) clearInterval(timer as number)
+      const obj = selectTimeOptions.find(_ => _.value === props.chartConfig.request.requestIntervalUnit) || { unit: 0 }
+      const unit = obj.unit
+      const number = unit * props.chartConfig.request.requestInterval
+      timer = setInterval(() => {
+        getData()
+      }, number)
+    }
+  }
+)
+onMounted(() => {
+  nextTick(() => {
+    getData()
+  })
+  if (!isPreview()) return
+  const obj = selectTimeOptions.find(_ => _.value === props.chartConfig.request.requestIntervalUnit) || { unit: 0 }
+  const unit = obj.unit
+  const number = unit * props.chartConfig.request.requestInterval!
+  timer = setInterval(() => {
+    nextTick(() => {
+      getData()
+    })
+  }, number)
+})
+onUnmounted(() => {
+  clearInterval(timer as number)
+})
+
+// const option = shallowReactive({
+//   dataset: ''
+// })
+// // 预览更新
+// useChartDataFetch(props.chartConfig, useChartEditStore, (newData: any) => {
+//   option.dataset = newData
+// })
+</script>
+
+<style lang="scss" scoped>
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 应用动画到目标元素 */
+.rotate {
+  animation: rotate 1s linear infinite;
+}
+
+.mr5 {
+  margin-right: 5px;
+}
+.mr10 {
+  margin-right: 10px;
+}
+.textEllipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.emptyBox {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.itemBox {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  .item {
+    flex: none;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    margin: 3px 0;
+    background: rgba(65, 150, 255, 0.05);
+    cursor: pointer;
+  }
+}
+</style>

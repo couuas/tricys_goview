@@ -2,7 +2,12 @@
   <div class="go-text-box">
     <div class="content">
       <span>
-        {{ option.dataset }}
+        <template v-if="!dataEnable">
+          {{ option.dataset }}
+        </template>
+        <template v-else>
+          {{ dataValue }}{{ option.showUnit ? dataUnit : '' }}
+        </template>
       </span>
     </div>
   </div>
@@ -11,10 +16,11 @@
 <script setup lang="ts">
 import { PropType, toRefs, shallowReactive, watch, computed, ref } from 'vue'
 import { CreateComponentType } from '@/packages/index.d'
-import { useChartDataFetch } from '@/hooks'
+import { useChartCommonData } from '@/hooks'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { option as configOption } from './config'
 import { values } from 'lodash'
+import { resultType } from '@/store/modules/chartEditStore/chartEditStore.d'
 
 const props = defineProps({
   chartConfig: {
@@ -30,14 +36,16 @@ const { fontColor, fontSize, letterSpacing, fontWeight, animationTime, animation
 )
 
 const option = shallowReactive({
-  dataset: configOption.dataset
+  dataset: configOption.dataset,
+  showUnit: configOption.showUnit
 })
 
 // 手动更新
 watch(
-  () => props.chartConfig.option.dataset,
-  (newData: any) => {
+  [() => props.chartConfig.option.dataset, () => props.chartConfig.option.showUnit],
+  ([newData, newShowUnit]: [any, boolean]) => {
     option.dataset = newData
+    option.showUnit = newShowUnit
   },
   {
     immediate: true,
@@ -64,20 +72,44 @@ watch(
   }
 )
 
+const dataEnable = ref()
+const dataValue = ref()
+const dataUnit = ref()
+watch(
+  () => props.chartConfig.commonData,
+  newData => {
+    try {
+      const data = newData[newData.currentSource] as Object & { enable: boolean, result: resultType }
+      dataEnable.value = data.enable
+      dataValue.value = data.result.value
+      dataUnit.value = data.result.unit
+    } catch (error) {
+      console.log(error)
+    }
+  },
+  {
+    immediate: true,
+    deep: true
+  }
+)
+
 const transitionDuration = computed(() => {
   return Math.floor((w.value as any) / (animationSpeed.value as any))
 })
 
-// 预览更新
-useChartDataFetch(props.chartConfig, useChartEditStore, (newData: string) => {
-  option.dataset = newData
-})
+// // 预览更新
+// useChartDataFetch(props.chartConfig, useChartEditStore, (newData: string) => {
+//   option.dataset = newData
+// })
+
+useChartCommonData(props.chartConfig, useChartEditStore)
 </script>
 
 <style lang="scss" scoped>
 @include go('text-box') {
   display: flex;
   align-items: center;
+  overflow: hidden;
   .content {
     width: 100%;
     color: v-bind('fontColor');

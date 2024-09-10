@@ -4,21 +4,37 @@
       <setting-item>
         <n-input v-model:value="optionData.dataset" type="textarea" size="small"></n-input>
       </setting-item>
-    </setting-item-box>
-    <setting-item-box name="链接" :alone="true">
+      <SettingItem>
+        <n-text :depth="3">开启数据时，将会覆盖此文本</n-text>
+      </SettingItem>
       <setting-item>
-        <n-input-group>
-          <n-select
-            v-model:value="optionData.linkHead"
-            size="small"
-            :style="{ width: '80%' }"
-            :options="linkHeadOptions"
-          />
-          <n-input v-model:value="optionData.link" size="small"></n-input>
-          <n-button :disabled="!optionData.link" secondary size="small" @click="handleLinkClick">跳转</n-button>
-        </n-input-group>
+        <n-space>
+          <n-switch v-model:value="optionData.showUnit" size="small" />
+          <n-text>展示单位</n-text>
+        </n-space>
+        
+      </setting-item>
+      <setting-item>
+        <n-space>
+          <n-switch v-model:value="optionData.spaceName" size="small" />
+          <n-text>空间标识</n-text>
+        </n-space>
       </setting-item>
     </setting-item-box>
+<!--    <setting-item-box name="链接" :alone="true">-->
+<!--      <setting-item>-->
+<!--        <n-input-group>-->
+<!--          <n-select-->
+<!--            v-model:value="optionData.linkHead"-->
+<!--            size="small"-->
+<!--            :style="{ width: '80%' }"-->
+<!--            :options="linkHeadOptions"-->
+<!--          />-->
+<!--          <n-input v-model:value="optionData.link" size="small"></n-input>-->
+<!--          <n-button :disabled="!optionData.link" secondary size="small" @click="handleLinkClick">跳转</n-button>-->
+<!--        </n-input-group>-->
+<!--      </setting-item>-->
+<!--    </setting-item-box>-->
   </collapse-item>
 
   <collapse-item name="样式" :expanded="true">
@@ -26,6 +42,12 @@
       <setting-item name="颜色">
         <n-color-picker size="small" :modes="['hex']" v-model:value="optionData.fontColor"></n-color-picker>
       </setting-item>
+      <SettingItem>
+        <n-space>
+          <n-switch v-model:value="optionData.showStatusColor" size="small" />
+          <n-text>展示状态颜色,将覆盖原颜色</n-text>
+        </n-space>
+      </SettingItem>
       <setting-item name="字体大小">
         <n-input-number v-model:value="optionData.fontSize" size="small" placeholder="字体大小"></n-input-number>
       </setting-item>

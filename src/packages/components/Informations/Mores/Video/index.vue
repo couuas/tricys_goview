@@ -12,7 +12,7 @@
     :muted="option.muted"
     :width="w"
     :height="h"
-    :src="option.dataset"
+    :src="option.datasetCustom || option.dataset"
   ></video>
 </template>
 

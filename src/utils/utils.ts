@@ -1,4 +1,4 @@
-import { h } from 'vue'
+import { h, onMounted, onUnmounted } from 'vue'
 import { NIcon } from 'naive-ui'
 import screenfull from 'screenfull'
 import throttle from 'lodash/throttle'
@@ -11,6 +11,7 @@ import { WinKeyboard } from '@/enums/editPageEnum'
 import { RequestHttpIntervalEnum, RequestParamsObjType } from '@/enums/httpEnum'
 import { CreateComponentType, CreateComponentGroupType } from '@/packages/index.d'
 import { excludeParseEventKeyList, excludeParseEventValueList } from '@/enums/eventEnum'
+import {useRouterStore} from "@/store/modules/routerStore/routerStore";
 
 /**
  * * 判断是否是开发环境
@@ -274,11 +275,15 @@ export const setKeyboardDressShow = (keyCode?: number) => {
  * @param data
  */
 export const JSONStringify = <T>(data: T) => {
+  console.log(data,'data')
   return JSON.stringify(
     data,
     (key, val) => {
       // 处理函数丢失问题
       if (typeof val === 'function') {
+      console.log(key,'key')
+      console.log(val,'val')
+
         return `${val}`
       }
       // 处理 undefined 丢失问题
@@ -348,5 +353,38 @@ export const addWindowUnload = () => {
   // 返回销毁事件函数
   return () => {
     window.onbeforeunload = null
+  }
+}
+
+/**
+ * 向父页面发送消息
+ */
+export const postMessageToParent = (obj = {}) => {
+  const message = {
+    page: 'customLargeScreen',
+    ...obj
+  }
+  window.parent.postMessage(JSON.stringify(message), '*');
+}
+
+/**
+ * 从父页面发送并接收消息
+ */
+export const useGetMessageByParent = () => {
+  const getMessageByParent = (type = '', cb = (e:any) => {}) => {
+    onMounted(() => {
+      window.addEventListener('message', cb);
+      let obj = {
+        page: 'customLargeScreen',
+        type
+      }
+      window.parent.postMessage(JSON.stringify(obj), '*');
+    })
+    onUnmounted(() => {
+      window.removeEventListener('message', cb);
+    })
+  }
+  return {
+    getMessageByParent
   }
 }

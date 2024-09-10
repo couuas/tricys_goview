@@ -4,15 +4,39 @@ import { TableScrollBoardConfig } from './index'
 import cloneDeep from 'lodash/cloneDeep'
 import dataJson from './data.json'
 
+export enum AlignEnum {
+  LEFT = 'left',
+  CENTER = 'center',
+  RIGHT = 'right',
+}
+
+export type MapType = {
+  show: boolean
+  key: string
+  header: string
+  align: AlignEnum
+  columnWidth: number
+}
+
 export const option = {
-  header: ['列1', '列2', '列3'],
-  dataset: dataJson,
-  index: true,
-  columnWidth: [30, 100, 100],
-  align: ['center', 'right', 'right', 'right'],
+  headerConfig: [],
+  headerConfigMap: {
+    index: {
+      show: true,
+      key: '行号',
+      header: '#',
+      align: 'left',
+      columnWidth: 30,
+    }
+  },
+  // header: ['列1', '列2', '列3'],
+  dataset: { dimensions: [], source: [] },
+  // index: true,
+  // columnWidth: [],
+  // align: [],
   rowNum: 5,
   waitTime: 2,
-  headerHeight: 35,
+  headerHeight: null,
   carousel: 'single',
   headerBGC: '#00BAFF',
   oddRowBGC: '#003B51',

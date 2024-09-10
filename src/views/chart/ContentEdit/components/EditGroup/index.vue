@@ -32,19 +32,22 @@
           ...useComponentStyle(item.attr, groupIndex)
         }"
       >
-        <component
-          class="edit-content-chart"
-          :class="animationsClass(item.styles.animations)"
-          :is="item.chartConfig.chartKey"
-          :chartConfig="item"
-          :themeSetting="themeSetting"
-          :themeColor="themeColor"
-          :style="{
-            ...useSizeStyle(item.attr),
-            ...getFilterStyle(item.styles),
-            ...getTransformStyle(item.styles)
-          }"
-        ></component>
+        <template #default="{enableOuter}">
+          <component
+            class="edit-content-chart"
+            :class="animationsClass(item.styles.animations)"
+            :is="item.chartConfig.chartKey"
+            :chartConfig="item"
+            :themeSetting="themeSetting"
+            :themeColor="themeColor"
+            :style="{
+              ...useSizeStyle(item.attr),
+              ...getFilterStyle(item.styles),
+              ...getTransformStyle(item.styles)
+            }"
+            @enableOuter="enableOuter"
+          ></component>
+        </template>
       </edit-shape-box>
     </edit-shape-box>
   </div>

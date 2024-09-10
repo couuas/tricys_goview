@@ -117,7 +117,7 @@ const previewHandle = () => {
     setSessionStorage(StorageEnum.GO_CHART_STORAGE_LIST, [{ id: previewId, ...storageInfo }])
   }
   // 跳转
-  routerTurnByPath(path, [previewId], undefined, true)
+  routerTurnByPath(path, [previewId], undefined, true, true)
 }
 
 // 模态弹窗
@@ -171,13 +171,13 @@ const btnList = [
     icon: renderIcon(BrowsersOutlineIcon),
     event: previewHandle
   },
-  {
-    key: 'release',
-    title: () => (release.value ? '已发布' : '发布'),
-    icon: renderIcon(SendIcon),
-    type: () => (release.value ? 'primary' : 'default'),
-    event: modelShowHandle
-  }
+  // {
+  //   key: 'release',
+  //   title: () => (release.value ? '已发布' : '发布'),
+  //   icon: renderIcon(SendIcon),
+  //   type: () => (release.value ? 'primary' : 'default'),
+  //   event: modelShowHandle
+  // }
 ]
 
 const comBtnList = computed(() => {

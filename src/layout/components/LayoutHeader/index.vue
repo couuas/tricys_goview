@@ -12,9 +12,9 @@
       <div class="header-item right">
         <n-space>
           <slot name="ri-left"> </slot>
-          <go-lang-select></go-lang-select>
-          <theme-color-select></theme-color-select>
-          <go-theme-select></go-theme-select>
+<!--          <go-lang-select></go-lang-select>-->
+<!--          <theme-color-select></theme-color-select>-->
+<!--          <go-theme-select></go-theme-select>-->
           <slot name="ri-right"> </slot>
         </n-space>
       </div>
@@ -38,21 +38,26 @@ const isProject = computed(() => {
 </script>
 
 <style lang="scss" scoped>
+$min-width: 380px;
 @include go(header) {
+  width: 100vw;
   &-box {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: minmax($min-width, 2fr) 1fr minmax(80px, 2fr);
     &.is-project {
       grid-template-columns: none;
     }
     .header-item {
       display: flex;
       align-items: center;
+      //min-width: $min-width;
       &.left {
         justify-content: start;
+        min-width: $min-width;
       }
       &.center {
         justify-content: center;
+        flex: 1;
       }
       &.right {
         justify-content: end;

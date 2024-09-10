@@ -9,6 +9,6 @@ export const TextGradientConfig: ConfigType = {
   category: ChatCategoryEnum.TEXT,
   categoryName: ChatCategoryEnumName.TEXT,
   package: PackagesCategoryEnum.INFORMATIONS,
-  chartFrame: ChartFrameEnum.NAIVE_UI,
+  chartFrame: ChartFrameEnum.ECHARTS,
   image: 'text_gradient.png'
 }

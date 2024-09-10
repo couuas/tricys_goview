@@ -11,7 +11,8 @@ const RootRoute: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Root',
-    redirect: PageEnum.BASE_HOME,
+    // redirect: PageEnum.BASE_HOME,
+    redirect: '/chart/preview/null',
     component: Layout,
     meta: {
       title: 'Root',
@@ -28,7 +29,7 @@ const RootRoute: Array<RouteRecordRaw> = [
 ]
 
 
-export const constantRouter: any[] = [LoginRoute, ...RootRoute, ReloadRoute];
+export const constantRouter: any[] = [...RootRoute, ReloadRoute];
 
 const router = createRouter({
   history: createWebHashHistory(''),

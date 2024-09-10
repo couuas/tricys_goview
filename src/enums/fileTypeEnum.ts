@@ -7,4 +7,7 @@ export enum FileTypeEnum {
   PNG = 'image/png',
   JPEG = 'image/jpeg',
   GIF = 'image/gif',
+  // 视频
+  MP4 = 'video/mp4',
+  WEBM = 'video/webm',
 }

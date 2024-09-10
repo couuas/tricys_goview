@@ -1,9 +1,9 @@
 <template>
-  <n-space>
+  <n-space :wrap="false">
     <n-icon size="20" :depth="3">
       <fish-icon></fish-icon>
     </n-icon>
-    <n-text @click="handleFocus">
+    <n-text class="text" @click="handleFocus">
       工作空间 -
       <n-button v-show="!focus" secondary size="tiny">
         <span class="title">
@@ -29,7 +29,7 @@
 
 <script setup lang="ts">
 import { ref, nextTick, computed, watchEffect } from 'vue'
-import { ResultEnum } from '@/enums/httpEnum'
+import { ResultErrcode } from '@/enums/httpEnum'
 import { fetchRouteParamsLocation, httpErrorHandle, setTitle } from '@/utils'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { ProjectInfoEnum, EditCanvasConfigEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
@@ -70,10 +70,10 @@ const handleBlur = async () => {
   focus.value = false
   chartEditStore.setProjectInfo(ProjectInfoEnum.PROJECT_NAME, title.value || '')
   const res = (await updateProjectApi({
-    id: fetchRouteParamsLocation(),
+    id: Number(fetchRouteParamsLocation()),
     projectName: title.value
   }))
-  if (res && res.code === ResultEnum.SUCCESS) {
+  if (res && res.errcode === ResultErrcode.SUCCESS) {
     dataSyncUpdate()
   } else {
     httpErrorHandle()
@@ -81,6 +81,11 @@ const handleBlur = async () => {
 }
 </script>
 <style lang="scss" scoped>
+.text{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
 .title {
   padding-left: 5px;
   padding-right: 5px;

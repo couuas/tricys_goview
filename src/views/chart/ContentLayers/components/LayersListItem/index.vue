@@ -7,6 +7,7 @@
         preview-disabled
         :src="imageInfo"
         :fallback-src="requireErrorImg()"
+        width="58.8"
       ></n-image>
       <n-ellipsis style="margin-right: auto">
         <span class="list-text">

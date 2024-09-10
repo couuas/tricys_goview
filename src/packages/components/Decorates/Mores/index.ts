@@ -1,7 +1,9 @@
 import { NumberConfig } from './Number/index'
 import { TimeCommonConfig } from './TimeCommon/index'
+import { TimeCommon1Config } from './TimeCommon1/index'
 import { ClockConfig } from './Clock/index'
-import { FullScreenConfig } from './FullScreen/index'
+import { FullScreenBtnConfig } from './FullScreenBtn/index'
+// import { FullScreenConfig } from './FullScreen/index'
 import { CountDownConfig } from './CountDown/index'
 import { FlipperNumberConfig } from './FlipperNumber'
 import { PipelineHConfig } from './PipelineH/index'
@@ -9,13 +11,14 @@ import { PipelineVConfig } from './PipelineV/index'
 import { CirclePointConfig } from './CirclePoint/index'
 
 export default [
-  NumberConfig,
-  FlipperNumberConfig,
+  // NumberConfig,
+  // FlipperNumberConfig,
   TimeCommonConfig,
-  CountDownConfig,
+  TimeCommon1Config,
+  FullScreenBtnConfig,
+  // CountDownConfig,
   ClockConfig,
-  FullScreenConfig,
-  PipelineHConfig,
-  PipelineVConfig,
-  CirclePointConfig
+  // FullScreenConfig,
+  // PipelineHConfig,
+  // PipelineVConfig
 ]

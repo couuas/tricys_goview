@@ -71,18 +71,27 @@
 
     <!--  预设滤镜  -->
     <div v-if="presetImageList.length" class="preset-filter">
-      <n-image
+<!--      <n-image-->
+<!--        class="preset-img"-->
+<!--        width="46"-->
+<!--        preview-disabled-->
+<!--        object-fit="scale-down"-->
+<!--        v-for="(item, index) in presetImageList"-->
+<!--        :key="index"-->
+<!--        :class="{ 'active-preset': item.hueRotate === chartStyles.hueRotate }"-->
+<!--        :style="{ filter: `hue-rotate(${item.hueRotate}deg)` }"-->
+<!--        :src="item.src"-->
+<!--        @click="() => (chartStyles.hueRotate = item.hueRotate)"-->
+<!--      ></n-image>-->
+      <div
         class="preset-img"
-        width="46"
-        preview-disabled
-        object-fit="scale-down"
+        style="width: 46px;height: 38px;background: #3ba4ff;"
         v-for="(item, index) in presetImageList"
         :key="index"
         :class="{ 'active-preset': item.hueRotate === chartStyles.hueRotate }"
         :style="{ filter: `hue-rotate(${item.hueRotate}deg)` }"
-        :src="item.src"
         @click="() => (chartStyles.hueRotate = item.hueRotate)"
-      ></n-image>
+      ></div>
     </div>
 
     <!-- 混合模式 -->
@@ -169,7 +178,7 @@ import { ref, PropType } from 'vue'
 import { PickCreateComponentType, BlendModeEnumList } from '@/packages/index.d'
 import { SettingItemBox, SettingItem, CollapseItem } from '@/components/Pages/ChartItemSetting'
 import { icon } from '@/plugins'
-import logoImg from '@/assets/logo.png'
+// import logoImg from '@/assets/logo.png'
 import { useDesignStore } from '@/store/modules/designStore/designStore'
 
 const props = defineProps({
@@ -210,7 +219,7 @@ const presetImageList = ref([] as presetImageData[])
 for (let i = 1; i <= 12; i++) {
   presetImageList.value.push({
     index: i,
-    src: logoImg,
+    src: '',
     hueRotate: i * 30
   })
 }

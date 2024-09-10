@@ -39,18 +39,18 @@
           </n-text>
           <!-- 工具 -->
           <n-space>
-            <n-text>
-              <n-badge
-                class="go-animation-twinkle"
-                dot
-                :color="cardData?.release ? '#34c749' : '#fcbc40'"
-             ></n-badge>
-              {{
-                cardData?.release
-                  ? $t('project.release')
-                  : $t('project.unreleased')
-              }}
-            </n-text>
+<!--            <n-text>-->
+<!--              <n-badge-->
+<!--                class="go-animation-twinkle"-->
+<!--                dot-->
+<!--                :color="cardData?.release ? '#34c749' : '#fcbc40'"-->
+<!--             ></n-badge>-->
+<!--              {{-->
+<!--                cardData?.release-->
+<!--                  ? $t('project.release')-->
+<!--                  : $t('project.unreleased')-->
+<!--              }}-->
+<!--            </n-text>-->
 
             <template v-for="item in fnBtnList" :key="item.key">
               <n-tooltip placement="bottom" trigger="hover">

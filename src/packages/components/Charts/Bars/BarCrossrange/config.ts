@@ -17,7 +17,8 @@ export const seriesItem = {
   itemStyle: {
     color: null,
     borderRadius: 0
-  }
+  },
+  yAxisIndex: 0
 }
 export const option = {
   tooltip: {
@@ -30,14 +31,22 @@ export const option = {
   },
   xAxis: {
     show: true,
-    type: 'value'
+    type: 'value',
+    min: null
   },
-  yAxis: {
-    show: true,
-    type: 'category'
-  },
+  yAxis: [
+    {
+      show: true,
+      type: 'category'
+    },
+    {
+      show: false,
+      type: 'category'
+    }
+  ],
   dataset: { ...dataJson },
-  series: [seriesItem, seriesItem]
+  series: [seriesItem, seriesItem],
+  allSeriesConfig: seriesItem
 }
 
 export default class Config extends PublicConfigClass implements CreateComponentType {

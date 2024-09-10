@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, watch, onMounted, ref } from 'vue'
 import { PreviewRenderList } from './components/PreviewRenderList'
 import { getFilterStyle, setTitle } from '@/utils'
 import { getEditCanvasConfigStyle, getSessionStorageInfo, keyRecordHandle, dragCanvas } from './utils'
@@ -37,6 +37,7 @@ import { useStore } from './hooks/useStore.hook'
 import { PreviewScaleEnum } from '@/enums/styleEnum'
 import type { ChartEditStorageType } from './index.d'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
+import { useRoute } from 'vue-router'
 
 // const localStorageInfo: ChartEditStorageType = getSessionStorageInfo() as ChartEditStorageType
 
@@ -60,10 +61,41 @@ const showEntity = computed(() => {
 
 useStore(chartEditStore)
 const { entityRef, previewRef } = useScale(chartEditStore)
-const { show } = useComInstall(chartEditStore)
+// const { show } = useComInstall(chartEditStore)
 
 // 开启键盘监听
 keyRecordHandle()
+
+const route = useRoute()
+watch(() => {
+  return route
+}, () => {
+  getSessionStorageInfo()
+}, {
+  deep: true
+})
+
+let show = ref(false)
+onMounted(() => {
+  // 全部注册
+  requestIdleCallback(() => {
+    const intComponent = (chartKey: string, target: any) => {
+      if (!window['$vue'].component(chartKey)) {
+        window['$vue'].component(chartKey, target)
+      }
+    }
+    const indexModules: Record<string, { default: string }> = import.meta.glob('@/packages/components/**/index.vue', {
+      eager: true
+    })
+    for(let key in indexModules) {
+      const urlSplit = key.split('/')
+
+      // key与文件名必须一致
+      intComponent(`V${urlSplit[urlSplit.length - 2]}`, indexModules[key].default)
+    }
+    show.value = true
+  })
+})
 </script>
 
 <style lang="scss" scoped>

@@ -15,7 +15,14 @@
         </transition-group>
       </aside>
     </div>
-    <layout-header></layout-header>
+    <layout-header>
+      <template #left></template>
+      <!-- 报错注掉右插槽 -->
+      <!-- <template #right>
+        <go-lang-select></go-lang-select>
+        <go-theme-select></go-theme-select>
+      </template> -->
+    </layout-header>
     <div class="go-login">
       <div class="go-login-carousel">
         <n-carousel

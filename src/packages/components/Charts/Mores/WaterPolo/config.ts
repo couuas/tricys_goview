@@ -2,6 +2,7 @@ import { echartOptionProfixHandle, PublicConfigClass } from '@/packages/public'
 import { CreateComponentType } from '@/packages/index.d'
 import { WaterPoloConfig } from './index'
 import cloneDeep from 'lodash/cloneDeep'
+import { CurrentSourceEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
 
 export const shapes = [
   {
@@ -43,7 +44,21 @@ export const option = {
       type: 'liquidFill',
       shape: shapes[0].value,
       radius: '90%',
-      data: [0],
+      data: [
+        {
+          name: '',
+          value: 0,
+          unit: '',
+          showValue: 0,
+          config: {
+            showPercent: false,
+            showUnit: false,
+            showSubText: true,
+            showSubTextUnit: true,
+            max: 100,
+          }
+        }
+      ],
       center: ['50%', '50%'],
       color: [
         {
@@ -72,9 +87,38 @@ export const option = {
       label: {
         normal: {
           textStyle: {
-            fontSize: 50,
+            fontSize: 40,
             color: '#fff',
           },
+          formatter: (param:any) => {
+            const { showPercent, showUnit, showSubText, showSubTextUnit } = param.data.config
+            const { name, value, unit, showValue } = param.data
+
+            let str = ''
+            if(typeof showValue === 'number') {
+              if(showPercent) str += `${showValue * 100}%`
+              else str += showUnit ? `${showValue}${unit}` : showValue
+            }
+            else if(typeof showValue === 'string') {
+              let v = Number(showValue)
+              if(!isNaN(v)) {
+                if(showPercent) str += `${v * 100}%`
+                else str += showUnit ? `${v}${unit}` : v
+              }
+              else {
+                if(showPercent) str += 'NaN%'
+                else str += showUnit ? `${showValue}${unit}` : showValue
+              }
+            }
+            else {
+              str += '--'
+            }
+
+            str += '\n'
+            if(showSubText) str += name
+            if(showSubTextUnit && unit) str += showSubText ? `(${unit})` : unit
+            return str
+          }
         },
       },
       outline: {
@@ -91,6 +135,10 @@ export const option = {
 
 export default class Config extends PublicConfigClass implements CreateComponentType
 {
+  constructor() {
+    super();
+    this.commonData.currentSource = CurrentSourceEnum.SINGLEPOINT
+  }
   public key = WaterPoloConfig.key
   public chartConfig = cloneDeep(WaterPoloConfig)
   public option = echartOptionProfixHandle(option, includes)

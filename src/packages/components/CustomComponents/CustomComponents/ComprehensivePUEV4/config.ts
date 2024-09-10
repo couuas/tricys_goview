@@ -1,0 +1,58 @@
+import { PublicConfigClass } from '@/packages/public'
+import { CreateComponentType } from '@/packages/index.d'
+import { ComprehensivePUEV4Config } from './index'
+import cloneDeep from 'lodash/cloneDeep'
+// import logo from '@/assets/logo.png'
+
+export const option = {
+  // // 图片路径
+  // dataset: '',
+  // // 适应方式
+  // fit: 'contain',
+  // // 圆角
+  // borderRadius: 0
+}
+export const customData = {
+  title: '综合PUE',
+  enable: false,
+  demonstration: false,
+  manual: false,
+  id: null,
+  circle: {
+    title: '昨日PUE',
+    value: 0,
+  },
+  center: {
+    title1: '实时PUE',
+    value1: 0,
+    title2: '上周PUE',
+    value2: 0,
+    title3: '上月PUE',
+    value3: 0,
+  },
+  right: {
+    title1: '总功率(kWh)',
+    value1: 0,
+    calculation1: '',
+    title2: 'IT功率(kW)',
+    value2: 0,
+    calculation2: '',
+    title3: '其他功率(kW)',
+    value3: 0,
+  },
+  showInterval: true,
+}
+
+export default class Config extends PublicConfigClass implements CreateComponentType
+{
+  constructor() {
+    super();
+    this.attr.w = 450
+    this.attr.h = 300
+    this.request.requestInterval = 15
+  }
+  public key = ComprehensivePUEV4Config.key
+  public chartConfig = cloneDeep(ComprehensivePUEV4Config)
+  public option = cloneDeep(option)
+  public customData = cloneDeep(customData)
+}

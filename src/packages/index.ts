@@ -4,9 +4,13 @@ import { InformationList } from '@/packages/components/Informations/index'
 import { TableList } from '@/packages/components/Tables/index'
 import { PhotoList } from '@/packages/components/Photos/index'
 import { IconList } from '@/packages/components/Icons/index'
+import { CustomComponentsList } from '@/packages/components/CustomComponents/index'
 import { PackagesCategoryEnum, PackagesType, ConfigType, FetchComFlagType } from '@/packages/index.d'
 
 const configModules: Record<string, { default: string }> = import.meta.glob('./components/**/config.vue', {
+  eager: true
+})
+const configDataModules: Record<string, { default: string }> = import.meta.glob('./components/**/configData.vue', {
   eager: true
 })
 const indexModules: Record<string, { default: string }> = import.meta.glob('./components/**/index.vue', {
@@ -23,7 +27,8 @@ export let packagesList: PackagesType = {
   [PackagesCategoryEnum.TABLES]: TableList,
   [PackagesCategoryEnum.DECORATES]: DecorateList,
   [PackagesCategoryEnum.PHOTOS]: PhotoList,
-  [PackagesCategoryEnum.ICONS]: IconList
+  [PackagesCategoryEnum.ICONS]: IconList,
+  [PackagesCategoryEnum.CUSTOMCOMPONENTS]: CustomComponentsList,
 }
 
 // 组件缓存, 可以大幅度提升组件加载速度
@@ -55,10 +60,15 @@ export const createComponent = async (targetData: ConfigType) => {
 /**
  * * 获取组件
  * @param {string} chartName 名称
- * @param {FetchComFlagType} flag 标识 0为展示组件, 1为配置组件
+ * @param {FetchComFlagType} flag 标识 0为展示组件, 1为配置组件 2为配置数据tab组件
  */
 const fetchComponent = (chartName: string, flag: FetchComFlagType) => {
-  const module = flag === FetchComFlagType.VIEW ? indexModules : configModules
+  let map = {
+    [FetchComFlagType.VIEW]: indexModules,
+    [FetchComFlagType.CONFIG]: configModules,
+    [FetchComFlagType.CONFIGDATA]: configDataModules,
+  }
+  const module = map[flag]
   for (const key in module) {
     const urlSplit = key.split('/')
     if (urlSplit[urlSplit.length - 2] === chartName) {
@@ -83,6 +93,15 @@ export const fetchChartComponent = (dropData: ConfigType) => {
 export const fetchConfigComponent = (dropData: ConfigType) => {
   const { key } = dropData
   return fetchComponent(key, FetchComFlagType.CONFIG)?.default
+}
+
+/**
+ * * 获取配置数据tab组件
+ * @param {ConfigType} dropData 配置项
+ */
+export const fetchConfigDataComponent = (dropData: ConfigType) => {
+  const { key } = dropData
+  return fetchComponent(key, FetchComFlagType.CONFIGDATA)?.default
 }
 
 /**

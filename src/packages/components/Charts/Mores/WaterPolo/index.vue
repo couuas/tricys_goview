@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { PropType, watch, reactive } from 'vue'
+import { PropType, watch, reactive, computed } from 'vue'
 import VChart from 'vue-echarts'
 import { useCanvasInitOptions } from '@/hooks/useCanvasInitOptions.hook'
 import { use } from 'echarts/core'
@@ -11,10 +11,11 @@ import 'echarts-liquidfill/src/liquidFill.js'
 import { CanvasRenderer } from 'echarts/renderers'
 import { GridComponent } from 'echarts/components'
 import config from './config'
-import { isPreview, isString, isNumber, colorGradientCustomMerge } from '@/utils'
+import {isPreview, isString, isNumber, colorGradientCustomMerge, setTooltipPosition} from '@/utils'
 import { chartColorsSearch, defaultTheme } from '@/settings/chartThemes/index'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
-import { useChartDataFetch } from '@/hooks'
+import { useChartCommonData } from '@/hooks'
+import { resultType } from '@/store/modules/chartEditStore/chartEditStore.d'
 
 const props = defineProps({
   themeSetting: {
@@ -74,29 +75,75 @@ watch(
   }
 )
 
+// // 数据处理
+// const dataHandle = (newData: number | string) => {
+//   newData = isString(newData) ? parseFloat(newData) : newData
+//   return parseFloat(newData.toFixed(2))
+// }
+//
+// // 编辑
+// watch(
+//   () => props.chartConfig.option.dataset,
+//   newData => {
+//     if (!isString(newData) && !isNumber(newData)) return
+//     props.chartConfig.option.series[0].data = [dataHandle(newData)]
+//     option.value = props.chartConfig.option
+//   },
+//   {
+//     immediate: true,
+//     deep: false
+//   }
+// )
+
 // 数据处理
-const dataHandle = (newData: number | string) => {
-  newData = isString(newData) ? parseFloat(newData) : newData
-  return parseFloat(newData.toFixed(2))
+const dataHandle = (newData: resultType) => {
+  const { value, name, unit } = newData
+  let config = props.chartConfig.option
+  const { showPercent, max } = config.series[0].data[0].config
+
+  if(showPercent) config.series[0].data[0].value = value
+  else config.series[0].data[0].value = (max && value) ? (value / max).toFixed(2) : 0
+  config.series[0].data[0].showValue = value
+  config.series[0].data[0].name = name
+  config.series[0].data[0].unit = unit
 }
 
-// 编辑
+const targetData = computed(() => {
+  const commonData = props.chartConfig.commonData
+  return commonData[commonData.currentSource] as { result: resultType }
+})
+
+// 配置时
 watch(
-  () => props.chartConfig.option.dataset,
+  () => targetData.value,
   newData => {
-    if (!isString(newData) && !isNumber(newData)) return
-    props.chartConfig.option.series[0].data = [dataHandle(newData)]
-    option.value = props.chartConfig.option
+    try {
+      dataHandle(newData.result)
+    } catch (error) {
+      console.log(error)
+    }
   },
   {
     immediate: true,
-    deep: false
+    deep: true
   }
 )
 
-// 预览
-useChartDataFetch(props.chartConfig, useChartEditStore, (newData: number) => {
-  // @ts-ignore
-  option.value.series[0].data = [dataHandle(newData)]
+
+
+watch(() => props.chartConfig.option.series[0].data[0].config, () => {
+  const commonData = props.chartConfig.commonData
+  const data = commonData[commonData.currentSource] as { result: resultType }
+  dataHandle(data.result)
+}, {
+  immediate: true,
+  deep: true,
 })
+
+// 预览
+// useChartDataFetch(props.chartConfig, useChartEditStore, (newData: number) => {
+//   // @ts-ignore
+//   option.value.series[0].data = [dataHandle(newData)]
+// })
+const { vChartRef } = useChartCommonData(props.chartConfig, useChartEditStore)
 </script>

@@ -99,29 +99,29 @@
     </n-space>
 
     <!-- 滤镜 -->
-    <styles-setting :isCanvas="true" :chartStyles="canvasConfig"></styles-setting>
-    <n-divider style="margin: 10px 0"></n-divider>
+<!--    <styles-setting :isCanvas="true" :chartStyles="canvasConfig"></styles-setting>-->
+<!--    <n-divider style="margin: 10px 0"></n-divider>-->
 
     <!-- 主题选择和全局配置 -->
-    <n-tabs class="tabs-box" size="small" type="segment">
-      <n-tab-pane
-        v-for="item in globalTabList"
-        :key="item.key"
-        :name="item.key"
-        size="small"
-        display-directive="show:lazy"
-      >
-        <template #tab>
-          <n-space>
-            <span>{{ item.title }}</span>
-            <n-icon size="16" class="icon-position">
-              <component :is="item.icon"></component>
-            </n-icon>
-          </n-space>
-        </template>
-        <component :is="item.render"></component>
-      </n-tab-pane>
-    </n-tabs>
+<!--    <n-tabs class="tabs-box" size="small" type="segment">-->
+<!--      <n-tab-pane-->
+<!--        v-for="item in globalTabList"-->
+<!--        :key="item.key"-->
+<!--        :name="item.key"-->
+<!--        size="small"-->
+<!--        display-directive="show:lazy"-->
+<!--      >-->
+<!--        <template #tab>-->
+<!--          <n-space>-->
+<!--            <span>{{ item.title }}</span>-->
+<!--            <n-icon size="16" class="icon-position">-->
+<!--              <component :is="item.icon"></component>-->
+<!--            </n-icon>-->
+<!--          </n-space>-->
+<!--        </template>-->
+<!--        <component :is="item.render"></component>-->
+<!--      </n-tab-pane>-->
+<!--    </n-tabs>-->
   </div>
 </template>
 
@@ -277,14 +277,14 @@ const customRequest = (options: UploadCustomRequestOptions) => {
         type: file.file.type
       })
       let uploadParams = new FormData()
-      uploadParams.append('object', newNameFile)
+      uploadParams.append('files', newNameFile)
       const uploadRes = await uploadFile(uploadParams)
 
-      if (uploadRes && uploadRes.code === ResultEnum.SUCCESS) {
-        if (uploadRes.data.fileurl) {
+      if (uploadRes && uploadRes.errcode === '00000') {
+        if (uploadRes.data[0]) {
           chartEditStore.setEditCanvasConfig(
             EditCanvasConfigEnum.BACKGROUND_IMAGE,
-            `${uploadRes.data.fileurl}?time=${new Date().getTime()}`
+            `${uploadRes.data[0]}?time=${new Date().getTime()}`
           )
         } else {
           chartEditStore.setEditCanvasConfig(

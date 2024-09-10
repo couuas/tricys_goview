@@ -28,7 +28,7 @@ export const useComInstall = (localStorageInfo: ChartEditStorageType) => {
       })
       show.value = true
     }
-  }, 200)
+  }, 50)
 
   return {
     show

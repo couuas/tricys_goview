@@ -2,6 +2,16 @@
   <!-- Echarts 全局设置 -->
   <global-setting :optionData="optionData"></global-setting>
   <CollapseItem name="地图" :expanded="true">
+    <SettingItemBox name="允许缩放">
+      <n-space>
+        <n-switch v-model:value="optionData.canScroll" size="small"/>
+      </n-space>
+    </SettingItemBox>
+    <SettingItemBox name="允许拖拽">
+      <n-space>
+        <n-switch v-model:value="optionData.canDrag" size="small"/>
+      </n-space>
+    </SettingItemBox>
     <SettingItemBox name="地图区域">
       <SettingItem name="默认中国">
         <n-select
@@ -12,7 +22,17 @@
           label-field="name"
         />
       </SettingItem>
+      <SettingItem name="省市区" v-if="mapRegion.adcode!=='china'">
+        <n-select
+          size="small"
+          v-model:value="mapRegion.province"
+          :options="provinceOptions"
+          value-field="adcode"
+          label-field="name"
+        />
+      </SettingItem>
     </SettingItemBox>
+   
 
     <SettingItemBox name="区域颜色">
       <SettingItem name="0%处颜色">
@@ -81,8 +101,8 @@
       </SettingItem>
     </SettingItemBox>
 
-    <SettingItemBox name="鼠标悬停聚焦">
-      <SettingItem name="禁用（预览可见）">
+    <SettingItemBox name="悬浮（预览可见）">
+      <SettingItem name="禁用">
         <n-space>
           <n-switch v-model:value="seriesList[1].emphasis.disabled" size="small"></n-switch>
         </n-space>
@@ -196,12 +216,17 @@
   </CollapseItem>
   <CollapseItem name="标记" :expanded="true">
     <SettingItemBox name="样式">
+      <SettingItem name="开启动画">
+        <n-space>
+          <n-switch v-model:value="seriesList[0].animation" size="small"></n-switch>
+        </n-space>
+      </SettingItem>
       <SettingItem name="大小">
         <n-input-number v-model:value="seriesList[0].symbolSize" size="small" :min="0"></n-input-number>
       </SettingItem>
-      <SettingItem name="颜色">
-        <n-color-picker size="small" :modes="['hex']" v-model:value="seriesList[0].itemStyle.color"></n-color-picker>
-      </SettingItem>
+<!--      <SettingItem name="颜色">-->
+<!--        <n-color-picker size="small" :modes="['hex']" v-model:value="seriesList[0].itemStyle.color"></n-color-picker>-->
+<!--      </SettingItem>-->
     </SettingItemBox>
 
     <SettingItemBox name="文本">
@@ -227,59 +252,59 @@
           placeholder="请输入涟漪大小"
         ></n-input-number>
       </SettingItem>
-      <SettingItem name="涟漪颜色">
-        <n-color-picker size="small" :modes="['hex']" v-model:value="seriesList[0].rippleEffect.color"></n-color-picker>
-      </SettingItem>
+<!--      <SettingItem name="涟漪颜色">-->
+<!--        <n-color-picker size="small" :modes="['hex']" v-model:value="seriesList[0].rippleEffect.color"></n-color-picker>-->
+<!--      </SettingItem>-->
       <SettingItem name="涟漪的绘制方式">
         <n-select size="small" v-model:value="seriesList[0].rippleEffect.brushType" :options="rippleEffectOptions" />
       </SettingItem>
     </SettingItemBox>
   </CollapseItem>
 
-  <CollapseItem v-if="seriesList[2]" name="飞线" :expanded="true">
-    <SettingItemBox name="箭头">
-      <SettingItem name="速度">
-        <n-tooltip trigger="hover">
-          <template #trigger>
-            <n-input-number v-model:value="seriesList[2].effect.period" size="small" :min="0"></n-input-number>
-          </template>
-          值越小速度越快
-        </n-tooltip>
-      </SettingItem>
-      <SettingItem name="尾迹">
-        <n-tooltip trigger="hover">
-          <template #trigger>
-            <n-input-number
-              v-model:value="seriesList[2].effect.trailLength"
-              size="small"
-              :min="0"
-              :max="1"
-            ></n-input-number>
-          </template>
-          特效尾迹长度[0,1]值越大，尾迹越长重
-        </n-tooltip>
-      </SettingItem>
-      <SettingItem name="大小">
-        <n-input-number v-model:value="seriesList[2].effect.symbolSize" size="small" :min="0"></n-input-number>
-      </SettingItem>
-    </SettingItemBox>
-    <SettingItemBox name="配置">
-      <SettingItem name="颜色">
-        <n-color-picker
-          size="small"
-          :modes="['hex']"
-          v-model:value="seriesList[2].lineStyle.normal.color"
-        ></n-color-picker>
-      </SettingItem>
-      <SettingItem name="宽度">
-        <n-input-number v-model:value="seriesList[2].lineStyle.normal.width" size="small" :min="1"></n-input-number>
-      </SettingItem>
-    </SettingItemBox>
-  </CollapseItem>
+<!--  <CollapseItem v-if="seriesList[2]" name="飞线" :expanded="true">-->
+<!--    <SettingItemBox name="箭头">-->
+<!--      <SettingItem name="速度">-->
+<!--        <n-tooltip trigger="hover">-->
+<!--          <template #trigger>-->
+<!--            <n-input-number v-model:value="seriesList[2].effect.period" size="small" :min="0"></n-input-number>-->
+<!--          </template>-->
+<!--          值越小速度越快-->
+<!--        </n-tooltip>-->
+<!--      </SettingItem>-->
+<!--      <SettingItem name="尾迹">-->
+<!--        <n-tooltip trigger="hover">-->
+<!--          <template #trigger>-->
+<!--            <n-input-number-->
+<!--              v-model:value="seriesList[2].effect.trailLength"-->
+<!--              size="small"-->
+<!--              :min="0"-->
+<!--              :max="1"-->
+<!--            ></n-input-number>-->
+<!--          </template>-->
+<!--          特效尾迹长度[0,1]值越大，尾迹越长重-->
+<!--        </n-tooltip>-->
+<!--      </SettingItem>-->
+<!--      <SettingItem name="大小">-->
+<!--        <n-input-number v-model:value="seriesList[2].effect.symbolSize" size="small" :min="0"></n-input-number>-->
+<!--      </SettingItem>-->
+<!--    </SettingItemBox>-->
+<!--    <SettingItemBox name="配置">-->
+<!--      <SettingItem name="颜色">-->
+<!--        <n-color-picker-->
+<!--          size="small"-->
+<!--          :modes="['hex']"-->
+<!--          v-model:value="seriesList[2].lineStyle.normal.color"-->
+<!--        ></n-color-picker>-->
+<!--      </SettingItem>-->
+<!--      <SettingItem name="宽度">-->
+<!--        <n-input-number v-model:value="seriesList[2].lineStyle.normal.width" size="small" :min="1"></n-input-number>-->
+<!--      </SettingItem>-->
+<!--    </SettingItemBox>-->
+<!--  </CollapseItem>-->
 </template>
 
 <script setup lang="ts">
-import { PropType, computed } from 'vue'
+import { PropType, computed,watch } from 'vue'
 import { CollapseItem, SettingItemBox, SettingItem } from '@/components/Pages/ChartItemSetting'
 import { GlobalThemeJsonType } from '@/settings/chartThemes/index'
 import { GlobalSetting } from '@/components/Pages/ChartItemSetting'
@@ -290,6 +315,12 @@ const mapRegionOptions = ref([
   {
     adcode: 'china',
     name: '中国'
+  }
+])
+const provinceOptions = ref([
+  {
+    adcode: '',
+    name: ''
   }
 ])
 
@@ -310,15 +341,19 @@ const props = defineProps({
     required: true
   }
 })
-
-const initMapRegionOptions = () => {
-  mapChinaJson.features.forEach((element: any) => {
+const getMapOptionsByMapJson = (mapJson:any,origin:any)=>{
+  mapJson.features.forEach((element: any) => {
     if (element.properties.name) {
-      mapRegionOptions.value.push({ ...element.properties })
+      origin.push({ ...element.properties })
     }
   })
 }
+const initMapRegionOptions = () => {
+  getMapOptionsByMapJson(mapChinaJson,mapRegionOptions.value)
+ 
+}
 initMapRegionOptions()
+
 
 const seriesList = computed(() => {
   return props.optionData.series
@@ -326,5 +361,16 @@ const seriesList = computed(() => {
 
 const mapRegion = computed(() => {
   return props.optionData.mapRegion
+})
+watch(()=>mapRegion.value.adcode,(code:string)=>{
+  // 清空
+  provinceOptions.value = []
+  mapRegion.value.province = ''
+  import(`./mapGeojson/${code}.json`).then((data:any) => {
+    console.log(data,'data_data')
+    getMapOptionsByMapJson(data,provinceOptions.value)
+    console.log(provinceOptions.value,'provinceOptions.value')
+      
+    })
 })
 </script>

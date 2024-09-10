@@ -26,7 +26,8 @@
         <n-text>{{ $t('global.doc') }}</n-text>
       </n-button>
 
-      <n-tooltip v-if="collapsed" placement="right" trigger="hover">
+      <!-- 官方地址 -->
+      <!-- <n-tooltip v-if="collapsed" placement="right" trigger="hover">
         <template #trigger>
           <n-button secondary @click="handleDoc">
             <template #icon>
@@ -48,7 +49,7 @@
           </n-icon>
         </template>
         <n-text v-show="!collapsed">{{ $t('global.code_addr') }}</n-text>
-      </n-button>
+      </n-button> -->
     </n-space>
   </div>
 </template>

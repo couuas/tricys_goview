@@ -20,8 +20,9 @@ import { CanvasRenderer } from 'echarts/renderers'
 import { BarChart } from 'echarts/charts'
 import { mergeTheme } from '@/packages/public/chart'
 import config, { includes, seriesItem } from './config'
-import { useChartDataFetch } from '@/hooks'
+import {useChartCommonData, useChartDataFetch} from '@/hooks'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
+import {isPreview, setTooltipPosition} from '@/utils'
 import { DatasetComponent, GridComponent, TooltipComponent, LegendComponent } from 'echarts/components'
 import isObject from 'lodash/isObject'
 import cloneDeep from 'lodash/cloneDeep'
@@ -41,6 +42,8 @@ const props = defineProps({
   }
 })
 
+props.chartConfig.option.tooltip.position = setTooltipPosition(props.chartConfig.attr)
+
 const initOptions = useCanvasInitOptions(props.chartConfig.option, props.themeSetting)
 
 use([DatasetComponent, CanvasRenderer, BarChart, GridComponent, TooltipComponent, LegendComponent])
@@ -52,32 +55,32 @@ const option = computed(() => {
 })
 
 // dataset 无法变更条数的补丁
-watch(
-  () => props.chartConfig.option.dataset,
-  (newData: { dimensions: any }, oldData) => {
-    try {
-      if (!isObject(newData) || !('dimensions' in newData)) return
-      if (Array.isArray(newData?.dimensions)) {
-        const seriesArr = []
-        for (let i = 0; i < newData.dimensions.length - 1; i++) {
-          seriesArr.push(cloneDeep(seriesItem))
-        }
-        replaceMergeArr.value = ['series']
-        props.chartConfig.option.series = seriesArr
-        nextTick(() => {
-          replaceMergeArr.value = []
-        })
-      }
-    } catch (error) {
-      console.log(error)
-    }
-  },
-  {
-    deep: false
-  }
-)
+// watch(
+//   () => props.chartConfig.option.dataset,
+//   (newData: { dimensions: any }, oldData) => {
+//     try {
+//       if (!isObject(newData) || !('dimensions' in newData)) return
+//       if (Array.isArray(newData?.dimensions)) {
+//         const seriesArr = []
+//         for (let i = 0; i < newData.dimensions.length - 1; i++) {
+//           seriesArr.push(cloneDeep(seriesItem))
+//         }
+//         replaceMergeArr.value = ['series']
+//         props.chartConfig.option.series = seriesArr
+//         nextTick(() => {
+//           replaceMergeArr.value = []
+//         })
+//       }
+//     } catch (error) {
+//       console.log(error)
+//     }
+//   },
+//   {
+//     deep: false
+//   }
+// )
 
-const { vChartRef } = useChartDataFetch(props.chartConfig, useChartEditStore, (newData: any) => {
-  props.chartConfig.option.dataset = newData
-})
+// const { vChartRef } = useChartDataFetch(props.chartConfig, useChartEditStore)
+const { vChartRef } = useChartCommonData(props.chartConfig, useChartEditStore)
+
 </script>

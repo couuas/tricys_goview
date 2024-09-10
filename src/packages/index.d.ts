@@ -1,6 +1,8 @@
 import { BaseEvent, EventLife, InteractEvents, InteractEventOn, InteractActionsType } from '@/enums/eventEnum'
 import type { GlobalThemeJsonType } from '@/settings/chartThemes/index'
 import type { RequestConfigType } from '@/store/modules/chartEditStore/chartEditStore.d'
+import { CustomComponentsList } from "@/packages/components/CustomComponents/index";
+import { commonDataType, CustomEventType } from '@/store/modules/chartEditStore/chartEditStore.d'
 
 export enum ChartFrameEnum {
   // 支持 dataset 的 echarts 框架
@@ -21,6 +23,8 @@ export type ConfigType = {
   chartKey: string
   // 右侧设置面板组件 key
   conKey: string
+  // 右侧设置面板组件 key 数据tab
+  conDataKey?: string,
   // 标题
   title: string
   // 分类
@@ -110,11 +114,18 @@ export const BlendModeEnumList = [
   { label: '亮度', value: 'luminosity' }
 ]
 
+export interface PublicConfigAttrType {
+  x: number; y: number; w: number; h: number; zIndex: number; offsetX: number; offsetY: number, isHeadInsert?: boolean, isFixedInit?: boolean,
+  isAfterBGInsert?: boolean, isBeforeEngineerging?: boolean
+}
+
 // 组件实例类
 export interface PublicConfigType {
   id: string
   isGroup: boolean
-  attr: { x: number; y: number; w: number; h: number; zIndex: number; offsetX: number; offsetY: number }
+  // isHeadInsert 组件置底
+  // isFixedInit 组件初始时位置以x,y为准 不以鼠标位置为准
+  attr: PublicConfigAttrType
   styles: {
     [FilterEnum.FILTERS_SHOW]: boolean
     [FilterEnum.OPACITY]: number
@@ -138,6 +149,9 @@ export interface PublicConfigType {
     overFlowHidden?: boolean
   }
   filter?: string
+  commonData: commonDataType
+  customData?: { [key: string]: any }
+  customEvent: CustomEventType
   status: StatusType
   interactActions?: InteractActionsType[]
   events: {
@@ -152,7 +166,8 @@ export interface PublicConfigType {
       [InteractEvents.INTERACT_COMPONENT_ID]: string | undefined
       [InteractEvents.INTERACT_FN]: { [name: string]: string }
     }[]
-  }
+  },
+  $ref
 }
 
 export interface CreateComponentType extends PublicConfigType, requestConfig {
@@ -177,7 +192,10 @@ export enum PackagesCategoryEnum {
   INFORMATIONS = 'Informations',
   PHOTOS = 'Photos',
   ICONS = 'Icons',
-  DECORATES = 'Decorates'
+  DECORATES = 'Decorates',
+  THEMESANDLAYOUTS = 'ThemesAndLayouts',
+  CUSTOMCOMPONENTS = 'CustomComponents',
+  BACKGROUNDS = 'Backgrounds',
 }
 
 // 包分类名称
@@ -187,13 +205,17 @@ export enum PackagesCategoryName {
   INFORMATIONS = '信息',
   PHOTOS = '图片',
   ICONS = '图标',
-  DECORATES = '小组件'
+  DECORATES = '小组件',
+  THEMESANDLAYOUTS = '主题',
+  CUSTOMCOMPONENTS = '自定义',
+  BACKGROUNDS = '背景',
 }
 
 // 获取组件
 export enum FetchComFlagType {
   VIEW,
-  CONFIG
+  CONFIG,
+  CONFIGDATA
 }
 
 // 图表包类型
@@ -204,4 +226,6 @@ export type PackagesType = {
   [PackagesCategoryEnum.PHOTOS]: ConfigType[]
   [PackagesCategoryEnum.ICONS]: ConfigType[]
   [PackagesCategoryEnum.DECORATES]: ConfigType[]
+  // [PackagesCategoryEnum.THEMESANDLAYOUTS]: ConfigType[]
+  [PackagesCategoryEnum.CUSTOMCOMPONENTS]: ConfigType[]
 }

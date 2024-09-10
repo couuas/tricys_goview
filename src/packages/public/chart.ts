@@ -12,6 +12,7 @@ import type VChart from 'vue-echarts'
  * @returns object
  */
 export const mergeTheme = <T, U>(option: T, themeSetting: U, includes: string[]) => {
+  
   return (option = merge({}, pick(themeSetting, includes), option))
 }
 
@@ -43,6 +44,7 @@ export const setData = (option: any, data: EchartsDataType) => {
 export const setOption = <T extends typeof VChart | undefined, D>(instance: T, data: D, notMerge = true) => {
   if (!instance) return
   const option = instance.getOption()
+  if(!option) return
   option.dataset = null
   instance.setOption(data, {
     notMerge: notMerge
