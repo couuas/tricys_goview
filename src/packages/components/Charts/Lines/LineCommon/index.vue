@@ -4,7 +4,6 @@
     :init-options="initOptions"
     :theme="themeColor"
     :option="option"
-    :manual-update="isPreview()"
     :update-options="{
       replaceMerge: replaceMergeArr
     }"

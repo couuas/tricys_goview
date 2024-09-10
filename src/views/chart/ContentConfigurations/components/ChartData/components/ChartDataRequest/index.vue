@@ -21,7 +21,10 @@
               {{ requestContentTypeObj[requestContentType] }}
             </n-tag>
           </div>
-          <n-button type="primary" @click="closeAndSendHandle"> {{ saveBtnText || '保存 & 发送请求' }}</n-button>
+          <div>
+            <n-button class="go-mr-3" @click="closeHandle">取消</n-button>
+            <n-button type="primary" @click="closeAndSendHandle"> {{ saveBtnText || '保存 & 发送请求' }}</n-button>
+          </div>
         </n-space>
       </template>
     </n-card>
@@ -74,6 +77,10 @@ const closeAndSendHandle = () => {
   emit('update:modelShow', false)
   emit('sendHandle')
   dataSyncUpdate()
+}
+
+const onEsc = () => {
+  closeHandle()
 }
 </script>
 

@@ -4,7 +4,9 @@
     :init-options="initOptions"
     :theme="themeColor"
     :option="option"
-    :manual-update="isPreview()"
+    :update-options="{
+      replaceMerge: replaceMergeArr
+    }"
     autoresize
   ></v-chart>
 </template>
@@ -12,6 +14,7 @@
 <script setup lang="ts">
 import { ref, computed, watch, PropType, nextTick } from 'vue'
 import VChart from 'vue-echarts'
+import { isObject, cloneDeep } from 'lodash'
 import { useCanvasInitOptions } from '@/hooks/useCanvasInitOptions.hook'
 import { use } from 'echarts/core'
 import { CanvasRenderer } from 'echarts/renderers'

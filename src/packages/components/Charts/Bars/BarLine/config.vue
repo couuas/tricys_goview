@@ -62,6 +62,12 @@
       <SettingItem name="类型">
         <n-select v-model:value="item.lineStyle.type" size="small" :options="lineConf.lineStyle.type"></n-select>
       </SettingItem>
+      <setting-item>
+        <n-space>
+          <n-switch v-model:value="item.smooth" size="small" />
+          <n-text>曲线</n-text>
+        </n-space>
+      </setting-item>
     </SettingItemBox>
     <SettingItemBox name="实心点" v-if="item.type == 'line'">
       <SettingItem name="大小">
@@ -91,10 +97,10 @@
         <n-select
           v-model:value="item.label.position"
           :options="[
-            { label: 'top', value: 'top' },
-            { label: 'left', value: 'left' },
-            { label: 'right', value: 'right' },
-            { label: 'bottom', value: 'bottom' }
+            { label: '顶部', value: 'top' },
+            { label: '左侧', value: 'left' },
+            { label: '右侧', value: 'right' },
+            { label: '底部', value: 'bottom' }
           ]"
         />
       </setting-item>

@@ -63,6 +63,7 @@
                     type="text"
                     maxlength="16"
                     :placeholder="$t('global.form_account')"
+                    @keydown.enter="handleSubmit"
                   >
                     <template #prefix>
                       <n-icon size="18">
@@ -78,6 +79,7 @@
                     maxlength="16"
                     show-password-on="click"
                     :placeholder="$t('global.form_password')"
+                    @keydown.enter="handleSubmit"
                   >
                     <template #prefix>
                       <n-icon size="18">
