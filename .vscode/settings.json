@@ -1,8 +1,10 @@
 {
   "editor.codeActionsOnSave": {
-    "source.fixAll": "explicit"
+    // Wiating Fix all Code to enable
+    // "source.fixAll": "explicit"
   },
-  "editor.formatOnSave": true,
+  // Wiating format all Code to enable
+  // "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "typescript.tsdk": "node_modules/typescript/lib"
 }
