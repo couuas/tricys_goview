@@ -1,1 +1,1 @@
-# npx --no-install commitlint -e 
+node scripts/verify-commit.js
