@@ -1,5 +1,6 @@
-const storeGenerator = require('./store-template/prompt')
+// @ts-check
+import storeGenerator from './store-template/prompt.js'
 
-module.exports = (plop) => {
+export default plop => {
   plop.setGenerator('store', storeGenerator)
 }
