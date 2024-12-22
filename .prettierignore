@@ -1,0 +1,8 @@
+auto-imports.d.ts
+components.d.ts
+pnpm-lock.yaml
+dist
+/node_modules/*
+.workflow
+src/packages/components/Charts/Maps/MapBase/mapGeojson/*.json
+store-template
