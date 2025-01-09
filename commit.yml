@@ -2,109 +2,16 @@
 branches: {
   }
 fileChange:
-  /.gitignore:
-    newFile: !uuid 'c9c023790806f8ad2ef7e10159e821821c963689'
-    oldFile: !uuid '624876e9f1712df024602949fd6929626961b09e'
-  /package.json:
-    newFile: !uuid '47da942c1f09ea00bbf46a83731cbc80f6a0a04a'
-    oldFile: !uuid '42fda19fc56f0ef25feedddf2ce807c4f5914d12'
-  /pnpm-lock.yaml:
-    newFile: null
-    oldFile: !uuid '27efaa44603c466f3cec97d8fd0c2be38f1fb6fb'
-  /src:
-    newFile: !uuid 'ca2eb974f31dc9378353fbfe674d945c1568dde8'
-    oldFile: !uuid '8b90a1039897fadac053588cf77b0e4b2468525c'
-  /src/assets:
-    newFile: !uuid '8eb8ddf783db8cd3745deb48e0b681f9f3f9a120'
-    oldFile: !uuid '703d39b8cd9bd16c1ae666565a0c5871ff853fef'
-  /src/assets/images:
-    newFile: !uuid '3440bcdde8adc219e977ec6db51e16b8e1088fcf'
-    oldFile: !uuid '62e0d6a34399dab2e100063e3687ba5be369a4a5'
-  /src/assets/images/chart:
-    newFile: !uuid 'd92ca0e234ccbc5dc9e1b9e7a251c965ebabcdec'
-    oldFile: !uuid 'cf189495c306d01cc2d8e1c88b8abe16bc306167'
-  /src/assets/images/chart/vchart:
-    newFile: !uuid 'b59419c63b9b715475bbd4d1cc7143085fffb717'
-    oldFile: null
-  /src/assets/images/chart/vchart/vchart_bar_x.png:
-    newFile: !uuid '7a0b111a9e576d8660aaef1f94dd0d2012778761'
-    oldFile: null
-  /src/components:
-    newFile: !uuid '914496d9c62f7d62f7362ebe387e402e99be2102'
-    oldFile: !uuid 'ce55f0712dd2310a7683b5a748a0218e20c68bbf'
-  /src/components/GoVChart:
-    newFile: !uuid 'd99a958bb96f53c1b37c0a7ee9aa464e1fbccf24'
-    oldFile: null
-  /src/components/GoVChart/index.ts:
-    newFile: !uuid '64bec7ba5c4889cbb03af3dd8ae2bb342eefafe4'
-    oldFile: null
-  /src/components/GoVChart/index.vue:
-    newFile: !uuid 'db36e222aaaf1774d4b096a33efddb90e52e89b0'
-    oldFile: null
-  /src/packages:
-    newFile: !uuid '9228b81c695d6b258959783b42545c0a3e71e4bb'
-    oldFile: !uuid 'd8653487d51c759e0c4ecd2eff564a4756e4d684'
-  /src/packages/components:
-    newFile: !uuid '71769963fe8e9c63ece1fcea62de4f55ae241a5a'
-    oldFile: !uuid '36e85916acb371dbec9da4ccc9a3323cb17a8f25'
-  /src/packages/components/VChart:
-    newFile: !uuid '88b1dac3121899ea992bb8107b81a795d3ce3422'
-    oldFile: null
-  /src/packages/components/VChart/Bars:
-    newFile: !uuid 'd173eef54c1c8f724c3b1f3516f7d904ef7e4c5f'
-    oldFile: null
-  /src/packages/components/VChart/Bars/VChartBarCommon:
-    newFile: !uuid '51fddc6bdd345b41cc8abeb4bbb63435dc44b81f'
-    oldFile: null
-  /src/packages/components/VChart/Bars/VChartBarCommon/config.ts:
-    newFile: !uuid '7373ed8c4712b75f14ce2998a9f3ecc8d1223646'
-    oldFile: null
-  /src/packages/components/VChart/Bars/VChartBarCommon/config.vue:
-    newFile: !uuid 'a79b3358fd64603d82904bdc6f346f2d101e9692'
-    oldFile: null
-  /src/packages/components/VChart/Bars/VChartBarCommon/index.ts:
-    newFile: !uuid '8e8a153307070e3c643adfe94941498b76304ead'
-    oldFile: null
-  /src/packages/components/VChart/Bars/index.ts:
-    newFile: !uuid '77fb04fd49cf4eaf880c9287cf9d63aad3c859c5'
-    oldFile: null
-  /src/packages/components/VChart/index.d.ts:
-    newFile: !uuid 'ad09b06362f1ca46ce2dff650fdb53f04496a2cf'
-    oldFile: null
-  /src/packages/components/VChart/index.ts:
-    newFile: !uuid 'cdc19c62c9e775f91d18e838934d3075d7e33a58'
-    oldFile: null
-  /src/packages/index.d.ts:
-    newFile: !uuid '3551279ca4a95369780cc979ec1c97f13d3267a0'
-    oldFile: !uuid '3be431053d434a252f782795f869dedaf64d1719'
-  /src/packages/index.ts:
-    newFile: !uuid 'de53508d8b33cc0c0706850a2a8617d6b595d2ff'
-    oldFile: !uuid 'fd551313839f9d52f85ddd0c5ba63491b63a3e10'
-  /src/plugins:
-    newFile: !uuid 'c3115f43453180b53380c38306422eaa71d855b3'
-    oldFile: !uuid 'af1caddbee16dee25780db1c28abba905560571b'
-  /src/plugins/icon.ts:
-    newFile: !uuid '86c15770dcc256983e8c6acec531d58be58e7ad1'
-    oldFile: !uuid '6d31a1f43d5f4ad056b5b072bdc80589327c1376'
-  /src/views:
-    newFile: !uuid '45b8fd4bb3035b1910749bc31fd8091840c01cd1'
-    oldFile: !uuid '60408f36b2117687f4f6c3151e07ca50559770d4'
-  /src/views/chart:
-    newFile: !uuid 'a49bad29255e808f0f97a9278900387aa49ea63e'
-    oldFile: !uuid '3953b2b04f8801f2e2b4c723541fee08a7627a5a'
-  /src/views/chart/ContentCharts:
-    newFile: !uuid '2dbc807e36bf6473069d681db0d99308860d51c3'
-    oldFile: !uuid '0e5561a5177da3936b3e242df730b6144118e585'
-  /src/views/chart/ContentCharts/hooks:
-    newFile: !uuid 'db1995f5d09ea645d35b076d9f255a56f1539fbe'
-    oldFile: !uuid '1271499fbd53f1bd0db9fcc2ceb491087483496a'
-  /src/views/chart/ContentCharts/hooks/useAside.hook.ts:
-    newFile: !uuid '9bfded2f70dcfab94089b8c4b630efefaececfcb'
-    oldFile: !uuid '539087ec526ad4a645e19f97219d62b64edb6fa1'
-  /vite.config.ts:
-    newFile: !uuid 'f458c4e20ad1512c95f3d8a99b5f162bbdce16f4'
-    oldFile: !uuid '604137448c542f1dcd4a248587c3612dab8b27b5'
-gitCommitId: !uuid '5533d7811097d3ed674ca02c814f373f35b44d74'
+  /README.md:
+    newFile: !uuid 'c6c0e14c2e6788edcf996faffbbf60a8e1cef2ba'
+    oldFile: !uuid '696929e370e64ddc80c9c756f7374053e3e593b9'
+  /readme:
+    newFile: !uuid 'b9ceeee38fb6dd99958e1942887e6271e7c31c2b'
+    oldFile: !uuid 'b3dba95fbf4ef8898daf9bfdaecdd1cedfb9222f'
+  /readme/go-view-qq.jpg:
+    newFile: !uuid '019d0334cba05eda5bf92a07e75c348a7b1ab38a'
+    oldFile: !uuid 'f29bc0826cad3ee296446b3a35d586dbfa5b9a3e'
+gitCommitId: !uuid '1614e3957f078ad29637817754719927c922dda8'
 renames: {
   }
-revisionId: 1440
+revisionId: 1441
