@@ -185,7 +185,7 @@ Cloud IDE 代码在线预览地址：[https://idegitee.com/dromara/go-view](http
 亮白主题：
 ![亮白主题](readme/go-view-theme.png)
 
-最新动态: 整合字节图表框架 VChart
+最新动态: 整合字节图表框架 VChart[https://visactor.io/vchart](https://visactor.io/vchart)
 ![图表框架 VChart](readme/go-view-vcharts.png)
 
 主要技术栈为：
