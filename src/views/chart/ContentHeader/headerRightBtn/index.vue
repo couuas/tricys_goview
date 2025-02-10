@@ -166,7 +166,7 @@ const btnList = [
   },
   {
     key: 'preview',
-    title: () => '预览',
+    title: () => '本地预览',
     type: () => 'default',
     icon: renderIcon(BrowsersOutlineIcon),
     event: previewHandle

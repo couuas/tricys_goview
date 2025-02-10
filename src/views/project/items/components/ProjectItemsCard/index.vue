@@ -122,7 +122,8 @@ const selectOptions = ref([
   {
     label: renderLang('global.r_preview'),
     key: 'preview',
-    icon: renderIcon(BrowsersOutlineIcon)
+    icon: renderIcon(BrowsersOutlineIcon),
+    show: props.cardData?.release
   },
   {
     label: props.cardData?.release
@@ -136,7 +137,7 @@ const selectOptions = ref([
     key: 'delete',
     icon: renderIcon(TrashIcon)
   }
-])
+].filter(item => item.show !== false))
 
 const handleSelect = (key: string) => {
   switch (key) {
