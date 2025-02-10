@@ -286,8 +286,7 @@ export const JSONStringify = <T>(data: T) => {
         return null
       }
       return val
-    },
-    2
+    }
   )
 }
 
