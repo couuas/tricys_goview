@@ -20,13 +20,15 @@ export default (chartProps: any) => {
   const { name: yAxisName, ...restYAxisProps } = chartProps.yAxis
   spec.axes = [{
     orient: 'bottom',
-    ...restXAxisProps
+    ...restXAxisProps,
+    // paddingInner: 0.5
   }, {
     orient: 'left',
     ...restYAxisProps
   }]
+
   delete spec.xAxis
   delete spec.yAxis
-  console.log('spec-transform', spec)
+  // console.log('spec-bar-transform', spec)
   return spec
 }
