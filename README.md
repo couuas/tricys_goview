@@ -156,6 +156,8 @@ Cloud IDE 代码在线预览地址：[https://idegitee.com/dromara/go-view](http
 
 - 封装：项目进行了详细的工具类封装如：路由、存储、加/解密、文件处理、主题、NaiveUI 全局方法、组件等
 
+- 可视化：基于开源图表库[ECharts](https://echarts.apache.org/zh/index.html) 和 [VChart](https://www.visactor.io/vchart) 编写，具有丰富的图表类型和适配大屏的主题效果；
+
 - 入选 NaiveUI 社区精选资源推荐：[查看 NaiveUI 推荐列表](https://www.naiveui.com/zh-CN/light/docs/community)
 
 说明文档：
@@ -199,10 +201,10 @@ Cloud IDE 代码在线预览地址：[https://idegitee.com/dromara/go-view](http
 
 开发环境:
 
-| 名称 | 版本    | 名称    | 版本  |
-| ---- | ------- | ------- | ----- |
-| node | 18.20.x | npm     | 10.7.x|
-| pnpm | 8.6.7   | windows | 11    |
+| 名称 | 版本    | 名称    | 版本   |
+| ---- | ------- | ------- | ------ |
+| node | 18.20.x | npm     | 10.7.x |
+| pnpm | 8.6.7   | windows | 11     |
 
 已完成图表：
 
