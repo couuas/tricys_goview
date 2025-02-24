@@ -2,13 +2,22 @@
 branches: {
   }
 fileChange:
-  /package.json:
-    newFile: !uuid '0893fc465b5a049bce137d82d9340712049159b3'
-    oldFile: !uuid 'a1969a96e29299c359e44b4cae2b8889b465baf8'
-  /pnpm-lock.yaml:
-    newFile: !uuid '4a05db4fecd24adbac3f23a3911183a22848fa14'
-    oldFile: !uuid '24744632f6c316f834ad19367985fb2ebb4a6f95'
-gitCommitId: !uuid '07c7c84c91f97207af3c019e7490deabb5729970'
+  /src:
+    newFile: !uuid 'b7001432a9a113ef19967e06b223e1f7f66669d3'
+    oldFile: !uuid 'dd2d33a51293135cec9cd90a8eccea5cf82e91dd'
+  /src/components:
+    newFile: !uuid '85e9cc7d7456d9da173665ef58929c790a670a9e'
+    oldFile: !uuid '01aa2f76fb05d10c779e7269f6dcd25afd2ede58'
+  /src/components/GoVChart:
+    newFile: !uuid '876ac91d515b65b04e1b6bdc6c6c2c23906759b1'
+    oldFile: !uuid '808b59a700cc810a163968b149dfcf0e2af44000'
+  /src/components/GoVChart/index.vue:
+    newFile: !uuid 'd2c5c050faa95fcf9adced2dfc1f7eb115d71b20'
+    oldFile: !uuid '07abd05bfcce161740851bcfdb534c0ea249279d'
+  /src/components/GoVChart/register.ts:
+    newFile: !uuid 'cc7ba19678036e2a327d6939904eeec6bb2ace8b'
+    oldFile: null
+gitCommitId: !uuid 'c2261a123fc451ea38c5e6e4e7b98952dd1ddcf2'
 renames: {
   }
-revisionId: 1447
+revisionId: 1448
