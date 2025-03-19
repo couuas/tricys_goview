@@ -12,6 +12,11 @@ function pathResolve(dir: string) {
 
 export default defineConfig({
   base: '/',
+  // 修改端口
+  server: {
+    port: 3020,
+    open: true,
+  },
   // 路径重定向
   resolve: {
     alias: [
