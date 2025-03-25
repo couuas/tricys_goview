@@ -113,7 +113,15 @@
           </div>
         </n-space>
         <n-card size="small">
-          <n-code :code="toString(source)" language="json"></n-code>
+          <!-- <n-code :code="toString(source)" language="json"></n-code> -->
+          <monaco-editor
+            :modelValue="JSON.stringify(source, null, 2)"
+            @update:modelValue="handleEditorUpdate"
+            language="json"
+            width="100%"
+            height="520px"
+          />
+          <n-button class="sourceBtn-item" @click="handleRun"> 运行 </n-button>
         </n-card>
       </n-space>
     </n-timeline-item>
@@ -130,6 +138,7 @@ import { ChartDataMonacoEditor } from '../ChartDataMonacoEditor'
 import { useFile } from '../../hooks/useFile.hooks'
 import { useTargetData } from '../../../hooks/useTargetData.hook'
 import { toString, isArray } from '@/utils'
+import { MonacoEditor } from '@/components/Pages/MonacoEditor'
 
 const { targetData } = useTargetData()
 defineProps({
@@ -238,6 +247,21 @@ const initFieldListHandle = () => {
       }
     }
   }
+}
+
+// 处理编辑器内容更新
+const handleEditorUpdate = (val: string) => {
+  try {
+    if (!val) return (source.value = '此组件无数据源')
+    source.value = JSON.parse(val)
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+// 监听点击运行按钮的事件
+const handleRun = () => {
+  targetData.value.option.dataset = source.value
 }
 
 watch(
