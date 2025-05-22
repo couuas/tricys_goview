@@ -15,7 +15,15 @@
     <img src="readme/logo-t-y.png" alt="go-view" />
 </p>
 
-<h4 align="center">开源、精美、便捷的「数据可视化」低代码开发平台</h4>
+<h4 align="center">
+开源、精美、便捷的「数据可视化」低代码开发平台
+</h4>
+
+<h4 align="center">
+<img src="https://gitee.com/dromara/go-view/badge/star.svg?theme=gvp" style="position: relative; display: inline-block; top: 6px; border-radius: 0px;" />
+<img src="https://gitcode.com/GoView/go-view/star/badge.svg" style="display: inline-block; position: relative; top: 4px;">
+</h4>
+
 
 #### 长期赞助商
 
