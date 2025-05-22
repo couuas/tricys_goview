@@ -2,28 +2,10 @@
 branches: {
   }
 fileChange:
-  /src:
-    newFile: !uuid 'f3185228817c5f917f29d8fc5c2368f66eebcb72'
-    oldFile: !uuid '3018bdfe39cbeb0d61b1b2ced10fdbb61b6cb5c6'
-  /src/packages:
-    newFile: !uuid 'c0dca19bd8421be0263fb1d36343a7d01333ff54'
-    oldFile: !uuid '8ff6ebf990d00a452be7e1c519585d98d00b5ecf'
-  /src/packages/components:
-    newFile: !uuid '09d239af90e83f9590b405d24a07ba3eb61130eb'
-    oldFile: !uuid 'b3c0eed2e7480346d992c13f7a2f2117ee97e082'
-  /src/packages/components/Charts:
-    newFile: !uuid '33023f4f887552bdd9159dd4ee40bb6a76485bf6'
-    oldFile: !uuid 'eb89da8d0fd56d3aa16320f9ea84f0ea9f25f070'
-  /src/packages/components/Charts/Pies:
-    newFile: !uuid 'c2db275e0902efbf05a2d56f8b4031d306e10947'
-    oldFile: !uuid '9ac98c7ba49f750bb4696359707ef94cc8746cd0'
-  /src/packages/components/Charts/Pies/PieCommon:
-    newFile: !uuid '89900f779950d1a5bf00d09c6d719c7221a1607d'
-    oldFile: !uuid '6d2d37f73dde130d302174767363159d190b1741'
-  /src/packages/components/Charts/Pies/PieCommon/index.vue:
-    newFile: !uuid '9551dfd1878dc8bcdd1912cc44cd10025e6c9a1c'
-    oldFile: !uuid 'f85ef6feae00907c90b3a7fc69e826ca14f3e5c7'
-gitCommitId: !uuid '0aa70fe0c0ea40d0dade0383027c6f579b38beb8'
+  /README.md:
+    newFile: !uuid '50d079c1b9da931466ef271a8bb1086467829b4a'
+    oldFile: !uuid 'd05ea0592c2ba88d354ac35e1c7bb275b2a87938'
+gitCommitId: !uuid '75bc71f756becf9efa8d828e18a60c8ea0f23495'
 renames: {
   }
-revisionId: 1455
+revisionId: 1456
