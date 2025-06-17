@@ -1,5 +1,5 @@
 import { PublicConfigClass } from '@/packages/public'
-import { VChartBarStackConfig } from './index'
+import { VChartBarCrossrangeConfig } from './index'
 import { CreateComponentType } from '@/packages/index.d'
 import { vChartOptionPrefixHandle } from '@/packages/public/vChart'
 import data from './data.json'
@@ -10,23 +10,23 @@ import { vChartGlobalThemeJson } from '@/settings/vchartThemes'
 
 const barConfig = merge(cloneDeep(vChartGlobalThemeJson.bar), {
   style: {
-    width: 15
+    height: 10
   }
 })
+delete (barConfig.style as { width?: any }).width
 
 export const includes = ['legends', 'tooltip', 'label']
 export const option: IBarOption & { dataset?: any } = {
   // 图表配置
   type: 'bar',
   dataset: data,
-  xField: ['type'],
-  yField: ['value'],
-  seriesField: 'year',
   stack: true,
-  // 开启百分比
-  percent: false,
+  xField: ['value'],
+  yField: ['year', 'type'],
+  seriesField: 'type',
   // 业务配置（后续会被转换为图表spec)
-  category: VChartBarStackConfig.category as ChatCategoryEnum.BAR,
+  category: VChartBarCrossrangeConfig.category as ChatCategoryEnum.BAR,
+  direction: 'horizontal',
   xAxis: {
     name: 'x轴',
     ...(merge(cloneDeep(axisThemeJson), {
@@ -65,8 +65,8 @@ export const option: IBarOption & { dataset?: any } = {
 }
 
 export default class Config extends PublicConfigClass implements CreateComponentType {
-  public key = VChartBarStackConfig.key
-  public chartConfig = cloneDeep(VChartBarStackConfig)
+  public key = VChartBarCrossrangeConfig.key
+  public chartConfig = cloneDeep(VChartBarCrossrangeConfig)
   // 图表配置项
   public option = vChartOptionPrefixHandle(option, includes)
 }

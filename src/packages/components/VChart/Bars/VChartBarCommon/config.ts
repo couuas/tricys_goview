@@ -3,11 +3,11 @@ import { VChartBarCommonConfig } from './index'
 import { CreateComponentType } from '@/packages/index.d'
 import { vChartOptionPrefixHandle } from '@/packages/public/vChart'
 import data from './data.json'
-import cloneDeep from 'lodash/cloneDeep'
 import axisThemeJson from '@/settings/vchartThemes/axis.theme.json'
-import { IBarOption } from '../../index.d'
+import { ChatCategoryEnum, IBarOption } from '../../index.d'
+import { merge, cloneDeep } from 'lodash'
 
-export const includes = ['legends', 'tooltip']
+export const includes = ['legends', 'tooltip', 'label', 'bar']
 export const option: IBarOption & { dataset?: any } = {
   // 图表配置
   type: 'bar',
@@ -17,10 +17,17 @@ export const option: IBarOption & { dataset?: any } = {
   yField: ['value'],
   seriesField: 'type',
   // 业务配置（后续会被转换为图表spec)
-  category: VChartBarCommonConfig.category,
+  category: VChartBarCommonConfig.category as ChatCategoryEnum.BAR,
   xAxis: {
     name: 'x轴',
-    ...axisThemeJson,
+    ...(merge(cloneDeep(axisThemeJson), {
+      unit: {
+        style: {
+          dx: 10,
+          dy: 0
+        }
+      }
+    }) as any),
     grid: {
       ...axisThemeJson.grid,
       visible: false
@@ -28,12 +35,18 @@ export const option: IBarOption & { dataset?: any } = {
   },
   yAxis: {
     name: 'y轴',
-    ...axisThemeJson,
+    ...(merge(cloneDeep(axisThemeJson), {
+      unit: {
+        style: {
+          dx: 0,
+          dy: -10
+        }
+      }
+    }) as any),
     grid: {
       ...axisThemeJson.grid,
       style: {
-        ...axisThemeJson.grid.style,
-        lineDash: [3, 3]
+        ...axisThemeJson.grid.style
       }
     }
   }
