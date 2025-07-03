@@ -21,7 +21,7 @@ export const PieTypeObject = {
 // 其它配置
 const otherConfig = {
   // 轮播动画
-  isCarousel: false,
+  isCarousel: false
 }
 
 const option = {
@@ -42,6 +42,8 @@ const option = {
       center: ['50%', '60%'],
       roseType: false,
       avoidLabelOverlap: false,
+      startAngle: 0,
+      endAngle: 360,
       itemStyle: {
         show: true,
         borderRadius: 10,

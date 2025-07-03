@@ -113,6 +113,32 @@
         />
       </SettingItem>
     </setting-item-box>
+    <SettingItemBox name="角度">
+      <SettingItem name="起始角度">
+        <n-input-number
+          v-model:value="optionData.series[0].startAngle"
+          :min="0"
+          :step="1"
+          :max="360"
+          size="small"
+          placeholder="支持范围[0, 360]"
+        >
+          <template #suffix> ° </template>
+        </n-input-number>
+      </SettingItem>
+      <SettingItem name="结束角度">
+        <n-input-number
+          v-model:value="optionData.series[0].endAngle"
+          :min="0"
+          :step="1"
+          :max="360"
+          size="small"
+          placeholder="支持范围[0, 360]"
+        >
+          <template #suffix> ° </template>
+        </n-input-number>
+      </SettingItem>
+    </SettingItemBox>
   </CollapseItem>
 </template>
 
