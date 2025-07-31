@@ -140,6 +140,7 @@ const dataSetHandle = async (dataset: any) => {
     props.chartConfig.option.visualMap.pieces = dataset.pieces
   }else {
     props.chartConfig.option.visualMap.show = false
+    props.chartConfig.option.visualMap.pieces = []
   }
 
   isPreview() && vEchartsSetOption()
