@@ -116,19 +116,31 @@ const vEchartsSetOption = () => {
 // 更新数据处理
 const dataSetHandle = async (dataset: any) => {
   props.chartConfig.option.series.forEach((item: any) => {
-    if (item.type === 'effectScatter' && dataset.point) item.data = dataset.point
-    else if (item.type === 'lines' && dataset.line) {
-      item.data = dataset.line.map((it: any) => {
-        return {
-          ...it,
-          lineStyle: {
-            color: props.chartConfig.option.series[2].lineStyle.normal.color
+    if (item.type === 'effectScatter') {
+      item.data = dataset.point || []
+    } else if (item.type === 'lines') {
+      if (dataset.line) {
+        item.data = dataset.line.map((it: any) => {
+          return {
+            ...it,
+            lineStyle: {
+              color: props.chartConfig.option.series[2].lineStyle.normal.color
+            }
           }
-        }
-      })
-    } else if (item.type === 'map' && dataset.map) item.data = dataset.map
+        })
+      } else {
+        item.data = []
+      }
+    } else if (item.type === 'map') {
+      item.data = dataset.map || []
+    }
   })
-  if (dataset.pieces) props.chartConfig.option.visualMap.pieces = dataset.pieces
+  if (dataset.pieces){
+    props.chartConfig.option.visualMap.show = true
+    props.chartConfig.option.visualMap.pieces = dataset.pieces
+  }else {
+    props.chartConfig.option.visualMap.show = false
+  }
 
   isPreview() && vEchartsSetOption()
 }
