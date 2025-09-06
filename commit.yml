@@ -3,27 +3,27 @@ branches: {
   }
 fileChange:
   /src:
-    newFile: !uuid 'b1c3cf502deddb55964694196fe86dc203b9b704'
-    oldFile: !uuid '1a9b9ad74db6e5d64cbcef66db76f977b4bad91e'
+    newFile: !uuid 'f692cd3b3290c0883f30d9475cc709343fac96b3'
+    oldFile: !uuid 'b1c3cf502deddb55964694196fe86dc203b9b704'
   /src/packages:
-    newFile: !uuid '11e95f175775f1fad7aafad9dd4008529f647aaa'
-    oldFile: !uuid '2af4c015da92f2dc33d2c409d9974bd359b0cbc7'
+    newFile: !uuid '10060a9e2a46cd926e8d898b55fc3feec625582a'
+    oldFile: !uuid '11e95f175775f1fad7aafad9dd4008529f647aaa'
   /src/packages/components:
-    newFile: !uuid '127052f72668be50f4658216aed53c2ead03f183'
-    oldFile: !uuid '8e4e9b54782a99b5f100e8e6268b9410427d1e82'
+    newFile: !uuid '2ce89b4d66c5fead0b805355c9c6c7962ba37135'
+    oldFile: !uuid '127052f72668be50f4658216aed53c2ead03f183'
   /src/packages/components/Charts:
-    newFile: !uuid '009e87b18a522eb2e6e7c665af177a89babadfe9'
-    oldFile: !uuid 'e0d17d0db32dce116e96d970d4254893debd5738'
-  /src/packages/components/Charts/Lines:
-    newFile: !uuid '09bbb3150536b76fa7cadb7db3f0e8c9d82ef271'
-    oldFile: !uuid '91e1e582243446f2dc9f8384fdd50d31189fc5ce'
-  /src/packages/components/Charts/Lines/LineCommon:
-    newFile: !uuid '80b84c593f34268d547d8260e29c2a0e86c70d54'
-    oldFile: !uuid '40181c8078d24056ba4268eff1dd888b8cc1edd5'
-  /src/packages/components/Charts/Lines/LineCommon/index.vue:
-    newFile: !uuid '6c05318028c32b3941d349ff497842c6660f2ee9'
-    oldFile: !uuid '54d3cb47beee8cce089f7bc2737581dc1f91adb9'
-gitCommitId: !uuid '63bf279826428f7e636a29371868d70262834ed5'
+    newFile: !uuid '464233ba40931a4a031ecfeb17c472313bbbf7d0'
+    oldFile: !uuid '009e87b18a522eb2e6e7c665af177a89babadfe9'
+  /src/packages/components/Charts/Bars:
+    newFile: !uuid 'da050a70c565b17d04f1d0c14028e67bd2673091'
+    oldFile: !uuid '986c1769dd15ac46f9d1eb97643500bc94394301'
+  /src/packages/components/Charts/Bars/CapsuleChart:
+    newFile: !uuid 'f08d4f3f0f206c5076024c31743f7f83bdc4daf5'
+    oldFile: !uuid 'ebafa033987d1bdc9de7b1b1ac1899198d149759'
+  /src/packages/components/Charts/Bars/CapsuleChart/index.vue:
+    newFile: !uuid '07f3eccb3a5da3e6092a2e81004b9888bb5da183'
+    oldFile: !uuid '73a6ae0daf51f9531633d18c527dc5f7adf99866'
+gitCommitId: !uuid '115c176c3f43cb015d4f9c1d525fc3d955ee9217'
 renames: {
   }
-revisionId: 1461
+revisionId: 1462
