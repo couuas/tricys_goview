@@ -187,7 +187,7 @@ onMounted(() => {
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @include goId('chart-edit-layout') {
   position: relative;
   width: 100%;
