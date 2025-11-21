@@ -96,6 +96,63 @@ export const http = (type?: RequestHttpEnum) => {
 
 ```
 
+## 安装
+推荐使用 pnpm 管理项目，并使用 nrm 切换到阿里镜像，整体安装步骤如下：
+```
+
+# 1. 安装 pnpm
+npm install -g pnpm
+
+# 2. 安装 nrm
+npm install -g nrm
+
+# 3. 使用 nrm 添加阿里镜像
+nrm add taobao  https://registry.npmmirror.com/
+
+# 4. nrm 查看镜像列表
+nrm ls
+
+# 5. nrm 应用对应镜像
+nrm use taobao
+```
+
+### 安装项目依赖
+```
+# 推荐使用 pnpm
+pnpm install
+
+# 或 yarn
+yarn install
+```
+
+## 启动
+```
+# 推荐使用 pnpm
+pnpm dev
+
+# 或 yarn
+yarn dev
+
+# 或 Makefile（需要自行配置系统环境，谷歌 make 命令环境搭建）
+make dev
+```
+
+## 编译
+
+```
+# 推荐使用 pnpm
+pnpm run build
+
+# 或 yarn
+yarn run build
+
+# 或 Makefile
+make dist
+```
+
+## 浏览器支持
+开发和测试平台均在 Google 和最新版 EDGE 上完成，暂未测试 IE11 等其它浏览器，如有需求请自行测试与兼容。
+
 ## 代码提交
 
 * feat: 新功能
@@ -110,10 +167,3 @@ export const http = (type?: RequestHttpEnum) => {
 * style: 不影响程序逻辑的代码修改
 * chore: 不属于以上类型的其他类型(日常事务)
 
-## 交流
-
-QQ 群：1030129384
-
-![QQ群](readme/go-view-qq.png)
-
-![渲染海报](readme/logo-poster.png)
