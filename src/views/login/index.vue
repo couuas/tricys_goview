@@ -69,7 +69,7 @@
                   <n-input
                     v-model:value="formInline.password"
                     type="password"
-                    maxlength="16"
+                    maxlength="20"
                     show-password-on="click"
                     :placeholder="$t('global.form_password')"
                     @keydown.enter="handleSubmit"
