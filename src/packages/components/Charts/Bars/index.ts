@@ -2,5 +2,6 @@ import { BarCommonConfig } from './BarCommon/index'
 import { BarCrossrangeConfig } from './BarCrossrange/index'
 import { CapsuleChartConfig } from './CapsuleChart/index'
 import { BarLineConfig } from './BarLine/index'
+import { RankChartConfig } from './RankChart'
 
-export default [BarCommonConfig, BarCrossrangeConfig, BarLineConfig, CapsuleChartConfig]
+export default [BarCommonConfig, BarCrossrangeConfig, BarLineConfig, CapsuleChartConfig, RankChartConfig]

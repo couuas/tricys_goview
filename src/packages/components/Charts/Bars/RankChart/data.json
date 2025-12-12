@@ -1,0 +1,48 @@
+{
+  "dimensions": [
+    "name",
+    "value"
+  ],
+  "source": [
+    {
+      "name": "蔡洲",
+      "value": 691
+    },
+    {
+      "name": "孙磊",
+      "value": 544
+    },
+    {
+      "name": "张伟",
+      "value": 522
+    },
+    {
+      "name": "王文峰",
+      "value": 502
+    },
+    {
+      "name": "李强",
+      "value": 488
+    },
+    {
+      "name": "刘敏涛",
+      "value": 461
+    },
+    {
+      "name": "杨其",
+      "value": 395
+    },
+    {
+      "name": "王若娥",
+      "value": 389
+    },
+    {
+      "name": "童天宇",
+      "value": 335
+    },
+    {
+      "name": "杨欧鹏",
+      "value": 298
+    }
+  ]
+}
