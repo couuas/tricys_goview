@@ -1,7 +1,8 @@
 import { ref } from 'vue'
-import { ChartEnum } from '@/enums/pageEnum'
-import { fetchPathByName, routerTurnByPath, openNewWindow, previewPath } from '@/utils'
+import router from '@/router'
+import { ChartEnum, PreviewEnum } from '@/enums/pageEnum'
 import { Chartype } from '../../../index.d'
+
 export const useModalDataInit = () => {
   const modalShow = ref<boolean>(false)
   const modalData = ref<Chartype | null>(null)
@@ -22,13 +23,20 @@ export const useModalDataInit = () => {
   // 编辑处理
   const editHandle = (cardData: Chartype) => {
     if (!cardData) return
-    const path = fetchPathByName(ChartEnum.CHART_HOME_NAME, 'href')
-    routerTurnByPath(path, [cardData.id], undefined, true)
+    // Tricys Integration: Use named route for clean navigation within iframe
+    router.push({
+      name: ChartEnum.CHART_HOME_NAME,
+      params: { id: cardData.id }
+    })
   }
 
   // 预览处理
   const previewHandle = (cardData: Chartype) => {
-    openNewWindow(previewPath(cardData.id))
+    // Tricys Integration: Use named route for clean navigation within iframe
+    router.push({
+      name: PreviewEnum.CHART_PREVIEW_NAME,
+      params: { id: cardData.id }
+    })
   }
 
   return {

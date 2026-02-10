@@ -30,6 +30,7 @@ import {
   ChartEditStorage,
   ChartEditStoreType,
   EditCanvasType,
+  EditCanvasTypeEnum,
   MousePositionType,
   TargetChartType,
   RecordChartType,
@@ -37,8 +38,8 @@ import {
   EditCanvasConfigType
 } from './chartEditStore.d'
 
-const chartHistoryStore = useChartHistoryStore()
-const settingStore = useSettingStore()
+// const chartHistoryStore = useChartHistoryStore()
+// const settingStore = useSettingStore()
 
 // 编辑区域内容
 export const useChartEditStore = defineStore({
@@ -334,6 +335,7 @@ export const useChartEditStore = defineStore({
       isHead = false,
       isHistory = false
     ): void {
+      const chartHistoryStore = useChartHistoryStore()
       if (componentInstance instanceof Array) {
         componentInstance.forEach(item => {
           this.addComponentList(item, isHead, isHistory)
@@ -351,6 +353,7 @@ export const useChartEditStore = defineStore({
     },
     // * 删除组件
     removeComponentList(id?: string | string[], isHistory = true): void {
+      const chartHistoryStore = useChartHistoryStore()
       try {
         const idArr = this.idPreFormat(id)
         const history: Array<CreateComponentType | CreateComponentGroupType> = []
@@ -392,6 +395,7 @@ export const useChartEditStore = defineStore({
     },
     // * 移动组件
     moveComponentList(item: Array<CreateComponentType | CreateComponentGroupType>) {
+      const chartHistoryStore = useChartHistoryStore()
       chartHistoryStore.createMoveHistory(item)
     },
     // * 更新组件列表某一项的值
@@ -408,6 +412,7 @@ export const useChartEditStore = defineStore({
     },
     // * 移动组件列表层级位置到两端
     setBothEnds(isEnd = false, isHistory = true): void {
+      const chartHistoryStore = useChartHistoryStore()
       try {
         // 暂不支持多选
         if (this.getTargetChart.selectId.length > 1) return
@@ -463,6 +468,7 @@ export const useChartEditStore = defineStore({
     },
     // * 上移/下移互换图表位置
     wrap(isDown = false, isHistory = true) {
+      const chartHistoryStore = useChartHistoryStore()
       try {
         // 暂不支持多选
         if (this.getTargetChart.selectId.length > 1) return
@@ -711,6 +717,7 @@ export const useChartEditStore = defineStore({
     },
     // * 撤回
     setBack() {
+      const chartHistoryStore = useChartHistoryStore()
       try {
         loadingStart()
         const targetData = chartHistoryStore.backAction()
@@ -726,6 +733,7 @@ export const useChartEditStore = defineStore({
     },
     // * 前进
     setForward() {
+      const chartHistoryStore = useChartHistoryStore()
       try {
         loadingStart()
         const targetData = chartHistoryStore.forwardAction()
@@ -741,6 +749,7 @@ export const useChartEditStore = defineStore({
     },
     // * 移动位置
     setMove(keyboardValue: MenuEnum) {
+      const settingStore = useSettingStore()
       const index = this.fetchTargetIndex()
       if (index === -1) return
       const attr = this.getComponentList[index].attr
@@ -762,6 +771,7 @@ export const useChartEditStore = defineStore({
     },
     // * 创建分组
     setGroup(id?: string | string[], isHistory = true) {
+      const chartHistoryStore = useChartHistoryStore()
       try {
         let selectIds = this.idPreFormat(id) || this.getTargetChart.selectId
         selectIds = this.getSelectIdSortList(selectIds)
@@ -851,6 +861,7 @@ export const useChartEditStore = defineStore({
     },
     // * 解除分组
     setUnGroup(ids?: string[], callBack?: (e: CreateComponentType[]) => void, isHistory = true) {
+      const chartHistoryStore = useChartHistoryStore()
       try {
         const selectGroupIdArr = ids || this.getTargetChart.selectId
         if (selectGroupIdArr.length !== 1) return
@@ -896,6 +907,7 @@ export const useChartEditStore = defineStore({
     },
     // * 锁定
     setLock(status: boolean = true, isHistory: boolean = true) {
+      const chartHistoryStore = useChartHistoryStore()
       try {
         // 暂不支持多选
         if (this.getTargetChart.selectId.length > 1) return
@@ -929,6 +941,7 @@ export const useChartEditStore = defineStore({
     },
     // * 隐藏
     setHide(status: boolean = true, isHistory: boolean = true) {
+      const chartHistoryStore = useChartHistoryStore()
       try {
         // 暂不支持多选
         if (this.getTargetChart.selectId.length > 1) return
@@ -968,10 +981,19 @@ export const useChartEditStore = defineStore({
     },
     // * 计算缩放
     computedScale() {
-      if (this.getEditCanvas.editLayoutDom) {
+      let layoutDom = this.getEditCanvas.editLayoutDom as HTMLElement | null
+      if (!layoutDom) {
+        const resolved = document.getElementById('go-chart-edit-layout')
+        if (resolved) {
+          this.setEditCanvas(EditCanvasTypeEnum.EDIT_LAYOUT_DOM, resolved)
+          layoutDom = resolved
+        }
+      }
+
+      if (layoutDom) {
         // 现有展示区域
-        const width = this.getEditCanvas.editLayoutDom.clientWidth - this.getEditCanvas.offset * 2 - 5
-        const height = this.getEditCanvas.editLayoutDom.clientHeight - this.getEditCanvas.offset * 4
+        const width = layoutDom.clientWidth - this.getEditCanvas.offset * 2 - 5
+        const height = layoutDom.clientHeight - this.getEditCanvas.offset * 4
 
         // 用户设定大小
         const editCanvasWidth = this.editCanvasConfig.width

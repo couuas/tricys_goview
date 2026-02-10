@@ -254,10 +254,19 @@ export const useSync = () => {
       if (res && res.code === ResultEnum.SUCCESS) {
         if (res.data) {
           updateStoreInfo(res.data)
+          const parsed = JSONParse(res.data.content || '') as any
+          const fallback = chartEditStore.getStorageInfo()
+          const safeData = {
+            ...fallback,
+            ...(parsed || {}),
+            editCanvasConfig: parsed?.editCanvasConfig || fallback.editCanvasConfig,
+            requestGlobalConfig: parsed?.requestGlobalConfig || fallback.requestGlobalConfig,
+            componentList: parsed?.componentList || fallback.componentList
+          }
           // 更新全局数据
-          await updateComponent(JSONParse(res.data.content))
+          await updateComponent(safeData)
           return
-        }else {
+        } else {
           chartEditStore.setProjectInfo(ProjectInfoEnum.PROJECT_ID, fetchRouteParamsLocation())
         }
         setTimeout(() => {
@@ -298,7 +307,7 @@ export const useSync = () => {
 
         // 上传预览图
         let uploadParams = new FormData()
-        uploadParams.append('object', base64toFile(canvasImage.toDataURL(), `${fetchRouteParamsLocation()}_index_preview.png`))
+        uploadParams.append('file', base64toFile(canvasImage.toDataURL(), `${fetchRouteParamsLocation()}_index_preview.png`))
         const uploadRes = await uploadFile(uploadParams)
         // 保存预览图
         if(uploadRes && uploadRes.code === ResultEnum.SUCCESS) {

@@ -1,4 +1,4 @@
-import { ref, reactive } from 'vue'
+import { ref, reactive, onMounted, onBeforeUnmount } from 'vue'
 import { goDialog, httpErrorHandle } from '@/utils'
 import { DialogEnum } from '@/enums/pluginEnum'
 import { projectListApi, deleteProjectApi, changeProjectReleaseApi } from '@/api/path'
@@ -28,8 +28,9 @@ export const useDataListInit = () => {
       limit: paginat.limit
     })
     if (res && res.data) {
-      const { count } = res as any // 这里的count与data平级，不在Response结构中
-      paginat.count = count
+      const metaTotal = res?.meta?.total
+      const rootCount = (res as any)?.count
+      paginat.count = typeof metaTotal === 'number' ? metaTotal : (rootCount || 0)
       list.value = res.data.map(e => {
         const { id, projectName, state, createTime, indexImage, createUserId } = e
         return {
@@ -110,6 +111,18 @@ export const useDataListInit = () => {
 
   // 立即请求
   fetchList()
+
+  const onProjectCreated = () => {
+    fetchList()
+  }
+
+  onMounted(() => {
+    window.addEventListener('TRICYS_GOVIEW_PROJECT_CREATED', onProjectCreated)
+  })
+
+  onBeforeUnmount(() => {
+    window.removeEventListener('TRICYS_GOVIEW_PROJECT_CREATED', onProjectCreated)
+  })
 
   return {
     loading,

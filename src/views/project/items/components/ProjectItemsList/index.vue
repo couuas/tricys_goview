@@ -45,6 +45,7 @@
 </template>
 
 <script setup lang="ts">
+import { onActivated } from 'vue'
 import { ProjectItemsCard } from '../ProjectItemsCard/index'
 import { ProjectItemsModalCard } from '../ProjectItemsModalCard/index'
 import { icon } from '@/plugins'
@@ -53,7 +54,11 @@ import { useDataListInit } from './hooks/useData.hook'
 
 const { CopyIcon, EllipsisHorizontalCircleSharpIcon } = icon.ionicons5
 const { modalData, modalShow, closeModal, previewHandle, resizeHandle, editHandle } = useModalDataInit()
-const { loading, paginat, list, changeSize, changePage, releaseHandle, deleteHandle } = useDataListInit()
+const { loading, paginat, list, fetchList, changeSize, changePage, releaseHandle, deleteHandle } = useDataListInit()
+
+onActivated(() => {
+  fetchList()
+})
 </script>
 
 <style lang="scss" scoped>

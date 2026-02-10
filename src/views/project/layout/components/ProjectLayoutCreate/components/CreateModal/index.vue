@@ -99,8 +99,9 @@ const btnHandle = async (key: string) => {
           window['$message'].success(window['$t']('project.create_success'))
 
           const { id } = res.data
+          window.dispatchEvent(new CustomEvent('TRICYS_GOVIEW_PROJECT_CREATED', { detail: { id } }))
           const path = fetchPathByName(ChartEnum.CHART_HOME_NAME, 'href')
-          routerTurnByPath(path, [id], undefined, true)
+          routerTurnByPath(path, [id])
           closeHandle()
         }
       } catch (error) {

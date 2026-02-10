@@ -16,9 +16,9 @@ let key = ref(Date.now())
 // 数据变更 -> 组件销毁重建
 try {
   const listenerArr = [SavePageEnum.JSON, SavePageEnum.CHART_TO_PREVIEW]
+  const eventTarget = window.opener || window
   listenerArr.forEach((saveEvent: string) => {
-    if (!window.opener || !window.opener.addEventListener) return
-    window.opener.addEventListener(saveEvent, async (e: any) => {
+    eventTarget.addEventListener(saveEvent, async (e: any) => {
       const localStorageInfo: ChartEditStorageType = (await getSessionStorageInfo()) as unknown as ChartEditStorageType
       setSessionStorage(StorageEnum.GO_CHART_STORAGE_LIST, [{ ...e.detail, id: localStorageInfo.id }])
       key.value = Date.now()

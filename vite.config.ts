@@ -44,7 +44,7 @@ export default ({ mode }) => defineConfig({
   server: {
     host: true,
     open: true,
-    port: 3000,
+    port: 3020,
     proxy: {
       [axiosPre]: {
         // @ts-ignore

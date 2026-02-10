@@ -43,6 +43,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { MonacoEditor } from '@/components/Pages/MonacoEditor'
 import { SavePageEnum } from '@/enums/editPageEnum'
 import { getSessionStorageInfo } from '../preview/utils'
@@ -52,10 +53,13 @@ import { icon } from '@/plugins'
 import { useSync } from '@/views/chart/hooks/useSync.hook'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { ProjectInfoEnum } from '@/store/modules/chartEditStore/chartEditStore.d'
+import { ChartEnum } from '@/enums/pageEnum'
 import type { ChartEditStorageType } from '../preview/index.d'
 
 const chartEditStore = useChartEditStore()
 const { dataSyncUpdate } = useSync()
+const router = useRouter()
+const eventTarget = window.opener || window
 
 const { ChevronBackOutlineIcon, DownloadIcon, AnalyticsIcon } = icon.ionicons5
 const showOpenFilePicker: Function = (window as any).showOpenFilePicker
@@ -73,8 +77,8 @@ setTimeout(getDataBySession)
 
 // 返回父窗口
 function back() {
-  window.opener.name = Date.now()
-  window.open(window.opener.location.href, window.opener.name)
+  const id = fetchRouteParamsLocation()
+  router.push({ name: ChartEnum.CHART_HOME_NAME, params: { id } })
 }
 
 // 导入json文本
@@ -102,7 +106,7 @@ function importJSON() {
 }
 
 // 同步数据编辑页
-window.opener.addEventListener(SavePageEnum.CHART, (e: any) => {
+eventTarget.addEventListener(SavePageEnum.CHART, (e: any) => {
   window['$message'].success('正在进行更新...')
   setSessionStorage(StorageEnum.GO_CHART_STORAGE_LIST, [e.detail])
   content.value = JSONStringify(e.detail)
@@ -122,7 +126,8 @@ document.addEventListener('keydown', function (e) {
 // 同步更新
 async function updateSync() {
   if (!window.opener) {
-    return window['$message'].error('源窗口已关闭，视图同步失败！')
+    // Same-window mode
+    // Continue to sync within the current tab
   }
   goDialog({
     message: '是否覆盖源视图内容? 此操作不可撤！',
@@ -138,7 +143,7 @@ async function updateSync() {
           chartEditStore.setProjectInfo(ProjectInfoEnum.PROJECT_ID, fetchRouteParamsLocation())
           await dataSyncUpdate(false) // JSON界面保存不上传缩略图
         }
-        window.opener.dispatchEvent(new CustomEvent(SavePageEnum.JSON, { detail }))
+        eventTarget.dispatchEvent(new CustomEvent(SavePageEnum.JSON, { detail }))
         window['$message'].success('正在同步内容...')
       } catch (e) {
         window['$message'].error('内容格式有误')
@@ -150,9 +155,7 @@ async function updateSync() {
 
 // 关闭页面发送关闭事件
 window.onbeforeunload = () => {
-  if (window.opener) {
-    window.opener.dispatchEvent(new CustomEvent(SavePageEnum.CLOSE))
-  }
+  eventTarget.dispatchEvent(new CustomEvent(SavePageEnum.CLOSE))
 }
 </script>
 

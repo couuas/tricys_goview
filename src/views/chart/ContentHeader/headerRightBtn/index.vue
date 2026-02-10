@@ -57,13 +57,12 @@ import { changeProjectReleaseApi } from '@/api/path'
 import {
   previewPath,
   renderIcon,
-  fetchPathByName,
-  routerTurnByPath,
   setSessionStorage,
   getSessionStorage,
   httpErrorHandle,
   fetchRouteParamsLocation
 } from '@/utils'
+import router from '@/router'
 import { icon } from '@/plugins'
 import { cloneDeep } from 'lodash'
 
@@ -89,8 +88,6 @@ const closeHandle = () => {
 
 // 预览
 const previewHandle = () => {
-  const path = fetchPathByName(PreviewEnum.CHART_PREVIEW_NAME, 'href')
-  if (!path) return
   const { id } = routerParamsInfo.params
   // id 标识
   const previewId = typeof id === 'string' ? id : id[0]
@@ -117,7 +114,10 @@ const previewHandle = () => {
     setSessionStorage(StorageEnum.GO_CHART_STORAGE_LIST, [{ id: previewId, ...storageInfo }])
   }
   // 跳转
-  routerTurnByPath(path, [previewId], undefined, true)
+  router.push({
+    name: PreviewEnum.CHART_PREVIEW_NAME,
+    params: { id: previewId }
+  })
 }
 
 // 模态弹窗
@@ -126,13 +126,39 @@ const modelShowHandle = () => {
 }
 
 // 复制预览地址
-const copyPreviewPath = (successText?: string, failureText?: string) => {
+const copyPreviewPath = async (successText?: string, failureText?: string) => {
+  const text = previewPath()
+  const failText = failureText || '复制失败！'
+
   if (isSupported) {
-    copy()
-    window['$message'].success(successText || '复制成功！')
-  } else {
-    window['$message'].error(failureText || '复制失败！')
+    try {
+      await copy(text)
+      window['$message'].success(successText || '复制成功！')
+      return
+    } catch (e) {
+      // Fallback below
+    }
   }
+
+  try {
+    const textarea = document.createElement('textarea')
+    textarea.value = text
+    textarea.setAttribute('readonly', 'true')
+    textarea.style.position = 'fixed'
+    textarea.style.left = '-9999px'
+    document.body.appendChild(textarea)
+    textarea.select()
+    const ok = document.execCommand('copy')
+    document.body.removeChild(textarea)
+    if (ok) {
+      window['$message'].success(successText || '复制成功！')
+      return
+    }
+  } catch (e) {
+    // Ignore and fall through to error message
+  }
+
+  window['$message'].error(failText)
 }
 
 // 发布

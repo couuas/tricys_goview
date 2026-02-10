@@ -19,11 +19,6 @@ export const routerTurnByName = (
   isReplace?: boolean,
   windowOpen?: boolean
 ) => {
-  if (windowOpen) {
-    const path = fetchPathByName(pageName, 'href')
-    openNewWindow(path)
-    return
-  }
   if (isReplace) {
     router.replace({
       name: pageName,
@@ -67,9 +62,6 @@ export const routerTurnByPath = (
   let fullPath = ''
   if (query?.length) {
     fullPath = `${path}/${query.join('/')}`
-  }
-  if (windowOpen) {
-    return openNewWindow(fullPath)
   }
   if (isReplace) {
     router.replace({

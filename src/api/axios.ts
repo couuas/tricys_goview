@@ -26,16 +26,31 @@ const axiosInstance = axios.create({
 axiosInstance.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
     // 白名单校验
-    if (includes(fetchAllowList, config.url)) return config
+    const isAllow = includes(fetchAllowList, config.url)
+    // Dynamic BaseURL from Tricys Context
+    const ctx = getLocalStorage('TRICYS_CTX')
+    if (ctx && ctx.apiBase) {
+      const rawBase = String(ctx.apiBase)
+      const normalized = rawBase.replace(/\/$/, '')
+      config.baseURL = normalized.endsWith('/goview') ? normalized : `${normalized}/goview`
+    }
+
     // 获取 token
     const info = getLocalStorage(StorageEnum.GO_SYSTEM_STORE)
     // 重新登录
     if (!info) {
-      routerTurnByName(PageEnum.BASE_LOGIN_NAME)
+      // Allowlist requests can proceed without redirect (e.g., public preview).
+      if (!isAllow) {
+        // If we have context but no system store, we might not want to redirect if context provides token?
+        // But we handled syncing in main.ts, so SystemStore SHOULD be populated.
+        // However, if main.ts hasn't run yet or failed, this might block.
+        // Let's rely on main.ts syncing it.
+        routerTurnByName(PageEnum.BASE_LOGIN_NAME)
+      }
       return config
     }
     const userInfo = info[SystemStoreEnum.USER_INFO]
-    config.headers[userInfo[SystemStoreUserInfoEnum.TOKEN_NAME] || 'token'] =  userInfo[SystemStoreUserInfoEnum.USER_TOKEN] || ''
+    config.headers[userInfo[SystemStoreUserInfoEnum.TOKEN_NAME] || 'token'] = userInfo[SystemStoreUserInfoEnum.USER_TOKEN] || ''
     return config
   },
   (err: AxiosError) => {

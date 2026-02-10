@@ -7,6 +7,7 @@ import { TreeMapConfig } from './TreeMap/index'
 import { DialConfig } from './Dial/index'
 import { SankeyConfig } from './Sankey/index'
 import { GraphConfig } from './Graph/index'
+import { TricysTimeSeriesConfig } from './TricysTimeSeries/index'
 
 export default [
   ProcessConfig,
@@ -17,5 +18,6 @@ export default [
   TreeMapConfig,
   GraphConfig,
   SankeyConfig,
-  DialConfig
+  DialConfig,
+  TricysTimeSeriesConfig
 ]
