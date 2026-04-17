@@ -4,7 +4,7 @@ import { ThreeTricys3DModelConfig } from './index'
 import cloneDeep from 'lodash/cloneDeep'
 
 export const option = {
-    dataset: 'http://localhost:8000/assets/models/placeholder.glb', // Default model URL
+    dataset: '/assets/models/placeholder.glb',
     modelConfig: {
         autoRotate: true,
         scale: 1.0,

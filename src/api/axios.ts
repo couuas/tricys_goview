@@ -33,6 +33,8 @@ axiosInstance.interceptors.request.use(
       const rawBase = String(ctx.apiBase)
       const normalized = rawBase.replace(/\/$/, '')
       config.baseURL = normalized.endsWith('/goview') ? normalized : `${normalized}/goview`
+    } else if (import.meta.env.PROD && !String(config.baseURL || '').startsWith('http')) {
+      config.baseURL = `${window.location.origin}${axiosPre}`
     }
 
     // 获取 token

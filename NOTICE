@@ -1,0 +1,17 @@
+tricys_goview
+
+This repository is a modified and integrated derivative work based on GoView.
+
+Original project information:
+- Project name: GoView
+- Official website: https://mtruning.club/
+- Source repository: https://gitee.com/dromara/go-view
+- License: MIT License
+
+Acknowledgement:
+Thanks to the GoView authors and contributors for releasing the original project under the MIT License and making this derivative work possible.
+
+License notice:
+The original MIT copyright notice and permission notice are retained in this repository.
+This repository's modifications and integration work are also distributed under the MIT License.
+See the LICENSE file for the full license text.

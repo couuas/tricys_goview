@@ -43,7 +43,6 @@ export default ({ mode }) => defineConfig({
   // 开发服务器配置
   server: {
     host: true,
-    open: true,
     port: 3020,
     proxy: {
       [axiosPre]: {
