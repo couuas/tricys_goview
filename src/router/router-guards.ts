@@ -1,6 +1,6 @@
 import { Router } from 'vue-router';
 import { PageEnum, PreviewEnum } from '@/enums/pageEnum'
-import { loginCheck } from '@/utils'
+import { isTricysProjectMode, loginCheck } from '@/utils'
 
 // 路由白名单
 const routerAllowList = [
@@ -13,6 +13,24 @@ const routerAllowList = [
 export function createRouterGuards(router: Router) {
   // 前置
   router.beforeEach(async (to, from, next) => {
+    const tricysMode = isTricysProjectMode()
+
+    if (tricysMode) {
+      if (to.name === PageEnum.BASE_LOGIN_NAME) {
+        next({ name: PageEnum.BASE_HOME_ITEMS_NAME, replace: true })
+        return
+      }
+
+      if (
+        to.name === PageEnum.BASE_HOME_NAME ||
+        to.name === PageEnum.BASE_HOME_TEMPLATE_NAME ||
+        to.name === PageEnum.BASE_HOME_TEMPLATE_MARKET_NAME
+      ) {
+        next({ name: PageEnum.BASE_HOME_ITEMS_NAME, replace: true })
+        return
+      }
+    }
+
     // http://localhost:3000/#/chart/preview/792622755697790976?t=123
     // 把外部动态参数放入window.route.params，后续API动态接口可以用window.route?.params?.t来拼接参数
     // @ts-ignore

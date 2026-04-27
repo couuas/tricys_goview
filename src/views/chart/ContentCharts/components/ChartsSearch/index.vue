@@ -69,14 +69,13 @@
 <script setup lang="ts">
 import { ref, onUnmounted } from 'vue'
 import { icon } from '@/plugins'
-import { createComponent } from '@/packages'
+import { createComponent, resolveComponentBundle } from '@/packages'
 import { ConfigType, CreateComponentType } from '@/packages/index.d'
 import { themeColor } from '../../hooks/useLayout.hook'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
 import { ChartModeEnum, ChartLayoutStoreEnum } from '@/store/modules/chartLayoutStore/chartLayoutStore.d'
 import { useChartLayoutStore } from '@/store/modules/chartLayoutStore/chartLayoutStore'
 import { isString, addEventListener, removeEventListener } from '@/utils'
-import { fetchConfigComponent, fetchChartComponent } from '@/packages/index'
 import { componentInstall, loadingStart, loadingFinish, loadingError } from '@/utils'
 import { ChartGlobImage } from '@/components/Pages/ChartGlobImage'
 import { GoIconify } from '@/components/GoIconify'
@@ -153,9 +152,9 @@ const selectChartHandle = async (item: ConfigType) => {
   if (item.disabled) return
   try {
     loadingStart()
-    // 动态注册图表组件
-    componentInstall(item.chartKey, fetchChartComponent(item))
-    componentInstall(item.conKey, fetchConfigComponent(item))
+    const { chartComponent, configComponent } = resolveComponentBundle(item)
+    componentInstall(item.chartKey, chartComponent)
+    componentInstall(item.conKey, configComponent)
     // 创建新图表组件
     let newComponent: CreateComponentType = await createComponent(item)
     if (item.redirectComponent) {
@@ -172,7 +171,7 @@ const selectChartHandle = async (item: ConfigType) => {
     loadingFinish()
   } catch (error) {
     loadingError()
-    window['$message'].warning(`图表正在研发中, 敬请期待...`)
+    window['$message'].warning(`${item.title} 初始化失败: ${(error as Error)?.message || 'Unknown error'}`)
   }
 }
 

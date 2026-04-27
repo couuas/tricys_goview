@@ -1,5 +1,5 @@
 <template>
-  <div class="go-aside-footer">
+  <div v-if="!tricysMode" class="go-aside-footer">
     <div class="pointer-invest-btn" :class="{ collapsed }" @click="clickHandle">
       <div class="btn-left">
         <img class="main-img" src="~@/assets/images/tips/Integral-activity.png" title="新用户免费送会员~"/>
@@ -69,10 +69,11 @@
   </div>
 </template>
 <script setup lang="ts">
-import { openDoc, openGiteeSourceCode, openNewWindow } from '@/utils'
+import { isTricysProjectMode, openDoc, openGiteeSourceCode, openNewWindow } from '@/utils'
 
 import { icon } from '@/plugins'
 const { DocumentTextIcon, CodeSlashIcon, ChevronForwardIcon } = icon.ionicons5
+const tricysMode = isTricysProjectMode()
 
 const props = defineProps({
   collapsed: Boolean

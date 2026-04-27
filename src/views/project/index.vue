@@ -1,6 +1,9 @@
 <template>
   <div class="go-project">
-    <n-layout has-sider position="absolute">
+    <layout-transition-main v-if="tricysMode" class="tricys-project-content">
+      <router-view></router-view>
+    </layout-transition-main>
+    <n-layout v-else has-sider position="absolute">
       <n-space vertical>
         <project-layout-sider></project-layout-sider>
       </n-space>
@@ -27,20 +30,27 @@
 import { ProjectLayoutSider } from './layout/components/ProjectLayoutSider'
 import { LayoutHeaderPro } from '@/layout/components/LayoutHeaderPro'
 import { LayoutTransitionMain } from '@/layout/components/LayoutTransitionMain/index'
-import { goDialog } from '@/utils'
+import { goDialog, isTricysProjectMode } from '@/utils'
 
-// 提示
-goDialog({
-  message: '不要在官方后端上发布任何私密数据，任何人都看得到并进行删除！！！！',
-  isMaskClosable: true,
-  closeNegativeText: true,
-  transformOrigin: 'center',
-  onPositiveCallback: () => {}
-})
+const tricysMode = isTricysProjectMode()
+
+if (!tricysMode) {
+  goDialog({
+    message: '不要在官方后端上发布任何私密数据，任何人都看得到并进行删除！！！！',
+    isMaskClosable: true,
+    closeNegativeText: true,
+    transformOrigin: 'center',
+    onPositiveCallback: () => {}
+  })
+}
 </script>
 
 <style lang="scss" scoped>
 @include go(project) {
+  .tricys-project-content {
+    min-height: 100vh;
+  }
+
   .content-top {
     top: $--header-height;
     margin-top: 1px;

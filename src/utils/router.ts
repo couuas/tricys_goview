@@ -8,6 +8,35 @@ import { clearLocalStorage, getLocalStorage, clearCookie } from './storage'
 import router from '@/router'
 import { logoutApi } from '@/api/path'
 
+const resolveUrlSearchParam = (key: string) => {
+  try {
+    const searchParams = new URLSearchParams(window.location.search)
+    const hash = window.location.hash || ''
+    const hashQuery = hash.includes('?') ? hash.split('?')[1] : ''
+    const hashParams = new URLSearchParams(hashQuery)
+    return searchParams.get(key) || hashParams.get(key) || ''
+  } catch (_error) {
+    return ''
+  }
+}
+
+export const getTricysContext = () => {
+  const stored = getLocalStorage('TRICYS_CTX') || {}
+  const projectId = String(resolveUrlSearchParam('projectId') || stored.projectId || '')
+  const apiBase = String(resolveUrlSearchParam('apiBase') || stored.apiBase || '')
+  const embedMode = String(resolveUrlSearchParam('embedMode') || stored.embedMode || '')
+  return {
+    projectId,
+    apiBase,
+    embedMode
+  }
+}
+
+export const isTricysProjectMode = () => {
+  const ctx = getTricysContext()
+  return Boolean(ctx.projectId || ctx.apiBase || ctx.embedMode)
+}
+
 /**
  * * 根据名字跳转路由
  * @param pageName

@@ -2,7 +2,7 @@
   <CollapseItem name="Data Source" :expanded="true">
     <SettingItemBox name="Tricys Task">
       <SettingItem name="Task ID">
-        <n-input v-model:value="optionData.dataset.taskId" size="small"></n-input>
+        <n-input v-model:value="optionData.dataset.taskId" size="small" placeholder="留空时使用当前项目最新任务"></n-input>
       </SettingItem>
     </SettingItemBox>
     <SettingItemBox name="Metrics">

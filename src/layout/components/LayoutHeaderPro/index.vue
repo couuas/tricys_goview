@@ -10,7 +10,7 @@
       <slot name="ri-left"></slot>
     </template>
     <template #ri-right>
-      <go-user-info></go-user-info>
+      <go-user-info v-if="!tricysMode"></go-user-info>
       <slot name="ri-right"></slot>
     </template>
   </layout-header>
@@ -18,4 +18,7 @@
 <script setup lang="ts">
 import { LayoutHeader } from '@/layout/components/LayoutHeader'
 import { GoUserInfo } from '@/components/GoUserInfo'
+import { isTricysProjectMode } from '@/utils'
+
+const tricysMode = isTricysProjectMode()
 </script>

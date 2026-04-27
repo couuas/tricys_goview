@@ -179,6 +179,7 @@ export enum PackagesCategoryEnum {
   VCHART = 'VChart',
   TABLES = 'Tables',
   INFORMATIONS = 'Informations',
+  TRICYS = 'Tricys',
   PHOTOS = 'Photos',
   ICONS = 'Icons',
   DECORATES = 'Decorates'
@@ -190,6 +191,7 @@ export enum PackagesCategoryName {
   VCHART = 'VChart',
   TABLES = '列表',
   INFORMATIONS = '信息',
+  TRICYS = 'TRICYS',
   PHOTOS = '图片',
   ICONS = '图标',
   DECORATES = '小组件'
@@ -206,6 +208,7 @@ export type PackagesType = {
   [PackagesCategoryEnum.CHARTS]: ConfigType[]
   [PackagesCategoryEnum.VCHART]: ConfigType[]
   [PackagesCategoryEnum.INFORMATIONS]: ConfigType[]
+  [PackagesCategoryEnum.TRICYS]: ConfigType[]
   [PackagesCategoryEnum.TABLES]: ConfigType[]
   [PackagesCategoryEnum.PHOTOS]: ConfigType[]
   [PackagesCategoryEnum.ICONS]: ConfigType[]

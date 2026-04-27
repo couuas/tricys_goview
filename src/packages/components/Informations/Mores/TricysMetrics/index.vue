@@ -9,11 +9,8 @@
 
 <script setup lang="ts">
 import { PropType, ref, watch, onMounted } from 'vue'
-import { option as defaultOption } from './config'
-import { useChartDataFetch } from '@/hooks'
-import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
-import { getLocalStorage } from '@/utils'
-import axios from '@/api/axios' // Use configured axios instance
+import { getTricysContext } from '@/utils'
+import axios from '@/api/axios'
 
 const props = defineProps({
   chartConfig: {
@@ -24,9 +21,26 @@ const props = defineProps({
 
 const metricsData = ref<Record<string, any>>({})
 
+const resolveProjectId = () => String(props.chartConfig.option.dataset.projectId || getTricysContext().projectId || '')
+
+const resolveTaskId = async () => {
+    const explicitTaskId = String(props.chartConfig.option.dataset.taskId || '')
+    if (explicitTaskId) return explicitTaskId
+
+    const projectId = resolveProjectId()
+    if (!projectId) return ''
+
+    const latestTaskResponse = await axios.get('/data/latest-task', {
+        params: { projectId }
+    })
+    const latestPayload = (latestTaskResponse as any)?.data ?? latestTaskResponse
+    const latestTask = latestPayload?.data ?? latestPayload ?? null
+    return String(latestTask?.id || '')
+}
+
 const fetchData = async () => {
-    // Dataset should contain taskId
-    const { taskId, metrics } = props.chartConfig.option.dataset
+    const { metrics } = props.chartConfig.option.dataset
+    const taskId = await resolveTaskId()
     if (!taskId) return
 
     try {

@@ -6,7 +6,7 @@ import { PackagesCategoryEnum, PackagesCategoryName, ConfigType } from '@/packag
 import { usePackagesStore } from '@/store/modules/packagesStore/packagesStore'
 import { ChartLayoutStoreEnum } from '@/store/modules/chartLayoutStore/chartLayoutStore.d'
 // 图标
-const { AirPlaneOutlineIcon, ImageIcon, BarChartIcon } = icon.ionicons5
+const { AirPlaneOutlineIcon, ImageIcon, BarChartIcon, ConstructIcon } = icon.ionicons5
 const { TableSplitIcon, RoadmapIcon, ChartPieIcon, SpellCheckIcon, GraphicalDataFlowIcon } = icon.carbon
 
 // 图表
@@ -22,13 +22,13 @@ const packagesListObj = {
     icon: renderIcon(RoadmapIcon),
     label: PackagesCategoryName.CHARTS
   },
-  [PackagesCategoryEnum.VCHART]: {
-    icon: renderIcon(ChartPieIcon),
-    label: PackagesCategoryName.VCHART
-  },
   [PackagesCategoryEnum.INFORMATIONS]: {
     icon: renderIcon(SpellCheckIcon),
     label: PackagesCategoryName.INFORMATIONS
+  },
+  [PackagesCategoryEnum.TRICYS]: {
+    icon: renderIcon(ConstructIcon),
+    label: PackagesCategoryName.TRICYS
   },
   [PackagesCategoryEnum.TABLES]: {
     icon: renderIcon(TableSplitIcon),
@@ -54,17 +54,40 @@ export const useAsideHook = () => {
 
   // 处理列表
   const handlePackagesList = () => {
-    for (const val in packagesStore.getPackagesList) {
+    const packagesList = packagesStore.getPackagesList
+
+    menuOptions.push({
+      key: PackagesCategoryEnum.TRICYS,
+      icon: renderIcon(ConstructIcon),
+      label: PackagesCategoryName.TRICYS,
+      list: packagesList[PackagesCategoryEnum.TRICYS]
+    })
+
+    menuOptions.push({
+      key: PackagesCategoryEnum.CHARTS,
+      icon: renderIcon(ChartPieIcon),
+      label: '图表',
+      list: [...packagesList[PackagesCategoryEnum.CHARTS], ...packagesList[PackagesCategoryEnum.VCHART]]
+    })
+
+    const orderedKeys = [
+      PackagesCategoryEnum.INFORMATIONS,
+      PackagesCategoryEnum.TABLES,
+      PackagesCategoryEnum.DECORATES,
+      PackagesCategoryEnum.PHOTOS,
+      PackagesCategoryEnum.ICONS
+    ]
+
+    orderedKeys.forEach((val) => {
       menuOptions.push({
         key: val,
         // @ts-ignore
         icon: packagesListObj[val].icon,
         // @ts-ignore
         label: packagesListObj[val].label,
-        // @ts-ignore
-        list: packagesStore.getPackagesList[val]
+        list: packagesList[val]
       })
-    }
+    })
   }
   handlePackagesList()
 

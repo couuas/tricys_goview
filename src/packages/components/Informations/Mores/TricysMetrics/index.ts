@@ -10,5 +10,5 @@ export const TricysMetricsConfig: ConfigType = {
     categoryName: ChatCategoryEnumName.MORE,
     package: PackagesCategoryEnum.INFORMATIONS,
     chartFrame: ChartFrameEnum.COMMON,
-    image: 'info.png' // Placeholder
+    image: 'tricys_metrics.svg'
 }

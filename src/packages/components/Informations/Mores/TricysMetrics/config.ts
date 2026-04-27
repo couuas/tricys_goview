@@ -7,6 +7,7 @@ import cloneDeep from 'lodash/cloneDeep'
 export const option = {
     // Key-value pairs to display
     dataset: {
+        projectId: '',
         taskId: '',
         metrics: ['efficiency', 'max_temp']
     },

@@ -67,6 +67,7 @@ import { icon } from '@/plugins'
 import { loadAsyncComponent } from '@/utils'
 import { ContentBox } from '../ContentBox/index'
 import { TabsEnum } from './index.d'
+import { PackagesCategoryEnum } from '@/packages/index.d'
 import { useChartLayoutStore } from '@/store/modules/chartLayoutStore/chartLayoutStore'
 import { ChartLayoutStoreEnum } from '@/store/modules/chartLayoutStore/chartLayoutStore.d'
 import { useChartEditStore } from '@/store/modules/chartEditStore/chartEditStore'
@@ -109,6 +110,10 @@ const selectTarget = computed(() => {
   return target
 })
 
+const isTricysBusinessComponent = computed(() => {
+  return selectTarget.value?.chartConfig?.package === PackagesCategoryEnum.TRICYS
+})
+
 watch(getDetails, newData => {
   if (newData) {
     collapsedHandle()
@@ -142,21 +147,27 @@ const chartsDefaultTabList = [
   }
 ]
 
-const chartsTabList = [
-  ...chartsDefaultTabList,
-  {
-    key: TabsEnum.CHART_DATA,
-    title: '数据',
-    icon: FlashIcon,
-    render: ChartData
-  },
-  {
+const chartsTabList = computed(() => {
+  const tabs = [...chartsDefaultTabList]
+
+  if (!isTricysBusinessComponent.value) {
+    tabs.push({
+      key: TabsEnum.CHART_DATA,
+      title: '数据',
+      icon: FlashIcon,
+      render: ChartData
+    })
+  }
+
+  tabs.push({
     key: TabsEnum.CHART_EVENT,
     title: '事件',
     icon: RocketIcon,
     render: ChartEvent
-  }
-]
+  })
+
+  return tabs
+})
 </script>
 
 <style lang="scss" scoped>

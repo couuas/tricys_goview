@@ -1,5 +1,5 @@
 import { reactive, h } from 'vue'
-import { renderIcon } from '@/utils'
+import { isTricysProjectMode, renderIcon } from '@/utils'
 import { RouterLink } from 'vue-router'
 import { PageEnum } from '@/enums/pageEnum'
 import { MenuOption, MenuGroupOption } from 'naive-ui'
@@ -15,8 +15,9 @@ export const expandedKeys = () => ['all-project']
 
 export const menuOptionsInit = () => {
   const t = window['$t']
+  const tricysMode = isTricysProjectMode()
 
-  return reactive([
+  const baseItems = [
     {
       key: 'divider-1',
       type: 'divider',
@@ -45,42 +46,52 @@ export const menuOptionsInit = () => {
               key: PageEnum.BASE_HOME_ITEMS_NAME,
               icon: renderIcon(TvOutlineIcon),
             },
-            {
-              label: () =>
-                h(
-                  RouterLink,
+            ...(tricysMode
+              ? []
+              : [
                   {
-                    to: {
-                      name: PageEnum.BASE_HOME_TEMPLATE_NAME,
-                    },
+                    label: () =>
+                      h(
+                        RouterLink,
+                        {
+                          to: {
+                            name: PageEnum.BASE_HOME_TEMPLATE_NAME,
+                          },
+                        },
+                        { default: () => t('project.my_template') }
+                      ),
+                    key: PageEnum.BASE_HOME_TEMPLATE_NAME,
+                    icon: renderIcon(ObjectStorageIcon),
                   },
-                  { default: () => t('project.my_template') }
-                ),
-              key: PageEnum.BASE_HOME_TEMPLATE_NAME,
-              icon: renderIcon(ObjectStorageIcon),
-            },
+                ]),
           ],
         },
       ],
     },
 
-    {
-      key: 'divider-2',
-      type: 'divider',
-    },
-    {
-      label: () =>
-        h(
-          RouterLink,
+    ...(tricysMode
+      ? []
+      : [
           {
-            to: {
-              name: PageEnum.BASE_HOME_TEMPLATE_MARKET_NAME,
-            },
+            key: 'divider-2',
+            type: 'divider',
           },
-          { default: () => t('project.template_market') }
-        ),
-      key: PageEnum.BASE_HOME_TEMPLATE_MARKET_NAME,
-      icon: renderIcon(StoreIcon),
-    },
-  ])
+          {
+            label: () =>
+              h(
+                RouterLink,
+                {
+                  to: {
+                    name: PageEnum.BASE_HOME_TEMPLATE_MARKET_NAME,
+                  },
+                },
+                { default: () => t('project.template_market') }
+              ),
+            key: PageEnum.BASE_HOME_TEMPLATE_MARKET_NAME,
+            icon: renderIcon(StoreIcon),
+          },
+        ]),
+  ]
+
+  return reactive(baseItems)
 }

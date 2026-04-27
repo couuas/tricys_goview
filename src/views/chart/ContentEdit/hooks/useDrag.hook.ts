@@ -15,6 +15,7 @@ const { onClickOutSide } = useContextMenu()
 // * 拖拽到编辑区域里
 export const dragHandle = async (e: DragEvent) => {
   e.preventDefault()
+  let dropData: Exclude<ConfigType, ['image']> | undefined
 
   try {
     loadingStart()
@@ -28,7 +29,7 @@ export const dragHandle = async (e: DragEvent) => {
 
     // 修改状态
     chartEditStore.setEditCanvas(EditCanvasTypeEnum.IS_CREATE, false)
-    const dropData: Exclude<ConfigType, ['image']> = JSONParse(drayDataString)
+    dropData = JSONParse(drayDataString)
     if (dropData.disabled) return
 
     // 创建新图表组件
@@ -45,7 +46,7 @@ export const dragHandle = async (e: DragEvent) => {
     loadingFinish()
   } catch (error) {
     loadingError()
-    window['$message'].warning(`图表正在研发中, 敬请期待...`)
+    window['$message'].warning(`${dropData?.title || '组件'} 创建失败: ${(error as Error)?.message || 'Unknown error'}`)
   }
 }
 

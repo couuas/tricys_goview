@@ -126,7 +126,7 @@ import { LayoutFooter } from '@/layout/components/LayoutFooter'
 import { PageEnum } from '@/enums/pageEnum'
 import { StorageEnum } from '@/enums/storageEnum'
 import { icon } from '@/plugins'
-import { routerTurnByName } from '@/utils'
+import { isTricysProjectMode, routerTurnByName } from '@/utils'
 import { loginApi } from '@/api/path'
 
 const { PersonOutlineIcon, LockClosedOutlineIcon } = icon.ionicons5
@@ -226,6 +226,11 @@ const handleSubmit = async (e: Event) => {
 }
 
 onMounted(() => {
+  if (isTricysProjectMode()) {
+    routerTurnByName(PageEnum.BASE_HOME_ITEMS_NAME, true)
+    return
+  }
+
   setTimeout(() => {
     show.value = true
   }, 300)

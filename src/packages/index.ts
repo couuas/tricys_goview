@@ -2,6 +2,7 @@ import { ChartList } from '@/packages/components/Charts/index'
 import { VChartList } from '@/packages/components/VChart/index'
 import { DecorateList } from '@/packages/components/Decorates/index'
 import { InformationList } from '@/packages/components/Informations/index'
+import { TricysList } from '@/packages/components/Tricys/index'
 import { TableList } from '@/packages/components/Tables/index'
 import { PhotoList } from '@/packages/components/Photos/index'
 import { IconList } from '@/packages/components/Icons/index'
@@ -10,6 +11,7 @@ import { PackagesCategoryEnum, PackagesType, ConfigType, FetchComFlagType } from
 const configModules: Record<string, { default: string }> = import.meta.glob('./components/**/config.vue', {
   eager: true
 })
+const configClassModules: Record<string, () => Promise<any>> = import.meta.glob('./components/**/config.ts')
 const indexModules: Record<string, { default: string }> = import.meta.glob('./components/**/index.vue', {
   eager: true
 })
@@ -22,6 +24,7 @@ export let packagesList: PackagesType = {
   [PackagesCategoryEnum.CHARTS]: ChartList,
   [PackagesCategoryEnum.VCHART]: VChartList,
   [PackagesCategoryEnum.INFORMATIONS]: InformationList,
+  [PackagesCategoryEnum.TRICYS]: TricysList,
   [PackagesCategoryEnum.TABLES]: TableList,
   [PackagesCategoryEnum.DECORATES]: DecorateList,
   [PackagesCategoryEnum.PHOTOS]: PhotoList,
@@ -30,12 +33,29 @@ export let packagesList: PackagesType = {
 
 // 组件缓存, 可以大幅度提升组件加载速度
 const componentCacheMap = new Map<string, any>()
-const loadConfig = (packageName: string, categoryName: string, keyName: string) => {
-  const key = packageName + categoryName + keyName
-  if (!componentCacheMap.has(key)) {
-    componentCacheMap.set(key, import(`./components/${packageName}/${categoryName}/${keyName}/config.ts`))
+const findConfigLoaderByKey = (keyName: string) => {
+  for (const path in configClassModules) {
+    const urlSplit = path.split('/')
+    if (urlSplit[urlSplit.length - 2] === keyName) {
+      return configClassModules[path]
+    }
   }
-  return componentCacheMap.get(key)
+}
+
+const loadConfig = (packageName: string, categoryName: string, keyName: string) => {
+  const cacheKey = packageName + categoryName + keyName
+  if (!componentCacheMap.has(cacheKey)) {
+    const directPath = `./components/${packageName}/${categoryName}/${keyName}/config.ts`
+    const fallbackPath = `./components/${packageName}/${keyName}/config.ts`
+    const loader = configClassModules[directPath] || configClassModules[fallbackPath] || findConfigLoaderByKey(keyName)
+
+    if (!loader) {
+      throw new Error(`Component config not found for ${packageName}/${categoryName}/${keyName}`)
+    }
+
+    componentCacheMap.set(cacheKey, loader())
+  }
+  return componentCacheMap.get(cacheKey)
 }
 
 /**
@@ -85,6 +105,24 @@ export const fetchChartComponent = (dropData: ConfigType) => {
 export const fetchConfigComponent = (dropData: ConfigType) => {
   const { key } = dropData
   return fetchComponent(key, FetchComFlagType.CONFIG)?.default
+}
+
+export const resolveComponentBundle = (dropData: ConfigType) => {
+  const chartComponent = fetchChartComponent(dropData)
+  const configComponent = fetchConfigComponent(dropData)
+
+  if (!chartComponent) {
+    throw new Error(`Missing view component for ${dropData.title}`)
+  }
+
+  if (!configComponent) {
+    throw new Error(`Missing config component for ${dropData.title}`)
+  }
+
+  return {
+    chartComponent,
+    configComponent
+  }
 }
 
 /**
