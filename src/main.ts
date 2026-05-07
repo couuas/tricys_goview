@@ -59,6 +59,7 @@ async function appInit() {
   const { token, apiBase, projectId } = resolveStartupParams();
 
   if (token) {
+    localStorage.setItem('tricys_auth_token', token)
     const systemStore = useSystemStore()
     systemStore.setItem(SystemStoreEnum.USER_INFO, {
       [SystemStoreUserInfoEnum.USER_TOKEN]: token,
@@ -95,6 +96,7 @@ async function appInit() {
         chartEditStore.requestGlobalConfig.requestOriginUrl = payload.apiBase
       }
       if (payload.token) {
+        localStorage.setItem('tricys_auth_token', payload.token)
         const headers = chartEditStore.requestGlobalConfig.requestParams.Header || {}
         headers.Authorization = `Bearer ${payload.token}`
         chartEditStore.requestGlobalConfig.requestParams.Header = headers

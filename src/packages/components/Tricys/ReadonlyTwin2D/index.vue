@@ -1,28 +1,43 @@
 <template>
-  <div class="tricys-topology-shell">
-    <div class="topology-canvas" :class="{ 'canvas-mode': shouldBypassScenePointerEvents }">
-      <ModelSceneAsset :project-id="resolvedProjectId" mode="view" :is-read-only="true" />
+  <div class="tricys-twin-shell">
+    <div class="tricys-twin-canvas" :class="{ 'canvas-mode': shouldBypassScenePointerEvents }">
+      <TopologyTwinPanel
+        :structure-data="structureData"
+        :selected-component-id="selectedComponentId"
+        :selected-connection-id="selectedConnectionId"
+        :component-groups="componentGroups"
+        :multi-selected-ids="multiSelectedIds"
+        :expanded-group-id="expandedGroupId"
+        :annotations="annotations"
+        :get-connection-style="getConnectionStyle"
+        :route-mode="routeMode"
+        :snap-to-grid="snapToGrid"
+        :is-read-only="true"
+        @select-component="selectedComponentId = $event"
+        @select-connection="selectedConnectionId = $event"
+      />
     </div>
 
-    <div class="topology-overlay">
-      <div class="eyebrow">3D SCENE ASSET</div>
+    <div class="twin-overlay">
+      <div class="eyebrow">2D TWIN</div>
       <div class="title">{{ chartConfig.option.dataset.title }}</div>
       <div class="subtitle">{{ chartConfig.option.dataset.subtitle }}</div>
     </div>
 
-    <div class="topology-meta">
-      <span>{{ resolvedProjectId ? `PROJECT ${resolvedProjectId}` : 'SAMPLE TOPOLOGY' }}</span>
+    <div class="twin-meta">
+      <span>{{ resolvedProjectId ? `PROJECT ${resolvedProjectId}` : 'SAMPLE PROJECT' }}</span>
       <span>{{ chartConfig.option.interaction.mode.toUpperCase() }}</span>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed, PropType } from 'vue'
+import { computed, PropType, ref } from 'vue'
 import { useRoute } from 'vue-router'
 import { CreateComponentType } from '@/packages/index.d'
 import { ChartEnum, PreviewEnum } from '@/enums/pageEnum'
-import ModelSceneAsset from '@tricys-visual/modules/studio/components/ModelSceneAsset.vue'
+import TopologyTwinPanel from '@tricys-visual/modules/studio/components/TopologyTwinPanel.vue'
+import { useModelEditorState } from '@tricys-visual/modules/studio/composables/useModelEditorState.js'
 import { resolveSceneProjectId } from '../sceneAssetShared'
 import { option } from './config'
 
@@ -35,10 +50,7 @@ const props = defineProps({
 
 const route = useRoute()
 
-const resolvedProjectId = computed(() => {
-  return resolveSceneProjectId(props.chartConfig.option.dataset.projectId)
-})
-
+const resolvedProjectId = computed(() => resolveSceneProjectId(props.chartConfig.option.dataset.projectId))
 const isInteractiveRoute = computed(() => {
   return route.name === PreviewEnum.CHART_PREVIEW_NAME || route.name !== ChartEnum.CHART_HOME_NAME
 })
@@ -46,35 +58,53 @@ const isInteractiveRoute = computed(() => {
 const shouldBypassScenePointerEvents = computed(() => {
   return props.chartConfig.option.interaction.mode === 'canvas' && !isInteractiveRoute.value
 })
+const routeMode = ref('orthogonal')
+const snapToGrid = ref(true)
+const selectedComponentId = ref<string | null>(null)
+const selectedConnectionId = ref<string | null>(null)
+
+const {
+  annotations,
+  componentGroups,
+  expandedGroupId,
+  getConnectionStyle,
+  multiSelectedIds,
+  structureData
+} = useModelEditorState({
+  projectId: resolvedProjectId,
+  isReadOnly: computed(() => true)
+})
 </script>
 
 <style scoped>
-.tricys-topology-shell {
+.tricys-twin-shell {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
   border: 1px solid rgba(34, 211, 238, 0.18);
   border-radius: 20px;
-  background: radial-gradient(circle at top, rgba(34, 211, 238, 0.12), transparent 42%), #071018;
+  background: radial-gradient(circle at top, rgba(34, 211, 238, 0.08), transparent 42%), #071018;
 }
 
-.topology-canvas {
+.tricys-twin-canvas {
   width: 100%;
   height: 100%;
 }
 
-.topology-canvas.canvas-mode {
+.tricys-twin-canvas.canvas-mode {
   pointer-events: none;
 }
 
-.topology-canvas :deep(.model-scene-asset),
-.topology-canvas :deep(.scene-viewport) {
+.tricys-twin-canvas :deep(.topology-shell),
+.tricys-twin-canvas :deep(.topology-canvas),
+.tricys-twin-canvas :deep(.topology-svg) {
   width: 100%;
   height: 100%;
+  display: block;
 }
 
-.topology-overlay {
+.twin-overlay {
   position: absolute;
   top: 16px;
   left: 16px;
@@ -105,7 +135,7 @@ const shouldBypassScenePointerEvents = computed(() => {
   font-size: 12px;
 }
 
-.topology-meta {
+.twin-meta {
   position: absolute;
   right: 16px;
   bottom: 16px;
@@ -116,7 +146,7 @@ const shouldBypassScenePointerEvents = computed(() => {
   justify-content: flex-end;
 }
 
-.topology-meta span {
+.twin-meta span {
   padding: 6px 10px;
   border-radius: 999px;
   background: rgba(7, 16, 24, 0.74);
@@ -125,4 +155,5 @@ const shouldBypassScenePointerEvents = computed(() => {
   font-size: 11px;
   letter-spacing: 0.08em;
 }
+
 </style>

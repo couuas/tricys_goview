@@ -1,5 +1,5 @@
 <template>
-  <CollapseItem name="Tricys 3D Topology" :expanded="true">
+  <CollapseItem name="Tricys 2D Twin" :expanded="true">
     <SettingItemBox name="Display">
       <SettingItem name="Title">
         <n-input v-model:value="optionData.dataset.title" size="small" />
@@ -18,13 +18,7 @@
       </SettingItem>
     </SettingItemBox>
 
-    <SettingItemBox name="Scene">
-      <SettingItem name="Auto Rotate">
-        <n-switch v-model:value="optionData.scene.autoRotate" size="small" />
-      </SettingItem>
-      <SettingItem name="Show Grid">
-        <n-switch v-model:value="optionData.scene.showGrid" size="small" />
-      </SettingItem>
+    <SettingItemBox name="Interaction">
       <SettingItem name="Interaction Mode">
         <n-select v-model:value="optionData.interaction.mode" size="small" :options="tricysInteractionModeOptions" />
       </SettingItem>

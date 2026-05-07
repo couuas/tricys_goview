@@ -45,6 +45,11 @@ type TopologyOption = {
     accentColor?: string
     backgroundColor?: string
   }
+  interaction?: {
+    mode?: 'canvas' | 'inspect' | 'preview'
+    wheelZoom?: boolean
+    panEnabled?: boolean
+  }
 }
 
 const defaultNodes: TopologyNode[] = [
@@ -116,10 +121,15 @@ export default class TopologyScene {
     const nodes = option?.dataset?.nodes?.length ? option.dataset.nodes : defaultNodes
     const edges = option?.dataset?.edges?.length ? option.dataset.edges : defaultEdges
     const sceneConfig = option?.scene || {}
+    const interaction = option?.interaction || {}
 
     this.scene.background = new Color(sceneConfig.backgroundColor || '#071018')
     this.grid.visible = sceneConfig.showGrid !== false
     this.controls.autoRotate = !!sceneConfig.autoRotate
+    this.controls.enabled = interaction.mode !== 'canvas'
+    this.controls.enableRotate = interaction.mode !== 'canvas'
+    this.controls.enableZoom = interaction.wheelZoom !== false && interaction.mode !== 'canvas'
+    this.controls.enablePan = interaction.mode === 'preview' ? interaction.panEnabled !== false : false
 
     this.clearTopology()
 

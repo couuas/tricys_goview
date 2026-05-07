@@ -25,11 +25,23 @@ export default ({ mode }) => defineConfig({
         replacement: pathResolve('src')
       },
       {
+        find: '@tricys-visual',
+        replacement: pathResolve('../tricys_visual/src')
+      },
+      {
+        find: 'three',
+        replacement: pathResolve('node_modules/three')
+      },
+      {
+        find: 'three/examples/jsm',
+        replacement: pathResolve('node_modules/three/examples/jsm')
+      },
+      {
         find: 'vue-i18n',
         replacement: 'vue-i18n/dist/vue-i18n.cjs.js' //解决i8n警告
       }
     ],
-    dedupe: ['vue']
+    dedupe: ['vue', 'three']
   },
   // 全局 css 注册
   css: {
@@ -44,6 +56,9 @@ export default ({ mode }) => defineConfig({
   server: {
     host: true,
     port: 3020,
+    fs: {
+      allow: [pathResolve('.'), pathResolve('../tricys_visual/src')]
+    },
     proxy: {
       [axiosPre]: {
         // @ts-ignore
