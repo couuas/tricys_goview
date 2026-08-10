@@ -51,7 +51,7 @@ export const option = {
     // Custom dataset for Tricys
     dataset: {
         taskId: '',
-        variables: ['sds.I', 'wds.T'], // Example variables
+        variables: ['sds.I[1]'],
         jobId: null
     }
 }

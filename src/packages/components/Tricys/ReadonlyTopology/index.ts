@@ -6,7 +6,7 @@ export const TricysReadonlyTopologyConfig: ConfigType = {
   conKey: 'VCTricysReadonlyTopology',
   title: 'Tricys 3D Scene Asset',
   category: 'Topology',
-  categoryName: '三维场景资产',
+  categoryName: '拓扑图',
   package: PackagesCategoryEnum.TRICYS,
   chartFrame: ChartFrameEnum.COMMON,
   image: 'tricys_topology.svg'

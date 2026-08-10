@@ -4,6 +4,7 @@ import { CreateComponentType } from '@/packages/index.d'
 import { chartInitConfig } from '@/settings/designSetting'
 import { TricysReadonlyTopologyConfig } from './index'
 import { buildSceneAssetOption } from '../sceneAssetShared'
+import { getTricysContext } from '@/utils'
 
 export const option = buildSceneAssetOption({
   dataset: {
@@ -22,4 +23,9 @@ export default class Config extends PublicConfigClass implements CreateComponent
   public attr = { ...chartInitConfig, w: 640, h: 420, zIndex: 1 }
   public chartConfig = cloneDeep(TricysReadonlyTopologyConfig)
   public option = cloneDeep(option)
+
+  constructor() {
+    super()
+    this.option.dataset.projectId = getTricysContext().projectId || ''
+  }
 }

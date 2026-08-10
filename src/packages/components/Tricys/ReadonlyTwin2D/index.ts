@@ -6,7 +6,7 @@ export const TricysReadonlyTwin2DConfig: ConfigType = {
   conKey: 'VCTricysReadonlyTwin2D',
   title: 'Tricys 2D Twin Asset',
   category: 'Topology',
-  categoryName: '二维场景资产',
+  categoryName: '拓扑图',
   package: PackagesCategoryEnum.TRICYS,
   chartFrame: ChartFrameEnum.COMMON,
   image: 'tricys_topology.svg'

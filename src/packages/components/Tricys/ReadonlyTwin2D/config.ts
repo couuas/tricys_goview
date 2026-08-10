@@ -4,6 +4,7 @@ import { CreateComponentType } from '@/packages/index.d'
 import { chartInitConfig } from '@/settings/designSetting'
 import { buildSceneAssetOption } from '../sceneAssetShared'
 import { TricysReadonlyTwin2DConfig } from './index'
+import { getTricysContext } from '@/utils'
 
 export const option = buildSceneAssetOption({
   dataset: {
@@ -22,4 +23,9 @@ export default class Config extends PublicConfigClass implements CreateComponent
   public attr = { ...chartInitConfig, w: 640, h: 380, zIndex: 1 }
   public chartConfig = cloneDeep(TricysReadonlyTwin2DConfig)
   public option = cloneDeep(option)
+
+  constructor() {
+    super()
+    this.option.dataset.projectId = getTricysContext().projectId || ''
+  }
 }

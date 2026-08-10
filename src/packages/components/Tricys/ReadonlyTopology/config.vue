@@ -11,7 +11,7 @@
 
     <SettingItemBox name="Project Context">
       <SettingItem name="Project ID">
-        <n-input v-model:value="optionData.dataset.projectId" size="small" placeholder="留空时使用当前项目" />
+        <n-input v-model:value="optionData.dataset.projectId" size="small" disabled />
       </SettingItem>
       <SettingItem name="Task ID">
         <n-input v-model:value="optionData.dataset.taskId" size="small" placeholder="后续接入仿真任务" />
