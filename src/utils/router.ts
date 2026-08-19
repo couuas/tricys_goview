@@ -22,7 +22,7 @@ const resolveUrlSearchParam = (key: string) => {
 
 export const getTricysContext = () => {
   const stored = getLocalStorage('TRICYS_CTX') || {}
-  const projectId = String(resolveUrlSearchParam('projectId') || stored.projectId || '')
+  const projectId = String(resolveUrlSearchParam('projectId') || stored.projectId || fetchRouteParamsLocation() || '')
   const apiBase = String(resolveUrlSearchParam('apiBase') || stored.apiBase || '')
   const embedMode = String(resolveUrlSearchParam('embedMode') || stored.embedMode || '')
   return {
