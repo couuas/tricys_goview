@@ -1,5 +1,5 @@
 allowBuilds:
-  esbuild: false
-  vue-demi: false
-  vue-echarts: false
-  vue3-sketch-ruler: false
+  esbuild: true
+  vue-demi: true
+  vue-echarts: true
+  vue3-sketch-ruler: true
